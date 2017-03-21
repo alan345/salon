@@ -1,1 +1,8 @@
-<p> Hi, I'm a dialog! </p>
+
+<md-dialog-content>
+  <app-form></app-form>
+  <app-user-form
+    (onPassForm)="dialogRef.close($event)"
+  >
+  </app-user-form>
+</md-dialog-content>

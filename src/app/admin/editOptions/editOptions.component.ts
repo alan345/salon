@@ -34,7 +34,11 @@ export class EditOptionsComponent implements OnInit {
 
 
   openDialog() {
-    //this.dialog.open(EditOptionsComponentDialog);
+    let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result)
+        this.fetchedObj.design.mainPage.imgLeft = result._id
+    });
   }
 
   onPassForm(obj) {
@@ -72,10 +76,12 @@ export class EditOptionsComponent implements OnInit {
 
 }
 
-//
-//
-// @Component({
-//   selector: 'edit-options-dialog',
-//   templateUrl: './editOptionsDialog.component.html',
-// })
-// export class EditOptionsComponentDialog {}
+
+
+@Component({
+  selector: 'edit-options-dialog',
+  templateUrl: './editOptionsDialog.component.html',
+})
+export class EditOptionsComponentDialog {
+  constructor(public dialogRef: MdDialogRef<EditOptionsComponentDialog>) {}
+}

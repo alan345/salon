@@ -41,13 +41,13 @@
           <div class="col-lg-8">
             <p *ngIf="!editFieldRole" (click)="editField('role')" class="form-control-static">{{user.role}}</p>
             <div *ngIf="editFieldRole">
-              <md-input
+              <!-- <md-input
                 name="text"
                 placeholder="Role"
                 [(ngModel)]="user.role"
                 #text="ngModel"
                 required>
-              </md-input>
+              </md-input> -->
               <button type="button" (click)="updateUser(user)" class="btn-default">Save</button>
             </div>
 
