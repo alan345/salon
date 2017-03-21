@@ -22,6 +22,9 @@
               <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
                     Name is required (minimum 5 characters).
               </small>
+              <input type="text" class="form-control"
+                name="imgRight" [(ngModel)]="fetchedObj.design.mainPage.imgRight"
+                #name="ngModel" required minlength="5">
               <!--<pre>{{name.errors | json}}</pre>-->
           </div>
         </div>

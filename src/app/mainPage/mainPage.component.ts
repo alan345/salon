@@ -11,7 +11,10 @@ import {FormService} from '../form/form.service';
 
 
 export class MainPageComponent implements OnInit {
-  fetchedForms = {};
+  fetchedForms = {
+    imgLeft:'',
+    imgRight:','
+  };
   constructor(
     private authService: AuthService,
     private formService: FormService
@@ -21,7 +24,11 @@ export class MainPageComponent implements OnInit {
   ngOnInit() {
     this.formService.getSingleFormFromOptions('design','mainPage','imgLeft')
       .subscribe(
-        forms => this.fetchedForms = forms.obj,
+        forms => this.fetchedForms.imgLeft = forms.obj,
+        error => console.log(error));
+    this.formService.getSingleFormFromOptions('design','mainPage','imgRight')
+      .subscribe(
+        forms => this.fetchedForms.imgRight = forms.obj,
         error => console.log(error));
   }
 
