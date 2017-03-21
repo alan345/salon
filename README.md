@@ -51,6 +51,8 @@ more info in [gm](https://github.com/aheckmann/gm) page on how to install depend
 `Font Awesome` (css is included in `assets` folder) <br/>
 `Glyphicons`   (found in `fonts` folder under `assets`) <br/>
 
+
+
 ## Installing Dependecies
 1. Clone this repo from Git
 2. Run `npm install` in your command line.
@@ -90,6 +92,7 @@ pm2 start npm -- start
 
 ## Help with angular-cli
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
 
 # Preview of the app
 ### Login Form
