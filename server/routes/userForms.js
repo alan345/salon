@@ -12,51 +12,51 @@ process.on('uncaughtException', function (err) {
   console.log(err);
 });
 
-// Checking if user is authenticated or not, security middleware
-// router.use('/', function (req, res, next) {
-//   var token = req.headers['authorization'];
-//   jwt.verify(token, config.secret, function (err, decoded) {
-//     if (err) {
-//       return res.status(401).json({
-//         message: 'Authentication failed',
-//         error: err
-//       })
-//     }
-//     if (!decoded) {
-//       return res.status(404).json({
-//         title: 'Authentication Failed',
-//         error: {message: 'Authentication failed, malformed jwt'}
-//       });
-//     }
-//     if (decoded) {
-//       User.findById(decoded.user._id, function (err, doc) {
-//         if (err) {
-//           return res.status(500).json({
-//             message: 'Fetching user failed',
-//             err: err
-//           });
-//         }
-//         if (!doc) {
-//           return res.status(404).json({
-//             title: 'User not found',
-//             error: {message: 'The user was not found'}
-//           })
-//         }
-//         if (doc) {
-//           req.user = doc;
-//           next();
-//         }
-//       })
-//     }
-//   })
-// });
+//Checking if user is authenticated or not, security middleware
+router.use('/', function (req, res, next) {
+  var token = req.headers['authorization'];
+  jwt.verify(token, config.secret, function (err, decoded) {
+    if (err) {
+      return res.status(401).json({
+        message: 'Authentication failed',
+        error: err
+      })
+    }
+    if (!decoded) {
+      return res.status(404).json({
+        title: 'Authentication Failed',
+        error: {message: 'Authentication failed, malformed jwt'}
+      });
+    }
+    if (decoded) {
+      User.findById(decoded.user._id, function (err, doc) {
+        if (err) {
+          return res.status(500).json({
+            message: 'Fetching user failed',
+            err: err
+          });
+        }
+        if (!doc) {
+          return res.status(404).json({
+            title: 'User not found',
+            error: {message: 'The user was not found'}
+          })
+        }
+        if (doc) {
+          req.user = doc;
+          next();
+        }
+      })
+    }
+  })
+});
 
 
 
 
 
 
-// to be depracted. see in routes/options 
+// to be depracted. see in routes/options
 router.get('/singleFormFromOptions/:typeOption/:namePage/:positionImage', function (req, res, next) {
   Options.findOne({}, function (err, obj) {
     if (err) {
