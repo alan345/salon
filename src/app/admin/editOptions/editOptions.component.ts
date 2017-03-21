@@ -33,11 +33,11 @@ export class EditOptionsComponent implements OnInit {
   ) {}
 
 
-  openDialog() {
+  openDialog(positionImage) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result)
-        this.fetchedObj.design.mainPage.imgLeft = result._id
+        this.fetchedObj.design.mainPage[positionImage] = result._id
     });
   }
 

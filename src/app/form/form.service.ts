@@ -25,13 +25,13 @@ export class FormService {
     return this.http.get(this.url + 'forms/' + this.userId, {headers: headers})
       .timeout(1000)
       .map((response: Response) => {
-        console.log(response);
+
         const forms = response.json().forms;
         let fetchedForms = [];
         for (let form of forms) {
           fetchedForms.push(form);
         }
-        console.log(fetchedForms);
+        
         this.forms = fetchedForms;
         return fetchedForms;
       })
