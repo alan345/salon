@@ -31,7 +31,7 @@ export class FormService {
         for (let form of forms) {
           fetchedForms.push(form);
         }
-        
+
         this.forms = fetchedForms;
         return fetchedForms;
       })
@@ -70,7 +70,7 @@ export class FormService {
       });
   }
 
-
+  //must be depracted. See options service
   getSingleFormFromOptions(typeOption, namePage, positionImage) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);

@@ -16,6 +16,7 @@ export class EditOptionsService {
 
   constructor(private http: Http, private errorService: ErrorService, private toastr: ToastsManager) {}
 
+
   // get user forms from backend in order to display them in the front end
   getOptions() {
     let headers = new Headers({'Content-Type': 'application/json'});
@@ -34,7 +35,7 @@ export class EditOptionsService {
 
   updateOptions(options){
     const body = JSON.stringify(options.fetchedObj);
-    console.log(body)
+    //console.log(body)
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
     return this.http.put(this.url + 'options/' + '58c9866ff36d286bfca335b4', body, {headers: headers})

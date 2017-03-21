@@ -13,7 +13,7 @@ import {FormService} from '../form/form.service';
 export class MainPageComponent implements OnInit {
   fetchedForms = {
     imgLeft:'',
-    imgRight:','
+    imgRight:'',
   };
   constructor(
     private authService: AuthService,
