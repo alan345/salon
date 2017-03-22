@@ -73,18 +73,15 @@ export class EditOptionsComponent implements OnInit {
 
 
   save(model: FormGroup, isValid: boolean) {
-    console.log(model, isValid);
 
-      this.editOptionsService.updateOptions(model)
-        .subscribe(
-          res => {
-            this.toastr.success('Great!', res.message);
-          },
-          error => {
-            console.log(error);
-          }
-        );
-      }
+    this.editOptionsService.updateOptions(model)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+        },
+        error => {console.log(error)}
+      );
+    }
 }
 
 

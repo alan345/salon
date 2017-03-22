@@ -117,7 +117,6 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-        console.log(req.body)
         item.design = req.body.design;
         item.save(function (err, result) {
           if (err) {

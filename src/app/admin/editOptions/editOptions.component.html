@@ -17,14 +17,14 @@
           <div ngModelGroup="mainPage">
               <label>imgLeft</label>
               <input type="text" class="form-control"
-                name="imgLeft" [(ngModel)]="fetchedObj.design.mainPage._imgLeft[0]._id"
+                name="_imgLeft" [(ngModel)]="fetchedObj.design.mainPage._imgLeft[0]._id"
                 #name="ngModel" required minlength="5">
               <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
                     Name is required (minimum 5 characters).
               </small>
               <button type="button" md-button (click)="openDialog('_imgLeft')">Chose Media</button>
               <input type="text" class="form-control"
-                name="imgRight" [(ngModel)]="fetchedObj.design.mainPage._imgRight[0]._id"
+                name="_imgRight" [(ngModel)]="fetchedObj.design.mainPage._imgRight[0]._id"
                 #name="ngModel" required minlength="5">
               <button type="button" md-button (click)="openDialog('_imgRight')">Chose Media</button>
 
