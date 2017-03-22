@@ -11,48 +11,78 @@ process.on('uncaughtException', function (err) {
   console.log(err);
 });
 
+
+
 //Checking if user is authenticated or not, security middleware
-router.use('/', function (req, res, next) {
-  var token = req.headers['authorization'];
-  jwt.verify(token, config.secret, function (err, decoded) {
+// router.use('/', function (req, res, next) {
+//   var token = req.headers['authorization'];
+//   jwt.verify(token, config.secret, function (err, decoded) {
+//     if (err) {
+//       return res.status(401).json({
+//         message: 'Authentication failed',
+//         error: err
+//       })
+//     }
+//     if (!decoded) {
+//       return res.status(404).json({
+//         title: 'Authentication Failed',
+//         error: {message: 'Authentication failed, malformed jwt'}
+//       });
+//     }
+//     if (decoded) {
+//       User.findById(decoded.user._id, function (err, doc) {
+//         if (err) {
+//           return res.status(500).json({
+//             message: 'Fetching user failed',
+//             err: err
+//           });
+//         }
+//         if (!doc) {
+//           return res.status(404).json({
+//             title: 'User not found',
+//             error: {message: 'The user was not found'}
+//           })
+//         }
+//         if (doc) {
+//           req.user = doc;
+//           next();
+//         }
+//       })
+//     }
+//   })
+// });
+
+
+
+router.get('/', function (req, res, next) {
+  // doenset work http://stackoverflow.com/questions/36022456/mongodb-lookup-on-nested-document
+  Options
+  .findOne()
+  .populate('design.mainPage._imgLeft')
+  .populate('design.mainPage._imgRight')
+  .exec(function (err, obj) {
     if (err) {
-      return res.status(401).json({
-        message: 'Authentication failed',
+      return res.status(403).json({
+        title: 'There was a problem',
         error: err
-      })
-    }
-    if (!decoded) {
-      return res.status(404).json({
-        title: 'Authentication Failed',
-        error: {message: 'Authentication failed, malformed jwt'}
       });
     }
-    if (decoded) {
-      User.findById(decoded.user._id, function (err, doc) {
-        if (err) {
-          return res.status(500).json({
-            message: 'Fetching user failed',
-            err: err
-          });
-        }
-        if (!doc) {
-          return res.status(404).json({
-            title: 'User not found',
-            error: {message: 'The user was not found'}
-          })
-        }
-        if (doc) {
-          req.user = doc;
-          next();
-        }
+    if (!obj) {
+      return res.status(403).json({
+        title: 'Wrong ',
+        error: {message: 'Please check'}
       })
     }
-  })
+    return res.status(200).json({
+      message: 'Successfull',
+      obj: obj
+    })
+  });
 });
 
 
-//get all forms from database
-router.get('/', function (req, res, next) {
+//get all forms from database. Must be depracted
+router.get('/pureOptions', function (req, res, next) {
   Options.findOne({}, function (err, obj) {
     if (err) {
       return res.status(403).json({
@@ -73,38 +103,10 @@ router.get('/', function (req, res, next) {
   })
 });
 
-// doesnt work
-router.get('/', function (req, res, next) {
-  // doenset work http://stackoverflow.com/questions/36022456/mongodb-lookup-on-nested-document
-  Options.aggregate([
-    {
-      $lookup:
-        {
-          from: "forms",
-          localField: "design.mainPage.imgLeft",
-          foreignField: "id",
-          as: "form_docs"
-        }
-   }
-], function (err, obj) {
-  if (err) {
-    return res.status(403).json({
-      title: 'There was a problem',
-      error: err
-    });
-  }
-  if (!obj) {
-    return res.status(403).json({
-      title: 'Wrong Email or Password',
-      error: {message: 'Please check if your password or email are correct'}
-    })
-  }
-  return res.status(200).json({
-    message: 'Successfull',
-    obj: obj
-  })
-})
-});
+
+
+
+
 
 
 //update
@@ -134,6 +136,19 @@ router.put('/:id', function (req, res, next) {
     }
   })
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 module.exports = router;

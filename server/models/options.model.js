@@ -4,8 +4,11 @@ var mongoose                = require('mongoose'),
 
 var options = new Schema({
     design: {
-      mainPage : {}
-    }
+      mainPage : {
+        _imgLeft:[{type: Schema.Types.ObjectId, ref: 'Form'}],
+        _imgRight:[{type: Schema.Types.ObjectId, ref: 'Form'}],
+      }
+    },
   }
 );
 

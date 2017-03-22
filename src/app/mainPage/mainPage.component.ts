@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {FormService} from '../form/form.service';
+import {EditOptionsService} from '../admin/editOptions/editOptions.service';
+
+
 
 
 @Component({
@@ -11,24 +14,40 @@ import {FormService} from '../form/form.service';
 
 
 export class MainPageComponent implements OnInit {
-  fetchedForms = {
-    imgLeft:'',
+  design = {
+    mainPage:{
+      _imgLeft:[{
+        _id:'',
+        owner:'',
+        imagePath:''
+      }],
+      _imgRight:[{
+        _id:'',
+        owner:'',
+        imagePath:''
+      }]
+    },
     imgRight:'',
   };
   constructor(
     private authService: AuthService,
-    private formService: FormService
+    private formService: FormService,
+    private editOptionsService: EditOptionsService,
   ) {
   }
 
   ngOnInit() {
-    this.formService.getSingleFormFromOptions('design','mainPage','imgLeft')
+    // this.formService.getSingleFormFromOptions('design','mainPage','imgLeft')
+    //   .subscribe(
+    //     forms => this.fetchedForms.imgLeft = forms.obj,
+    //     error => console.log(error));
+    // this.formService.getSingleFormFromOptions('design','mainPage','imgRight')
+    //   .subscribe(
+    //     forms => this.fetchedForms.imgRight = forms.obj,
+    //     error => console.log(error));
+    this.editOptionsService.getOptions()
       .subscribe(
-        forms => this.fetchedForms.imgLeft = forms.obj,
-        error => console.log(error));
-    this.formService.getSingleFormFromOptions('design','mainPage','imgRight')
-      .subscribe(
-        forms => this.fetchedForms.imgRight = forms.obj,
+        options => this.design = options.obj.design,
         error => console.log(error));
   }
 

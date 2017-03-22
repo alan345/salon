@@ -42,7 +42,6 @@ export class EditOptionsComponent implements OnInit {
   }
 
   onPassForm(obj) {
-    console.log(obj)
     this.fetchedObj.design.mainPage.imgLeft = obj._id
   }
 
