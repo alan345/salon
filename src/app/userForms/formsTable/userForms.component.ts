@@ -25,9 +25,7 @@ export class UserFormsComponent implements OnInit {
   }
 
   onSelectRow(formId){
-    console.log(formId)
     this.onPassForm.emit(formId);
-
   }
 
   onDelete(formId) {

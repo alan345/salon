@@ -49,7 +49,6 @@ export class EditOptionsComponent implements OnInit {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        console.log(result)
         this.fetchedObj.design.mainPage[positionImage][0] = result
       }
 
