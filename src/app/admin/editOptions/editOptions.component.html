@@ -7,7 +7,7 @@
 
 
 
-
+{{fetchedObj.design.mainPage._imgLeft[0].imagePath|json}}
 <div class="container">
   <h1>Design</h1>
   <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
@@ -16,6 +16,11 @@
         <div ngModelGroup="design">
           <div ngModelGroup="mainPage">
               <label>imgLeft</label>
+
+              <div>
+                <img width="150" src="./uploads/forms/{{fetchedObj.design.mainPage._imgLeft[0].owner}}/{{fetchedObj.design.mainPage._imgLeft[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              </div>
+
               <input type="text" class="form-control"
                 name="_imgLeft" [(ngModel)]="fetchedObj.design.mainPage._imgLeft[0]._id"
                 #name="ngModel" required minlength="5">
@@ -23,6 +28,14 @@
                     Name is required (minimum 5 characters).
               </small>
               <button type="button" md-button (click)="openDialog('_imgLeft')">Chose Media</button>
+
+              
+              <br><br>
+              <label>imgRight</label>
+              <div>
+                <img width="150" src="./uploads/forms/{{fetchedObj.design.mainPage._imgRight[0].owner}}/{{fetchedObj.design.mainPage._imgRight[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              </div>
+
               <input type="text" class="form-control"
                 name="_imgRight" [(ngModel)]="fetchedObj.design.mainPage._imgRight[0]._id"
                 #name="ngModel" required minlength="5">

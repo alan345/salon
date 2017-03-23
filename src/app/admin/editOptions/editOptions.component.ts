@@ -50,17 +50,17 @@ export class EditOptionsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         console.log(result)
-        this.fetchedObj.design.mainPage[positionImage][0]._id = result._id
+        this.fetchedObj.design.mainPage[positionImage][0] = result
       }
 
     });
   }
 
-  onPassForm(obj) {
-    console.log('alan')
-    console.log(obj)
-    this.fetchedObj.design.mainPage._imgLeft[0]._id = obj._id
-  }
+  // onPassForm(obj) {
+  //   console.log('alan')
+  //   console.log(obj)
+  //   this.fetchedObj.design.mainPage._imgLeft[0] = obj
+  // }
 
 
   ngOnInit() {
