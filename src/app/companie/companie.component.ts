@@ -17,7 +17,8 @@ import { Inject, forwardRef} from '@angular/core';
 export class NgbdModalContent {
 
   companie = {
-    "_id" : ""
+    "_id" : "",
+    "region_id" : "",
   };
   region = [];
   fetchedRegions = [];
@@ -77,9 +78,9 @@ export class CompanieComponent implements OnInit {
   fetchedRegions = [];
   loading: boolean;
   paginationData = {
-    currentPage:1,
-    itemsPerPage:0,
-    totalItems:0
+    currentPage: 1,
+    itemsPerPage: 0,
+    totalItems: 0
   };
 
 
