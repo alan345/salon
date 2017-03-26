@@ -73,8 +73,8 @@ export class NgbdModalContent {
 
 })
 export class CompanieComponent implements OnInit {
-  private fetchedCompanies : Array<CompanieComponent> = [];
-  private fetchedRegions = [];
+  fetchedCompanies : Array<CompanieComponent> = [];
+  fetchedRegions = [];
   loading: boolean;
   paginationData = {
     currentPage:1,
