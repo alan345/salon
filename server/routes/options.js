@@ -106,18 +106,29 @@ router.get('/pureOptions', function (req, res, next) {
 
 
 
-
+//
+// {
+//     "_id": {
+//         "$oid": "58dd4ad1734d1d01a23880fa"
+//     },
+//     "design": {
+//         "mainPage": {
+//             "_imgLeft": "58dd48ae81954008430443a6",
+//             "_imgRight": "58dd48ae81954008430443a6"
+//         }
+//     }
+// }
 
 //update
 router.put('/:id', function (req, res, next) {
   Options.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
       return res.status(404).json({
-        message: 'No forms found for this user',
+        message: 'Not found',
         err: err
       })
     } else {
-        item.design = req.body.design;
+        item.design = req.body.design
         item.save(function (err, result) {
           if (err) {
             return res.status(404).json({
