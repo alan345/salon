@@ -23,8 +23,8 @@
     <tbody>
     <tr *ngFor="let companie of fetchedCompanies | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
       <td class="img-resized"><img class="img-thumbnail img-responsive" src="./uploads/forms/" onerror="this.src ='assets/images/no-image-found.jpg'"></td>
-      <td (click)="goToCompanie(companie._id)">{{companie._id }}</td>
-      <td>{{companie.text}}</td>
+      <td>{{companie._id }}</td>
+      <td><a [routerLink]="['/companie/' + companie._id]" routerLinkActive="active">{{companie.text}}Hello</a></td>
       <td>{{companie.region_id}}</td>
       <td>{{companie.address}}</td>
 

@@ -173,10 +173,7 @@ export class CompaniesComponent implements OnInit {
       );
   }
 
-  goToCompanie(id){
-    this.router.navigate(['/companie/' + id]);
 
-  }
 
   getRegions() {
     this.regionService.getRegions(1)
