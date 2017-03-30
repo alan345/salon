@@ -24,6 +24,7 @@ import {LoginComponent} from './user/login/login.component';
 import {ErrorComponent} from './errorHandler/error.component';
 import {MainPageComponent} from './mainPage/mainPage.component';
 import {CompanieComponent} from './companie/companie.component';
+import {CompanieDialogComponent} from './companie/companie.component';
 import {MapComponent} from './map/map.component';
 import {ResetPasswordComponent} from './user/accountRecover/resetPassword.component';
 import {ForgetPasswordComponent} from './user/accountRecover/forgetPassword.component';
@@ -41,6 +42,7 @@ import {EditUsersFormsComponent} from './admin/editUsersForms/editUsersForms.com
 
 import {EditOptionsComponent} from './admin/editOptions/editOptions.component';
 import {EditOptionsComponentDialog} from './admin/editOptions/editOptions.component';
+
 
 import {EditOptionsService} from './admin/editOptions/editOptions.service';
 
@@ -91,6 +93,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ErrorComponent,
     MainPageComponent,
     CompanieComponent,
+    CompanieDialogComponent,
     MapComponent,
     ResetPasswordComponent,
     ForgetPasswordComponent,
@@ -144,7 +147,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       deps: [ Http, RequestOptions ]
     }
   ],
-  entryComponents: [NgbdModalContent, EditOptionsComponentDialog],
+  entryComponents: [
+    NgbdModalContent,
+    EditOptionsComponentDialog,
+    CompanieDialogComponent
+  ],
 //  entryComponents: [NgbdModalContent],
   bootstrap: [AppComponent],
 //  bootstrap: [AppComponent, EditOptionsComponentDialog],

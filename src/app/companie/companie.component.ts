@@ -8,7 +8,7 @@ import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastsManager} from 'ng2-toastr';
 import { Inject, forwardRef} from '@angular/core';
-
+import {MdDialog, MdDialogRef} from '@angular/material';
 
 @Component({
   selector: 'ngbd-modal-content',
@@ -88,11 +88,24 @@ export class CompanieComponent implements OnInit {
     private companieService: CompanieService,
     private regionService: RegionService,
     private modalService: NgbModal,
-    private toastr: ToastsManager
+    private toastr: ToastsManager,
+    public dialog: MdDialog,
   ) {
     this.getCompanies(this.paginationData.currentPage);
   }
 
+
+  openDialog() {
+    let dialogRef = this.dialog.open(CompanieDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+    //    this.fetchedObj.design.mainPage[positionImage][0] = result
+      }
+
+    });
+  }
+
+  //must be deprecated
   onOpenModal(id: string) {
 
     const modalRef = this.modalService.open(NgbdModalContent);
@@ -175,4 +188,14 @@ export class CompanieComponent implements OnInit {
     this.getRegions();
 
   }
+}
+
+
+@Component({
+  selector: 'companie-dialog',
+  templateUrl: './companieDialog.component.html',
+})
+export class CompanieDialogComponent {
+  constructor(public dialogRef: MdDialogRef<CompanieDialogComponent>) {}
+
 }
