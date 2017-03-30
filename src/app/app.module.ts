@@ -23,8 +23,8 @@ import {ToastModule, ToastOptions} from 'ng2-toastr';
 import {LoginComponent} from './user/login/login.component';
 import {ErrorComponent} from './errorHandler/error.component';
 import {MainPageComponent} from './mainPage/mainPage.component';
-import {CompanieComponent} from './companie/companie.component';
-import {CompanieDialogComponent} from './companie/companie.component';
+import {CompaniesComponent} from './companie/companies.component';
+import {CompanieDialogComponent} from './companie/companies.component';
 import {CompanieDetailComponent} from './companie/companieDetail.component';
 
 
@@ -62,7 +62,7 @@ import {Ng2PaginationModule} from 'ng2-pagination';
 
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NgbdModalContent } from './companie/companie.component';
+import {NgbdModalContent } from './companie/companies.component';
 
 
 
@@ -95,7 +95,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NavbarComponent,
     ErrorComponent,
     MainPageComponent,
-    CompanieComponent,
+    CompaniesComponent,
     CompanieDialogComponent,
     CompanieDetailComponent,
     MapComponent,

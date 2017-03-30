@@ -69,12 +69,12 @@ export class NgbdModalContent {
 
 @Component({
   selector: 'app-companie',
-  templateUrl: './companie.component.html',
+  templateUrl: './companies.component.html',
   styleUrls: ['./companie.component.css'],
 
 })
-export class CompanieComponent implements OnInit {
-  fetchedCompanies : Array<CompanieComponent> = [];
+export class CompaniesComponent implements OnInit {
+  fetchedCompanies : Array<CompaniesComponent> = [];
   fetchedRegions = [];
   loading: boolean;
   paginationData = {
