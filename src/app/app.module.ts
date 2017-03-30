@@ -25,6 +25,9 @@ import {ErrorComponent} from './errorHandler/error.component';
 import {MainPageComponent} from './mainPage/mainPage.component';
 import {CompanieComponent} from './companie/companie.component';
 import {CompanieDialogComponent} from './companie/companie.component';
+import {CompanieDetailComponent} from './companie/companieDetail.component';
+
+
 import {MapComponent} from './map/map.component';
 import {ResetPasswordComponent} from './user/accountRecover/resetPassword.component';
 import {ForgetPasswordComponent} from './user/accountRecover/forgetPassword.component';
@@ -94,6 +97,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     MainPageComponent,
     CompanieComponent,
     CompanieDialogComponent,
+    CompanieDetailComponent,
     MapComponent,
     ResetPasswordComponent,
     ForgetPasswordComponent,

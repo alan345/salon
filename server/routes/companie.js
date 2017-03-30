@@ -155,8 +155,7 @@ router.get('/:id', function (req, res, next) {
         message: 'No forms found for this user',
         err: err
       })
-    }
-    else {
+    } else {
       res.status(200).json({
         message: 'Success',
         item: item
