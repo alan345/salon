@@ -13,7 +13,12 @@ import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/com
 import {AuthGuardService} from './auth/authguard.service';
 import {AuthService} from './auth/auth.service';
 import {ErrorService} from './errorHandler/error.service';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastModule, ToastOptions} from 'ng2-toastr';
+
+
+
 
 import {LoginComponent} from './user/login/login.component';
 import {ErrorComponent} from './errorHandler/error.component';
@@ -109,9 +114,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     RouterModule,
     ReactiveFormsModule,
     routing,
+    BrowserAnimationsModule,
     ToastModule.forRoot(options),
     ProgressBarModule,
-    BrowserModule,
+
     FormsModule,
     Ng2PaginationModule,
     NgbModule.forRoot(),
