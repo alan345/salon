@@ -5,7 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "preinstall": "npm install -g http-server",
+    "preinstall": "npm install -g @angular/cli",
     "postinstall": "ng build --prod",
     "start": "node ./bin/www",
     "test": "ng test",
