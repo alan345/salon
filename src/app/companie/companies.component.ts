@@ -7,62 +7,64 @@ import {Companie} from './companie.model';
 import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastsManager} from 'ng2-toastr';
-import { Inject, forwardRef} from '@angular/core';
+import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
+import {Router, ActivatedRoute, Params } from '@angular/router';
 
-@Component({
-  selector: 'ngbd-modal-content',
-  templateUrl: './companieEditModal.component.html',
-})
-export class NgbdModalContent {
-
-  companie = {
-    "_id" : "",
-    "region_id" : "",
-  };
-  region = [];
-  fetchedRegions = [];
-  constructor(
-    private companieService: CompanieService,
-    public activeModal: NgbActiveModal,
-    private toastr: ToastsManager,
-  //  @Inject(forwardRef(() => CompanieComponent)) private _parent: CompanieComponent
-  //  private companieComponent: CompanieComponent,
-  ) {}
-
-  save() {
-    if(this.companie._id) {
-      this.companieService.updateCompanie(this.companie)
-        .subscribe(
-          res => {
-            this.activeModal.close('Close click');
-            this.toastr.success('Great!', res.message);
-            console.log(res);
-        //    this._parent.getRegions();
-        //    location.reload();
-          },
-          error => {
-            console.log(error);
-          }
-        );
-    } else {
-      this.companieService.saveCompanie(this.companie)
-      .subscribe(
-        res => {
-          this.activeModal.close('Close click');
-          this.toastr.success('Great!', res.message);
-        //  location.reload();
-          console.log(res);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-
-     }
-  }
-
-}
+//
+// @Component({
+//   selector: 'ngbd-modal-content',
+//   templateUrl: './companieEditModal.component.html',
+// })
+// export class NgbdModalContent {
+//
+//   companie = {
+//     "_id" : "",
+//     "region_id" : "",
+//   };
+//   region = [];
+//   fetchedRegions = [];
+//   constructor(
+//     private companieService: CompanieService,
+//     public activeModal: NgbActiveModal,
+//     private toastr: ToastsManager,
+//   //  @Inject(forwardRef(() => CompanieComponent)) private _parent: CompanieComponent
+//   //  private companieComponent: CompanieComponent,
+//   ) {}
+//
+//   save() {
+//     if(this.companie._id) {
+//       this.companieService.updateCompanie(this.companie)
+//         .subscribe(
+//           res => {
+//             this.activeModal.close('Close click');
+//             this.toastr.success('Great!', res.message);
+//             console.log(res);
+//         //    this._parent.getRegions();
+//         //    location.reload();
+//           },
+//           error => {
+//             console.log(error);
+//           }
+//         );
+//     } else {
+//       this.companieService.saveCompanie(this.companie)
+//       .subscribe(
+//         res => {
+//           this.activeModal.close('Close click');
+//           this.toastr.success('Great!', res.message);
+//         //  location.reload();
+//           console.log(res);
+//         },
+//         error => {
+//           console.log(error);
+//         }
+//       );
+//
+//      }
+//   }
+//
+// }
 
 
 
@@ -90,6 +92,7 @@ export class CompaniesComponent implements OnInit {
     private modalService: NgbModal,
     private toastr: ToastsManager,
     public dialog: MdDialog,
+    private router: Router,
   ) {
     this.getCompanies(this.paginationData.currentPage);
   }
@@ -106,35 +109,35 @@ export class CompaniesComponent implements OnInit {
   }
 
   //must be deprecated
-  onOpenModal(id: string) {
-
-    const modalRef = this.modalService.open(NgbdModalContent);
-
-    modalRef.componentInstance.fetchedRegions = this.fetchedRegions;
-    if(id) {
-      this.companieService.getCompanie(id)
-        .subscribe(
-          res => {
-            modalRef.componentInstance.companie = res;
-            this.regionService.getRegion(res.region_id)
-              .subscribe(
-                res => {
-                  modalRef.componentInstance.region = res;
-                },
-                error => {
-                  console.log(error);
-                }
-              );
-          },
-          error => {
-            console.log(error);
-          }
-        );
-      }
-      modalRef.result.then((theDataCreatedByTheModal) => {
-        this.getCompanies(this.paginationData.currentPage);
-      });
-  }
+  // onOpenModal(id: string) {
+  //
+  //   const modalRef = this.modalService.open(NgbdModalContent);
+  //
+  //   modalRef.componentInstance.fetchedRegions = this.fetchedRegions;
+  //   if(id) {
+  //     this.companieService.getCompanie(id)
+  //       .subscribe(
+  //         res => {
+  //           modalRef.componentInstance.companie = res;
+  //           this.regionService.getRegion(res.region_id)
+  //             .subscribe(
+  //               res => {
+  //                 modalRef.componentInstance.region = res;
+  //               },
+  //               error => {
+  //                 console.log(error);
+  //               }
+  //             );
+  //         },
+  //         error => {
+  //           console.log(error);
+  //         }
+  //       );
+  //     }
+  //     modalRef.result.then((theDataCreatedByTheModal) => {
+  //       this.getCompanies(this.paginationData.currentPage);
+  //     });
+  // }
 
   onDelete(id: string) {
     this.companieService.deleteCompanie(id)
@@ -168,6 +171,11 @@ export class CompaniesComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  goToCompanie(id){
+    this.router.navigate(['/companie/' + id]);
+
   }
 
   getRegions() {

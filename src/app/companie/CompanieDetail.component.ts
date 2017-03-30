@@ -1,3 +1,4 @@
+
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {CompanieService} from './companie.service';
@@ -7,9 +8,9 @@ import {Companie} from './companie.model';
 import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastsManager} from 'ng2-toastr';
-import { Inject, forwardRef} from '@angular/core';
+import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import {Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-companie',

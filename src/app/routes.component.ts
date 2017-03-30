@@ -7,7 +7,7 @@ import {FormComponent} from './form/form.component';
 import {AuthGuardService} from './auth/authguard.service';
 import {MainPageComponent} from './mainPage/mainPage.component';
 
-import {CompanieComponent} from './companie/companie.component';
+import {CompaniesComponent} from './companie/companies.component';
 import {CompanieDetailComponent} from './companie/companieDetail.component';
 
 
@@ -19,7 +19,7 @@ import {AdminGuardService} from './admin/services/adminGuard';
 
 const APP_ROUTES: Routes = [
   {path: '', component: MainPageComponent, pathMatch: 'full'},
-  {path: 'companie', component: CompanieComponent, pathMatch: 'full'},
+  {path: 'companie', component: CompaniesComponent, pathMatch: 'full'},
   {path: 'companie/:id', component: CompanieDetailComponent},
   {path: 'map', component: MapComponent, pathMatch: 'full'},
   {path: 'user', component: UserComponent, children: USER_ROUTES},

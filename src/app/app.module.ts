@@ -62,7 +62,6 @@ import {Ng2PaginationModule} from 'ng2-pagination';
 
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NgbdModalContent } from './companie/companies.component';
 
 
 
@@ -111,7 +110,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AdminComponent,
     UserProfileComponent,
     ChangePasswordComponent,
-    NgbdModalContent,
+
 
   ],
   imports: [
@@ -152,11 +151,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     }
   ],
   entryComponents: [
-    NgbdModalContent,
+
     EditOptionsComponentDialog,
     CompanieDialogComponent
   ],
-//  entryComponents: [NgbdModalContent],
+
   bootstrap: [AppComponent],
 //  bootstrap: [AppComponent, EditOptionsComponentDialog],
 })
