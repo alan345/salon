@@ -67,4 +67,52 @@ router.post('/login', function (req, res, next) {
 
 
 
+
+
+
+
+// get all forms from database
+router.get('/page/:page', function (req, res, next) {
+  var itemsPerPage = 5;
+  var currentPage = Number(req.params.page);
+  var pageNumber = currentPage - 1;
+  var skip = (itemsPerPage * pageNumber);
+  var limit = (itemsPerPage * pageNumber) + itemsPerPage;
+
+
+
+  User.find().count((err, totalItems) => {
+    if(err)
+      res.send(err);
+    else
+        User.aggregate(
+        [
+          { $skip : skip },
+          { $limit : itemsPerPage }
+
+        ], function(err, data) {
+             if (err) {
+               res.send(err);
+             }
+             else {
+               var jsonOb =
+                {
+                  "paginationData" : {
+                    "totalItems": totalItems,
+                    "currentPage" : currentPage,
+                    "itemsPerPage" : itemsPerPage
+                  },
+                  "data": data
+                };
+
+               res.send(jsonOb);
+             }
+           }
+        );
+
+  });
+
+});
+
+
 module.exports = router;

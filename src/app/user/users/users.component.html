@@ -1,6 +1,6 @@
 
 <div class="container topPadTable">
-  <h2 class="text-center">Companies
+  <h2 class="text-center">Users
   <button class="btn-default" (click)="openDialog()"><i class="fa fa-plus-circle"></i></button>
   </h2>
 
@@ -21,19 +21,21 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let companie of fetchedCompanies | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
-      <td class="img-resized"><img class="img-thumbnail img-responsive" src="./uploads/forms/" onerror="this.src ='assets/images/no-image-found.jpg'"></td>
-      <td>{{companie._id }}</td>
-      <td><a [routerLink]="['/companie/' + companie._id]" routerLinkActive="active">{{companie.text}}Hello</a></td>
-      <td>{{companie.region_id}}</td>
-      <td>{{companie.address}}</td>
+    <tr *ngFor="let user of fetchedUsers | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
+      <td class="img-resized">
+        <img class="img-thumbnail img-responsive" src="./uploads/profiles/{{user._id}}/{{user.profilePic}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+      </td>
+      <td>{{user._id }}</td>
+      <td><a [routerLink]="['/user/' + user._id]" routerLinkActive="active">{{user.email}}</a></td>
+      <td>{{user.region_id}}</td>
+      <td>{{user.address}}</td>
 
 
       <td>
-        <button class="btn-default" (click)="onOpenModal(companie._id)"><i class="fa fa-pencil"></i></button>
+        <button class="btn-default" (click)="onOpenModal(user._id)"><i class="fa fa-pencil"></i></button>
       </td>
       <td>
-        <button class="btn-danger" (click)="onDelete(companie._id)"><i class="fa fa-trash"></i></button>
+        <button class="btn-danger" (click)="onDelete(user._id)"><i class="fa fa-trash"></i></button>
       </td>
     </tr>
     </tbody>
