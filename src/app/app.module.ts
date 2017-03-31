@@ -7,12 +7,19 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {FormComponent} from './form/form.component';
 import {RegisterComponent} from './user/register/register.component';
 import {UserComponent} from './user/user.component';
+import {UsersComponent} from './user/users/users.component';
+import {UserService} from './user/user.service';
+
+
+
 import {RouterModule} from '@angular/router';
 import {routing} from './routes.component';
 import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AuthGuardService} from './auth/authguard.service';
 import {AuthService} from './auth/auth.service';
 import {ErrorService} from './errorHandler/error.service';
+
+
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastModule, ToastOptions} from 'ng2-toastr';
@@ -89,6 +96,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NavbarComponent,
     FormComponent,
     UserComponent,
+    UsersComponent,
     RegisterComponent,
     LoginComponent,
     NavbarComponent,

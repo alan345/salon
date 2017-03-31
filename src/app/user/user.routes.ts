@@ -9,9 +9,13 @@ import {EditUserFormComponent} from '../userForms/editForm/editUserForm.componen
 import {AppComponent} from '../app.component';
 import {UserProfileComponent} from './profile/userProfile.component';
 import {ChangePasswordComponent} from './profile/changePassword/changePassword.component';
+import {UsersComponent} from './users/users.component';
+
+
+
 
 export const USER_ROUTES: Routes = [
-  {path: '', component: AppComponent},
+  {path: '', component: UsersComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'reset', component: ForgetPasswordComponent},
