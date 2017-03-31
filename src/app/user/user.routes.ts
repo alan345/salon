@@ -13,9 +13,15 @@ import {UsersComponent} from './users/users.component';
 
 
 
+import {NewUserComponent} from './users/newUser.component';
+
+
+
+
 
 export const USER_ROUTES: Routes = [
   {path: '', component: UsersComponent},
+  {path: 'newuser', component: NewUserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'reset', component: ForgetPasswordComponent},
