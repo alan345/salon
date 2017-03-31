@@ -150,6 +150,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FormService,
     AdminService,
     EditOptionsService,
+    UserService,
     AdminGuardService,
     ProfileService,
     {
