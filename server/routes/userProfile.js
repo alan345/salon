@@ -221,6 +221,39 @@ router.put('/:id', function (req, res, next) {
   })
 });
 
+function makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for( var i=0; i < 20; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    return text;
+}
+
+// user Create without email. See register
+router.post('/', function (req, res, next) {
+  let uniqueString = makeid();
+  var user = new User({
+    email: 'random_' + uniqueString + '@random.com',
+    password: passwordHash.generate(uniqueString),
+    profile : req.body.profile,
+    role : ['client']
+  });
+  console.log(user)
+  user.save(function (err, result) {
+    if (err) {
+      console.log(err)
+      console.log(result)
+      return res.status(403).json({
+        title: 'There was an issue',
+        error: {message: 'The email you entered already exists'}
+      });
+    }
+    res.status(200).json({
+      message: 'Registration Successfull',
+      obj: result
+    })
+  })
+});
 
 
 var rmDir = function (dirPath, removeSelf) {

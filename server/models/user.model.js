@@ -11,7 +11,16 @@ var user = new Schema({
     resetPasswordExpires: String,
     profilePic: String,
     // you might want more user roles, so an array would be fine
-    role: {type: Array, default: ['user']}
+    role: {type: Array, default: ['user']},
+    profile : {
+      name: String,
+      hair : {
+        hairDensity : String,
+        hairPorosity : String,
+        hairTexture : String,
+      }
+    }
+
   },
   {
     timestamps: true

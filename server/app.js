@@ -43,13 +43,13 @@ app.use(function (req, res, next) {
 
 // setting up routes models
 app.use('/user', userRoute);
+app.use('/profile', userProfile);
 app.use('/companie', companieRoute);
 app.use('/region', regionRoute);
 app.use('/user/forgot', forgotRoutes);
 app.use('/user/reset', resetRoutes);
 app.use('/uploads', uploadRoute);
 app.use('/forms', userForms);
-app.use('/profile', userProfile);
 app.use('/admin', adminPage);
 app.use('/options', options);
 

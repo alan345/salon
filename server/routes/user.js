@@ -111,7 +111,6 @@ router.get('/page/:page', function (req, res, next) {
         );
 
   });
-
 });
 
 

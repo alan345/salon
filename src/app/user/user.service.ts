@@ -69,12 +69,13 @@ export class UserService {
 
   saveUser(user) {
   //  console.log("this.token",this.token);
-    delete user._id;
-    const body = JSON.stringify(user);
+  //  delete user._id;
+  //console.log(user)
+    const body = JSON.stringify(user.fetchedUser);
     const headers = new Headers({'Content-Type': 'application/json'});
   //  let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
-    return this.http.post(this.url + 'user/',body, {headers: headers})
+    return this.http.post(this.url + 'profile/',body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());

@@ -7,8 +7,8 @@ import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
 import {Router, ActivatedRoute, Params } from '@angular/router';
-
-
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { Location } from '@angular/common';
 
 
 
@@ -19,35 +19,40 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 
 })
 export class NewUserComponent implements OnInit {
-  fetchedUser : {};
-  fetchedRegions = [];
-  loading: boolean;
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
+  fetchedUser = {
+    profile: {
+      name : '',
+      hair: {
+        hairDensity : '',
+        hairPorosity : '',
+        hairTexture : '',
+      }
+    }
   };
+  myForm: FormGroup;
 
 
   constructor(
     private userService: UserService,
     private toastr: ToastsManager,
     private router: Router,
-  ) {
-    this.getUser(this.paginationData.currentPage);
+    private location: Location,
+  ) {}
+
+  goBack() {
+    this.location.back();
   }
 
-
-  // openDialog() {
-  //   let dialogRef = this.dialog.open(UserDialogComponent);
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if(result) {
-  //   //    this.fetchedObj.design.mainPage[positionImage][0] = result
-  //     }
-  //
-  //   });
-  // }
-
+  save(model: FormGroup, isValid: boolean) {
+    console.log(model)
+    this.userService.saveUser(model)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+        },
+        error => {console.log(error)}
+      );
+    }
 
   onDelete(id: string) {
     this.userService.deleteUser(id)
@@ -62,27 +67,11 @@ export class NewUserComponent implements OnInit {
       );
   }
 
-  getPage(page: number) {
-    this.loading = true;
-    this.getUsers(page);
-  }
 
 
-  getUsers(page) {
-    this.userService.getUsers(page)
-      .subscribe(
-        res => {
-          this.paginationData = res.paginationData;
-          this.fetchedUser =  res.data
-          this.loading = false;
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+
 
   ngOnInit() {
-
+    //this.fetchedUser.profile.name = 'toto'
   }
 }

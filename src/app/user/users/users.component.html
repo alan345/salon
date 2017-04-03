@@ -1,7 +1,11 @@
 
 <div class="container topPadTable">
   <h2 class="text-center">Users
-  <button class="btn-default" (click)="openDialog()"><i class="fa fa-plus-circle"></i></button>
+
+  <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
+
+  <button class="btn-default" [routerLink]="['/user/newuser']" routerLinkActive="active"><i class="fa fa-plus-circle"></i></button>
+
   </h2>
 
   <hr>

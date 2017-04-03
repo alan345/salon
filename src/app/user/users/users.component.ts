@@ -8,7 +8,7 @@ import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
-
+import { Location }               from '@angular/common';
 
 
 
@@ -35,19 +35,14 @@ export class UsersComponent implements OnInit {
     private toastr: ToastsManager,
     public dialog: MdDialog,
     private router: Router,
+    private location: Location,
   ) {
     this.getUsers(this.paginationData.currentPage);
   }
 
 
-  openDialog() {
-    let dialogRef = this.dialog.open(UserDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-    //    this.fetchedObj.design.mainPage[positionImage][0] = result
-      }
-
-    });
+  goBack() {
+    this.location.back();
   }
 
 
