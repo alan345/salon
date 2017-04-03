@@ -4,7 +4,7 @@
 
   <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
 
-
+  <a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a>
   </h2>
 
   <hr>

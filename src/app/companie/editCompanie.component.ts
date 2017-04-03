@@ -11,6 +11,8 @@ import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-companie',
@@ -20,7 +22,12 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 export class EditCompanieComponent implements OnInit {
   fetchedCompanie = {
     _id:'',
-    address:''
+    address:{
+      address : '',
+      city : '',
+      state:'',
+      zip:'',
+    }
   }
 
 
@@ -33,6 +40,7 @@ export class EditCompanieComponent implements OnInit {
     public dialog: MdDialog,
     private route: ActivatedRoute,
     private router: Router,
+    private location: Location,
   ) {
     this.getCompanie('58dd78fc734d1d01a238aa4b');
   }
@@ -53,7 +61,9 @@ export class EditCompanieComponent implements OnInit {
       );
   }
 
-
+  goBack() {
+    this.location.back();
+  }
 
   getCompanie(id) {
 

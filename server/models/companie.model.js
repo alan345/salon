@@ -5,7 +5,12 @@ var mongoose                = require('mongoose'),
 
 var companie = new Schema({
   //  _id: String,
-    address: String,
+    address:{
+      address : '',
+      city : '',
+      sate : '',
+      zip : '',
+    },
     text: String,
     region_id: mongoose.Schema.Types.ObjectId
 
