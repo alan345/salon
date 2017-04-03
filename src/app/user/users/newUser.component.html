@@ -1,14 +1,49 @@
 
 <div class="container topPadTable">
   <h2 class="text-center">Users
-  <button class="btn-default" (click)="openDialog()"><i class="fa fa-plus-circle"></i></button>
+
   </h2>
 
   <hr>
-alan
-  <div class="has-text-centered">
-      <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
-      <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
-  </div>
+  <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
+    <div class="form-group">
+      <div ngModelGroup="fetchedObj">
+        <div ngModelGroup="design">
+          <div ngModelGroup="mainPage">
+              <label>imgLeft</label>
+
+              <div>
+                <img width="150" src="./uploads/forms/{{fetchedObj.design.mainPage._imgLeft[0].owner}}/{{fetchedObj.design.mainPage._imgLeft[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              </div>
+
+              <input type="text" class="form-control"
+                name="_imgLeft" [(ngModel)]="fetchedObj.design.mainPage._imgLeft[0]._id"
+                #name="ngModel" required minlength="5">
+              <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
+                    Name is required (minimum 5 characters).
+              </small>
+              <button type="button" md-button (click)="openDialog('_imgLeft')">Chose Media</button>
+
+
+              <br><br>
+              <label>imgRight</label>
+              <div>
+                <img width="150" src="./uploads/forms/{{fetchedObj.design.mainPage._imgRight[0].owner}}/{{fetchedObj.design.mainPage._imgRight[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              </div>
+
+              <input type="text" class="form-control"
+                name="_imgRight" [(ngModel)]="fetchedObj.design.mainPage._imgRight[0]._id"
+                #name="ngModel" required minlength="5">
+              <button type="button" md-button (click)="openDialog('_imgRight')">Chose Media</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
 
 </div>
