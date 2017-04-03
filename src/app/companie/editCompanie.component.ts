@@ -27,7 +27,16 @@ export class EditCompanieComponent implements OnInit {
       city : '',
       state:'',
       zip:'',
-    }
+    },
+    users : [
+      {
+        _user : [
+          {
+            email:''
+          }
+        ]
+      }
+    ]
   }
 
 

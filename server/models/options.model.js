@@ -9,6 +9,9 @@ var options = new Schema({
         _imgRight:[{type: Schema.Types.ObjectId, ref: 'Form'}],
       }
     },
+  },
+  {
+    timestamps: true
   }
 );
 
