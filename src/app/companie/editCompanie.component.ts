@@ -14,10 +14,10 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-companie',
-  templateUrl: './companieDetail.component.html',
+  templateUrl: './editCompanie.component.html',
   styleUrls: ['./companie.component.css'],
 })
-export class CompanieDetailComponent implements OnInit {
+export class EditCompanieComponent implements OnInit {
   fetchedCompanie = {
     _id:'',
     address:''
