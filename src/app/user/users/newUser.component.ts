@@ -14,12 +14,12 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-users',
-  templateUrl: './users.component.html',
+  templateUrl: './newUser.component.html',
   styleUrls: ['./user.component.css'],
 
 })
-export class UsersComponent implements OnInit {
-  fetchedUsers : Array<UsersComponent> = [];
+export class NewUserComponent implements OnInit {
+  fetchedUser : {};
   fetchedRegions = [];
   loading: boolean;
   paginationData = {
@@ -38,15 +38,15 @@ export class UsersComponent implements OnInit {
   }
 
 
-  openDialog() {
-    let dialogRef = this.dialog.open(UserDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-    //    this.fetchedObj.design.mainPage[positionImage][0] = result
-      }
-
-    });
-  }
+  // openDialog() {
+  //   let dialogRef = this.dialog.open(UserDialogComponent);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if(result) {
+  //   //    this.fetchedObj.design.mainPage[positionImage][0] = result
+  //     }
+  //
+  //   });
+  // }
 
 
   onDelete(id: string) {
@@ -67,12 +67,13 @@ export class UsersComponent implements OnInit {
     this.getUsers(page);
   }
 
+
   getUsers(page) {
     this.userService.getUsers(page)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
-          this.fetchedUsers =  res.data
+          this.fetchedUser =  res.data
           this.loading = false;
         },
         error => {

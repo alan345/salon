@@ -7,8 +7,11 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {FormComponent} from './form/form.component';
 import {RegisterComponent} from './user/register/register.component';
 import {UserComponent} from './user/user.component';
+import {NewUserComponent} from './user/users/newUser.component';
+
 import {UsersComponent} from './user/users/users.component';
 import {UserService} from './user/user.service';
+
 
 
 
@@ -49,6 +52,9 @@ import {ErrorPageComponent} from './errorPage/errorPage.component';
 import {AdminPageComponent} from './admin/adminPage/adminPage.component';
 import {AdminService} from './admin/services/admin.service';
 import {EditUsersFormsComponent} from './admin/editUsersForms/editUsersForms.component';
+
+
+
 
 import {EditOptionsComponent} from './admin/editOptions/editOptions.component';
 import {EditOptionsComponentDialog} from './admin/editOptions/editOptions.component';
@@ -96,6 +102,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NavbarComponent,
     FormComponent,
     UserComponent,
+    NewUserComponent,
     UsersComponent,
     RegisterComponent,
     LoginComponent,

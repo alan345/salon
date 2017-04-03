@@ -1,0 +1,14 @@
+
+<div class="container topPadTable">
+  <h2 class="text-center">Users
+  <button class="btn-default" (click)="openDialog()"><i class="fa fa-plus-circle"></i></button>
+  </h2>
+
+  <hr>
+alan
+  <div class="has-text-centered">
+      <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
+      <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+  </div>
+
+</div>
