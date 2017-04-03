@@ -29,7 +29,6 @@ export class NewUserComponent implements OnInit {
   };
 
 
-
   constructor(
     private userService: UserService,
     private toastr: ToastsManager,
