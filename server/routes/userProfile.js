@@ -52,9 +52,19 @@ router.use('/', function (req, res, next) {
   });
 });
 
+
+
+
 // get user info
 router.get('/:id', function (req, res, next) {
-  User.findOne({_id: req.user._id}, function (err, user) {
+  let id = ''
+  if(req.params) {
+    id = req.params.id
+  } else {
+    id = req.user._id
+  }
+
+  User.findOne({_id: id}, function (err, user) {
     if (err) {
       return res.status(403).json({
         title: 'There was a problem',
@@ -66,6 +76,7 @@ router.get('/:id', function (req, res, next) {
     })
   })
 });
+
 
 // setting up multer for profile pic upload
 var storage = multer.diskStorage({

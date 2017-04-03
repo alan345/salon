@@ -10,6 +10,7 @@ import {AppComponent} from '../app.component';
 import {UserProfileComponent} from './profile/userProfile.component';
 import {ChangePasswordComponent} from './profile/changePassword/changePassword.component';
 import {UsersComponent} from './users/users.component';
+import {SingleUserComponent} from './users/singleUser.component';
 
 
 
@@ -21,6 +22,7 @@ import {NewUserComponent} from './users/newUser.component';
 
 export const USER_ROUTES: Routes = [
   {path: '', component: UsersComponent},
+
   {path: 'newuser', component: NewUserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -29,5 +31,6 @@ export const USER_ROUTES: Routes = [
   {path: 'forms', component: UserFormsComponent, canActivate: [AuthGuardService]},
   {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
   {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
-  {path: 'forms/edit/:id', component: EditUserFormComponent, canActivate: [AuthGuardService]}
+  {path: 'forms/edit/:id', component: EditUserFormComponent, canActivate: [AuthGuardService]},
+  {path: ':id', component: SingleUserComponent},
 ];

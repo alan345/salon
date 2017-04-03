@@ -40,9 +40,9 @@ export class UserService {
   getUser(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
-    return this.http.get(this.url + 'user/' + id, {headers: headers})
+    return this.http.get(this.url + 'profile/' + id, {headers: headers})
       .map((response: Response) => {
-        return response.json().item;
+        return response.json();
       //  this.singleForm = response.json();
         //return this.singleForm;
       })

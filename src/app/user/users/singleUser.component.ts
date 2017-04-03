@@ -15,19 +15,14 @@ import { Location }               from '@angular/common';
 
 @Component({
   selector: 'app-users',
-  templateUrl: './users.component.html',
+  templateUrl: './singleUser.component.html',
   styleUrls: ['./user.component.css'],
 
 })
-export class UsersComponent implements OnInit {
-  fetchedUsers : Array<UsersComponent> = [];
-  fetchedRegions = [];
-  loading: boolean;
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
-  };
+export class SingleUserComponent implements OnInit {
+  fetchedUser : {}
+  userId : ''
+
 
 
   constructor(
@@ -36,10 +31,16 @@ export class UsersComponent implements OnInit {
     public dialog: MdDialog,
     private router: Router,
     private location: Location,
-  ) {
-    this.getUsers(this.paginationData.currentPage);
-  }
+    private activatedRoute: ActivatedRoute
+  ) {}
 
+  ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+        this.userId = params['id'];
+      });
+
+    this.getUser(this.userId);
+  }
 
   goBack() {
     this.location.back();
@@ -59,18 +60,14 @@ export class UsersComponent implements OnInit {
       );
   }
 
-  getPage(page: number) {
-    this.loading = true;
-    this.getUsers(page);
-  }
 
-  getUsers(page) {
-    this.userService.getUsers(page)
+
+  getUser(id) {
+    console.log(id)
+    this.userService.getUser(id)
       .subscribe(
         res => {
-          this.paginationData = res.paginationData;
-          this.fetchedUsers =  res.data
-          this.loading = false;
+          this.fetchedUser = res
         },
         error => {
           console.log(error);
@@ -82,9 +79,7 @@ export class UsersComponent implements OnInit {
 
 
 
-  ngOnInit() {
 
-  }
 }
 
 
