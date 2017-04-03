@@ -4,6 +4,7 @@ import {UserProfile} from './userProfile.model';
 import {Router} from '@angular/router';
 import {ToastsManager} from 'ng2-toastr';
 
+
 @Component({
   selector: 'app-userprofile',
   templateUrl: './userProfile.component.html',

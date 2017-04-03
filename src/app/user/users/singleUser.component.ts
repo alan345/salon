@@ -2,14 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {UserService} from '../user.service';
 //import {RegionComponent} from '../region/region.component';
-import {User} from '../user.model';
+
 import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-
+//import {User} from './user.model'
 
 
 
@@ -20,9 +20,18 @@ import { Location }               from '@angular/common';
 
 })
 export class SingleUserComponent implements OnInit {
-  fetchedUser : {}
-  userId : ''
-
+  //fetchedUser = new User()
+  fetchedUser = {
+    _id: '',
+    updatedAt: '',
+    email:'',
+    profile:{
+      name:'',
+      hair:{
+        hairTexture:''
+      }
+    }
+  }
 
 
   constructor(
@@ -36,10 +45,8 @@ export class SingleUserComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-        this.userId = params['id'];
-      });
-
-    this.getUser(this.userId);
+      this.getUser(params['id'])
+      })
   }
 
   goBack() {
@@ -52,7 +59,6 @@ export class SingleUserComponent implements OnInit {
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message);
-          console.log(res);
         },
         error => {
           console.log(error);
@@ -67,7 +73,7 @@ export class SingleUserComponent implements OnInit {
     this.userService.getUser(id)
       .subscribe(
         res => {
-          this.fetchedUser = res
+          this.fetchedUser = res.user
         },
         error => {
           console.log(error);
