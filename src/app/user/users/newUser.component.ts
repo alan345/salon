@@ -29,12 +29,13 @@ export class NewUserComponent implements OnInit {
   };
 
 
+
   constructor(
     private userService: UserService,
     private toastr: ToastsManager,
     private router: Router,
   ) {
-    this.getUsers(this.paginationData.currentPage);
+    this.getUser(this.paginationData.currentPage);
   }
 
 
