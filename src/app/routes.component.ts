@@ -1,15 +1,18 @@
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {USER_ROUTES} from './user/user.routes';
+import {USER_COMPANIES} from './companie/companie.routes';
+
+
 import {ADMIN_ROUTES} from './admin/admin.routes';
 import {UserComponent} from './user/user.component';
 import {FormComponent} from './form/form.component';
 import {AuthGuardService} from './auth/authguard.service';
 import {MainPageComponent} from './mainPage/mainPage.component';
 
-import {CompaniesComponent} from './companie/companies.component';
-import {CompanieDetailComponent} from './companie/companieDetail.component';
-import {EditCompanieComponent} from './companie/editCompanie.component';
+import {CompanieComponent} from './companie/companie.component';
+//import {CompanieDetailComponent} from './companie/companieDetail.component';
+//import {EditCompanieComponent} from './companie/editCompanie.component';
 
 
 import {MapComponent} from './map/map.component';
@@ -20,9 +23,9 @@ import {AdminGuardService} from './admin/services/adminGuard';
 
 const APP_ROUTES: Routes = [
   {path: '', component: MainPageComponent, pathMatch: 'full'},
-  {path: 'companie', component: CompaniesComponent, pathMatch: 'full'},
-  {path: 'companie/:id', component: CompanieDetailComponent},
-  {path: 'companie/edit/:id', component: EditCompanieComponent},
+  {path: 'companie', component: CompanieComponent, children: USER_COMPANIES},
+//  {path: 'companie/:id', component: CompanieDetailComponent},
+//  {path: 'companie/edit/:id', component: EditCompanieComponent},
   {path: 'map', component: MapComponent, pathMatch: 'full'},
   {path: 'user', component: UserComponent, children: USER_ROUTES},
   {path: 'form', component: FormComponent, canActivate: [AuthGuardService]},

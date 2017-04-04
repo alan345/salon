@@ -36,6 +36,7 @@ import {LoginComponent} from './user/login/login.component';
 import {ErrorComponent} from './errorHandler/error.component';
 import {MainPageComponent} from './mainPage/mainPage.component';
 import {CompaniesComponent} from './companie/companies.component';
+import {CompanieComponent} from './companie/companie.component';
 import {EditCompanieComponent} from './companie/editCompanie.component';
 
 
@@ -116,6 +117,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ErrorComponent,
     MainPageComponent,
     CompaniesComponent,
+    CompanieComponent,
     EditCompanieComponent,
     CompanieDialogComponent,
     CompanieDetailComponent,
