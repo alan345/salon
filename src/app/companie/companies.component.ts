@@ -10,6 +10,8 @@ import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
+import {Location} from '@angular/common';
+
 
 //
 // @Component({
@@ -93,6 +95,7 @@ export class CompaniesComponent implements OnInit {
     private toastr: ToastsManager,
     public dialog: MdDialog,
     private router: Router,
+    private location: Location,
   ) {
     this.getCompanies(this.paginationData.currentPage);
   }
@@ -106,6 +109,10 @@ export class CompaniesComponent implements OnInit {
       }
 
     });
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   //must be deprecated

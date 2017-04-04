@@ -1,15 +1,19 @@
 
 <div class="container topPadTable">
-  <h2 class="text-center">My Saloon
+  <h2 class="text-center">
 
   <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
-
+  My Saloon
+  <br><br>
   <a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a>
   </h2>
 
   <hr>
   <h4>id: {{fetchedCompanie._id}}</h4>
-  <h4>address: {{fetchedCompanie.address}}</h4>
+  <h4>address: {{fetchedCompanie.address.address}}</h4>
+  <h4>city: {{fetchedCompanie.address.city}}</h4>
+  <h4>state: {{fetchedCompanie.address.state}}</h4>
+  <h4>zip: {{fetchedCompanie.address.zip}}</h4>
 
 
 </div>

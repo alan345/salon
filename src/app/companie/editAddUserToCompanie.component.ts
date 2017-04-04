@@ -11,7 +11,7 @@ import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -50,6 +50,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private location: Location,
+
   ) {
     this.getCompanie('58dd78fc734d1d01a238aa4b');
   }
