@@ -49,18 +49,21 @@ export class EditAddUserToCompanieComponent implements OnInit {
     private modalService: NgbModal,
     private toastr: ToastsManager,
     public dialog: MdDialog,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
 
   ) {
-    this.getCompanie('58dd78fc734d1d01a238aa4b');
+
   }
   save(model: FormGroup, isValid: boolean) {
   }
 
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.getCompanie(params['id'])
+    })
   }
 
   onDelete(id: string) {
@@ -82,7 +85,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
 
   getCompanie(id) {
 
-    this.route.params
+    this.activatedRoute.params
       .switchMap((params: Params) => this.companieService.getCompanie(params['id']))
   //    .subscribe((hero: Hero) => this.hero = hero);
 

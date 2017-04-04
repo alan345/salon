@@ -45,10 +45,11 @@ export class SingleUserComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {}
 
+
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getUser(params['id'])
-      })
+    })
   }
 
   goBack() {

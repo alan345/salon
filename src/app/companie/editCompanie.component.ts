@@ -47,14 +47,15 @@ export class EditCompanieComponent implements OnInit {
     private modalService: NgbModal,
     private toastr: ToastsManager,
     public dialog: MdDialog,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
-  ) {
-    this.getCompanie('58dd78fc734d1d01a238aa4b');
-  }
+  ) {}
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.getCompanie(params['id'])
+    })
   }
 
   save(model: FormGroup, isValid: boolean) {
@@ -79,7 +80,7 @@ export class EditCompanieComponent implements OnInit {
 
   getCompanie(id) {
 
-    this.route.params
+    this.activatedRoute.params
       .switchMap((params: Params) => this.companieService.getCompanie(params['id']))
   //    .subscribe((hero: Hero) => this.hero = hero);
 
