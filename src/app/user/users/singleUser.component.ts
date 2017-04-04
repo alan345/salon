@@ -28,7 +28,9 @@ export class SingleUserComponent implements OnInit {
     profile:{
       name:'',
       hair:{
-        hairTexture:''
+        hairDensity : '',
+        hairPorosity : '',
+        hairTexture : '',
       }
     }
   }

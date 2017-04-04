@@ -12,6 +12,7 @@ import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import {Location} from '@angular/common';
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 
 @Component({
@@ -38,6 +39,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
       }
     ]
   }
+  myForm: FormGroup;
 
 
 
@@ -54,6 +56,9 @@ export class EditAddUserToCompanieComponent implements OnInit {
   ) {
     this.getCompanie('58dd78fc734d1d01a238aa4b');
   }
+  save(model: FormGroup, isValid: boolean) {
+  }
+
 
   ngOnInit() {
   }

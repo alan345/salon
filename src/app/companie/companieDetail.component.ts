@@ -22,7 +22,12 @@ import {Location} from '@angular/common';
 export class CompanieDetailComponent implements OnInit {
   fetchedCompanie = {
     _id:'',
-    address:''
+    address: {
+      address : '',
+      city :  '',
+      state :  '',
+      zip :  ''
+    }
   }
 
 
@@ -35,7 +40,7 @@ export class CompanieDetailComponent implements OnInit {
     public dialog: MdDialog,
     private route: ActivatedRoute,
     private router: Router,
-    private location: Location,    
+    private location: Location,
   ) {
     this.getCompanie('58dd78fc734d1d01a238aa4b');
   }

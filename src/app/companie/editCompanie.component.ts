@@ -12,7 +12,7 @@ import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-companie',
@@ -38,7 +38,7 @@ export class EditCompanieComponent implements OnInit {
       }
     ]
   }
-
+  myForm: FormGroup;
 
 
   constructor(
@@ -57,6 +57,9 @@ export class EditCompanieComponent implements OnInit {
   ngOnInit() {
   }
 
+  save(model: FormGroup, isValid: boolean) {
+
+  }
   onDelete(id: string) {
     this.companieService.deleteCompanie(id)
       .subscribe(

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {UserService} from '../user.service';
 //import {RegionComponent} from '../region/region.component';
-import {User} from '../user.model';
+//import {User} from '../user.model';
 import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
@@ -28,7 +28,7 @@ export class NewUserComponent implements OnInit {
         hairTexture : '',
       }
     }
-  };
+  }
   myForm: FormGroup;
 
 
