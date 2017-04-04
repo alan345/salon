@@ -26,6 +26,7 @@ export class SingleUserComponent implements OnInit {
     _id: '',
     updatedAt: '',
     email:'',
+    img:[],
     profile:{
       name:'',
       hair:{
@@ -59,10 +60,13 @@ export class SingleUserComponent implements OnInit {
   }
 
   openDialog(positionImage) {
+    console.log('ss')
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
+      console.log('ss')
       if(result) {
-      //  this.fetchedObj.design.mainPage[positionImage][0] = result
+        console.log(result)
+        this.fetchedUser.img[positionImage][0] = result
       }
     })
   }

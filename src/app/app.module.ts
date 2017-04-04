@@ -64,7 +64,7 @@ import {EditUsersFormsComponent} from './admin/editUsersForms/editUsersForms.com
 
 
 import {EditOptionsComponent} from './admin/editOptions/editOptions.component';
-import {EditOptionsComponentDialog} from './admin/editOptions/editOptions.component';
+import {EditOptionsComponentDialog} from './modalLibrary/modalLibrary.component';
 
 
 import {EditOptionsService} from './admin/editOptions/editOptions.service';
