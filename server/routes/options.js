@@ -13,6 +13,33 @@ process.on('uncaughtException', function (err) {
 
 
 
+
+router.get('/', function (req, res, next) {
+  Options
+  .findOne()
+  .populate('design.mainPage._imgLeft')
+  .populate('design.mainPage._imgRight')
+  .exec(function (err, obj) {
+    if (err) {
+      return res.status(403).json({
+        title: 'There was a problem',
+        error: err
+      });
+    }
+    if (!obj) {
+      return res.status(403).json({
+        title: 'Wrong ',
+        error: {message: 'Please check'}
+      })
+    }
+    return res.status(200).json({
+      message: 'Successfull',
+      obj: obj
+    })
+  });
+});
+
+
 //Checking if user is authenticated or not, security middleware
 router.use('/', function (req, res, next) {
   var token = req.headers['authorization'];
@@ -54,31 +81,6 @@ router.use('/', function (req, res, next) {
 
 
 
-
-router.get('/', function (req, res, next) {
-  Options
-  .findOne()
-  .populate('design.mainPage._imgLeft')
-  .populate('design.mainPage._imgRight')
-  .exec(function (err, obj) {
-    if (err) {
-      return res.status(403).json({
-        title: 'There was a problem',
-        error: err
-      });
-    }
-    if (!obj) {
-      return res.status(403).json({
-        title: 'Wrong ',
-        error: {message: 'Please check'}
-      })
-    }
-    return res.status(200).json({
-      message: 'Successfull',
-      obj: obj
-    })
-  });
-});
 
 
 //get all forms from database. Must be depracted

@@ -160,7 +160,6 @@ router.get('/:id', function (req, res, next) {
         err: err
       })
     } else {
-      console.log(item)
       res.status(200).json({
         message: 'Success',
         item: item
