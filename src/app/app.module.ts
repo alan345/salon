@@ -38,6 +38,7 @@ import {MainPageComponent} from './mainPage/mainPage.component';
 import {CompaniesComponent} from './companie/companies.component';
 import {CompanieComponent} from './companie/companie.component';
 import {EditCompanieComponent} from './companie/editCompanie.component';
+import {EditAddUserToCompanieComponent} from './companie/editAddUserToCompanie.component';
 
 
 import {CompanieDialogComponent} from './companie/companies.component';
@@ -119,6 +120,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CompaniesComponent,
     CompanieComponent,
     EditCompanieComponent,
+    EditAddUserToCompanieComponent,
     CompanieDialogComponent,
     CompanieDetailComponent,
     MapComponent,

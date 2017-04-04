@@ -1,0 +1,35 @@
+
+<div class="container topPadTable">
+  <h2 class="text-center">
+
+  <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
+  EDIT My Saloon
+
+  </h2>
+
+  <hr>
+  <h4>id: {{fetchedCompanie._id}}</h4>
+
+
+    <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
+      <div class="form-group">
+        <div ngModelGroup="fetchedCompanie">
+
+          <label>Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            #name="ngModel"
+            [(ngModel)]="fetchedCompanie.name"
+            required
+            minlength="5"
+          >
+
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+</div>
