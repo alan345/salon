@@ -15,5 +15,7 @@
   <h4>state: {{fetchedCompanie.address.state}}</h4>
   <h4>zip: {{fetchedCompanie.address.zip}}</h4>
 
-
+  <li *ngFor="let user of fetchedCompanie.users">
+    {{ user._user[0].email }}
+  </li>
 </div>

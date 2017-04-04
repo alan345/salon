@@ -3,9 +3,7 @@ import {EditOptionsService} from './editOptions.service';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import {ToastsManager} from 'ng2-toastr';
 import {MdDialog, MdDialogRef} from '@angular/material';
-//import { UserFormsComponent }  from '../../userForms/formsTable/userForms.component';
-
-
+import { EditOptionsComponentDialog }  from '../../modalLibrary/modalLibrary.component';
 
 
 
@@ -52,8 +50,7 @@ export class EditOptionsComponent implements OnInit {
       if(result) {
         this.fetchedObj.design.mainPage[positionImage][0] = result
       }
-
-    });
+    })
   }
 
   // onPassForm(obj) {
@@ -82,15 +79,4 @@ export class EditOptionsComponent implements OnInit {
         error => {console.log(error)}
       );
     }
-}
-
-
-
-@Component({
-  selector: 'edit-options-dialog',
-  templateUrl: './editOptionsDialog.component.html',
-})
-export class EditOptionsComponentDialog {
-  constructor(public dialogRef: MdDialogRef<EditOptionsComponentDialog>) {}
-
 }

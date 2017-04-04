@@ -15,6 +15,28 @@
   <h4>hairTexture: {{fetchedUser.profile.hair.hairTexture}}</h4>
   <h4>hairDensity: {{fetchedUser.profile.hair.hairDensity}}</h4>
 
+  <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
+    <div class="form-group">
+      <div ngModelGroup="fetchedObj">
+        <input type="text"
+          class="form-control"
+          name="_imgLeft"
+          [(ngModel)]="fetchedUser.img"
+          #name="ngModel"
+          required
+          minlength="5"
+        >
+        <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
+              Name is required (minimum 5 characters).
+        </small>
+        <button type="button" md-button (click)="openDialog('_imgLeft')">Chose Media</button>
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
 
 
 {{fetchedUser|json}}

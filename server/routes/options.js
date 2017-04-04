@@ -123,14 +123,18 @@ router.get('/pureOptions', function (req, res, next) {
 // }
 
 //update
-router.put('/:id', function (req, res, next) {
-  Options.findById(({_id: req.params.id}), function (err, item) {
+router.put('/updateoption', function (req, res, next) {
+  Options
+  .findOne()
+  .exec(function (err, item) {
+  //Options.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
       return res.status(404).json({
         message: 'Not found',
         err: err
       })
     } else {
+      console.log(req.body.design)
         item.design = req.body.design
         item.save(function (err, result) {
           if (err) {

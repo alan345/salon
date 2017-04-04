@@ -1,16 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../auth/auth.service';
-import {UserService} from '../user.service';
+import { Component, OnInit} from '@angular/core';
+import { AuthService} from '../../auth/auth.service';
+import { UserService} from '../user.service';
 //import {RegionComponent} from '../region/region.component';
 
-import {ChangeDetectionStrategy, Input} from "@angular/core";
-import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
+import { ChangeDetectionStrategy, Input} from "@angular/core";
+import { ToastsManager} from 'ng2-toastr';
+import { Inject, forwardRef} from '@angular/core';
+import { MdDialog, MdDialogRef} from '@angular/material';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-//import {User} from './user.model'
-
+import { User} from './user.model'
+import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
 
 
 @Component({
@@ -19,6 +19,7 @@ import { Location }               from '@angular/common';
   styleUrls: ['./user.component.css'],
 
 })
+
 export class SingleUserComponent implements OnInit {
   //fetchedUser = new User()
   fetchedUser = {
@@ -43,7 +44,8 @@ export class SingleUserComponent implements OnInit {
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+  }
 
 
   ngOnInit() {
@@ -56,20 +58,14 @@ export class SingleUserComponent implements OnInit {
     this.location.back();
   }
 
-
-  onDelete(id: string) {
-    this.userService.deleteUser(id)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message);
-        },
-        error => {
-          console.log(error);
-        }
-      );
+  openDialog(positionImage) {
+    let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+      //  this.fetchedObj.design.mainPage[positionImage][0] = result
+      }
+    })
   }
-
-
 
   getUser(id) {
     console.log(id)
@@ -84,9 +80,17 @@ export class SingleUserComponent implements OnInit {
       );
   }
 
-
-
-
+  onDelete(id: string) {
+    this.userService.deleteUser(id)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
 
 
 }

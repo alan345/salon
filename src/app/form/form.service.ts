@@ -23,7 +23,7 @@ export class FormService {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
     return this.http.get(this.url + 'forms/' + this.userId, {headers: headers})
-      .timeout(1000)
+      .timeout(8000)
       .map((response: Response) => {
 
         const forms = response.json().forms;

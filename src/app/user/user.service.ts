@@ -24,7 +24,7 @@ export class UserService {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
     return this.http.get(this.url + 'user/page/' + page , {headers: headers})
-      .timeout(1000)
+      .timeout(5000)
       .map((response: Response) => {
 
         const users = response.json();

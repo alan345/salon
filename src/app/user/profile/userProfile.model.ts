@@ -4,7 +4,8 @@ export class UserProfile {
               public createdAt: string,
               public updatedAt: string,
               public id: string,
-              public profilePic: string) {
+              public profilePic: string,
+            ) {
   }
 }
 export class newPassword {
