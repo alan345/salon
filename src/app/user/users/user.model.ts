@@ -66,7 +66,7 @@ export interface User {
     name: string;
     email: string;
     addresses: Address[];
-    forms: Forms[];
+    forms: Form[];
     porfile: {
       name:string;
       hair : {
@@ -80,6 +80,6 @@ export interface Address {
     postcode: string;
 }
 
-export interface Forms {
+export interface Form {
     _id: string;
 }

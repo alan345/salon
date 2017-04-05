@@ -50,12 +50,37 @@
               </div>
             </div>
           </div>
-
           <div class="margin-20">
             <a (click)="addAddress()" style="cursor: default">
               Add another address +
             </a>
           </div>
+          <!--addresses-->
+
+<br>
+<br>
+
+          <!--forms-->
+          <div formArrayName="forms">
+            <div *ngFor="let form of myForm.controls.forms.controls; let i=index" class="panel panel-default">
+              <div class="panel-heading">
+                <span>Image {{i + 1}}</span>
+                <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
+              </div>
+              <div class="panel-body" [formGroupName]="i">
+                alan
+                <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="form._id">
+                <img width="150" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              </div>
+            </div>
+          </div>
+          <div class="margin-20">
+            <a (click)="addForm()" style="cursor: default">
+              Add another address +
+            </a>
+          </div>
+          <!--forms-->
+
 
           <div class="margin-20">
             <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>

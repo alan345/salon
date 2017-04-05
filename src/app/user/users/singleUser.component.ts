@@ -60,6 +60,7 @@ export class SingleUserComponent implements OnInit {
         email: ['', [Validators.required, Validators.minLength(5)]],
         _id: ['', [Validators.required, Validators.minLength(5)]],
         addresses: this._fb.array([]),
+        forms: this._fb.array([]),
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
             hair: this._fb.group({
@@ -69,39 +70,46 @@ export class SingleUserComponent implements OnInit {
         })
     });
 
-    // add address
     this.addAddress();
-
-
+    this.addForm();
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getUser(params['id'])
     })
   }
-  initAddress() {
-      return this._fb.group({
-          street: ['', Validators.required],
-          postcode: ['']
-      });
+
+
+  removeAddress(i: number) {
+      const control = <FormArray>this.myForm.controls['addresses'];
+      control.removeAt(i);
   }
 
   addAddress() {
-      const control = <FormArray>this.myForm.controls['addresses'];
-      const addrCtrl = this.initAddress();
-
-      control.push(addrCtrl);
-
-      /* subscribe to individual address value changes */
-      // addrCtrl.valueChanges.subscribe(x => {
-      //   console.log(x);
-      // })
+    const control = <FormArray>this.myForm.controls['addresses'];
+    const addrCtrl = this._fb.group({
+        street: ['', Validators.required],
+        postcode: ['']
+    });
+    control.push(addrCtrl);
   }
+
+  removeForm(i: number) {
+      const control = <FormArray>this.myForm.controls['forms'];
+      control.removeAt(i);
+  }
+  addForm() {
+    const control = <FormArray>this.myForm.controls['forms'];
+    const addrCtrl = this._fb.group({
+        _id: ['', Validators.required],
+    });
+    control.push(addrCtrl);
+  }
+
 
   goBack() {
     this.location.back();
   }
 
   openDialog(positionImage) {
-
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
@@ -130,19 +138,19 @@ export class SingleUserComponent implements OnInit {
 
 
   getUser(id) {
-    console.log(id)
-
     this.userService.getUser(id)
       .subscribe(
         res => {
-          console.log(res)
           this.fetchedUser = res.user
+
         },
         error => {
           console.log(error);
         }
       )
   }
+
+
 
   onDelete(id: string) {
     this.userService.deleteUser(id)
