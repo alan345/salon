@@ -11,9 +11,13 @@ import {AuthGuardService} from './auth/authguard.service';
 import {MainPageComponent} from './mainPage/mainPage.component';
 
 import {CompanieComponent} from './companie/companie.component';
+
+
 //import {CompanieDetailComponent} from './companie/companieDetail.component';
 //import {EditCompanieComponent} from './companie/editCompanie.component';
 
+import {ProductComponent} from './product/product.component';
+import {USER_PRODUCTS} from './product/product.routes';
 
 import {MapComponent} from './map/map.component';
 
@@ -24,6 +28,7 @@ import {AdminGuardService} from './admin/services/adminGuard';
 const APP_ROUTES: Routes = [
   {path: '', component: MainPageComponent, pathMatch: 'full'},
   {path: 'companie', component: CompanieComponent, children: USER_COMPANIES},
+  {path: 'product', component: ProductComponent, children: USER_PRODUCTS},
 //  {path: 'companie/:id', component: CompanieDetailComponent},
 //  {path: 'companie/edit/:id', component: EditCompanieComponent},
   {path: 'map', component: MapComponent, pathMatch: 'full'},

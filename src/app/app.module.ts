@@ -14,13 +14,14 @@ import {AddressComponent} from './user/plunkr/address.component';
 import {AppComponentPlunkr} from './user/plunkr/app.component';
 
 
-
+import {ProductComponent} from './product/product.component';
+import {ProductsComponent} from './product/products.component';
+import {NewProductComponent} from './product/newProduct.component';
+import {SingleProductComponent} from './product/singleProduct.component';
+import {ProductService} from './product/product.service';
 
 import {UsersComponent} from './user/users/users.component';
 import {UserService} from './user/user.service';
-
-
-
 
 import {RouterModule} from '@angular/router';
 import {routing} from './routes.component';
@@ -40,23 +41,22 @@ import {ToastModule, ToastOptions} from 'ng2-toastr';
 import {LoginComponent} from './user/login/login.component';
 import {ErrorComponent} from './errorHandler/error.component';
 import {MainPageComponent} from './mainPage/mainPage.component';
+
 import {CompaniesComponent} from './companie/companies.component';
 import {CompanieComponent} from './companie/companie.component';
 import {EditCompanieComponent} from './companie/editCompanie.component';
 import {EditAddUserToCompanieComponent} from './companie/editAddUserToCompanie.component';
-
-
 import {CompanieDialogComponent} from './companie/companies.component';
 import {CompanieDetailComponent} from './companie/companieDetail.component';
+import {CompanieService} from './companie/companie.service';
 
 
 import {MapComponent} from './map/map.component';
 import {ResetPasswordComponent} from './user/accountRecover/resetPassword.component';
 import {ForgetPasswordComponent} from './user/accountRecover/forgetPassword.component';
 import {FormService} from './form/form.service';
-import {CompanieService} from './companie/companie.service';
-import {RegionService} from './region/region.service';
 
+import {RegionService} from './region/region.service';
 import {EditUserFormComponent} from './userForms/editForm/editUserForm.component';
 import {ProgressBarModule} from 'ng2-progress-bar';
 import {ErrorPageComponent} from './errorPage/errorPage.component';
@@ -115,6 +115,13 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppComponent,
     NavbarComponent,
     FormComponent,
+
+    ProductComponent,
+    ProductsComponent,
+    NewProductComponent,
+    SingleProductComponent,
+
+
     UserComponent,
     NewUserComponent,
     SingleUserComponent,
@@ -176,6 +183,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AdminService,
     EditOptionsService,
     UserService,
+    ProductService,
     AdminGuardService,
     ProfileService,
     {

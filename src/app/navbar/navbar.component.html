@@ -20,7 +20,8 @@
             <li><a [routerLink]="['/user/forms']" *ngIf="isLoggedIn()" routerLinkActive="active">My Forms</a></li>
             <li><a [routerLink]="['/user/profile']" *ngIf="isLoggedIn()" routerLinkActive="active">Profile</a></li>
             <li><a [routerLink]="['/companie']" *ngIf="isLoggedIn()" routerLinkActive="active">Companies</a></li>
-            <li><a [routerLink]="['/user']" *ngIf="isLoggedIn()" routerLinkActive="active">Users</a></li>            
+            <li><a [routerLink]="['/user']" *ngIf="isLoggedIn()" routerLinkActive="active">Users</a></li>
+            <li><a [routerLink]="['/product']" *ngIf="isLoggedIn()" routerLinkActive="active">Products</a></li>           
             <li><a [routerLink]="['admin']" *ngIf="isAdmin()" routerLinkActive="active">Admin Panel</a></li>
             <ul>
               <li><a [routerLink]="['admin/options']" *ngIf="isAdmin()" routerLinkActive="active">Options</a></li>
