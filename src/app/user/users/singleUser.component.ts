@@ -23,7 +23,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 
 export class SingleUserComponent implements OnInit {
   //fetchedUser = new User()
-  //fetchedUser : User
+  //fetchedUser : User;
   fetchedUser = {
     _id: '',
     updatedAt: '',

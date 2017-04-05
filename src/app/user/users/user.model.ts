@@ -62,17 +62,18 @@
 //   ){}
 // }
 
+
 export interface User {
-    name: string;
-    email: string;
-    addresses: Address[];
-    forms: Form[];
-    porfile: {
-      name:string;
-      hair : {
-        hairTexture:string;
-      }
+  name: string;
+  email: string;
+  addresses: Address[];
+  forms: Form[];
+  porfile: {
+    name:string;
+    hair : {
+      hairTexture:string;
     }
+  }
 }
 
 export interface Address {
