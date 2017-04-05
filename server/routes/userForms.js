@@ -117,6 +117,23 @@ router.get('/singleFormFromOptions/:typeOption/:namePage/:positionImage', functi
 
 
 
+
+// getting user forms but NOT necessary Owner
+// router.get('/form/:id', function (req, res, next) {
+//   User.find(({owner: req.params.id}), function (err, forms) {
+//     if (err) {
+//       return res.status(404).json({
+//         message: 'An error occured',
+//         err: err
+//       })
+//     }
+//     res.status(200).json({
+//       message: 'Success',
+//       forms: forms
+//     });
+//   })
+// });
+
 // getting user forms to display them on front end
 router.get('/:id', function (req, res, next) {
   User.findById(({_id: req.user._id}), function (err) {

@@ -11,7 +11,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { User} from './user.model'
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
-
+import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-users',
@@ -26,7 +26,11 @@ export class SingleUserComponent implements OnInit {
     _id: '',
     updatedAt: '',
     email:'',
-    img:[],
+    forms:[{
+      _id:'',
+      owner:'',
+      imagePath:'',
+    }],
     profile:{
       name:'',
       hair:{
@@ -44,7 +48,7 @@ export class SingleUserComponent implements OnInit {
     public dialog: MdDialog,
     private router: Router,
     private location: Location,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {
   }
 
@@ -60,28 +64,42 @@ export class SingleUserComponent implements OnInit {
   }
 
   openDialog(positionImage) {
-    console.log('ss')
+
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
-      console.log('ss')
       if(result) {
-        console.log(result)
-        this.fetchedUser.img[positionImage][0] = result
+        this.fetchedUser.forms.push(result)
       }
     })
   }
 
+
+  save(model: FormGroup, isValid: boolean) {
+    console.log(model)
+    // this.editOptionsService.updateOptions(model)
+    //   .subscribe(
+    //     res => {
+    //       this.toastr.success('Great!', res.message)
+    //     },
+    //     error => {console.log(error)}
+    //   );
+    }
+
+
+
   getUser(id) {
     console.log(id)
+
     this.userService.getUser(id)
       .subscribe(
         res => {
+          console.log(res)
           this.fetchedUser = res.user
         },
         error => {
           console.log(error);
         }
-      );
+      )
   }
 
   onDelete(id: string) {

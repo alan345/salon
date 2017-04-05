@@ -13,27 +13,43 @@
   <h4>email: {{fetchedUser.email}}</h4>
   <h4>name: {{fetchedUser.profile.name}}</h4>
   <h4>hairTexture: {{fetchedUser.profile.hair.hairTexture}}</h4>
-  <h4>hairDensity: {{fetchedUser.profile.hair.hairDensity}}</h4>
 
   <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
     <div class="form-group">
       <div ngModelGroup="fetchedObj">
-        <div ngModelGroup="img">
-          <input type="text"
-            class="form-control"
-            name="img"
-            [(ngModel)]="fetchedUser.img"
-            #name="ngModel"
-            required
-            minlength="5"
-          >
-          <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                Name is required (minimum 5 characters).
-          </small>
-          <button type="button" md-button (click)="openDialog('img')">Chose Media</button>
+        <input
+          type="text"
+          class="form-control"
+          [readonly]="true"
+          name="email"
+          [(ngModel)]="fetchedUser.email"
+          #name="ngModel"
+        >
+
+        <div ngModelGroup="forms">
+          <!-- <div>
+            <img width="150" src="./uploads/forms/{{fetchedUser.img.owner}}/{{fetchedUser.img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          </div> -->
+
+
+
+
+          <div *ngFor="let form of fetchedUser.forms; let in = index">
+
+              <!-- {{form|json}} -->
+              <input type="hidden"
+                class="form-control"
+                name="_id-{{in}}"
+                [(ngModel)]="form._id"
+                #name="ngModel"
+              >
+              <img width="150" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          </div>
+          <button type="button" md-button (click)="openDialog('img')">+ Media</button>
         </div>
       </div>
     </div>
+
 
 
     <button type="submit" class="btn btn-default">Submit</button>
@@ -41,6 +57,7 @@
 
 
 
-{{fetchedUser|json}}
+
+
 
 </div>

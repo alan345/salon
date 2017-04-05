@@ -64,7 +64,10 @@ router.get('/:id', function (req, res, next) {
     id = req.user._id
   }
 
-  User.findOne({_id: id}, function (err, user) {
+  User
+  .findOne({_id: id})
+  .populate('forms')
+  .exec(function (err, user) {
     if (err) {
       return res.status(403).json({
         title: 'There was a problem',

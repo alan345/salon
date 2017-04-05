@@ -1,8 +1,8 @@
-import {Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import {EditOptionsService} from './editOptions.service';
-import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-import {ToastsManager} from 'ng2-toastr';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { EditOptionsService} from './editOptions.service';
+import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { ToastsManager} from 'ng2-toastr';
+import { MdDialog, MdDialogRef} from '@angular/material';
 import { EditOptionsComponentDialog }  from '../../modalLibrary/modalLibrary.component';
 
 

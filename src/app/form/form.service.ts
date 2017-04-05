@@ -41,6 +41,30 @@ export class FormService {
       });
   }
 
+  // getUserFormsByUserId(userId) {
+  //   console.log(userId)
+  //   let headers = new Headers({'Content-Type': 'application/json'});
+  //   headers.append('Authorization', '' + this.token);
+  //   return this.http.get(this.url + 'forms/form/' + userId, {headers: headers})
+  //     .timeout(8000)
+  //     .map((response: Response) => {
+  //
+  //       const forms = response.json().forms;
+  //       let fetchedForms = [];
+  //       for (let form of forms) {
+  //         fetchedForms.push(form);
+  //       }
+  //
+  //       this.forms = fetchedForms;
+  //       return fetchedForms;
+  //     })
+  //     .catch((error: Response) => {
+  //       this.errorService.handleError(error.json());
+  //       return Observable.throw(error.json());
+  //     });
+  // }
+
+
   deleteForm(form: Form) {
     this.forms.splice(this.forms.indexOf(form), 1);
     let headers = new Headers({'Content-Type': 'application/json'});

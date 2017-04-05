@@ -27,7 +27,8 @@ export class CompanieDetailComponent implements OnInit {
       city :  '',
       state :  '',
       zip :  ''
-    }
+    },
+    users:[]
   }
 
 
