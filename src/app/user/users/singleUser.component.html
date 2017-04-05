@@ -68,16 +68,13 @@
                 <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
               </div>
               <div class="panel-body" [formGroupName]="i">
-                alan
-                <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="form._id">
-                <img width="150" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
+                <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
             </div>
           </div>
           <div class="margin-20">
-            <a (click)="addForm()" style="cursor: default">
-              Add another address +
-            </a>
+            <button type="button" md-button (click)="openDialog('img')">+ Media</button>
           </div>
           <!--forms-->
 

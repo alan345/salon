@@ -10,6 +10,7 @@ import { MdDialog, MdDialogRef} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { User } from './user.model'
+import { Form } from './user.model'
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 
@@ -22,6 +23,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 
 export class SingleUserComponent implements OnInit {
   //fetchedUser = new User()
+  //fetchedUser : User
   fetchedUser = {
     _id: '',
     updatedAt: '',
@@ -71,7 +73,7 @@ export class SingleUserComponent implements OnInit {
     });
 
     this.addAddress();
-    this.addForm();
+
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getUser(params['id'])
     })
@@ -93,10 +95,12 @@ export class SingleUserComponent implements OnInit {
   }
 
   removeForm(i: number) {
+      this.fetchedUser.forms.splice(i, 1)
       const control = <FormArray>this.myForm.controls['forms'];
       control.removeAt(i);
   }
-  addForm() {
+  addForm(form: Form) {
+
     const control = <FormArray>this.myForm.controls['forms'];
     const addrCtrl = this._fb.group({
         _id: ['', Validators.required],
@@ -113,6 +117,7 @@ export class SingleUserComponent implements OnInit {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
+        this.addForm(result)
         this.fetchedUser.forms.push(result)
       }
     })
@@ -138,11 +143,14 @@ export class SingleUserComponent implements OnInit {
 
 
   getUser(id) {
+
     this.userService.getUser(id)
       .subscribe(
         res => {
           this.fetchedUser = res.user
-
+          this.fetchedUser.forms.forEach((form : Form) => {
+            this.addForm(form)
+          })
         },
         error => {
           console.log(error);
