@@ -23,6 +23,7 @@ var companie = new Schema({
   {
     timestamps: true
   });
+  
 
 companie.plugin(mongooseUniqueValidator);
 
