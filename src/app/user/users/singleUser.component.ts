@@ -76,13 +76,14 @@ export class SingleUserComponent implements OnInit {
 
   save(model: FormGroup, isValid: boolean) {
     console.log(model)
-    // this.editOptionsService.updateOptions(model)
-    //   .subscribe(
-    //     res => {
-    //       this.toastr.success('Great!', res.message)
-    //     },
-    //     error => {console.log(error)}
-    //   );
+
+    this.userService.updateUser(model)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+        },
+        error => {console.log(error)}
+      );
     }
 
 

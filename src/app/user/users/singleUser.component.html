@@ -8,15 +8,19 @@
   </h2>
 
   <hr>
-  <h4>id: {{fetchedUser._id}}</h4>
-  <h4>updatedAt: {{fetchedUser.updatedAt}}</h4>
-  <h4>email: {{fetchedUser.email}}</h4>
-  <h4>name: {{fetchedUser.profile.name}}</h4>
-  <h4>hairTexture: {{fetchedUser.profile.hair.hairTexture}}</h4>
 
   <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
     <div class="form-group">
-      <div ngModelGroup="fetchedObj">
+        _id
+        <input
+          type="text"
+          class="form-control"
+          [readonly]="true"
+          name="_id"
+          [(ngModel)]="fetchedUser._id"
+          #name="ngModel"
+        >
+        email
         <input
           type="text"
           class="form-control"
@@ -25,6 +29,37 @@
           [(ngModel)]="fetchedUser.email"
           #name="ngModel"
         >
+        updatedAt
+        <input
+          type="text"
+          class="form-control"
+          [readonly]="true"
+          name="updatedAt"
+          value="{{fetchedUser.updatedAt}}"
+        >
+        <div ngModelGroup="profile">
+          name
+          <input
+            type="text"
+            class="form-control"
+            [readonly]="true"
+            name="name"
+            [(ngModel)]="fetchedUser.profile.name"
+            #name="ngModel"
+          >
+          <div ngModelGroup="hair">
+            hairTexture
+            <input
+              type="text"
+              class="form-control"
+
+              name="hairTexture"
+              [(ngModel)]="fetchedUser.profile.hair.hairTexture"
+              #name="ngModel"
+            >
+          </div>
+        </div>
+
 
         <div ngModelGroup="forms">
           <!-- <div>
@@ -34,19 +69,20 @@
 
 
           <div *ngFor="let form of fetchedUser.forms; let in = index">
-
-              <!-- {{form|json}} -->
-              <input type="hidden"
-                class="form-control"
-                name="_id-{{in}}"
-                [(ngModel)]="form._id"
-                #name="ngModel"
-              >
-              <img width="150" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              <div ngModelGroup="{{in}}">
+                <!-- {{form|json}} -->
+                <input type="hidden"
+                  class="form-control"
+                  name="_id"
+                  [(ngModel)]="form._id"
+                  #name="ngModel"
+                >
+                <img width="150" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              </div>
           </div>
           <button type="button" md-button (click)="openDialog('img')">+ Media</button>
         </div>
-      </div>
+
     </div>
 
 

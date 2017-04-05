@@ -87,7 +87,7 @@ export class UserService {
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
-    return this.http.put(this.url + 'user/' + user._id, body, {headers: headers})
+    return this.http.put(this.url + 'profile/' + user._id, body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
