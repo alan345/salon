@@ -24,7 +24,6 @@ var companie = new Schema({
     timestamps: true
   });
   
-
 companie.plugin(mongooseUniqueValidator);
 
 module.exports = mongoose.model('Companie', companie);
