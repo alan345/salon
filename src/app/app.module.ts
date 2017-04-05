@@ -20,6 +20,15 @@ import {NewProductComponent} from './product/newProduct.component';
 import {SingleProductComponent} from './product/singleProduct.component';
 import {ProductService} from './product/product.service';
 
+
+import {PromotionComponent} from './promotion/promotion.component';
+import {PromotionsComponent} from './promotion/promotions.component';
+import {NewPromotionComponent} from './promotion/newPromotion.component';
+import {SinglePromotionComponent} from './promotion/singlePromotion.component';
+import {PromotionService} from './promotion/promotion.service';
+
+
+
 import {UsersComponent} from './user/users/users.component';
 import {UserService} from './user/user.service';
 
@@ -122,6 +131,13 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SingleProductComponent,
 
 
+    PromotionComponent,
+    PromotionsComponent,
+    NewPromotionComponent,
+    SinglePromotionComponent,
+
+
+
     UserComponent,
     NewUserComponent,
     SingleUserComponent,
@@ -184,6 +200,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     EditOptionsService,
     UserService,
     ProductService,
+    PromotionService,
     AdminGuardService,
     ProfileService,
     {

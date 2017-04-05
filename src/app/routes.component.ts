@@ -12,6 +12,9 @@ import {MainPageComponent} from './mainPage/mainPage.component';
 
 import {CompanieComponent} from './companie/companie.component';
 
+import {PromotionComponent} from './promotion/promotion.component';
+import {USER_PROMOTIONS} from './promotion/promotion.routes';
+
 
 //import {CompanieDetailComponent} from './companie/companieDetail.component';
 //import {EditCompanieComponent} from './companie/editCompanie.component';
@@ -29,6 +32,7 @@ const APP_ROUTES: Routes = [
   {path: '', component: MainPageComponent, pathMatch: 'full'},
   {path: 'companie', component: CompanieComponent, children: USER_COMPANIES},
   {path: 'product', component: ProductComponent, children: USER_PRODUCTS},
+  {path: 'promotion', component: PromotionComponent, children: USER_PROMOTIONS},
 //  {path: 'companie/:id', component: CompanieDetailComponent},
 //  {path: 'companie/edit/:id', component: EditCompanieComponent},
   {path: 'map', component: MapComponent, pathMatch: 'full'},
