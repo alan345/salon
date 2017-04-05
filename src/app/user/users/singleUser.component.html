@@ -67,18 +67,20 @@
           </div> -->
 
 
+          <div>
+            <div *ngFor="let form of fetchedUser.forms; let in = index">
 
-          <div *ngFor="let form of fetchedUser.forms; let in = index">
-              <div ngModelGroup="{{in}}">
-                <!-- {{form|json}} -->
-                <input type="hidden"
-                  class="form-control"
-                  name="_id"
-                  [(ngModel)]="form._id"
-                  #name="ngModel"
-                >
-                <img width="150" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-              </div>
+                <div ngModelGroup="{{in}}">
+                  <!-- {{form|json}} -->
+                  <input type="hidden"
+                    class="form-control"
+                    name="_id"
+                    [(ngModel)]="form._id"
+                    #name="ngModel"
+                  >
+                  <img width="150" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                </div>
+            </div>
           </div>
           <button type="button" md-button (click)="openDialog('img')">+ Media</button>
         </div>
