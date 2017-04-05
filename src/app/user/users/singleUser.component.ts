@@ -123,10 +123,18 @@ export class SingleUserComponent implements OnInit {
     })
   }
 
-  save(model: User) {
-      // call API to save
-      // ...
-      console.log(model);
+  save(form) {
+    let user = form.value
+    console.log(user)
+    // console.log(model);
+    this.userService.updateUser(user)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+        },
+        error => {console.log(error)}
+      );
+    // console.log(model);
   }
   // save(model: FormGroup, isValid: boolean) {
   //   console.log(model)

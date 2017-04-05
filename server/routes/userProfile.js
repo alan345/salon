@@ -218,9 +218,9 @@ router.put('/:id', function (req, res, next) {
       })
     } else {
         item.role = req.body.role;
+        item.email = req.body.email;
         item.profile = req.body.profile;
         item.forms = req.body.forms;
-        console.log(item)
 
         item.save(function (err, result) {
           if (err) {
