@@ -8,7 +8,6 @@ export class CompanieComponent implements OnInit {
 
   constructor() {
   }
-
   ngOnInit() {
   }
 
