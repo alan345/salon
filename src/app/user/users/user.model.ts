@@ -43,21 +43,43 @@
 //
 // }
 
-export class User {
-  constructor(
-    public _id: string,
-    // public email: string,
-    // public role: Array<any>,
-    // public createdAt: string,
-    // public updatedAt: string,
-    // public profilePic: string,
-    //public profile:Profile;
-  ) { }
+// export class User {
+//   constructor(
+//     public _id: string,
+//     // public email: string,
+//     // public role: Array<any>,
+//     // public createdAt: string,
+//     // public updatedAt: string,
+//     // public profilePic: string,
+//     //public profile:Profile;
+//   ) { }
+//
+// }
+//
+// export class Profile {
+//   constructor(
+//     name:string
+//   ){}
+// }
 
+export interface User {
+    name: string;
+    email: string;
+    addresses: Address[];
+    forms: Forms[];
+    porfile: {
+      name:string;
+      hair : {
+        hairTexture:string;
+      }
+    }
 }
 
-export class Profile {
-  constructor(
-    name:string
-  ){}
+export interface Address {
+    street: string;
+    postcode: string;
+}
+
+export interface Forms {
+    _id: string;
 }

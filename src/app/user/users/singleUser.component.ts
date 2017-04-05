@@ -9,9 +9,9 @@ import { Inject, forwardRef} from '@angular/core';
 import { MdDialog, MdDialogRef} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { User} from './user.model'
+import { User } from './user.model'
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
-import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-users',
@@ -41,6 +41,7 @@ export class SingleUserComponent implements OnInit {
     }
   }
 
+  public myForm: FormGroup;
 
   constructor(
     private userService: UserService,
@@ -49,14 +50,50 @@ export class SingleUserComponent implements OnInit {
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute,
+    private _fb: FormBuilder,
   ) {
   }
 
 
   ngOnInit() {
+    this.myForm = this._fb.group({
+        email: ['', [Validators.required, Validators.minLength(5)]],
+        _id: ['', [Validators.required, Validators.minLength(5)]],
+        addresses: this._fb.array([]),
+        profile: this._fb.group({
+            name: ['', [Validators.required, Validators.minLength(5)]],
+            hair: this._fb.group({
+                hairTexture: ['', <any>Validators.required],
+
+            })
+        })
+    });
+
+    // add address
+    this.addAddress();
+
+
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getUser(params['id'])
     })
+  }
+  initAddress() {
+      return this._fb.group({
+          street: ['', Validators.required],
+          postcode: ['']
+      });
+  }
+
+  addAddress() {
+      const control = <FormArray>this.myForm.controls['addresses'];
+      const addrCtrl = this.initAddress();
+
+      control.push(addrCtrl);
+
+      /* subscribe to individual address value changes */
+      // addrCtrl.valueChanges.subscribe(x => {
+      //   console.log(x);
+      // })
   }
 
   goBack() {
@@ -73,18 +110,22 @@ export class SingleUserComponent implements OnInit {
     })
   }
 
-
-  save(model: FormGroup, isValid: boolean) {
-    console.log(model)
-
-    this.userService.updateUser(model)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message)
-        },
-        error => {console.log(error)}
-      );
-    }
+  save(model: User) {
+      // call API to save
+      // ...
+      console.log(model);
+  }
+  // save(model: FormGroup, isValid: boolean) {
+  //   console.log(model)
+  //
+  //   this.userService.updateUser(model)
+  //     .subscribe(
+  //       res => {
+  //         this.toastr.success('Great!', res.message)
+  //       },
+  //       error => {console.log(error)}
+  //     );
+  //   }
 
 
 
