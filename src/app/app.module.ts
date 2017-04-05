@@ -10,6 +10,11 @@ import {UserComponent} from './user/user.component';
 import {NewUserComponent} from './user/users/newUser.component';
 import {SingleUserComponent} from './user/users/singleUser.component';
 
+import {AddressComponent} from './user/plunkr/address.component';
+import {AppComponentPlunkr} from './user/plunkr/app.component';
+
+
+
 
 import {UsersComponent} from './user/users/users.component';
 import {UserService} from './user/user.service';
@@ -105,6 +110,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 @NgModule({
   declarations: [
+    AddressComponent,
+    AppComponentPlunkr,
     AppComponent,
     NavbarComponent,
     FormComponent,

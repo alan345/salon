@@ -11,6 +11,7 @@ import {UserProfileComponent} from './profile/userProfile.component';
 import {ChangePasswordComponent} from './profile/changePassword/changePassword.component';
 import {UsersComponent} from './users/users.component';
 import {SingleUserComponent} from './users/singleUser.component';
+import {AppComponentPlunkr} from './plunkr/app.component';
 
 
 
@@ -19,10 +20,9 @@ import {NewUserComponent} from './users/newUser.component';
 
 
 
-
 export const USER_ROUTES: Routes = [
   {path: '', component: UsersComponent},
-
+  {path: 'plunkr', component: AppComponentPlunkr},
   {path: 'newuser', component: NewUserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
