@@ -7,6 +7,7 @@ var express      = require('express'),
     config       = require('./config/config');
 
 var userRoute    = require('./routes/user');
+var promotionRoute    = require('./routes/promotion');
 var companieRoute    = require('./routes/companie');
 var regionRoute    = require('./routes/region');
 var uploadRoute  = require('./routes/upload');
@@ -43,6 +44,7 @@ app.use(function (req, res, next) {
 
 // setting up routes models
 app.use('/user', userRoute);
+app.use('/promotion', promotionRoute);
 app.use('/profile', userProfile);
 app.use('/companie', companieRoute);
 app.use('/region', regionRoute);

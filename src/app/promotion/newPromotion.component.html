@@ -1,80 +1,92 @@
 
 <div class="container topPadTable">
-
   <h2 class="text-center">
     <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
-    Your Clients
-
+    Client
   </h2>
 
   <hr>
 
-  <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
     <div class="form-group">
-      <div ngModelGroup="fetchedUser">
-        <div ngModelGroup="profile">
-              <label>Name</label>
-              <input
-                type="text"
-                class="form-control"
-                name="name"
-                #name="ngModel"
-                [(ngModel)]="fetchedUser.profile.name"
-                required
-                minlength="5"
-              >
-              <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                    Name is required (minimum 5 characters).
-              </small>
-              <div ngModelGroup="hair">
-                <br><br>
-                <label>Hair texture</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="hairTexture"
-                  #name="ngModel"
-                  [(ngModel)]="fetchedUser.profile.hair.hairTexture"
-                  required
-                  minlength="5"
-                >
-                <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                      Name is required (minimum 5 characters).
-                </small>
-                <br><br>
-                <label>Hair Porosity</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="hairPorosity"
-                  #name="ngModel"
-                  [(ngModel)]="fetchedUser.profile.hair.hairPorosity"
-                  required
-                  minlength="5"
-                >
-                <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                      Name is required (minimum 5 characters).
-                </small>
-                <br><br>
-                <label>Hair Density</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="hairDensity"
-                  #name="ngModel"
-                  [(ngModel)]="fetchedUser.profile.hair.hairDensity"
-                  required
-                  minlength="5"
-                >
-
-              </div>
+      <label>_id</label>
+      <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion._id">
+      <small *ngIf="!myForm.controls._id.valid" class="text-danger">
+           Required (minimum 5 characters).
+      </small>
+    </div>
+    <div class="form-group">
+      <label>email</label>
+      <input type="text" class="form-control" formControlName="email" [(ngModel)]="fetchedPromotion.email">
+      <small *ngIf="!myForm.controls.email.valid" class="text-danger">
+           Required (minimum 5 characters).
+      </small>
+    </div>
+    <div formGroupName="profile">
+      <div class="form-group">
+        <label>name</label>
+        <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedPromotion.profile.name">
+      </div>
+      <div formGroupName="hair">
+        <div class="form-group">
+          <label>hairTexture</label>
+          <input type="text" class="form-control" formControlName="hairTexture" [(ngModel)]="fetchedPromotion.profile.hair.hairTexture">
         </div>
       </div>
     </div>
 
 
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
+    <!--addresses-->
+    <div formArrayName="addresses">
+      <div *ngFor="let address of myForm.controls.addresses.controls; let i=index" class="panel panel-default">
+        <div class="panel-heading">
+          <span>Address {{i + 1}}</span>
+          <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeAddress(i)"></span>
+        </div>
+        <div class="panel-body" [formGroupName]="i">
+          <address [group]="myForm.controls.addresses.controls[i]"></address>
+        </div>
+      </div>
+    </div>
+    <div class="margin-20">
+      <a (click)="addAddress()" style="cursor: default">
+        Add another address +
+      </a>
+    </div>
+    <!--addresses-->
 
+    <br>
+    <br>
+
+    <!--forms-->
+    <div formArrayName="forms">
+      <div *ngFor="let form of myForm.controls.forms.controls; let i=index" class="panel panel-default">
+        <div class="panel-heading">
+          <span>Image {{i + 1}}</span>
+          <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
+        </div>
+        <div class="panel-body" [formGroupName]="i">
+          <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion.forms[i]._id">
+          <img width="150" src="./uploads/forms/{{fetchedPromotion.forms[i].owner}}/{{fetchedPromotion.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+        </div>
+      </div>
+    </div>
+    <div class="margin-20">
+      <button type="button" md-button (click)="openDialog('img')">+ Media</button>
+    </div>
+    <!--forms-->
+
+
+    <div class="margin-20">
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="margin-20">
+      <div>myForm details:-</div>
+      <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
+      <pre>form value: <br>{{myForm.value | json}}</pre>
+    </div>
+  </form>
 
 </div>
