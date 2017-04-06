@@ -72,10 +72,11 @@ export class SinglePromotionComponent implements OnInit {
         })
     });
 
-    this.addAddress();
+    //this.addAddress();
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      this.getPromotion(params['id'])
+      if(params['id'])
+        this.getPromotion(params['id'])
     })
   }
 

@@ -23,7 +23,7 @@ import {ProductService} from './product/product.service';
 
 import {PromotionComponent} from './promotion/promotion.component';
 import {PromotionsComponent} from './promotion/promotions.component';
-import {NewPromotionComponent} from './promotion/newPromotion.component';
+//import {NewPromotionComponent} from './promotion/newPromotion.component';
 import {SinglePromotionComponent} from './promotion/singlePromotion.component';
 import {PromotionService} from './promotion/promotion.service';
 
@@ -133,7 +133,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
     PromotionComponent,
     PromotionsComponent,
-    NewPromotionComponent,
+  //  NewPromotionComponent,
     SinglePromotionComponent,
 
 
