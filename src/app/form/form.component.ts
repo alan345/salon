@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer} from '@angular/core';
+import {Component, OnInit, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer, Input, Output } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import {ToastsManager} from 'ng2-toastr';
 import {Router} from '@angular/router';
@@ -31,6 +31,10 @@ export class FormComponent implements OnInit, AfterViewInit {
   @ViewChild('textOne') textOne: ElementRef;
   @ViewChild('fileInput') fileInput: ElementRef;
 
+
+  @Output() onUploadFinisedChildToParent = new EventEmitter<any>();
+
+
   name: string;
   onClear: EventEmitter<any> = new EventEmitter();
 
@@ -62,6 +66,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   }
   // check if the image is actually an image by checking the mime type
   isImage(file: File): boolean {
+    this.onUploadFinisedChildToParent.emit()
     if (!file.type.match('image/*')) {
       this.toastr.error('Only images are allowed');
       return false;
@@ -142,7 +147,7 @@ export class FormComponent implements OnInit, AfterViewInit {
         this.progress = 0;
         if (xhr.status === 201) {
           //this.router.navigateByUrl('/user/forms');
-          location.reload();
+        //  location.reload();
           this.toastr.success('Form submitted successfully');
         } else if (xhr.status !== 201) {
           this.toastr.error('There was an error!');
@@ -158,6 +163,10 @@ export class FormComponent implements OnInit, AfterViewInit {
     xhr.send(formData);
     console.log(xhr);
   }
+
+
+
+
 }
 
 

@@ -32,4 +32,7 @@ export class UserFormsComponent implements OnInit {
     this.formService.deleteForm(formId)
       .subscribe();
   }
+  onUploadFinisedParentToChild(){
+    console.log("Fisnish2")
+  }
 }

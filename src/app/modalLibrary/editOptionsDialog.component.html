@@ -1,8 +1,5 @@
 
 <md-dialog-content>
-  <app-form></app-form>
-  <app-user-form
-    (onPassForm)="dialogRef.close($event)"
-  >
-  </app-user-form>
+  <app-form (onUploadFinisedChildToParent)="onUploadFinisedChildToParent()"></app-form>
+  <app-user-form (onPassForm)="dialogRef.close($event)"></app-user-form>
 </md-dialog-content>
