@@ -66,7 +66,6 @@ export class FormComponent implements OnInit, AfterViewInit {
   }
   // check if the image is actually an image by checking the mime type
   isImage(file: File): boolean {
-    this.onUploadFinisedChildToParent.emit()
     if (!file.type.match('image/*')) {
       this.toastr.error('Only images are allowed');
       return false;
@@ -148,6 +147,7 @@ export class FormComponent implements OnInit, AfterViewInit {
         if (xhr.status === 201) {
           //this.router.navigateByUrl('/user/forms');
         //  location.reload();
+          this.onUploadFinisedChildToParent.emit()
           this.toastr.success('Form submitted successfully');
         } else if (xhr.status !== 201) {
           this.toastr.error('There was an error!');

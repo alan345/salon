@@ -33,6 +33,6 @@ export class UserFormsComponent implements OnInit {
       .subscribe();
   }
   onUploadFinisedParentToChild(){
-    console.log("Fisnish2")
+    this.ngOnInit()
   }
 }
