@@ -13,6 +13,7 @@ import {SinglePromotionComponent} from './singlePromotion.component';
 
 export const USER_PROMOTIONS: Routes = [
   {path: '', component: PromotionsComponent},
-  {path: 'newpromotion', component: SinglePromotionComponent},
+  {path: 'singlepromotion', component: SinglePromotionComponent},
+  {path: 'singlepromotion/:id', component: SinglePromotionComponent},
   {path: ':id', component: SinglePromotionComponent},
 ];

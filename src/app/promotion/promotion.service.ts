@@ -37,12 +37,14 @@ export class PromotionService {
       });
   }
 
+  //getPromotion(id: string) : Observable<Promotion> {
   getPromotion(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
-    return this.http.get(this.url + 'profile/' + id, {headers: headers})
+    return this.http.get(this.url + 'promotion/' + id, {headers: headers})
       .map((response: Response) => {
-        return response.json();
+        console.log(response.json().item)
+        return response.json().item;
       //  this.singleForm = response.json();
         //return this.singleForm;
       })
@@ -51,6 +53,10 @@ export class PromotionService {
         return Observable.throw(error.json());
       });
   }
+
+
+
+
   deletePromotion(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);

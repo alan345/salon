@@ -10,7 +10,6 @@ import { MdDialog, MdDialogRef} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { Promotion } from './promotion.model'
-import { Form } from './promotion.model'
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 
@@ -23,23 +22,20 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 
 export class SinglePromotionComponent implements OnInit {
   //fetchedPromotion = new Promotion()
-  //fetchedPromotion : Promotion;
+  //fetchedPromotion: Promotion;
+  //fetchedPromotion._id='';
+
+
   fetchedPromotion = {
     _id: '',
-    updatedAt: '',
-    email:'',
-    forms:[{
+    date:{
+      dateBegin:Date,
+      dateEnd:Date,
+    },
+    form:{
       _id:'',
       owner:'',
       imagePath:'',
-    }],
-    profile:{
-      name:'',
-      hair:{
-        hairDensity : '',
-        hairPorosity : '',
-        hairTexture : '',
-      }
     }
   }
 
@@ -59,16 +55,15 @@ export class SinglePromotionComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
-        email: ['', [Validators.required, Validators.minLength(5)]],
-        _id: ['', [Validators.required, Validators.minLength(5)]],
-        addresses: this._fb.array([]),
-        forms: this._fb.array([]),
-        profile: this._fb.group({
-            name: ['', [Validators.required, Validators.minLength(5)]],
-            hair: this._fb.group({
-                hairTexture: ['', <any>Validators.required],
 
-            })
+        _id: ['', [Validators.required, Validators.minLength(5)]],
+        name: ['', [Validators.required, Validators.minLength(5)]],
+        form: this._fb.group({
+          _id: ['', [Validators.required, Validators.minLength(5)]]
+        }),
+        date: this._fb.group({
+            dateBegin: ['', [Validators.required, Validators.minLength(5)]],
+            dateEnd: ['', [Validators.required, Validators.minLength(5)]],
         })
     });
 
@@ -95,19 +90,20 @@ export class SinglePromotionComponent implements OnInit {
     control.push(addrCtrl);
   }
 
-  removeForm(i: number) {
-      this.fetchedPromotion.forms.splice(i, 1)
-      const control = <FormArray>this.myForm.controls['forms'];
-      control.removeAt(i);
-  }
-  addForm(form: Form) {
+  // removeForm(i: number) {
+  //     this.fetchedPromotion.forms.splice(i, 1)
+  //     const control = <FormArray>this.myForm.controls['forms'];
+  //     control.removeAt(i);
+  // }
 
-    const control = <FormArray>this.myForm.controls['forms'];
-    const addrCtrl = this._fb.group({
-        _id: ['', Validators.required],
-    });
-    control.push(addrCtrl);
-  }
+  // addForm(form: Form) {
+  //
+  //   const control = <FormArray>this.myForm.controls['forms'];
+  //   const addrCtrl = this._fb.group({
+  //       _id: ['', Validators.required],
+  //   });
+  //   control.push(addrCtrl);
+  // }
 
 
   goBack() {
@@ -118,8 +114,8 @@ export class SinglePromotionComponent implements OnInit {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        this.addForm(result)
-        this.fetchedPromotion.forms.push(result)
+        // this.addForm(result)
+        // this.fetchedPromotion.forms.push(result)
       }
     })
   }
@@ -156,10 +152,7 @@ export class SinglePromotionComponent implements OnInit {
     this.promotionService.getPromotion(id)
       .subscribe(
         res => {
-          this.fetchedPromotion = res.promotion
-          this.fetchedPromotion.forms.forEach((form : Form) => {
-            this.addForm(form)
-          })
+          this.fetchedPromotion = res
         },
         error => {
           console.log(error);

@@ -3,7 +3,6 @@ var express = require('express'),
     config  = require('../config/config'),
     User    = require('../models/user.model'),
     Promotion    = require('../models/promotion.model'),
-    Companie    = require('../models/companie.model'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
     jwt     = require('jsonwebtoken');
@@ -15,7 +14,7 @@ process.on('uncaughtException', function (err) {
 
 // Checking if user is authenticated or not, security middleware
 router.use('/', function (req, res, next) {
-  var token = req.headers['authorization'];
+  var token = req.headers['authorization']
   jwt.verify(token, config.secret, function (err, decoded) {
     if (err) {
       return res.status(401).json({
@@ -27,7 +26,7 @@ router.use('/', function (req, res, next) {
       return res.status(404).json({
         title: 'Authentication Failed',
         error: {message: 'Authentication failed, malformed jwt'}
-      });
+      })
     }
     if (decoded) {
       User.findById(decoded.user._id, function (err, doc) {
@@ -35,7 +34,7 @@ router.use('/', function (req, res, next) {
           return res.status(500).json({
             message: 'Fetching user failed',
             err: err
-          });
+          })
         }
         if (!doc) {
           return res.status(404).json({
@@ -56,7 +55,7 @@ router.use('/', function (req, res, next) {
 
 //update
 router.put('/:id', function (req, res, next) {
-  Companie.findById(({_id: req.params.id}), function (err, item) {
+  Promotion.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
       return res.status(404).json({
         message: 'No forms found for this user',
@@ -85,8 +84,8 @@ router.put('/:id', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-  var companie = new Companie(req.body);
-  companie.save(function (err, result) {
+  var Promotion = new Promotion(req.body);
+  Promotion.save(function (err, result) {
     if (err) {
       return res.status(403).json({
         title: 'There was an issue',
@@ -152,7 +151,7 @@ router.get('/page/:page', function (req, res, next) {
 
 // getting user forms to display them on front end
 router.get('/:id', function (req, res, next) {
-  Companie
+  Promotion
   .findById({_id: req.params.id})
   .populate('users._user')
   .exec(function (err, item) {
@@ -165,11 +164,10 @@ router.get('/:id', function (req, res, next) {
       res.status(200).json({
         message: 'Success',
         item: item
-      });
+      })
     }
   })
-});
-
+})
 
 router.delete('/:id', function (req, res, next) {
   Promotion.findById((req.params.id), function (err, item) {
