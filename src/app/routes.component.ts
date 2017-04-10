@@ -9,6 +9,9 @@ import {UserComponent} from './user/user.component';
 import {FormComponent} from './form/form.component';
 import {AuthGuardService} from './auth/authguard.service';
 import {MainPageComponent} from './mainPage/mainPage.component';
+import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
+
+
 
 import {CompanieComponent} from './companie/companie.component';
 
@@ -29,7 +32,8 @@ import {ErrorPageComponent} from './errorPage/errorPage.component';
 import {AdminGuardService} from './admin/services/adminGuard';
 
 const APP_ROUTES: Routes = [
-  {path: '', component: MainPageComponent, pathMatch: 'full'},
+  {path: '', component: MainPageHomeComponent, pathMatch: 'full'},
+  {path: 'home2', component: MainPageComponent, pathMatch: 'full'},
   {path: 'companie', component: CompanieComponent, children: USER_COMPANIES},
   {path: 'product', component: ProductComponent, children: USER_PRODUCTS},
   {path: 'promotion', component: PromotionComponent, children: USER_PROMOTIONS},
