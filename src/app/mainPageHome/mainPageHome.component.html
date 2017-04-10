@@ -15,31 +15,30 @@
       <div ngModelGroup="fetchedObj">
         <div ngModelGroup="design">
           <div ngModelGroup="mainPage">
-              <label>imgLeft</label>
-
               <div>
                 <img width="150" src="./uploads/forms/{{fetchedObj.design.mainPage._imgLeft[0].owner}}/{{fetchedObj.design.mainPage._imgLeft[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
-
-              <input type="text" class="form-control"
-                name="_imgLeft" [(ngModel)]="fetchedObj.design.mainPage._imgLeft[0]._id"
-                #name="ngModel" required minlength="5">
-              <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                    Name is required (minimum 5 characters).
-              </small>
-              <button type="button" md-button (click)="openDialog('_imgLeft')">Chose Media</button>
-
+              <div *ngIf="isAdmin()">
+                <input type="text" class="form-control"
+                  name="_imgLeft" [(ngModel)]="fetchedObj.design.mainPage._imgLeft[0]._id"
+                  #name="ngModel" required minlength="5">
+                <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
+                      Name is required (minimum 5 characters).
+                </small>
+                <button type="button" md-button (click)="openDialog('_imgLeft')">Chose Media</button>
+              </div>
 
               <br><br>
-              <label>imgRight</label>
+
               <div>
                 <img width="150" src="./uploads/forms/{{fetchedObj.design.mainPage._imgRight[0].owner}}/{{fetchedObj.design.mainPage._imgRight[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
-
-              <input type="text" class="form-control"
-                name="_imgRight" [(ngModel)]="fetchedObj.design.mainPage._imgRight[0]._id"
-                #name="ngModel" required minlength="5">
-              <button type="button" md-button (click)="openDialog('_imgRight')">Chose Media</button>
+              <div *ngIf="isAdmin()">
+                <input type="text" class="form-control"
+                  name="_imgRight" [(ngModel)]="fetchedObj.design.mainPage._imgRight[0]._id"
+                  #name="ngModel" required minlength="5">
+                <button type="button" md-button (click)="openDialog('_imgRight')">Chose Media</button>
+              </div>
 
           </div>
         </div>
@@ -47,10 +46,10 @@
     </div>
 
 
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button *ngIf="isAdmin()" type="submit" class="btn btn-default">Submit</button>
   </form>
 
-  <div class="margin-20">
+  <div *ngIf="isAdmin()" class="margin-20">
     <div>Form details:</div>
     <pre>Is form valid?: <br>{{f.valid | json}}</pre>
     <pre>Is form submitted?: <br>{{f.submitted | json}}</pre>

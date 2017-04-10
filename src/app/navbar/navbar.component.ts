@@ -32,6 +32,7 @@ export class NavbarComponent implements OnInit {
         );
     }
   }
+  
 
   // check if user is logged in by asking our authentication service, we use this function in html file *ngIf directive
   isLoggedIn() {

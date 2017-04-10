@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { ToastsManager} from 'ng2-toastr';
 import { MdDialog, MdDialogRef} from '@angular/material';
 import { EditOptionsComponentDialog }  from '../modalLibrary/modalLibrary.component';
-
+import { AdminService} from '../admin/services/admin.service';
 
 
 
@@ -38,6 +38,7 @@ export class MainPageHomeComponent implements OnInit {
   }
 
   constructor(
+    private adminService: AdminService,
     private mainPageHomeService: MainPageHomeService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
@@ -59,6 +60,9 @@ export class MainPageHomeComponent implements OnInit {
   //   this.fetchedObj.design.mainPage._imgLeft[0] = obj
   // }
 
+  isAdmin() {
+    return this.adminService.isAdmin();
+  }
 
   ngOnInit() {
     this.mainPageHomeService.getOptions()
