@@ -1,5 +1,5 @@
 <div class="container topPadTable">
-  <h2 class="text-center">Options: Administrator Page</h2>
+  <h3 class="text-center">New! Curl legend : silky </h3>
   <hr>
   <!-- Form Name -->
 
@@ -15,30 +15,30 @@
             <div class="row">
               <div class="col-sm-6">
                 <div>
-                  <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome1[0].owner}}/{{fetchedObj.design.mainPage._imgHome1[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  <a [routerLink]="['/product']" routerLinkActive="active">
+                    <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome1[0].owner}}/{{fetchedObj.design.mainPage._imgHome1[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  </a>
                 </div>
+                <label>Products</label>
                 <div *ngIf="isAdmin()">
                   <input type="hidden" class="form-control"
                     name="_imgHome1" [(ngModel)]="fetchedObj.design.mainPage._imgHome1[0]._id"
                     #name="ngModel" required minlength="5">
-                  <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                        Name is required (minimum 5 characters).
-                  </small>
                   <button type="button" md-button (click)="openDialog('_imgHome1')">Chose Media</button>
                 </div>
               </div>
 
               <div class="col-sm-6">
                 <div>
-                  <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome2[0].owner}}/{{fetchedObj.design.mainPage._imgHome2[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  <a [routerLink]="['/promotion']" routerLinkActive="active">
+                    <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome2[0].owner}}/{{fetchedObj.design.mainPage._imgHome2[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  </a>
                 </div>
+                <label>Promotion</label>
                 <div *ngIf="isAdmin()">
                   <input type="hidden" class="form-control"
                     name="_imgHome2" [(ngModel)]="fetchedObj.design.mainPage._imgHome2[0]._id"
                     #name="ngModel" required minlength="5">
-                  <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                        Name is required (minimum 5 characters).
-                  </small>
                   <button type="button" md-button (click)="openDialog('_imgHome2')">Chose Media</button>
                 </div>
               </div>
@@ -47,30 +47,30 @@
             <div class="row">
               <div class="col-sm-6">
                 <div>
-                  <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome3[0].owner}}/{{fetchedObj.design.mainPage._imgHome3[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  <a [routerLink]="['/social']" routerLinkActive="active">
+                    <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome3[0].owner}}/{{fetchedObj.design.mainPage._imgHome3[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  </a>
                 </div>
+                <label>Social</label>
                 <div *ngIf="isAdmin()">
                   <input type="hidden" class="form-control"
                     name="_imgHome3" [(ngModel)]="fetchedObj.design.mainPage._imgHome3[0]._id"
                     #name="ngModel" required minlength="5">
-                  <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                        Name is required (minimum 5 characters).
-                  </small>
                   <button type="button" md-button (click)="openDialog('_imgHome3')">Chose Media</button>
                 </div>
               </div>
 
               <div class="col-sm-6">
                 <div>
-                  <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome4[0].owner}}/{{fetchedObj.design.mainPage._imgHome4[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  <a [routerLink]="['/press']" routerLinkActive="active">
+                    <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome4[0].owner}}/{{fetchedObj.design.mainPage._imgHome4[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  </a>
                 </div>
+                <label>Press</label>
                 <div *ngIf="isAdmin()">
                   <input type="hidden" class="form-control"
                     name="_imgHome4" [(ngModel)]="fetchedObj.design.mainPage._imgHome4[0]._id"
                     #name="ngModel" required minlength="5">
-                  <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                        Name is required (minimum 5 characters).
-                  </small>
                   <button type="button" md-button (click)="openDialog('_imgHome4')">Chose Media</button>
                 </div>
               </div>
@@ -78,37 +78,37 @@
 
 
 
-                        <div class="row">
-                          <div class="col-sm-6">
-                            <div>
-                              <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome5[0].owner}}/{{fetchedObj.design.mainPage._imgHome5[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                            </div>
-                            <div *ngIf="isAdmin()">
-                              <input type="hidden" class="form-control"
-                                name="_imgHome5" [(ngModel)]="fetchedObj.design.mainPage._imgHome5[0]._id"
-                                #name="ngModel" required minlength="5">
-                              <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                                    Name is required (minimum 5 characters).
-                              </small>
-                              <button type="button" md-button (click)="openDialog('_imgHome5')">Chose Media</button>
-                            </div>
-                          </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div>
+                  <a [routerLink]="['/video']" routerLinkActive="active">
+                    <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome5[0].owner}}/{{fetchedObj.design.mainPage._imgHome5[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  </a>
+                </div>
+                <label>Videos</label>
+                <div *ngIf="isAdmin()">
+                  <input type="hidden" class="form-control"
+                    name="_imgHome5" [(ngModel)]="fetchedObj.design.mainPage._imgHome5[0]._id"
+                    #name="ngModel" required minlength="5">
+                  <button type="button" md-button (click)="openDialog('_imgHome5')">Chose Media</button>
+                </div>
+              </div>
 
-                          <div class="col-sm-6">
-                            <div>
-                              <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome6[0].owner}}/{{fetchedObj.design.mainPage._imgHome6[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                            </div>
-                            <div *ngIf="isAdmin()">
-                              <input type="hidden" class="form-control"
-                                name="_imgHome6" [(ngModel)]="fetchedObj.design.mainPage._imgHome6[0]._id"
-                                #name="ngModel" required minlength="5">
-                              <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                                    Name is required (minimum 5 characters).
-                              </small>
-                              <button type="button" md-button (click)="openDialog('_imgHome6')">Chose Media</button>
-                            </div>
-                          </div>
-                        </div>
+              <div class="col-sm-6">
+                <div>
+                  <a [routerLink]="['/user']" routerLinkActive="active">
+                    <img width="300" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome6[0].owner}}/{{fetchedObj.design.mainPage._imgHome6[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  </a>
+                </div>
+                <label>Client Directory</label>
+                <div *ngIf="isAdmin()">
+                  <input type="hidden" class="form-control"
+                    name="_imgHome6" [(ngModel)]="fetchedObj.design.mainPage._imgHome6[0]._id"
+                    #name="ngModel" required minlength="5">
+                  <button type="button" md-button (click)="openDialog('_imgHome6')">Chose Media</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
