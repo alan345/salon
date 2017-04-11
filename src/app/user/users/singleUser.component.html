@@ -36,27 +36,7 @@
     </div>
 
 
-    <!--addresses-->
-    <div formArrayName="addresses">
-      <div *ngFor="let address of myForm.controls.addresses.controls; let i=index" class="panel panel-default">
-        <div class="panel-heading">
-          <span>Address {{i + 1}}</span>
-          <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeAddress(i)"></span>
-        </div>
-        <div class="panel-body" [formGroupName]="i">
-          <address [group]="myForm.controls.addresses.controls[i]"></address>
-        </div>
-      </div>
-    </div>
-    <div class="margin-20">
-      <a (click)="addAddress()" style="cursor: default">
-        Add another address +
-      </a>
-    </div>
-    <!--addresses-->
 
-    <br>
-    <br>
 
     <!--forms-->
     <div formArrayName="forms">

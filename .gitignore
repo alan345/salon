@@ -7,6 +7,10 @@
 # dependencies
 /node_modules
 
+# media
+/server/upload/forms
+/server/upload/profiles
+
 # IDEs and editors
 /.idea
 .project

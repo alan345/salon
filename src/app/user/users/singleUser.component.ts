@@ -62,7 +62,6 @@ export class SingleUserComponent implements OnInit {
     this.myForm = this._fb.group({
         email: ['', [Validators.required, Validators.minLength(5)]],
         _id: ['', [Validators.required, Validators.minLength(5)]],
-        addresses: this._fb.array([]),
         forms: this._fb.array([]),
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
@@ -73,7 +72,7 @@ export class SingleUserComponent implements OnInit {
         })
     });
 
-    this.addAddress();
+
 
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getUser(params['id'])
@@ -81,19 +80,8 @@ export class SingleUserComponent implements OnInit {
   }
 
 
-  removeAddress(i: number) {
-      const control = <FormArray>this.myForm.controls['addresses'];
-      control.removeAt(i);
-  }
 
-  addAddress() {
-    const control = <FormArray>this.myForm.controls['addresses'];
-    const addrCtrl = this._fb.group({
-        street: ['', Validators.required],
-        postcode: ['']
-    });
-    control.push(addrCtrl);
-  }
+
 
   removeForm(i: number) {
       this.fetchedUser.forms.splice(i, 1)

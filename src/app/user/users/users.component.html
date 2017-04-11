@@ -13,26 +13,20 @@
   <table class="table table-hover table-responsive table-condensed">
     <thead>
     <tr>
-      <th>Image</th>
-      <th>Form ID</th>
-      <th>Text Input One</th>
-      <th>Text Input Two</th>
-      <th>Owner</th>
-      <th>Date Submitted</th>
-      <th>Date Edited</th>
+      <th>Name</th>
+      <th>Last Visit</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of fetchedUsers | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
-      <td class="img-resized">
-        <img class="img-thumbnail img-responsive" src="./uploads/profiles/{{user._id}}/{{user.profilePic}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-      </td>
-      <td>{{user._id }}</td>
-      <td><a [routerLink]="['/user/' + user._id]" routerLinkActive="active">{{user.email}}</a></td>
-      <td>{{user.region_id}}</td>
-      <td>{{user.address}}</td>
+    <tr
+      *ngFor="let user of fetchedUsers | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }"
+      [routerLink]="['/user/' + user._id]" routerLinkActive="active"
+    >
+      <td>{{user.profile.name }}</td>
+
+      <td>{{user.updatedAt}}</td>
 
 
       <td>

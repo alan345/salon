@@ -7,34 +7,17 @@
 
   </h2>
 
-  <hr>
+
 
   <table class="table table-hover table-responsive table-condensed">
-    <thead>
-    <tr>
-      <th>Image</th>
-      <th>Form ID</th>
-      <th>Text Input One</th>
-      <th>Text Input Two</th>
-      <th>Owner</th>
-      <th>Date Submitted</th>
-      <th>Date Edited</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-    </thead>
+
     <tbody>
     <tr *ngFor="let promotion of fetchedPromotions | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
-
       <td class="img-resized">
-
         <img class="img-thumbnail img-responsive" src="./uploads/forms/{{promotion.form[0].owner}}/{{promotion.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
       </td>
-      <td>{{promotion._id }}</td>
+      <!-- <td>{{promotion._id }}</td> -->
       <td><a [routerLink]="['/promotion/' + promotion._id]" routerLinkActive="active">{{promotion.email}}</a></td>
-      <td>{{promotion.region_id}}</td>
-      <td>{{promotion.address}}</td>
-
 
       <td>
 
