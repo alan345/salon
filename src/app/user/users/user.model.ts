@@ -66,6 +66,7 @@
 export interface User {
   name: string;
   email: string;
+  lastVisit: string;
   addresses: Address[];
   forms: Form[];
   porfile: {

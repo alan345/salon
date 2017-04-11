@@ -27,7 +27,7 @@ export class SingleUserComponent implements OnInit {
   //fetchedUser : User;
   fetchedUser = {
     _id: '',
-    updatedAt: '',
+    lastVisit: '',
     email:'',
     forms:[{
       _id:'',
@@ -41,7 +41,12 @@ export class SingleUserComponent implements OnInit {
         hairPorosity : '',
         hairTexture : '',
       }
-    }
+
+    },
+    notes:[{
+      text:'',
+      dateNote: ''
+    }]
   }
 
   public myForm: FormGroup;
@@ -61,6 +66,7 @@ export class SingleUserComponent implements OnInit {
   ngOnInit() {
     this.myForm = this._fb.group({
         email: ['', [Validators.required, Validators.minLength(5)]],
+        lastVisit: [''],
         _id: ['', [Validators.required, Validators.minLength(5)]],
         forms: this._fb.array([]),
         profile: this._fb.group({
@@ -140,7 +146,6 @@ export class SingleUserComponent implements OnInit {
 
 
   getUser(id) {
-
     this.userService.getUser(id)
       .subscribe(
         res => {

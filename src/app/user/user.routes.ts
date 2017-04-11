@@ -11,6 +11,8 @@ import {UserProfileComponent} from './profile/userProfile.component';
 import {ChangePasswordComponent} from './profile/changePassword/changePassword.component';
 import {UsersComponent} from './users/users.component';
 import {SingleUserComponent} from './users/singleUser.component';
+import {AddNoteComponent} from './users/addNote.component';
+
 import {AppComponentPlunkr} from './plunkr/app.component';
 
 
@@ -33,4 +35,5 @@ export const USER_ROUTES: Routes = [
   {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
   {path: 'forms/edit/:id', component: EditUserFormComponent, canActivate: [AuthGuardService]},
   {path: ':id', component: SingleUserComponent},
+  {path: ':id/addnote', component: AddNoteComponent},
 ];

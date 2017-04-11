@@ -217,10 +217,12 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-        item.role = req.body.role;
-        item.email = req.body.email;
-        item.profile = req.body.profile;
-        item.forms = req.body.forms;
+        item.role = req.body.role
+        item.email = req.body.email
+        item.profile = req.body.profile
+        item.forms = req.body.forms
+        item.lastVisit = req.body.lastVisit
+        item.notes = req.body.notes
 
         item.save(function (err, result) {
           if (err) {

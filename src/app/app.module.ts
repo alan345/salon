@@ -9,6 +9,9 @@ import {RegisterComponent} from './user/register/register.component';
 import {UserComponent} from './user/user.component';
 import {NewUserComponent} from './user/users/newUser.component';
 import {SingleUserComponent} from './user/users/singleUser.component';
+import {AddNoteComponent} from './user/users/addNote.component';
+
+
 
 import {AddressComponent} from './user/plunkr/address.component';
 import {AppComponentPlunkr} from './user/plunkr/app.component';
@@ -141,11 +144,13 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SinglePromotionComponent,
 
 
-
+    UsersComponent,
     UserComponent,
     NewUserComponent,
     SingleUserComponent,
-    UsersComponent,
+    AddNoteComponent,
+
+
     RegisterComponent,
     LoginComponent,
     NavbarComponent,

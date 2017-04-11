@@ -15,8 +15,7 @@
     <tr>
       <th>Name</th>
       <th>Last Visit</th>
-      <th>Edit</th>
-      <th>Delete</th>
+
     </tr>
     </thead>
     <tbody>
@@ -25,16 +24,7 @@
       [routerLink]="['/user/' + user._id]" routerLinkActive="active"
     >
       <td>{{user.profile.name }}</td>
-
       <td>{{user.updatedAt}}</td>
-
-
-      <td>
-        <button class="btn-default" (click)="onOpenModal(user._id)"><i class="fa fa-pencil"></i></button>
-      </td>
-      <td>
-        <button class="btn-danger" (click)="onDelete(user._id)"><i class="fa fa-trash"></i></button>
-      </td>
     </tr>
     </tbody>
   </table>
