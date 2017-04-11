@@ -26,6 +26,7 @@ export const USER_ROUTES: Routes = [
   {path: '', component: UsersComponent},
   {path: 'plunkr', component: AppComponentPlunkr},
   {path: 'newuser', component: NewUserComponent},
+  {path: 'newuser/:id', component: NewUserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'reset', component: ForgetPasswordComponent},

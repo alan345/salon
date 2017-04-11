@@ -251,6 +251,7 @@ function makeid() {
 
 // user Create without email. See register
 router.post('/', function (req, res, next) {
+  console.log(req.body)
   let uniqueString = makeid();
   var user = new User({
     email: 'random_' + uniqueString + '@random.com',

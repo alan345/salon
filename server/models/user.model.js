@@ -1,7 +1,7 @@
 var mongoose                = require('mongoose'),
     Schema                  = mongoose.Schema,
     Form                    = require('../models/form.model'),
-    mongooseUniqueValidator = require('mongoose-unique-validator');
+    mongooseUniqueValidator = require('mongoose-unique-validator')
 
 var user = new Schema({
     email: {type: String, unique: true, required: true, lowercase: true},
@@ -18,18 +18,18 @@ var user = new Schema({
     // you might want more user roles, so an array would be fine
     role: {type: Array, default: ['user']},
     profile : {
+      parentUser: [{type: Schema.Types.ObjectId, ref: 'User'}],
       name: String,
       hair : {
         hairDensity : String,
         hairPorosity : String,
-        hairTexture : String,
+        hairTexture : String
       }
     }
-
   },
   {
     timestamps: true
-  });
+  })
 
 user.plugin(mongooseUniqueValidator);
 

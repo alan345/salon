@@ -65,17 +65,17 @@ export class SingleUserComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
-        email: ['', [Validators.required, Validators.minLength(5)]],
+      //  email: ['', [Validators.required, Validators.minLength(5)]],
         lastVisit: [''],
-        _id: ['', [Validators.required, Validators.minLength(5)]],
+    //    _id: ['', [Validators.required, Validators.minLength(5)]],
         forms: this._fb.array([]),
-        profile: this._fb.group({
-            name: ['', [Validators.required, Validators.minLength(5)]],
-            hair: this._fb.group({
-                hairTexture: ['', <any>Validators.required],
-
-            })
-        })
+        // profile: this._fb.group({
+        //     name: ['', [Validators.required, Validators.minLength(5)]],
+        //     hair: this._fb.group({
+        //         hairTexture: ['', <any>Validators.required],
+        //
+        //     })
+        // })
     });
 
 
@@ -99,6 +99,8 @@ export class SingleUserComponent implements OnInit {
     const control = <FormArray>this.myForm.controls['forms'];
     const addrCtrl = this._fb.group({
         _id: ['', Validators.required],
+        owner: ['', Validators.required],
+        imagePath: ['', Validators.required],
     });
     control.push(addrCtrl);
   }
@@ -119,10 +121,14 @@ export class SingleUserComponent implements OnInit {
   }
 
   save(form) {
-    let user = form.value
-    console.log(user)
+    // let user = form.value
+    // console.log(user)
     // console.log(model);
-    this.userService.updateUser(user)
+    this.fetchedUser.forms = form.value.forms
+    this.fetchedUser.notes = form.value.notes
+    this.fetchedUser.lastVisit = form.value.lastVisit
+
+    this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message)

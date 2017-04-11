@@ -70,8 +70,10 @@ export class UserService {
   saveUser(user) {
   //  console.log("this.token",this.token);
   //  delete user._id;
-  //console.log(user)
-    const body = JSON.stringify(user.fetchedUser);
+
+    user.profile.parentUser = this.userId
+    console.log(user)
+    const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
   //  let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
