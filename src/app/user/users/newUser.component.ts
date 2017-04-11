@@ -64,14 +64,14 @@ export class NewUserComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
-
         lastVisit: [''],
         _id: [''],
-
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
             hair: this._fb.group({
                 hairTexture: ['', <any>Validators.required],
+                hairDensity: ['', <any>Validators.required],
+                hairPorosity: ['', <any>Validators.required],
 
             })
         })

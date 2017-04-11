@@ -8,10 +8,10 @@
   <hr>
 
   <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label>_id</label>
       <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser._id">
-    </div>
+    </div> -->
     <!-- <div class="form-group">
       <label>email</label>
       <input type="text" class="form-control" formControlName="email" [(ngModel)]="fetchedUser.email">
@@ -32,6 +32,14 @@
         <div class="form-group">
           <label>hairTexture</label>
           <input type="text" class="form-control" formControlName="hairTexture" [(ngModel)]="fetchedUser.profile.hair.hairTexture">
+        </div>
+        <div class="form-group">
+          <label>hairPorosity</label>
+          <input type="text" class="form-control" formControlName="hairPorosity" [(ngModel)]="fetchedUser.profile.hair.hairPorosity">
+        </div>
+        <div class="form-group">
+          <label>hairDensity</label>
+          <input type="text" class="form-control" formControlName="hairDensity" [(ngModel)]="fetchedUser.profile.hair.hairDensity">
         </div>
       </div>
     </div>
@@ -69,7 +77,7 @@
     </div>
     <button class="btn-default" [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-arrow-right"></i></button> -->
 
-  
+
     <div class="margin-20">
       <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
     </div>
