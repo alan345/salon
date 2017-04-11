@@ -5,8 +5,14 @@ var mongoose                = require('mongoose'),
     mongooseUniqueValidator = require('mongoose-unique-validator');
 
 var promotion = new Schema({
+    name: {type: String},
+    date : {
+      dateBegin: String,
+      dateEnd: String,
+    },
     owner: {type: Schema.Types.ObjectId, ref: 'User'},
     form: {type: Schema.Types.ObjectId, ref: 'Form'},
+
   },
   {
     timestamps: true

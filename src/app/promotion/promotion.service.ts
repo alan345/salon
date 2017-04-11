@@ -76,12 +76,12 @@ export class PromotionService {
   savePromotion(promotion) {
   //  console.log("this.token",this.token);
   //  delete promotion._id;
-  //console.log(promotion)
-    const body = JSON.stringify(promotion.fetchedPromotion);
+  console.log(promotion)
+    const body = JSON.stringify(promotion);
     const headers = new Headers({'Content-Type': 'application/json'});
   //  let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
-    return this.http.post(this.url + 'profile/',body, {headers: headers})
+    return this.http.post(this.url + 'promotion/',body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -93,7 +93,7 @@ export class PromotionService {
     const body = JSON.stringify(promotion);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
-    return this.http.put(this.url + 'profile/' + promotion._id, body, {headers: headers})
+    return this.http.put(this.url + 'promotion/' + promotion._id, body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());

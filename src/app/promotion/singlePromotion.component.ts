@@ -56,7 +56,7 @@ export class SinglePromotionComponent implements OnInit {
   ngOnInit() {
     this.myForm = this._fb.group({
 
-        _id: ['', [Validators.required, Validators.minLength(5)]],
+        _id: [''],
         name: ['', [Validators.required, Validators.minLength(5)]],
         form: this._fb.group({
           _id: ['', [Validators.required, Validators.minLength(5)]]
@@ -123,8 +123,10 @@ export class SinglePromotionComponent implements OnInit {
   save(form) {
     let promotion = form.value
     console.log(promotion)
+    delete(promotion._id)
+    promotion.owner = '58dd6bfc72065a0d2d12ff81'
     // console.log(model);
-    this.promotionService.updatePromotion(promotion)
+    this.promotionService.savePromotion(promotion)
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message)

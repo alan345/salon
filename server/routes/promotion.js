@@ -84,7 +84,18 @@ router.put('/:id', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-  var Promotion = new Promotion(req.body);
+  console.log(req.body)
+  //var Promotion = new Promotion(req.body)
+  var Promotion = new Promotion(
+    {
+      name: '58dd48ae81954008430443a6',
+      form: { _id: '58dd48ae81954008430443a6' },
+      date:
+       { dateBegin: '58dd48ae81954008430443a6',
+         dateEnd: '58dd48ae81954008430443a6' },
+      owner: '58dd6bfc72065a0d2d12ff81' })
+
+
   Promotion.save(function (err, result) {
     if (err) {
       return res.status(403).json({
