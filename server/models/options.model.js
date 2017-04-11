@@ -5,8 +5,12 @@ var mongoose                = require('mongoose'),
 var options = new Schema({
     design: {
       mainPage : {
-        _imgLeft:[{type: Schema.Types.ObjectId, ref: 'Form'}],
-        _imgRight:[{type: Schema.Types.ObjectId, ref: 'Form'}],
+        _imgHome1:[{type: Schema.Types.ObjectId, ref: 'Form'}],
+        _imgHome2:[{type: Schema.Types.ObjectId, ref: 'Form'}],
+        _imgHome3:[{type: Schema.Types.ObjectId, ref: 'Form'}],
+        _imgHome4:[{type: Schema.Types.ObjectId, ref: 'Form'}],
+        _imgHome5:[{type: Schema.Types.ObjectId, ref: 'Form'}],
+        _imgHome6:[{type: Schema.Types.ObjectId, ref: 'Form'}],
       }
     },
   },

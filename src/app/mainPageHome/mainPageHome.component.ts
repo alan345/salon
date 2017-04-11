@@ -17,18 +17,37 @@ export class MainPageHomeComponent implements OnInit {
 
   design = {
     mainPage:{
-      _imgLeft:[{
+      _imgHome1:[{
         _id:'',
         owner:'',
         imagePath:''
       }],
-      _imgRight:[{
+      _imgHome2:[{
         _id:'',
         owner:'',
         imagePath:''
-      }]
-    },
-    imgRight:'',
+      }],
+      _imgHome3:[{
+        _id:'',
+        owner:'',
+        imagePath:''
+      }],
+      _imgHome4:[{
+        _id:'',
+        owner:'',
+        imagePath:''
+      }],
+      _imgHome5:[{
+        _id:'',
+        owner:'',
+        imagePath:''
+      }],
+      _imgHome6:[{
+        _id:'',
+        owner:'',
+        imagePath:''
+      }],
+    }
   };
 
   myForm: FormGroup;

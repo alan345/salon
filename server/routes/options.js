@@ -17,8 +17,12 @@ process.on('uncaughtException', function (err) {
 router.get('/', function (req, res, next) {
   Options
   .findOne()
-  .populate('design.mainPage._imgLeft')
-  .populate('design.mainPage._imgRight')
+  .populate('design.mainPage._imgHome1')
+  .populate('design.mainPage._imgHome2')
+  .populate('design.mainPage._imgHome3')
+  .populate('design.mainPage._imgHome4')
+  .populate('design.mainPage._imgHome5')
+  .populate('design.mainPage._imgHome6')
   .exec(function (err, obj) {
     if (err) {
       return res.status(403).json({

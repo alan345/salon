@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Response, Headers, Http} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
-import {MainPageHome} from './mainPageHome.model';
 import {ToastsManager} from 'ng2-toastr';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -35,7 +34,7 @@ export class MainPageHomeService {
 
   updateOptions(options){
     const body = JSON.stringify(options.fetchedObj);
-    //console.log(body)
+    console.log(body)
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
     return this.http.put(this.url + 'options/' + 'updateoption', body, {headers: headers})
