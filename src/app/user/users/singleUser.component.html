@@ -34,8 +34,8 @@
 
 
     <div class="form-group">
-      <label>lastVisit</label>
-      <input type="text" class="form-control" formControlName="lastVisit" [(ngModel)]="fetchedUser.lastVisit">
+      <label>lastVisit {{fetchedUser.lastVisit}}</label>
+      <input type="date" class="form-control" formControlName="lastVisit" [(ngModel)]="fetchedUser.lastVisit">
     </div>
     <!-- <div formGroupName="profile">
       <div class="form-group">
@@ -83,8 +83,8 @@
       </div>
 
     </div>
-    <button class="btn-default" [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-arrow-right"></i></button>
-
+    <button type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-plus"></i></button>
+    <br>
     <button class="btn-default" [routerLink]="['/user/newuser/' + fetchedUser._id ]" routerLinkActive="active">Edit this user<i class="fa fa-arrow-right"></i></button>
 
     <div class="margin-20">
