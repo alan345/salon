@@ -108,13 +108,11 @@ router.post('/', function (req, res, next) {
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
 
-  var itemsPerPage = 5;
-  var currentPage = Number(req.params.page);
-  var pageNumber = currentPage - 1;
-  var skip = (itemsPerPage * pageNumber);
-  var limit = (itemsPerPage * pageNumber) + itemsPerPage;
-
-
+  var itemsPerPage = 5
+  var currentPage = Number(req.params.page)
+  var pageNumber = currentPage - 1
+  var skip = (itemsPerPage * pageNumber)
+  //var limit = (itemsPerPage * pageNumber) + itemsPerPage
 
   Promotion.find().count((err, totalItems) => {
     if(err)
@@ -123,7 +121,13 @@ router.get('/page/:page', function (req, res, next) {
         Promotion.aggregate(
         [
           { $skip : skip },
-          { $limit : itemsPerPage }
+          { $limit : itemsPerPage },
+          { $lookup: {
+              "from": "forms",
+              "localField": "form",
+              "foreignField": "_id",
+              "as": "form"
+         }},
 
         ], function(err, data) {
              if (err) {
@@ -143,12 +147,9 @@ router.get('/page/:page', function (req, res, next) {
                res.send(jsonOb);
              }
            }
-        );
-
-  });
-
-});
-
+        )
+  })
+})
 
 
 
@@ -157,7 +158,8 @@ router.get('/page/:page', function (req, res, next) {
 router.get('/:id', function (req, res, next) {
   Promotion
   .findById({_id: req.params.id})
-  .populate('users._user')
+  .populate('form')
+  .populate('owner')
   .exec(function (err, item) {
     if (err) {
       return res.status(404).json({

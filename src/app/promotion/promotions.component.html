@@ -1,9 +1,8 @@
 
 <div class="container topPadTable">
-  <h2 class="text-center">Promotions
-
+  <h2 class="text-center">
   <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
-
+  Promotions
   <button class="btn-default" [routerLink]="['/promotion/singlepromotion']" routerLinkActive="active"><i class="fa fa-plus-circle"></i></button>
 
   </h2>
@@ -26,8 +25,10 @@
     </thead>
     <tbody>
     <tr *ngFor="let promotion of fetchedPromotions | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
+
       <td class="img-resized">
-        <img class="img-thumbnail img-responsive" src="./uploads/profiles/{{promotion._id}}/{{promotion.profilePic}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+
+        <img class="img-thumbnail img-responsive" src="./uploads/forms/{{promotion.form[0].owner}}/{{promotion.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
       </td>
       <td>{{promotion._id }}</td>
       <td><a [routerLink]="['/promotion/' + promotion._id]" routerLinkActive="active">{{promotion.email}}</a></td>

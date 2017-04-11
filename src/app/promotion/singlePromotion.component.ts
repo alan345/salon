@@ -29,8 +29,8 @@ export class SinglePromotionComponent implements OnInit {
   fetchedPromotion = {
     _id: '',
     date:{
-      dateBegin:Date,
-      dateEnd:Date,
+      dateBegin:'',
+      dateEnd:'',
     },
     form:{
       _id:'',
@@ -114,8 +114,7 @@ export class SinglePromotionComponent implements OnInit {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        // this.addForm(result)
-        // this.fetchedPromotion.forms.push(result)
+        this.fetchedPromotion.form = result
       }
     })
   }
