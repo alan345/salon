@@ -21,6 +21,7 @@ import { Location }               from '@angular/common';
 })
 export class PromotionsComponent implements OnInit {
   fetchedPromotions : Array<PromotionsComponent> = [];
+  loading: boolean;
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,

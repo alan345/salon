@@ -11,7 +11,7 @@
 
   <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
     <div class="form-group">
-      <div ngModelGroup="fetchedUser">
+      <div ngModelGroup="fetchedProduct">
         <div ngModelGroup="profile">
               <label>Name</label>
               <input
@@ -19,7 +19,7 @@
                 class="form-control"
                 name="name"
                 #name="ngModel"
-                [(ngModel)]="fetchedUser.profile.name"
+                [(ngModel)]="fetchedProduct.profile.name"
                 required
                 minlength="5"
               >
@@ -34,7 +34,7 @@
                   class="form-control"
                   name="hairTexture"
                   #name="ngModel"
-                  [(ngModel)]="fetchedUser.profile.hair.hairTexture"
+                  [(ngModel)]="fetchedProduct.profile.hair.hairTexture"
                   required
                   minlength="5"
                 >
@@ -48,7 +48,7 @@
                   class="form-control"
                   name="hairPorosity"
                   #name="ngModel"
-                  [(ngModel)]="fetchedUser.profile.hair.hairPorosity"
+                  [(ngModel)]="fetchedProduct.profile.hair.hairPorosity"
                   required
                   minlength="5"
                 >
@@ -62,7 +62,7 @@
                   class="form-control"
                   name="hairDensity"
                   #name="ngModel"
-                  [(ngModel)]="fetchedUser.profile.hair.hairDensity"
+                  [(ngModel)]="fetchedProduct.profile.hair.hairDensity"
                   required
                   minlength="5"
                 >

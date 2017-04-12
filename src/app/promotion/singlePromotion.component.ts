@@ -32,6 +32,7 @@ export class SinglePromotionComponent implements OnInit {
       dateBegin:'',
       dateEnd:'',
     },
+    name:'',
     form:{
       _id:'',
       owner:'',

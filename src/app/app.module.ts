@@ -13,9 +13,6 @@ import {AddNoteComponent} from './user/users/addNote.component';
 
 
 
-import {AddressComponent} from './user/plunkr/address.component';
-import {AppComponentPlunkr} from './user/plunkr/app.component';
-
 
 import {ProductComponent} from './product/product.component';
 import {ProductsComponent} from './product/products.component';
@@ -126,8 +123,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 @NgModule({
   declarations: [
-    AddressComponent,
-    AppComponentPlunkr,
     AppComponent,
     NavbarComponent,
     FormComponent,
