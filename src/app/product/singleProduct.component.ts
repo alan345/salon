@@ -21,6 +21,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 
 })
 
+
 export class SingleProductComponent implements OnInit {
   //fetchedProduct = new Product()
   //fetchedProduct : Product;
@@ -61,7 +62,7 @@ export class SingleProductComponent implements OnInit {
     this.myForm = this._fb.group({
         email: ['', [Validators.required, Validators.minLength(5)]],
         _id: ['', [Validators.required, Validators.minLength(5)]],
-        addresses: this._fb.array([]),
+
         forms: this._fb.array([]),
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
@@ -72,7 +73,7 @@ export class SingleProductComponent implements OnInit {
         })
     });
 
-    this.addAddress();
+
 
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getProduct(params['id'])

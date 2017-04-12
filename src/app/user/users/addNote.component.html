@@ -10,10 +10,10 @@
   <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
     <div class="form-group">
       <label>note</label>
-      <input type="textarea" class="form-control" formControlName="text" [(ngModel)]="newTextNote">
-      <small *ngIf="!myForm.controls.text.valid" class="text-danger">
+      <input type="textarea" class="form-control" formControlName="newTextNote" [(ngModel)]="newTextNote">
+      <!-- <small *ngIf="!myForm.controls.newTextNote.valid" class="text-danger">
            Required (minimum 5 characters).
-      </small>
+      </small> -->
     </div>
 
     <div class="margin-20">

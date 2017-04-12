@@ -53,9 +53,10 @@
 
 
 
+
     <!--forms-->
     <div formArrayName="forms">
-      <div *ngFor="let form of myForm.controls.forms.controls; let i=index" class="panel panel-default">
+      <div *ngFor="let form of getTasks(myForm); let i=index" class="panel panel-default">
         <div class="panel-heading">
           <span>Image {{i + 1}}</span>
           <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>

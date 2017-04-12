@@ -46,7 +46,7 @@ export class AddNoteComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
-        text: ['', [Validators.required, Validators.minLength(5)]],
+        newTextNote: ['', [Validators.required, Validators.minLength(5)]],
     });
 
 
@@ -89,7 +89,7 @@ export class AddNoteComponent implements OnInit {
   //     );
   //   // console.log(model);
   // }
-  save(model: FormGroup, isValid: boolean) {
+  save(model: FormGroup) {
     this.fetchedUser.notes.push({
       text : model.value.text,
       dateNote: Date.now()

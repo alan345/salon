@@ -21,6 +21,7 @@ import { Location }               from '@angular/common';
 })
 export class ProductsComponent implements OnInit {
   fetchedProducts : Array<ProductsComponent> = [];
+  loading: boolean
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,

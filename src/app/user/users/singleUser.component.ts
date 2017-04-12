@@ -51,6 +51,7 @@ export class SingleUserComponent implements OnInit {
 
   public myForm: FormGroup;
 
+
   constructor(
     private userService: UserService,
     private toastr: ToastsManager,
@@ -62,13 +63,22 @@ export class SingleUserComponent implements OnInit {
   ) {
   }
 
+  getTasks(jobForm){
+     return jobForm.get('forms').controls
+   }
 
   ngOnInit() {
     this.myForm = this._fb.group({
       //  email: ['', [Validators.required, Validators.minLength(5)]],
         lastVisit: [''],
     //    _id: ['', [Validators.required, Validators.minLength(5)]],
-        forms: this._fb.array([]),
+        forms: this._fb.array([
+          // {
+          //   _id:[''],
+          //   owner:[''],
+          //   imagePath:['']
+          // }
+        ]),
         // profile: this._fb.group({
         //     name: ['', [Validators.required, Validators.minLength(5)]],
         //     hair: this._fb.group({
