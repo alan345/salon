@@ -123,30 +123,27 @@ export class PressSingleComponent implements OnInit {
   }
 
   save(press) {
-
-    delete(press._id)
-    press.owner = '58dd6bfc72065a0d2d12ff81'
-    // console.log(model);
-    this.pressService.savePress(press)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message)
-        },
-        error => {console.log(error)}
-      );
-    // console.log(model);
+    if(press._id) {
+      this.pressService.updatePress(press)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+          },
+          error => {console.log(error)}
+        );
+    } else {
+      // press.owner = '58dd6bfc72065a0d2d12ff81'
+      // // console.log(model);
+      this.pressService.savePress(press)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+          },
+          error => {console.log(error)}
+        );
+    }
   }
-  // save(model: FormGroup, isValid: boolean) {
-  //   console.log(model)
-  //
-  //   this.pressService.updatePress(model)
-  //     .subscribe(
-  //       res => {
-  //         this.toastr.success('Great!', res.message)
-  //       },
-  //       error => {console.log(error)}
-  //     );
-  //   }
+
 
 
 

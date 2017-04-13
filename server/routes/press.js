@@ -62,9 +62,11 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-        item.address = req.body.address
-        item.text = req.body.text
-        item.region_id = req.body.region_id
+      console.log(req.body)
+        item.title = req.body.title
+        item.link = req.body.link
+        item.formPDF = req.body.formPDF
+        item.form = req.body.form
 
         item.save(function (err, result) {
           if (err) {
@@ -74,7 +76,7 @@ router.put('/:id', function (req, res, next) {
             })
           }
           res.status(201).json({
-            message: 'Profile picture uploaded successfully',
+            message: 'Updated successfully',
             obj: result
           })
         })
