@@ -90,7 +90,7 @@ var upload = multer({
     parts: 3
   },
   fileFilter: function (req, file, cb) {
-    var filetypes = /jpe?g|png/;
+    var filetypes = /jpe?g|png|pdf/
     var mimetype  = filetypes.test(file.mimetype);
     var extname   = filetypes.test(path.extname(file.originalname).toLowerCase());
     if (mimetype && extname) {
@@ -145,7 +145,7 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
     form.save(function (err, result) {
       if (err) {
         return res.status(404).json({
-          message: 'There was an error, please try again',
+          message: 'There was an error, please try again2',
           err: err
         });
       }
@@ -226,5 +226,3 @@ router.patch('/edit/:id', upload.single('fileUp'), function (req, res, err) {
 });
 
 module.exports = router;
-
-

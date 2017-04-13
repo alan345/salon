@@ -1,29 +1,29 @@
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {USER_ROUTES} from './user/user.routes';
-import {USER_COMPANIES} from './companie/companie.routes';
+
 
 
 import {ADMIN_ROUTES} from './admin/admin.routes';
 import {UserComponent} from './user/user.component';
 import {FormComponent} from './form/form.component';
 import {AuthGuardService} from './auth/authguard.service';
+
 import {MainPageComponent} from './mainPage/mainPage.component';
 import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 
 
-
+import {USER_COMPANIES} from './companie/companie.routes';
 import {CompanieComponent} from './companie/companie.component';
 
-import {PromotionComponent} from './promotion/promotion.component';
 import {USER_PROMOTIONS} from './promotion/promotion.routes';
+import {PromotionComponent} from './promotion/promotion.component';
 
+import {USER_PRESSES} from './press/press.routes';
+import {PressComponent} from './press/press.component';
 
-//import {CompanieDetailComponent} from './companie/companieDetail.component';
-//import {EditCompanieComponent} from './companie/editCompanie.component';
-
-import {ProductComponent} from './product/product.component';
 import {USER_PRODUCTS} from './product/product.routes';
+import {ProductComponent} from './product/product.component';
 
 import {MapComponent} from './map/map.component';
 
@@ -35,6 +35,7 @@ const APP_ROUTES: Routes = [
   {path: '', component: MainPageHomeComponent, pathMatch: 'full'},
   {path: 'home2', component: MainPageComponent, pathMatch: 'full'},
   {path: 'companie', component: CompanieComponent, children: USER_COMPANIES},
+  {path: 'press', component: PressComponent, children: USER_PRESSES},
   {path: 'product', component: ProductComponent, children: USER_PRODUCTS},
   {path: 'promotion', component: PromotionComponent, children: USER_PROMOTIONS},
 //  {path: 'companie/:id', component: CompanieDetailComponent},

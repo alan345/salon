@@ -66,7 +66,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   }
   // check if the image is actually an image by checking the mime type
   isImage(file: File): boolean {
-    if (!file.type.match('image/*')) {
+    if (!file.type.match('image/*') && !file.type.match('application/pdf')) {
       this.toastr.error('Only images are allowed');
       return false;
     }

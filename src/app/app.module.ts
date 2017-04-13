@@ -22,6 +22,13 @@ import {SingleProductComponent} from './product/singleProduct.component';
 import {ProductService} from './product/product.service';
 
 
+import {PressComponent} from './press/press.component';
+import {PressesComponent} from './press/presses.component';
+import {PressSingleComponent} from './press/pressSingle.component';
+import {PressService} from './press/press.service';
+
+
+
 import {PromotionComponent} from './promotion/promotion.component';
 import {PromotionsComponent} from './promotion/promotions.component';
 //import {NewPromotionComponent} from './promotion/newPromotion.component';
@@ -136,6 +143,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SingleProductComponent,
 
 
+    PressComponent,
+    PressesComponent,
+    PressSingleComponent,
+
+
     PromotionComponent,
     PromotionsComponent,
   //  NewPromotionComponent,
@@ -205,6 +217,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CompanieService,
     MainPageHomeService,
     RegionService,
+    PressService,
     FormService,
     AdminService,
     EditOptionsService,
