@@ -28,15 +28,16 @@ export class PressSingleComponent implements OnInit {
 
   fetchedPress = {
     _id: '',
-    date:{
-      dateBegin:'',
-      dateEnd:'',
+    title: '',
+    link: '',
+    formPDF: {
+      _id:''
     },
-    name:'',
-    form:{
-      _id:'',
-      owner:'',
-      imagePath:'',
+    form: {
+      _id:''
+    },
+    owner: {
+      _id:''
     }
   }
 
@@ -58,14 +59,15 @@ export class PressSingleComponent implements OnInit {
     this.myForm = this._fb.group({
 
         _id: [''],
-        name: ['', [Validators.required, Validators.minLength(5)]],
+        title: ['', [Validators.required, Validators.minLength(5)]],
+        link: [''],
+        formPDF: this._fb.group({
+          _id: ['', [Validators.required, Validators.minLength(5)]]
+        }),
         form: this._fb.group({
           _id: ['', [Validators.required, Validators.minLength(5)]]
         }),
-        date: this._fb.group({
-            dateBegin: ['', [Validators.required, Validators.minLength(5)]],
-            dateEnd: ['', [Validators.required, Validators.minLength(5)]],
-        })
+
     });
 
     //this.addAddress();
@@ -120,9 +122,8 @@ export class PressSingleComponent implements OnInit {
     })
   }
 
-  save(form) {
-    let press = form.value
-    console.log(press)
+  save(press) {
+
     delete(press._id)
     press.owner = '58dd6bfc72065a0d2d12ff81'
     // console.log(model);

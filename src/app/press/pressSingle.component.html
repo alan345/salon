@@ -7,15 +7,20 @@
 
   <hr>
 
-  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
     <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedPress._id">
     <div class="form-group">
-      <label>name</label>
-      <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedPress.name">
-      <!-- <small *ngIf="!myForm.controls.name.valid" class="text-danger">
+      <label>title</label>
+      <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedPress.title">
+      <!-- <small *ngIf="!myForm.get('fetchedPress.title').valid" class="text-danger">
            Required (minimum 5 characters).
       </small> -->
     </div>
+    <div class="form-group">
+      <label>link</label>
+      <input type="text" class="form-control" formControlName="link" [(ngModel)]="fetchedPress.link">
+    </div>
+
     <div formGroupName="form">
       <div class="form-group">
         <label>_idPic</label>
@@ -26,14 +31,14 @@
         </div>
       </div>
     </div>
-    <div formGroupName="date">
+    <div formGroupName="formPDF">
       <div class="form-group">
-        <label>dateBegin</label>
-        <input type="text" class="form-control" formControlName="dateBegin" [(ngModel)]="fetchedPress.date.dateBegin">
-      </div>
-      <div class="form-group">
-        <label>dateEnd</label>
-        <input type="text" class="form-control" formControlName="dateEnd" [(ngModel)]="fetchedPress.date.dateEnd">
+        <label>_idPic</label>
+        <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedPress.formPDF._id">
+        <img width="150" src="./uploads/forms/{{fetchedPress.formPDF.owner}}/{{fetchedPress.formPDF.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+        <div class="margin-20">
+          <button type="button" md-button (click)="openDialog('img')">+ Media</button>
+        </div>
       </div>
     </div>
 

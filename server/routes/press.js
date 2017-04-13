@@ -5,12 +5,12 @@ var express = require('express'),
     Press    = require('../models/press.model'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
-    jwt     = require('jsonwebtoken');
+    jwt     = require('jsonwebtoken')
 
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function (err) {
-  console.log(err);
-});
+  console.log(err)
+})
 
 // Checking if user is authenticated or not, security middleware
 router.use('/', function (req, res, next) {
@@ -43,13 +43,13 @@ router.use('/', function (req, res, next) {
           })
         }
         if (doc) {
-          req.user = doc;
-          next();
+          req.user = doc
+          next()
         }
       })
     }
   })
-});
+})
 
 
 
@@ -62,26 +62,26 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-        item.address = req.body.address;
-        item.text = req.body.text;
-        item.region_id = req.body.region_id;
+        item.address = req.body.address
+        item.text = req.body.text
+        item.region_id = req.body.region_id
 
         item.save(function (err, result) {
           if (err) {
             return res.status(404).json({
               message: 'There was an error, please try again',
               err: err
-            });
+            })
           }
           res.status(201).json({
             message: 'Profile picture uploaded successfully',
             obj: result
-          });
-        });
+          })
+        })
 
     }
   })
-});
+})
 
 router.post('/', function (req, res, next) {
   console.log(req.body)
@@ -91,17 +91,18 @@ router.post('/', function (req, res, next) {
 
   press.save(function (err, result) {
     if (err) {
+      console.log(err)
       return res.status(403).json({
         title: 'There was an issue',
-        error: {message: 'The email you entered already exists'}
-      });
+        error: {message: 'Error'}
+      })
     }
     res.status(200).json({
       message: 'Registration Successfull',
       obj: result
     })
   })
-});
+})
 
 
 
@@ -116,7 +117,7 @@ router.get('/page/:page', function (req, res, next) {
 
   Press.find().count((err, totalItems) => {
     if(err)
-      res.send(err);
+      res.send(err)
     else
         Press.aggregate(
         [
@@ -131,7 +132,7 @@ router.get('/page/:page', function (req, res, next) {
 
         ], function(err, data) {
              if (err) {
-               res.send(err);
+               res.send(err)
              }
              else {
                var jsonOb =
@@ -142,9 +143,9 @@ router.get('/page/:page', function (req, res, next) {
                     "itemsPerPage" : itemsPerPage
                   },
                   "data": data
-                };
+                }
 
-               res.send(jsonOb);
+               res.send(jsonOb)
              }
            }
         )
@@ -187,7 +188,7 @@ router.delete('/:id', function (req, res, next) {
       return res.status(404).json({
         title: 'No form found',
         error: {message: 'Form not found!'}
-      });
+      })
     }
 
 
@@ -197,15 +198,15 @@ router.delete('/:id', function (req, res, next) {
         return res.status(500).json({
           title: 'An error occured',
           error: err
-        });
+        })
       }
       res.status(200).json({
         message: 'Item is deleted',
         obj: result
-      });
+      })
     })
-  });
-});
+  })
+})
 
 
 // retrieving a single form
@@ -221,19 +222,19 @@ router.get('/edit/:id', function (req, res, next) {
       return res.status(404).json({
         title: 'No form found',
         error: {message: 'Form not found!'}
-      });
+      })
     }
     // checking if the owner of the form is correct
     if (form.owner != req.user._id.toString()) {
       return res.status(401).json({
         title: 'Not your form!',
         error: {message: 'Users do not match, not your form'}
-      });
+      })
     }
     res.status(200).json({
       obj: form
-    });
-  });
-});
+    })
+  })
+})
 
-module.exports = router;
+module.exports = router
