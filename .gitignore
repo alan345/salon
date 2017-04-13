@@ -8,8 +8,8 @@
 /node_modules
 
 # media
-/server/upload/forms
-/server/upload/profiles
+/server/uploads/forms
+/server/uploads/profiles
 
 # IDEs and editors
 /.idea

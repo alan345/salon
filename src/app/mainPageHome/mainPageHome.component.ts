@@ -69,8 +69,27 @@ export class MainPageHomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.fetchedObj.design.mainPage[positionImage][0] = result
+        this.saveAuto()
       }
     })
+  }
+  save(model: FormGroup, isValid: boolean) {
+    // this.mainPageHomeService.updateOptions(model)
+    //   .subscribe(
+    //     res => {
+    //       this.toastr.success('Great!', res.message)
+    //     },
+    //     error => {console.log(error)}
+    //   )
+  }
+  saveAuto(){
+    this.mainPageHomeService.updateOptions(this.fetchedObj)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+        },
+        error => {console.log(error)}
+      )
   }
 
   // onPassForm(obj) {
@@ -92,13 +111,5 @@ export class MainPageHomeComponent implements OnInit {
   }
 
 
-  save(model: FormGroup, isValid: boolean) {
-    this.mainPageHomeService.updateOptions(model)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message)
-        },
-        error => {console.log(error)}
-      );
-    }
+
 }

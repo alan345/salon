@@ -113,18 +113,53 @@ router.get('/pureOptions', function (req, res, next) {
 
 
 
-//
 // {
 //     "_id": {
 //         "$oid": "58dd4ad1734d1d01a23880fa"
 //     },
 //     "design": {
 //         "mainPage": {
-//             "_imgLeft": "58dd48ae81954008430443a6",
-//             "_imgRight": "58dd48ae81954008430443a6"
+//             "_imgHome1": [
+//                 {
+//                     "$oid": "58f0041f09fd3658afac7cd2"
+//                 }
+//             ],
+//             "_imgHome2": [
+//                 {
+//                     "$oid": "58f0040b09fd3658afac7cd1"
+//                 }
+//             ],
+//             "_imgHome3": [
+//                 {
+//                     "$oid": "58f0043c09fd3658afac7cd3"
+//                 }
+//             ],
+//             "_imgHome4": [
+//                 {
+//                     "$oid": "58f0045209fd3658afac7cd4"
+//                 }
+//             ],
+//             "_imgHome5": [
+//                 {
+//                     "$oid": "58f0046609fd3658afac7cd5"
+//                 }
+//             ],
+//             "_imgHome6": [
+//                 {
+//                     "$oid": "58f0047809fd3658afac7cd6"
+//                 }
+//             ]
 //         }
+//     },
+//     "createdAt": {
+//         "$date": "2017-04-13T23:26:33.751Z"
+//     },
+//     "updatedAt": {
+//         "$date": "2017-04-13T23:26:33.751Z"
 //     }
 // }
+
+
 
 //update
 router.put('/updateoption', function (req, res, next) {

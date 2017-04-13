@@ -33,7 +33,7 @@ export class MainPageHomeService {
   }
 
   updateOptions(options){
-    const body = JSON.stringify(options.fetchedObj);
+    const body = JSON.stringify(options);
     console.log(body)
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
