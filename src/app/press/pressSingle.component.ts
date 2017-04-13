@@ -57,41 +57,35 @@ export class PressSingleComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
-
-        _id: [''],
-        title: ['', [Validators.required, Validators.minLength(5)]],
-        link: [''],
-        formPDF: this._fb.group({
-          _id: ['', [Validators.required, Validators.minLength(5)]]
-        }),
-        form: this._fb.group({
-          _id: ['', [Validators.required, Validators.minLength(5)]]
-        }),
-
+      _id: [''],
+      title: ['', [Validators.required, Validators.minLength(5)]],
+      link: [''],
+      formPDF: ['', [Validators.required, Validators.minLength(5)]],
+      form: ['', [Validators.required, Validators.minLength(5)]]
     });
 
     //this.addAddress();
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id'])
-        this.getPress(params['id'])
+       this.getPress(params['id'])
     })
   }
 
 
-  removeAddress(i: number) {
-      const control = <FormArray>this.myForm.controls['addresses'];
-      control.removeAt(i);
-  }
-
-  addAddress() {
-    const control = <FormArray>this.myForm.controls['addresses'];
-    const addrCtrl = this._fb.group({
-        street: ['', Validators.required],
-        postcode: ['']
-    });
-    control.push(addrCtrl);
-  }
+  // removeAddress(i: number) {
+  //     const control = <FormArray>this.myForm.controls['addresses'];
+  //     control.removeAt(i);
+  // }
+  //
+  // addAddress() {
+  //   const control = <FormArray>this.myForm.controls['addresses'];
+  //   const addrCtrl = this._fb.group({
+  //       street: ['', Validators.required],
+  //       postcode: ['']
+  //   });
+  //   control.push(addrCtrl);
+  // }
 
   // removeForm(i: number) {
   //     this.fetchedPress.forms.splice(i, 1)
@@ -114,10 +108,17 @@ export class PressSingleComponent implements OnInit {
   }
 
   openDialog(positionImage) {
-    let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+    let dialogRef = this.dialog.open(EditOptionsComponentDialog)
+
+
+
+
+    //    this.fetchedObj.design.mainPage[positionImage][0] = result
+
+
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        this.fetchedPress.form = result
+        this.fetchedPress[positionImage] = result
       }
     })
   }

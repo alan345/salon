@@ -76,10 +76,10 @@ export class PressService {
   savePress(press) {
   //  console.log("this.token",this.token);
   //  delete press._id;
+  delete press._id
   console.log(press)
     const body = JSON.stringify(press);
     const headers = new Headers({'Content-Type': 'application/json'});
-  //  let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
     return this.http.post(this.url + 'press/',body, {headers: headers})
       .map(response => response.json())

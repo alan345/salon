@@ -8,7 +8,7 @@
   <hr>
 
   <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
-    <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedPress._id">
+    <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPress._id">
     <div class="form-group">
       <label>title</label>
       <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedPress.title">
@@ -21,26 +21,26 @@
       <input type="text" class="form-control" formControlName="link" [(ngModel)]="fetchedPress.link">
     </div>
 
-    <div formGroupName="form">
+
       <div class="form-group">
         <label>_idPic</label>
-        <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedPress.form._id">
+        <input type="text" class="form-control" formControlName="form" [(ngModel)]="fetchedPress.form._id">
         <img width="150" src="./uploads/forms/{{fetchedPress.form.owner}}/{{fetchedPress.form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
         <div class="margin-20">
-          <button type="button" md-button (click)="openDialog('img')">+ Media</button>
+          <button type="button" md-button (click)="openDialog('form')">+ Media</button>
         </div>
       </div>
-    </div>
-    <div formGroupName="formPDF">
+
       <div class="form-group">
-        <label>_idPic</label>
-        <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedPress.formPDF._id">
-        <img width="150" src="./uploads/forms/{{fetchedPress.formPDF.owner}}/{{fetchedPress.formPDF.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+        <label>PDF</label>
+        <input type="text" class="form-control" formControlName="formPDF" [(ngModel)]="fetchedPress.formPDF._id">
+        <a *ngIf="fetchedPress.formPDF.owner" target="_blank" href="./uploads/forms/{{fetchedPress.formPDF.owner}}/{{fetchedPress.formPDF.imagePath}}">
+          <img width="150" src="assets/images/pdf.ico" onerror="this.src ='assets/images/no-image-found.jpg'">
+        </a>
         <div class="margin-20">
-          <button type="button" md-button (click)="openDialog('img')">+ Media</button>
+          <button type="button" md-button (click)="openDialog('formPDF')">+ Media</button>
         </div>
       </div>
-    </div>
 
 
     <br>

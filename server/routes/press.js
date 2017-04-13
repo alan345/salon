@@ -162,6 +162,7 @@ router.get('/:id', function (req, res, next) {
   Press
   .findById({_id: req.params.id})
   .populate('form')
+  .populate('formPDF')
   .populate('owner')
   .exec(function (err, item) {
     if (err) {

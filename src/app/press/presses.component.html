@@ -3,30 +3,28 @@
   <h2 class="text-center">
   <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
   Presses
-  <button class="btn-default" [routerLink]="['/press/singlepress']" routerLinkActive="active"><i class="fa fa-plus-circle"></i></button>
+  <button class="btn-default" [routerLink]="['/press/pressSingle']" routerLinkActive="active"><i class="fa fa-plus-circle"></i></button>
 
   </h2>
 
 
 
   <table class="table table-hover table-responsive table-condensed">
-
     <tbody>
-    <tr *ngFor="let press of fetchedPresses | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
-      <td class="img-resized">
-        <img class="img-thumbnail img-responsive" src="./uploads/forms/{{press.form[0].owner}}/{{press.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-      </td>
-      <!-- <td>{{press._id }}</td> -->
-      <td><a [routerLink]="['/press/' + press._id]" routerLinkActive="active">{{press.email}}</a></td>
+      <tr *ngFor="let press of fetchedPresses | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
+        <td class="img-resized">
+          <img class="img-thumbnail img-responsive" src="./uploads/forms/{{press.form[0].owner}}/{{press.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+        </td>
+        <!-- <td>{{press._id }}</td> -->
+        <td><a [routerLink]="['/press/' + press._id]" routerLinkActive="active">{{press.email}}</a></td>
 
-      <td>
-
-        <button class="btn-default" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
-      </td>
-      <td>
-        <button class="btn-danger" (click)="onDelete(press._id)"><i class="fa fa-trash"></i></button>
-      </td>
-    </tr>
+        <td>
+          <button class="btn-default" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
+        </td>
+        <td>
+          <button class="btn-danger" (click)="onDelete(press._id)"><i class="fa fa-trash"></i></button>
+        </td>
+      </tr>
     </tbody>
   </table>
   <div class="has-text-centered">
