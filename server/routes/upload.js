@@ -126,16 +126,16 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
     // resize middleware, just change 400 to whatever you like, the null parameter maintains aspect ratio, if you want exact dimensions replace null with a height number as you wish
 
 //Gooplus
-    gm(req.file.path)
-      .resize(400, null)
-      .noProfile()
-      .write(req.file.path, function (err) {
-        if (err) {
-          console.log(err);
-          fs.unlink(req.file.path);
-          // });// this will result a 404 when frontend tries to access the image, I ll provide a fix soon
-        }
-      });
+    // gm(req.file.path)
+    //   .resize(400, null)
+    //   .noProfile()
+    //   .write(req.file.path, function (err) {
+    //     if (err) {
+    //       console.log(err);
+    //       fs.unlink(req.file.path);
+    //       // });// this will result a 404 when frontend tries to access the image, I ll provide a fix soon
+    //     }
+    //   });
 //Gooplus
 
     var form = new Form({
