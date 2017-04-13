@@ -1,0 +1,45 @@
+
+<div class="container topPadTable">
+  <h2 class="text-center">
+    <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
+    AddNote
+  </h2>
+
+  <hr>
+
+
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm, myForm.valid)">
+    <div formGroupName="newDate">
+      <h3>Last Appointment</h3>
+      <div class="form-group">
+        <label>Month</label>
+        <input type="textarea" class="form-control" formControlName="monthNewDate" [(ngModel)]="monthNewDate">
+        <small class="text-danger" [hidden]="myForm.get('newDate.monthNewDate').valid">
+            Name is required (minimum 5 characters).
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Day</label>
+        <input type="textarea" class="form-control" formControlName="dayNewDate" [(ngModel)]="dayNewDate">
+        <small class="text-danger" [hidden]="myForm.get('newDate.dayNewDate').valid">
+            Name is required (minimum 5 characters).
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Year</label>
+        <input type="textarea" class="form-control" formControlName="yearNewDate" [(ngModel)]="yearNewDate">
+        <small class="text-danger" [hidden]="myForm.get('newDate.yearNewDate').valid">
+            Name is required (minimum 5 characters).
+        </small>
+      </div>
+
+
+      <div class="margin-20">
+        <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+      </div>
+    </div>
+  </form>
+
+</div>

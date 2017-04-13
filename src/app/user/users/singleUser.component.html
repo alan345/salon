@@ -34,8 +34,14 @@
 
 
     <div class="form-group">
-      <label>lastVisit {{fetchedUser.lastVisit}}</label>
-      <input type="date" class="form-control" formControlName="lastVisit" [(ngModel)]="fetchedUser.lastVisit">
+      <label>last Visit: {{fetchedUser.lastVisit | date}}</label>
+      <BR>
+      <button type="button" md-button (click)="setDateToday()">Today</button>
+      or
+      <button type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/choosedate']" routerLinkActive="active">
+        + ChooseDate <i class="fa fa-plus"></i>
+      </button>
+
     </div>
     <!-- <div formGroupName="profile">
       <div class="form-group">

@@ -105,7 +105,6 @@ export class SingleUserComponent implements OnInit {
       control.removeAt(i);
   }
   addForm(form: Form) {
-
     const control = <FormArray>this.myForm.controls['forms'];
     const addrCtrl = this._fb.group({
         _id: ['', Validators.required],
@@ -136,7 +135,6 @@ export class SingleUserComponent implements OnInit {
     // console.log(model);
     this.fetchedUser.forms = form.value.forms
     this.fetchedUser.notes = form.value.notes
-    this.fetchedUser.lastVisit = form.value.lastVisit
 
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
@@ -144,22 +142,20 @@ export class SingleUserComponent implements OnInit {
           this.toastr.success('Great!', res.message)
         },
         error => {console.log(error)}
-      );
-    // console.log(model);
+      )
   }
-  // save(model: FormGroup, isValid: boolean) {
-  //   console.log(model)
-  //
-  //   this.userService.updateUser(model)
-  //     .subscribe(
-  //       res => {
-  //         this.toastr.success('Great!', res.message)
-  //       },
-  //       error => {console.log(error)}
-  //     );
-  //   }
 
 
+  setDateToday(form){
+    this.fetchedUser.lastVisit = new Date().toLocaleDateString("en-US")
+    this.userService.updateUser(this.fetchedUser)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+        },
+        error => {console.log(error)}
+      )
+  }
 
   getUser(id) {
     this.userService.getUser(id)

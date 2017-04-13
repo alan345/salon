@@ -12,6 +12,7 @@ import {ChangePasswordComponent} from './profile/changePassword/changePassword.c
 import {UsersComponent} from './users/users.component';
 import {SingleUserComponent} from './users/singleUser.component';
 import {AddNoteComponent} from './users/addNote.component';
+import {ChooseDateComponent} from './users/chooseDate.component';
 
 
 
@@ -35,4 +36,5 @@ export const USER_ROUTES: Routes = [
   {path: 'forms/edit/:id', component: EditUserFormComponent, canActivate: [AuthGuardService]},
   {path: ':id', component: SingleUserComponent},
   {path: ':id/addnote', component: AddNoteComponent},
+  {path: ':id/choosedate', component: ChooseDateComponent},
 ];

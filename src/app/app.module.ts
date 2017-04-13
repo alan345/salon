@@ -10,6 +10,7 @@ import {UserComponent} from './user/user.component';
 import {NewUserComponent} from './user/users/newUser.component';
 import {SingleUserComponent} from './user/users/singleUser.component';
 import {AddNoteComponent} from './user/users/addNote.component';
+import {ChooseDateComponent} from './user/users/chooseDate.component';
 
 
 
@@ -71,6 +72,8 @@ import {FormService} from './form/form.service';
 
 import {RegionService} from './region/region.service';
 import {EditUserFormComponent} from './userForms/editForm/editUserForm.component';
+
+
 import {ProgressBarModule} from 'ng2-progress-bar';
 import {ErrorPageComponent} from './errorPage/errorPage.component';
 
@@ -144,6 +147,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NewUserComponent,
     SingleUserComponent,
     AddNoteComponent,
+    ChooseDateComponent,
 
 
     RegisterComponent,

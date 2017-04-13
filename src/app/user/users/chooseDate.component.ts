@@ -17,18 +17,22 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 
 @Component({
   selector: 'app-users',
-  templateUrl: './addNote.component.html',
+  templateUrl: './chooseDate.component.html',
   styleUrls: ['./user.component.css'],
 
 })
 
-export class AddNoteComponent implements OnInit {
+export class ChooseDateComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   fetchedUser = {
-    notes : []
+    lastVisit : ''
   }
-  newTextNote = ''
+  newDate = {
+    monthNewDate: Number,
+    dayNewDate: Number,
+    yearNewDate: Number
+  }
 
   public myForm: FormGroup;
 
@@ -44,10 +48,15 @@ export class AddNoteComponent implements OnInit {
   }
 
 
+
   ngOnInit() {
     this.myForm = this._fb.group({
-        newTextNote: ['', [Validators.required, Validators.minLength(5)]],
-    });
+        newDate: this._fb.group({
+          monthNewDate: ['', [Validators.required, Validators.minLength(2)]],
+          dayNewDate: ['', [Validators.required, Validators.minLength(2)]],
+          yearNewDate: ['', [Validators.required, Validators.minLength(2)]]
+        })
+    })
 
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getUser(params['id'])
@@ -73,25 +82,10 @@ export class AddNoteComponent implements OnInit {
   }
 
 
-
-  // save(form) {
-  //   let user = form.value
-  //   console.log(user)
-  //   // console.log(model);
-  //   this.userService.updateUser(user)
-  //     .subscribe(
-  //       res => {
-  //         this.toastr.success('Great!', res.message)
-  //       },
-  //       error => {console.log(error)}
-  //     );
-  //   // console.log(model);
-  // }
   save(model: FormGroup, isValid: boolean) {
-    this.fetchedUser.notes.push({
-      text : model.value.newTextNote,
-      dateNote: Date.now()
-    })
+
+    let stringNewDate = model.value.newDate.yearNewDate + '-' + model.value.newDate.monthNewDate   + '-' + model.value.newDate.dayNewDate
+    this.fetchedUser.lastVisit = stringNewDate
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {
@@ -101,10 +95,5 @@ export class AddNoteComponent implements OnInit {
       )
     this.goBack()
     }
-
-
-
-
-
 
 }
