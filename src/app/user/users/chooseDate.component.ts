@@ -29,9 +29,10 @@ export class ChooseDateComponent implements OnInit {
     lastVisit : ''
   }
   newDate = {
-    monthNewDate: Number,
-    dayNewDate: Number,
-    yearNewDate: Number
+    newDate: ''
+    // monthNewDate: Number,
+    // dayNewDate: Number,
+    // yearNewDate: Number
   }
 
   public myForm: FormGroup;
@@ -51,11 +52,12 @@ export class ChooseDateComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
-        newDate: this._fb.group({
-          monthNewDate: ['', [Validators.required, Validators.minLength(2)]],
-          dayNewDate: ['', [Validators.required, Validators.minLength(2)]],
-          yearNewDate: ['', [Validators.required, Validators.minLength(2)]]
-        })
+        newDate: ['', [Validators.required, Validators.minLength(2)]],
+        // newDate: this._fb.group({
+        //   monthNewDate: ['', [Validators.required, Validators.minLength(2)]],
+        //   dayNewDate: ['', [Validators.required, Validators.minLength(2)]],
+        //   yearNewDate: ['', [Validators.required, Validators.minLength(2)]]
+        // })
     })
 
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -84,8 +86,8 @@ export class ChooseDateComponent implements OnInit {
 
   save(model: FormGroup, isValid: boolean) {
 
-    let stringNewDate = model.value.newDate.yearNewDate + '-' + model.value.newDate.monthNewDate   + '-' + model.value.newDate.dayNewDate
-    this.fetchedUser.lastVisit = stringNewDate
+    //let stringNewDate = model.value.newDate.yearNewDate + '-' + model.value.newDate.monthNewDate   + '-' + model.value.newDate.dayNewDate
+    this.fetchedUser.lastVisit = model.value.newDate
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {

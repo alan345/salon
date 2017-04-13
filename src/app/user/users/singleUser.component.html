@@ -34,7 +34,7 @@
 
 
     <div class="form-group">
-      <label>last Visit: {{fetchedUser.lastVisit | date}}</label>
+      <label>last Visit: {{fetchedUser.lastVisit | date:'medium'}}</label>
       <BR>
       <button type="button" md-button (click)="setDateToday()">Today</button>
       or

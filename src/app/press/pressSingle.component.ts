@@ -31,10 +31,14 @@ export class PressSingleComponent implements OnInit {
     title: '',
     link: '',
     formPDF: {
-      _id:''
+      _id:'',
+      owner:'',
+      imagePath:''
     },
     form: {
-      _id:''
+      _id:'',
+      owner:'',
+      imagePath:''
     },
     owner: {
       _id:''

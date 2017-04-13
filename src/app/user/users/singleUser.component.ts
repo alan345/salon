@@ -146,7 +146,7 @@ export class SingleUserComponent implements OnInit {
   }
 
 
-  setDateToday(form){
+  setDateToday(){
     this.fetchedUser.lastVisit = new Date().toLocaleDateString("en-US")
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
