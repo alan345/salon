@@ -42,19 +42,35 @@
 
     <br>
 
+    <div class="margin-20">
+      <button type="button" md-button (click)="addCategorieButton('treatments')">TREATMENTS</button>
+    </div>
 
+
+    <md-checkbox
+      (click)="addCategorieButton('treatments')"
+      [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="categoriesHard.treatments"
+    ></md-checkbox>
+    <pre>
+      {{categoriesHard|json}}
+    </pre>
+
+    <!-- <div *ngFor="let categ of categLists" class="panel panel-default">
+
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">categ</button>
+    </div> -->
 
     <div class="margin-20">
       <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
     </div>
     <div class="clearfix"></div>
 
-    <div class="margin-20">
-      <div>myForm details:-</div>
-      <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
-      <pre>form value: <br>{{myForm.value | json}}</pre>
-    </div>
+
   </form>
+
+
+
 
 </div>
 

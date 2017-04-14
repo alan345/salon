@@ -38,6 +38,10 @@ export class VideoSingleComponent implements OnInit {
       _id:''
     }
   }
+  categoriesHard = {
+    treatments : false
+  }
+
 
   public myForm: FormGroup;
 
@@ -69,8 +73,6 @@ export class VideoSingleComponent implements OnInit {
       categories: this._fb.array([])
     });
 
-    //this.addAddress();
-
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id'])
        this.getVideo(params['id'])
@@ -89,6 +91,21 @@ export class VideoSingleComponent implements OnInit {
         name: ['']
     });
     control.push(addrCtrl);
+  }
+
+  addCategorieButton(nameCateg) {
+    var indexFound
+    this.fetchedVideo.categories.forEach((categorie, index) => {
+    if(categorie.name == nameCateg)
+      indexFound = index
+    })
+
+    if(indexFound) {
+      this.removeCategorie(+indexFound)
+    } else {
+      this.fetchedVideo.categories.push({name:nameCateg})
+      this.addCategorie()
+    }
   }
 
 
@@ -175,6 +192,10 @@ export class VideoSingleComponent implements OnInit {
           this.fetchedVideo.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
           this.fetchedVideo.categories.forEach((categorie) => {
             this.addCategorie()
+
+            if(this.categoriesHard[categorie.name] !== undefined)
+              this.categoriesHard[categorie.name] = true
+
           })
         },
         error => {
