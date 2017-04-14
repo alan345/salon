@@ -19,8 +19,8 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
   selector: 'app-users',
   templateUrl: './singleUser.component.html',
   styleUrls: ['./user.component.css'],
-
 })
+
 
 export class SingleUserComponent implements OnInit {
   //fetchedUser = new User()
@@ -66,6 +66,7 @@ export class SingleUserComponent implements OnInit {
   getTasks(jobForm){
      return jobForm.get('forms').controls
    }
+
 
   ngOnInit() {
     this.myForm = this._fb.group({

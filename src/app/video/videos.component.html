@@ -1,0 +1,35 @@
+
+<div class="container topPadTable">
+  <h2 class="text-center">
+  <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
+  Videos
+  <button class="btn-default" [routerLink]="['/video/videoSingle']" routerLinkActive="active"><i class="fa fa-plus-circle"></i></button>
+
+  </h2>
+
+
+
+  <table class="table table-hover table-responsive table-condensed">
+    <tbody>
+      <tr *ngFor="let video of fetchedVideos | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
+        <td class="img-resized">
+          Image
+        </td>
+        <!-- <td>{{video._id }}</td> -->
+        <td><a [routerLink]="['/video/' + video._id]" routerLinkActive="active">{{video.email}}</a></td>
+
+        <td>
+          <button class="btn-default" [routerLink]="['/video/videoSingle/' + video._id]" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
+        </td>
+        <td>
+          <button class="btn-danger" (click)="onDelete(video._id)"><i class="fa fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="has-text-centered">
+      <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
+      <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+  </div>
+
+</div>

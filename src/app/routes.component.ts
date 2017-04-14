@@ -22,6 +22,9 @@ import {PromotionComponent} from './promotion/promotion.component';
 import {USER_PRESSES} from './press/press.routes';
 import {PressComponent} from './press/press.component';
 
+import {VIDEOS} from './video/video.routes';
+import {VideoComponent} from './video/video.component';
+
 import {USER_PRODUCTS} from './product/product.routes';
 import {ProductComponent} from './product/product.component';
 
@@ -37,6 +40,7 @@ const APP_ROUTES: Routes = [
   {path: 'companie', component: CompanieComponent, children: USER_COMPANIES},
   {path: 'press', component: PressComponent, children: USER_PRESSES},
   {path: 'product', component: ProductComponent, children: USER_PRODUCTS},
+  {path: 'video', component: VideoComponent, children: VIDEOS},
   {path: 'promotion', component: PromotionComponent, children: USER_PROMOTIONS},
 //  {path: 'companie/:id', component: CompanieDetailComponent},
 //  {path: 'companie/edit/:id', component: EditCompanieComponent},

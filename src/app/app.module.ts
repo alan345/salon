@@ -27,6 +27,11 @@ import {PressesComponent} from './press/presses.component';
 import {PressSingleComponent} from './press/pressSingle.component';
 import {PressService} from './press/press.service';
 
+import {VideoComponent} from './video/video.component';
+import {VideosComponent} from './video/videos.component';
+import {VideoSingleComponent} from './video/videoSingle.component';
+import {VideoService} from './video/video.service';
+
 
 
 import {PromotionComponent} from './promotion/promotion.component';
@@ -147,6 +152,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PressesComponent,
     PressSingleComponent,
 
+    VideoComponent,
+    VideosComponent,
+    VideoSingleComponent,
+
 
     PromotionComponent,
     PromotionsComponent,
@@ -215,6 +224,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AuthService,
     ErrorService,
     CompanieService,
+    VideoService,
     MainPageHomeService,
     RegionService,
     PressService,

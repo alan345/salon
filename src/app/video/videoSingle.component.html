@@ -1,0 +1,54 @@
+
+<div class="container topPadTable">
+  <h2 class="text-center">
+    <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
+    Video
+  </h2>
+
+  <hr>
+
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
+    <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedVideo._id">
+    <div class="form-group">
+      <label>Wistia embed code</label>
+      <input type="text" class="form-control" formControlName="embed" [(ngModel)]="fetchedVideo.embed">
+    </div>
+    <div class="form-group">
+      <label>title</label>
+      <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedVideo.title">
+      <!-- <small *ngIf="!myForm.get('fetchedVideo.title').valid" class="text-danger">
+           Required (minimum 5 characters).
+      </small> -->
+    </div>
+
+
+    <div formArrayName="categories">
+      <div *ngFor="let categorie of myForm.get('categories').controls; let i=index" class="panel panel-default">
+        <div class="panel-heading">
+          <span>Image {{i + 1}}</span>
+          <span class="glyphicon glyphicon-remove pull-right"  (click)="removeCategorie(i)"></span>
+        </div>
+        <div class="panel-body" [formGroupName]="i">
+          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.categories[i].name">
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+
+
+
+    <div class="margin-20">
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="margin-20">
+      <div>myForm details:-</div>
+      <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
+      <pre>form value: <br>{{myForm.value | json}}</pre>
+    </div>
+  </form>
+
+</div>
