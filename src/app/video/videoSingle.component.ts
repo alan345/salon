@@ -69,6 +69,20 @@ export class VideoSingleComponent implements OnInit {
   }
 
 
+  removeCategorie(i: number) {
+      this.fetchedVideo.categories.splice(i, 1)
+      const control = <FormArray>this.myForm.controls['categories'];
+      control.removeAt(i);
+  }
+  addCategorie() {
+    const control = <FormArray>this.myForm.controls['categories'];
+    const addrCtrl = this._fb.group({
+        name: ['']
+    });
+    control.push(addrCtrl);
+  }
+
+
   // removeAddress(i: number) {
   //     const control = <FormArray>this.myForm.controls['addresses'];
   //     control.removeAt(i);
@@ -121,6 +135,7 @@ export class VideoSingleComponent implements OnInit {
 
   save(video) {
     if(video._id) {
+      console.log(video)
       this.videoService.updateVideo(video)
         .subscribe(
           res => {
@@ -129,8 +144,6 @@ export class VideoSingleComponent implements OnInit {
           error => {console.log(error)}
         );
     } else {
-      // video.owner = '58dd6bfc72065a0d2d12ff81'
-      // // console.log(model);
       this.videoService.saveVideo(video)
         .subscribe(
           res => {
@@ -150,6 +163,9 @@ export class VideoSingleComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedVideo = res
+          this.fetchedVideo.categories.forEach((categorie) => {
+            this.addCategorie()
+          })
         },
         error => {
           console.log(error);

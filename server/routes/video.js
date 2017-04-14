@@ -64,9 +64,9 @@ router.put('/:id', function (req, res, next) {
     } else {
       console.log(req.body)
         item.title = req.body.title
-        item.link = req.body.link
-        item.formPDF = req.body.formPDF
-        item.form = req.body.form
+        item.embed = req.body.embed
+        item.categories = req.body.categories
+
 
         item.save(function (err, result) {
           if (err) {

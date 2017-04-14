@@ -45,6 +45,7 @@ export class VideosComponent implements OnInit {
   }
 
 
+
   onDelete(id: string) {
     this.videoService.deleteVideo(id)
       .subscribe(
