@@ -22,9 +22,6 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 })
 
 export class VideoSingleComponent implements OnInit {
-  //fetchedVideo = new Video()
-  //fetchedVideo: Video;
-  //fetchedVideo._id='';
 
   fetchedVideo = {
     _id: '',
@@ -39,8 +36,10 @@ export class VideoSingleComponent implements OnInit {
     }
   }
   categoriesHard = {
-    treatments : false
+    treatments : false,
+    knowledges: false
   }
+  inputCategorie = ''
 
 
   public myForm: FormGroup;
@@ -64,7 +63,6 @@ export class VideoSingleComponent implements OnInit {
      return myForm.get('categories').controls
    }
 
-
   ngOnInit() {
     this.myForm = this._fb.group({
       _id: [''],
@@ -84,6 +82,8 @@ export class VideoSingleComponent implements OnInit {
       this.fetchedVideo.categories.splice(i, 1)
       const control = <FormArray>this.myForm.controls['categories'];
       control.removeAt(i);
+
+      //this.updateCategoriesHard()
   }
   addCategorie() {
     const control = <FormArray>this.myForm.controls['categories'];
@@ -92,7 +92,10 @@ export class VideoSingleComponent implements OnInit {
     });
     control.push(addrCtrl);
   }
-
+  addCategorieInput() {
+    this.addCategorieButton(this.inputCategorie)
+    this.inputCategorie=''
+  }
   addCategorieButton(nameCateg) {
     var indexFound
     this.fetchedVideo.categories.forEach((categorie, index) => {
@@ -109,49 +112,12 @@ export class VideoSingleComponent implements OnInit {
   }
 
 
-  // removeAddress(i: number) {
-  //     const control = <FormArray>this.myForm.controls['addresses'];
-  //     control.removeAt(i);
-  // }
-  //
-  // addAddress() {
-  //   const control = <FormArray>this.myForm.controls['addresses'];
-  //   const addrCtrl = this._fb.group({
-  //       street: ['', Validators.required],
-  //       postcode: ['']
-  //   });
-  //   control.push(addrCtrl);
-  // }
-
-  // removeForm(i: number) {
-  //     this.fetchedVideo.forms.splice(i, 1)
-  //     const control = <FormArray>this.myForm.controls['forms'];
-  //     control.removeAt(i);
-  // }
-
-  // addForm(form: Form) {
-  //
-  //   const control = <FormArray>this.myForm.controls['forms'];
-  //   const addrCtrl = this._fb.group({
-  //       _id: ['', Validators.required],
-  //   });
-  //   control.push(addrCtrl);
-  // }
-
-
   goBack() {
     this.location.back();
   }
 
   openDialog(positionImage) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
-
-
-
-
-    //    this.fetchedObj.design.mainPage[positionImage][0] = result
-
-
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.fetchedVideo[positionImage] = result
@@ -161,7 +127,6 @@ export class VideoSingleComponent implements OnInit {
 
   save(video) {
     if(video._id) {
-      console.log(video)
       this.videoService.updateVideo(video)
         .subscribe(
           res => {
@@ -184,7 +149,6 @@ export class VideoSingleComponent implements OnInit {
 
 
   getVideo(id) {
-
     this.videoService.getVideo(id)
       .subscribe(
         res => {
@@ -192,10 +156,8 @@ export class VideoSingleComponent implements OnInit {
           this.fetchedVideo.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
           this.fetchedVideo.categories.forEach((categorie) => {
             this.addCategorie()
-
             if(this.categoriesHard[categorie.name] !== undefined)
               this.categoriesHard[categorie.name] = true
-
           })
         },
         error => {
@@ -203,8 +165,6 @@ export class VideoSingleComponent implements OnInit {
         }
       )
   }
-
-
 
   onDelete(id: string) {
     this.videoService.deleteVideo(id)
@@ -220,13 +180,3 @@ export class VideoSingleComponent implements OnInit {
 
 
 }
-
-
-// @Component({
-//   selector: 'video-dialog',
-//   templateUrl: './videoDialog.component.html',
-// })
-// export class VideoDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<VideoDialogComponent>) {}
-//
-// }

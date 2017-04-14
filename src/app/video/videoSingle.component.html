@@ -27,34 +27,50 @@
     </div>
 
 
-    <div formArrayName="categories">
-      <div *ngFor="let categorie of getObjects(myForm); let i=index" class="panel panel-default">
-        <div class="panel-heading">
-          <span>Image {{i + 1}}</span>
-          <span class="glyphicon glyphicon-remove pull-right"  (click)="removeCategorie(i)"></span>
-        </div>
-        <div class="panel-body" [formGroupName]="i">
-          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedVideo.categories[i].name">
-        </div>
-      </div>
-    </div>
 
 
-    <br>
-
-    <div class="margin-20">
-      <button type="button" md-button (click)="addCategorieButton('treatments')">TREATMENTS</button>
-    </div>
-
-
+    <md-input-container>
+      <input
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="inputCategorie"
+        placeholder="Categories"
+        (keyup.enter)="addCategorieInput()"
+        mdInput>
+    </md-input-container>
+    treatments
     <md-checkbox
       (click)="addCategorieButton('treatments')"
       [ngModelOptions]="{standalone: true}"
       [(ngModel)]="categoriesHard.treatments"
     ></md-checkbox>
-    <pre>
-      {{categoriesHard|json}}
-    </pre>
+    knowledges
+    <md-checkbox
+      (click)="addCategorieButton('knowledges')"
+      [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="categoriesHard.knowledges"
+    ></md-checkbox>
+
+
+
+    <div formArrayName="categories">
+      <div *ngFor="let categorie of getObjects(myForm); let i=index" class="panel panel-default">
+        <div class="panel-heading" [formGroupName]="i">
+          <span>{{fetchedVideo.categories[i].name}}</span>
+          <span class="glyphicon glyphicon-remove pull-right"  (click)="removeCategorie(i)"></span>
+
+          <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedVideo.categories[i].name">
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- <div class="margin-20">
+      <button type="button" md-button (click)="addCategorieButton('treatments')">TREATMENTS</button>
+    </div> -->
+
+
+
 
     <!-- <div *ngFor="let categ of categLists" class="panel panel-default">
 
