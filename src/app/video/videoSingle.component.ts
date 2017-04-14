@@ -35,10 +35,27 @@ export class VideoSingleComponent implements OnInit {
       _id:''
     }
   }
-  categoriesHard = {
-    treatments : false,
-    knowledges: false
-  }
+  categoriesHard = [{
+      name:'treatments',
+      selected : false
+    },
+    {
+      name:'knowledges',
+      selected : false
+    },
+    {
+      name:'testimonials',
+      selected : false
+    },
+    {
+      name:'merchandising',
+      selected : false
+    },
+    {
+      name:'promotions',
+      selected : false
+    }
+  ]
   inputCategorie = ''
 
 
@@ -82,6 +99,11 @@ export class VideoSingleComponent implements OnInit {
       this.fetchedVideo.categories.splice(i, 1)
       const control = <FormArray>this.myForm.controls['categories'];
       control.removeAt(i);
+      let _2this = this
+    //  setTimeout(function(){
+          _2this.refreshHardCategories()
+    //  }, 10);
+
 
       //this.updateCategoriesHard()
   }
@@ -93,18 +115,22 @@ export class VideoSingleComponent implements OnInit {
     control.push(addrCtrl);
   }
   addCategorieInput() {
-    this.addCategorieButton(this.inputCategorie)
+    this.togglCategorieButton(this.inputCategorie)
     this.inputCategorie=''
   }
-  addCategorieButton(nameCateg) {
+  togglCategorieButton(nameCateg) {
     var indexFound
     this.fetchedVideo.categories.forEach((categorie, index) => {
-    if(categorie.name == nameCateg)
-      indexFound = index
+      if(categorie.name == nameCateg)
+        indexFound = index
     })
 
     if(indexFound) {
-      this.removeCategorie(+indexFound)
+      let _2this = this
+      setTimeout(function(){
+          _2this.removeCategorie(+indexFound)
+      }, 10);
+
     } else {
       this.fetchedVideo.categories.push({name:nameCateg})
       this.addCategorie()
@@ -146,6 +172,19 @@ export class VideoSingleComponent implements OnInit {
   }
 
 
+  refreshHardCategories(){
+    this.categoriesHard.forEach((HardCategorie, indexHard) => {
+      this.categoriesHard[indexHard].selected = false
+    })
+
+    this.categoriesHard.forEach((HardCategorie, indexHard) => {
+      this.fetchedVideo.categories.forEach((fetchedCategorie, indexFetched) => {
+        if(HardCategorie.name == fetchedCategorie.name) {
+          this.categoriesHard[indexHard].selected = true
+        }
+      })
+    })
+  }
 
 
   getVideo(id) {
@@ -156,9 +195,8 @@ export class VideoSingleComponent implements OnInit {
           this.fetchedVideo.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
           this.fetchedVideo.categories.forEach((categorie) => {
             this.addCategorie()
-            if(this.categoriesHard[categorie.name] !== undefined)
-              this.categoriesHard[categorie.name] = true
           })
+          this.refreshHardCategories()
         },
         error => {
           console.log(error);
@@ -175,8 +213,6 @@ export class VideoSingleComponent implements OnInit {
         error => {
           console.log(error);
         }
-      );
+      )
   }
-
-
 }

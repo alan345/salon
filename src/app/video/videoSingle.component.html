@@ -7,7 +7,7 @@
 
   <hr>
 
-  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
     <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedVideo._id">
     <div class="form-group">
 
@@ -37,18 +37,29 @@
         (keyup.enter)="addCategorieInput()"
         mdInput>
     </md-input-container>
-    treatments
+
+
+    <div *ngFor="let categorieHard of categoriesHard; let i=index">
+      <md-checkbox
+        (click)="togglCategorieButton(categorieHard.name)"
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="categoriesHard[i].selected"
+      ></md-checkbox>
+      {{categorieHard.name}}
+    </div>
+
+    <!-- treatments
     <md-checkbox
-      (click)="addCategorieButton('treatments')"
+      (click)="togglCategorieButton('treatments')"
       [ngModelOptions]="{standalone: true}"
       [(ngModel)]="categoriesHard.treatments"
     ></md-checkbox>
     knowledges
     <md-checkbox
-      (click)="addCategorieButton('knowledges')"
+      (click)="togglCategorieButton('knowledges')"
       [ngModelOptions]="{standalone: true}"
       [(ngModel)]="categoriesHard.knowledges"
-    ></md-checkbox>
+    ></md-checkbox> -->
 
 
 
@@ -66,7 +77,7 @@
     <br>
 
     <!-- <div class="margin-20">
-      <button type="button" md-button (click)="addCategorieButton('treatments')">TREATMENTS</button>
+      <button type="button" md-button (click)="togglCategorieButton('treatments')">TREATMENTS</button>
     </div> -->
 
 
