@@ -9,6 +9,7 @@ import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
 
 
 
@@ -30,6 +31,7 @@ export class VideosComponent implements OnInit {
 
 
   constructor(
+    private sanitizer: DomSanitizer,
     private videoService: VideoService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
@@ -69,16 +71,22 @@ export class VideosComponent implements OnInit {
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
-          this.fetchedVideos =  res.data
+          let fetchedVideosNotSecure =  res.data
+          console.log(fetchedVideosNotSecure)
+          this.fetchedVideos = fetchedVideosNotSecure.map((video) => {
+            var rObj = {};
+            rObj[video] = video;
+            rObj[video]['embedSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + video['embed']);
+            return rObj;
+          })
+
+          //console.log(this.fetchedVideos[0]['[object Object]'])
         },
         error => {
           console.log(error);
         }
       );
   }
-
-
-
 
 
   ngOnInit() {

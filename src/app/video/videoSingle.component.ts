@@ -12,6 +12,7 @@ import { Location }               from '@angular/common';
 import { Video } from './video.model'
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-videos',
@@ -28,7 +29,8 @@ export class VideoSingleComponent implements OnInit {
   fetchedVideo = {
     _id: '',
     title: '',
-    embed: '',
+    embed:'',
+    embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
     categories: [{
       name:''
     }],
@@ -40,6 +42,7 @@ export class VideoSingleComponent implements OnInit {
   public myForm: FormGroup;
 
   constructor(
+    private sanitizer: DomSanitizer,
     private videoService: VideoService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
@@ -50,6 +53,12 @@ export class VideoSingleComponent implements OnInit {
   ) {
   }
 
+
+
+
+  getObjects(myForm){
+     return myForm.get('categories').controls
+   }
 
 
   ngOnInit() {
@@ -163,6 +172,7 @@ export class VideoSingleComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedVideo = res
+          this.fetchedVideo.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
           this.fetchedVideo.categories.forEach((categorie) => {
             this.addCategorie()
           })

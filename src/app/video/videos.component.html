@@ -13,16 +13,17 @@
     <tbody>
       <tr *ngFor="let video of fetchedVideos | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
         <td class="img-resized">
-          Image
+          <iframe [src]="video['[object Object]'].embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
+
         </td>
         <!-- <td>{{video._id }}</td> -->
-        <td><a [routerLink]="['/video/' + video._id]" routerLinkActive="active">{{video.email}}</a></td>
+        <td><a [routerLink]="['/video/' + video['[object Object]']._id]" routerLinkActive="active">{{video.email}}</a></td>
 
         <td>
-          <button class="btn-default" [routerLink]="['/video/videoSingle/' + video._id]" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
+          <button class="btn-default" [routerLink]="['/video/videoSingle/' + video['[object Object]']._id]" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
         </td>
         <td>
-          <button class="btn-danger" (click)="onDelete(video._id)"><i class="fa fa-trash"></i></button>
+          <button class="btn-danger" (click)="onDelete(video['[object Object]']._id)"><i class="fa fa-trash"></i></button>
         </td>
       </tr>
     </tbody>

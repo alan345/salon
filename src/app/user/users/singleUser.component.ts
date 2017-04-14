@@ -63,8 +63,8 @@ export class SingleUserComponent implements OnInit {
   ) {
   }
 
-  getTasks(jobForm){
-     return jobForm.get('forms').controls
+  getObjects(myForm){
+     return myForm.get('forms').controls
    }
 
 

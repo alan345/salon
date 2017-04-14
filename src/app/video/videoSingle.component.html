@@ -10,6 +10,11 @@
   <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
     <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedVideo._id">
     <div class="form-group">
+
+      <iframe [src]="fetchedVideo.embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
+
+
+      <br>
       <label>Wistia embed code</label>
       <input type="text" class="form-control" formControlName="embed" [(ngModel)]="fetchedVideo.embed">
     </div>
@@ -23,7 +28,7 @@
 
 
     <div formArrayName="categories">
-      <div *ngFor="let categorie of myForm.get('categories').controls; let i=index" class="panel panel-default">
+      <div *ngFor="let categorie of getObjects(myForm); let i=index" class="panel panel-default">
         <div class="panel-heading">
           <span>Image {{i + 1}}</span>
           <span class="glyphicon glyphicon-remove pull-right"  (click)="removeCategorie(i)"></span>
@@ -52,3 +57,25 @@
   </form>
 
 </div>
+
+
+
+<!-- <script src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+<div class="wistia_embed wistia_async_h5w75cm478" style="width:640px;height:360px;"></div>
+<script>
+window._wq = window._wq || [];
+_wq.push({ id: "abc", onReady: function(video) {
+  console.log("I got a handle to the video!", video);
+}});
+</script> -->
+
+
+
+
+<!-- <script src="https://fast.wistia.com/embed/medias/h5w75cm478.jsonp" async></script>
+<script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+<div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+    <span class="wistia_embed wistia_async_h5w75cm478 popover=true popoverAnimateThumbnail=true videoFoam=true" style="display:inline-block;height:100%;width:100%">&nbsp;</span>
+  </div>
+</div> -->
