@@ -28,7 +28,27 @@ export class VideosComponent implements OnInit {
     itemsPerPage: 0,
     totalItems: 0
   };
-
+  categoriesHard = [{
+      name:'treatments',
+      selected : false
+    },
+    {
+      name:'knowledges',
+      selected : false
+    },
+    {
+      name:'testimonials',
+      selected : false
+    },
+    {
+      name:'merchandising',
+      selected : false
+    },
+    {
+      name:'promotions',
+      selected : false
+    }
+  ]
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -46,6 +66,11 @@ export class VideosComponent implements OnInit {
     this.location.back();
   }
 
+
+  onSelectChange = ($event: any): void => {
+    console.log('event => ', $event);
+    console.log('index => ', $event.index);
+  }
 
 
   onDelete(id: string) {

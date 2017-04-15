@@ -7,7 +7,11 @@
 
   </h2>
 
-
+  <md-tab-group (selectChange)="onSelectChange($event)">
+    <md-tab label="treatments" label="treatments"></md-tab>
+    <md-tab label="knowledges" label="knowledges"></md-tab>
+    <md-tab label="testimonials" label="testimonials"></md-tab>
+  </md-tab-group>
 
   <table class="table table-hover table-responsive table-condensed">
     <tbody>
