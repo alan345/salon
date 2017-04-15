@@ -125,7 +125,7 @@ export class VideoSingleComponent implements OnInit {
         indexFound = index
     })
 
-    if(indexFound) {
+    if(indexFound || indexFound== 0 ) {
       let _2this = this
       setTimeout(function(){
           _2this.removeCategorie(+indexFound)
