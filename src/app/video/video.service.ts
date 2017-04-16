@@ -20,13 +20,10 @@ export class VideoService {
 
   // get video forms from backend in order to display them in the front end
   getVideos(page: number, search) {
-
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
-
-
     let options = new RequestOptions({ headers: headers, search: search});
-
+    console.log(options)
     return this.http.get(this.url + 'video/page/' + page , options)
       .timeout(9000)
       .map((response: Response) => {

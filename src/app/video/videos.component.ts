@@ -23,9 +23,10 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 export class VideosComponent implements OnInit {
   fetchedVideos : Array<VideosComponent> = [];
   search = {
-    categories : [{
-      name : 'treatmentsALan'
-    }]
+    categories : [
+      {
+        name : 'whatsnew'
+      }]
   }
   loading: boolean;
   paginationData = {
@@ -63,7 +64,7 @@ export class VideosComponent implements OnInit {
     private router: Router,
     private location: Location,
   ) {
-    this.getVideos(this.paginationData.currentPage, this.search);
+    this.getVideos(this.paginationData.currentPage, this.search)
   }
 
 
@@ -73,8 +74,38 @@ export class VideosComponent implements OnInit {
 
 
   onSelectChange = ($event: any): void => {
-    console.log('event => ', $event);
-    console.log('index => ', $event.index);
+    this.search.categories = []
+
+    switch($event.index){
+      case 0:
+        this.search.categories.push({name:'whatsnew'})
+        break;
+      case 1:
+        this.search.categories.push({name:'treatments'})
+        break;
+      case 2:
+        this.search.categories.push({name:'knowledges'})
+        break;
+      case 3:
+        this.search.categories.push({name:'testimonials'})
+        break;
+      case 4:
+        this.search.categories.push({name:'merchandising'})
+        break;
+      case 5:
+        this.search.categories.push({name:'promotions'})
+        break;
+    }
+    // if($event.index == 0) {
+    //
+    // }
+    // if($event.index == 1) {
+    //   this.search.categories.push({name:'merchandising'})
+    // }
+    // console.log(this.search.categories)
+    this.getVideos(this.paginationData.currentPage, this.search)
+    // console.log('event => ', $event);
+    // console.log('index => ', $event.index);
   }
 
 
