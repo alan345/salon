@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {Response, Headers, Http} from '@angular/http';
+import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
 import {Video} from './video.model';
 import {ToastsManager} from 'ng2-toastr';
@@ -19,11 +19,15 @@ export class VideoService {
   constructor(private http: Http, private errorService: ErrorService, private toastr: ToastsManager) {}
 
   // get video forms from backend in order to display them in the front end
-  getVideos(page: number) {
+  getVideos(page: number, search) {
 
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
-    return this.http.get(this.url + 'video/page/' + page , {headers: headers})
+
+
+    let options = new RequestOptions({ headers: headers, search: search});
+
+    return this.http.get(this.url + 'video/page/' + page , options)
       .timeout(9000)
       .map((response: Response) => {
 

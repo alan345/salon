@@ -110,48 +110,92 @@ router.post('/', function (req, res, next) {
 
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
-
   var itemsPerPage = 5
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
+
+  Video
+  .find({
+    categories: {
+       "$all": [
+          {"$elemMatch" : JSON.parse(req.query.categories)},
+       ]
+     }
+  })
+  .limit(itemsPerPage)
+  .skip(skip)
+  .exec(function (err, item) {
+    if (err) {
+      return res.status(404).json({
+        message: 'No results',
+        err: err
+      })
+    } else {
+      Video
+      .find({
+          categories: {
+             "$all": [
+                {"$elemMatch" : {"name": "treatments"}},
+             ]
+           }
+        })
+      .count().exec(function (err, count) {
+      res.status(200).json({
+          paginationData : {
+            totalItems: count,
+            currentPage : currentPage,
+            itemsPerPage : itemsPerPage
+          },
+          data: item
+        })
+      })
+    }
+  })
+
   //var limit = (itemsPerPage * pageNumber) + itemsPerPage
 
-  Video.find().count((err, totalItems) => {
-    if(err)
-      res.send(err)
-    else
-        Video.aggregate(
-        [
-          { $skip : skip },
-          { $limit : itemsPerPage },
-          { $lookup: {
-              "from": "forms",
-              "localField": "form",
-              "foreignField": "_id",
-              "as": "form"
-         }},
-
-        ], function(err, data) {
-             if (err) {
-               res.send(err)
-             }
-             else {
-               var jsonOb =
-                {
-                  "paginationData" : {
-                    "totalItems": totalItems,
-                    "currentPage" : currentPage,
-                    "itemsPerPage" : itemsPerPage
-                  },
-                  "data": data
-                }
-
-               res.send(jsonOb)
-             }
-           }
-        )
-  })
+  // Video.find().count((err, totalItems) => {
+  //   if(err)
+  //     res.send(err)
+  //   else
+  //       Video.aggregate(
+  //       [
+  //           { $match : { categories :{
+  //             "$all" : [
+  //                 {"$elemMatch" : {"name": "treatments"}},
+  //             ]
+  //           }
+  //          } },
+  //         { $skip : skip },
+  //         { $limit : itemsPerPage },
+  //         { $lookup: {
+  //             "from": "forms",
+  //             "localField": "form",
+  //             "foreignField": "_id",
+  //             "as": "form"
+  //        }},
+  //
+  //       ], function(err, data) {
+  //            if (err) {
+  //              res.send(err)
+  //            }
+  //            else {
+  //              var jsonOb =
+  //               {
+  //                 "paginationData" : {
+  //                   "totalItems": totalItems,
+  //                   "currentPage" : currentPage,
+  //                   "itemsPerPage" : itemsPerPage
+  //                 },
+  //                 "data": data
+  //               }
+  //
+  //              res.send(jsonOb)
+  //            }
+  //          }
+  //       )
+  // })
 })
 
 

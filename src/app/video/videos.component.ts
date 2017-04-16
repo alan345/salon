@@ -22,6 +22,11 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 })
 export class VideosComponent implements OnInit {
   fetchedVideos : Array<VideosComponent> = [];
+  search = {
+    categories : [{
+      name : 'treatmentsALan'
+    }]
+  }
   loading: boolean;
   paginationData = {
     currentPage: 1,
@@ -58,7 +63,7 @@ export class VideosComponent implements OnInit {
     private router: Router,
     private location: Location,
   ) {
-    this.getVideos(this.paginationData.currentPage);
+    this.getVideos(this.paginationData.currentPage, this.search);
   }
 
 
@@ -87,12 +92,11 @@ export class VideosComponent implements OnInit {
   }
 
   getPage(page: number) {
-
-    this.getVideos(page);
+    this.getVideos(page, this.search);
   }
 
-  getVideos(page) {
-    this.videoService.getVideos(page)
+  getVideos(page, search) {
+    this.videoService.getVideos(page, search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
