@@ -7,58 +7,45 @@
   margin: 0 auto;
   float: none;
 }
-
 a.active {
   font-weight: bold;
 }
-
 .topPad {
   margin-top: 150px;
 }
-
 .topPadTable {
   margin-top: 90px;
 }
-
 .table-responsive {
   border: 0;
 }
-
 .lostPassword {
   margin-top: 20px;
 }
-
 .form-control {
   border-radius:  0;
 }
-
 .btn {
   border-radius: 0;
 }
-
 .btn-default {
   border: 0;
   background-color: lightblue;
 }
-
 .btn-default:hover {
   background-color: lightskyblue;
 }
-
 .btn-danger {
   border-width: 0;
 }
-
 .jumbotron {
   border-radius: 0 !important;
 }
-
 .login-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
 }
-
 .form {
   position: relative;
   z-index: 1;
@@ -69,7 +56,6 @@ a.active {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -81,7 +67,6 @@ a.active {
   box-sizing: border-box;
   font-size: 14px;
 }
-
 .form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -97,33 +82,44 @@ a.active {
   transition: all 0.3 ease;
   cursor: pointer;
 }
-
 .form button:hover, .form button:active, .form button:focus {
   background: #43A047;
 }
-
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 12px;
 }
-
 .form .message a {
   color: #4CAF50;
   text-decoration: none;
 }
-
 .form .register-form {
   display: none;
 }
-
 body {
-  /*background: #76b852; !* fallback for old browsers *!*/
-  /*background: -webkit-linear-gradient(right, #76b852, #8DC26F);*/
-  /*background: -moz-linear-gradient(right, #76b852, #8DC26F);*/
-  /*background: -o-linear-gradient(right, #76b852, #8DC26F);*/
-  /*background: linear-gradient(to left, #76b852, #8DC26F);*/
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.container {
+    width: 100% !important;
+    max-width: 1250px !important;
+}
+.goldgradient {
+    background: #c9bda5;    
+    background: -webkit-radial-gradient(#ffffff, #c9bda5); /* Safari */
+    background: -o-radial-gradient(#ffffff, #c9bda5); /* Opera */
+    background: -moz-radial-gradient(#ffffff, #c9bda5); /* Firefox */
+    background: radial-gradient(#ffffff, #c9bda5); /* Standard syntax */
+}
+.beigeborder {
+    border: 1px solid #c9bda5;
+}
+.nopadding {
+    padding: 0 !important;
+}
+h3 {
+    color: #0a2f87;
+    font-weight: 600;
 }
