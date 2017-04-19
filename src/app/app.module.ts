@@ -251,5 +251,4 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   bootstrap: [AppComponent],
 //  bootstrap: [AppComponent, EditOptionsComponentDialog],
 })
-export class AppModule {
-}
+export class AppModule {}

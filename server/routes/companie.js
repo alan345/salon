@@ -25,7 +25,7 @@ router.use('/', function (req, res, next) {
     if (!decoded) {
       return res.status(404).json({
         title: 'Authentication Failed',
-        error: {message: 'Authentication failed, malformed jwt'}
+        error: {message: 'Authentication failed, malformed jwt. Please login or refresh Page'}
       });
     }
     if (decoded) {
