@@ -1,10 +1,7 @@
-<div class="container topPadTable">
-  <h3 class="text-center">New! Curl legend : silky </h3>
-  <hr>
-  <!-- Form Name -->
-
+<div class="container topPadTable goldgradient beigeborder">
+  <h3 class="topnav-ad">New! Curl Legend: Voluptuous, Silky and Bouncy Curls</h3>
+  <button>SHOP NOW</button>
 </div>
-
 
 <div class="container">
   <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
@@ -13,7 +10,7 @@
         <div ngModelGroup="design">
           <div ngModelGroup="mainPage">
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-6 nopadding">
                 <div>
                   <a [routerLink]="['/product']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome1[0].owner}}/{{fetchedObj.design.mainPage._imgHome1[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
@@ -28,7 +25,7 @@
                 </div>
               </div>
 
-              <div class="col-sm-6">
+              <div class="col-sm-6 nopadding">
                 <div>
                   <a [routerLink]="['/promotion']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome2[0].owner}}/{{fetchedObj.design.mainPage._imgHome2[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
@@ -45,7 +42,7 @@
             </div>
 
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-6 nopadding">
                 <div>
                   <a [routerLink]="['/social']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome3[0].owner}}/{{fetchedObj.design.mainPage._imgHome3[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
@@ -60,7 +57,7 @@
                 </div>
               </div>
 
-              <div class="col-sm-6">
+              <div class="col-sm-6 nopadding">
                 <div>
                   <a [routerLink]="['/press']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome4[0].owner}}/{{fetchedObj.design.mainPage._imgHome4[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
@@ -76,10 +73,8 @@
               </div>
             </div>
 
-
-
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-6 nopadding">
                 <div>
                   <a [routerLink]="['/video']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome5[0].owner}}/{{fetchedObj.design.mainPage._imgHome5[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
@@ -94,7 +89,7 @@
                 </div>
               </div>
 
-              <div class="col-sm-6">
+              <div class="col-sm-6 nopadding">
                 <div>
                   <a [routerLink]="['/user']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome6[0].owner}}/{{fetchedObj.design.mainPage._imgHome6[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
