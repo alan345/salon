@@ -126,7 +126,6 @@ router.get('/page/:page', function (req, res, next) {
   categories.forEach(function (categ) {
     categorie = JSON.parse(categ)
     if(categorie.name) {
-      console.log('juju',categorie.name)
       matchRules.push({
          '$elemMatch': categorie
        })
