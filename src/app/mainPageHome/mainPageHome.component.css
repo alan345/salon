@@ -10,12 +10,16 @@ margin-top: 20px;
 h3.text-center {
     margin: 25px auto;
 }
-.shopbutton {
-    margin: 20px auto;
-    padding: 6px;
+a.shopbutton {
+    margin: 15px 0;
+    box-shadow: none !important;
+    border: 1px solid #0a2f87;
+    color: #0a2f87 !important;
+    font-weight: 600;
 }
 .topnav-ad {
     width: 80%;
     float: left;
     text-align: center;
+
 }
