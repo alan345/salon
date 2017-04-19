@@ -28,9 +28,7 @@ export class VideoSingleComponent implements OnInit {
     title: '',
     embed:'',
     embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
-    categories: [{
-      name:''
-    }],
+    categories: [],
     owner: {
       _id:''
     }
