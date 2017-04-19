@@ -3,15 +3,15 @@
   <a href="#" class="btn shopbutton">SHOP NOW</a>
 </div>
 
-<div class="container">
+<div class="container beigeback">
   <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
     <div class="form-group">
       <div ngModelGroup="fetchedObj">
         <div ngModelGroup="design">
           <div ngModelGroup="mainPage">
             <div class="row">
-              <div class="col-sm-6 nopadding">
-                <div>
+              <div class="col-sm-6 boxpadding">
+                <div class="homeimage">
                   <a [routerLink]="['/product']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome1[0].owner}}/{{fetchedObj.design.mainPage._imgHome1[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   </a>
@@ -21,12 +21,12 @@
                   <input type="hidden" class="form-control"
                     name="_imgHome1" [(ngModel)]="fetchedObj.design.mainPage._imgHome1[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button type="button" md-button (click)="openDialog('_imgHome1')">Chose Media</button>
+                  <button type="button" md-button (click)="openDialog('_imgHome1')"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
               </div>
 
-              <div class="col-sm-6 nopadding">
-                <div>
+              <div class="col-sm-6 boxpadding">
+                <div class="homeimage">
                   <a [routerLink]="['/promotion']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome2[0].owner}}/{{fetchedObj.design.mainPage._imgHome2[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   </a>
@@ -36,14 +36,14 @@
                   <input type="hidden" class="form-control"
                     name="_imgHome2" [(ngModel)]="fetchedObj.design.mainPage._imgHome2[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button type="button" md-button (click)="openDialog('_imgHome2')">Chose Media</button>
+                  <button type="button" md-button (click)="openDialog('_imgHome2')"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-sm-6 nopadding">
-                <div>
+              <div class="col-sm-6 boxpadding">
+                <div class="homeimage">
                   <a [routerLink]="['/social']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome3[0].owner}}/{{fetchedObj.design.mainPage._imgHome3[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   </a>
@@ -53,12 +53,12 @@
                   <input type="hidden" class="form-control"
                     name="_imgHome3" [(ngModel)]="fetchedObj.design.mainPage._imgHome3[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button type="button" md-button (click)="openDialog('_imgHome3')">Chose Media</button>
+                  <button type="button" md-button (click)="openDialog('_imgHome3')"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
               </div>
 
-              <div class="col-sm-6 nopadding">
-                <div>
+              <div class="col-sm-6 boxpadding">
+                <div class="homeimage">
                   <a [routerLink]="['/press']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome4[0].owner}}/{{fetchedObj.design.mainPage._imgHome4[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   </a>
@@ -68,14 +68,14 @@
                   <input type="hidden" class="form-control"
                     name="_imgHome4" [(ngModel)]="fetchedObj.design.mainPage._imgHome4[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button type="button" md-button (click)="openDialog('_imgHome4')">Chose Media</button>
+                  <button type="button" md-button (click)="openDialog('_imgHome4')"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-sm-6 nopadding">
-                <div>
+              <div class="col-sm-6 boxpadding">
+                <div class="homeimage">
                   <a [routerLink]="['/video']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome5[0].owner}}/{{fetchedObj.design.mainPage._imgHome5[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   </a>
@@ -85,12 +85,12 @@
                   <input type="hidden" class="form-control"
                     name="_imgHome5" [(ngModel)]="fetchedObj.design.mainPage._imgHome5[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button type="button" md-button (click)="openDialog('_imgHome5')">Chose Media</button>
+                  <button type="button" md-button (click)="openDialog('_imgHome5')"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
               </div>
 
-              <div class="col-sm-6 nopadding">
-                <div>
+              <div class="col-sm-6 boxpadding">
+                <div class="homeimage">
                   <a [routerLink]="['/user']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome6[0].owner}}/{{fetchedObj.design.mainPage._imgHome6[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   </a>
@@ -100,7 +100,7 @@
                   <input type="hidden" class="form-control"
                     name="_imgHome6" [(ngModel)]="fetchedObj.design.mainPage._imgHome6[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button type="button" md-button (click)="openDialog('_imgHome6')">Chose Media</button>
+                  <button type="button" md-button (click)="openDialog('_imgHome6')"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
               </div>
             </div>
