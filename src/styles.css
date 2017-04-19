@@ -116,6 +116,9 @@ body {
 .beigeborder {
     border: 1px solid #c9bda5;
 }
+.beigeback {
+    background-color: #efe9df;
+}
 .nopadding {
     padding: 0 !important;
 }
