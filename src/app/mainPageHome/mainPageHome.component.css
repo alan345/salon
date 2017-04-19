@@ -21,5 +21,12 @@ a.shopbutton {
     width: 80%;
     float: left;
     text-align: center;
-
+}
+.homelabel {
+font-size: 2em;
+text-align: right !important;
+width: 95%;
+color: #0a2f87;
+margin: 20px 5% 20px 0;
+background-color: #ffffff;
 }
