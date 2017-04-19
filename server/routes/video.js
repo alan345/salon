@@ -114,13 +114,49 @@ router.get('/page/:page', function (req, res, next) {
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
+  //console.log(req.query.categories)
+  var categories = []
+  if(typeof req.query.categories === 'string') {
+    categories = [req.query.categories]
+  } else {
+    categories = req.query.categories
+  }
+
+  var matchRules = []
+  categories.forEach(function (categ) {
+    categorie = JSON.parse(categ)
+    if(categorie.name) {
+      console.log('juju',categorie.name)
+      matchRules.push({
+         '$elemMatch': categorie
+       })
+    }
+  })
+  console.log('deb',matchRules)
+
+  // let search2 =
+  //   {
+  //     name:"whatsnew"
+  //   }
+  //
+  // let search =
+  //   {
+  //     name:"knowledges"
+  //   }
+  // let AllData = [
+  //      {"$elemMatch" : search},
+  //      {"$elemMatch" : search2},
+  //
+  //   ]
+  //   console.log(match_rules)
+  //   console.log(AllData)
+//JSON.parse(req.query.categories)
+
 
   Video
   .find({
     categories: {
-       "$all": [
-          {"$elemMatch" : JSON.parse(req.query.categories)},
-       ]
+       "$all": matchRules
      }
   })
   .limit(itemsPerPage)

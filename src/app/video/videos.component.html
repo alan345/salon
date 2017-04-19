@@ -7,6 +7,14 @@
 
   </h2>
 
+  <md-input-container>
+    <input
+      [(ngModel)]="inputSearch"
+      placeholder="Search"
+      (keyup.enter)="addSearchInput()"
+      mdInput>
+  </md-input-container>
+
   <md-tab-group (selectChange)="onSelectChange($event)">
     <md-tab label="whatsnew" label="what's new"></md-tab>
     <md-tab label="treatments" label="treatments"></md-tab>
@@ -21,7 +29,6 @@
       <tr *ngFor="let video of fetchedVideos | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
         <td class="img-resized">
           <iframe [src]="video['[object Object]'].embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-
         </td>
         <!-- <td>{{video._id }}</td> -->
         <td><a [routerLink]="['/video/' + video['[object Object]']._id]" routerLinkActive="active">{{video.email}}</a></td>

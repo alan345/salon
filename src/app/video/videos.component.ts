@@ -25,12 +25,15 @@ export class VideosComponent implements OnInit {
   search = {
     categories : [{name : 'whatsnew'}]
   }
-  loading: boolean;
+  loading: boolean
+  inputSearch:''
+
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,
     totalItems: 0
   };
+
   categoriesHard = [{
       name:'treatments',
       selected : false
@@ -69,13 +72,20 @@ export class VideosComponent implements OnInit {
     this.location.back();
   }
 
-
   onSelectChange = ($event: any): void => {
     this.search.categories = []
     this.search.categories.push({name:$event.tab.textLabel})
     this.getVideos(this.paginationData.currentPage, this.search)
   }
 
+
+  addSearchInput(){
+    //console.log(this.inputSearch)
+    this.search.categories.push({name:this.inputSearch})
+    console.log(this.search.categories)
+    this.getVideos(this.paginationData.currentPage, this.search)
+    this.search.categories.pop()
+  }
 
   onDelete(id: string) {
     this.videoService.deleteVideo(id)
