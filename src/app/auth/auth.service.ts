@@ -14,8 +14,8 @@ import {tokenNotExpired} from 'angular2-jwt';
 export class AuthService {
   public token: string;
   public currentUser={
-    userId: String,
-    token: String
+    userId: '',
+    token: ''
 
   }
   //public userId: string;
