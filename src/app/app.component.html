@@ -1,17 +1,11 @@
 <md-sidenav-container class="example-container">
   <md-sidenav align="end" #sidenav class="example-sidenav">
     <app-sideNavbar></app-sideNavbar>
-
   </md-sidenav>
 
 
   <div class="example-sidenav-content">
-    <!-- Laisse le boutin ici id doit aveoir acces au context sidenav -->
-    <button md-button (click)="sidenav.open()">
-      Open sidenav
-    </button>
-
-    <app-navbar></app-navbar>
+    <app-navbar [sidenav]=sidenav></app-navbar>
     <router-outlet></router-outlet>
     <app-error></app-error>
   </div>

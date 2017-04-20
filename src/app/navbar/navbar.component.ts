@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {AdminService} from '../admin/services/admin.service';
 import {ProfileService} from '../user/profile/profile.service';
@@ -9,7 +9,7 @@ import {ProfileService} from '../user/profile/profile.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  @Input() sidenav
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   fetchedUser: any[] = [];
@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
         );
     }
   }
-  
+
 
   // check if user is logged in by asking our authentication service, we use this function in html file *ngIf directive
   isLoggedIn() {
@@ -44,7 +44,9 @@ export class NavbarComponent implements OnInit {
   logout() {
     return this.authService.logout();
   }
-
+  sideNavOpen(){
+    this.sidenav.open()
+  }
   isAdmin() {
     return this.adminService.isAdmin();
   }
