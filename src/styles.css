@@ -14,12 +14,6 @@
 a.active {
   font-weight: bold;
 }
-.topPad {
-  margin-top: 150px;
-}
-.topPadTable {
-  margin-top: 70px;
-}
 .table-responsive {
   border: 0;
 }
@@ -139,11 +133,6 @@ h3 {
     font-size: 18px !important;
     border-radius: 0!important;
     padding-bottom: 8px !important;
-}
-.phytonav {
-    margin-bottom: 0 !important;
-    min-height: 70px;
-    background: none;
 }
 
 /*--Responsive--*/
