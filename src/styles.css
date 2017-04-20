@@ -104,7 +104,7 @@ body {
 }
 .container {
     width: 100% !important;
-    max-width: 1250px !important;
+    max-width: 950px !important;
 }
 .goldgradient {
     background: #c9bda5;    
@@ -137,8 +137,13 @@ h3 {
     border-radius: 0!important;
     padding-bottom: 8px !important;
 }
+.phytonav {
+    margin-bottom: 0 !important;
+    min-height: 70px;
+    background: none;
+}
 
-<!--Mobile Nav Overwrite-->
+<!--Mobile Nav-->
 
 .container>.navbar-header {
 width: 100% !important;
@@ -148,6 +153,18 @@ margin-left: 0 !important;
 .navbar-toggle {
 display: block !important;
 }
-.navbar-nav {
-display: none !important;
+img.phytologo {
+    height: 60px;
+}
+a.navbar-brand.phytologo.active {
+    padding: 5px !important;
+    height: 70px;
+}
+.container>.navbar-header {
+    width: 100% !important;
+}
+@media (min-width: 768px) and (max-width: 4000px) {
+   .collapse {
+       display: none !important;
+   }
 }
