@@ -120,7 +120,6 @@ export class NewUserComponent implements OnInit {
   //   control.push(addrCtrl);
   // }
 
-
   goBack() {
     this.location.back();
   }
