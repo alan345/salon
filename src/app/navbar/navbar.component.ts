@@ -50,8 +50,8 @@ export class NavbarComponent implements OnInit {
     this.authService.logout();
     let this2 = this
     setTimeout(function(){
-        this2.router.navigate(['user/login']);
-    }, 50);
+        this2.router.navigate(['/user/login']);
+    }, 150);
 
   }
   sideNavOpen(){

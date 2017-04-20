@@ -23,7 +23,8 @@
       [routerLink]="['/user/' + user._id]" routerLinkActive="active"
     >
       <td>{{user.profile.name }}</td>
-      <td>{{user.updatedAt}}</td>
+      <td>{{user.updatedAt | date: 'medium'}}</td>
+
     </tr>
     </tbody>
   </table>
