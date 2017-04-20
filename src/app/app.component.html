@@ -1,11 +1,12 @@
-<md-sidenav-container class="example-container">
-  <md-sidenav align="end" #sidenav class="example-sidenav">
+<md-sidenav-container class="phyto-menu">
+  <md-sidenav align="end" #sidenav class="phyto-sidenav">
     <app-sideNavbar></app-sideNavbar>
   </md-sidenav>
 
 
-  <div class="example-sidenav-content">
+  <div class="phyto-topnav">
     <app-navbar [sidenav]=sidenav></app-navbar>
+
     <router-outlet></router-outlet>
     <app-error></app-error>
   </div>
