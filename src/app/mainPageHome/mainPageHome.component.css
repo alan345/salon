@@ -11,16 +11,10 @@ h3.text-center {
     margin: 25px auto;
 }
 a.shopbutton {
-    margin: 15px 0;
     box-shadow: none !important;
     border: 1px solid #0a2f87;
     color: #0a2f87 !important;
     font-weight: 600;
-}
-.topnav-ad {
-    width: 80%;
-    float: left;
-    text-align: center;
 }
 .homelabel {
     font-size: 2em;
@@ -42,4 +36,28 @@ a.shopbutton {
 }
 .boxpadding {
     padding: 1px !important;
+}
+  .topnav-ad {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .topnav-ad {
+    width: 80%;
+    float: left;
+  }
+  a.shopbutton {
+    margin: 15px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .topnav-ad {
+    width: 100%;
+  }
+  a.shopbutton {
+    width: 150px;
+    margin: 15px auto;
+    display: block;
+}
 }
