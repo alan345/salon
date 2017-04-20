@@ -78,7 +78,7 @@ export class AuthService {
   // logout function to be used in html file of both pages (login/register) in order to clear the localStorage from token and user id.
   logout() {
     localStorage.clear();
-    this.token = null;
+    this.id_token = null;
     //gooplus
     //location.reload();
 
