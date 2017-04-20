@@ -3,7 +3,10 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule, RequestOptions, Http} from '@angular/http';
 import {AppComponent} from './app.component';
+
 import {NavbarComponent} from './navbar/navbar.component';
+import {SideNavbarComponent} from './sideNavbar/sideNavbar.component';
+
 import {FormComponent} from './form/form.component';
 import {RegisterComponent} from './user/register/register.component';
 import {UserComponent} from './user/user.component';
@@ -140,6 +143,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   declarations: [
     AppComponent,
     NavbarComponent,
+    SideNavbarComponent,
     FormComponent,
 
     ProductComponent,
@@ -174,6 +178,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     RegisterComponent,
     LoginComponent,
     NavbarComponent,
+    SideNavbarComponent,
     ErrorComponent,
     MainPageComponent,
     MainPageHomeComponent,
