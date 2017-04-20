@@ -43,7 +43,8 @@ export class AuthService {
         // this.userId = userId
         //
         //
-        response.json()
+        //console.log(response)
+        return response.json()
       })
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
