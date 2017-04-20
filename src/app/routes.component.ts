@@ -35,7 +35,7 @@ import {ErrorPageComponent} from './errorPage/errorPage.component';
 import {AdminGuardService} from './admin/services/adminGuard';
 
 const APP_ROUTES: Routes = [
-  {path: '', component: MainPageHomeComponent, pathMatch: 'full'},
+  {path: '', component: MainPageHomeComponent, canActivate: [AuthGuardService], pathMatch: 'full'},
   {path: 'home2', component: MainPageComponent, pathMatch: 'full'},
   {path: 'companie', component: CompanieComponent, children: USER_COMPANIES},
   {path: 'press', component: PressComponent, children: USER_PRESSES},

@@ -136,15 +136,13 @@ export class NewUserComponent implements OnInit {
   // }
 
   save(form) {
-    //let user = form.value
+
     this.fetchedUser.profile = form.value.profile
-  //  console.log(this.authService.currentUser.userId)
+
     if(!this.fetchedUser.profile.parentUser.length) {
       this.fetchedUser.profile.parentUser.push({_id : this.authService.currentUser.userId})
     }
 
-
-      console.log(this.fetchedUser.profile.parentUser.length)
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(

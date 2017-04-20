@@ -7,7 +7,17 @@
   <a href="http://www.phyto.com">
     <img src="http://www.studiostylists.com/wp-content/uploads/phytologielogo.png">
   </a>
+
+  <ul class="nav navbar-nav navbar-right">
+    <li><a [routerLink]="['/user/register']" *ngIf="!isLoggedIn()">Register</a></li>
+    <li><a [routerLink]="['/user/login']" *ngIf="!isLoggedIn()">Login</a></li>
+    <li *ngFor="let user of fetchedUser" class="text-right">
+      <a [routerLink]="['/user/profile']" *ngIf="isLoggedIn()">{{user.email}}<img src="./uploads/profiles/{{user._id}}/{{user.profilePic}}" onerror="this.src ='assets/images/profile-placeholder.jpg'" class="img-resized" alt="avatar"></a>
+    </li>
+    <li><a href="#" (click)="logout()" *ngIf="isLoggedIn()">Logout</a></li>
+  </ul>
+
   <button md-button (click)="sideNavOpen()" class="hamburger">
     &#9776;
-  </button>  
+  </button>
 </div>
