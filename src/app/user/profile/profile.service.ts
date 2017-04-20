@@ -23,8 +23,8 @@ export class ProfileService {
   // get user details from database to display them in front end profile page
   getUserDetails(userId) {
     if (this.authService.isLoggedIn()) {
-      let token = localStorage.getItem('id_token');
-      let userId = localStorage.getItem('userId');
+      let token = this.authService.currentUser.token
+      let userId = this.authService.currentUser.userId
       let headers = new Headers({'Content-Type': 'application/json'});
       headers.append('Authorization', '' + token);
       return this.http.get(this.url + userId, {headers: headers})

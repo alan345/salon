@@ -21,9 +21,9 @@ var user = new Schema({
       parentUser: [{type: Schema.Types.ObjectId, ref: 'User'}],
       name: String,
       hair : {
-        hairDensity : String,
-        hairPorosity : String,
-        hairTexture : String
+        hairDensity : {type: String, default: ['user']},
+        hairPorosity : {type: String, default: ['user']},
+        hairTexture : {type: String, default: ['user']}
       }
     }
   },

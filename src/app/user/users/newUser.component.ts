@@ -36,6 +36,9 @@ export class NewUserComponent implements OnInit {
     }],
     profile:{
       name:'',
+      parentUser:[
+
+      ],
       hair:{
         hairDensity : '',
         hairPorosity : '',
@@ -68,6 +71,7 @@ export class NewUserComponent implements OnInit {
         _id: [''],
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
+            parentUser: [''],
             hair: this._fb.group({
                 hairTexture: ['', <any>Validators.required],
                 hairDensity: ['', <any>Validators.required],

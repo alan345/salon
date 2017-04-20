@@ -67,6 +67,7 @@ router.get('/:id', function (req, res, next) {
   User
   .findOne({_id: id})
   .populate('forms')
+  .populate('profile.parentUser')
   .exec(function (err, user) {
     if (err) {
       return res.status(403).json({

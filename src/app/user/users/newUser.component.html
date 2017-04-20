@@ -23,12 +23,20 @@
       <label>lastVisit</label>
       <input type="text" class="form-control" formControlName="lastVisit" [(ngModel)]="fetchedUser.lastVisit">
     </div> -->
-    
+
     <div formGroupName="profile">
       <div class="form-group">
         <label>name</label>
         <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name">
       </div>
+
+
+      <div class="form-group" *ngFor="let singleParentUser of fetchedUser.profile.parentUser">
+        <label>parentUser</label>
+        <input type="text" class="form-control" formControlName="parentUser" [(ngModel)]="singleParentUser._id">
+      </div>
+
+
       <div formGroupName="hair">
         <div class="form-group">
           <label>hairTexture</label>

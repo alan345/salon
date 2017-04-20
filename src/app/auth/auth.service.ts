@@ -13,6 +13,11 @@ import {tokenNotExpired} from 'angular2-jwt';
 
 export class AuthService {
   public token: string;
+  public currentUser={
+    userId: String,
+    token: String
+
+  }
   //public userId: string;
 
 
@@ -20,6 +25,7 @@ export class AuthService {
     // set token if saved in local storage
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
+    this.currentUser = currentUser;
   }
 
   // sending request to back end to register our user
@@ -43,8 +49,12 @@ export class AuthService {
         let token = response.json() && response.json().token;
         let userId = response.json() && response.json().userId;
         if (token) {
-          this.token = token;
-          localStorage.setItem('currentUser', JSON.stringify({ userId: userId, token: token }))
+
+          let currentUser = { userId: userId, token: token }
+          this.token = token
+          this.currentUser = currentUser
+          console.log(this.currentUser)
+          localStorage.setItem('currentUser', JSON.stringify(currentUser))
         }
 
         // let id_token = response.json() && response.json().token;
