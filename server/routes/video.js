@@ -131,7 +131,7 @@ router.get('/page/:page', function (req, res, next) {
        })
     }
   })
-
+  console.log(matchRules)
 
   // let search2 =
   //   {

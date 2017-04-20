@@ -23,7 +23,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 export class VideosComponent implements OnInit {
   fetchedVideos : Array<VideosComponent> = [];
   search = {
-    categories : [{name : 'whatsnew'}]
+    categories : []
   }
   loading: boolean
   inputSearch:''
@@ -33,6 +33,26 @@ export class VideosComponent implements OnInit {
     itemsPerPage: 0,
     totalItems: 0
   };
+
+  // categories1 = {
+  //   'phyto' : true,
+  //   'phytoSpecific' : false,
+  //   'subtil' : true
+  // }
+  categories1 = [{
+      name:'phyto',
+      selected : false
+    },
+    {
+      name:'phytoSpecific',
+      selected : false
+    },
+    {
+      name:'subtil',
+      selected : false
+    }]
+
+  categories2 = ''
 
   categoriesHard = [{
       name:'treatments',
@@ -64,7 +84,6 @@ export class VideosComponent implements OnInit {
     private router: Router,
     private location: Location,
   ) {
-    this.getVideos(this.paginationData.currentPage, this.search)
   }
 
 
@@ -73,18 +92,45 @@ export class VideosComponent implements OnInit {
   }
 
   onSelectChange = ($event: any): void => {
+    console.log($event)
+    this.categories2 = $event.tab.textLabel
+    this.updateCategerories()
+    // this.search.categories = []
+    // this.search.categories.push({name:$event.tab.textLabel})
+    // this.getVideos(this.paginationData.currentPage, this.search)
+
+  }
+
+  updateCategerories(){
     this.search.categories = []
-    this.search.categories.push({name:$event.tab.textLabel})
+    this.search.categories.push({name:this.categories2})
+    if(this.inputSearch)
+      this.search.categories.push({name:this.inputSearch})
+    this.categories1.forEach((categorie1)=>{
+      if(categorie1.selected == true) {
+        this.search.categories.push({name : categorie1.name})
+      }
+    })
+    console.log(this.search.categories)
     this.getVideos(this.paginationData.currentPage, this.search)
   }
 
+  changeCateg1(nameCateg){
+    //this.categories1[nameCateg] = !this.categories1[nameCateg]
+    this.categories1.forEach((categ, index)=>{
+      if(categ.name === nameCateg) {
+        this.categories1[index].selected = !this.categories1[index].selected
+      }
+    })
+    this.updateCategerories()
+  }
 
   addSearchInput(){
     //console.log(this.inputSearch)
-    this.search.categories.push({name:this.inputSearch})
+
     console.log(this.search.categories)
-    this.getVideos(this.paginationData.currentPage, this.search)
-    this.search.categories.pop()
+    this.updateCategerories()
+    // this.search.categories.pop()
   }
 
   onDelete(id: string) {
@@ -128,7 +174,8 @@ export class VideosComponent implements OnInit {
 
 
   ngOnInit() {
-
+    this.categories2 = 'whatsnew'
+    this.updateCategerories()
   }
 }
 

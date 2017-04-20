@@ -14,16 +14,38 @@
       (keyup.enter)="addSearchInput()"
       mdInput>
   </md-input-container>
+  <div *ngFor="let categorie1 of categories1">
+    <button
+      [ngClass]="{'btn-danger':categorie1.selected,'btn-default':!categorie1.selected}"
+      (click)="changeCateg1(categorie1.name)"
+    >{{categorie1.name}}
+    </button>
+    <!-- <button *ngIf="categorie1.selected"
+      class="btn-default"
+      (click)="changeCateg1(categorie1.name)"
+    >{{categorie1.name}}
+    </button>
+    <button *ngIf="!categorie1.selected"
+      class="btn-error"
+      (click)="changeCateg1(categorie1.name)"
+    >{{categorie1.name}}
+    </button> -->
+  </div>
+
+
 
   <md-tab-group (selectChange)="onSelectChange($event)">
-    <md-tab label="whatsnew" label="what's new"></md-tab>
-    <md-tab label="treatments" label="treatments"></md-tab>
-    <md-tab label="knowledges" label="knowledges"></md-tab>
-    <md-tab label="testimonials" label="testimonials"></md-tab>
-    <md-tab label="merchandising" label="merchandising"></md-tab>
-    <md-tab label="promotions" label="promotions"></md-tab>
+    <md-tab label="whatsnew" textLabel="what's new"></md-tab>
+    <md-tab label="treatments" textLabel="treatments"></md-tab>
+    <md-tab label="knowledges" textLabel="knowledges"></md-tab>
+    <md-tab label="testimonials" textLabel="testimonials"></md-tab>
+    <md-tab label="merchandising" textLabel="merchandising"></md-tab>
+    <md-tab label="promotions" textLabel="promotions"></md-tab>
   </md-tab-group>
 
+  <pre>
+      {{search.categories|json}}
+  </pre>
   <table class="table table-hover table-responsive table-condensed">
     <tbody>
       <tr *ngFor="let video of fetchedVideos | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">

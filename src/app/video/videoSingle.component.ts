@@ -33,7 +33,7 @@ export class VideoSingleComponent implements OnInit {
       _id:''
     }
   }
-  categoriesHard = [{
+  categoriesHard2 = [{
       name:'treatments',
       selected : false
     },
@@ -103,7 +103,7 @@ export class VideoSingleComponent implements OnInit {
     //  }, 10);
 
 
-      //this.updateCategoriesHard()
+      //this.updatecategoriesHard2()
   }
   addCategorie() {
     const control = <FormArray>this.myForm.controls['categories'];
@@ -171,14 +171,14 @@ export class VideoSingleComponent implements OnInit {
 
 
   refreshHardCategories(){
-    this.categoriesHard.forEach((HardCategorie, indexHard) => {
-      this.categoriesHard[indexHard].selected = false
+    this.categoriesHard2.forEach((HardCategorie, indexHard) => {
+      this.categoriesHard2[indexHard].selected = false
     })
 
-    this.categoriesHard.forEach((HardCategorie, indexHard) => {
+    this.categoriesHard2.forEach((HardCategorie, indexHard) => {
       this.fetchedVideo.categories.forEach((fetchedCategorie, indexFetched) => {
         if(HardCategorie.name == fetchedCategorie.name) {
-          this.categoriesHard[indexHard].selected = true
+          this.categoriesHard2[indexHard].selected = true
         }
       })
     })

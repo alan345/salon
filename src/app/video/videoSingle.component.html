@@ -39,11 +39,11 @@
     </md-input-container>
 
 
-    <div *ngFor="let categorieHard of categoriesHard; let i=index">
+    <div *ngFor="let categorieHard of categoriesHard2; let i=index">
       <md-checkbox
         (click)="togglCategorieButton(categorieHard.name)"
         [ngModelOptions]="{standalone: true}"
-        [(ngModel)]="categoriesHard[i].selected"
+        [(ngModel)]="categoriesHard2[i].selected"
       ></md-checkbox>
       {{categorieHard.name}}
     </div>
@@ -52,13 +52,13 @@
     <md-checkbox
       (click)="togglCategorieButton('treatments')"
       [ngModelOptions]="{standalone: true}"
-      [(ngModel)]="categoriesHard.treatments"
+      [(ngModel)]="categoriesHard2.treatments"
     ></md-checkbox>
     knowledges
     <md-checkbox
       (click)="togglCategorieButton('knowledges')"
       [ngModelOptions]="{standalone: true}"
-      [(ngModel)]="categoriesHard.knowledges"
+      [(ngModel)]="categoriesHard2.knowledges"
     ></md-checkbox> -->
 
 
