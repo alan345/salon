@@ -104,7 +104,7 @@ body {
 }
 .container {
     width: 100% !important;
-    max-width: 1250px !important;
+    max-width: 950px !important;
 }
 .goldgradient {
     background: #c9bda5;    
@@ -116,6 +116,9 @@ body {
 .beigeborder {
     border: 1px solid #c9bda5;
 }
+.beigeback {
+    background-color: #efe9df;
+}
 .nopadding {
     padding: 0 !important;
 }
@@ -123,8 +126,24 @@ h3 {
     color: #0a2f87;
     font-weight: 600;
 }
+.editicon {
+    position: absolute !important;
+    top: 3px;
+    left: 3px;
+    color: #fff !important;
+    min-width: 20px!important;
+    background-color: #999;
+    font-size: 18px !important;
+    border-radius: 0!important;
+    padding-bottom: 8px !important;
+}
+.phytonav {
+    margin-bottom: 0 !important;
+    min-height: 70px;
+    background: none;
+}
 
-<!--Mobile Nav Overwrite-->
+<!--Mobile Nav-->
 
 .container>.navbar-header {
 width: 100% !important;
@@ -134,6 +153,18 @@ margin-left: 0 !important;
 .navbar-toggle {
 display: block !important;
 }
-.navbar-nav {
-display: none !important;
+img.phytologo {
+    height: 60px;
+}
+a.navbar-brand.phytologo.active {
+    padding: 5px !important;
+    height: 70px;
+}
+.container>.navbar-header {
+    width: 100% !important;
+}
+@media (min-width: 768px) and (max-width: 4000px) {
+   .collapse {
+       display: none !important;
+   }
 }

@@ -57,6 +57,7 @@ export class VideoSingleComponent implements OnInit {
   inputCategorie = ''
 
 
+
   public myForm: FormGroup;
 
   constructor(
