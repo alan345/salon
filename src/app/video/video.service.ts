@@ -23,7 +23,7 @@ export class VideoService {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
     let options = new RequestOptions({ headers: headers, search: search});
-    console.log(options)
+//    console.log(options)
     return this.http.get(this.url + 'video/page/' + page , options)
       .timeout(9000)
       .map((response: Response) => {

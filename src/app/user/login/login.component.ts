@@ -54,7 +54,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
           localStorage.setItem('id_token', data.token);
           localStorage.setItem('userId', data.userId);
           // navigate user to index page of our app
-          this._router.navigate(['/']);
+
+          //gooplus
+          //this._router.navigate(['/']);
+          location.reload();
           // display toastr success message pop up to inform the user that he logged in successfully
           this.toastr.success('You have been logged in!');
         },

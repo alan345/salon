@@ -21,6 +21,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 
 })
 export class VideosComponent implements OnInit {
+  token: string = localStorage.getItem('id_token');
   fetchedVideos : Array<VideosComponent> = [];
   search = {
     categories : []
@@ -54,27 +55,28 @@ export class VideosComponent implements OnInit {
 
   categories2 = ''
 
-  categoriesHard = [{
-      name:'treatments',
-      selected : false
-    },
-    {
-      name:'knowledges',
-      selected : false
-    },
-    {
-      name:'testimonials',
-      selected : false
-    },
-    {
-      name:'merchandising',
-      selected : false
-    },
-    {
-      name:'promotions',
-      selected : false
-    }
-  ]
+
+  // categoriesHard = [{
+  //     name:'treatments',
+  //     selected : false
+  //   },
+  //   {
+  //     name:'knowledges',
+  //     selected : false
+  //   },
+  //   {
+  //     name:'testimonials',
+  //     selected : false
+  //   },
+  //   {
+  //     name:'merchandising',
+  //     selected : false
+  //   },
+  //   {
+  //     name:'promotions',
+  //     selected : false
+  //   }
+  // ]
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -92,7 +94,7 @@ export class VideosComponent implements OnInit {
   }
 
   onSelectChange = ($event: any): void => {
-    console.log($event)
+//    console.log($event)
     this.categories2 = $event.tab.textLabel
     this.updateCategerories()
     // this.search.categories = []
@@ -111,7 +113,7 @@ export class VideosComponent implements OnInit {
         this.search.categories.push({name : categorie1.name})
       }
     })
-    console.log(this.search.categories)
+//    console.log(this.search.categories)
     this.getVideos(this.paginationData.currentPage, this.search)
   }
 
@@ -128,7 +130,7 @@ export class VideosComponent implements OnInit {
   addSearchInput(){
     //console.log(this.inputSearch)
 
-    console.log(this.search.categories)
+//    console.log(this.search.categories)
     this.updateCategerories()
     // this.search.categories.pop()
   }
@@ -156,7 +158,7 @@ export class VideosComponent implements OnInit {
         res => {
           this.paginationData = res.paginationData;
           let fetchedVideosNotSecure =  res.data
-          console.log(fetchedVideosNotSecure)
+//          console.log(fetchedVideosNotSecure)
           this.fetchedVideos = fetchedVideosNotSecure.map((video) => {
             var rObj = {};
             rObj[video] = video;
