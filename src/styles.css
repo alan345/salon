@@ -146,16 +146,6 @@ h3 {
     background: none;
 }
 
-/*--MobileNav--*/
-
-img.phytologo {
-    height: 60px !important;
-}
-a.navbar-brand.phytologo.active {
-    padding: 5px !important;
-    height: 70px;
-}
-
 /*--Responsive--*/
 
 @media screen and (max-width: 991px) {
