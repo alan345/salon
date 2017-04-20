@@ -8,6 +8,7 @@ import {ToastsManager} from 'ng2-toastr';
 import {ErrorService} from '../errorHandler/error.service';
 import {Reset} from './resetPassword';
 import {tokenNotExpired} from 'angular2-jwt';
+import {Router} from '@angular/router';
 
 @Injectable()
 
@@ -21,7 +22,11 @@ export class AuthService {
   //public userId: string;
 
 
-  constructor(private http: Http, private errorService: ErrorService, private toastr: ToastsManager) {
+  constructor(
+    private http: Http,
+    private errorService: ErrorService,
+    private toastr: ToastsManager,
+    private router: Router) {
     // set token if saved in local storage
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
@@ -100,6 +105,8 @@ export class AuthService {
   logout() {
     localStorage.clear();
     this.token = null;
+
+    // this.router.navigate(['user/login']);
     //gooplus
     //location.reload();
 
