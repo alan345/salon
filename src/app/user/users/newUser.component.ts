@@ -124,6 +124,7 @@ export class NewUserComponent implements OnInit {
     this.location.back();
   }
 
+
   // openDialog(positionImage) {
   //   let dialogRef = this.dialog.open(EditOptionsComponentDialog);
   //   dialogRef.afterClosed().subscribe(result => {
