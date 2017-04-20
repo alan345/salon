@@ -56,8 +56,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
           // navigate user to index page of our app
 
           //gooplus
-          //this._router.navigate(['/']);
-          location.reload();
+          this._router.navigate(['/']);
+          //location.reload();
+
+
           // display toastr success message pop up to inform the user that he logged in successfully
           this.toastr.success('You have been logged in!');
         },
