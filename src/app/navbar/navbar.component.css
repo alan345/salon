@@ -1,3 +1,34 @@
+.phyto-menu {
+    max-width: 950px;
+    margin: 0 auto;
+}
 .phytologo img {
-    height: 60px !important;
+    padding: 2px;
+}
+.hamburger {
+    float: right;
+    font-size: 25px;
+    font-family: inherit !important;
+    min-width: auto !important;
+    color: #0a2f87;
+}
+
+@media screen and (min-width: 768px) {
+  
+.phytologo, .phytologo img {
+    height: 70px!important;
+}
+.hamburger {
+    padding: 17px;
+}
+}
+
+@media screen and (max-width: 767px) {
+  
+.phytologo, .phytologo img {
+    height: 50px!important;
+}
+.hamburger {
+    padding: 7px 14px;
+}
 }
