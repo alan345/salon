@@ -32,7 +32,7 @@ a.shopbutton {
     background-color: #fff;
 }
 .homeimage {
-    max-height: 230px !important;
+    max-height: 210px !important;
     overflow: hidden;
 }
 .homeimage img {
