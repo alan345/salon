@@ -1,6 +1,6 @@
 <div class="container topPadTable goldgradient beigeborder">
   <h3 class="topnav-ad">New! Curl Legend: Voluptuous, Silky and Bouncy Curls</h3>
-  <a href="#" class="btn shopbutton">SHOP NOW</a>
+  <a href="https://www.phyto.com/" class="btn shopbutton">SHOP NOW</a>
 </div>
 
 <div class="container beigeback">
@@ -20,7 +20,9 @@
                     #name="ngModel" required minlength="5">
                   <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome1')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
-                <label class="homelabel">Products</label>
+                <a [routerLink]="['/product']" routerLinkActive="active">
+                  <label class="homelabel">Products</label>
+                </a>
               </div>
 
               <div class="col-sm-6 boxpadding">
@@ -33,7 +35,9 @@
                     #name="ngModel" required minlength="5">
                   <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome2')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
-                <label class="homelabel">Promotion</label>
+                <a [routerLink]="['/promotion']" routerLinkActive="active">
+                  <label class="homelabel">Promotion</label>
+                </a>
               </div>
             </div>
 
@@ -61,7 +65,9 @@
                     #name="ngModel" required minlength="5">
                   <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome4')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
-                <label class="homelabel">Press</label>
+                <a [routerLink]="['/press']" routerLinkActive="active">
+                  <label class="homelabel">Press</label>
+                </a>
               </div>
             </div>
 
@@ -76,7 +82,9 @@
                     #name="ngModel" required minlength="5">
                   <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome5')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
-                <label class="homelabel">Videos</label>
+                <a [routerLink]="['/video']" routerLinkActive="active">
+                  <label class="homelabel">Videos</label>
+                </a>
               </div>
 
               <div class="col-sm-6 boxpadding">
@@ -89,20 +97,12 @@
                     #name="ngModel" required minlength="5">
                   <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome6')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
-                <label class="homelabel">Client Directory</label>
+                <a [routerLink]="['/user']" routerLinkActive="active">
+                  <label class="homelabel">Clients</label>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- <button *ngIf="isAdmin()" type="submit" class="btn btn-default">Submit</button> -->
-  </form>
-
-  <!-- <div *ngIf="isAdmin()" class="margin-20">
-    <div>Form details:</div>
-    <pre>Is form valid?: <br>{{f.valid | json}}</pre>
-    <pre>Is form submitted?: <br>{{f.submitted | json}}</pre>
-    <pre>form value: <br>{{f.value | json}}</pre>
-  </div>
-</div> -->
