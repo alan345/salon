@@ -25,6 +25,7 @@ a.shopbutton {
     margin: 0 !important;
     background-color: #fff;
     font-weight: 100;
+    cursor: pointer;
 }
 .homeimage {
     max-height: 210px !important;
