@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css'; 
 /*@import 'node_modules/@angular/material/core/theming/_theming';*/
 
@@ -14,7 +14,7 @@ a.active {
   margin-top: 150px;
 }
 .topPadTable {
-  margin-top: 90px;
+  margin-top: 70px;
 }
 .table-responsive {
   border: 0;
@@ -57,7 +57,7 @@ a.active {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form input {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -68,7 +68,7 @@ a.active {
   font-size: 14px;
 }
 .form button {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #4CAF50;
@@ -98,7 +98,7 @@ a.active {
   display: none;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -143,7 +143,13 @@ h3 {
     background: none;
 }
 
-<!--Mobile Nav-->
+/*--Bootstrap overwrite--*/
+
+.form-group {
+    margin-bottom: 0 !important;
+}
+
+/*--MobileNav--*/
 
 img.phytologo {
     height: 60px !important;
@@ -151,4 +157,13 @@ img.phytologo {
 a.navbar-brand.phytologo.active {
     padding: 5px !important;
     height: 70px;
+}
+
+/*--Responsive--*/
+
+@media screen and (max-width: 767px) {
+  h3 {
+    font-size: 17px;
+    line-height: 1.5;
+  }
 }
