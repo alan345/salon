@@ -146,7 +146,7 @@ h3 {
 <!--Mobile Nav-->
 
 img.phytologo {
-    height: 60px;
+    height: 60px !important;
 }
 a.navbar-brand.phytologo.active {
     padding: 5px !important;
