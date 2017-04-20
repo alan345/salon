@@ -36,9 +36,9 @@ export class NewUserComponent implements OnInit {
     }],
     profile:{
       name:'',
-      parentUser:[
-
-      ],
+      parentUser:[{
+        _id:''
+      }],
       hair:{
         hairDensity : '',
         hairPorosity : '',
@@ -61,6 +61,7 @@ export class NewUserComponent implements OnInit {
     private location: Location,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
+    private authService:AuthService
   ) {
   }
 
@@ -71,7 +72,7 @@ export class NewUserComponent implements OnInit {
         _id: [''],
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
-            parentUser: [''],
+            parentUser: this._fb.array([]),
             hair: this._fb.group({
                 hairTexture: ['', <any>Validators.required],
                 hairDensity: ['', <any>Validators.required],
@@ -82,49 +83,64 @@ export class NewUserComponent implements OnInit {
     });
 
 
-
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id'])
         this.getUser(params['id'])
     })
   }
 
+  getObjects(myForm){
+     return myForm.get('profile').get('parentUser').controls
+   }
 
 
 
-
-  removeForm(i: number) {
-      this.fetchedUser.forms.splice(i, 1)
-      const control = <FormArray>this.myForm.controls['forms'];
-      control.removeAt(i);
-  }
-  addForm(form: Form) {
-
-    const control = <FormArray>this.myForm.controls['forms'];
+  addParentUser(parentUser) {
+    const control = <FormArray>this.myForm.get('profile').get('parentUser');
+    //console.log(control)
     const addrCtrl = this._fb.group({
-        _id: ['', Validators.required],
+        _id: [''],
     });
     control.push(addrCtrl);
   }
+
+
+
+  // removeForm(i: number) {
+  //     this.fetchedUser.forms.splice(i, 1)
+  //     const control = <FormArray>this.myForm.controls['forms'];
+  //     control.removeAt(i);
+  // }
+  // addForm(form: Form) {
+  //
+  //   const control = <FormArray>this.myForm.controls['forms'];
+  //   const addrCtrl = this._fb.group({
+  //       _id: ['', Validators.required],
+  //   });
+  //   control.push(addrCtrl);
+  // }
 
 
   goBack() {
     this.location.back();
   }
 
-  openDialog(positionImage) {
-    let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        this.addForm(result)
-        this.fetchedUser.forms.push(result)
-      }
-    })
-  }
+  // openDialog(positionImage) {
+  //   let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.addForm(result)
+  //       this.fetchedUser.forms.push(result)
+  //     }
+  //   })
+  // }
 
   save(form) {
     //let user = form.value
     this.fetchedUser.profile = form.value.profile
+    console.log(this.authService.currentUser.userId)
+    if(!this.fetchedUser.profile.parentUser)
+      this.fetchedUser.profile.parentUser[0]._id = 'lol'
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
@@ -162,6 +178,11 @@ export class NewUserComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedUser = res.user
+
+          this.fetchedUser.profile.parentUser.forEach((parentUser) => {
+            this.addParentUser(parentUser)
+          })
+
         },
         error => {
           console.log(error);

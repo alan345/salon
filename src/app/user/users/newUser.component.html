@@ -30,11 +30,19 @@
         <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name">
       </div>
 
-
-      <div class="form-group" *ngFor="let singleParentUser of fetchedUser.profile.parentUser">
-        <label>parentUser</label>
-        <input type="text" class="form-control" formControlName="parentUser" [(ngModel)]="singleParentUser._id">
+      <div formArrayName="parentUser">
+        <div class="form-group" *ngFor="let singleParentUser of getObjects(myForm); let i=index">
+          <div [formGroupName]="i">
+            <label>parentUser</label>
+            <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile.parentUser[i]._id">
+          </div>
+        </div>
       </div>
+
+      <!-- <div class="form-group">
+        <label>parentUser</label>
+        <input type="text" class="form-control" formControlName="parentUser" [(ngModel)]="fetchedUser.profile.parentUser._id">
+      </div> -->
 
 
       <div formGroupName="hair">
