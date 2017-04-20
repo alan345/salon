@@ -145,26 +145,10 @@ h3 {
 
 <!--Mobile Nav-->
 
-.container>.navbar-header {
-width: 100% !important;
-margin-right: 0 !important;
-margin-left: 0 !important;
-}
-.navbar-toggle {
-display: block !important;
-}
 img.phytologo {
     height: 60px;
 }
 a.navbar-brand.phytologo.active {
     padding: 5px !important;
     height: 70px;
-}
-.container>.navbar-header {
-    width: 100% !important;
-}
-@media (min-width: 768px) and (max-width: 4000px) {
-   .collapse {
-       display: none !important;
-   }
 }
