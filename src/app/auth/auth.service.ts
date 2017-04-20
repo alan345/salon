@@ -12,11 +12,14 @@ import {tokenNotExpired} from 'angular2-jwt';
 @Injectable()
 
 export class AuthService {
-  public id_token: string;
-  public userId: string;
+  public token: string;
+  //public userId: string;
 
 
   constructor(private http: Http, private errorService: ErrorService, private toastr: ToastsManager) {
+    // set token if saved in local storage
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = currentUser && currentUser.token;
   }
 
   // sending request to back end to register our user
@@ -37,6 +40,13 @@ export class AuthService {
     const headers = new Headers({'Content-Type': 'application/json'});
     return this.http.post('/user/login', body, {headers: headers})
       .map((response: Response) => {
+        let token = response.json() && response.json().token;
+        let userId = response.json() && response.json().userId;
+        if (token) {
+          this.token = token;
+          localStorage.setItem('currentUser', JSON.stringify({ userId: userId, token: token }))
+        }
+
         // let id_token = response.json() && response.json().token;
         // let userId = response.json() && response.json().userId;
         // this.id_token = id_token
@@ -79,7 +89,7 @@ export class AuthService {
   // logout function to be used in html file of both pages (login/register) in order to clear the localStorage from token and user id.
   logout() {
     localStorage.clear();
-    this.id_token = null;
+    this.token = null;
     //gooplus
     //location.reload();
 

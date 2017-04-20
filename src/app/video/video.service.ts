@@ -6,22 +6,27 @@ import {Video} from './video.model';
 import {ToastsManager} from 'ng2-toastr';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class VideoService {
 
   private url: string = '/';
-  private token: string = localStorage.getItem('id_token');
-  private videoId: string = localStorage.getItem('videoId');
+//  private token: string = localStorage.getItem('id_token');
+//  private videoId: string = localStorage.getItem('videoId');
   private videos = [];
   private singleVideo = Object;
 
-  constructor(private http: Http, private errorService: ErrorService, private toastr: ToastsManager) {}
+  constructor(
+    private http: Http,
+    private errorService: ErrorService,
+    private toastr: ToastsManager,
+    private authService: AuthService) {}
 
   // get video forms from backend in order to display them in the front end
   getVideos(page: number, search) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.token);
     let options = new RequestOptions({ headers: headers, search: search});
 //    console.log(options)
     return this.http.get(this.url + 'video/page/' + page , options)
@@ -41,7 +46,7 @@ export class VideoService {
   //getVideo(id: string) : Observable<Video> {
   getVideo(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.token);
     return this.http.get(this.url + 'video/' + id, {headers: headers})
       .map((response: Response) => {
         console.log(response.json().item)
@@ -60,7 +65,7 @@ export class VideoService {
 
   deleteVideo(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.token);
     return this.http.delete(this.url + 'video/' + id, {headers: headers})
       .map((response: Response) => {
       //  console.log("delete",response)
@@ -75,13 +80,13 @@ export class VideoService {
   }
 
   saveVideo(video) {
-  //  console.log("this.token",this.token);
+  //  console.log("this.authService.token",this.authService.token);
   //  delete video._id;
   delete video._id
   console.log(video)
     const body = JSON.stringify(video);
     const headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.token);
     return this.http.post(this.url + 'video/',body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
@@ -93,7 +98,7 @@ export class VideoService {
   updateVideo(video) {
     const body = JSON.stringify(video);
     const headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.token);
     return this.http.put(this.url + 'video/' + video._id, body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
@@ -107,7 +112,7 @@ export class VideoService {
   // deleteForm(form: Form) {
   //   this.forms.splice(this.forms.indexOf(form), 1);
   //   let headers = new Headers({'Content-Type': 'application/json'});
-  //   headers.append('Authorization', '' + this.token);
+  //   headers.append('Authorization', '' + this.authService.token);
   //   return this.http.delete(this.url + 'forms/' + form, {headers: headers})
   //     .map((response: Response) => {
   //       this.toastr.success('Form deleted successfully!');
@@ -121,7 +126,7 @@ export class VideoService {
   //
   // getSingleForm(formId) {
   //   let headers = new Headers({'Content-Type': 'application/json'});
-  //   headers.append('Authorization', '' + this.token);
+  //   headers.append('Authorization', '' + this.authService.token);
   //   return this.http.get(this.url + 'forms/edit/' + formId, {headers: headers})
   //     .map((response: Response) => {
   //       this.singleForm = response.json();
