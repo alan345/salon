@@ -47,7 +47,18 @@
       ></md-checkbox>
       {{categorieHard.name}}
     </div>
+    
+    <br>
+    <br>
 
+    <div *ngFor="let categorieHard of categoriesHard1; let i=index">
+      <md-checkbox
+        (click)="togglCategorieButton(categorieHard.name)"
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="categoriesHard1[i].selected"
+      ></md-checkbox>
+      {{categorieHard.name}}
+    </div>
     <!-- treatments
     <md-checkbox
       (click)="togglCategorieButton('treatments')"

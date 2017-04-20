@@ -54,6 +54,20 @@ export class VideoSingleComponent implements OnInit {
       selected : false
     }
   ]
+
+  categoriesHard1 = [{
+      name:'phyto',
+      selected : false
+    },
+    {
+      name:'phytoSpecific',
+      selected : false
+    },
+    {
+      name:'subtil',
+      selected : false
+    }]
+
   inputCategorie = ''
 
 
@@ -183,7 +197,22 @@ export class VideoSingleComponent implements OnInit {
         }
       })
     })
+
+    this.categoriesHard1.forEach((HardCategorie, indexHard) => {
+      this.categoriesHard1[indexHard].selected = false
+    })
+
+    this.categoriesHard1.forEach((HardCategorie, indexHard) => {
+      this.fetchedVideo.categories.forEach((fetchedCategorie, indexFetched) => {
+        if(HardCategorie.name == fetchedCategorie.name) {
+          this.categoriesHard1[indexHard].selected = true
+        }
+      })
+    })
+
   }
+
+
 
 
   getVideo(id) {
