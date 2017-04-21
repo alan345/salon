@@ -17,14 +17,14 @@
 
 @media screen and (min-width: 768px) {
   
-.newclientsml {
+.newclientsml-btn {
   display:none;
 }
 }
 
 @media screen and (max-width: 767px) {
   
-.newclientbig {
+.newclientbig-btn {
   display:none;
 }
 }
