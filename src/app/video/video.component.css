@@ -12,13 +12,6 @@
     margin: 15px 0;
     border: 1px solid #cccccc;
 }
-mat-input-wrapper {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-mat-input-underline {
-    display: none !important;
-}
 .cat-btn {
     background-color: #ffffff;
     color: #0a2f87;
@@ -43,7 +36,7 @@ mat-input-underline {
     flex-direction: row;
     flex-wrap: wrap !important;
 }
-/deep/ .mat-tab-label {
+:host /deep/ .mat-tab-label {
     text-transform: uppercase;
     color: #010870 !important;
     font-size: 13px !important;
