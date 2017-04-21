@@ -47,8 +47,10 @@ export class SideNavbarComponent implements OnInit {
   }
 
 
-  // this calls the logout function from our authentication service, it's activated when user clicks logout in front end.
-  // It's called by the (click)='logout()' when the user presses the button
+  goTo(path){
+    this.sidenav.close()
+    this.router.navigate([path]);
+  }
   logout() {
     this.sidenav.close()
     this.authService.logout();
