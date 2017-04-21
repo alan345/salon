@@ -49,13 +49,14 @@ td.rightdate {
 .newclientsml-btn {
   display:none;
 }
+p.tblnav-cl {
+  padding: 15px 15px 15px 0;
+}
 .tbl-left p.tblnav-cl {
   float: left;
-  padding: 15px 15px 15px 0;
 }
 .tbl-right p.tblnav-cl {
   float: right;
-  padding: 15px 0 15px 15px;
 }
 }
 
