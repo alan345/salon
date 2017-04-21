@@ -45,6 +45,7 @@ export class SideNavbarComponent implements OnInit {
     return this.authService.isLoggedIn();
   }
 
+
   // this calls the logout function from our authentication service, it's activated when user clicks logout in front end.
   // It's called by the (click)='logout()' when the user presses the button
   logout() {
