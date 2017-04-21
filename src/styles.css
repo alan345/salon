@@ -177,7 +177,9 @@ h3 {
 .change-page li {
     font-size: 15px !important;
 }
-
+.change-page li.current {
+    background-color: #0a2f87 !important;
+}
 /*--Responsive--*/
 
 @media screen and (max-width: 991px) {
