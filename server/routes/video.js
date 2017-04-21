@@ -108,6 +108,7 @@ router.post('/', function (req, res, next) {
 
 
 
+
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
   var itemsPerPage = 5

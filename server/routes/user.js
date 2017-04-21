@@ -73,45 +73,43 @@ router.post('/login', function (req, res, next) {
 
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
-  var itemsPerPage = 5;
-  var currentPage = Number(req.params.page);
-  var pageNumber = currentPage - 1;
-  var skip = (itemsPerPage * pageNumber);
-  var limit = (itemsPerPage * pageNumber) + itemsPerPage;
+  var itemsPerPage = 5
+  var currentPage = Number(req.params.page)
+  var pageNumber = currentPage - 1
+  var skip = (itemsPerPage * pageNumber)
+  var limit = (itemsPerPage * pageNumber) + itemsPerPage
+  //lastVisit
+  console.log(req.query)
+
+  User
+  .find()
+  .limit(itemsPerPage)
+  .skip(skip)
+  .sort(req.query.orderBy)
+  .exec(function (err, item) {
+    if (err) {
+      return res.status(404).json({
+        message: 'No results',
+        err: err
+      })
+    } else {
+      User
+      .find()
+      .count().exec(function (err, count) {
+      res.status(200).json({
+          paginationData : {
+            totalItems: count,
+            currentPage : currentPage,
+            itemsPerPage : itemsPerPage
+          },
+          data: item
+        })
+      })
+    }
+  })
 
 
-
-  User.find().count((err, totalItems) => {
-    if(err)
-      res.send(err);
-    else
-        User.aggregate(
-        [
-          { $skip : skip },
-          { $limit : itemsPerPage }
-
-        ], function(err, data) {
-             if (err) {
-               res.send(err);
-             }
-             else {
-               var jsonOb =
-                {
-                  "paginationData" : {
-                    "totalItems": totalItems,
-                    "currentPage" : currentPage,
-                    "itemsPerPage" : itemsPerPage
-                  },
-                  "data": data
-                };
-
-               res.send(jsonOb);
-             }
-           }
-        );
-
-  });
-});
+})
 
 
 module.exports = router;

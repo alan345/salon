@@ -23,6 +23,10 @@ export class UsersComponent implements OnInit {
   fetchedUsers : Array<UsersComponent> = [];
   fetchedRegions = [];
   loading: boolean;
+  search = {
+    orderBy : 'profile.name',
+    search:''
+  }
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,
@@ -36,15 +40,20 @@ export class UsersComponent implements OnInit {
     public dialog: MdDialog,
     private router: Router,
     private location: Location,
-  ) {
-    this.getUsers(this.paginationData.currentPage);
+  ) {}
+
+
+  ngOnInit() {
+    this.getUsers(this.paginationData.currentPage, this.search)
   }
-
-
   goBack() {
     this.location.back();
   }
 
+  orderBy(orderBy:string) {
+    this.search.orderBy = orderBy
+    this.getUsers(this.paginationData.currentPage, this.search)
+  }
 
   onDelete(id: string) {
     this.userService.deleteUser(id)
@@ -61,11 +70,12 @@ export class UsersComponent implements OnInit {
 
   getPage(page: number) {
     this.loading = true;
-    this.getUsers(page);
+    this.getUsers(page, this.search)
   }
 
-  getUsers(page) {
-    this.userService.getUsers(page)
+  getUsers(page, search) {
+
+    this.userService.getUsers(page, search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
@@ -79,20 +89,4 @@ export class UsersComponent implements OnInit {
   }
 
 
-
-
-
-  ngOnInit() {
-
-  }
 }
-
-
-// @Component({
-//   selector: 'user-dialog',
-//   templateUrl: './userDialog.component.html',
-// })
-// export class UserDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<UserDialogComponent>) {}
-//
-// }

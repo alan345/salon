@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {Response, Headers, Http} from '@angular/http';
+import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
 import {User} from './user.model';
 import {ToastsManager} from 'ng2-toastr';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { AuthService } from '../auth/auth.service';
+
 
 @Injectable()
 export class UserService {
@@ -16,14 +18,21 @@ export class UserService {
   private users = [];
   private singleUser = Object;
 
-  constructor(private http: Http, private errorService: ErrorService, private toastr: ToastsManager) {}
+  constructor(
+    private http: Http,
+    private errorService: ErrorService,
+    private toastr: ToastsManager,
+    private authService: AuthService
+  ) {}
 
   // get user forms from backend in order to display them in the front end
-  getUsers(page: number) {
+  getUsers(page: number, search) {
+    let headers = new Headers({'Content-Type': 'application/json'})
+    headers.append('Authorization', '' + this.authService.token)
 
-    let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
-    return this.http.get(this.url + 'user/page/' + page , {headers: headers})
+    let options = new RequestOptions({ headers: headers, search: search});
+
+    return this.http.get(this.url + 'user/page/' + page , options)
       .timeout(9000)
       .map((response: Response) => {
 
