@@ -14,7 +14,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  
+
 .phytologo, .phytologo img {
     height: 70px!important;
 }
@@ -24,7 +24,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  
+
 .phytologo, .phytologo img {
     height: 50px!important;
 }
