@@ -10,7 +10,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
-
+import {ViewEncapsulation} from '@angular/core'
 
 
 
@@ -18,6 +18,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
   selector: 'app-videos',
   templateUrl: './videos.component.html',
   styleUrls: ['./video.component.css'],
+  encapsulation: ViewEncapsulation.None
 
 })
 export class VideosComponent implements OnInit {
