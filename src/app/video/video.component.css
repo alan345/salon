@@ -12,11 +12,11 @@
     margin: 15px 0;
     border: 1px solid #cccccc;
 }
-.srchbar mat-input-wrapper {
+mat-input-wrapper {
     margin: 0 !important;
     padding: 0 !important;
 }
-.srchbar mat-input-underline {
+mat-input-underline {
     display: none !important;
 }
 .cat-btn {
