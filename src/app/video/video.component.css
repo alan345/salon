@@ -43,7 +43,7 @@ mat-input-underline {
     flex-direction: row;
     flex-wrap: wrap !important;
 }
-.vid-tab {
+/deep/ .mat-tab-label {
     text-transform: uppercase;
     color: #010870 !important;
     font-size: 13px !important;
