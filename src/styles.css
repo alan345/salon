@@ -169,6 +169,9 @@ h3 {
     border-radius: 0!important;
     padding-bottom: 8px !important;
 }
+td {
+    cursor: pointer;
+}
 .change-page ul {
     padding: 20px !important;
     margin: 0 auto !important;
