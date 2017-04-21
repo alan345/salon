@@ -15,7 +15,6 @@
     background: #ffffff;
 }
 p.tblnav-clients {
-    padding: inherit !important;
     margin: inherit !important;
 }
 .updownbtn {
@@ -47,6 +46,10 @@ td.rightdate {
 .newclientsml-btn {
   display:none;
 }
+p.tblnav-clients {
+  float: left;
+  padding: inherit !important;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -54,7 +57,7 @@ td.rightdate {
 .newclientbig-btn {
   display:none;
 }
-  p.tblnav-clients {
-    float: left;
+p.tblnav-clients {
+    padding: 6px !important;
 }
 }
