@@ -1,4 +1,46 @@
-.img-resized {
-  width: 8%;
-  margin-left: 10px;
+.phyto-sidenav {
+    box-shadow: none !important;
+    height: 100vh !important;
+}
+.sidenav-content {
+    height: 100% !important;
+}
+.sidenav-title {
+    min-height: 55px;
+    padding: 0 20px;
+}
+.cross {
+    float: right;
+    padding: 15px 15px 0;
+    font-size: 40px;
+    font-family: inherit !important;
+    min-width: auto !important;
+    color: #0a2f87;
+    background: none;
+    border: none;
+    line-height: 1;
+    margin: 6px 0 0 25px;
+}
+ul.phyto-sidenav {
+    padding: 0;
+}
+.phyto-sidenav li {
+    display: block;
+    padding: 20px;
+    background-color: #efe9df;
+}
+.phyto-sidenav li a {
+    color: #231f20;
+}
+.phyto-sidenav li:hover, .phyto-sidenav li:active {
+    opacity: 0.8;
+}
+.sidenav-footer {
+    position: absolute;
+    bottom: 0;
+    padding: 0 20px;
+}
+.sidenav-footer p, .sidenav-footer p a {
+    color: #999999;
+    font-size: 10px;
 }
