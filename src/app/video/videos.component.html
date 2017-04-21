@@ -1,32 +1,24 @@
+<div class="container topPadTable">
+  <h2 class="text-center">
+  <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
+  Videos
+  <button class="btn-default" [routerLink]="['/video/videoSingle']" routerLinkActive="active"><i class="fa fa-plus-circle"></i></button>
 
-<div class="container">
- <div class="goldgradient beigeborder subnav">
-    <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
-    <h3 style="text-align: center;">Videos</h3>
-    <button class="subnav-btnright" [routerLink]="['/video/videoSingle']" routerLinkActive="active"><i class="fa fa-plus"></i></button>
-  </div>
-    <div class="subsubnav-video">
-      <div class="video-srchrow">
-        <md-input-container>		
-          <input		
-          [(ngModel)]="inputSearch"		
-          placeholder="Search"		
-          (keyup.enter)="addSearchInput()"		
-          mdInput
-          >		
-        </md-input-container>
-      </div>
-      <div class="video-catrow">
-        <div *ngFor="let categorie1 of categories1">
-          <button
-            [ngClass]="{'btn-danger':categorie1.selected,'btn-default':!categorie1.selected}"
-            (click)="changeCateg1(categorie1.name)"
-          >{{categorie1.name}}
-          </button>
-        </div>
-      </div>
-  </div>
+  </h2>
 
+  <md-input-container>
+    <input
+      [(ngModel)]="inputSearch"
+      placeholder="Search"
+      (keyup.enter)="addSearchInput()"
+      mdInput>
+  </md-input-container>
+  <div *ngFor="let categorie1 of categories1">
+    <button
+      [ngClass]="{'btn-danger':categorie1.selected,'btn-default':!categorie1.selected}"
+      (click)="changeCateg1(categorie1.name)"
+    >{{categorie1.name}}
+    </button>
     <!-- <button *ngIf="categorie1.selected"
       class="btn-default"
       (click)="changeCateg1(categorie1.name)"
@@ -37,6 +29,9 @@
       (click)="changeCateg1(categorie1.name)"
     >{{categorie1.name}}
     </button> -->
+  </div>
+
+
 
   <md-tab-group (selectChange)="onSelectChange($event)">
     <md-tab label="whatsnew" textLabel="what's new"></md-tab>
