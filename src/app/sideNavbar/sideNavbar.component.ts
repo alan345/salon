@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {AdminService} from '../admin/services/admin.service';
 import {ProfileService} from '../user/profile/profile.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-sideNavbar',
@@ -14,7 +16,11 @@ export class SideNavbarComponent implements OnInit {
   // private userId: string;
   fetchedUser: any[] = [];
 
-  constructor(private authService: AuthService, private adminService: AdminService, private profileService: ProfileService) {
+  constructor(
+      private authService: AuthService,
+      private adminService: AdminService,
+      private profileService: ProfileService,
+      private router: Router) {
   }
 
   ngOnInit() {
@@ -42,7 +48,12 @@ export class SideNavbarComponent implements OnInit {
   // this calls the logout function from our authentication service, it's activated when user clicks logout in front end.
   // It's called by the (click)='logout()' when the user presses the button
   logout() {
-    return this.authService.logout();
+    this.authService.logout();
+    let this2 = this
+    setTimeout(function(){
+        this2.router.navigate(['/user/login']);
+    }, 150);
+
   }
 
   isAdmin() {
