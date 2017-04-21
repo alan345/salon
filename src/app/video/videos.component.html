@@ -8,15 +8,13 @@
   </div>
   <div class="subsubnav-video beigeback">
     <div class="video-srchrow">
-      <div class="srchbar">
-        <md-input-container>		
-          <input		
-          [(ngModel)]="inputSearch"		
-          placeholder="Search"		
-          (keyup.enter)="addSearchInput()"		
-          mdInput
-          >		
-        </md-input-container>
+      <div class="srchbar">	
+        <input		
+        [(ngModel)]="inputSearch"		
+        placeholder="Search"		
+        (keyup.enter)="addSearchInput()"		
+        mdInput
+        >
       </div>
     </div>
     <div class="video-catrow">
@@ -31,17 +29,14 @@
   </div>
 
   <md-tab-group (selectChange)="onSelectChange($event)">
-    <md-tab label="whatsnew" textLabel="what's new"></md-tab>
-    <md-tab label="treatments" textLabel="treatments"></md-tab>
-    <md-tab label="knowledges" textLabel="knowledges"></md-tab>
-    <md-tab label="testimonials" textLabel="testimonials"></md-tab>
-    <md-tab label="merchandising" textLabel="merchandising"></md-tab>
-    <md-tab label="promotions" textLabel="promotions"></md-tab>
+    <md-tab label="whatsnew" textLabel="what's new" class="vid-tab"></md-tab>
+    <md-tab label="treatments" textLabel="treatments" class="vid-tab"></md-tab>
+    <md-tab label="knowledges" textLabel="knowledges" class="vid-tab"></md-tab>
+    <md-tab label="testimonials" textLabel="testimonials" class="vid-tab"></md-tab>
+    <md-tab label="merchandising" textLabel="merchandising" class="vid-tab"></md-tab>
+    <md-tab label="promotions" textLabel="promotions" class="vid-tab"></md-tab>
   </md-tab-group>
 
-  <pre>
-      {{search.categories|json}}
-  </pre>
   <table class="table table-hover table-responsive table-condensed">
     <tbody>
       <tr *ngFor="let video of fetchedVideos | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
