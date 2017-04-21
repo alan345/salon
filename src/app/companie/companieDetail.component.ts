@@ -12,7 +12,9 @@ import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import {Location} from '@angular/common';
-
+import { Form } from '../user/users/user.model'
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 
 @Component({
   selector: 'app-companie',
@@ -22,6 +24,7 @@ import {Location} from '@angular/common';
 export class CompanieDetailComponent implements OnInit {
   fetchedCompanie = {
     _id:'',
+    forms:[],
     address: {
       address : '',
       city :  '',
@@ -30,6 +33,7 @@ export class CompanieDetailComponent implements OnInit {
     },
     users:[]
   }
+  public myForm: FormGroup;
 
 
 
@@ -41,12 +45,17 @@ export class CompanieDetailComponent implements OnInit {
     public dialog: MdDialog,
     private router: Router,
     private location: Location,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private _fb: FormBuilder,
   ) {
 
   }
 
   ngOnInit() {
+    this.myForm = this._fb.group({
+      forms: this._fb.array([])
+    })
+
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getCompanie(params['id'])
     })
@@ -67,20 +76,47 @@ export class CompanieDetailComponent implements OnInit {
       );
   }
 
+  save(form) {}
 
+  addForm(form) {
+    const control = <FormArray>this.myForm.controls['forms'];
+    const addrCtrl = this._fb.group({
+        _id: ['', Validators.required],
+        owner: ['', Validators.required],
+        imagePath: ['', Validators.required],
+    });
+    control.push(addrCtrl);
+  }
+
+  getObjects(myForm){
+    return myForm.get('forms').controls
+  }
+
+  openDialog(positionImage) {
+    let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.addForm(result)
+        this.fetchedCompanie.forms.push(result)
+        this.companieService.updateCompanie(this.fetchedCompanie)
+          .subscribe(
+            res => {
+              this.toastr.success('Great!', res.message)
+            },
+            error => {console.log(error)}
+          )
+      }
+    })
+  }
 
   getCompanie(id) {
-
-    this.activatedRoute.params
-      .switchMap((params: Params) => this.companieService.getCompanie(params['id']))
-  //    .subscribe((hero: Hero) => this.hero = hero);
-
-    //this.companieService.getCompanie(id)
+    this.companieService.getCompanie(id)
       .subscribe(
         res => {
-        //  console.log("companies");
-        //  console.log(res);
           this.fetchedCompanie = res
+          this.fetchedCompanie.forms.forEach((form: Form) => {
+            this.addForm(form)
+          })
         },
         error => {
           console.log(error);

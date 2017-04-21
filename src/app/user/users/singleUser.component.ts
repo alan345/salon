@@ -70,24 +70,9 @@ export class SingleUserComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
-      //  email: ['', [Validators.required, Validators.minLength(5)]],
-        lastVisit: [''],
-    //    _id: ['', [Validators.required, Validators.minLength(5)]],
-        forms: this._fb.array([
-          // {
-          //   _id:[''],
-          //   owner:[''],
-          //   imagePath:['']
-          // }
-        ]),
-        // profile: this._fb.group({
-        //     name: ['', [Validators.required, Validators.minLength(5)]],
-        //     hair: this._fb.group({
-        //         hairTexture: ['', <any>Validators.required],
-        //
-        //     })
-        // })
-    });
+      lastVisit: [''],
+      forms: this._fb.array([])
+    })
 
 
 
@@ -146,6 +131,7 @@ export class SingleUserComponent implements OnInit {
         error => {console.log(error)}
       )
   }
+
 
 
   setDateToday(){

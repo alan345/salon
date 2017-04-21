@@ -20,4 +20,31 @@
     <br>
     {{user._user.profile.name}}
   </div>
+
+
+
+      <!--forms-->
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+      <div formArrayName="forms">
+        <div *ngFor="let form of getObjects(myForm); let i=index" class="panel panel-default">
+          <div class="panel-heading">
+            <span>Image {{i + 1}}</span>
+            <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
+          </div>
+          <div class="panel-body" [formGroupName]="i">
+            <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedCompanie.forms[i]._id">
+            <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedCompanie.forms[i].owner">
+            <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedCompanie.forms[i].imagePath">
+            <img width="150" src="./uploads/forms/{{fetchedCompanie.forms[i].owner}}/{{fetchedCompanie.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          </div>
+        </div>
+      </div>
+      <div class="margin-20">
+        <button type="button" md-button (click)="openDialog('img')">+ Media</button>
+      </div>
+    </form>
+      <!--forms-->
+
+
+
 </div>

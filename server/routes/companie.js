@@ -62,9 +62,10 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-        item.address = req.body.address;
-        item.text = req.body.text;
-        item.region_id = req.body.region_id;
+        item.address = req.body.address
+        item.forms = req.body.forms
+        //item.text = req.body.text
+        //item.region_id = req.body.region_id
 
         item.save(function (err, result) {
           if (err) {
@@ -151,6 +152,10 @@ router.get('/page/:page', function (req, res, next) {
 router.get('/:id', function (req, res, next) {
   Companie
   .findById({_id: req.params.id})
+  .populate({
+    path: 'forms',
+    model: 'Form'
+  })
   .populate(
     {
       path: 'users._user',

@@ -13,12 +13,11 @@ var companie = new Schema({
       zip : '',
     },
     name: '',
-    users : [{
-      _user:{type: Schema.Types.ObjectId, ref: 'User'},
-    }],
+    users : [{_user:{type: Schema.Types.ObjectId, ref: 'User'}}],
+    forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
 
     text: String,
-    region_id: mongoose.Schema.Types.ObjectId
+    //region_id: mongoose.Schema.Types.ObjectId
 
   },
   {
