@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {AdminService} from '../admin/services/admin.service';
 import {ProfileService} from '../user/profile/profile.service';
@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./sideNavbar.component.css']
 })
 export class SideNavbarComponent implements OnInit {
+  @Input() sidenav
 
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
@@ -49,6 +50,7 @@ export class SideNavbarComponent implements OnInit {
   // this calls the logout function from our authentication service, it's activated when user clicks logout in front end.
   // It's called by the (click)='logout()' when the user presses the button
   logout() {
+    this.sidenav.close()
     this.authService.logout();
     let this2 = this
     setTimeout(function(){
