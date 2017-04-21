@@ -27,6 +27,9 @@ p.tblnav-clients {
     font-size: 19px;
     outline: none !important;
 }
+.clienttbl tr {
+    background-color: #fff;
+}
 .clienttbl td {
     border-bottom: 2px solid #efe9df !important;
     border-top: none !important;
