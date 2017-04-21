@@ -2,3 +2,7 @@
     max-width: 950px;
     margin: 0 auto;
 }
+.phyto-sidenav {
+    box-shadow: none !important;
+    height: 100vh !important;
+}
