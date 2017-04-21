@@ -4,6 +4,11 @@
 .sidenav-title {
     min-height: 55px;
     padding: 0 20px;
+    display: block;
+    margin-bottom: 10px;
+}
+.sidenav-title h3 {
+    float: left;
 }
 .cross {
     float: right;
@@ -13,7 +18,7 @@
     min-width: auto !important;
     color: #0a2f87;
     background: none;
-    border: none;
+    border: none !important;
     line-height: 1;
     margin: 6px 0 0 25px;
 }
