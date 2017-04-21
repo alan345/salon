@@ -1,6 +1,9 @@
 .phytologo img {
     padding: 2px;
 }
+.phytologo {
+    background-color: #ffffff;
+}
 .hamburger {
     float: right;
     font-size: 25px;
