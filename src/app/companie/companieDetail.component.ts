@@ -25,6 +25,7 @@ export class CompanieDetailComponent implements OnInit {
   fetchedCompanie = {
     _id:'',
     forms:[],
+    name:'',
     address: {
       address : '',
       city :  '',

@@ -22,6 +22,7 @@ import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 export class EditCompanieComponent implements OnInit {
   fetchedCompanie = {
     _id:'',
+    name:'',
     address:{
       address : '',
       city : '',
