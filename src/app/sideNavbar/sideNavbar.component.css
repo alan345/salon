@@ -29,6 +29,7 @@ ul.sidenav-list {
     display: block;
     padding: 20px;
     background-color: #efe9df;
+    margin: 1px 0;
 }
 .sidenav-list li a {
     color: #231f20;
