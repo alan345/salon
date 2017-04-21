@@ -149,7 +149,7 @@ h3 {
 .subnav {
     padding: 0 15px;
 }
-.subnav-button {
+.subnav-btnleft {
     float: left;
     background: none;
     border: none;
@@ -157,6 +157,16 @@ h3 {
     font-size: 18px;
     color: #0a2f87;
     outline: none !important;
+}
+.subnav-btnright {
+    float: right;
+    margin-top: -37px;
+    background-color: #999999;
+    color: #ffffff;
+    border: none;
+    outline: none !important;
+    font-size: 18px;
+    padding: 3px 8px 0 8px;
 }
 .editicon {
     position: absolute !important;
