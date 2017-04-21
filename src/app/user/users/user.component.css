@@ -1,3 +1,30 @@
-.topPad {
-  margin-top: 100px !important;
+.subsubnav-clients {
+    background-color: #0a2f87;
+    padding: 15px;
+}
+.newclientbig-btn, .newclientsml-btn {
+    background: none;
+    border: 1px solid;
+    color: #fff;
+    font-size: 12px;
+    padding: 12px 20px;
+    float: right;
+}
+.newclientbig-btn:hover, .newclientbig-btn:active, .newclientsml-btn:hover, .newclientsml-btn:active {
+    color: #0a2f87;
+    background: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  
+.newclientsml {
+  display:none;
+}
+}
+
+@media screen and (max-width: 767px) {
+  
+.newclientbig {
+  display:none;
+}
 }
