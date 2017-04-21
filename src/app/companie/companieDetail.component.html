@@ -8,8 +8,10 @@
   <a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a>
   </h2>
 
+
   <hr>
   <h4>id: {{fetchedCompanie._id}}</h4>
+  <h4>Name: {{fetchedCompanie.name}}</h4>
   <h4>address: {{fetchedCompanie.address.address}}</h4>
   <h4>city: {{fetchedCompanie.address.city}}</h4>
   <h4>state: {{fetchedCompanie.address.state}}</h4>

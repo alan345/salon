@@ -13,30 +13,17 @@
     <tr>
       <th>Image</th>
       <th>Form ID</th>
-      <th>Text Input One</th>
-      <th>Text Input Two</th>
-      <th>Owner</th>
-      <th>Date Submitted</th>
-      <th>Date Edited</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th>go</th>
+
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let companie of fetchedCompanies | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
       <td class="img-resized"><img class="img-thumbnail img-responsive" src="./uploads/forms/" onerror="this.src ='assets/images/no-image-found.jpg'"></td>
       <td>{{companie._id }}</td>
-      <td><a [routerLink]="['/companie/' + companie._id]" routerLinkActive="active">{{companie.text}}Hello</a></td>
-      <td>{{companie.region_id}}</td>
-      <td>{{companie.address}}</td>
+      <td><a [routerLink]="['/companie/' + companie._id]" routerLinkActive="active">{{companie.name}}</a></td>
 
 
-      <td>
-        <button class="btn-default" (click)="onOpenModal(companie._id)"><i class="fa fa-pencil"></i></button>
-      </td>
-      <td>
-        <button class="btn-danger" (click)="onDelete(companie._id)"><i class="fa fa-trash"></i></button>
-      </td>
     </tr>
     </tbody>
   </table>
