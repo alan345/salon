@@ -14,12 +14,21 @@ html, body {
 .container {
     width: 100% !important;
     max-width: 950px !important;
+    padding: 0 !important;
 }
 a.active {
   font-weight: bold;
 }
 a.active, a:hover {
   text-decoration: none;
+}
+input {
+  padding: 10px;
+}
+th {
+  color: #0a2f87;
+  font-size: 16px;
+  padding: 15px !important;
 }
 .table-responsive {
   border: 0;
@@ -105,7 +114,6 @@ a.active, a:hover {
 .form-group {
     margin-bottom: 0 !important;
 }
-
 body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -129,6 +137,22 @@ body {
 }
 h3 {
     color: #0a2f87;
+}
+.subnav h3 {
+    margin: 10px auto;
+    width: 60%;
+}
+.subnav {
+    padding: 0 15px;
+}
+.subnav-button {
+    float: left;
+    background: none;
+    border: none;
+    padding: 11px 18px 11px 0;
+    font-size: 18px;
+    color: #0a2f87;
+    outline: none !important;
 }
 .editicon {
     position: absolute !important;
