@@ -14,6 +14,30 @@
     color: #0a2f87;
     background: #ffffff;
 }
+p.tblnav-clients {
+    padding: inherit !important;
+    margin: inherit !important;
+}
+.updownbtn {
+    background-color: #ffffff;
+    border: none;
+    padding: 2px 8px;
+    margin: 11px 5px;
+    color: #0a2f87;
+    font-size: 19px;
+    outline: none !important;
+}
+.clienttbl td {
+    border-bottom: 2px solid #efe9df !important;
+    border-top: none !important;
+    padding: 20px 15px !important;
+}
+td.rightdate {
+    text-align: right;
+    color: #999999;
+    font-size: 11px;
+    padding: 22px 15px !important;
+}
 
 @media screen and (min-width: 768px) {
   
@@ -26,5 +50,8 @@
   
 .newclientbig-btn {
   display:none;
+}
+  p.tblnav-clients {
+    float: left;
 }
 }
