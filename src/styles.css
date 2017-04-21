@@ -30,6 +30,10 @@ th {
   font-size: 16px;
   padding: 15px !important;
 }
+th, td {
+  border: none !important;
+  outline:none !important;
+}
 .table-responsive {
   border: 0;
 }
@@ -164,6 +168,14 @@ h3 {
     font-size: 18px !important;
     border-radius: 0!important;
     padding-bottom: 8px !important;
+}
+ul.change-page {
+    padding: 20px !important;
+    margin: 0 auto !important;
+    text-align: center;
+}
+.change-page li {
+    font-size: 15px !important;
 }
 
 /*--Responsive--*/
