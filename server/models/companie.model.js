@@ -12,8 +12,9 @@ var companie = new Schema({
       sate : '',
       zip : '',
     },
+    name: '',
     users : [{
-      _user:[{type: Schema.Types.ObjectId, ref: 'User'}],
+      _user:{type: Schema.Types.ObjectId, ref: 'User'},
     }],
 
     text: String,
@@ -23,7 +24,7 @@ var companie = new Schema({
   {
     timestamps: true
   });
-  
+
 companie.plugin(mongooseUniqueValidator);
 
 module.exports = mongoose.model('Companie', companie);

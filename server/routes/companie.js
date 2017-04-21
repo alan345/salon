@@ -111,38 +111,37 @@ router.get('/page/:page', function (req, res, next) {
 
 
 
-  Companie.find().count((err, totalItems) => {
-    if(err)
-      res.send(err);
-    else
-        Companie.aggregate(
-        [
-          { $skip : skip },
-          { $limit : itemsPerPage }
 
-        ], function(err, data) {
-             if (err) {
-               res.send(err);
-             }
-             else {
-               var jsonOb =
-                {
-                  "paginationData" : {
-                    "totalItems": totalItems,
-                    "currentPage" : currentPage,
-                    "itemsPerPage" : itemsPerPage
-                  },
-                  "data": data
-                };
+    Companie
+    .find()
+    .limit(itemsPerPage)
+    .skip(skip)
+    .exec(function (err, item) {
+      if (err) {
+        return res.status(404).json({
+          message: 'No results',
+          err: err
+        })
+      } else {
+        Companie
+        .find()
+        .count().exec(function (err, count) {
+        res.status(200).json({
+            paginationData : {
+              totalItems: count,
+              currentPage : currentPage,
+              itemsPerPage : itemsPerPage
+            },
+            data: item
+          })
+        })
+      }
+    })
 
-               res.send(jsonOb);
-             }
-           }
-        );
 
-  });
 
-});
+
+})
 
 
 
@@ -152,7 +151,16 @@ router.get('/page/:page', function (req, res, next) {
 router.get('/:id', function (req, res, next) {
   Companie
   .findById({_id: req.params.id})
-  .populate('users._user')
+  .populate(
+    {
+      path: 'users._user',
+      model: 'User',
+      populate: {
+        path: 'profile._profilePicture',
+        model: 'Form'
+      }
+    })
+  //.populate('users._user.profile.profilePicture._id')
   .exec(function (err, item) {
     if (err) {
       return res.status(404).json({

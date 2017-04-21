@@ -15,7 +15,9 @@
   <h4>state: {{fetchedCompanie.address.state}}</h4>
   <h4>zip: {{fetchedCompanie.address.zip}}</h4>
 
-  <li *ngFor="let user of fetchedCompanie.users">
-    {{ user._user[0].email }}
-  </li>
+  <div *ngFor="let user of fetchedCompanie.users">
+    <img class="img-thumbnail img-responsive" src="./uploads/forms/{{user._user.profile._profilePicture.owner}}/{{user._user.profile._profilePicture.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+    <br>
+    {{user._user.profile.name}}
+  </div>
 </div>

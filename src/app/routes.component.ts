@@ -40,7 +40,7 @@ import {AdminGuardService} from './admin/services/adminGuard';
 const APP_ROUTES: Routes = [
 //  {path: '', component: MainPageHomeComponent, pathMatch: 'full'},
   {path: '', component: MainPageHomeComponent, canActivate: [AuthGuardService], pathMatch: 'full'},
-  {path: 'home2', component: MainPageComponent, pathMatch: 'full'},
+//  {path: 'home2', component: MainPageComponent, pathMatch: 'full'},
   {path: 'companie', component: CompanieComponent, children: USER_COMPANIES},
   {path: 'press', component: PressComponent, children: USER_PRESSES},
   {path: 'product', component: ProductComponent, children: USER_PRODUCTS},
@@ -48,7 +48,7 @@ const APP_ROUTES: Routes = [
   {path: 'promotion', component: PromotionComponent, children: USER_PROMOTIONS},
 //  {path: 'companie/:id', component: CompanieDetailComponent},
 //  {path: 'companie/edit/:id', component: EditCompanieComponent},
-  {path: 'map', component: MapComponent, pathMatch: 'full'},
+//  {path: 'map', component: MapComponent, pathMatch: 'full'},
   {path: 'user', component: UserComponent, children: USER_ROUTES},
   {path: 'form', component: FormComponent, canActivate: [AuthGuardService]},
   {path: 'userForms', component: UserFormsComponent, canActivate: [AuthGuardService]},

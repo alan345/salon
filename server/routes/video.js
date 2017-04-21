@@ -171,9 +171,7 @@ router.get('/page/:page', function (req, res, next) {
       Video
       .find({
           categories: {
-             "$all": [
-                {"$elemMatch" : {"name": "treatments"}},
-             ]
+             "$all": matchRules
            }
         })
       .count().exec(function (err, count) {

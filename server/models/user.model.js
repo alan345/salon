@@ -18,6 +18,7 @@ var user = new Schema({
     // you might want more user roles, so an array would be fine
     role: {type: Array, default: ['user']},
     profile : {
+      _profilePictue : {type: Schema.Types.ObjectId, ref: 'Form'},
       parentUser: [{type: Schema.Types.ObjectId, ref: 'User'}],
       name: String,
       hair : {
