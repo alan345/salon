@@ -82,7 +82,9 @@ router.get('/page/:page', function (req, res, next) {
   console.log(req.query)
 
   User
-  .find()
+  .find({
+    'profile.name' : new RegExp(req.query.search, 'i')
+  })
   .limit(itemsPerPage)
   .skip(skip)
   .sort(req.query.orderBy)
@@ -94,7 +96,9 @@ router.get('/page/:page', function (req, res, next) {
       })
     } else {
       User
-      .find()
+      .find({
+        'profile.name' : new RegExp(req.query.search, 'i')
+      })
       .count().exec(function (err, count) {
       res.status(200).json({
           paginationData : {

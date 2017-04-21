@@ -5,7 +5,13 @@
     <h3 style="text-align: center;">Clients</h3>
   </div>
   <div class="subsubnav-clients">
-    <input type="text" name="Search" placeholder="Search">
+    <input
+      type="text"
+      name="Search"
+      placeholder="Search"
+      [(ngModel)]="search.search"
+      (keyup.enter)="searchInput()"
+    >
     <button class="newclientbig-btn" [routerLink]="['/user/newuser']" routerLinkActive="active">ADD A NEW CLIENT</button>
     <button class="newclientsml-btn" [routerLink]="['/user/newuser']" routerLinkActive="active"><i class="fa fa-plus" aria-hidden="true"></i></button>
   </div>

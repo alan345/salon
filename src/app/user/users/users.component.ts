@@ -50,6 +50,9 @@ export class UsersComponent implements OnInit {
     this.location.back();
   }
 
+  searchInput(){
+    this.getUsers(this.paginationData.currentPage, this.search)
+  }
   orderBy(orderBy:string) {
     this.search.orderBy = orderBy
     this.getUsers(this.paginationData.currentPage, this.search)
