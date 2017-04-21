@@ -7,7 +7,7 @@
     <ul class="sidenav-list">
       <li><a href="#">My Salon</a></li>
       <li><a href="#">My Account Settings</a></li>
-      <li><a href="#">Manage Pictures</a></li>
+      <li><a [routerLink]="['/userForms']">Manage Pictures</a></li>
       <li><a href="#" (click)="logout()" *ngIf="isLoggedIn()">Log out</a></li>
     </ul>
   </div>

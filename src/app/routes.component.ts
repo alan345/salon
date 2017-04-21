@@ -7,6 +7,9 @@ import {USER_ROUTES} from './user/user.routes';
 import {ADMIN_ROUTES} from './admin/admin.routes';
 import {UserComponent} from './user/user.component';
 import {FormComponent} from './form/form.component';
+import {UserFormsComponent} from './userForms/formsTable/userForms.component';
+
+
 import {AuthGuardService} from './auth/authguard.service';
 
 import {MainPageComponent} from './mainPage/mainPage.component';
@@ -48,6 +51,8 @@ const APP_ROUTES: Routes = [
   {path: 'map', component: MapComponent, pathMatch: 'full'},
   {path: 'user', component: UserComponent, children: USER_ROUTES},
   {path: 'form', component: FormComponent, canActivate: [AuthGuardService]},
+  {path: 'userForms', component: UserFormsComponent, canActivate: [AuthGuardService]},
+
   {path: 'admin', component: AdminComponent, children: ADMIN_ROUTES, canActivate: [AdminGuardService]},
   {path: '404', component: ErrorPageComponent},
   {path: '**', redirectTo: '404'}
