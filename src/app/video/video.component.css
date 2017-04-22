@@ -40,8 +40,7 @@
     float: left !important;
 }
 .cat-btn.btn-danger:focus, .cat-btn.btn-default:active, .cat-btn.btn-default:hover, .cat-btn.btn-danger:hover {
-    background-color: #0a2f87 !important;
-    color: #ffffff;
+    background-color: #ffffff !important;
 }
 .video-catrow {
     padding: 15px 0;
