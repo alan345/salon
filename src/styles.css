@@ -49,19 +49,6 @@ th, td {
 .form-control {
   border-radius:  0;
 }
-.btn {
-  border-radius: 0;
-}
-.btn-default {
-  border: 0;
-  background-color: lightblue;
-}
-.btn-default:hover {
-  background-color: lightskyblue;
-}
-.btn-danger {
-  border-width: 0;
-}
 .jumbotron {
   border-radius: 0 !important;
 }
@@ -126,8 +113,6 @@ th, td {
 }
 body {
   font-family: "Montserrat", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 .goldgradient {
     background: #c9bda5;
@@ -200,6 +185,26 @@ td {
 .change-page li.current {
     background-color: #0a2f87 !important;
 }
+.single-wrpr {
+    padding: 15px;
+}
+.single-wrpr label {
+    color: #0a2f87;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    font-size: 14px !important;
+    margin-top: 15px;
+}
+.single-wrpr label.mat-checkbox-layout {
+    margin: 10px 0;
+}
+.single-wrpr .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #0a2f87 !important;
+}
+.single-wrpr .mat-checkbox-inner-container {
+    padding: 15px !important;
+}
+
 /*--Responsive--*/
 
 @media screen and (max-width: 991px) {
