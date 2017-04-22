@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <md-tab-group (selectChange)="onSelectChange($event)">
+  <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback">
     <md-tab label="whatsnew" textLabel="what's new" class="vid-tab"></md-tab>
     <md-tab label="treatments" textLabel="treatments" class="vid-tab"></md-tab>
     <md-tab label="knowledges" textLabel="knowledges" class="vid-tab"></md-tab>
@@ -36,7 +36,7 @@
     <md-tab label="promotions" textLabel="promotions" class="vid-tab"></md-tab>
   </md-tab-group>
 
-  <table class="table table-hover table-responsive table-condensed vid-tbl beigeback">
+  <table class="table table-hover table-responsive table-condensed vid-tbl">
     <tbody>
       <tr *ngFor="let video of fetchedVideos | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="vid-ctnr">
         <td class="vid-cnt">
@@ -55,7 +55,7 @@
       </tr>
     </tbody>
   </table>
-  <div class="has-text-centered beigeback">
+  <div class="has-text-centered">
       <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
       <pagination-controls (pageChange)="getPage($event)" id="server" class="change-page"></pagination-controls>
   </div>
