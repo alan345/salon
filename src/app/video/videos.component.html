@@ -18,8 +18,8 @@
     <div class="video-catrow">
       <div *ngFor="let categorie1 of categories1">
         <button
-          [ngClass]="{'btn-danger':categorie1.selected,'btn-default':!categorie1.selected}"
-          (click)="changeCateg1(categorie1.name)" class="cat-btn"
+          [ngClass]="{'cat-btn-on':categorie1.selected,'cat-btn':!categorie1.selected}"
+          (click)="changeCateg1(categorie1.name)"
           >{{categorie1.name}}
         </button>
       </div>
