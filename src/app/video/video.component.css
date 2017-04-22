@@ -24,7 +24,7 @@
     height: 75px;
 }
 .srchbar {
-    padding: 15px 0;
+    padding: 15px 0 !important;
 }
 .cat-btn {
     background-color: #ffffff;
