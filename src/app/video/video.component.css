@@ -56,6 +56,9 @@
 .vid-cnt {
     padding-bottom: 30px !important;
 }
+.vid-ctnr:hover {
+    background: none !important;
+}
 
 @media screen and (min-width: 768px) {
   
