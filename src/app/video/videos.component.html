@@ -39,7 +39,7 @@
   <table class="table table-hover table-responsive table-condensed">
     <tbody>
       <tr *ngFor="let video of fetchedVideos | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="vid-ctnr">
-        <td>
+        <td class="vid-cnt">
           <!-- <iframe [src]="video['[object Object]'].embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen></iframe> -->
           <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
             <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
