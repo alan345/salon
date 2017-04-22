@@ -28,9 +28,7 @@
 .srchbar {
     padding: 15px 0 !important;
 }
-.cat-btn {
-    background-color: #ffffff;
-    color: #0a2f87;
+.cat-btn, .cat-btn-on {
     border: none;
     outline: none !important;
     text-transform: uppercase;
@@ -41,9 +39,13 @@
     font-size: 13px;
     float: left !important;
 }
-.cat-btn.btn-danger:focus, .cat-btn.btn-default:active, .cat-btn.btn-default:hover, .cat-btn.btn-danger:hover {
-  background-color: #010870 !important;
-  color: #ffffff !important;
+.cat-btn {
+    background-color: #ffffff;
+    color: #0a2f87;
+}
+.cat-btn-on {
+    background-color: #0a2f87 !important;
+    color: #ffffff !important;
 }
 .video-catrow {
     padding: 15px 0;
