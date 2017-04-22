@@ -6,6 +6,8 @@ var express = require('express'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
     jwt     = require('jsonwebtoken');
+    mongoose                = require('mongoose'),
+    Schema                  = mongoose.Schema,
 
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function (err) {
@@ -146,6 +148,30 @@ router.get('/page/:page', function (req, res, next) {
 
 
 
+router.get('/byuserid/:id', function (req, res, next) {
+  Companie
+  .find({
+    '_users' : mongoose.Types.ObjectId('58ed2d1a3bccc80dc8c17964')
+
+  })
+  .populate({
+    path: 'forms',
+    model: 'Form'
+  })
+  .exec(function (err, item) {
+    if (err) {
+      return res.status(404).json({
+        message: 'No forms found for this user',
+        err: err
+      })
+    } else {
+      res.status(200).json({
+        message: 'Success',
+        item: item
+      });
+    }
+  })
+})
 
 
 // getting user forms to display them on front end
@@ -179,7 +205,7 @@ router.get('/:id', function (req, res, next) {
       });
     }
   })
-});
+})
 
 
 router.delete('/:id', function (req, res, next) {

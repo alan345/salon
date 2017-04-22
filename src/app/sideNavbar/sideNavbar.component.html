@@ -3,10 +3,9 @@
     <h3>My Chair App</h3>
     <button (click)="sidenav.close()" class="cross">&#735;</button>
   </div>
-  
   <div class="sidenav-menu">
     <ul class="sidenav-list">
-      <li><a (click)="goTo('/companie/' + fetchedUser[0].companies[0])">My Salon</a></li>
+      <li><a (click)="goTo('/companie')">My Salon</a></li>
       <li><a href="#">My Account Settings</a></li>
       <li><a (click)="goTo('/userForms')">Manage Pictures</a></li>
       <li><a href="#" (click)="logout()" *ngIf="isLoggedIn()">Log out</a></li>

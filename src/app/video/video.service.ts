@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { AuthService } from '../auth/auth.service';
 
+
 @Injectable()
 export class VideoService {
 

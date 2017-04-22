@@ -15,7 +15,6 @@ var user = new Schema({
     resetPasswordExpires: String,
     profilePic: String,
     lastVisit: Date,
-    companies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
     // you might want more user roles, so an array would be fine
     role: {type: Array, default: ['user']},
     profile : {

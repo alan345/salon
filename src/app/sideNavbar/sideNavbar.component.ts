@@ -3,6 +3,7 @@ import {AuthService} from '../auth/auth.service';
 import {AdminService} from '../admin/services/admin.service';
 import {ProfileService} from '../user/profile/profile.service';
 import {Router} from '@angular/router';
+import {CompanieService} from '../companie/companie.service';
 
 
 @Component({
@@ -15,20 +16,19 @@ export class SideNavbarComponent implements OnInit {
 
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedUser: any[] = [{
-    companies : []
-  }];
+  fetchedUser: any[] = [];
 
   constructor(
       private authService: AuthService,
       private adminService: AdminService,
       private profileService: ProfileService,
-      private router: Router) {
+      private router: Router,
+      private companieService:CompanieService) {
   }
 
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
-      let userId = localStorage.getItem('userId');
+      let userId = this.authService.currentUser.userId
       this.profileService.getUserDetails(userId)
         .subscribe(
           (data => {
@@ -37,8 +37,15 @@ export class SideNavbarComponent implements OnInit {
               userArray.push(data[key]);
             }
             this.fetchedUser = userArray;
+
+            this.companieService.getCompanieByUserId(userId)
+              .subscribe(
+                (data => {
+                  console.log(data)
+                })
+              )
           })
-        );
+        )
     }
   }
 

@@ -37,6 +37,19 @@ export class CompanieService {
       });
   }
 
+
+  getCompanieByUserId(id: string) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.token);
+    return this.http.get(this.url + 'companie/byuserid/' + id, {headers: headers})
+      .map((response: Response) => {
+        return response.json().item;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
   getCompanie(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
