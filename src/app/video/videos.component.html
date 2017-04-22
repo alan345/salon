@@ -4,7 +4,69 @@
     <h3 style="text-align: center;">Videos</h3>
     <!-- Add ifAdmin rule for plus button below -->
     <button class="subnav-btnright" [routerLink]="['/video/videoSingle']" routerLinkActive="active"><i class="fa fa-plus"></i></button>
+  </div><div class="container">
+  <div class="goldgradient beigeborder subnav">
+    <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
+    <h3 style="text-align: center;">Videos</h3>
+    <!-- Add ifAdmin rule for plus button below -->
+    <button class="subnav-btnright" [routerLink]="['/video/videoSingle']" routerLinkActive="active"><i class="fa fa-plus"></i></button>
   </div>
+  <div class="subsubnav-video beigeback">
+    <div class="video-srchrow">
+      <div class="srchbar">
+        <input
+        [(ngModel)]="inputSearch"
+        placeholder="Search"
+        (keyup.enter)="addSearchInput()"
+        mdInput
+        >
+      </div>
+    </div>
+    <div class="video-catrow">
+      <div *ngFor="let categorie1 of categories1">
+        <button
+          [ngClass]="{'btn-danger':categorie1.selected,'btn-default':!categorie1.selected}"
+          (click)="changeCateg1(categorie1.name)" class="cat-btn"
+          >{{categorie1.name}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <md-tab-group (selectChange)="onSelectChange($event)">
+    <md-tab label="whatsnew" textLabel="what's new" class="vid-tab"></md-tab>
+    <md-tab label="treatments" textLabel="treatments" class="vid-tab"></md-tab>
+    <md-tab label="knowledges" textLabel="knowledges" class="vid-tab"></md-tab>
+    <md-tab label="testimonials" textLabel="testimonials" class="vid-tab"></md-tab>
+    <md-tab label="merchandising" textLabel="merchandising" class="vid-tab"></md-tab>
+    <md-tab label="promotions" textLabel="promotions" class="vid-tab"></md-tab>
+  </md-tab-group>
+
+  <table class="table table-hover table-responsive table-condensed">
+    <tbody>
+      <tr class="vid-ctnr" *ngFor="let video of fetchedVideos | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
+        <td class="vid-cnt">
+          <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <iframe [src]="video['[object Object]'].embedSecure" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%">
+              </iframe>
+            </div>
+          </div>
+        </td>
+        <td>
+          <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/video/videoSingle/' + video['[object Object]']._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+        <td>
+          <a [routerLink]="['/video/' + video['[object Object]']._id]" routerLinkActive="active">{{video.email}}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="has-text-centered">
+      <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
+      <pagination-controls (pageChange)="getPage($event)" id="server" class="change-page"></pagination-controls>
+  </div>
+
+</div>
   <div class="subsubnav-video beigeback">
     <div class="video-srchrow">
       <div class="srchbar">
@@ -40,7 +102,6 @@
     <tbody>
       <tr *ngFor="let video of fetchedVideos | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
         <td>
-          <!-- <iframe [src]="video['[object Object]'].embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen></iframe> -->
           <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
             <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
               <iframe [src]="video['[object Object]'].embedSecure" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%">
@@ -49,8 +110,9 @@
             </div>
           </div>
         </td>
-        <!-- <td>{{video._id }}</td> -->
-        <td><a [routerLink]="['/video/' + video['[object Object]']._id]" routerLinkActive="active">{{video.email}}</a></td>
+        <td>
+          <a [routerLink]="['/video/' + video['[object Object]']._id]" routerLinkActive="active">{{video.email}}</a>
+        </td>
       </tr>
     </tbody>
   </table>
