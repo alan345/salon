@@ -50,7 +50,7 @@
         </td>
         <td>
           <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/video/videoSingle/' + video['[object Object]']._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
-          <!--<button class="btn-danger" (click)="onDelete(video['[object Object]']._id)"><i class="fa fa-trash"></i></button> -->
+        <td>
           <a [routerLink]="['/video/' + video['[object Object]']._id]" routerLinkActive="active">{{video.email}}</a>
         </td>
       </tr>
