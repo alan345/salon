@@ -50,6 +50,12 @@
     flex-direction: row;
     flex-wrap: wrap !important;
 }
+.vid-tbl {
+    margin: 0 !important;
+}
+.vid-cnt {
+    padding-bottom: 30px !important;
+}
 
 @media screen and (min-width: 768px) {
   
