@@ -9,10 +9,9 @@
     <div class="video-srchrow">
       <div class="srchbar">
         <input
-        [(ngModel)]="inputSearch"
-        placeholder="Search"
-        (keyup.enter)="addSearchInput()"
-        mdInput
+          [(ngModel)]="inputSearch"
+          placeholder="Search"
+          (ngModelChange)="addSearchInput()"
         >
       </div>
     </div>

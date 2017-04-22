@@ -17,6 +17,9 @@ export class SideNavbarComponent implements OnInit {
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   fetchedUser: any[] = [];
+  companies=[{
+    _id:''
+  }]
 
   constructor(
       private authService: AuthService,
@@ -29,22 +32,21 @@ export class SideNavbarComponent implements OnInit {
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
       let userId = this.authService.currentUser.userId
+      this.companieService.getCompanieByUserId(userId)
+      .subscribe(
+        (data => {
+          this.companies = data
+        })
+      )
       this.profileService.getUserDetails(userId)
-        .subscribe(
-          (data => {
-            const userArray = [];
-            for (let key in data) {
-              userArray.push(data[key]);
-            }
-            this.fetchedUser = userArray;
-
-            this.companieService.getCompanieByUserId(userId)
-              .subscribe(
-                (data => {
-                  console.log(data)
-                })
-              )
-          })
+      .subscribe(
+        (data => {
+          const userArray = [];
+          for (let key in data) {
+            userArray.push(data[key]);
+          }
+          this.fetchedUser = userArray;
+        })
         )
     }
   }

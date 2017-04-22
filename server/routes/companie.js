@@ -112,38 +112,31 @@ router.get('/page/:page', function (req, res, next) {
   var skip = (itemsPerPage * pageNumber);
   var limit = (itemsPerPage * pageNumber) + itemsPerPage;
 
-
-
-
-    Companie
-    .find()
-    .limit(itemsPerPage)
-    .skip(skip)
-    .exec(function (err, item) {
-      if (err) {
-        return res.status(404).json({
-          message: 'No results',
-          err: err
+  Companie
+  .find()
+  .limit(itemsPerPage)
+  .skip(skip)
+  .exec(function (err, item) {
+    if (err) {
+      return res.status(404).json({
+        message: 'No results',
+        err: err
+      })
+    } else {
+      Companie
+      .find()
+      .count().exec(function (err, count) {
+      res.status(200).json({
+          paginationData : {
+            totalItems: count,
+            currentPage : currentPage,
+            itemsPerPage : itemsPerPage
+          },
+          data: item
         })
-      } else {
-        Companie
-        .find()
-        .count().exec(function (err, count) {
-        res.status(200).json({
-            paginationData : {
-              totalItems: count,
-              currentPage : currentPage,
-              itemsPerPage : itemsPerPage
-            },
-            data: item
-          })
-        })
-      }
-    })
-
-
-
-
+      })
+    }
+  })
 })
 
 
@@ -151,8 +144,7 @@ router.get('/page/:page', function (req, res, next) {
 router.get('/byuserid/:id', function (req, res, next) {
   Companie
   .find({
-    '_users' : mongoose.Types.ObjectId('58ed2d1a3bccc80dc8c17964')
-
+    '_users' : mongoose.Types.ObjectId(req.params.id)
   })
   .populate({
     path: 'forms',
@@ -184,7 +176,7 @@ router.get('/:id', function (req, res, next) {
   })
   .populate(
     {
-      path: 'users._user',
+      path: '_users',
       model: 'User',
       populate: {
         path: 'profile._profilePicture',

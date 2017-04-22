@@ -13,7 +13,7 @@ var companie = new Schema({
       zip : '',
     },
     name: '',
-    users : [{_user:{type: Schema.Types.ObjectId, ref: 'User'}}],
+    _users : [{type: Schema.Types.ObjectId, ref: 'User'}],
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
 
     text: String,
