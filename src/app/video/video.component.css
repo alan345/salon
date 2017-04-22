@@ -17,12 +17,7 @@
     height: 75px;
 }
 .srchbar {
-    background-color: #ffffff;
-    padding: 10px;
-    width: 200px;
-    float: left;
     margin: 15px 0;
-    border: 1px solid #cccccc;
 }
 .cat-btn {
     background-color: #ffffff;
