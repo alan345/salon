@@ -10,8 +10,7 @@
   min-width: auto !important;
 }
 .mat-tab-label:hover, .mat-tab-label:active, .mat-tab-label:focus {
-  background-color: #010870 !important;
-  color: #ffffff !important;
+  background-color: #ffffff !important;
 }
 .mat-ink-bar {
   display: none !important;
@@ -40,7 +39,8 @@
     float: left !important;
 }
 .cat-btn.btn-danger:focus, .cat-btn.btn-default:active, .cat-btn.btn-default:hover, .cat-btn.btn-danger:hover {
-    background-color: #ffffff !important;
+  background-color: #010870 !important;
+  color: #ffffff !important;
 }
 .video-catrow {
     padding: 15px 0;
