@@ -15,46 +15,46 @@
       <div class="form-group">
         <input type="text" class="form-control" formControlName="title" placeholder="Add Video Title" [(ngModel)]="fetchedVideo.title">
       </div>
-        <div class="lft-form">
-          <md-input-container>
-            <input
-              [ngModelOptions]="{standalone: true}"
-              [(ngModel)]="inputCategorie"
-              placeholder="Categories"
-              (keyup.enter)="addCategorieInput()"
-              mdInput>
-          </md-input-container>
-          <div *ngFor="let categorieHard of categoriesHard2; let i=index">
-            <md-checkbox
-              (click)="togglCategorieButton(categorieHard.name)"
-              [ngModelOptions]="{standalone: true}"
-              [(ngModel)]="categoriesHard2[i].selected"
-            ></md-checkbox>
-            {{categorieHard.name}}
-          </div>
-          <div *ngFor="let categorieHard of categoriesHard1; let i=index">
-            <md-checkbox
-              (click)="togglCategorieButton(categorieHard.name)"
-              [ngModelOptions]="{standalone: true}"
-              [(ngModel)]="categoriesHard1[i].selected"
-            ></md-checkbox>
-            {{categorieHard.name}}
-          </div>
+      <div class="lft-form">
+        <md-input-container>
+          <input
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="inputCategorie"
+            placeholder="Categories"
+            (keyup.enter)="addCategorieInput()"
+            mdInput>
+        </md-input-container>
+        <div *ngFor="let categorieHard of categoriesHard2; let i=index">
+          <md-checkbox
+            (click)="togglCategorieButton(categorieHard.name)"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="categoriesHard2[i].selected"
+          ></md-checkbox>
+          {{categorieHard.name}}
         </div>
-        <div class="rght-form">
-          <div formArrayName="categories">
-            <div *ngFor="let categorie of getObjects(myForm); let i=index" class="panel panel-default">
-              <div class="panel-heading" [formGroupName]="i">
-                <span>{{fetchedVideo.categories[i].name}}</span>
-                <span class="glyphicon glyphicon-remove pull-right"  (click)="removeCategorie(i)"></span>
-                <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedVideo.categories[i].name">
-              </div>
+        <div *ngFor="let categorieHard of categoriesHard1; let i=index">
+          <md-checkbox
+            (click)="togglCategorieButton(categorieHard.name)"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="categoriesHard1[i].selected"
+          ></md-checkbox>
+          {{categorieHard.name}}
+        </div>
+      </div>
+      <div class="rght-form">
+        <div formArrayName="categories">
+          <div *ngFor="let categorie of getObjects(myForm); let i=index" class="panel panel-default">
+            <div class="panel-heading" [formGroupName]="i">
+              <span>{{fetchedVideo.categories[i].name}}</span>
+              <span class="glyphicon glyphicon-remove pull-right"  (click)="removeCategorie(i)"></span>
+              <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedVideo.categories[i].name">
             </div>
           </div>
         </div>
-      <div class="margin-20">
-        <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
       </div>
-      <div class="clearfix"></div>
-    </form>
+    <div class="margin-20">
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+    </div>
+    <div class="clearfix"></div>
+  </form>
 </div>
