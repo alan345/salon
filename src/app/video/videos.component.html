@@ -56,7 +56,7 @@
   </table>
   <div class="has-text-centered">
       <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
-      <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+      <pagination-controls (pageChange)="getPage($event)" id="server" class="change-page"></pagination-controls>
   </div>
 
 </div>
