@@ -1,60 +1,133 @@
+<div class="container topPadTable">
+  <h2 class="text-center">
+    <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
+    Video
+  </h2>
 
-<div class="container">
-  <div class="goldgradient beigeborder subnav">
-    <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
-    <h3 style="text-align: center;">Videos</h3>
-  <div/>
-  <div class="single-wrpr beigeback">
-    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
-      <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedVideo._id">
-      <div class="form-group">
-        <iframe [src]="fetchedVideo.embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
-        <label class="vid-lableft">Insert Wistia Embed Code Below:</label>
-        <p class="vid-labright">Where to Find the Wistia Embed Code</p>
-        <input type="text" class="form-control" formControlName="embed" [(ngModel)]="fetchedVideo.embed">
-        <input type="text" class="form-control" formControlName="title" placeholder="Add Video Title" [(ngModel)]="fetchedVideo.title">
-        <div class="lft-form">
-          <md-input-container>
-            <input
-              [ngModelOptions]="{standalone: true}"
-              [(ngModel)]="inputCategorie"
-              placeholder="Categories"
-              (keyup.enter)="addCategorieInput()"
-              mdInput>
-          </md-input-container>
-          <div *ngFor="let categorieHard of categoriesHard2; let i=index">
-            <md-checkbox
-              (click)="togglCategorieButton(categorieHard.name)"
-              [ngModelOptions]="{standalone: true}"
-              [(ngModel)]="categoriesHard2[i].selected">
-            </md-checkbox>
-            {{categorieHard.name}}
-          </div>
-          <div *ngFor="let categorieHard of categoriesHard1; let i=index">
-            <md-checkbox
-              (click)="togglCategorieButton(categorieHard.name)"
-              [ngModelOptions]="{standalone: true}"
-              [(ngModel)]="categoriesHard1[i].selected">
-            </md-checkbox>
-          {{categorieHard.name}}
-          </div>
+  <hr>
+
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
+    <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedVideo._id">
+    <div class="form-group">
+
+      <iframe [src]="fetchedVideo.embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
+
+
+      <br>
+      <label>Wistia embed code</label>
+      <input type="text" class="form-control" formControlName="embed" [(ngModel)]="fetchedVideo.embed">
+    </div>
+    <div class="form-group">
+      <label>title</label>
+      <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedVideo.title">
+      <!-- <small *ngIf="!myForm.get('fetchedVideo.title').valid" class="text-danger">
+           Required (minimum 5 characters).
+      </small> -->
+    </div>
+
+
+
+
+    <md-input-container>
+      <input
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="inputCategorie"
+        placeholder="Categories"
+        (keyup.enter)="addCategorieInput()"
+        mdInput>
+    </md-input-container>
+
+
+    <div *ngFor="let categorieHard of categoriesHard2; let i=index">
+      <md-checkbox
+        (click)="togglCategorieButton(categorieHard.name)"
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="categoriesHard2[i].selected"
+      ></md-checkbox>
+      {{categorieHard.name}}
+    </div>
+    
+    <br>
+    <br>
+
+    <div *ngFor="let categorieHard of categoriesHard1; let i=index">
+      <md-checkbox
+        (click)="togglCategorieButton(categorieHard.name)"
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="categoriesHard1[i].selected"
+      ></md-checkbox>
+      {{categorieHard.name}}
+    </div>
+    <!-- treatments
+    <md-checkbox
+      (click)="togglCategorieButton('treatments')"
+      [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="categoriesHard2.treatments"
+    ></md-checkbox>
+    knowledges
+    <md-checkbox
+      (click)="togglCategorieButton('knowledges')"
+      [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="categoriesHard2.knowledges"
+    ></md-checkbox> -->
+
+
+
+    <div formArrayName="categories">
+      <div *ngFor="let categorie of getObjects(myForm); let i=index" class="panel panel-default">
+        <div class="panel-heading" [formGroupName]="i">
+          <span>{{fetchedVideo.categories[i].name}}</span>
+          <span class="glyphicon glyphicon-remove pull-right"  (click)="removeCategorie(i)"></span>
+
+          <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedVideo.categories[i].name">
         </div>
-        <div class="rght-form">
-          <div formArrayName="categories">
-            <div *ngFor="let categorie of getObjects(myForm); let i=index" class="panel panel-default">
-              <div class="panel-heading" [formGroupName]="i">
-                <span>{{fetchedVideo.categories[i].name}}</span>
-                <span class="glyphicon glyphicon-remove pull-right"  (click)="removeCategorie(i)"></span>
-                <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedVideo.categories[i].name">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="margin-20">
-          <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
-        </div>
-        <div class="clearfix"></div>
       </div>
-    </form>
-  </div>
+    </div>
+
+    <br>
+
+    <!-- <div class="margin-20">
+      <button type="button" md-button (click)="togglCategorieButton('treatments')">TREATMENTS</button>
+    </div> -->
+
+
+
+
+    <!-- <div *ngFor="let categ of categLists" class="panel panel-default">
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">categ</button>
+    </div> -->
+
+    <div class="margin-20">
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+    </div>
+    <div class="clearfix"></div>
+
+
+  </form>
+
+
+
+
 </div>
+
+
+
+<!-- <script src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+<div class="wistia_embed wistia_async_h5w75cm478" style="width:640px;height:360px;"></div>
+<script>
+window._wq = window._wq || [];
+_wq.push({ id: "abc", onReady: function(video) {
+  console.log("I got a handle to the video!", video);
+}});
+</script> -->
+
+
+
+
+<!-- <script src="https://fast.wistia.com/embed/medias/h5w75cm478.jsonp" async></script>
+<script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+<div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+    <span class="wistia_embed wistia_async_h5w75cm478 popover=true popoverAnimateThumbnail=true videoFoam=true" style="display:inline-block;height:100%;width:100%">&nbsp;</span>
+  </div>
+</div> -->
