@@ -183,7 +183,8 @@ h3 {
     background-color: #999;
     font-size: 18px !important;
     border-radius: 0!important;
-    padding-bottom: 8px !important;
+    padding-bottom: 10px 12px 8px 12px !important;
+    border: none !important;
 }
 td {
     cursor: pointer;
