@@ -1,3 +1,15 @@
+.mat-tab-label {
+  text-transform: uppercase!important;
+  color: #010870 !important;
+  font-size: 13px !important;
+  font-family: inherit !important;
+  padding: 25px 20px !important;
+  opacity: 1 !important;
+  height: 60px !important;
+  line-height: 1 !important;
+  min-width: auto !important;
+}
+
 .subsubnav-video {
   padding: 0 15px;
 }
@@ -36,17 +48,7 @@
     flex-direction: row;
     flex-wrap: wrap !important;
 }
-:host /deep/ .mat-tab-label {
-    text-transform: uppercase;
-    color: #010870 !important;
-    font-size: 13px !important;
-    font-family: inherit !important;
-    padding: 25px 20px !important;
-    opacity: 1 !important;
-    height: 60px !important;
-    line-height: 1 !important;
-    min-width: auto !important;
-}
+
 .mat-ink-bar {
     display: none !important;
 }
