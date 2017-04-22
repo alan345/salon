@@ -9,6 +9,9 @@
   line-height: 1 !important;
   min-width: auto !important;
 }
+.mat-ink-bar {
+    display: none !important;
+}
 
 .subsubnav-video {
   padding: 0 15px;
@@ -44,6 +47,26 @@
     flex-wrap: wrap !important;
 }
 
-.mat-ink-bar {
-    display: none !important;
+@media screen and (min-width: 768px) {
+  
+.vid-ctnr {
+    float: left;
+    width: 50%;
+}
+.vid-cnt {
+    width: 100%;
+    float: left;
+}
+}
+
+@media screen and (max-width: 767px) {
+
+.vid-ctnr {
+    float: left;
+    width: 100%;
+}
+.vid-cnt {
+    width: 100%;
+    float: left;
+}
 }
