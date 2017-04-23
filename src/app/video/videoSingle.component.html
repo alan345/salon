@@ -1,7 +1,7 @@
 <div class="container">
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
-    <h3 style="text-align: center;">Videos</h3>
+    <h3 style="text-align: center;">Add/Edit Video</h3>
   </div>
   <div class="single-wrpr beigeback">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
@@ -16,14 +16,6 @@
         <input type="text" class="form-control" formControlName="title" placeholder="Add Video Title" [(ngModel)]="fetchedVideo.title">
       </div>
       <div class="lft-form">
-        <md-input-container>
-          <input
-            [ngModelOptions]="{standalone: true}"
-            [(ngModel)]="inputCategorie"
-            placeholder="Categories"
-            (keyup.enter)="addCategorieInput()"
-            mdInput>
-        </md-input-container>
         <div *ngFor="let categorieHard of categoriesHard2; let i=index">
           <md-checkbox
             (click)="togglCategorieButton(categorieHard.name)"
@@ -42,11 +34,18 @@
         </div>
       </div>
       <div class="rght-form">
+        <input
+          [ngModelOptions]="{standalone: true}"
+          [(ngModel)]="inputCategorie"
+          placeholder="Categories"
+          (keyup.enter)="addCategorieInput()"
+          mdInput
+        >
         <div formArrayName="categories">
-          <div *ngFor="let categorie of getObjects(myForm); let i=index" class="panel panel-default">
-            <div class="panel-heading" [formGroupName]="i">
-              <span>{{fetchedVideo.categories[i].name}}</span>
-              <span class="glyphicon glyphicon-remove pull-right"  (click)="removeCategorie(i)"></span>
+          <div *ngFor="let categorie of getObjects(myForm); let i=index" class="tagz">
+            <div class="tagz-cnt" [formGroupName]="i">
+              <span class="tagz-name">{{fetchedVideo.categories[i].name}}</span>
+              <i class="tagz-icn fa fa-times pull-right" (click)="removeCategorie(i)"></i>
               <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedVideo.categories[i].name">
             </div>
           </div>
