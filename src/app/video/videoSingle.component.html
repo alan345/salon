@@ -9,13 +9,14 @@
       <div class="form-group">
         <iframe [src]="fetchedVideo.embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
         <label class="vid-lableft">Insert Wistia Embed Code Below:</label>
-        <p class="vid-labright">Where to Find the Wistia Embed Code</p>
+        <a class="vid-labright">Where to Find the Wistia Embed Code</a>
         <input type="text" class="form-control" formControlName="embed" [(ngModel)]="fetchedVideo.embed">
       </div>
       <div class="form-group">
         <input type="text" class="form-control" formControlName="title" placeholder="Add Video Title" [(ngModel)]="fetchedVideo.title">
       </div>
       <div class="lft-form">
+        <label>Select Categories For This Video:</label>
         <div *ngFor="let categorieHard of categoriesHard2; let i=index">
           <md-checkbox
             (click)="togglCategorieButton(categorieHard.name)"
@@ -24,6 +25,7 @@
           ></md-checkbox>
           {{categorieHard.name}}
         </div>
+        <label>Select Product Line For This Video:</label>
         <div *ngFor="let categorieHard of categoriesHard1; let i=index">
           <md-checkbox
             (click)="togglCategorieButton(categorieHard.name)"
@@ -37,7 +39,7 @@
         <input
           [ngModelOptions]="{standalone: true}"
           [(ngModel)]="inputCategorie"
-          placeholder="Categories"
+          placeholder="Add Tags to Video"
           (keyup.enter)="addCategorieInput()"
           mdInput
         >
@@ -57,5 +59,3 @@
     <div class="clearfix"></div>
   </form>
 </div>
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
