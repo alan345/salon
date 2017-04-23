@@ -43,8 +43,31 @@ export class UserService {
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
         return Observable.throw(error.json());
-      });
+      })
   }
+
+
+  // get user forms from backend in order to display them in the front end
+  getUsersByEmail(search) {
+    let headers = new Headers({'Content-Type': 'application/json'})
+    headers.append('Authorization', '' + this.authService.token)
+
+    let options = new RequestOptions({ headers: headers, search: search});
+
+    return this.http.get(this.url + 'user/getUsersByEmail/'  , options)
+      .timeout(9000)
+      .map((response: Response) => {
+
+        const users = response.json();
+
+        return users;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      })
+  }
+
 
   getUser(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});

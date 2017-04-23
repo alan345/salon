@@ -66,6 +66,7 @@ export class NewUserComponent implements OnInit {
   }
 
 
+
   ngOnInit() {
     this.myForm = this._fb.group({
         lastVisit: [''],
@@ -80,7 +81,7 @@ export class NewUserComponent implements OnInit {
 
             })
         })
-    });
+    })
 
 
     this.activatedRoute.params.subscribe((params: Params) => {

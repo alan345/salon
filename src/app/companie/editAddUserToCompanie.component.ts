@@ -14,6 +14,8 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 import {Location} from '@angular/common';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
+import {UserService} from '../user/user.service';
+
 
 @Component({
   selector: 'app-companie',
@@ -39,28 +41,153 @@ export class EditAddUserToCompanieComponent implements OnInit {
       }
     ]
   }
-  myForm: FormGroup;
+  search = {
+    email : 'email',
+  }
+  fetchedUser = {
+    _id: '',
+    lastVisit: '',
+    email:'',
+    forms:[{
+      _id:'',
+      owner:'',
+      imagePath:'',
+    }],
+    profile:{
+      name:'',
+      parentUser:[{
+        _id:''
+      }],
+      hair:{
+        hairDensity : '',
+        hairPorosity : '',
+        hairTexture : '',
+      }
+    },
+    notes:[{
+      text:'',
+      dateNote: ''
+    }]
+  }
 
+  myForm: FormGroup;
+  emailCtrl: FormControl;
+  filteredEmails: any;
+  states = [
+     'Alabama',
+     'Alaska',
+     'Arizona',
+     'Arkansas',
+     'California',
+     'Colorado',
+     'Connecticut',
+     'Delaware',
+     'Florida',
+     'Georgia',
+     'Hawaii',
+     'Idaho',
+     'Illinois',
+     'Indiana',
+     'Iowa',
+     'Kansas',
+     'Kentucky',
+     'Louisiana',
+     'Maine',
+     'Maryland',
+     'Massachusetts',
+     'Michigan',
+     'Minnesota',
+     'Mississippi',
+     'Missouri',
+     'Montana',
+     'Nebraska',
+     'Nevada',
+     'New Hampshire',
+     'New Jersey',
+     'New Mexico',
+     'New York',
+     'North Carolina',
+     'North Dakota',
+     'Ohio',
+     'Oklahoma',
+     'Oregon',
+     'Pennsylvania',
+     'Rhode Island',
+     'South Carolina',
+     'South Dakota',
+     'Tennessee',
+     'Texas',
+     'Utah',
+     'Vermont',
+     'Virginia',
+     'Washington',
+     'West Virginia',
+     'Wisconsin',
+     'Wyoming',
+   ];
 
 
   constructor(
+    private userService: UserService,
     private companieService: CompanieService,
-    private regionService: RegionService,
-    private modalService: NgbModal,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    private _fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
     private location: Location,
 
   ) {
+    this.emailCtrl = new FormControl();
+    this.filteredEmails = this.emailCtrl.valueChanges
+        .startWith(null)
+        .map(email => this.filterEmails(email));
+  }
 
+
+  filterEmails(email: string) {
+    this.search.email = email
+    this.userService.getUsersByEmail(this.search)
+      .subscribe(
+        res => {
+          let emailsArr =[]
+          //console.log(res.data)
+          res.data.forEach(user => {
+            emailsArr.push(user.email)
+              //console.log(user.email)
+          })
+          console.log(emailsArr)
+          console.log(this.states)
+          return this.states
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
   save(model: FormGroup, isValid: boolean) {
   }
 
+  getObjects(myForm){
+    return myForm.get('profile').get('parentUser').controls
+  }
 
   ngOnInit() {
+    this.myForm = this._fb.group({
+        lastVisit: [''],
+        _id: [''],
+        profile: this._fb.group({
+            name: ['', [Validators.required, Validators.minLength(5)]],
+            parentUser: this._fb.array([]),
+            email: ['', [Validators.required, Validators.minLength(5)]],
+            hair: this._fb.group({
+                hairTexture: ['', <any>Validators.required],
+                hairDensity: ['', <any>Validators.required],
+                hairPorosity: ['', <any>Validators.required],
+
+            })
+        })
+    })
+
+
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getCompanie(params['id'])
     })
