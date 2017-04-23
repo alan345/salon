@@ -27,13 +27,12 @@
 
 
         <md-input-container>
-          <input mdInput placeholder="Email" [mdAutocomplete]="auto" [formControl]="emailCtrl" [(ngModel)]="fetchedUser.profile.email">
+          <input mdInput placeholder="Email" [mdAutocomplete]="auto" [formControl]="emailCtrl" >
         </md-input-container>
 
         <md-autocomplete #auto="mdAutocomplete">
           <md-option *ngFor="let email of filteredEmails | async" [value]="email">
             {{email}}
-
           </md-option>
         </md-autocomplete>
 

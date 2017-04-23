@@ -163,7 +163,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
         }
       );
   }
-  save(model: FormGroup, isValid: boolean) {
+  save(model: FormGroup) {
   }
 
   getObjects(myForm){

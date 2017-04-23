@@ -29,14 +29,14 @@ export class EditCompanieComponent implements OnInit {
       state:'',
       zip:'',
     },
-    users : [
-      {
-        _user : [
-          {
-            email:''
-          }
-        ]
-      }
+    _users : [
+      // {
+      //   _user : [
+      //     {
+      //       email:''
+      //     }
+      //   ]
+      // }
     ]
   }
   myForm: FormGroup;
