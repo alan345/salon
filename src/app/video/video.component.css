@@ -63,6 +63,33 @@
 .vid-ctnr:hover {
     background: none !important;
 }
+a.vid-labright {
+    margin-top: 15px;
+    font-size: 12px !important;
+    color: #999999;
+}
+.lft-form, .rght-form {
+    margin-bottom: 15px;
+}
+.tagz {
+    float: left;
+    margin-right: 15px;
+}
+.tagz-cnt {
+    padding: 10px;
+    border: 1px solid #cccccc;
+}
+.tagz-name {
+    padding-right: 5px;
+}
+.tagz-icn {
+    margin-right: -20px;
+    margin-top: -20px;
+    background-color: #000;
+    color: #fff;
+    padding: 3px 4px 4px 5px;
+    border-radius: 18px;
+}
 
 @media screen and (min-width: 768px) {
   
@@ -72,6 +99,17 @@
 }
 .vid-cnt {
     width: 100%;
+    float: left;
+}
+label.vid-lableft {
+    width: 50%;
+    float: left;
+}
+a.vid-labright {
+    float: right;
+}
+.lft-form, .rght-form {
+    width: 50%;
     float: left;
 }
 }
@@ -85,5 +123,8 @@
 .vid-cnt {
     width: 100%;
     float: left;
+}
+label.vid-lableft {
+    display: block;
 }
 }
