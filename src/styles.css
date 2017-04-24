@@ -159,10 +159,10 @@ h3 {
     left: 3px;
     color: #fff !important;
     min-width: 20px!important;
-    background-color: #999;
+    background-color: #999 !important;
     font-size: 18px !important;
     border-radius: 0!important;
-    padding: 10px 12px 8px 12px !important;
+    padding: 0 12px 5px 12px !important;
     border: none !important;
 }
 td {
@@ -198,12 +198,49 @@ td {
 .single-wrpr .mat-checkbox-inner-container {
     padding: 15px !important;
 }
-
+.valid-edit {
+    display: inline-block;
+    width: 100% !important;
+}
+.done, .delete {
+    text-transform: uppercase;
+    outline: none !improtant;
+    font-size: 12px;
+}
+.done {
+    padding: 8px 50px;
+    background-color: #0a2f87;
+    border: none !important;
+    color: #fff;
+}
+.delete {
+    padding: 6px 30px;
+    background: none;
+    border: 1px solid #231f20;
+    color: #231f20;
+}
 /*--Responsive--*/
 
+
 @media screen and (max-width: 991px) {
+
   h3 {
     font-size: 17px;
     line-height: 1.5;
   }
+}
+
+@media screen and (min-width: 500px) {
+
+.delete {
+    float: right !important;
+}
+}
+
+@media screen and (max-width: 499px) {
+
+.delete, .done {
+    width: 100%;
+    margin: 15px 0;
+}
 }
