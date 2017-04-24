@@ -211,17 +211,23 @@ td {
     display: inline-block;
     width: 100% !important;
 }
-.done, .delete {
+.done, .delete, .pas-done {
     text-transform: uppercase !important;
     outline: none !important;
     font-size: 12px !important;
     padding:8px 15px !important;
     min-width: 140px !important;
 }
+.done, .pas-done {
+    border: none !important;
+}
 .done {
     background-color: #0a2f87 !important;
-    border: none !important;
     color: #fff !important;
+}
+.pas-done {
+    background-color: #cccccc!important;
+    color: #999999 !important;
 }
 .delete {
     background: none !important;
@@ -280,7 +286,7 @@ a.seemre {
 
 @media screen and (max-width: 499px) {
 
-.delete, .done {
+.delete, .done, .pas-done {
     width: 100% !important;
     margin: 15px 0 !important;
 }
