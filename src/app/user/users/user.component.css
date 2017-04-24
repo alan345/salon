@@ -46,7 +46,9 @@ td.rightdate {
     font-size: 11px;
     padding: 22px 15px !important;
 }
-
+p.blue {
+    color: #0a2f87;
+}
 @media screen and (min-width: 768px) {
   
 .newclientsml-btn {
