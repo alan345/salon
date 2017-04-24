@@ -4,48 +4,53 @@
     <h3 style="text-align: center;">Add/Edit Video</h3>
   </div>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-    <div class="col-xs-6 col-lg-4">
-      {{fetchedUser.profile.name}}
-      <h5>Hair Density</h5>
-      {{fetchedUser.profile.hair.hairDensity}}
-      <h5>Hair Texture</h5>
-      {{fetchedUser.profile.hair.hairTexture}}
-      <h5>hairPorosity</h5>
-      {{fetchedUser.profile.hair.hairPorosity}}
-      <button class="edit-clt"><span class="glyphicon glyphicon-edit"></span></button>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-lg-8 form-group">
-      <div class="appnt-ctnr">
-        <label>Last Visit:</label>
-        {{fetchedUser.lastVisit | date:'medium'}}
-        <button class="dat-btn" type="button" md-button (click)="setDateToday()">Today</button>
-        or
-        <button class="dat-btn" type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/choosedate']" routerLinkActive="active">Choose Date</button>
+    <div class="beigeback">
+      <div class="col-xs-6 col-lg-4">
+        <h3>{{fetchedUser.profile.name}}</h3>
+        <h5>Hair Density</h5>
+        {{fetchedUser.profile.hair.hairDensity}}
+        <h5>Hair Texture</h5>
+        {{fetchedUser.profile.hair.hairTexture}}
+        <h5>hairPorosity</h5>
+        {{fetchedUser.profile.hair.hairPorosity}}
+        <button class="edit-clt"><span class="glyphicon glyphicon-edit"></span></button>
       </div>
-      <div class="prt-ctnr">
-        <label>Products Bought:</label>
-        <!--Connect button below to add product form-->
-        <button class="addpdt-btn">Add Product <i class="fa fa-plus"></i></button>
-        <!--Add last two products bought here-->
-        <a class="seemre-lnk" href="#">See Products History</a>
-      </div>
-    </div>
-    <div>
-      <button type="button" md-button (click)="openDialog('img')">+ Media</button>
-    </div>
-    <div formArrayName="forms">
-      <div *ngFor="let form of getObjects(myForm); let i=index" class="panel panel-default">
-        <div class="panel-body" [formGroupName]="i">
-          <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
-          <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
-          <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
-          <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-          <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
+      <div class="col-xs-12 col-sm-6 col-lg-8 form-group">
+        <div class="appnt-ctnr">
+          <label>Last Visit:</label>
+          {{fetchedUser.lastVisit | date:'medium'}}
+          <button class="dat-btn" type="button" md-button (click)="setDateToday()">Today</button>
+          or
+          <button class="dat-btn" type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/choosedate']" routerLinkActive="active">Choose Date</button>
+        </div>
+        <div class="prt-ctnr">
+          <label>Products Bought:</label>
+          <!--Connect button below to add product form-->
+          <button class="addpdt-btn">Add Product <i class="fa fa-plus"></i></button>
+          <!--Add last two products bought here-->
+          <a class="seemre-lnk" href="#">See Products History</a>
         </div>
       </div>
     </div>
-    <div class="seemre-lnk">
-      <a href="#">See All</a>
+    <div class="img-row">
+      <h3>Client Photos (Tap to Expand)</h3>
+      <div>
+        <button type="button" md-button (click)="openDialog('img')">+ Media</button>
+      </div>
+      <div formArrayName="forms">
+        <div *ngFor="let form of getObjects(myForm); let i=index" class="panel panel-default">
+          <div class="panel-body" [formGroupName]="i">
+            <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
+            <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
+            <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
+            <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+            <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
+          </div>
+        </div>
+      </div>
+      <div class="seemre-lnk">
+        <a href="#">See All</a>
+      </div>
     </div>
 
 
