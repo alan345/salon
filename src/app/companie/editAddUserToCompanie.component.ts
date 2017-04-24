@@ -48,20 +48,25 @@ export class EditAddUserToCompanieComponent implements OnInit {
     _id: '',
     lastVisit: '',
     email:'',
-    forms:[{
-      _id:'',
-      owner:'',
-      imagePath:'',
-    }],
+    forms:[
+    //   {
+    //   _id:'',
+    //   owner:'',
+    //   imagePath:'',
+    // }
+    ],
     profile:{
       name:'',
-      parentUser:[{
-        _id:''
-      }],
+      lastName:'',
+      parentUser:[
+        // {
+        //   _id:''
+        // }
+      ],
       hair:{
-        hairDensity : '',
-        hairPorosity : '',
-        hairTexture : '',
+        // hairDensity : '',
+        // hairPorosity : '',
+        // hairTexture : '',
       }
     },
     notes:[],
@@ -172,14 +177,15 @@ export class EditAddUserToCompanieComponent implements OnInit {
         _id: [''],
         email: ['', [Validators.required, Validators.minLength(5)]],
         profile: this._fb.group({
-            name: ['', [Validators.required, Validators.minLength(5)]],
-            parentUser: this._fb.array([]),
-            hair: this._fb.group({
-                hairTexture: ['', <any>Validators.required],
-                hairDensity: ['', <any>Validators.required],
-                hairPorosity: ['', <any>Validators.required],
-
-            })
+            name: ['', [Validators.required, Validators.minLength(2)]],
+            lastName: ['', [Validators.required, Validators.minLength(2)]],
+            // parentUser: this._fb.array([]),
+            // hair: this._fb.group({
+            //     hairTexture: ['', <any>Validators.required],
+            //     hairDensity: ['', <any>Validators.required],
+            //     hairPorosity: ['', <any>Validators.required],
+            //
+            // })
         })
     })
 

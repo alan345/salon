@@ -13,8 +13,8 @@ import { AuthService } from '../auth/auth.service';
 export class UserService {
 
   private url: string = '/';
-  private token: string = localStorage.getItem('id_token');
-  private userId: string = localStorage.getItem('userId');
+  //private token: string = localStorage.getItem('id_token');
+  //private userId: string = localStorage.getItem('userId');
   private users = [];
   private singleUser = Object;
 
@@ -28,7 +28,7 @@ export class UserService {
   // get user forms from backend in order to display them in the front end
   getUsers(page: number, search) {
     let headers = new Headers({'Content-Type': 'application/json'})
-    headers.append('Authorization', '' + this.authService.token)
+    headers.append('Authorization', '' + this.authService.currentUser.token)
 
     let options = new RequestOptions({ headers: headers, search: search});
 
@@ -50,7 +50,7 @@ export class UserService {
   // get user forms from backend in order to display them in the front end
   getUsersByEmail(search) {
     let headers = new Headers({'Content-Type': 'application/json'})
-    headers.append('Authorization', '' + this.authService.token)
+    headers.append('Authorization', '' + this.authService.currentUser.token)
 
     let options = new RequestOptions({ headers: headers, search: search});
 
@@ -71,7 +71,7 @@ export class UserService {
 
   getUser(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.get(this.url + 'profile/' + id, {headers: headers})
       .map((response: Response) => {
         return response.json();
@@ -85,7 +85,7 @@ export class UserService {
   }
   deleteUser(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.delete(this.url + 'user/' + id, {headers: headers})
       .map((response: Response) => {
       //  console.log("delete",response)
@@ -100,13 +100,11 @@ export class UserService {
   }
 
   saveUser(user) {
-
-    user.profile.parentUser = this.userId
-
+    user.profile.parentUser.push(this.authService.currentUser.userId)
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
   //  let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.post(this.url + 'profile/',body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
@@ -118,7 +116,7 @@ export class UserService {
   updateUser(user) {
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.put(this.url + 'profile/' + user._id, body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
