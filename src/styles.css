@@ -215,15 +215,15 @@ td {
     text-transform: uppercase;
     outline: none !improtant;
     font-size: 12px;
+    padding:8px 15px;
+    min-width: 140px;
 }
 .done {
-    padding: 8px 50px;
     background-color: #0a2f87;
     border: none !important;
     color: #fff;
 }
 .delete {
-    padding: 6px 30px;
     background: none;
     border: 1px solid #231f20;
     color: #231f20;

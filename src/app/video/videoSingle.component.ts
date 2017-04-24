@@ -123,15 +123,16 @@ export class VideoSingleComponent implements OnInit {
   addCategorie() {
     const control = <FormArray>this.myForm.controls['categories'];
     const addrCtrl = this._fb.group({
-        name: ['']
+        name: [''],
+        type:['']
     });
     control.push(addrCtrl);
   }
   addCategorieInput() {
-    this.togglCategorieButton(this.inputCategorie)
+    this.togglCategorieButton(this.inputCategorie, 'tag')
     this.inputCategorie=''
   }
-  togglCategorieButton(nameCateg) {
+  togglCategorieButton(nameCateg, type) {
     var indexFound
     this.fetchedVideo.categories.forEach((categorie, index) => {
       if(categorie.name == nameCateg)
@@ -145,7 +146,7 @@ export class VideoSingleComponent implements OnInit {
       }, 10);
 
     } else {
-      this.fetchedVideo.categories.push({name:nameCateg})
+      this.fetchedVideo.categories.push({name:nameCateg, type:type})
       this.addCategorie()
     }
   }

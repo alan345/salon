@@ -19,7 +19,7 @@
         <label>Select Categories For This Video:</label>
         <div *ngFor="let categorieHard of categoriesHard2; let i=index">
           <md-checkbox
-            (click)="togglCategorieButton(categorieHard.name)"
+            (click)="togglCategorieButton(categorieHard.name, 'categ2')"
             [ngModelOptions]="{standalone: true}"
             [(ngModel)]="categoriesHard2[i].selected"
           ></md-checkbox>
@@ -28,7 +28,7 @@
         <label>Select Product Line For This Video:</label>
         <div *ngFor="let categorieHard of categoriesHard1; let i=index">
           <md-checkbox
-            (click)="togglCategorieButton(categorieHard.name)"
+            (click)="togglCategorieButton(categorieHard.name, 'categ1')"
             [ngModelOptions]="{standalone: true}"
             [(ngModel)]="categoriesHard1[i].selected"
           ></md-checkbox>
@@ -46,9 +46,10 @@
         <div formArrayName="categories">
           <div *ngFor="let categorie of getObjects(myForm); let i=index" class="tagz">
             <div class="tagz-cnt" [formGroupName]="i">
-              <span class="tagz-name">{{fetchedVideo.categories[i].name}}</span>
-              <i class="tagz-icn fa fa-times pull-right" (click)="removeCategorie(i)"></i>
+              <span *ngIf="fetchedVideo.categories[i].type=='tag'" class="tagz-name">{{fetchedVideo.categories[i].name}}</span>
+              <i *ngIf="fetchedVideo.categories[i].type=='tag'" class="tagz-icn fa fa-times pull-right" (click)="removeCategorie(i)"></i>
               <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedVideo.categories[i].name">
+              <input type="hidden" class="form-control" formControlName="type" [(ngModel)]="fetchedVideo.categories[i].type">
             </div>
           </div>
         </div>
