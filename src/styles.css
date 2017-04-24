@@ -240,10 +240,6 @@ a.seemre {
 .dspl-nn {
     display: none;
 }
-.pic-list {
-  float: left;
-  margin-right: 10px;
-}
 
 /*--Responsive--*/
 
@@ -261,7 +257,20 @@ h3 {
 a.seemre {
     float: right;
 }
+.pic-list {
+  float: left;
+  margin-right: 10px;
 }
+}
+
+@media screen and (max-width: 767px) {
+
+.pic-list {
+    float: left;
+    margin: 15px 0 15px 15px;
+}
+}
+
 @media screen and (min-width: 500px) {
 
 .delete {
