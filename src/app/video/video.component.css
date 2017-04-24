@@ -63,6 +63,10 @@
 .vid-ctnr:hover {
     background: none !important;
 }
+.vid-cnt .editicon {
+    padding-top: 10px !important;
+}
+
 a.vid-labright {
     margin-top: 15px;
     font-size: 12px !important;
