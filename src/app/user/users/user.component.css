@@ -57,6 +57,7 @@ p.blue {
 .img-row {
     width: 100%;
     display: inline-block;
+    padding-bottom: 20px;
 }
 .dat-btn {
     text-transform: uppercase;
@@ -76,6 +77,7 @@ p.blue {
     outline: none !important;
     border: 1px dashed #0a2f87;
     color: #0a2f87;
+    margin-bottom: 15px;
 }
 .addpic-squr {
     width: 100% !important;
@@ -88,12 +90,61 @@ p.blue {
     font-weight: 100;
     padding: 8px;
 }
-.col-sm-3 {
-    padding-right: 0 !important;
-}
 .col-sm-9 {
     padding-left: 0 !important;
 }
+label {
+  display:inherit !important;
+}
+.edit-clt {
+    top: 2px;
+    right: 2px;
+    position: absolute;
+    padding: 8px 12px;
+    color: #fff;
+    background-color: #0a2f87;
+    outline: none !important;
+    border: none !important;
+}
+.dlt-img {
+    color: #fff;
+    padding: 1px 5px;
+    margin-left: -20px;
+}
+a.seemre {
+  margin-top: -26px;
+}
+.img-row a.seemre {
+    bottom: -20px !important;
+    right: 15px;
+    position: absolute;
+    margin: 0 !important;
+}
+.clt-cmts {
+    background-color: #0a2f87;
+    padding: 5px;
+}
+.addnte {
+    background-color: #efe9df;
+    border-radius: 0 !important;
+    border: 1px dashed #0a2f87;
+    width: 100%;
+    color: #0a2f87;
+    font-weight: 100;
+}
+.cmt-cnt {
+    background-color: #ffffff;
+    margin-top: 5px;
+    padding: 10px 10px 1px;
+}
+p.cmt-txt {
+    margin-bottom: 2px;
+}
+p.cmt-dat {
+    font-size: 10px;
+    color: #999999;
+}
+
 @media screen and (min-width: 768px) {
   
 .newclientsml-btn {
