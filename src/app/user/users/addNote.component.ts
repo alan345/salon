@@ -74,19 +74,6 @@ export class AddNoteComponent implements OnInit {
 
 
 
-  // save(form) {
-  //   let user = form.value
-  //   console.log(user)
-  //   // console.log(model);
-  //   this.userService.updateUser(user)
-  //     .subscribe(
-  //       res => {
-  //         this.toastr.success('Great!', res.message)
-  //       },
-  //       error => {console.log(error)}
-  //     );
-  //   // console.log(model);
-  // }
   save(model: FormGroup, isValid: boolean) {
     this.fetchedUser.notes.push({
       text : model.value.newTextNote,

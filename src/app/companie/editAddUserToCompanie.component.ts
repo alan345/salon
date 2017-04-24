@@ -101,12 +101,32 @@ export class EditAddUserToCompanieComponent implements OnInit {
         )
       }
   }
-  save(model: FormGroup) {
+
+  save(form: FormGroup) {
+    this.fetchedUser.forms = form.value.forms
+    if(this.fetchedUser._id) {
+      this.userService.updateUser(this.fetchedUser)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+          },
+          error => {console.log(error)}
+        );
+    } else {
+      this.userService.saveUser(this.fetchedUser)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+          },
+          error => {console.log(error)}
+        );
+    }
   }
 
   getObjects(myForm){
     return myForm.get('profile').get('parentUser').controls
   }
+
 
   ngOnInit() {
     this.myForm = this._fb.group({
@@ -143,6 +163,11 @@ export class EditAddUserToCompanieComponent implements OnInit {
         }
       );
   }
+
+  initFormNewUser() {
+    this.fetchedUser.email = this.search.email
+  }
+
   userFounded(i) {
     this.fetchedUser = this.filteredUsers[i]
     this.filteredUsers = []

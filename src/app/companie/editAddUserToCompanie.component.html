@@ -11,27 +11,27 @@
 
     <hr>
 
+    <div *ngIf="!fetchedUser.email">
+      <div class="form-group">
+        <label>email</label>
+        <input type="text" class="form-control"
+          [(ngModel)]="search.email"
+          (ngModelChange)="searchEmails()"
+        >
+      </div>
 
-    <div class="form-group">
-      <label>email</label>
-      <input type="text" class="form-control"
-        [(ngModel)]="search.email"
-        (ngModelChange)="searchEmails()"
-      >
+      <div *ngFor="let user of filteredUsers; let i=index">
+        {{user.email}}
+        <button class="btn-danger" (click)="userFounded(i)">Select</button>
+      </div>
+  
+      <div *ngIf="!filteredUsers[0] && search.email">
+        <button class="btn-danger" (click)="initFormNewUser()">Create User</button>
+      </div>
     </div>
 
-    <div *ngFor="let user of filteredUsers; let i=index">
-      {{user.email}}
-      <button class="btn-danger" (click)="userFounded(i)">Select</button>
-    </div>
-
-
-    <form  *ngIf="this.fetchedUser.email" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-
-
+    <form  *ngIf="fetchedUser.email" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
       <div formGroupName="profile">
-
-
         <div class="form-group">
           <label>email</label>
           <input type="text" class="form-control"
