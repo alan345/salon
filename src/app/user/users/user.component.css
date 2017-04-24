@@ -153,6 +153,10 @@ p.cmt-dat {
     margin-right: -12%;
 }
 >>>>>>> a547162bb6a63b8b7258b859b7a5d8699cba98a4
+.form-group.col-sm-12 {
+  padding:0;
+}
+
 
 @media screen and (min-width: 768px) {
   
@@ -166,6 +170,18 @@ p.cmt-dat {
 .tbl-right p.tblnav-cl {
   float: right;
   padding: 15px 0 15px 15px;
+}
+#lfthair {
+  padding-left:0;
+  padding-right: 7.5px;
+}
+#mdlhair {
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+}
+#rghthair {
+  padding-left: 7.5px;
+  padding-right: 0;
 }
 }
 
@@ -183,6 +199,10 @@ p.tblnav-cl {
 .col-sm-9 {
     display: inline-block;
     width: 100% !important;
+}
+#lfthair, #mdlhair, #rghthair {
+  padding-left: 0;
+  padding-right: 0;
 }
 }
 
