@@ -28,6 +28,8 @@
           <!--Connect button below to add product form-->
           <button class="addpdt-btn">Add Product <i class="fa fa-plus"></i></button>
           <!--Add last two products bought here-->
+          <p class="blue">PhytoElixir Oil - 02/14/2017</p>
+          <p class="blue">PhytoElixir Mask - 12/21/2016</p>
           <a class="seemre" href="#">See Products History</a>
         </div>
       </div>
@@ -37,7 +39,7 @@
       <div class="col-sm-3">
         <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-9">
         <div formArrayName="forms">
           <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
             <div [formGroupName]="i">
@@ -45,7 +47,7 @@
               <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
               <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
               <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-              <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
+              <span class="glyphicon glyphicon-remove pull-right  dlt-img"  (click)="removeForm(i)"></span>
             </div>
           </div>
         </div>
@@ -54,30 +56,16 @@
         </div>
       </div>
     </div>
-
-
-
-
-    <div class="form-group">
-      <label>Notes</label>
-      <div *ngFor="let note of fetchedUser.notes">
-        <h3>{{note.text}}</h3>
-        {{note.dateNote| date}}
+    <div class="clt-cmts">
+      <div class="form-group">
+        <button type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-plus"></i></button>
+        <div *ngFor="let note of fetchedUser.notes" class="cmt-cnt">
+          <p class="cmt-txt">{{note.text}}</p>
+          <p class="cmt-dat">{{note.dateNote| date}}</p>
+        </div>
       </div>
-
     </div>
-    <button type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-plus"></i></button>
-
-    <div class="margin-20">
-      <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
-    </div>
+    <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
     <div class="clearfix"></div>
-
-    <!-- <div class="margin-20">
-      <div>myForm details:-</div>
-      <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
-      <pre>form value: <br>{{myForm.value | json}}</pre>
-    </div> -->
   </form>
-
 </div>
