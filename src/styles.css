@@ -14,6 +14,7 @@ body {
     width: 100% !important;
     max-width: 950px !important;
     padding: 0 !important;
+    background-color: #ffffff;
 }
 a.active {
   font-weight: bold;
@@ -130,6 +131,10 @@ h3 {
 .subnav h3 {
     margin: 10px auto;
     width: 60%;
+}
+h5 {
+    color: #999999 !important;
+    margin-top: 30px;
 }
 .subnav {
     padding: 0 15px;
