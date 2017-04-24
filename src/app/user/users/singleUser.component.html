@@ -58,7 +58,7 @@
     </div>
     <div class="clt-cmts">
       <div class="form-group">
-        <button type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-plus"></i></button>
+        <button class="addnte" type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">Add Note<br><i class="fa fa-plus"></i></button>
         <div *ngFor="let note of fetchedUser.notes" class="cmt-cnt">
           <p class="cmt-txt">{{note.text}}</p>
           <p class="cmt-dat">{{note.dateNote| date}}</p>
