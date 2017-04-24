@@ -166,7 +166,14 @@ export class VideoSingleComponent implements OnInit {
     })
   }
   openDialogDelete(){
-    this.dialog.open(VideoDeleteDialog);
+    let dialogRefDelete = this.dialog.open(VideoDeleteDialog)
+    dialogRefDelete.afterClosed().subscribe(result => {
+      if(result) {
+        this.onDelete(this.fetchedVideo._id)
+        this.router.navigate(['video']);
+      }
+    })
+
   }
 
   save(video) {

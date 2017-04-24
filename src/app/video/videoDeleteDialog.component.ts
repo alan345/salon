@@ -19,9 +19,9 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
   templateUrl: './videoDeleteDialog.component.html',
 })
 export class VideoDeleteDialog {
+  constructor(public dialogRefDelete: MdDialogRef<VideoDeleteDialog>) {}
 
-
-  deleteVideo(){
-    console.log("delete")
-  }
+  // deleteVideo(){
+  //   console.log("delete")
+  // }
 }
