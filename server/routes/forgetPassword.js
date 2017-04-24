@@ -53,7 +53,18 @@ router.post('/', function (req, res, next) {
           api_key: config.api_key
         }
       };
-      var mailer  = nodemailer.createTransport(sgTransport(options));
+      //var mailer  = nodemailer.createTransport(sgTransport(options));
+
+      var mailer  = nodemailer.createTransport({
+          host: 'smtp.gmail.com',
+          port: 587,
+          secure: true, // upgrade later with STARTTLS
+          auth: {
+              user: '',
+              pass: ''
+          }
+      })
+
 
       var mailOptions = {
         to: user.email,
@@ -72,6 +83,7 @@ router.post('/', function (req, res, next) {
       });
     }
   ], function (err) {
+    console.log(err)
     if (err) return next(err);
   });
 });

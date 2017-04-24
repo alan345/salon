@@ -79,7 +79,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
     private _fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private location: Location,
-
   ) {
 
   }
@@ -132,7 +131,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
       this.userService.saveUser(this.fetchedUser)
         .subscribe(
           res => {
-            console.log(res)
             this.toastr.success('Great!', res.message)
             this.addUserIdToCompanie(res.obj)
           },
