@@ -49,6 +49,51 @@ td.rightdate {
 p.blue {
     color: #0a2f87;
 }
+.usr-basic {
+    background-color: #ffffff;
+    margin: 5px;
+    padding: 10px !important;
+}
+.img-row {
+    width: 100%;
+    display: inline-block;
+}
+.dat-btn {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: inherit;
+    background-color: #ffffff;
+    border: 1px solid #231f20;
+    color: #231f20;
+    border-radius: 0 !important;
+    min-width: 140px;
+}
+.addpdt-btn {
+    padding: 10px;
+    min-width: 140px;
+    font-size: 12px;
+    background-color: #fff;
+    outline: none !important;
+    border: 1px dashed #0a2f87;
+    color: #0a2f87;
+}
+.addpic-squr {
+    width: 100% !important;
+    height: 150px !important;
+    background-color: #efe9df;
+    outline: none !important;
+    border: 1px dashed #0a2f87;
+    color: #0a2f87;
+    font-size: 18px !important;
+    font-weight: 100;
+    padding: 8px;
+}
+.col-sm-3 {
+    padding-right: 0 !important;
+}
+.col-sm-9 {
+    padding-left: 0 !important;
+}
 @media screen and (min-width: 768px) {
   
 .newclientsml-btn {
@@ -71,5 +116,23 @@ p.blue {
 }
 p.tblnav-cl {
     padding: 6px !important;
+}
+}
+
+@media screen and (min-width: 556px) {
+
+.dat-btnl {
+    margin-right: 15px;
+}
+.dat-btnr {
+    margin-left: 15px;
+}
+}
+
+@media screen and (max-width: 555px) {
+
+.dat-btn {
+    margin: 15px 0;
+    display: block;
 }
 }
