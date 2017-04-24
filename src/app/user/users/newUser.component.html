@@ -1,105 +1,101 @@
+<div class="container">
+  <div class="goldgradient beigeborder subnav">
+    <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
+    <h3 style="text-align: center;">Clients</h3>
+  </div>
+  <div class="single-wrpr beigeback">
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+     
+      <!-- <div class="form-group">
+        <label>_id</label>
+        <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser._id">
+      </div> -->
+      <!-- <div class="form-group">
+        <label>email</label>
+        <input type="text" class="form-control" formControlName="email" [(ngModel)]="fetchedUser.email">
+        <small *ngIf="!myForm.controls.email.valid" class="text-danger">
+             Required (minimum 5 characters).
+        </small>
+      </div> -->
+      <!-- <div class="form-group">
+        <label>lastVisit</label>
+        <input type="text" class="form-control" formControlName="lastVisit" [(ngModel)]="fetchedUser.lastVisit">
+      </div> -->
 
-<div class="container topPadTable">
-  <h2 class="text-center">
-    <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
-    Client
-  </h2>
+      <div formGroupName="profile">
+        <div class="form-group col-sm-12">
+          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name">
+        </div>
 
-  <hr>
+        <!-- <div formArrayName="parentUser">
+          <div class="form-group col-sm-12" *ngFor="let singleParentUser of getObjects(myForm); let i=index">
+            <div [formGroupName]="i">
+              <label>parentUser</label>
+              <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile.parentUser[i]._id">
+            </div>
+          </div>
+        </div> -->
 
-  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-    <!-- <div class="form-group">
-      <label>_id</label>
-      <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser._id">
-    </div> -->
-    <!-- <div class="form-group">
-      <label>email</label>
-      <input type="text" class="form-control" formControlName="email" [(ngModel)]="fetchedUser.email">
-      <small *ngIf="!myForm.controls.email.valid" class="text-danger">
-           Required (minimum 5 characters).
-      </small>
-    </div> -->
-    <!-- <div class="form-group">
-      <label>lastVisit</label>
-      <input type="text" class="form-control" formControlName="lastVisit" [(ngModel)]="fetchedUser.lastVisit">
-    </div> -->
+        <!-- <div class="form-group">
+          <label>parentUser</label>
+          <input type="text" class="form-control" formControlName="parentUser" [(ngModel)]="fetchedUser.profile.parentUser._id">
+        </div> -->
 
-    <div formGroupName="profile">
-      <div class="form-group">
-        <label>name</label>
-        <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name">
-      </div>
 
-      <!-- <div formArrayName="parentUser">
-        <div class="form-group" *ngFor="let singleParentUser of getObjects(myForm); let i=index">
-          <div [formGroupName]="i">
-            <label>parentUser</label>
-            <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile.parentUser[i]._id">
+        <div formGroupName="hair">
+          <div class="form-group col-sm-4">
+            <label>hairTexture</label>
+            <input type="text" class="form-control" formControlName="hairTexture" [(ngModel)]="fetchedUser.profile.hair.hairTexture">
+          </div>
+          <div class="form-group col-sm-4">
+            <label>hairPorosity</label>
+            <input type="text" class="form-control" formControlName="hairPorosity" [(ngModel)]="fetchedUser.profile.hair.hairPorosity">
+          </div>
+          <div class="form-group col-sm-4">
+            <label>hairDensity</label>
+            <input type="text" class="form-control" formControlName="hairDensity" [(ngModel)]="fetchedUser.profile.hair.hairDensity">
           </div>
         </div>
+      </div>
+
+
+
+
+      <!--forms-->
+      <!-- <div formArrayName="forms">
+        <div *ngFor="let form of myForm.controls.forms.controls; let i=index" class="panel panel-default">
+          <div class="panel-heading">
+            <span>Image {{i + 1}}</span>
+            <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
+          </div>
+          <div class="panel-body" [formGroupName]="i">
+            <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
+            <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          </div>
+        </div>
+      </div>
+      <div class="margin-20">
+        <button type="button" md-button (click)="openDialog('img')">+ Media</button>
       </div> -->
+      <!--forms-->
+
+
 
       <!-- <div class="form-group">
-        <label>parentUser</label>
-        <input type="text" class="form-control" formControlName="parentUser" [(ngModel)]="fetchedUser.profile.parentUser._id">
-      </div> -->
+        <label>Notes</label>
+        <div *ngFor="let note of fetchedUser.notes">
+          <h3>{{note.text}}</h3>
+          {{note.dateNote| date}}
+        </div>
 
-
-      <div formGroupName="hair">
-        <div class="form-group">
-          <label>hairTexture</label>
-          <input type="text" class="form-control" formControlName="hairTexture" [(ngModel)]="fetchedUser.profile.hair.hairTexture">
-        </div>
-        <div class="form-group">
-          <label>hairPorosity</label>
-          <input type="text" class="form-control" formControlName="hairPorosity" [(ngModel)]="fetchedUser.profile.hair.hairPorosity">
-        </div>
-        <div class="form-group">
-          <label>hairDensity</label>
-          <input type="text" class="form-control" formControlName="hairDensity" [(ngModel)]="fetchedUser.profile.hair.hairDensity">
-        </div>
       </div>
-    </div>
+      <button class="btn-default" [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-arrow-right"></i></button> -->
 
-
-
-
-    <!--forms-->
-    <!-- <div formArrayName="forms">
-      <div *ngFor="let form of myForm.controls.forms.controls; let i=index" class="panel panel-default">
-        <div class="panel-heading">
-          <span>Image {{i + 1}}</span>
-          <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
-        </div>
-        <div class="panel-body" [formGroupName]="i">
-          <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
-          <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-        </div>
+      <div class="valid-edit">
+        <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
+        <button type="submit" class="delete" md-button (click)="openDialogDelete()">Delete Video</button>
       </div>
-    </div>
-    <div class="margin-20">
-      <button type="button" md-button (click)="openDialog('img')">+ Media</button>
-    </div> -->
-    <!--forms-->
-
-
-
-    <!-- <div class="form-group">
-      <label>Notes</label>
-      <div *ngFor="let note of fetchedUser.notes">
-        <h3>{{note.text}}</h3>
-        {{note.dateNote| date}}
-      </div>
-
-    </div>
-    <button class="btn-default" [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-arrow-right"></i></button> -->
-
-
-    <div class="margin-20">
-      <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
-    </div>
-    <div class="clearfix"></div>
-
-  </form>
-
+      <div class="clearfix"></div>
+    </form>
+  </div>
 </div>
