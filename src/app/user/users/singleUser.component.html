@@ -5,7 +5,7 @@
   </div>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
     <div class="beigeback dspl-flx">
-      <div class="col-xs-6 col-lg-4 usr-basic">
+      <div class="col-sm-4 usr-basic">
         <h3>{{fetchedUser.profile.name}}</h3>
         <h5>Hair Density</h5>
         {{fetchedUser.profile.hair.hairDensity}}
@@ -15,7 +15,7 @@
         {{fetchedUser.profile.hair.hairPorosity}}
         <button class="edit-clt" [routerLink]="['/user/newuser/' + fetchedUser._id ]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
       </div>
-      <div class="col-xs-12 col-sm-6 col-lg-8 form-group">
+      <div class="col-sm-7 form-group">
         <div class="appnt-ctnr">
           <label><h5>Last Visit:</h5></label>
           <p>{{fetchedUser.lastVisit | date:'medium'}}</p>
@@ -35,21 +35,23 @@
     <div class="img-row">
       <h3 style="padding: 0 15px !important;">Client Photos (Tap to Expand)</h3>
       <div class="col-sm-3">
-        <button type="button" md-button (click)="openDialog('img')">Add Picture<br><i class="fa fa-plus"></i></button>
+        <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
       </div>
-      <div formArrayName="forms" class="col-sm-9">
-        <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
-          <div [formGroupName]="i">
-            <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
-            <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
-            <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
-            <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-            <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
+      <div class="col-sm-8">
+        <div formArrayName="forms">
+          <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
+            <div [formGroupName]="i">
+              <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
+              <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
+              <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
+              <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="seemre">
-        <a href="#">See All</a>
+        <div class="seemre">
+          <a href="#">See All</a>
+        </div>
       </div>
     </div>
 
