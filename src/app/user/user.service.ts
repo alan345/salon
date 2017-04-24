@@ -54,7 +54,7 @@ export class UserService {
 
     let options = new RequestOptions({ headers: headers, search: search});
 
-    return this.http.get(this.url + 'user/getUsersByEmail/'  , options)
+    return this.http.get(this.url + 'profile/getUsersByEmail/'  , options)
       .timeout(9000)
       .map((response: Response) => {
 

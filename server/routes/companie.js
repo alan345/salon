@@ -66,6 +66,7 @@ router.put('/:id', function (req, res, next) {
     } else {
         item.address = req.body.address
         item.forms = req.body.forms
+        item._users = req.body._users
         //item.text = req.body.text
         //item.region_id = req.body.region_id
 

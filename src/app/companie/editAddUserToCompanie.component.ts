@@ -31,14 +31,14 @@ export class EditAddUserToCompanieComponent implements OnInit {
       state:'',
       zip:'',
     },
-    users : [
-      {
-        _user : [
-          {
-            email:''
-          }
-        ]
-      }
+    _users : [
+      // {
+      //   _user : [
+      //     {
+      //       email:''
+      //     }
+      //   ]
+      // }
     ]
   }
   search = {
@@ -64,10 +64,8 @@ export class EditAddUserToCompanieComponent implements OnInit {
         hairTexture : '',
       }
     },
-    notes:[{
-      text:'',
-      dateNote: ''
-    }]
+    notes:[],
+    role: ['stylist']
   }
 
   myForm: FormGroup;
@@ -94,6 +92,16 @@ export class EditAddUserToCompanieComponent implements OnInit {
         .subscribe(
           res => {
             this.filteredUsers = res.data
+            if(res.data.length) {
+              if(res.data[0].email === this.search.email) {
+                this.userFounded(0)
+              } else {
+                this.initFormNewUser()
+              }
+            } else {
+              this.initFormNewUser()
+            }
+
           },
           error => {
             console.log(error);
@@ -101,14 +109,22 @@ export class EditAddUserToCompanieComponent implements OnInit {
         )
       }
   }
+  initFormNewUser() {
+    this.fetchedUser.email = this.search.email
+  }
+
+  userFounded(i) {
+    this.fetchedUser = this.filteredUsers[i]
+    this.filteredUsers = []
+  }
 
   save(form: FormGroup) {
-    this.fetchedUser.forms = form.value.forms
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.addUserIdToCompanie(res.obj)
           },
           error => {console.log(error)}
         );
@@ -116,11 +132,35 @@ export class EditAddUserToCompanieComponent implements OnInit {
       this.userService.saveUser(this.fetchedUser)
         .subscribe(
           res => {
+            console.log(res)
             this.toastr.success('Great!', res.message)
+            this.addUserIdToCompanie(res.obj)
           },
           error => {console.log(error)}
         );
     }
+  }
+
+  addUserIdToCompanie(user) {
+    let okAddUserToCompanie = true
+    this.fetchedCompanie._users.forEach((userFetch) => {
+      if(userFetch._id === user._id) {
+        okAddUserToCompanie = false
+      }
+    })
+    if(!okAddUserToCompanie){
+      this.toastr.error('error! user already exists in salon')
+      return
+    }
+
+    this.fetchedCompanie._users.push(user)
+    this.companieService.updateCompanie(this.fetchedCompanie)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+        },
+        error => {console.log(error)}
+      )
   }
 
   getObjects(myForm){
@@ -132,10 +172,10 @@ export class EditAddUserToCompanieComponent implements OnInit {
     this.myForm = this._fb.group({
         lastVisit: [''],
         _id: [''],
+        email: ['', [Validators.required, Validators.minLength(5)]],
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
             parentUser: this._fb.array([]),
-            email: ['', [Validators.required, Validators.minLength(5)]],
             hair: this._fb.group({
                 hairTexture: ['', <any>Validators.required],
                 hairDensity: ['', <any>Validators.required],
@@ -164,14 +204,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
       );
   }
 
-  initFormNewUser() {
-    this.fetchedUser.email = this.search.email
-  }
 
-  userFounded(i) {
-    this.fetchedUser = this.filteredUsers[i]
-    this.filteredUsers = []
-  }
   goBack() {
     this.location.back();
   }

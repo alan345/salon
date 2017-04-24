@@ -6,40 +6,36 @@
   <div class="container topPadTable">
     <h2 class="text-center">
       <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
-      Client
+      Add stylist to salon
     </h2>
 
     <hr>
 
     <div *ngIf="!fetchedUser.email">
       <div class="form-group">
-        <label>email</label>
+        <label>email_</label>
         <input type="text" class="form-control"
           [(ngModel)]="search.email"
-          (ngModelChange)="searchEmails()"
+          (keyup.enter)="searchEmails()"
         >
-      </div>
-
-      <div *ngFor="let user of filteredUsers; let i=index">
-        {{user.email}}
-        <button class="btn-danger" (click)="userFounded(i)">Select</button>
-      </div>
-  
-      <div *ngIf="!filteredUsers[0] && search.email">
-        <button class="btn-danger" (click)="initFormNewUser()">Create User</button>
       </div>
     </div>
 
     <form  *ngIf="fetchedUser.email" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-      <div formGroupName="profile">
+      <div class="form-group">
         <div class="form-group">
-          <label>email</label>
+          <label>_id</label>
           <input type="text" class="form-control"
-            formControlName="email"
-            [(ngModel)]="fetchedUser.email"
-          >
+            formControlName="_id"
+            [(ngModel)]="fetchedUser._id">
         </div>
+        <label>email</label>
+        <input type="text" class="form-control"
+          formControlName="email"
+          [(ngModel)]="fetchedUser.email">
+      </div>
 
+      <div formGroupName="profile">
         <div class="form-group">
           <label>name</label>
           <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name">
