@@ -36,6 +36,10 @@ th, td {
   border: none !important;
   outline:none !important;
 }
+label {
+  display:inherit !important;
+}
+
 .table-responsive {
   border: 0;
 }
@@ -224,17 +228,39 @@ td {
     border: 1px solid #231f20;
     color: #231f20;
 }
+.dspl-flx {
+  display: flex;
+  width: 100%;
+}
+a.seemre {
+    margin-top: 15px;
+    font-size: 12px !important;
+    color: #999999;
+}
+.dspl-nn {
+    display: none;
+}
+.pic-list {
+    float: left;
+}
+
 /*--Responsive--*/
 
 
 @media screen and (max-width: 991px) {
 
-  h3 {
-    font-size: 17px;
-    line-height: 1.5;
+h3 {
+  font-size: 17px;
+  line-height: 1.5;
   }
 }
 
+@media screen and (min-width: 768px) {
+
+a.seemre {
+    float: right;
+}
+}
 @media screen and (min-width: 500px) {
 
 .delete {
