@@ -1,0 +1,107 @@
+{
+	"_id": {
+		"$oid": "58ed2d1a3bccc80dc8c17964"
+	},
+	"updatedAt": {
+		"$date": "2017-04-24T20:48:00.373Z"
+	},
+	"lastVisit": {
+		"$date": "2017-04-03T18:02:08.177Z"
+	},
+	"profile": {
+		"hair": {
+			"hairTexture": "asdasd",
+			"hairPorosity": "user",
+			"hairDensity": "user"
+		},
+		"lastName": "ttot",
+		"name": "asdasdALANDEB",
+		"parentUser": []
+	},
+	"createdAt": {
+		"$date": "2017-04-11T19:23:06.525Z"
+	},
+	"email": "alan345@gmail.com",
+	"password": "sha1$cfa25cd4$1$11a97f0b86d26d2ec1bec5e36cd9fe7a220e0086",
+	"notes": [
+		{
+			"text": " toto",
+			"dateNote": {
+				"$date": "2017-04-03T18:02:08.177Z"
+			},
+			"_id": {
+				"$oid": "58ed5149aa6a301eee26b0dd"
+			}
+		},
+		{
+			"text": " toto",
+			"dateNote": {
+				"$date": "2017-04-03T18:02:08.177Z"
+			},
+			"_id": {
+				"$oid": "58ed5149aa6a301eee26b0dc"
+			}
+		},
+		{
+			"text": "vraiment trop cool",
+			"dateNote": {
+				"$date": "2017-04-11T22:14:06.822Z"
+			},
+			"_id": {
+				"$oid": "58ed552fd722391f5a2d262f"
+			}
+		},
+		{
+			"text": "ce client est vraiment de la balle. je vous le conseille",
+			"dateNote": {
+				"$date": "2017-04-11T22:16:53.771Z"
+			},
+			"_id": {
+				"$oid": "58ed55d6d722391f5a2d2630"
+			}
+		}
+	],
+	"__v": 26,
+	"role": [
+		"admin"
+	],
+	"resetPasswordExpires": "1493066093303",
+	"resetPasswordToken": "9176502e7c9b24bd1eaf973a44deb6886bc8da6e",
+	"forms": []
+}
+{
+	"_id": {
+		"$oid": "58f7adf84f6fdc547114e10d"
+	},
+	"updatedAt": {
+		"$date": "2017-04-24T17:28:48.032Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-19T18:35:36.787Z"
+	},
+	"email": "doriane@latelier-marketing.com",
+	"password": "sha1$084e4c14$1$4b74f69de499faa93cf42427940b2af1d41e2606",
+	"profile": {
+		"name": "juju . de la balle",
+		"parentUser": [
+			{
+				"$oid": "58ed2d1a3bccc80dc8c17964"
+			}
+		],
+		"hair": {
+			"hairTexture": "ahsdasdasd",
+			"hairDensity": "asdasdasd",
+			"hairPorosity": "asdasdasd"
+		}
+	},
+	"role": [
+		"admin"
+	],
+	"notes": [],
+	"forms": [
+		{
+			"$oid": "58fe35d0ef30a76715677d22"
+		}
+	],
+	"__v": 1
+}

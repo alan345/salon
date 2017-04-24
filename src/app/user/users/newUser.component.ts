@@ -36,9 +36,11 @@ export class NewUserComponent implements OnInit {
     }],
     profile:{
       name:'',
-      parentUser:[{
-        _id:''
-      }],
+      parentUser:[
+      //   {
+      //   _id:''
+      // }
+      ],
       hair:{
         hairDensity : '',
         hairPorosity : '',
@@ -73,7 +75,7 @@ export class NewUserComponent implements OnInit {
         _id: [''],
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
-            parentUser: this._fb.array([]),
+            // parentUser: this._fb.array([]),
             hair: this._fb.group({
                 hairTexture: ['', <any>Validators.required],
                 hairDensity: ['', <any>Validators.required],
@@ -90,20 +92,20 @@ export class NewUserComponent implements OnInit {
     })
   }
 
-  getObjects(myForm){
-     return myForm.get('profile').get('parentUser').controls
-   }
+  // getObjects(myForm){
+  //    return myForm.get('profile').get('parentUser').controls
+  //  }
 
 
 
-  addParentUser(parentUser) {
-    const control = <FormArray>this.myForm.get('profile').get('parentUser');
-    //console.log(control)
-    const addrCtrl = this._fb.group({
-        _id: [''],
-    });
-    control.push(addrCtrl);
-  }
+  // addParentUser(parentUser) {
+  //   const control = <FormArray>this.myForm.get('profile').get('parentUser');
+  //   //console.log(control)
+  //   const addrCtrl = this._fb.group({
+  //       _id: [''],
+  //   });
+  //   control.push(addrCtrl);
+  // }
 
 
 
@@ -140,9 +142,9 @@ export class NewUserComponent implements OnInit {
 
     this.fetchedUser.profile = form.value.profile
 
-    if(!this.fetchedUser.profile.parentUser.length) {
-      this.fetchedUser.profile.parentUser.push({_id : this.authService.currentUser.userId})
-    }
+    // if(!this.fetchedUser.profile.parentUser.length) {
+    //   this.fetchedUser.profile.parentUser.push({_id : this.authService.currentUser.userId})
+    // }
 
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
@@ -182,9 +184,9 @@ export class NewUserComponent implements OnInit {
         res => {
           this.fetchedUser = res.user
 
-          this.fetchedUser.profile.parentUser.forEach((parentUser) => {
-            this.addParentUser(parentUser)
-          })
+          // this.fetchedUser.profile.parentUser.forEach((parentUser) => {
+          //   this.addParentUser(parentUser)
+          // })
 
         },
         error => {

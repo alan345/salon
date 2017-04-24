@@ -100,6 +100,7 @@ export class UserService {
   }
 
   saveUser(user) {
+    user.profile.parentUser=[]
     user.profile.parentUser.push(this.authService.currentUser.userId)
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});

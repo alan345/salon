@@ -30,14 +30,14 @@
         <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name">
       </div>
 
-      <div formArrayName="parentUser">
+      <!-- <div formArrayName="parentUser">
         <div class="form-group" *ngFor="let singleParentUser of getObjects(myForm); let i=index">
           <div [formGroupName]="i">
             <label>parentUser</label>
             <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile.parentUser[i]._id">
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- <div class="form-group">
         <label>parentUser</label>
