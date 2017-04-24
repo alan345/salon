@@ -180,6 +180,10 @@ p.tblnav-cl {
 .prt-ctnr a.seemre {
     margin-bottom: 15px;
 }
+.col-sm-9 {
+    display: inline-block;
+    width: 100% !important;
+}
 }
 
 @media screen and (min-width: 556px) {
