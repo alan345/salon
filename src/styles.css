@@ -36,10 +36,9 @@ th, td {
   border: none !important;
   outline:none !important;
 }
-label {
-  display:inherit !important;
+.row {
+    margin: 0 !important;
 }
-
 .table-responsive {
   border: 0;
 }
@@ -130,7 +129,8 @@ label {
     padding: 0 !important;
 }
 h3 {
-    color: #0a2f87;
+  color: #0a2f87;
+  margin: 10px 0;
 }
 .subnav h3 {
     margin: 10px auto;
@@ -229,7 +229,7 @@ td {
     color: #231f20;
 }
 .dspl-flx {
-  display: flex;
+  display: inline-block;
   width: 100%;
 }
 a.seemre {
@@ -241,7 +241,8 @@ a.seemre {
     display: none;
 }
 .pic-list {
-    float: left;
+  float: left;
+  margin-right: 10px;
 }
 
 /*--Responsive--*/
