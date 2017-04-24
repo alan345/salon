@@ -3,7 +3,7 @@
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Clients</h3>
   </div>
-  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="beigeback dspl-flx">
       <div class="col-sm-4 usr-basic">
         <h3>{{fetchedUser.profile.name}}</h3>
@@ -65,7 +65,6 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
     <div class="clearfix"></div>
   </form>
 </div>

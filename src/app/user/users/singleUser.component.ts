@@ -112,16 +112,17 @@ export class SingleUserComponent implements OnInit {
       if(result) {
         this.addForm(result)
         this.fetchedUser.forms.push(result)
+        this.save()
       }
     })
   }
 
-  save(form) {
+  save() {
     // let user = form.value
     // console.log(user)
     // console.log(model);
-    this.fetchedUser.forms = form.value.forms
-    this.fetchedUser.notes = form.value.notes
+    //this.fetchedUser.forms = form.value.forms
+    //this.fetchedUser.notes = form.value.notes
 
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
