@@ -12,20 +12,39 @@
     <hr>
 
 
-    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+    <div class="form-group">
+      <label>email</label>
+      <input type="text" class="form-control"
+        [(ngModel)]="search.email"
+        (ngModelChange)="searchEmails()"
+      >
+    </div>
+
+    <div *ngFor="let user of filteredUsers; let i=index">
+      {{user.email}}
+      <button class="btn-danger" (click)="userFounded(i)">Select</button>
+    </div>
+
+
+    <form  *ngIf="this.fetchedUser.email" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
 
 
       <div formGroupName="profile">
+
+
+        <div class="form-group">
+          <label>email</label>
+          <input type="text" class="form-control"
+            formControlName="email"
+            [(ngModel)]="fetchedUser.email"
+          >
+        </div>
+
         <div class="form-group">
           <label>name</label>
           <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name">
         </div>
-        <!-- <div class="form-group">
-          <label>email</label>
-          <input type="text" class="form-control" formControlName="email" [(ngModel)]="fetchedUser.profile.email">
-        </div> -->
-
-
+<!--
         <md-input-container>
           <input mdInput placeholder="Email" [mdAutocomplete]="auto" [formControl]="emailCtrl" >
         </md-input-container>
@@ -34,7 +53,7 @@
           <md-option *ngFor="let email of filteredEmails | async" [value]="email">
             {{email}}
           </md-option>
-        </md-autocomplete>
+        </md-autocomplete> -->
 
 
 

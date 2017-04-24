@@ -42,7 +42,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     ]
   }
   search = {
-    email : 'email',
+    email : '',
   }
   fetchedUser = {
     _id: '',
@@ -71,60 +71,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   myForm: FormGroup;
-  emailCtrl: FormControl;
-  filteredEmails: any;
-  states = [
-     'Alabama',
-     'Alaska',
-     'Arizona',
-     'Arkansas',
-     'California',
-     'Colorado',
-     'Connecticut',
-     'Delaware',
-     'Florida',
-     'Georgia',
-     'Hawaii',
-     'Idaho',
-     'Illinois',
-     'Indiana',
-     'Iowa',
-     'Kansas',
-     'Kentucky',
-     'Louisiana',
-     'Maine',
-     'Maryland',
-     'Massachusetts',
-     'Michigan',
-     'Minnesota',
-     'Mississippi',
-     'Missouri',
-     'Montana',
-     'Nebraska',
-     'Nevada',
-     'New Hampshire',
-     'New Jersey',
-     'New Mexico',
-     'New York',
-     'North Carolina',
-     'North Dakota',
-     'Ohio',
-     'Oklahoma',
-     'Oregon',
-     'Pennsylvania',
-     'Rhode Island',
-     'South Carolina',
-     'South Dakota',
-     'Tennessee',
-     'Texas',
-     'Utah',
-     'Vermont',
-     'Virginia',
-     'Washington',
-     'West Virginia',
-     'Wisconsin',
-     'Wyoming',
-   ];
+  filteredUsers = []
 
 
   constructor(
@@ -136,32 +83,23 @@ export class EditAddUserToCompanieComponent implements OnInit {
     private location: Location,
 
   ) {
-    this.emailCtrl = new FormControl();
-    this.filteredEmails = this.emailCtrl.valueChanges
-        .startWith(null)
-        .map(email => this.filterEmails(email));
+
   }
 
 
-  filterEmails(email: string) {
-    this.search.email = email
-    this.userService.getUsersByEmail(this.search)
-      .subscribe(
-        res => {
-          let emailsArr =[]
-          //console.log(res.data)
-          res.data.forEach(user => {
-            emailsArr.push(user.email)
-              //console.log(user.email)
-          })
-          console.log(emailsArr)
-          console.log(this.states)
-          return this.states
-        },
-        error => {
-          console.log(error);
-        }
-      );
+  searchEmails() {
+    this.filteredUsers = []
+    if(this.search.email) {
+      this.userService.getUsersByEmail(this.search)
+        .subscribe(
+          res => {
+            this.filteredUsers = res.data
+          },
+          error => {
+            console.log(error);
+          }
+        )
+      }
   }
   save(model: FormGroup) {
   }
@@ -205,7 +143,10 @@ export class EditAddUserToCompanieComponent implements OnInit {
         }
       );
   }
-
+  userFounded(i) {
+    this.fetchedUser = this.filteredUsers[i]
+    this.filteredUsers = []
+  }
   goBack() {
     this.location.back();
   }
