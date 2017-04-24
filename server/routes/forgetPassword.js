@@ -56,6 +56,8 @@ router.post('/', function (req, res, next) {
       };
       //var mailer  = nodemailer.createTransport(sgTransport(options));
 
+
+      // see https://nodemailer.com/usage/
       var mailer  = nodemailer.createTransport({
           host: 'smtp.gmail.com',
           port: 587,

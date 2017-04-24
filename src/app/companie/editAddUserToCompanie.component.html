@@ -24,8 +24,7 @@
     <form  *ngIf="fetchedUser.email" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
       <div class="form-group">
         <div class="form-group">
-          <label>_id</label>
-          <input type="text" class="form-control"
+          <input type="hidden" class="form-control"
             formControlName="_id"
             [(ngModel)]="fetchedUser._id">
         </div>
