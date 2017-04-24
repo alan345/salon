@@ -120,6 +120,30 @@ a.seemre {
     position: absolute;
     margin: 0 !important;
 }
+.clt-cmts {
+    background-color: #0a2f87;
+    padding: 5px;
+}
+.addnte {
+    background-color: #efe9df;
+    border-radius: 0 !important;
+    border: 1px dashed #0a2f87;
+    width: 100%;
+    color: #0a2f87;
+    font-weight: 100;
+}
+.cmt-cnt {
+    background-color: #ffffff;
+    margin-top: 5px;
+    padding: 10px 10px 1px;
+}
+p.cmt-txt {
+    margin-bottom: 2px;
+}
+p.cmt-dat {
+    font-size: 10px;
+    color: #999999;
+}
 
 @media screen and (min-width: 768px) {
   
