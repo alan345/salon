@@ -30,10 +30,13 @@ import {PressesComponent} from './press/presses.component';
 import {PressSingleComponent} from './press/pressSingle.component';
 import {PressService} from './press/press.service';
 
+
+import {VideoDeleteDialog} from './video/videoDeleteDialog.component';
 import {VideoComponent} from './video/video.component';
 import {VideosComponent} from './video/videos.component';
 import {VideoSingleComponent} from './video/videoSingle.component';
 import {VideoService} from './video/video.service';
+
 
 
 
@@ -156,6 +159,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PressesComponent,
     PressSingleComponent,
 
+
+    VideoDeleteDialog,
     VideoComponent,
     VideosComponent,
     VideoSingleComponent,
@@ -250,7 +255,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   entryComponents: [
 
     EditOptionsComponentDialog,
-    CompanieDialogComponent
+    CompanieDialogComponent,
+    VideoDeleteDialog
   ],
 
   bootstrap: [AppComponent],

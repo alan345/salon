@@ -13,6 +13,7 @@ import { Video } from './video.model'
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
+import { VideoDeleteDialog } from './videoDeleteDialog.component'
 
 @Component({
   selector: 'app-videos',
@@ -163,6 +164,9 @@ export class VideoSingleComponent implements OnInit {
         this.fetchedVideo[positionImage] = result
       }
     })
+  }
+  openDialogDelete(){
+    this.dialog.open(VideoDeleteDialog);
   }
 
   save(video) {
