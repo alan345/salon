@@ -66,12 +66,6 @@
 .vid-cnt .editicon {
     padding-top: 10px !important;
 }
-
-a.vid-labright {
-    margin-top: 15px;
-    font-size: 12px !important;
-    color: #999999;
-}
 .lft-form, .rght-form {
     margin-bottom: 15px;
 }
@@ -108,9 +102,6 @@ a.vid-labright {
 label.vid-lableft {
     width: 50%;
     float: left;
-}
-a.vid-labright {
-    float: right;
 }
 .lft-form, .rght-form {
     width: 50%;
