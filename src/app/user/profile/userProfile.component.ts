@@ -71,8 +71,10 @@ export class UserProfileComponent implements OnInit {
     this.myForm = this._fb.group({
         lastVisit: [''],
         _id: [''],
+        role: [''],
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
+            lastName: ['', [Validators.required, Validators.minLength(5)]],
             // parentUser: this._fb.array([]),
             hair: this._fb.group({
                 hairTexture: ['', <any>Validators.required],

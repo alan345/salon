@@ -22,9 +22,17 @@
         <input type="text" class="form-control" formControlName="lastVisit" [(ngModel)]="fetchedUser.lastVisit">
       </div> -->
 
+      <div class="form-group col-sm-12">
+        <input type="text" class="form-control" formControlName="role" [(ngModel)]="fetchedUser.role" placeholder="Role">
+      </div>
+
       <div formGroupName="profile">
         <div class="form-group col-sm-12">
-          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Client's Name">
+          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
+        </div>
+
+        <div class="form-group col-sm-12">
+          <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
         </div>
 
         <!-- <div formArrayName="parentUser">
