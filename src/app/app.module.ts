@@ -87,7 +87,7 @@ import {ResetPasswordComponent} from './user/accountRecover/resetPassword.compon
 import {ForgetPasswordComponent} from './user/accountRecover/forgetPassword.component';
 import {FormService} from './form/form.service';
 
-import {RegionService} from './region/region.service';
+
 import {EditUserFormComponent} from './userForms/editForm/editUserForm.component';
 
 
@@ -239,7 +239,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CompanieService,
     VideoService,
     MainPageHomeService,
-    RegionService,
+
     PressService,
     FormService,
     AdminService,
