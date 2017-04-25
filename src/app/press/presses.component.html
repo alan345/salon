@@ -12,7 +12,7 @@
         <td class="prss-cnt">
           <img class="img-thumbnail img-responsive" src="./uploads/forms/{{press.form[0].owner}}/{{press.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
           <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
-          <p>{{press.form[0].title}}</p>
+          <p>{{press.title}}</p>
         </td>
         <!-- <td>{{press._id }}</td> -->
         <td><a [routerLink]="['/press/' + press._id]" routerLinkActive="active">{{press.email}}</a></td>
