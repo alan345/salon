@@ -64,24 +64,42 @@
 
 
 export interface User {
+  _id: string;
   name: string;
   email: string;
   lastVisit: string;
   addresses: Address[];
   forms: Form[];
-  porfile: {
-    name:string;
-    hair : {
-      hairTexture:string;
-    }
+  profile: Profile;
+  notes:Note[];
+}
+
+
+export interface Profile {
+  title:string;
+  name:string;
+  _profilePictue:Form;
+  hair : {
+    hairTexture:string;
+    hairDensity:string;
+    hairDhairPorosityensity:string;
   }
+}
+
+
+export interface Note {
+    text: string;
+    dateNote: Date;
 }
 
 export interface Address {
     street: string;
     postcode: string;
+
 }
 
 export interface Form {
     _id: string;
+    owner:string;
+    imagePath: string;
 }

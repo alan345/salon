@@ -21,6 +21,7 @@ var user = new Schema({
       _profilePictue : {type: Schema.Types.ObjectId, ref: 'Form'},
       parentUser: [{type: Schema.Types.ObjectId, ref: 'User'}],
       name: {type: String, default: ['']},
+      title: {type: String, default: ['']},
       lastName: {type: String, default: ['']},
       hair : {
         hairDensity : {type: String, default: ['user']},

@@ -26,7 +26,7 @@ export class UserProfileComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   maxPictureToShow=3;
-  fetchedUser = {
+  fetchedUser  = {
     _id: '',
     lastVisit: '',
     email:'',
@@ -36,13 +36,18 @@ export class UserProfileComponent implements OnInit {
       imagePath:'',
     }],
     profile:{
-      _profilePictue:{},
+      title:'',
       name:'',
       hair:{
         hairDensity : '',
         hairPorosity : '',
         hairTexture : '',
-      }
+      },
+      _profilePictue:{
+        _id:'',
+        owner:'',
+        imagePath:''
+      },
 
     },
     notes:[{
@@ -74,6 +79,14 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.myForm = this._fb.group({
       lastVisit: [''],
+      profile: this._fb.group({
+        _profilePictue: this._fb.group({
+          _id: ['', [Validators.required, Validators.minLength(5)]]
+        }),
+        name: ['', [Validators.required, Validators.minLength(2)]],
+        lastName: ['', [Validators.required, Validators.minLength(2)]],
+        title: ['', [Validators.required, Validators.minLength(2)]]
+      }),
       forms: this._fb.array([])
     })
 
@@ -113,23 +126,27 @@ export class UserProfileComponent implements OnInit {
     this.maxPictureToShow = 9999
   }
   openDialog(positionImage) {
-    let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        this.addForm(result)
-        this.fetchedUser.forms.push(result)
-        this.save()
-      }
-    })
+    if(positionImage == '_profilePictue') {
+      let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+      dialogRef.afterClosed().subscribe(result => {
+        if(result) {
+          this.fetchedUser.profile._profilePictue = result
+          this.save()
+        }
+      })
+    } else {
+      let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+      dialogRef.afterClosed().subscribe(result => {
+        if(result) {
+          this.addForm(result)
+          this.fetchedUser.forms.push(result)
+          this.save()
+        }
+      })
+    }
   }
 
   save() {
-    // let user = form.value
-    // console.log(user)
-    // console.log(model);
-    //this.fetchedUser.forms = form.value.forms
-    //this.fetchedUser.notes = form.value.notes
-
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {
@@ -152,7 +169,7 @@ export class UserProfileComponent implements OnInit {
       )
   }
 
-  getUser(id) {
+  getUser(id : string) {
     this.userService.getUser(id)
       .subscribe(
         res => {

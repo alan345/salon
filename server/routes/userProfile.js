@@ -112,6 +112,7 @@ router.get('/:id', function (req, res, next) {
   User
   .findOne({_id: id})
   .populate('forms')
+  .populate('profile._profilePictue')
   .populate('profile.parentUser')
   .exec(function (err, user) {
     if (err) {
@@ -269,7 +270,7 @@ router.put('/:id', function (req, res, next) {
         item.forms = req.body.forms
         item.lastVisit = req.body.lastVisit
         item.notes = req.body.notes
-
+        console.log(req.body)
         item.save(function (err, result) {
           if (err) {
             return res.status(404).json({

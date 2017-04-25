@@ -6,14 +6,27 @@
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="beigeback dspl-flx">
       <div class="col-sm-4 usr-basic">
-        <h3>{{fetchedUser.profile.name}}</h3>
-        <h5>Hair Density</h5>
-        {{fetchedUser.profile.hair.hairDensity}}
-        <h5>Hair Texture</h5>
-        {{fetchedUser.profile.hair.hairTexture}}
-        <h5>hairPorosity</h5>
-        {{fetchedUser.profile.hair.hairPorosity}}
-        <button class="edit-clt" [routerLink]="['/user/newuser/' + fetchedUser._id ]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+
+
+
+        <div formGroupName="profile">
+          <h3>{{fetchedUser.profile.name}}</h3>
+          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
+          <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
+          <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
+          <div formGroupName="_profilePictue">
+            <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile._profilePictue._id">
+            <img src="./uploads/forms/{{fetchedUser.profile._profilePictue.owner}}/{{fetchedUser.profile._profilePictue.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+            <div>
+              <button type="button" md-button (click)="openDialog('_profilePictue')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
       </div>
       <div class="col-sm-7 form-group">
         <div class="appnt-ctnr">
