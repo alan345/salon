@@ -25,6 +25,10 @@ img.promo-img {
 .prmimg-cnt img {
     max-width: 100%;
 }
+.prmimg-cnt .addpic-squr {
+    margin-top: 15px !important;
+    height: 75px !important;
+}
 
 @media screen and (min-width: 768px) {
   
