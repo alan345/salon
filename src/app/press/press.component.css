@@ -37,6 +37,9 @@
 .prss-img .addpic-squr {
     height: 75px !important;
 }
+.prss-img img {
+    display: block;
+}
 
 @media screen and (min-width: 991px) {
   
