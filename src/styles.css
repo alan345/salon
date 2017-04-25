@@ -111,7 +111,6 @@ th, td {
 .form-group {
     margin-bottom: 0 !important;
 }
-
 .goldgradient {
     background: #c9bda5;
     background: -webkit-radial-gradient(#ffffff, #c9bda5); /* Safari */
@@ -274,6 +273,17 @@ a.seemre {
 }
 .cdk-overlay-pane {
     max-width: 100vh !important;
+}
+.addpic-squr {
+    width: 100% !important;
+    height: 150px !important;
+    background-color: #efe9df;
+    outline: none !important;
+    border: 1px dashed #0a2f87;
+    color: #0a2f87;
+    font-size: 18px !important;
+    font-weight: 100;
+    padding: 8px;
 }
 
 /*--Responsive--*/

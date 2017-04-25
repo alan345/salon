@@ -1,3 +1,44 @@
-.topPad {
-  margin-top: 100px !important;
+.promo-cnt {
+    width: 100% !important;
+    display: block;
+}
+.promo-cnt .editicon {
+    position: relative !important;
+    padding-top: 5px !important;
+}
+.dlticon {
+    position: relative;
+    top: 3px;
+    right: 3px;
+    padding: 8px 13px 7px;
+    background-color: red;
+    color: #ffffff;
+    outline: none !important;
+    border: none;
+    float: right;
+}
+img.promo-img {
+    width: 100% !important;
+    vertical-align: top !important;
+    top: 0 !important;
+}
+.prmimg-cnt img {
+    max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  
+#strt-dt {
+  padding-left: 0 !important;
+}
+#end-dt {
+  padding-right: 0 !important;
+}
+}
+
+@media screen and (max-width: 767px) {
+  
+#strt-dt, #end-dt {
+  padding: 0 !important;
+}
 }
