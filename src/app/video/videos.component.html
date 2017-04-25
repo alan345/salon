@@ -2,8 +2,7 @@
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Videos</h3>
-    <!-- Add ifAdmin rule for plus button below -->
-    <button class="subnav-btnright" [routerLink]="['/video/videoSingle']" routerLinkActive="active"><i class="fa fa-plus"></i></button>
+    <button *ngIf="isAdmin()" class="subnav-btnright" [routerLink]="['/video/videoSingle']" routerLinkActive="active"><i class="fa fa-plus"></i></button>
   </div>
   <div class="subsubnav-video beigeback">
     <div class="video-srchrow">
