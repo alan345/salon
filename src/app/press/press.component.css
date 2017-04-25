@@ -1,5 +1,5 @@
 .prss-ctnr {
-    padding: 5px;
+    padding: 5px 2.5px 2.5px 5px;
 }
 .prss-cnt {
     width: 100%!important;
@@ -10,7 +10,7 @@
     padding: 0 !important;
 }
 .prss-cnt .editicon {
-    position: relative !important;
+    position: absolute !important;
     padding: 11px 12px 8px !important;
 }
 .prss-ttl p {
@@ -19,6 +19,7 @@
 .prss-wrpr {
     height: 535px;
     position: relative;
+    padding: 0 15px;
 }
 .img-wrpr {
     width: 80% !important;
