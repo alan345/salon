@@ -1,62 +1,58 @@
-
-<div class="container topPadTable">
-  <h2 class="text-center">
-    <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
-    Press
-  </h2>
-
-  <hr>
-
-  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
-    <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPress._id">
-    <div class="form-group">
-      <label>title</label>
-      <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedPress.title">
-      <!-- <small *ngIf="!myForm.get('fetchedPress.title').valid" class="text-danger">
-           Required (minimum 5 characters).
-      </small> -->
-    </div>
-    <div class="form-group">
-      <label>link</label>
-      <input type="text" class="form-control" formControlName="link" [(ngModel)]="fetchedPress.link">
-    </div>
-
-
+<div class="container">
+  <div class="goldgradient beigeborder subnav">
+    <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
+    <h3 style="text-align: center;">Press</h3>
+  </div>
+  <div class="single-wrpr beigeback">
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
+      <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPress._id">
       <div class="form-group">
-        <label>_idPic</label>
-        <input type="text" class="form-control" formControlName="form" [(ngModel)]="fetchedPress.form._id">
-        <img width="150" src="./uploads/forms/{{fetchedPress.form.owner}}/{{fetchedPress.form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-        <div class="margin-20">
-          <button type="button" md-button (click)="openDialog('form')">+ Media</button>
-        </div>
+        <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedPress.title" placeholder="Title">
+        
+        <!-- <small *ngIf="!myForm.get('fetchedPress.title').valid" class="text-danger">
+             Required (minimum 5 characters).
+        </small> -->
       </div>
-
+      
       <div class="form-group">
-        <label>PDF</label>
-        <input type="text" class="form-control" formControlName="formPDF" [(ngModel)]="fetchedPress.formPDF._id">
-        <a *ngIf="fetchedPress.formPDF.owner" target="_blank" href="./uploads/forms/{{fetchedPress.formPDF.owner}}/{{fetchedPress.formPDF.imagePath}}">
+        <label>Add Link to the Article</label>
+        <input type="text" class="form-control" formControlName="link" [(ngModel)]="fetchedPress.link">
+      </div>
+      <div class="form-group upld-pdf">
+        <label>Or Upload a PDF Version</label>
+        <input type="file" class="form-control" formControlName="formPDF" [(ngModel)]="fetchedPress.formPDF._id">
+        
+         <!--<a *ngIf="fetchedPress.formPDF.owner" target="_blank" href="./uploads/forms/{{fetchedPress.formPDF.owner}}/{{fetchedPress.formPDF.imagePath}}">
           <img width="150" src="assets/images/pdf.ico" onerror="this.src ='assets/images/no-image-found.jpg'">
         </a>
         <div class="margin-20">
           <button type="button" md-button (click)="openDialog('formPDF')">+ Media</button>
+        </div> -->
+        
+      </div>
+      <div class="form-group prss-img">
+
+        <!--<label>_idPic</label>
+        <input type="text" class="form-control" formControlName="form" [(ngModel)]="fetchedPress.form._id"> -->
+        
+         <label>Add Picture to be displayed on Press page</label>
+        <img width="150" src="./uploads/forms/{{fetchedPress.form.owner}}/{{fetchedPress.form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+        <div>
+          <button type="button" md-button (click)="openDialog('form')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
         </div>
       </div>
-
-
-    <br>
-
-
-
-    <div class="margin-20">
-      <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
-    </div>
-    <div class="clearfix"></div>
-
-    <div class="margin-20">
-      <div>myForm details:-</div>
-      <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
-      <pre>form value: <br>{{myForm.value | json}}</pre>
-    </div>
-  </form>
-
+      <div class="valid-edit">
+        <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
+        <button type="button" class="delete">Delete Article</button>
+      </div>
+      <div class="clearfix"></div>
+      
+      <!-- <div class="margin-20">
+        <div>myForm details:-</div>
+        <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
+        <pre>form value: <br>{{myForm.value | json}}</pre>
+      </div> -->
+      
+    </form>
+  </div>
 </div>

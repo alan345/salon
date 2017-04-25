@@ -1,3 +1,28 @@
-.topPad {
-  margin-top: 100px !important;
+.prdts-cat {
+    width: 33.3333% !important;
+    float: left;
+    background-color: #ffffff;
+    padding: 15px;
+    text-transform: uppercase;
+    color: #0a2f87;
+    font-size: 13px;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  
+.frst-cat, .scd-cat {
+    border-right: 1px solid #0a2f87;
+}
+.prdts-cat {
+    width: 33.3333% !important;
+}
+}
+
+@media screen and (max-width: 767px) {
+
+.prdts-cat {
+    width: 100% !important;
+    border-bottom: 1px solid #0a2f87;   
+}
 }
