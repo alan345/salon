@@ -83,7 +83,6 @@ import {CompanieDetailComponent} from './companie/companieDetail.component';
 import {CompanieService} from './companie/companie.service';
 
 
-import {MapComponent} from './map/map.component';
 import {ResetPasswordComponent} from './user/accountRecover/resetPassword.component';
 import {ForgetPasswordComponent} from './user/accountRecover/forgetPassword.component';
 import {FormService} from './form/form.service';
@@ -137,7 +136,6 @@ import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
 
 import {  ApplicationRef } from '@angular/core';
-import { AgmCoreModule } from 'angular2-google-maps/core';
 
 let options = <ToastOptions> {
   animate: 'flyRight',
@@ -199,7 +197,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     EditAddUserToCompanieComponent,
     CompanieDialogComponent,
     CompanieDetailComponent,
-    MapComponent,
+
     ResetPasswordComponent,
     ForgetPasswordComponent,
     UserFormsComponent,
@@ -231,9 +229,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     Ng2PaginationModule,
     NgbModule.forRoot(),
     MaterialModule.forRoot(),
-    AgmCoreModule.forRoot({
-      apiKey: ''
-    })
+
   ],
   providers: [
     AuthGuardService,
