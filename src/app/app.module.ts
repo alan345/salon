@@ -42,9 +42,15 @@ import {VideoService} from './video/video.service';
 import {PromotionDeleteDialog} from './promotion/promotionDeleteDialog.component';
 import {PromotionComponent} from './promotion/promotion.component';
 import {PromotionsComponent} from './promotion/promotions.component';
-//import {NewPromotionComponent} from './promotion/newPromotion.component';
 import {SinglePromotionComponent} from './promotion/singlePromotion.component';
 import {PromotionService} from './promotion/promotion.service';
+
+
+import {SocialDeleteDialog} from './social/socialDeleteDialog.component';
+import {SocialComponent} from './social/social.component';
+import {SocialsComponent} from './social/socials.component';
+import {SingleSocialComponent} from './social/singleSocial.component';
+import {SocialService} from './social/social.service';
 
 
 
@@ -172,8 +178,14 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PromotionDeleteDialog,
     PromotionComponent,
     PromotionsComponent,
-  //  NewPromotionComponent,
     SinglePromotionComponent,
+
+    SocialDeleteDialog,
+    SocialComponent,
+    SocialsComponent,
+    SingleSocialComponent,
+
+
 
 
     UsersComponent,
@@ -224,7 +236,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     BrowserAnimationsModule,
     ToastModule.forRoot(options),
     ProgressBarModule,
-
     FormsModule,
     Ng2PaginationModule,
     NgbModule.forRoot(),
@@ -239,7 +250,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CompanieService,
     VideoService,
     MainPageHomeService,
-
+    SocialService,
     PressService,
     FormService,
     AdminService,
@@ -256,6 +267,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     }
   ],
   entryComponents: [
+    SocialDeleteDialog,
     PromotionDeleteDialog,
     EditOptionsComponentDialog,
     CompanieDialogComponent,

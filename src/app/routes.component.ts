@@ -20,6 +20,11 @@ import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 import {USER_COMPANIES} from './companie/companie.routes';
 import {CompanieComponent} from './companie/companie.component';
 
+import {SOCIAL} from './social/social.routes';
+import {SocialComponent} from './social/social.component';
+
+
+
 import {USER_PROMOTIONS} from './promotion/promotion.routes';
 import {PromotionComponent} from './promotion/promotion.component';
 
@@ -39,6 +44,7 @@ import {AdminGuardService} from './admin/services/adminGuard';
 const APP_ROUTES: Routes = [
 //  {path: '', component: MainPageHomeComponent, pathMatch: 'full'},
   {path: '', component: MainPageHomeComponent, canActivate: [AuthGuardService], pathMatch: 'full'},
+  {path: 'social', component: SocialComponent, canActivate: [AuthGuardService], children: SOCIAL},
 //  {path: 'home2', component: MainPageComponent, pathMatch: 'full'},
   {path: 'companie', component: CompanieComponent, canActivate: [AuthGuardService], children: USER_COMPANIES},
   {path: 'press', component: PressComponent, canActivate: [AuthGuardService], children: USER_PRESSES},
