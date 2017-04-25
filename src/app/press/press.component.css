@@ -1,18 +1,48 @@
 .prss-ctnr {
-    width: 50% !important;
-    float: left !important;
+    padding: 5px;
 }
 .prss-cnt {
-    width: 100% !important;
-    float: left !important;
-    background-image: url('/assets/images/background_press.png');
+    width: 100%!important;
+    height: 100% !important;
+    float: left!important;
+    background-image: url(/assets/images/background_press.png);
+    background-size: 100% 100%;
+    padding: 0 !important;
 }
 .prss-cnt .editicon {
     position: relative !important;
     padding: 11px 12px 8px !important;
-    margin-bottom: -30px;
 }
-.prss-cnt img {
+.prss-ttl p {
+    margin: 14px 15px !important;
+}
+.prss-wrpr {
+    height: 535px;
+    position: relative;
+}
+.img-wrpr {
     width: 80% !important;
-    margin: 50px !important;
+    max-height: 600px !important;
+    overflow: hidden;
+    padding: 50px 0;
+    margin: 0 auto !important;
+}
+.prssttl-wrpr {
+    bottom: 0 !important;
+    position: absolute;
+}
+
+@media screen and (min-width: 768px) {
+  
+.prss-ctnr {
+    width: 50% !important;
+    float: left !important;
+}
+}
+
+@media screen and (min-width: 768px) {
+  
+.prss-ctnr {
+    width: 100% !important;
+}
 }
