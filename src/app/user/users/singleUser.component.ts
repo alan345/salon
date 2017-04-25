@@ -25,6 +25,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 export class SingleUserComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
+  maxPictureToShow=3;
   fetchedUser = {
     _id: '',
     lastVisit: '',
@@ -105,7 +106,9 @@ export class SingleUserComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
+  seeAllPicture(){
+    this.maxPictureToShow = 9999
+  }
   openDialog(positionImage) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
