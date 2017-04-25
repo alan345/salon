@@ -33,7 +33,6 @@ import {VideoComponent} from './video/video.component';
 import {USER_PRODUCTS} from './product/product.routes';
 import {ProductComponent} from './product/product.component';
 
-
 import {AdminComponent} from './admin/admin.component';
 import {ErrorPageComponent} from './errorPage/errorPage.component';
 import {AdminGuardService} from './admin/services/adminGuard';
