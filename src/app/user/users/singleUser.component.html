@@ -53,7 +53,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="maxPictureToShow ==3">
+        <div *ngIf="maxPictureToShow ==3 && fetchedUser.forms.length>3">
           <a class="seemre" (click)="seeAllPicture()">See All</a>
         </div>
       </div>

@@ -90,7 +90,8 @@ export class SingleUserComponent implements OnInit {
   removeForm(i: number) {
       this.fetchedUser.forms.splice(i, 1)
       const control = <FormArray>this.myForm.controls['forms'];
-      control.removeAt(i);
+      control.removeAt(i)
+      this.save()
   }
   addForm(form: Form) {
     const control = <FormArray>this.myForm.controls['forms'];
