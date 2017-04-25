@@ -17,7 +17,7 @@ var companie = new Schema({
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
 
     text: String,
-    //region_id: mongoose.Schema.Types.ObjectId
+
 
   },
   {
