@@ -3,9 +3,8 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ResetPasswordComponent} from './accountRecover/resetPassword.component';
 import {ForgetPasswordComponent} from './accountRecover/forgetPassword.component';
-import {UserFormsComponent} from '../userForms/formsTable/userForms.component';
+import {UserFormsComponent} from '../form/userForms.component';
 import {AuthGuardService} from '../auth/authguard.service';
-import {EditUserFormComponent} from '../userForms/editForm/editUserForm.component';
 import {AppComponent} from '../app.component';
 import {UserProfileComponent} from './profile/userProfile.component';
 import {ChangePasswordComponent} from './profile/changePassword/changePassword.component';
@@ -33,7 +32,6 @@ export const USER_ROUTES: Routes = [
   {path: 'forms', component: UserFormsComponent, canActivate: [AuthGuardService]},
   {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
   {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
-  {path: 'forms/edit/:id', component: EditUserFormComponent, canActivate: [AuthGuardService]},
   {path: ':id', component: SingleUserComponent},
   {path: ':id/addnote', component: AddNoteComponent},
   {path: ':id/choosedate', component: ChooseDateComponent},

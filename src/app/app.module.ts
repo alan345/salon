@@ -94,7 +94,6 @@ import {ForgetPasswordComponent} from './user/accountRecover/forgetPassword.comp
 import {FormService} from './form/form.service';
 
 
-import {EditUserFormComponent} from './userForms/editForm/editUserForm.component';
 
 
 
@@ -131,8 +130,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
-import {UserFormsComponent} from './userForms/formsTable/userForms.component';
-import {UserFormsUploadAndList} from './userForms/formsTable/userFormsUploadAndList.component';
+import {UserFormsComponent} from './form/userForms.component';
+import {UserFormsUploadAndList} from './form/userFormsUploadAndList.component';
 
 
 
@@ -214,7 +213,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ForgetPasswordComponent,
     UserFormsComponent,
     UserFormsUploadAndList,
-    EditUserFormComponent,
     ErrorPageComponent,
     AdminPageComponent,
     EditUsersFormsComponent,

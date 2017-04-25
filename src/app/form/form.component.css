@@ -9,3 +9,8 @@
 .bottomMargin {
   margin-bottom: 20px !important;
 }
+
+
+.img-resized {
+  width: 10%;
+}
