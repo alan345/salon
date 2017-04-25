@@ -8,14 +8,20 @@
 
   <table class="table table-hover table-responsive table-condensed prss-tbl">
     <tbody>
-      <tr *ngFor="let press of fetchedPresses | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="prss-ctnr">
+      <tr *ngFor="let press of fetchedPresses | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="prss-ctnr beigeback">
         <td class="prss-cnt">
-          <button class="editicon" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
-          <img class="img-thumbnail img-responsive" src="./uploads/forms/{{press.form[0].owner}}/{{press.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-          <p>{{press.title}}</p>
+          <div class="prss-wrpr">
+            <button class="editicon" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+            <div class="img-wrpr">
+              <img class="img-responsive" src="./uploads/forms/{{press.form[0].owner}}/{{press.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+            </div>
+            <div class="prssttl-wrpr">
+              <p class="prss-ttl">{{press.title}}</p>
+            </div>
+          </div>
         </td>
         <!-- <td>{{press._id }}</td> -->
-        <td><a [routerLink]="['/press/' + press._id]" routerLinkActive="active">{{press.email}}</a></td>
+        <td class="dspl-nn"><a [routerLink]="['/press/' + press._id]" routerLinkActive="active">{{press.email}}</a></td>
       </tr>
     </tbody>
   </table>
