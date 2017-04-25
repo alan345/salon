@@ -217,6 +217,9 @@ td {
     font-size: 12px !important;
     padding:8px 15px !important;
     min-width: 140px !important;
+    font-family: inherit !important;
+    line-height: inherit !important;
+    border-radius: 0 !important;
 }
 .done, .pas-done {
     border: none !important;
@@ -246,9 +249,24 @@ a.seemre {
 .dspl-nn {
     display: none;
 }
+.lng-form {
+    margin-bottom: 15px !important;
+    width: 100% !important;
+    min-height: 150px !important;
+}
+.pic-list {
+    max-width: 150px;
+    overflow: hidden;
+}
+.dlt-img {
+    color: #fff;
+    padding: 7px;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.7;
+}
 
 /*--Responsive--*/
-
 
 @media screen and (max-width: 991px) {
 
