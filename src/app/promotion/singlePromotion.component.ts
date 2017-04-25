@@ -121,18 +121,30 @@ export class SinglePromotionComponent implements OnInit {
   }
 
   save(form) {
-    let promotion = form.value
-    console.log(promotion)
-    delete(promotion._id)
-    promotion.owner = '58dd6bfc72065a0d2d12ff81'
+
+
+    if(this.fetchedPromotion._id) {
+      this.promotionService.updatePromotion(this.fetchedPromotion)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+          },
+          error => {console.log(error)}
+        )
+    } else {
+      this.promotionService.savePromotion(this.fetchedPromotion)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+          },
+          error => {console.log(error)}
+        );
+    }
+
+
+
     // console.log(model);
-    this.promotionService.savePromotion(promotion)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message)
-        },
-        error => {console.log(error)}
-      );
+
     // console.log(model);
   }
   // save(model: FormGroup, isValid: boolean) {

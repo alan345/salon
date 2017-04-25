@@ -84,7 +84,7 @@ export class VideoService {
   //  console.log("this.authService.currentUser.token",this.authService.currentUser.token);
   //  delete video._id;
   delete video._id
-  console.log(video)
+  //console.log(video)
     const body = JSON.stringify(video);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);

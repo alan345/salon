@@ -62,8 +62,10 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-        item.address = req.body.address;
-        item.text = req.body.text;
+        item.name = req.body.name
+        item.date = req.body.date
+        item.owner = req.body.owner
+        item.forms = req.body.forms
 
 
         item.save(function (err, result) {
@@ -85,8 +87,12 @@ router.put('/:id', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
   console.log(req.body)
-  //var Promotion = new Promotion(req.body)
+  delete req.body._id
   var promotion = new Promotion(req.body)
+//  var promotion = new Promotion(req.body)
+//   delete promotion._id
+  // console.log(promotion)
+
 
 
   promotion.save(function (err, result) {
