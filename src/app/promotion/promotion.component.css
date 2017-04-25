@@ -28,6 +28,16 @@ img.promo-img {
 .prmimg-cnt .addpic-squr {
     margin-top: 15px !important;
     height: 75px !important;
+    width: 100% !important;
+}
+.add-prm {
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    padding: 20px 10px;
+    background-color: #999999;
+    color: #ffffff;
+    outline: none !important;
+    border: 1px dashed #0a2f87;
 }
 
 @media screen and (min-width: 768px) {
