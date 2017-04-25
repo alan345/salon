@@ -1,3 +1,18 @@
-.topPad {
-  margin-top: 100px !important;
+.prss-ctnr {
+    width: 50% !important;
+    float: left !important;
+}
+.prss-cnt {
+    width: 100% !important;
+    float: left !important;
+    background-image: url('/assets/images/background_press.png');
+}
+.prss-cnt .editicon {
+    position: relative !important;
+    padding: 11px 12px 8px !important;
+    margin-bottom: -30px;
+}
+.prss-cnt img {
+    width: 80% !important;
+    margin: 50px !important;
 }
