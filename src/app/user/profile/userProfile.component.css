@@ -1,3 +1,211 @@
-.img-resized {
-  width: 80%;
+.subsubnav-clients {
+    background-color: #0a2f87;
+    padding: 15px;
+}
+.subsubnav-clients input {
+    margin-bottom: 0 !important;
+}
+.newclientbig-btn, .newclientsml-btn {
+    background: none;
+    border: 1px solid;
+    color: #fff;
+    font-size: 12px;
+    padding: 12px 20px;
+    float: right;
+}
+.newclientbig-btn:hover, .newclientbig-btn:active, .newclientsml-btn:hover, .newclientsml-btn:active {
+    color: #0a2f87;
+    background: #ffffff;
+}
+p.tblnav-cl {
+    margin: inherit !important;
+}
+.tbl-right p.tblnav-cl {
+    text-align: right;
+}
+.updownbtn {
+    background-color: #ffffff;
+    border: none;
+    padding: 2px 8px;
+    margin: 11px 5px;
+    color: #0a2f87;
+    font-size: 19px;
+    outline: none !important;
+}
+.tbl-right .updownbtn {
+    float:right;
+}
+.clienttbl tr {
+    background-color: #fff;
+}
+.clienttbl td {
+    border-bottom: 2px solid #efe9df !important;
+    border-top: none !important;
+    padding: 20px 15px !important;
+}
+td.rightdate {
+    text-align: right;
+    color: #999999;
+    font-size: 11px;
+    padding: 22px 15px !important;
+}
+p.blue {
+    color: #0a2f87;
+}
+.usr-basic {
+    background-color: #ffffff;
+    margin: 5px;
+    padding: 10px !important;
+}
+.img-row {
+    width: 100%;
+    display: inline-block;
+    padding-bottom: 20px;
+}
+.dat-btn {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: inherit;
+    background-color: #ffffff;
+    border: 1px solid #231f20;
+    color: #231f20;
+    border-radius: 0 !important;
+    min-width: 140px;
+}
+.addpdt-btn {
+    padding: 10px;
+    min-width: 140px;
+    font-size: 12px;
+    background-color: #fff;
+    outline: none !important;
+    border: 1px dashed #0a2f87;
+    color: #0a2f87;
+    margin-bottom: 15px;
+}
+.col-sm-9 {
+    padding-left: 0 !important;
+}
+label {
+  display:inherit !important;
+}
+.edit-clt {
+    top: 2px;
+    right: 2px;
+    position: absolute;
+    padding: 8px 12px;
+    color: #fff;
+    background-color: #0a2f87;
+    outline: none !important;
+    border: none !important;
+}
+a.seemre {
+  margin-top: -26px;
+}
+.img-row a.seemre {
+    bottom: -20px !important;
+    right: 15px;
+    position: absolute;
+    margin: 0 !important;
+}
+.clt-cmts {
+    background-color: #0a2f87;
+    padding: 5px;
+}
+.addnte {
+    background-color: #efe9df;
+    border-radius: 0 !important;
+    border: 1px dashed #0a2f87;
+    width: 100%;
+    color: #0a2f87;
+    font-weight: 100;
+}
+.cmt-cnt {
+    background-color: #ffffff;
+    margin-top: 5px;
+    padding: 10px 10px 1px;
+}
+p.cmt-txt {
+    margin-bottom: 2px;
+}
+p.cmt-dat {
+    font-size: 10px;
+    color: #999999;
+}
+<<<<<<< HEAD
+=======
+.prt-ctnr {
+    margin-bottom: 15px;
+}
+.prt-ctnr a.seemre {
+    margin-right: -12%;
+}
+>>>>>>> a547162bb6a63b8b7258b859b7a5d8699cba98a4
+.form-group.col-sm-12 {
+  padding:0;
+}
+
+@media screen and (min-width: 768px) {
+
+.newclientsml-btn {
+  display:none;
+}
+.tbl-left p.tblnav-cl {
+  float: left;
+  padding: 15px 15px 15px 0;
+}
+.tbl-right p.tblnav-cl {
+  float: right;
+  padding: 15px 0 15px 15px;
+}
+#lfthair {
+  padding-left:0;
+  padding-right: 7.5px;
+}
+#mdlhair {
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+}
+#rghthair {
+  padding-left: 7.5px;
+  padding-right: 0;
+}
+}
+
+@media screen and (max-width: 767px) {
+
+.newclientbig-btn {
+  display:none;
+}
+p.tblnav-cl {
+    padding: 6px !important;
+}
+.prt-ctnr a.seemre {
+    margin-bottom: 15px;
+}
+.col-sm-9 {
+    display: inline-block;
+    width: 100% !important;
+}
+#lfthair, #mdlhair, #rghthair {
+  padding-left: 0;
+  padding-right: 0;
+}
+}
+
+@media screen and (min-width: 556px) {
+
+.dat-btnl {
+    margin-right: 15px;
+}
+.dat-btnr {
+    margin-left: 15px;
+}
+}
+
+@media screen and (max-width: 555px) {
+
+.dat-btn {
+    margin: 15px 0;
+    display: block;
+}
 }

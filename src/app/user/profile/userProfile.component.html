@@ -1,139 +1,72 @@
 <div class="container">
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
-    <h3 style="text-align: center;">My Profile</h3>
+    <h3 style="text-align: center;">Clients</h3>
   </div>
-  <div class="single-wrpr beigeback">
-    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-
-      <!-- <div class="form-group">
-        <label>_id</label>
-        <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser._id">
-      </div> -->
-      <!-- <div class="form-group">
-        <label>email</label>
-        <input type="text" class="form-control" formControlName="email" [(ngModel)]="fetchedUser.email">
-        <small *ngIf="!myForm.controls.email.valid" class="text-danger">
-             Required (minimum 5 characters).
-        </small>
-      </div> -->
-      <!-- <div class="form-group">
-        <label>lastVisit</label>
-        <input type="text" class="form-control" formControlName="lastVisit" [(ngModel)]="fetchedUser.lastVisit">
-      </div> -->
-
-
-      <div class="form-group col-sm-12">
-        ID: {{fetchedUser._id}}
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+    <div class="beigeback dspl-flx">
+      <div class="col-sm-4 usr-basic">
+        <h3>{{fetchedUser.profile.name}}</h3>
+        <h5>Hair Density</h5>
+        {{fetchedUser.profile.hair.hairDensity}}
+        <h5>Hair Texture</h5>
+        {{fetchedUser.profile.hair.hairTexture}}
+        <h5>hairPorosity</h5>
+        {{fetchedUser.profile.hair.hairPorosity}}
+        <button class="edit-clt" [routerLink]="['/user/newuser/' + fetchedUser._id ]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
       </div>
-
-      <div class="form-group col-sm-12">
-        <input type="text" class="form-control" formControlName="role" [(ngModel)]="fetchedUser.role" placeholder="Role">
+      <div class="col-sm-7 form-group">
+        <div class="appnt-ctnr">
+          <label><h5>Last Visit:</h5></label>
+          <p>{{fetchedUser.lastVisit | date:'medium'}}</p>
+          <button class="dat-btn dat-btnl" type="button" md-button (click)="setDateToday()">Today</button>
+          or
+          <button class="dat-btn dat-btnr" type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/choosedate']" routerLinkActive="active">Choose Date</button>
+        </div>
+        <div class="prt-ctnr">
+          <label><h5>Products Bought:</h5></label>
+          <!--Connect button below to add product form-->
+          <button class="addpdt-btn">Add Product <i class="fa fa-plus"></i></button>
+          <!--Add last two products bought here-->
+          <p class="blue">PhytoElixir Oil - 02/14/2017</p>
+          <p class="blue">PhytoElixir Mask - 12/21/2016</p>
+          <a class="seemre" href="#">See Products History</a>
+        </div>
       </div>
-
-      <div formGroupName="profile">
-        <div class="form-group col-sm-12">
-          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
-        </div>
-
-        <div class="form-group col-sm-12">
-          <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
-        </div>
-
-        <!-- <div formArrayName="parentUser">
-          <div class="form-group col-sm-12" *ngFor="let singleParentUser of getObjects(myForm); let i=index">
-            <div [formGroupName]="i">
-              <label>parentUser</label>
-              <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile.parentUser[i]._id">
+    </div>
+    <div class="img-row">
+      <h3 style="padding: 0 15px !important;">Client Photos (Tap to Expand)</h3>
+      <div class="col-sm-3">
+        <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+      </div>
+      <div class="col-sm-9">
+        <div formArrayName="forms">
+          <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
+            <div *ngIf="i < maxPictureToShow">
+              <div [formGroupName]="i">
+                <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
+                <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
+                <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
+                <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                <span class="glyphicon glyphicon-remove pull-right  dlt-img"  (click)="removeForm(i)"></span>
+              </div>
             </div>
           </div>
-        </div> -->
-
-        <!-- <div class="form-group">
-          <label>parentUser</label>
-          <input type="text" class="form-control" formControlName="parentUser" [(ngModel)]="fetchedUser.profile.parentUser._id">
-        </div> -->
-
-
-        <div formGroupName="hair">
-          <div class="form-group col-sm-4" id="lfthair">
-            <label>Hair Texture</label>
-              <select
-                class="form-control"
-                formControlName="hairTexture"
-                [(ngModel)]="fetchedUser.profile.hair.hairTexture">
-                <option value="alan">alan</option>
-                <option value="deb">deb</option>
-              </select>
-          </div>
-          <div class="form-group col-sm-4" id="mdlhair">
-            <label>Hair Porosity</label>
-            <select
-              class="form-control"
-              formControlName="hairPorosity"
-              [(ngModel)]="fetchedUser.profile.hair.hairPorosity">
-              <option value="alan">alan</option>
-              <option value="deb">deb</option>
-            </select>
-          </div>
-          <div class="form-group col-sm-4" id="rghthair">
-            <label>Hair Density</label>
-            <select
-              class="form-control"
-              formControlName="hairDensity"
-              [(ngModel)]="fetchedUser.profile.hair.hairDensity">
-              <option value="alan">alan</option>
-              <option value="deb">deb</option>
-            </select>
-          </div>
+        </div>
+        <div *ngIf="maxPictureToShow ==3 && fetchedUser.forms.length>3">
+          <a class="seemre" (click)="seeAllPicture()">See All</a>
         </div>
       </div>
-
-
-
-
-      <!--forms-->
-      <!-- <div formArrayName="forms">
-        <div *ngFor="let form of myForm.controls.forms.controls; let i=index" class="panel panel-default">
-          <div class="panel-heading">
-            <span>Image {{i + 1}}</span>
-            <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
-          </div>
-          <div class="panel-body" [formGroupName]="i">
-            <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
-            <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-          </div>
+    </div>
+    <div class="clt-cmts">
+      <div class="form-group">
+        <button class="addnte" type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">Add Note<br><i class="fa fa-plus"></i></button>
+        <div *ngFor="let note of fetchedUser.notes" class="cmt-cnt">
+          <p class="cmt-txt">{{note.text}}</p>
+          <p class="cmt-dat">{{note.dateNote| date}}</p>
         </div>
       </div>
-      <div class="margin-20">
-        <button type="button" md-button (click)="openDialog('img')">+ Media</button>
-      </div> -->
-      <!--forms-->
-
-
-
-      <!-- <div class="form-group">
-        <label>Notes</label>
-        <div *ngFor="let note of fetchedUser.notes">
-          <h3>{{note.text}}</h3>
-          {{note.dateNote| date}}
-        </div>
-
-      </div>
-      <button class="btn-default" [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-arrow-right"></i></button> -->
-
-      <div class="valid-edit">
-        <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
-        <button
-          *ngIf="fetchedUser._id"
-          type="submit"
-          class="delete"
-          md-button
-          (click)="openDialogDelete()">
-        Delete User
-        </button>
-      </div>
-      <div class="clearfix"></div>
-    </form>
-  </div>
+    </div>
+    <div class="clearfix"></div>
+  </form>
 </div>

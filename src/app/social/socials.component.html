@@ -3,6 +3,10 @@
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Socials</h3>
   </div>
+  <br>
+  <div>
+    <button class="add-prm" [routerLink]="['/social/singlesocial']" routerLinkActive="active">Submit your picture<br><i class="fa fa-plus"></i></button>
+  </div>
   <table class="table table-hover table-responsive table-condensed prm-tbl">
     <tbody>
     <tr *ngFor="let social of fetchedSocials | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="prm-ctnr">
@@ -19,9 +23,7 @@
     </tr>
     </tbody>
   </table>
-  <div>
-    <button class="add-prm" [routerLink]="['/social/singlesocial']" routerLinkActive="active">Add Socials<br><i class="fa fa-plus"></i></button>
-  </div>
+
   <div class="has-text-centered">
       <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
 

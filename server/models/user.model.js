@@ -13,7 +13,7 @@ var user = new Schema({
     }],
     resetPasswordToken: String,
     resetPasswordExpires: String,
-    profilePic: String,
+
     lastVisit: Date,
     // you might want more user roles, so an array would be fine
     role: {type: Array, default: ['user']},
