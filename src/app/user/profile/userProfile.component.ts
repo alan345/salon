@@ -26,7 +26,7 @@ export class UserProfileComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   maxPictureToShow=3;
-  fetchedUser  = {
+  fetchedUser = {
     _id: '',
     lastVisit: '',
     email:'',
@@ -48,7 +48,6 @@ export class UserProfileComponent implements OnInit {
         owner:'',
         imagePath:''
       },
-
     },
     notes:[{
       text:'',
