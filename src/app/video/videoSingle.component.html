@@ -7,7 +7,9 @@
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
       <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedVideo._id">
       <div class="form-group">
-        <iframe [src]="fetchedVideo.embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
+        <iframe [src]="fetchedVideo.embedSecure" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%">
+        </iframe>
+        
         <label class="vid-lableft">Insert Wistia Embed Code Below:</label>
         <a class="seemre">Where to Find the Wistia Embed Code</a>
         <textarea type="text" class="form-control lng-form" formControlName="embed" [(ngModel)]="fetchedVideo.embed"></textarea>
