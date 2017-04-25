@@ -69,7 +69,7 @@ import {ToastModule, ToastOptions} from 'ng2-toastr';
 import {LoginComponent} from './user/login/login.component';
 import {ErrorComponent} from './errorHandler/error.component';
 
-import {MainPageComponent} from './mainPage/mainPage.component';
+
 import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 import {MainPageHomeService} from './mainPageHome/mainPageHome.service';
 
@@ -189,7 +189,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NavbarComponent,
     SideNavbarComponent,
     ErrorComponent,
-    MainPageComponent,
+
     MainPageHomeComponent,
     CompaniesComponent,
     CompanieComponent,

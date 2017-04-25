@@ -14,7 +14,6 @@ import {UserFormsUploadAndList} from './userForms/formsTable/userFormsUploadAndL
 
 import {AuthGuardService} from './auth/authguard.service';
 
-import {MainPageComponent} from './mainPage/mainPage.component';
 import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 
 
