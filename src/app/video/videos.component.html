@@ -41,15 +41,15 @@
           <!-- <iframe [src]="video['[object Object]'].embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen></iframe> -->
           <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
             <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
-              <iframe [src]="video['[object Object]'].embedSecure" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%">
+              <iframe [src]="video.embedSecure" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%">
               </iframe>
-              <p>{{press['[object Object]'].title}}</p>
-              <button class="editicon" [routerLink]="['/video/videoSingle/' + video['[object Object]']._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+              <p>{{video.title}}</p>
+              <button class="editicon" [routerLink]="['/video/videoSingle/' + video._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
             </div>
           </div>
         </td>
         <!-- <td>{{video._id }} </td> -->
-        <td><a [routerLink]="['/video/' + video['[object Object]']._id]" routerLinkActive="active">{{video.email}}</a></td>
+        <td><a [routerLink]="['/video/' + video._id]" routerLinkActive="active">{{video.email}}</a></td>
       </tr>
     </tbody>
   </table>
