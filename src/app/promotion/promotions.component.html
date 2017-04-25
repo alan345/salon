@@ -5,21 +5,27 @@
     <!-- Add ifAdmin rule for plus button below -->
     <button class="subnav-btnright" [routerLink]="['/promotion/singlepromotion']" routerLinkActive="active"><i class="fa fa-plus"></i></button>
   </div>
-  <table class="table table-hover table-responsive table-condensed">
+  <table class="table table-hover table-responsive table-condensed prm-tbl">
     <tbody>
-    <tr *ngFor="let promotion of fetchedPromotions | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
-      <td class="promo-cnt">
-        <img class="promo-img" src="./uploads/forms/{{promotion.form[0].owner}}/{{promotion.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-        <button class="editicon" [routerLink]="['/promotion/singlepromotion/' + promotion._id]" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
-        <button class="dlticon" (click)="onDelete(promotion._id)"><i class="fa fa-trash"></i></button>
-      </td>
+    <tr *ngFor="let promotion of fetchedPromotions | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="prm-ctnr">
+      <div class="prm-wrpr">
+        <td class="promo-cnt">
+          <img class="promo-img" src="./uploads/forms/{{promotion.form[0].owner}}/{{promotion.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          <button class="editicon" [routerLink]="['/promotion/singlepromotion/' + promotion._id]" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
+          <button class="dlticon" (click)="onDelete(promotion._id)"><i class="fa fa-trash"></i></button>
+        </td>
+      </div>
+      
       <!-- <td>{{promotion._id }}</td> -->
+      
       <td><a [routerLink]="['/promotion/' + promotion._id]" routerLinkActive="active">{{promotion.email}}</a></td>
     </tr>
     </tbody>
   </table>
   <div class="has-text-centered">
       <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
-      <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+    
+      <!-- <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls> -->
+    
   </div>
 </div>
