@@ -39,7 +39,7 @@ import {VideoService} from './video/video.service';
 
 
 
-
+import {PromotionDeleteDialog} from './promotion/promotionDeleteDialog.component';
 import {PromotionComponent} from './promotion/promotion.component';
 import {PromotionsComponent} from './promotion/promotions.component';
 //import {NewPromotionComponent} from './promotion/newPromotion.component';
@@ -169,7 +169,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     VideosComponent,
     VideoSingleComponent,
 
-
+    PromotionDeleteDialog,
     PromotionComponent,
     PromotionsComponent,
   //  NewPromotionComponent,
@@ -256,7 +256,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     }
   ],
   entryComponents: [
-
+    PromotionDeleteDialog,
     EditOptionsComponentDialog,
     CompanieDialogComponent,
     VideoDeleteDialog

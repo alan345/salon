@@ -100,14 +100,14 @@ router.post('/', function (req, res, next) {
       return res.status(403).json({
         title: 'There was an issue',
         error: {message: 'The email you entered already exists'}
-      });
+      })
     }
     res.status(200).json({
       message: 'Registration Successfull',
       obj: result
     })
   })
-});
+})
 
 
 
@@ -134,7 +134,6 @@ router.get('/page/:page', function (req, res, next) {
               "foreignField": "_id",
               "as": "form"
          }},
-
         ], function(err, data) {
              if (err) {
                res.send(err);

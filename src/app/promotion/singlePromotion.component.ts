@@ -12,6 +12,8 @@ import { Location }               from '@angular/common';
 import { Promotion } from './promotion.model'
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { PromotionDeleteDialog } from './promotionDeleteDialog.component'
+
 
 @Component({
   selector: 'app-promotions',
@@ -121,8 +123,6 @@ export class SinglePromotionComponent implements OnInit {
   }
 
   save(form) {
-
-
     if(this.fetchedPromotion._id) {
       this.promotionService.updatePromotion(this.fetchedPromotion)
         .subscribe(
@@ -140,25 +140,17 @@ export class SinglePromotionComponent implements OnInit {
           error => {console.log(error)}
         );
     }
-
-
-
-    // console.log(model);
-
-    // console.log(model);
   }
-  // save(model: FormGroup, isValid: boolean) {
-  //   console.log(model)
-  //
-  //   this.promotionService.updatePromotion(model)
-  //     .subscribe(
-  //       res => {
-  //         this.toastr.success('Great!', res.message)
-  //       },
-  //       error => {console.log(error)}
-  //     );
-  //   }
 
+  openDialogDelete(){
+    let dialogRefDelete = this.dialog.open(PromotionDeleteDialog)
+    dialogRefDelete.afterClosed().subscribe(result => {
+      if(result) {
+        this.onDelete(this.fetchedPromotion._id)
+        this.router.navigate(['promotion']);
+      }
+    })
+  }
 
 
   getPromotion(id) {
