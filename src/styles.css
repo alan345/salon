@@ -272,6 +272,9 @@ a.seemre {
 .form-group.col-sm-12 {
   padding: 0;
 }
+.cdk-overlay-pane {
+    max-width: 100vh !important;
+}
 
 /*--Responsive--*/
 
