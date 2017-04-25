@@ -10,7 +10,7 @@
         <iframe [src]="fetchedVideo.embedSecure" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
         <label class="vid-lableft">Insert Wistia Embed Code Below:</label>
         <a class="seemre">Where to Find the Wistia Embed Code</a>
-        <input type="text" class="form-control" formControlName="embed" [(ngModel)]="fetchedVideo.embed">
+        <textarea type="text" class="form-control lng-form" formControlName="embed" [(ngModel)]="fetchedVideo.embed"></textarea>
       </div>
       <div class="form-group">
         <input type="text" class="form-control" formControlName="title" placeholder="Add Video Title" [(ngModel)]="fetchedVideo.title">
