@@ -21,6 +21,7 @@ img.promo-img {
     width: 100% !important;
     vertical-align: top !important;
     top: 0 !important;
+    cursor: default !important;
 }
 .prmimg-cnt img {
     max-width: 100%;
