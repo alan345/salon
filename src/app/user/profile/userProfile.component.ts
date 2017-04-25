@@ -73,8 +73,8 @@ export class UserProfileComponent implements OnInit {
         _id: [''],
         role: [''],
         profile: this._fb.group({
-            name: ['', [Validators.required, Validators.minLength(5)]],
-            lastName: ['', [Validators.required, Validators.minLength(5)]],
+            name: ['', [Validators.required, Validators.minLength(2)]],
+            lastName: ['', [Validators.required, Validators.minLength(2)]],
             // parentUser: this._fb.array([]),
             hair: this._fb.group({
                 hairTexture: ['', <any>Validators.required],
