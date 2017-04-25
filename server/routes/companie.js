@@ -54,7 +54,6 @@ router.use('/', function (req, res, next) {
 });
 
 
-
 //update
 router.put('/:id', function (req, res, next) {
   Companie.findById(({_id: req.params.id}), function (err, item) {
