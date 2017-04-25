@@ -27,6 +27,7 @@ export class UserProfileComponent implements OnInit {
     _id: '',
     lastVisit: '',
     email:'',
+    role:[],
     forms:[{
       _id:'',
       owner:'',
@@ -34,6 +35,7 @@ export class UserProfileComponent implements OnInit {
     }],
     profile:{
       name:'',
+      lastName:'',
       parentUser:[
       //   {
       //   _id:''
