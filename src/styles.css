@@ -258,6 +258,10 @@ a.seemre {
     max-width: 150px;
     overflow: hidden;
 }
+.pic-list img {
+    height: 150px;
+    width: auto;
+}
 .dlt-img {
     color: #fff;
     padding: 7px;
