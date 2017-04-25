@@ -19,7 +19,7 @@
         <!--  <label>_idPic</label>
         <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion.form._id"> -->
         <img src="./uploads/forms/{{fetchedPromotion.form.owner}}/{{fetchedPromotion.form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-        <div class="col-sm-3">
+        <div>
           <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
         </div>
       </div>
