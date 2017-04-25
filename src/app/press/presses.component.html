@@ -2,7 +2,7 @@
 <div class="container">
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
-    <h3 style="text-align: center;">Videos</h3>
+    <h3 style="text-align: center;">Press</h3>
     <button *ngIf="isAdmin()" class="subnav-btnright" [routerLink]="['/press/pressSingle']" routerLinkActive="active"><i class="fa fa-plus"></i></button>
   </div>
 
@@ -11,7 +11,7 @@
       <tr *ngFor="let press of fetchedPresses | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="prss-ctnr">
         <td class="prss-cnt">
           <img class="img-thumbnail img-responsive" src="./uploads/forms/{{press.form[0].owner}}/{{press.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-          <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+          <button class="editicon" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
           <p>Title of video ADD CODE</p>
         </td>
         <!-- <td>{{press._id }}</td> -->
