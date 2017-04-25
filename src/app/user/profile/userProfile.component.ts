@@ -1,152 +1,202 @@
-import {Component, OnInit, EventEmitter, ViewChild, ElementRef, Renderer} from '@angular/core';
-import {ProfileService} from './profile.service';
-import {UserProfile} from './userProfile.model';
-import {Router} from '@angular/router';
-import {ToastsManager} from 'ng2-toastr';
+import { Component, OnInit} from '@angular/core';
+import { AuthService} from '../../auth/auth.service';
+import { UserService} from '../user.service';
+//import {RegionComponent} from '../region/region.component';
+
+import { ChangeDetectionStrategy, Input} from "@angular/core";
+import { ToastsManager} from 'ng2-toastr';
+import { Inject, forwardRef} from '@angular/core';
+import { MdDialog, MdDialogRef} from '@angular/material';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Location }               from '@angular/common';
+
+import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 
 
 @Component({
-  selector: 'app-userprofile',
+  selector: 'app-users',
   templateUrl: './userProfile.component.html',
-  styleUrls: ['./userProfile.component.css']
-})
-export class UserProfileComponent implements OnInit {
-  private editFieldRole:boolean = false;
-  private userId: string = localStorage.getItem('userId');
-  private token: string = localStorage.getItem('id_token');
-  url: string = '/profile/image';
-  user: UserProfile;
-  fetchedUser: any[] = [];
-  maxSize: number = 5000000;
-  invalidFileSizeMessage: string = '{0}: Invalid file size, ';
-  invalidFileSizeMessageDetail: string = 'Maximum upload size is {0}.';
-  onClear: EventEmitter<any> = new EventEmitter();
-  public files: File[];
-  public progress: number = 0;
-  public submitStarted: boolean;
-  @ViewChild('fileInput') fileInput: ElementRef;
-  @ViewChild('profileImage') profileImage: ElementRef;
+  styleUrls: ['./userProfile.component.css'],
 
-  constructor(private profileService: ProfileService, private router: Router,
-              private toastr: ToastsManager, private renderer: Renderer) {
+})
+
+export class UserProfileComponent implements OnInit {
+  //fetchedUser = new User()
+  //fetchedUser : User;
+  fetchedUser = {
+    _id: '',
+    lastVisit: '',
+    email:'',
+    forms:[{
+      _id:'',
+      owner:'',
+      imagePath:'',
+    }],
+    profile:{
+      name:'',
+      parentUser:[
+      //   {
+      //   _id:''
+      // }
+      ],
+      hair:{
+        hairDensity : '',
+        hairPorosity : '',
+        hairTexture : '',
+      }
+    },
+    notes:[{
+      text:'',
+      dateNote: ''
+    }]
   }
+
+  public myForm: FormGroup;
+
+  constructor(
+    private userService: UserService,
+    private toastr: ToastsManager,
+    public dialog: MdDialog,
+    private router: Router,
+    private location: Location,
+    private activatedRoute: ActivatedRoute,
+    private _fb: FormBuilder,
+    private authService:AuthService
+  ) {
+  }
+
+
 
   ngOnInit() {
-    this.files = [];
-    this.profileService.getUserDetails(this.userId)
-      .subscribe(
-        (data => {
-          const userArray = [];
-          for (let key in data) {
-            userArray.push(data[key]);
-          }
-          this.fetchedUser = userArray;
+    this.myForm = this._fb.group({
+        lastVisit: [''],
+        _id: [''],
+        profile: this._fb.group({
+            name: ['', [Validators.required, Validators.minLength(5)]],
+            // parentUser: this._fb.array([]),
+            hair: this._fb.group({
+                hairTexture: ['', <any>Validators.required],
+                hairDensity: ['', <any>Validators.required],
+                hairPorosity: ['', <any>Validators.required],
+
+            })
         })
-      );
+    })
+
+
+
+    this.getUser(this.authService.currentUser.userId)
+
   }
 
-  onFileSelect(event) {
-    this.clear();
-    let files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
-    for (let i = 0; i < files.length; i++) {
-      let file = files[i];
-      if (this.validate(file)) {
-        if (this.isImage(file)) {
-          let urlCreator = window.URL;
-          let url = urlCreator.createObjectURL(files[i]);
-          this.renderer.setElementProperty(this.profileImage.nativeElement, 'src', url);
-          this.files.push(files[i]);
+  // getObjects(myForm){
+  //    return myForm.get('profile').get('parentUser').controls
+  //  }
+
+
+
+  // addParentUser(parentUser) {
+  //   const control = <FormArray>this.myForm.get('profile').get('parentUser');
+  //   //console.log(control)
+  //   const addrCtrl = this._fb.group({
+  //       _id: [''],
+  //   });
+  //   control.push(addrCtrl);
+  // }
+
+
+
+  // removeForm(i: number) {
+  //     this.fetchedUser.forms.splice(i, 1)
+  //     const control = <FormArray>this.myForm.controls['forms'];
+  //     control.removeAt(i);
+  // }
+  // addForm(form: Form) {
+  //
+  //   const control = <FormArray>this.myForm.controls['forms'];
+  //   const addrCtrl = this._fb.group({
+  //       _id: ['', Validators.required],
+  //   });
+  //   control.push(addrCtrl);
+  // }
+
+  goBack() {
+    this.location.back();
+  }
+
+
+  // openDialog(positionImage) {
+  //   let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.addForm(result)
+  //       this.fetchedUser.forms.push(result)
+  //     }
+  //   })
+  // }
+
+  save(form) {
+
+    this.fetchedUser.profile = form.value.profile
+
+    // if(!this.fetchedUser.profile.parentUser.length) {
+    //   this.fetchedUser.profile.parentUser.push({_id : this.authService.currentUser.userId})
+    // }
+
+    if(this.fetchedUser._id) {
+      this.userService.updateUser(this.fetchedUser)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+          },
+          error => {console.log(error)}
+        );
+    } else {
+      this.userService.saveUser(this.fetchedUser)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+          },
+          error => {console.log(error)}
+        );
+    }
+  }
+  // save(model: FormGroup, isValid: boolean) {
+  //   console.log(model)
+  //
+  //   this.userService.updateUser(model)
+  //     .subscribe(
+  //       res => {
+  //         this.toastr.success('Great!', res.message)
+  //       },
+  //       error => {console.log(error)}
+  //     );
+  //   }
+
+
+
+  getUser(id) {
+    this.userService.getUser(id)
+      .subscribe(
+        res => {
+          this.fetchedUser = res.user
+
+          // this.fetchedUser.profile.parentUser.forEach((parentUser) => {
+          //   this.addParentUser(parentUser)
+          // })
+
+        },
+        error => {
+          console.log(error);
         }
-      } else if (!this.isImage(file)) {
-        this.toastr.error('Only images are allowed');
-      }
-    }
+      )
   }
 
-  // check if the image is actually an image by checking the mime type
-  isImage(file: File): boolean {
-    if (!file.type.match('image/*')) {
-      this.toastr.error('Only images are allowed');
-      return false;
-    }
-    return true;
-  }
 
-  // check if the form has files ready to be uploaded
-  hasFiles(): boolean {
-    return this.files && this.files.length > 0;
-  }
 
-  // clears the form
-  clear() {
-    this.files = [];
-    this.onClear.emit();
-  }
-
-  // remove the image from the preview
-  remove(index: number) {
-    this.files.splice(index, 1);
-    this.fileInput.nativeElement.value = '';
-  }
-
-  // check the image file size
-  validate(file: File): boolean {
-    if (this.maxSize && file.size > this.maxSize) {
-      this.toastr.error(this.invalidFileSizeMessageDetail.replace('{0}', this.formatSize(this.maxSize)),
-        this.invalidFileSizeMessage.replace('{0}', file.name));
-      return false;
-    }
-    return true;
-  }
-
-// format the size to display it in toastr in case the user uploaded a file bigger than 5MB
-  formatSize(bytes) {
-    if (bytes === 0) {
-      return '0 B';
-    }
-    let k = 1000,
-      dm = 3,
-      sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-      i = Math.floor(Math.log(bytes) / Math.log(k));
-
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-  }
-
-  onSubmit() {
-    this.submitStarted = true;
-    let xhr = new XMLHttpRequest();
-    let formData = new FormData();
-    for (let i = 0; i < this.files.length; i++) {
-      formData.append('profilePic', this.files[i], this.files[i].name);
-    }
-    xhr.upload.addEventListener('progress', (event: ProgressEvent) => {
-      if (event.lengthComputable) {
-        this.progress = Math.round((event.loaded * 100) / event.total);
-      }
-    }, false);
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4) {
-        this.progress = 0;
-        if (xhr.status === 201) {
-          this.router.navigateByUrl('/user/profile');
-          this.toastr.success('Profile picture uploaded successfully');
-        } else if (xhr.status !== 201) {
-          this.toastr.error('There was an error!');
-        }
-        this.clear();
-        this.submitStarted = false;
-      }
-    };
-    xhr.open('POST', this.url, true);
-    xhr.withCredentials = true;
-    xhr.setRequestHeader('Authorization', this.token);
-    xhr.send(formData);
-    console.log(xhr);
-  }
-
-  updateUser(user){
-    this.editFieldRole = false;
-    this.profileService.updateUser(user)
+  onDelete(id: string) {
+    this.userService.deleteUser(id)
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message);
@@ -155,14 +205,17 @@ export class UserProfileComponent implements OnInit {
           console.log(error);
         }
       );
-
   }
 
-  editField(nameField:string) {
-    if(this.editFieldRole == true) {
-      this.editFieldRole = false;
-    } else {
-      this.editFieldRole = true;
-    }
-  }
+
 }
+
+
+// @Component({
+//   selector: 'user-dialog',
+//   templateUrl: './userDialog.component.html',
+// })
+// export class UserDialogComponent {
+//   constructor(public dialogRef: MdDialogRef<UserDialogComponent>) {}
+//
+// }

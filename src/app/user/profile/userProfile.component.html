@@ -1,69 +1,126 @@
-<div class="container" style="padding-top: 60px;">
-  <h1 class="page-header">Your Profile</h1>
-  <div class="row">
-    <!-- left column -->
-    <div class="col-md-4 col-sm-6 col-xs-12">
-      <form (ngSubmit)="onSubmit()">
-        <div *ngFor="let user of fetchedUser" class="text-center">
-          <img src="./uploads/profiles/{{user._id}}/{{user.profilePic}}" #profileImage onerror="this.src ='assets/images/profile-placeholder.jpg'" class="img-resized avatar img-thumbnail" alt="avatar">
-          <!-- USE this if you want circled profile image <img src="./uploads/profiles/{{user._id}}/{{user.profilePic}}" onerror="this.src ='assets/images/profile-placeholder.jpg'" class="img-resized avatar img-circle img-thumbnail" alt="avatar" placeholder="/img.jpg">-->
-          <h6>Upload a different photo...</h6>
-          <input #fileInput name="profilePic" type="file" (change)="onFileSelect($event)" class="text-center center-block well well-sm">
-          <button type="submit" [disabled]="!hasFiles()" id="submitForm" name="sumbitForm" class="btn btn-primary text-center bottomMargin">Upload Image</button>
-          <progress-bar [value]="progress" [max]="100" *ngIf="hasFiles() && submitStarted"></progress-bar>
+<div class="container">
+  <div class="goldgradient beigeborder subnav">
+    <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
+    <h3 style="text-align: center;">My Profile</h3>
+  </div>
+  <div class="single-wrpr beigeback">
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+
+      <!-- <div class="form-group">
+        <label>_id</label>
+        <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser._id">
+      </div> -->
+      <!-- <div class="form-group">
+        <label>email</label>
+        <input type="text" class="form-control" formControlName="email" [(ngModel)]="fetchedUser.email">
+        <small *ngIf="!myForm.controls.email.valid" class="text-danger">
+             Required (minimum 5 characters).
+        </small>
+      </div> -->
+      <!-- <div class="form-group">
+        <label>lastVisit</label>
+        <input type="text" class="form-control" formControlName="lastVisit" [(ngModel)]="fetchedUser.lastVisit">
+      </div> -->
+
+      <div formGroupName="profile">
+        <div class="form-group col-sm-12">
+          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Client's Name">
         </div>
-      </form>
-    </div>
-    <!-- edit form column -->
-    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-      <h3>Personal info</h3>
-      <form *ngFor="let user of fetchedUser" class="form-horizontal" role="form">
-        <div class="form-group">
-          <label class="col-lg-3 control-label">User ID:</label>
-          <div class="col-lg-8">
-            <p class="form-control-static">{{user._id}}</p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Email:</label>
-          <div class="col-lg-8">
-            <p class="form-control-static">{{user.email}}</p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Joined at:</label>
-          <div class="col-lg-8">
-            <p class="form-control-static">{{user.createdAt | date: 'medium'}}</p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Your role:</label>
-          <div class="col-lg-8">
-            <p *ngIf="!editFieldRole" (click)="editField('role')" class="form-control-static">{{user.role}}</p>
-            <div *ngIf="editFieldRole">
-              <!-- <md-input
-                name="text"
-                placeholder="Role"
-                [(ngModel)]="user.role"
-                #text="ngModel"
-                required>
-              </md-input> -->
-              <button type="button" (click)="updateUser(user)" class="btn-default">Save</button>
+
+        <!-- <div formArrayName="parentUser">
+          <div class="form-group col-sm-12" *ngFor="let singleParentUser of getObjects(myForm); let i=index">
+            <div [formGroupName]="i">
+              <label>parentUser</label>
+              <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile.parentUser[i]._id">
             </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label>parentUser</label>
+          <input type="text" class="form-control" formControlName="parentUser" [(ngModel)]="fetchedUser.profile.parentUser._id">
+        </div> -->
 
 
-
-
-
+        <div formGroupName="hair">
+          <div class="form-group col-sm-4" id="lfthair">
+            <label>Hair Texture</label>
+              <select
+                class="form-control"
+                formControlName="hairTexture"
+                [(ngModel)]="fetchedUser.profile.hair.hairTexture">
+                <option value="alan">alan</option>
+                <option value="deb">deb</option>
+              </select>
+          </div>
+          <div class="form-group col-sm-4" id="mdlhair">
+            <label>Hair Porosity</label>
+            <select
+              class="form-control"
+              formControlName="hairPorosity"
+              [(ngModel)]="fetchedUser.profile.hair.hairPorosity">
+              <option value="alan">alan</option>
+              <option value="deb">deb</option>
+            </select>
+          </div>
+          <div class="form-group col-sm-4" id="rghthair">
+            <label>Hair Density</label>
+            <select
+              class="form-control"
+              formControlName="hairDensity"
+              [(ngModel)]="fetchedUser.profile.hair.hairDensity">
+              <option value="alan">alan</option>
+              <option value="deb">deb</option>
+            </select>
           </div>
         </div>
-        <div class="form-group">
-          <label class="col-md-3 control-label"></label>
-          <div class="col-md-8">
-            <button class="btn btn-primary" [routerLink]="['password']" type="button">Change Password</button>
+      </div>
+
+
+
+
+      <!--forms-->
+      <!-- <div formArrayName="forms">
+        <div *ngFor="let form of myForm.controls.forms.controls; let i=index" class="panel panel-default">
+          <div class="panel-heading">
+            <span>Image {{i + 1}}</span>
+            <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
+          </div>
+          <div class="panel-body" [formGroupName]="i">
+            <input type="text" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
+            <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+      <div class="margin-20">
+        <button type="button" md-button (click)="openDialog('img')">+ Media</button>
+      </div> -->
+      <!--forms-->
+
+
+
+      <!-- <div class="form-group">
+        <label>Notes</label>
+        <div *ngFor="let note of fetchedUser.notes">
+          <h3>{{note.text}}</h3>
+          {{note.dateNote| date}}
+        </div>
+
+      </div>
+      <button class="btn-default" [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-arrow-right"></i></button> -->
+
+      <div class="valid-edit">
+        <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
+        <button
+          *ngIf="fetchedUser._id"
+          type="submit"
+          class="delete"
+          md-button
+          (click)="openDialogDelete()">
+        Delete User
+        </button>
+      </div>
+      <div class="clearfix"></div>
+    </form>
   </div>
 </div>
