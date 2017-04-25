@@ -40,7 +40,7 @@
 }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 767px) {
   
 .prss-ctnr {
     width: 100% !important;
