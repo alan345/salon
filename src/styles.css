@@ -210,6 +210,7 @@ td {
 .valid-edit {
     display: inline-block;
     width: 100% !important;
+    margin-top: 15px;
 }
 .done, .delete, .pas-done {
     text-transform: uppercase !important;
@@ -250,7 +251,6 @@ a.seemre {
     display: none;
 }
 .lng-form {
-    margin-bottom: 15px !important;
     width: 100% !important;
     min-height: 150px !important;
 }
@@ -264,6 +264,9 @@ a.seemre {
     position: absolute;
     background-color: #000;
     opacity: 0.7;
+}
+.form-group.col-sm-12 {
+  padding: 0:
 }
 
 /*--Responsive--*/
