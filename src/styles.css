@@ -211,7 +211,7 @@ td {
     width: 100% !important;
     margin-top: 15px;
 }
-.done, .delete, .pas-done {
+.done, .delete, .pas-done, .fnl-delete {
     text-transform: uppercase !important;
     outline: none !important;
     font-size: 12px !important;
@@ -221,7 +221,7 @@ td {
     line-height: inherit !important;
     border-radius: 0 !important;
 }
-.done, .pas-done {
+.done, .pas-done, .fnl-delete {
     border: none !important;
 }
 .done {
@@ -236,6 +236,10 @@ td {
     background: none !important;
     border: 1px solid #231f20 !important;
     color: #231f20 !important;
+}
+.fnl-delete {
+    background-color: #ed1c24 !important;
+    color: #ffffff !important;
 }
 .dspl-flx {
   display: inline-block;
@@ -320,6 +324,8 @@ a.seemre {
 .delete {
     float: right !important;
 }
+.fnl-delete {
+    margin-right:15px !important;
 }
 
 @media screen and (max-width: 499px) {
