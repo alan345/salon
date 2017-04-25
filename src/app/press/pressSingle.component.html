@@ -35,6 +35,7 @@
         <!--<label>_idPic</label>
         <input type="text" class="form-control" formControlName="form" [(ngModel)]="fetchedPress.form._id"> -->
         
+         <label>Add Picture to be displayed on Press page</label>
         <img width="150" src="./uploads/forms/{{fetchedPress.form.owner}}/{{fetchedPress.form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
         <div>
           <button type="button" md-button (click)="openDialog('form')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
