@@ -92,6 +92,8 @@ import {RegionService} from './region/region.service';
 import {EditUserFormComponent} from './userForms/editForm/editUserForm.component';
 
 
+
+
 import {ProgressBarModule} from 'ng2-progress-bar';
 import {ErrorPageComponent} from './errorPage/errorPage.component';
 
@@ -125,6 +127,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import {UserFormsComponent} from './userForms/formsTable/userForms.component';
+import {UserFormsUploadAndList} from './userForms/formsTable/userFormsUploadAndList.component';
+
+
+
 
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
@@ -197,6 +203,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ResetPasswordComponent,
     ForgetPasswordComponent,
     UserFormsComponent,
+    UserFormsUploadAndList,
     EditUserFormComponent,
     ErrorPageComponent,
     AdminPageComponent,
