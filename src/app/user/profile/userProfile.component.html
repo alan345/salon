@@ -4,15 +4,17 @@
     <h3 style="text-align: center;">Profile</h3>
   </div>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
-    <div class="beigeback dspl-flx">
-      <div class="col-sm-4 usr-basic">
+    <div class="beigeback phyto-ctnr">
+      <div class="col-sm-4 prf-basic">
         <div formGroupName="profile">
           <div formGroupName="_profilePicture">
             <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile._profilePicture._id">
             <img src="./uploads/forms/{{fetchedUser.profile._profilePicture.owner}}/{{fetchedUser.profile._profilePicture.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
           </div>
-          <label>{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</label>
-          <p>{{fetchedUser.profile.title}}</p>
+          <div class="prf-cpt">
+            <label>{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</label>
+            <p>{{fetchedUser.profile.title}}</p>
+          </div>
         </div>
       </div>
       
