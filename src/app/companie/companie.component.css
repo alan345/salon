@@ -77,7 +77,7 @@
 .sln-mng, .done {
   float:right;
 }
-.done {
+.sln-edt.done {
   float: left !important;
 }
 }
