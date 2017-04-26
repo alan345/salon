@@ -4,12 +4,10 @@
     <h3 style="text-align: center;">My Salon</h3>
   </div>
   <div class="beigeback single-wrpr">
-    <h4>id: {{fetchedCompanie._id}}</h4>
+    <h4 class="dspl-nn">id: {{fetchedCompanie._id}}</h4>
     <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
       <div class="form-group">
         <div ngModelGroup="fetchedCompanie">
-
-          <label>Name</label>
           <input
             type="text"
             class="form-control"
@@ -18,53 +16,50 @@
             [(ngModel)]="fetchedCompanie.name"
             required
             minlength="5"
+            placeholder="Name of Your Salon"
           >
-
           <div ngModelGroup="address">
-                <label>address</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="address"
-                  #name="ngModel"
-                  [(ngModel)]="fetchedCompanie.address.address"
-                  required
-                  minlength="5"
-                >
-                <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
-                      Name is required (minimum 5 characters).
-                </small>
-                <label>City</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="city"
-                  #name="ngModel"
-                  [(ngModel)]="fetchedCompanie.address.city"
-                  required
-                  minlength="2"
-                >
-                <label>state</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="name"
-                  #name="ngModel"
-                  [(ngModel)]="fetchedCompanie.address.state"
-                  required
-                  minlength="5"
-                >
-                <label>Zip</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="name"
-                  #name="ngModel"
-                  [(ngModel)]="fetchedCompanie.address.zip"
-                  required
-                  minlength="5"
-                >
-
+            <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">Minimum 5 characters</small>
+            <input
+              type="text"
+              class="form-control"
+              name="address"
+              #name="ngModel"
+              [(ngModel)]="fetchedCompanie.address.address"
+              required
+              minlength="5"
+              placeholder="Street Address"
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="city"
+              #name="ngModel"
+              [(ngModel)]="fetchedCompanie.address.city"
+              required
+              minlength="2"
+              placeholder="City"
+            >
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                #name="ngModel"
+                [(ngModel)]="fetchedCompanie.address.state"
+                required
+                minlength="5"
+                placeholder="State Code"
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                #name="ngModel"
+                [(ngModel)]="fetchedCompanie.address.zip"
+                required
+                minlength="5"
+                placeholder="Zip Code"
+              >
           </div>
         </div>
       </div>
