@@ -20,16 +20,14 @@
       </div>
       <div class="form-group upld-pdf">
         <label>Or Upload a PDF Version</label>
-        <input type="file" class="form-control" formControlName="formPDF" [(ngModel)]="fetchedPress.formPDF._id">
         
-         <!--<a *ngIf="fetchedPress.formPDF.owner" target="_blank" href="./uploads/forms/{{fetchedPress.formPDF.owner}}/{{fetchedPress.formPDF.imagePath}}">
+        <!--<a *ngIf="fetchedPress.formPDF.owner" target="_blank" href="./uploads/forms/{{fetchedPress.formPDF.owner}}/{{fetchedPress.formPDF.imagePath}}">
           <img width="150" src="assets/images/pdf.ico" onerror="this.src ='assets/images/no-image-found.jpg'">
-        </a>
-        <div class="margin-20">
-          <button type="button" md-button (click)="openDialog('formPDF')">+ Media</button>
-        </div> -->
+        </a>-->
         
-      </div>
+        <input type="text" class="form-control" formControlName="formPDF" [(ngModel)]="fetchedPress.formPDF._id" placeholder="Browse...">
+        <button type="button" md-button (click)="openDialog('formPDF')">Upload</button>
+      </div> 
       <div class="form-group prss-img">
 
         <!--<label>_idPic</label>
