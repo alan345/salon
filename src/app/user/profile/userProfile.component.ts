@@ -38,6 +38,7 @@ export class UserProfileComponent implements OnInit {
     profile:{
       title:'',
       name:'',
+      lastName:'',
       hair:{
         hairDensity : '',
         hairPorosity : '',
