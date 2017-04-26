@@ -110,8 +110,8 @@ export class FormComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.files = [];
-    this.textInput1 = new FormControl('', Validators.required);
-    this.textInput2 = new FormControl('', Validators.required);
+    this.textInput1 = new FormControl('');
+    this.textInput2 = new FormControl('');
 
     this.myForm = this._fb.group({
       textInput1: this.textInput1,
