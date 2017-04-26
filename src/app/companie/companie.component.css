@@ -21,6 +21,21 @@
 .delete {
   margin-bottom: 15px;
 }
+.img-row .col-sm-3 {
+  padding: 0 15px 0 0 !important;
+}
+.img-row .col-sm-9 {
+  padding: 0 !important;
+}
+.img-frm {
+  padding: 15px;
+}
+.img-row a.seemre {
+    bottom: 0 !important;
+    right: 15px;
+    position: absolute;
+    margin: 0!important;
+}
 
 @media screen and (min-width: 768px) {
 
