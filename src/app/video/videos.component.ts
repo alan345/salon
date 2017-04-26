@@ -57,27 +57,6 @@ export class VideosComponent implements OnInit {
   categories2 = ''
 
 
-  // categoriesHard = [{
-  //     name:'treatments',
-  //     selected : false
-  //   },
-  //   {
-  //     name:'knowledges',
-  //     selected : false
-  //   },
-  //   {
-  //     name:'testimonials',
-  //     selected : false
-  //   },
-  //   {
-  //     name:'merchandising',
-  //     selected : false
-  //   },
-  //   {
-  //     name:'promotions',
-  //     selected : false
-  //   }
-  // ]
 
   constructor(
     private sanitizer: DomSanitizer,

@@ -57,7 +57,7 @@ const APP_ROUTES: Routes = [
   {path: 'user', component: UserComponent, children: USER_ROUTES},
   {path: 'form', component: FormComponent, canActivate: [AuthGuardService]},
   //{path: 'userForms', component: UserFormsComponent, canActivate: [AuthGuardService]},
-  {path: 'userForms', component: UserFormsUploadAndList, canActivate: [AuthGuardService]},
+  {path: 'userForms/:id', component: UserFormsUploadAndList, canActivate: [AuthGuardService]},
   //{path: 'userFormsboth', component: UserFormsUploadAndList, canActivate: [AuthGuardService]},
 
 

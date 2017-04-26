@@ -1,7 +1,7 @@
 import {Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import {FormService} from './form.service';
-
-
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-user-form',
@@ -14,14 +14,24 @@ export class UserFormsComponent implements OnInit {
   fetchedForms = [];
 
 
-  constructor(private formService: FormService) {
-  }
+  constructor(
+      private formService: FormService,
+      private activatedRoute: ActivatedRoute,
+      private authService: AuthService,
+      ) {}
 
   ngOnInit() {
-    this.formService.getUserForms()
-      .subscribe(
-        forms => this.fetchedForms = forms,
-        error => console.log(error));
+    this.activatedRoute.params.subscribe((params: Params) => {
+      let id=this.authService.currentUser.userId
+      if(params['id']) {
+        id = params['id']
+      }
+
+      this.formService.getUserForms(id)
+        .subscribe(
+          forms => this.fetchedForms = forms,
+          error => console.log(error))
+    })
   }
 
   onSelectRow(formId){

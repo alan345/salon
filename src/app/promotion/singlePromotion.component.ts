@@ -70,7 +70,6 @@ export class SinglePromotionComponent implements OnInit {
         })
     });
 
-    //this.addAddress();
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id'])

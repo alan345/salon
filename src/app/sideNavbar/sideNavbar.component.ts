@@ -16,7 +16,7 @@ export class SideNavbarComponent implements OnInit {
 
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedUser: any[] = [];
+  fetchedUser={};
   companies=[{
     _id:''
   }]
@@ -41,11 +41,7 @@ export class SideNavbarComponent implements OnInit {
       this.profileService.getUserDetails(userId)
       .subscribe(
         (data => {
-          const userArray = [];
-          for (let key in data) {
-            userArray.push(data[key]);
-          }
-          this.fetchedUser = userArray;
+          this.fetchedUser = data.user
         })
         )
     }

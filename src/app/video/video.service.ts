@@ -25,7 +25,6 @@ export class VideoService {
     private authService: AuthService) {}
 
 
-  // get video forms from backend in order to display them in the front end
   getVideos(page: number, search) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
