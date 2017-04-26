@@ -149,6 +149,7 @@ h6 {
   font-style: italic !important;
   font-size: 16px !important;
   color: #0a2f87 !important;
+  margin-bottom: 20px !important;
 }
 .subnav {
     padding: 0 15px;
@@ -278,6 +279,7 @@ a.seemre {
 }
 a.seemre {
   margin-top: -26px;
+  float: right;
 }
 .img-row a.seemre {
     bottom: -20px !important;
