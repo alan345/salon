@@ -52,9 +52,8 @@
 .sln-inf {
   float:left;
 }
-.sln-mng {
+.sln-mng, .done {
   float:right;
-}
 }
 
 @media screen and (max-width: 767px) {
