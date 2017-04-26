@@ -64,11 +64,9 @@
           </div>
         </div>
       </div>
-      <div class="add-nwsty">
+      <div class="sln-stymng">
         <a [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]"  routerLinkActive="active">Add New <i class="fa fa-plus"></i></a>
-      </div>
-      <div class="exstg-sty">
-        <div *ngFor="let user of fetchedCompanie._users" class="exstg-styone">{{ user.profile.name}}</div>
+        <p *ngFor="let user of fetchedCompanie._users" class="exstg-styone">{{ user.profile.name}}</p>
       </div>
       <div class="valid-edit">
         <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Done</button>
