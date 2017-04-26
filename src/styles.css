@@ -140,6 +140,12 @@ h5 {
     color: #999999 !important;
     margin-top: 30px;
 }
+h6 {
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
+  font-size: 16px !important;
+  color: #0a2f87 !important;
+}
 .subnav {
     padding: 0 15px;
 }
