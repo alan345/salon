@@ -8,6 +8,7 @@ import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
+import { UserService} from '../user/user.service';
 
 
 
@@ -34,6 +35,8 @@ export class PressesComponent implements OnInit {
     public dialog: MdDialog,
     private router: Router,
     private location: Location,
+    private authService: AuthService,
+    private userService: UserService
   ) {
     this.getPresses(this.paginationData.currentPage);
   }
@@ -76,11 +79,25 @@ export class PressesComponent implements OnInit {
   }
 
 
-
-
-
   ngOnInit() {
-
+    let userId = this.authService.currentUser.userId
+    this.userService.getUser(userId)
+      .subscribe(
+        res => {
+          res.user.trackinPage.lastVisitPagePress = new Date()
+          this.userService.updateUser(res.user)
+            .subscribe(
+              res => {
+              },
+              error => {
+                console.log(error);
+              }
+            )
+        },
+        error => {
+          console.log(error);
+        }
+      )
   }
 }
 

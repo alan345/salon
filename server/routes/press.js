@@ -108,6 +108,39 @@ router.post('/', function (req, res, next) {
 
 
 
+
+// getting user forms to display them on front end
+router.get('/countNewItemForUser/:id', function (req, res, next) {
+  User
+  .findOne({_id: req.params.id})
+  .exec(function (err, user) {
+    if (err) {
+      return res.status(403).json({
+        title: 'There was a problem',
+        error: err
+      });
+    } else {
+      Press
+      .find({createdAt:{"$gt": user.trackinPage.lastVisitPageVideo}})
+      .count()
+      .exec(function (err, item) {
+        if (err) {
+          return res.status(404).json({
+            message: 'No forms found for this user',
+            err: err
+          })
+        } else {
+          res.status(200).json({
+            message: 'Success',
+            item: item
+          })
+        }
+      })
+    }
+  })
+})
+
+
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
 

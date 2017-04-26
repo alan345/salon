@@ -6,7 +6,7 @@ import { MdDialog, MdDialogRef} from '@angular/material';
 import { EditOptionsComponentDialog }  from '../modalLibrary/modalLibrary.component';
 import { AdminService} from '../admin/services/admin.service';
 import { VideoService} from '../video/video.service';
-
+import { PressService} from '../press/press.service';
 
 
 @Component({
@@ -67,7 +67,8 @@ export class MainPageHomeComponent implements OnInit {
     private mainPageHomeService: MainPageHomeService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
-    public videoService : VideoService,
+    public videoService: VideoService,
+    public pressService: PressService
   ) {}
 
 
@@ -109,21 +110,19 @@ export class MainPageHomeComponent implements OnInit {
   ngOnInit() {
     this.videoService.countNewItemForUser()
     .subscribe(
-      data => {
-        //console.log(data)
-        this.trackinPage.lastVisitPageVideoCount = data.item
-      },
-      error => {
-        console.log(error)
-      }
-    );
+      data => this.trackinPage.lastVisitPageVideoCount = data.item,
+      error => console.log(error)
+    )
+    this.pressService.countNewItemForUser()
+    .subscribe(
+      data => this.trackinPage.lastVisitPagePressCount = data.item,
+      error => console.log(error)
+    )
     this.mainPageHomeService.getOptions()
       .subscribe(
         options => this.fetchedObj = options.obj,
         error => {console.log(error)}
       );
   }
-
-
 
 }

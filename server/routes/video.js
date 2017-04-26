@@ -195,7 +195,6 @@ router.get('/:id', function (req, res, next) {
 
 // getting user forms to display them on front end
 router.get('/countNewItemForUser/:id', function (req, res, next) {
-
   User
   .findOne({_id: req.params.id})
   .exec(function (err, user) {
@@ -223,7 +222,6 @@ router.get('/countNewItemForUser/:id', function (req, res, next) {
       })
     }
   })
-
 })
 
 

@@ -50,9 +50,7 @@ export class VideoService {
     return this.http.get(this.url + 'video/countNewItemForUser/' + this.authService.currentUser.userId, options)
       .timeout(9000)
       .map((response: Response) => {
-
         const videos = response.json();
-
         return videos;
       })
       .catch((error: Response) => {
