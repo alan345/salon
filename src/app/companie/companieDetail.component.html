@@ -1,58 +1,62 @@
-
-<div class="container topPadTable">
-  <h2 class="text-center">
-
-  <button class="btn-default" (click)="goBack()"><i class="fa fa-arrow-left"></i></button>
-  My Saloon
-  <br><br>
-  <a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a>
-  </h2>
-
-
-  <hr>
-  <h4>id: {{fetchedCompanie._id}}</h4>
-  <h4>Name: {{fetchedCompanie.name}}</h4>
-  <h4>address: {{fetchedCompanie.address.address}}</h4>
-  <h4>city: {{fetchedCompanie.address.city}}</h4>
-  <h4>state: {{fetchedCompanie.address.state}}</h4>
-  <h4>zip: {{fetchedCompanie.address.zip}}</h4>
-
-
-Stylists :
-  <li *ngFor="let user of fetchedCompanie._users">
-    {{ user.profile.name}}
-    <img
-      class="img-thumbnail img-responsive"
-      src="./uploads/forms/{{user.profile._profilePicture.owner}}/{{user.profile._profilePicture.imagePath}}"
-      onerror="this.src ='assets/images/no-image-found.jpg'"
-    >
-  </li>
-
-
-
-
-      <!--forms-->
+<div class="container">
+  <div class="goldgradient beigeborder subnav">
+    <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
+    <h3 style="text-align: center;">Promotions</h3>
+  </div>
+  <div class="beigeback">
+    <div class="sln-adrs">
+      <!--id: {{fetchedCompanie._id}}</h4>-->
+      <h3>Welcome to {{fetchedCompanie.name}}</h3>
+      <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}}</h6>
+    </div>
+    <div class="sln-sty">
+      <div *ngFor="let user of fetchedCompanie._users">
+        <img
+          class="img-thumbnail img-responsive"
+          src="./uploads/forms/{{user.profile._profilePicture.owner}}/{{user.profile._profilePicture.imagePath}}"
+          onerror="this.src ='assets/images/no-image-found.jpg'"
+        >
+        {{ user.profile.name}}
+      </div>
+    </div>
+  </div>
+  <!--forms-->
+  <div class="img-row">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-      <div formArrayName="forms">
-        <div *ngFor="let form of getObjects(myForm); let i=index" class="panel panel-default">
-          <div class="panel-heading">
-            <span>Image {{i + 1}}</span>
-            <span class="glyphicon glyphicon-remove pull-right"  (click)="removeForm(i)"></span>
-          </div>
-          <div class="panel-body" [formGroupName]="i">
-            <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedCompanie.forms[i]._id">
-            <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedCompanie.forms[i].owner">
-            <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedCompanie.forms[i].imagePath">
-            <img width="150" src="./uploads/forms/{{fetchedCompanie.forms[i].owner}}/{{fetchedCompanie.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+      <div class="col-sm-3">
+        <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+      </div>
+      <div class="col-sm-9">
+        <div formArrayName="forms">
+          <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
+            <div [formGroupName]="i">
+              <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedCompanie.forms[i]._id">
+              <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedCompanie.forms[i].owner">
+              <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedCompanie.forms[i].imagePath">
+              <img width="150" src="./uploads/forms/{{fetchedCompanie.forms[i].owner}}/{{fetchedCompanie.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              <span class="glyphicon glyphicon-remove pull-right  dlt-img"  (click)="removeForm(i)"></span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="margin-20">
-        <button type="button" md-button (click)="openDialog('img')">+ Media</button>
+      <div>
+        <a class="seemre" href="#">See All</a>
+        <!-- Here is what I have on video page
+        <div *ngIf="fetchedUser.forms.length>maxPictureToShow">
+        <a class="seemre" (click)="seeAllPicture()">See All</a>
+        </div> -->
       </div>
     </form>
-      <!--forms-->
-
-
-
+  </div>
+  <!--forms-->
+  <div class="sln-ingf">
+    <h6> Your Phyto Sales Representative</h6>
+    <p>John Doe</p>
+    <p>515-885-9852</p>
+    <p>john@ales-group.com</p>
+  </div>
+  <div class="sln-mng">
+    <button class="delete"><a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a></button>
+    <button class="done">Contact Sales</button>
+  </div>
 </div>
