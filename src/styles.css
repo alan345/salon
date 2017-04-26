@@ -24,8 +24,8 @@ body {
 a.active {
   font-weight: bold;
 }
-a.active, a:hover {
-  text-decoration: none;
+a {
+  text-decoration: none !important;
 }
 input {
   padding: 10px;
