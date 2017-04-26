@@ -29,7 +29,7 @@
       <div class="col-sm-3">
         <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
       </div>
-      <div class="col-sm-9 phyto-ctnr">
+      <div class="col-sm-9">
         <div formArrayName="forms" class="phyto-ctnr">
           <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
             <div [formGroupName]="i">
@@ -52,7 +52,7 @@
     </form>
   </div>
   <!--forms-->
-  <div class="beigeback">
+  <div class="beigeback phyto-ctnr">
     <div class="sln-inf">
       <h6> Your Phyto Sales Representative</h6>
       <p>John Doe</p>
