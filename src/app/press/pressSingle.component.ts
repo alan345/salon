@@ -67,8 +67,12 @@ export class PressSingleComponent implements OnInit {
       _id: [''],
       title: ['', [Validators.required, Validators.minLength(5)]],
       link: [''],
-      formPDF: ['', [Validators.required, Validators.minLength(5)]],
-      form: ['', [Validators.required, Validators.minLength(5)]]
+      formPDF: this._fb.group({
+        _id : ['', [Validators.required, Validators.minLength(5)]]
+      }),
+      form:  this._fb.group({
+        _id : ['', [Validators.required, Validators.minLength(5)]]
+      })
     });
 
     //this.addAddress();
