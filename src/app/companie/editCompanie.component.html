@@ -5,7 +5,7 @@
     <h3 style="text-align: center;">My Salon</h3>
   </div>
   <div class="beigeback single-wrpr">
-  <!--id: {{fetchedCompanie._id}}-->
+    <div class="dspl-nn">{{fetchedCompanie._id}}</div>
     <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
       <div class="form-group">
         <div ngModelGroup="fetchedCompanie">
