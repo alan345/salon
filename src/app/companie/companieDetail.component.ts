@@ -32,7 +32,7 @@ export class CompanieDetailComponent implements OnInit {
       state :  '',
       zip :  ''
     },
-    users:[]
+    _users:[]
   }
   public myForm: FormGroup;
 

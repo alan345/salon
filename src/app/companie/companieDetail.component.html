@@ -17,11 +17,17 @@
   <h4>state: {{fetchedCompanie.address.state}}</h4>
   <h4>zip: {{fetchedCompanie.address.zip}}</h4>
 
-  <div *ngFor="let user of fetchedCompanie.users">
-    <img class="img-thumbnail img-responsive" src="./uploads/forms/{{user._user.profile._profilePicture.owner}}/{{user._user.profile._profilePicture.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-    <br>
-    {{user._user.profile.name}}
-  </div>
+
+Stylists :
+  <li *ngFor="let user of fetchedCompanie._users">
+    {{ user.profile.name}}
+    <img
+      class="img-thumbnail img-responsive"
+      src="./uploads/forms/{{user.profile._profilePicture.owner}}/{{user.profile._profilePicture.imagePath}}"
+      onerror="this.src ='assets/images/no-image-found.jpg'"
+    >
+  </li>
+
 
 
 
