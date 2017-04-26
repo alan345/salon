@@ -15,6 +15,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
 import { VideoDeleteDialog } from './videoDeleteDialog.component'
 
+
 @Component({
   selector: 'app-videos',
   templateUrl: './videoSingle.component.html',

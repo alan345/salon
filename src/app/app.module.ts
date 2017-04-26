@@ -46,12 +46,9 @@ import {SinglePromotionComponent} from './promotion/singlePromotion.component';
 import {PromotionService} from './promotion/promotion.service';
 
 
-import {SocialDeleteDialog} from './social/socialDeleteDialog.component';
+import {SubmitPicDialog} from './social/submitPicDialog.component';
 import {SocialComponent} from './social/social.component';
 import {SocialsComponent} from './social/socials.component';
-import {SingleSocialComponent} from './social/singleSocial.component';
-import {SocialService} from './social/social.service';
-
 
 import {UserPicturesComponent} from './user/users/userPictures.component';
 import {UsersComponent} from './user/users/users.component';
@@ -179,12 +176,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PromotionsComponent,
     SinglePromotionComponent,
 
-    SocialDeleteDialog,
+    SubmitPicDialog,
     SocialComponent,
     SocialsComponent,
-    SingleSocialComponent,
-
-
 
 
     UsersComponent,
@@ -249,7 +243,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CompanieService,
     VideoService,
     MainPageHomeService,
-    SocialService,
     PressService,
     FormService,
     AdminService,
@@ -266,7 +259,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     }
   ],
   entryComponents: [
-    SocialDeleteDialog,
+    SubmitPicDialog,
     PromotionDeleteDialog,
     EditOptionsComponentDialog,
     CompanieDialogComponent,

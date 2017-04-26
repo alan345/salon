@@ -8,7 +8,6 @@ var express      = require('express'),
 
 var userRoute    = require('./routes/user')
 var promotionRoute    = require('./routes/promotion')
-var socialRoute    = require('./routes/social')
 var companieRoute    = require('./routes/companie')
 var uploadRoute  = require('./routes/upload')
 var forgotRoutes = require('./routes/forgetPassword')
@@ -48,7 +47,6 @@ app.use(function (req, res, next) {
 // setting up routes models
 app.use('/user', userRoute)
 app.use('/promotion', promotionRoute)
-app.use('/social', socialRoute)
 app.use('/profile', userProfile)
 app.use('/companie', companieRoute)
 app.use('/user/forgot', forgotRoutes)

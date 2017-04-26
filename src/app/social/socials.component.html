@@ -4,30 +4,11 @@
     <h3 style="text-align: center;">Socials</h3>
   </div>
   <br>
+  < IMG >
   <div>
-    <button class="add-prm" [routerLink]="['/social/singlesocial']" routerLinkActive="active">Submit your picture<br><i class="fa fa-plus"></i></button>
+    <button class="add-prm" (click)="openDialog()">Submit your picture<br><i class="fa fa-plus"></i></button>
   </div>
-  <table class="table table-hover table-responsive table-condensed prm-tbl">
-    <tbody>
-    <tr *ngFor="let social of fetchedSocials | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="prm-ctnr">
-      <div class="prm-wrpr">
-        <td class="promo-cnt">
-          <button class="editicon" [routerLink]="['/social/singlesocial/' + social._id]" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
-          <img class="promo-img" src="./uploads/forms/{{social.form[0].owner}}/{{social.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-        </td>
-      </div>
 
-      <!-- <td>{{social._id }}</td> -->
+  < WINNERS >
 
-      <td class="dspl-nn"><a [routerLink]="['/social/' + social._id]" routerLinkActive="active">{{social.email}}</a></td>
-    </tr>
-    </tbody>
-  </table>
-
-  <div class="has-text-centered">
-      <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
-
-      <!-- <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls> -->
-
-  </div>
 </div>

@@ -1,8 +1,5 @@
 import { Component, OnInit} from '@angular/core';
 import { AuthService} from '../auth/auth.service';
-import { SocialService} from './social.service';
-//import {RegionComponent} from '../region/region.component';
-
 import { ChangeDetectionStrategy, Input} from "@angular/core";
 import { ToastsManager} from 'ng2-toastr';
 import { Inject, forwardRef} from '@angular/core';
@@ -15,11 +12,11 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
 
 @Component({
-  selector: 'socialDeleteDialog',
-  templateUrl: './socialDeleteDialog.component.html',
+  selector: 'submitPicDialog',
+  templateUrl: './submitPicDialog.component.html',
 })
-export class SocialDeleteDialog {
-  constructor(public dialogRefDelete: MdDialogRef<SocialDeleteDialog>) {}
+export class SubmitPicDialog {
+  constructor(public dialogRefDelete: MdDialogRef<SubmitPicDialog>) {}
 
   // deleteSocial(){
   //   console.log("delete")
