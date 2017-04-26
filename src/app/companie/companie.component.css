@@ -58,6 +58,9 @@
     background-color: #ffffff;
     margin: 2.5px 0;
 }
+.sln-stymng {
+    margin-bottom: 15px;
+}
 
 @media screen and (min-width: 768px) {
 
