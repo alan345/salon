@@ -10,13 +10,16 @@
       <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}}</h6>
     </div>
     <div class="sln-sty">
-      <div *ngFor="let user of fetchedCompanie._users">
+      <div *ngFor="let user of fetchedCompanie._users" class="one-sty">
         <img
-          class="img-thumbnail img-responsive"
+          class="img-responsive"
           src="./uploads/forms/{{user.profile._profilePicture.owner}}/{{user.profile._profilePicture.imagePath}}"
           onerror="this.src ='assets/images/no-image-found.jpg'"
         >
-        {{ user.profile.name}}
+        <div class="sty-ttl">
+          <label>{{ user.profile.name}}</label>
+          <p>Add Stylist Title"</p>
+        </div>   
       </div>
     </div>
   </div>
@@ -49,14 +52,16 @@
     </form>
   </div>
   <!--forms-->
-  <div class="sln-ingf">
-    <h6> Your Phyto Sales Representative</h6>
-    <p>John Doe</p>
-    <p>515-885-9852</p>
-    <p>john@ales-group.com</p>
-  </div>
-  <div class="sln-mng">
-    <button class="delete"><a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a></button>
-    <button class="done">Contact Sales</button>
+  <div class="beigeback">
+    <div class="sln-inf">
+      <h6> Your Phyto Sales Representative</h6>
+      <p>John Doe</p>
+      <p>515-885-9852</p>
+      <p>john@ales-group.com</p>
+    </div>
+    <div class="sln-mng">
+      <button class="delete"><a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a></button>
+      <button class="done">Contact Sales</button>
+    </div>
   </div>
 </div>
