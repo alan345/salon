@@ -1,14 +1,15 @@
-
 <div class="container">
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">My Salon</h3>
   </div>
   <div class="beigeback single-wrpr">
-    <p class="dspl-nn">{{fetchedCompanie._id}}</p>
+    <h4>id: {{fetchedCompanie._id}}</h4>
     <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
       <div class="form-group">
         <div ngModelGroup="fetchedCompanie">
+
+          <label>Name</label>
           <input
             type="text"
             class="form-control"
@@ -17,60 +18,63 @@
             [(ngModel)]="fetchedCompanie.name"
             required
             minlength="5"
-            placeholder="Add Name of Your Salon"
           >
+
           <div ngModelGroup="address">
-            <input
-              type="text"
-              class="form-control"
-              name="address"
-              #name="ngModel"
-              [(ngModel)]="fetchedCompanie.address.address"
-              required
-              minlength="5"
-              placeholder="Number, Street, Suite"
-            >
-            <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger"></small>
-            <input
-              type="text"
-              class="form-control"
-              name="city"
-              #name="ngModel"
-              [(ngModel)]="fetchedCompanie.address.city"
-              required
-              minlength="2"
-              placeholder="City"
-            >
-            <input
-              type="text"
-              class="form-control"
-              name="name"
-              #name="ngModel"
-              [(ngModel)]="fetchedCompanie.address.state"
-              required
-              minlength="5"
-              placeholder="State Abbreviation"
-            >
-            <input
-              type="text"
-              class="form-control"
-              name="name"
-              #name="ngModel"
-              [(ngModel)]="fetchedCompanie.address.zip"
-              required
-              minlength="5"
-              placeholder="ZipCode"
-            >
+                <label>address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="address"
+                  #name="ngModel"
+                  [(ngModel)]="fetchedCompanie.address.address"
+                  required
+                  minlength="5"
+                >
+                <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
+                      Name is required (minimum 5 characters).
+                </small>
+                <label>City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="city"
+                  #name="ngModel"
+                  [(ngModel)]="fetchedCompanie.address.city"
+                  required
+                  minlength="2"
+                >
+                <label>state</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  #name="ngModel"
+                  [(ngModel)]="fetchedCompanie.address.state"
+                  required
+                  minlength="5"
+                >
+                <label>Zip</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  #name="ngModel"
+                  [(ngModel)]="fetchedCompanie.address.zip"
+                  required
+                  minlength="5"
+                >
+
           </div>
         </div>
       </div>
-      <div class="sln-stymng">
-        <a [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]"  routerLinkActive="active">Add New <i class="fa fa-plus"></i></a>
-        <li *ngFor="let user of fetchedCompanie._users">{{ user.profile.name}}</li>
-      </div>
-      <div class="valid-edit">
-        <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Done</button>
-      </div>
+      <a [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]"  routerLinkActive="active">Add New + </a>
+      <li *ngFor="let user of fetchedCompanie._users">
+        {{ user.profile.name}}
+      </li>
+
+      <button type="submit" class="btn btn-default">Submit</button>
     </form>
+
   </div>
 </div>
