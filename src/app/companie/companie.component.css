@@ -49,6 +49,14 @@
     background-color: #0a2f87;
     color: #ffffff;
     margin: 15px 0;
+    border: 1px dashed #ffffff;
+}
+.sln-styone {
+    width: 100%;
+    float: left;
+    padding: 20px;
+    background-color: #ffffff;
+    margin: 2.5px 0;
 }
 
 @media screen and (min-width: 768px) {
