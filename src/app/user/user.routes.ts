@@ -12,7 +12,7 @@ import {UsersComponent} from './users/users.component';
 import {SingleUserComponent} from './users/singleUser.component';
 import {AddNoteComponent} from './users/addNote.component';
 import {ChooseDateComponent} from './users/chooseDate.component';
-
+import {UserPicturesComponent} from './users/userPictures.component';
 
 
 
@@ -35,4 +35,8 @@ export const USER_ROUTES: Routes = [
   {path: ':id', component: SingleUserComponent},
   {path: ':id/addnote', component: AddNoteComponent},
   {path: ':id/choosedate', component: ChooseDateComponent},
+  {path: ':id/userPictures', component: UserPicturesComponent},
+
+
+
 ];

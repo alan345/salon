@@ -17,12 +17,12 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 
 @Component({
   selector: 'app-users',
-  templateUrl: './singleUser.component.html',
+  templateUrl: './userPictures.component.html',
   styleUrls: ['./user.component.css'],
 })
 
 
-export class SingleUserComponent implements OnInit {
+export class UserPicturesComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   maxPictureToShow=3;
@@ -110,7 +110,6 @@ export class SingleUserComponent implements OnInit {
 
 
   seeAllPicture(){
-    this.router.navigate(['user/' + this.fetchedUser._id + "/userPictures"]);
     //this.maxPictureToShow = 9999
   }
   openDialog(positionImage) {

@@ -53,7 +53,7 @@ import {SingleSocialComponent} from './social/singleSocial.component';
 import {SocialService} from './social/social.service';
 
 
-
+import {UserPicturesComponent} from './user/users/userPictures.component';
 import {UsersComponent} from './user/users/users.component';
 import {UserService} from './user/user.service';
 
@@ -193,6 +193,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SingleUserComponent,
     AddNoteComponent,
     ChooseDateComponent,
+    UserPicturesComponent,
 
 
     RegisterComponent,
