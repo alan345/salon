@@ -12,6 +12,9 @@ import { Location }               from '@angular/common';
 import { Press } from './press.model'
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { PressDeleteDialog } from './pressDeleteDialog.component'
+
+
 
 @Component({
   selector: 'app-presses',
@@ -73,6 +76,17 @@ export class PressSingleComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id'])
        this.getPress(params['id'])
+    })
+  }
+
+
+  openDialogDelete(){
+    let dialogRefDelete = this.dialog.open(PressDeleteDialog)
+    dialogRefDelete.afterClosed().subscribe(result => {
+      if(result) {
+        this.onDelete(this.fetchedPress._id)
+        this.router.navigate(['press']);
+      }
     })
   }
 

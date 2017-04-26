@@ -25,6 +25,8 @@ import {SingleProductComponent} from './product/singleProduct.component';
 import {ProductService} from './product/product.service';
 
 
+
+import {PressDeleteDialog} from './press/pressDeleteDialog.component';
 import {PressComponent} from './press/press.component';
 import {PressesComponent} from './press/presses.component';
 import {PressSingleComponent} from './press/pressSingle.component';
@@ -160,7 +162,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NewProductComponent,
     SingleProductComponent,
 
-
+    PressDeleteDialog,
     PressComponent,
     PressesComponent,
     PressSingleComponent,
@@ -259,6 +261,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     }
   ],
   entryComponents: [
+    PressDeleteDialog,
     SubmitPicDialog,
     PromotionDeleteDialog,
     EditOptionsComponentDialog,
