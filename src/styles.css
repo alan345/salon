@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400i,700i');
 /*@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';*/
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 /*@import 'node_modules/@angular/material/core/theming/_theming';*/
