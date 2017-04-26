@@ -1,8 +1,14 @@
-.sln-adrs, .sln-inf {
-    padding: 15px;
+.sln-adrs, .sln-inf, .sln-mng {
+  padding: 15px !important;
 }
 .sln-adrs {
-    text-align: center;
+  text-align: center;
+}
+.sln-mng {
+  max-width: 220px;
+}
+.one-sty {
+  float: left;
 }
 .sty-ttl {
   padding: 15px;
@@ -31,17 +37,17 @@
   padding: 15px;
 }
 .img-row a.seemre {
-    bottom: 0 !important;
-    right: 15px;
-    position: absolute;
+    position: relative !important;
     margin: 0!important;
+    right: 0 !important;
+    bottom: 0 !important;
 }
 
 @media screen and (min-width: 768px) {
 
 .one-sty {
     max-width: 33.333333% !important;
-    padding: 5px 2.5px 2.5px 5px;
+    padding: 5px 0 5px 5px;
 }
 .sln-inf {
   float:left;
