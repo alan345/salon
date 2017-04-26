@@ -238,10 +238,15 @@ td {
 }
 .done {
     background-color: #0a2f87 !important;
+    border: 1px solid #0a2f87 !important;
     color: #fff !important;
+}
+.done a {
+    color: #ffffff !important;
 }
 .pas-done {
     background-color: #cccccc!important;
+    border: 1px solid #cccccc!important;
     color: #999999 !important;
 }
 .delete {
