@@ -98,15 +98,6 @@ label {
     outline: none !important;
     border: none !important;
 }
-a.seemre {
-  margin-top: -26px;
-}
-.img-row a.seemre {
-    bottom: -20px !important;
-    right: 15px;
-    position: absolute;
-    margin: 0 !important;
-}
 .clt-cmts {
     background-color: #0a2f87;
     padding: 5px;
