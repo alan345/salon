@@ -124,6 +124,8 @@ th, td {
 }
 .beigeback {
     background-color: #efe9df;
+    width: 100%;
+    float: left;
 }
 .nopadding {
     padding: 0 !important;
