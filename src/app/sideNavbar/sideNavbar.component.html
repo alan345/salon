@@ -9,7 +9,8 @@
       <li *ngFor="let companie of companies">
         <a (click)="goTo('/companie/' + companie._id)">My Salon</a>
       </li>
-      <li><a (click)="goTo('/user/profile')">My Account Settings</a></li>
+      <li><a (click)="goTo('/user/profile')">My Profile</a></li>
+      <li><a (click)="goTo('/user/profile/password')">My Account Settings</a></li>
       <li><a (click)="goTo('/userForms/' + fetchedUser._id)">Manage Pictures</a></li>
 
       <li><a href="#" (click)="logout()" *ngIf="isLoggedIn()">Log out</a></li>
