@@ -1,34 +1,33 @@
 <div class="container">
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
-    <h3 style="text-align: center;">Clients</h3>
+    <h3 style="text-align: center;">Profile</h3>
   </div>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="beigeback dspl-flx">
       <div class="col-sm-4 usr-basic">
-
-
-
         <div formGroupName="profile">
-          <h3>{{fetchedUser.profile.name}}</h3>
-          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
-          <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
-          <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
           <div formGroupName="_profilePicture">
             <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile._profilePicture._id">
             <img src="./uploads/forms/{{fetchedUser.profile._profilePicture.owner}}/{{fetchedUser.profile._profilePicture.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-            <div>
-              <button type="button" md-button (click)="openDialog('_profilePicture')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
-            </div>
           </div>
-
+          <label>{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</label>
+          <p>{{fetchedUser.profile.title}}</p>
         </div>
-
-
-
-
       </div>
-      <div class="col-sm-7 form-group">
+      
+        <!--ALAN: These should be added in a modal:
+        <div>
+          <div>
+            <button type="button" md-button (click)="openDialog('_profilePicture')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+          </div>
+          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
+          <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
+          <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
+          <button type="submit" class="done">Done</button>
+        </div>-->
+
+      <div class="col-sm-8 form-group">
         <div class="appnt-ctnr">
           <label><h5>Last Visit:</h5></label>
           <p>{{fetchedUser.lastVisit | date:'medium'}}</p>
