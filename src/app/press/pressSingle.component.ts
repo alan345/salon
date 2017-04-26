@@ -114,12 +114,6 @@ export class PressSingleComponent implements OnInit {
   openDialog(positionImage) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
 
-
-
-
-    //    this.fetchedObj.design.mainPage[positionImage][0] = result
-
-
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.fetchedPress[positionImage] = result
@@ -153,7 +147,6 @@ export class PressSingleComponent implements OnInit {
 
 
   getPress(id) {
-
     this.pressService.getPress(id)
       .subscribe(
         res => {
