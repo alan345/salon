@@ -14,11 +14,11 @@
           <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
           <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
           <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
-          <div formGroupName="_profilePictue">
-            <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile._profilePictue._id">
-            <img src="./uploads/forms/{{fetchedUser.profile._profilePictue.owner}}/{{fetchedUser.profile._profilePictue.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          <div formGroupName="_profilePicture">
+            <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser.profile._profilePicture._id">
+            <img src="./uploads/forms/{{fetchedUser.profile._profilePicture.owner}}/{{fetchedUser.profile._profilePicture.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             <div>
-              <button type="button" md-button (click)="openDialog('_profilePictue')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+              <button type="button" md-button (click)="openDialog('_profilePicture')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
             </div>
           </div>
 

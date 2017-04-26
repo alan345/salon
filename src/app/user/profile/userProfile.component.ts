@@ -43,7 +43,7 @@ export class UserProfileComponent implements OnInit {
         hairPorosity : '',
         hairTexture : '',
       },
-      _profilePictue:{
+      _profilePicture:{
         _id:'',
         owner:'',
         imagePath:''
@@ -79,7 +79,7 @@ export class UserProfileComponent implements OnInit {
     this.myForm = this._fb.group({
       lastVisit: [''],
       profile: this._fb.group({
-        _profilePictue: this._fb.group({
+        _profilePicture: this._fb.group({
           _id: ['', [Validators.required, Validators.minLength(5)]]
         }),
         name: ['', [Validators.required, Validators.minLength(2)]],
@@ -125,11 +125,11 @@ export class UserProfileComponent implements OnInit {
     this.maxPictureToShow = 9999
   }
   openDialog(positionImage) {
-    if(positionImage == '_profilePictue') {
+    if(positionImage == '_profilePicture') {
       let dialogRef = this.dialog.open(EditOptionsComponentDialog);
       dialogRef.afterClosed().subscribe(result => {
         if(result) {
-          this.fetchedUser.profile._profilePictue = result
+          this.fetchedUser.profile._profilePicture = result
           this.save()
         }
       })

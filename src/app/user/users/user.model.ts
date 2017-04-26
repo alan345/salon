@@ -78,7 +78,7 @@ export interface User {
 export interface Profile {
   title:string;
   name:string;
-  _profilePictue:Form;
+  _profilePicture:Form;
   hair : {
     hairTexture:string;
     hairDensity:string;
