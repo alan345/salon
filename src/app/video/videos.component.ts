@@ -11,7 +11,7 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
 import {ViewEncapsulation} from '@angular/core'
-
+import { UserService} from '../user/user.service';
 
 
 @Component({
@@ -65,6 +65,9 @@ export class VideosComponent implements OnInit {
     public dialog: MdDialog,
     private router: Router,
     private location: Location,
+    private authService: AuthService,
+    private userService: UserService,
+
   ) {
   }
 
@@ -73,7 +76,7 @@ export class VideosComponent implements OnInit {
     this.location.back();
   }
 
-  onSelectChange = ($event: any): void => {
+    onSelectChange = ($event: any): void => {
 //    console.log($event)
     this.categories2 = $event.tab.textLabel
     this.updateCategerories()
@@ -162,6 +165,26 @@ export class VideosComponent implements OnInit {
 
 
   ngOnInit() {
+    let userId = this.authService.currentUser.userId
+    this.userService.getUser(userId)
+      .subscribe(
+        res => {
+          res.user.trackinPage.lastVisitPageVideo = new Date()
+          this.userService.updateUser(res.user)
+            .subscribe(
+              res => {
+              },
+              error => {
+                console.log(error);
+              }
+            )
+        },
+        error => {
+          console.log(error);
+        }
+      )
+
+
     this.categories2 = 'whatsnew'
     this.updateCategerories()
   }

@@ -13,7 +13,10 @@ var user = new Schema({
     }],
     resetPasswordToken: String,
     resetPasswordExpires: String,
-
+    trackinPage : {
+      lastVisitPageVideo: {type: Date, default: ['']},
+      lastVisitPagePress: {type: Date, default: ['']}
+    },
     lastVisit: Date,
     // you might want more user roles, so an array would be fine
     role: {type: Array, default: ['user']},

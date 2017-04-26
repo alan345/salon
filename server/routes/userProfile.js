@@ -270,6 +270,7 @@ router.put('/:id', function (req, res, next) {
         item.forms = req.body.forms
         item.lastVisit = req.body.lastVisit
         item.notes = req.body.notes
+        item.trackinPage = req.body.trackinPage
         console.log(req.body)
         item.save(function (err, result) {
           if (err) {

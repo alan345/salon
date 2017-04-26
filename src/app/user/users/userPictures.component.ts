@@ -28,7 +28,7 @@ export class UserPicturesComponent implements OnInit {
   maxPictureToShow=3;
   fetchedUser = {
     _id: '',
-    lastVisit: '',
+    lastVisit: new Date,
     email:'',
     forms:[{
       _id:'',
@@ -142,7 +142,7 @@ export class UserPicturesComponent implements OnInit {
 
 
   setDateToday(){
-    this.fetchedUser.lastVisit = new Date().toLocaleDateString("en-US")
+    this.fetchedUser.lastVisit = new Date()
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {
