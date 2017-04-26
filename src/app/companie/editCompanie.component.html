@@ -63,11 +63,12 @@
           </div>
         </div>
       </div>
+      <div>
       <a [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]"  routerLinkActive="active">Add New + </a>
       <li *ngFor="let user of fetchedCompanie._users">
         {{ user.profile.name}}
       </li>
-
+      </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
 
