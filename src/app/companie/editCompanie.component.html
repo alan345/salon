@@ -63,7 +63,7 @@
           </div>
         </div>
       </div>
-      <div class="sln-stymng">
+      <div class="sln-stymng phyto-ctnr">
         <h3>Manage Stylists:</h3>
         <a [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]"  routerLinkActive="active">Add New  <i class="fa fa-plus"></i></a>
         <div *ngFor="let user of fetchedCompanie._users" class="sln-styone">{{ user.profile.name}}</div>
