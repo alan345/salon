@@ -63,8 +63,8 @@
           </div>
         </div>
       </div>
-      <div>
-      <a [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]"  routerLinkActive="active">Add New + </a>
+      <div class="sln-stymng">
+      <a [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]"  routerLinkActive="active">Add New  <i class="fa fa-plus"></i></a>
       <li *ngFor="let user of fetchedCompanie._users">
         {{ user.profile.name}}
       </li>
