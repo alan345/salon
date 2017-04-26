@@ -66,7 +66,7 @@
       </div>
       <div class="sln-stymng">
         <a [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]"  routerLinkActive="active">Add New <i class="fa fa-plus"></i></a>
-        <p *ngFor="let user of fetchedCompanie._users" class="exstg-styone">{{ user.profile.name}}</p>
+        <li *ngFor="let user of fetchedCompanie._users">{{ user.profile.name}}</li>
       </div>
       <div class="valid-edit">
         <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Done</button>
