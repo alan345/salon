@@ -65,10 +65,11 @@
       </div>
       <div class="sln-stymng">
         <a [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]"  routerLinkActive="active">Add New  <i class="fa fa-plus"></i></a>
-        <div *ngFor="let user of fetchedCompanie._users">{{ user.profile.name}}</div>
+        <div *ngFor="let user of fetchedCompanie._users" class="sln-styone">{{ user.profile.name}}</div>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <div class="valid-edit">
+        <button type="submit" class="done">Done</button>
+      </div>
     </form>
-
   </div>
 </div>
