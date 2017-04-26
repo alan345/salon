@@ -5,6 +5,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog, MdDialogRef} from '@angular/material';
 import { EditOptionsComponentDialog }  from '../modalLibrary/modalLibrary.component';
 import { AdminService} from '../admin/services/admin.service';
+import { VideoService} from '../video/video.service';
 
 
 
@@ -50,6 +51,11 @@ export class MainPageHomeComponent implements OnInit {
     }
   };
 
+  trackinPage = {
+    lastVisitPagePressCount:0,
+    lastVisitPageVideoCount:0
+  }
+
   myForm: FormGroup;
   fetchedObj = {
     'dateSubmitted' : '',
@@ -61,6 +67,7 @@ export class MainPageHomeComponent implements OnInit {
     private mainPageHomeService: MainPageHomeService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
+    public videoService : VideoService,
   ) {}
 
 
@@ -92,17 +99,24 @@ export class MainPageHomeComponent implements OnInit {
       )
   }
 
-  // onPassForm(obj) {
-  //   console.log('alan')
-  //   console.log(obj)
-  //   this.fetchedObj.design.mainPage._imgLeft[0] = obj
-  // }
+
+
 
   isAdmin() {
     return this.adminService.isAdmin();
   }
 
   ngOnInit() {
+    this.videoService.countNewItemForUser()
+    .subscribe(
+      data => {
+        //console.log(data)
+        this.trackinPage.lastVisitPageVideoCount = data.item
+      },
+      error => {
+        console.log(error)
+      }
+    );
     this.mainPageHomeService.getOptions()
       .subscribe(
         options => this.fetchedObj = options.obj,

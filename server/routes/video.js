@@ -132,26 +132,6 @@ router.get('/page/:page', function (req, res, next) {
        })
     }
   })
-  console.log(matchRules)
-
-  // let search2 =
-  //   {
-  //     name:"whatsnew"
-  //   }
-  //
-  // let search =
-  //   {
-  //     name:"knowledges"
-  //   }
-  // let AllData = [
-  //      {"$elemMatch" : search},
-  //      {"$elemMatch" : search2},
-  //
-  //   ]
-  //   console.log(match_rules)
-  //   console.log(AllData)
-//JSON.parse(req.query.categories)
-
 
   Video
   .find({
@@ -174,7 +154,8 @@ router.get('/page/:page', function (req, res, next) {
              "$all": matchRules
            }
         })
-      .count().exec(function (err, count) {
+      .count()
+      .exec(function (err, count) {
       res.status(200).json({
           paginationData : {
             totalItems: count,
@@ -186,50 +167,6 @@ router.get('/page/:page', function (req, res, next) {
       })
     }
   })
-
-  //var limit = (itemsPerPage * pageNumber) + itemsPerPage
-
-  // Video.find().count((err, totalItems) => {
-  //   if(err)
-  //     res.send(err)
-  //   else
-  //       Video.aggregate(
-  //       [
-  //           { $match : { categories :{
-  //             "$all" : [
-  //                 {"$elemMatch" : {"name": "treatments"}},
-  //             ]
-  //           }
-  //          } },
-  //         { $skip : skip },
-  //         { $limit : itemsPerPage },
-  //         { $lookup: {
-  //             "from": "forms",
-  //             "localField": "form",
-  //             "foreignField": "_id",
-  //             "as": "form"
-  //        }},
-  //
-  //       ], function(err, data) {
-  //            if (err) {
-  //              res.send(err)
-  //            }
-  //            else {
-  //              var jsonOb =
-  //               {
-  //                 "paginationData" : {
-  //                   "totalItems": totalItems,
-  //                   "currentPage" : currentPage,
-  //                   "itemsPerPage" : itemsPerPage
-  //                 },
-  //                 "data": data
-  //               }
-  //
-  //              res.send(jsonOb)
-  //            }
-  //          }
-  //       )
-  // })
 })
 
 
@@ -254,6 +191,42 @@ router.get('/:id', function (req, res, next) {
   })
 })
 
+
+
+// getting user forms to display them on front end
+router.get('/countNewItemForUser/:id', function (req, res, next) {
+
+  User
+  .findOne({_id: req.params.id})
+  .exec(function (err, user) {
+    if (err) {
+      return res.status(403).json({
+        title: 'There was a problem',
+        error: err
+      });
+    } else {
+      Video
+      .find({createdAt:{"$gt": user.trackinPage.lastVisitPageVideo}})
+      .count()
+      .exec(function (err, item) {
+        if (err) {
+          return res.status(404).json({
+            message: 'No forms found for this user',
+            err: err
+          })
+        } else {
+          res.status(200).json({
+            message: 'Success',
+            item: item
+          })
+        }
+      })
+    }
+  })
+
+})
+
+
 router.delete('/:id', function (req, res, next) {
   Video.findById((req.params.id), function (err, item) {
     if (err) {
@@ -268,7 +241,6 @@ router.delete('/:id', function (req, res, next) {
         error: {message: 'Form not found!'}
       })
     }
-
 
     // deleting the form from the database
     item.remove(function (err, result) {

@@ -43,6 +43,24 @@ export class VideoService {
       });
   }
 
+  countNewItemForUser(){
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    let options = new RequestOptions({ headers: headers});
+    return this.http.get(this.url + 'video/countNewItemForUser/' + this.authService.currentUser.userId, options)
+      .timeout(9000)
+      .map((response: Response) => {
+
+        const videos = response.json();
+
+        return videos;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
   //getVideo(id: string) : Observable<Video> {
   getVideo(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});

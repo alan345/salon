@@ -77,6 +77,7 @@
                   <a [routerLink]="['/video']" routerLinkActive="active">
                     <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome5[0].owner}}/{{fetchedObj.design.mainPage._imgHome5[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   </a>
+                  {{trackinPage.lastVisitPageVideoCount }}
                   <input *ngIf="isAdmin()" type="hidden" class="form-control"
                     name="_imgHome5" [(ngModel)]="fetchedObj.design.mainPage._imgHome5[0]._id"
                     #name="ngModel" required minlength="5">
