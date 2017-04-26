@@ -21,6 +21,9 @@ body {
     float: left;
     width: 100%;
 }
+img {
+    max-width: 100%;
+}
 a.active {
   font-weight: bold;
 }
