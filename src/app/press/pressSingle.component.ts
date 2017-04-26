@@ -145,16 +145,16 @@ export class PressSingleComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.router.navigate(['press'])
           },
           error => {console.log(error)}
         );
     } else {
-      // press.owner = '58dd6bfc72065a0d2d12ff81'
-      // // console.log(model);
       this.pressService.savePress(press)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.router.navigate(['press'])
           },
           error => {console.log(error)}
         );
