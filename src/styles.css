@@ -272,6 +272,15 @@ a.seemre {
     height: 150px;
     width: auto;
 }
+a.seemre {
+  margin-top: -26px;
+}
+.img-row a.seemre {
+    bottom: -20px !important;
+    right: 15px;
+    position: absolute;
+    margin: 0 !important;
+}
 .dlt-img {
     color: #fff;
     padding: 7px;
