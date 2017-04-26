@@ -98,7 +98,20 @@ export class UserProfileComponent implements OnInit {
   }
 
 
-
+  getUser(id : string) {
+    this.userService.getUser(id)
+      .subscribe(
+        res => {
+          this.fetchedUser = res.user
+          this.fetchedUser.forms.forEach((form : Form) => {
+            this.addForm(form)
+          })
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
 
 
 
@@ -169,20 +182,7 @@ export class UserProfileComponent implements OnInit {
       )
   }
 
-  getUser(id : string) {
-    this.userService.getUser(id)
-      .subscribe(
-        res => {
-          this.fetchedUser = res.user
-          this.fetchedUser.forms.forEach((form : Form) => {
-            this.addForm(form)
-          })
-        },
-        error => {
-          console.log(error);
-        }
-      )
-  }
+
 
 
 

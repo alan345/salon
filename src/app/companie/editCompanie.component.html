@@ -5,26 +5,29 @@
   </div>
   <div class="beigeback single-wrpr">
     <h4 class="dspl-nn">id: {{fetchedCompanie._id}}</h4>
-    <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
+    <!-- <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)"> -->
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
       <div class="form-group sln-inffrm">
-        <div ngModelGroup="fetchedCompanie">
+        <!-- <div formGroupName="fetchedCompanie"> -->
+        <!-- <div ngModelGroup="fetchedCompanie"> -->
           <input
             type="text"
             class="form-control"
-            name="name"
-            #name="ngModel"
+            formControlName="name"
+
             [(ngModel)]="fetchedCompanie.name"
             required
             minlength="5"
             placeholder="Name of Your Salon"
           >
-          <div ngModelGroup="address">
-            <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">Minimum 5 characters</small>
+          <!-- <div ngModelGroup="address"> -->
+          <div formGroupName="address">
+            
             <input
               type="text"
               class="form-control"
-              name="address"
-              #name="ngModel"
+              formControlName="address"
+
               [(ngModel)]="fetchedCompanie.address.address"
               required
               minlength="5"
@@ -33,8 +36,8 @@
             <input
               type="text"
               class="form-control"
-              name="city"
-              #name="ngModel"
+              formControlName="city"
+
               [(ngModel)]="fetchedCompanie.address.city"
               required
               minlength="2"
@@ -43,8 +46,8 @@
               <input
                 type="text"
                 class="form-control"
-                name="name"
-                #name="ngModel"
+                formControlName="state"
+
                 [(ngModel)]="fetchedCompanie.address.state"
                 required
                 minlength="5"
@@ -53,15 +56,15 @@
               <input
                 type="text"
                 class="form-control"
-                name="name"
-                #name="ngModel"
+                formControlName="zip"
+
                 [(ngModel)]="fetchedCompanie.address.zip"
                 required
                 minlength="5"
                 placeholder="Zip Code"
               >
           </div>
-        </div>
+        <!-- </div> -->
       </div>
       <div class="sln-stymng phyto-ctnr">
         <h3>Manage Stylists:</h3>

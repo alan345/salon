@@ -12,7 +12,7 @@ import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-companie',
@@ -50,16 +50,39 @@ export class EditCompanieComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
+    private _fb: FormBuilder,
   ) {}
 
   ngOnInit() {
+    this.myForm = this._fb.group({
+      name: [''],
+      address: this._fb.group({
+        address: ['', [Validators.required, Validators.minLength(2)]],
+        city: ['', [Validators.required, Validators.minLength(2)]],
+        state: ['', [Validators.required, Validators.minLength(2)]],
+        zip: ['', [Validators.required, Validators.minLength(2)]],
+      }),
+      _users: this._fb.array([])
+    })
+
+
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getCompanie(params['id'])
     })
   }
 
-  save(model: FormGroup, isValid: boolean) {
+  save() {
+    this.companieService.updateCompanie(this.fetchedCompanie)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+          this.activatedRoute.params.subscribe((params: Params) => {
+            this.router.navigate(['companie/' + params['id']]);
+          })
 
+        },
+        error => {console.log(error)}
+      )
   }
   onDelete(id: string) {
     this.companieService.deleteCompanie(id)
@@ -78,23 +101,32 @@ export class EditCompanieComponent implements OnInit {
     this.location.back();
   }
 
-  getCompanie(id) {
 
-    this.activatedRoute.params
-      .switchMap((params: Params) => this.companieService.getCompanie(params['id']))
-  //    .subscribe((hero: Hero) => this.hero = hero);
 
-    //this.companieService.getCompanie(id)
+
+
+  addUser(user) {
+    const control = <FormArray>this.myForm.controls['_users'];
+    const addrCtrl = this._fb.group({
+        _id: ['', Validators.required],
+    });
+    control.push(addrCtrl);
+  }
+
+  getCompanie(id: string) {
+    this.companieService.getCompanie(id)
       .subscribe(
         res => {
-        //  console.log("companies");
-        //  console.log(res);
+          console.log(res)
           this.fetchedCompanie = res
+          this.fetchedCompanie._users.forEach((user) => {
+            this.addUser(user)
+          })
         },
         error => {
           console.log(error);
         }
-      );
+      )
   }
 
 }

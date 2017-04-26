@@ -27,7 +27,6 @@ export class SinglePromotionComponent implements OnInit {
   //fetchedPromotion: Promotion;
   //fetchedPromotion._id='';
 
-
   fetchedPromotion = {
     _id: '',
     date:{
@@ -92,20 +91,6 @@ export class SinglePromotionComponent implements OnInit {
     control.push(addrCtrl);
   }
 
-  // removeForm(i: number) {
-  //     this.fetchedPromotion.forms.splice(i, 1)
-  //     const control = <FormArray>this.myForm.controls['forms'];
-  //     control.removeAt(i);
-  // }
-
-  // addForm(form: Form) {
-  //
-  //   const control = <FormArray>this.myForm.controls['forms'];
-  //   const addrCtrl = this._fb.group({
-  //       _id: ['', Validators.required],
-  //   });
-  //   control.push(addrCtrl);
-  // }
 
 
   goBack() {

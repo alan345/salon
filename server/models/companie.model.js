@@ -9,14 +9,12 @@ var companie = new Schema({
     address:{
       address : '',
       city : '',
-      sate : '',
+      state : '',
       zip : '',
     },
     name: '',
     _users : [{type: Schema.Types.ObjectId, ref: 'User'}],
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
-
-    text: String,
 
 
   },
