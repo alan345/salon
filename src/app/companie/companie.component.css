@@ -61,6 +61,9 @@
 
 @media screen and (min-width: 768px) {
 
+.sln-inffrm {
+    width: 50%;
+}
 .one-sty {
     max-width: 33.333333% !important;
     padding: 5px 0 5px 5px;
