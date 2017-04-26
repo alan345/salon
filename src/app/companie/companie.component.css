@@ -48,7 +48,7 @@
     float: left;
     background-color: #0a2f87;
     color: #ffffff;
-    margin: 15px 0;
+    margin: 2.5px 0;
     border: 1px dashed #ffffff;
 }
 .sln-styone {
@@ -74,6 +74,8 @@
 .sln-mng, .done {
   float:right;
 }
+.done {
+  float: left !important;
 }
 
 @media screen and (max-width: 767px) {
