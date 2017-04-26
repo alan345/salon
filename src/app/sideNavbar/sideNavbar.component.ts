@@ -17,7 +17,7 @@ export class SideNavbarComponent implements OnInit {
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   fetchedUser={
-    _id = ''
+    _id: ''
   };
   companies=[{
     _id:''
