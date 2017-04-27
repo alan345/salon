@@ -48,10 +48,7 @@ export class PromotionService {
     headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.get(this.url + 'promotion/' + id, {headers: headers})
       .map((response: Response) => {
-        console.log(response.json().item)
         return response.json().item;
-      //  this.singleForm = response.json();
-        //return this.singleForm;
       })
       .catch((error: Response) => {
         this.errorService.handleError(error.json());

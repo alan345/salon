@@ -85,7 +85,6 @@ import {CompaniesComponent} from './companie/companies.component';
 import {CompanieComponent} from './companie/companie.component';
 import {EditCompanieComponent} from './companie/editCompanie.component';
 import {EditAddUserToCompanieComponent} from './companie/editAddUserToCompanie.component';
-import {CompanieDialogComponent} from './companie/companies.component';
 import {CompanieDetailComponent} from './companie/companieDetail.component';
 import {CompanieService} from './companie/companie.service';
 
@@ -207,7 +206,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CompanieComponent,
     EditCompanieComponent,
     EditAddUserToCompanieComponent,
-    CompanieDialogComponent,
     CompanieDetailComponent,
 
     ResetPasswordComponent,
@@ -269,7 +267,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SubmitPicDialog,
     PromotionDeleteDialog,
     EditOptionsComponentDialog,
-    CompanieDialogComponent,
     VideoDeleteDialog
   ],
 

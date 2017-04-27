@@ -45,13 +45,13 @@ export class CompaniesComponent implements OnInit {
 
 
   openDialog() {
-    let dialogRef = this.dialog.open(CompanieDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-    //    this.fetchedObj.design.mainPage[positionImage][0] = result
-      }
+    // let dialogRef = this.dialog.open(CompanieDialogComponent);
+    // dialogRef.afterClosed().subscribe(result => {
+    //   if(result) {
+    // //    this.fetchedObj.design.mainPage[positionImage][0] = result
+    //   }
 
-    });
+    // });
   }
 
   goBack() {
@@ -99,14 +99,4 @@ export class CompaniesComponent implements OnInit {
 
   ngOnInit() {
   }
-}
-
-
-@Component({
-  selector: 'companie-dialog',
-  templateUrl: './companieDialog.component.html',
-})
-export class CompanieDialogComponent {
-  constructor(public dialogRef: MdDialogRef<CompanieDialogComponent>) {}
-
 }
