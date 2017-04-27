@@ -1,5 +1,5 @@
 .prss-ctnr {
-    padding: 5px 2.5px 2.5px 5px;
+    padding: 2.5px;
 }
 .prss-cnt {
     width: 100%!important;
@@ -8,10 +8,6 @@
     background-image: url(/assets/images/background_press.png);
     background-size: 100% 100%;
     padding: 0 !important;
-}
-.prss-cnt .editicon {
-    position: absolute !important;
-    padding: 11px 12px 8px !important;
 }
 .prss-ttl p {
     margin: 14px 15px !important;
