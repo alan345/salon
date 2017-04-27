@@ -25,7 +25,17 @@
     position: absolute;
 }
 .upld-pdf input {
-    padding: 8px 8px 0;
+    width: 80%;
+    float: left;
+}
+.upld-pdf button {
+    width: 20%;
+    background-color: #999999;
+    border: 1px solid #999999;
+    border-radius: 0 !important;
+    height: 40px;
+    color: #ffffff;
+    font-family: inherit !important;
 }
 .prss-img img {
     margin-bottom: 15px;
