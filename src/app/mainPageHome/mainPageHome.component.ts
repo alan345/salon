@@ -73,7 +73,12 @@ export class MainPageHomeComponent implements OnInit {
 
 
   openDialog(positionImage) {
-    let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+    let dialogRef = this.dialog.open(
+      EditOptionsComponentDialog,
+      {
+        height: '600px',
+        width: '400px',
+      });
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.fetchedObj.design.mainPage[positionImage][0] = result
