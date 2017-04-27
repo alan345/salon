@@ -19,10 +19,11 @@ import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.compone
 
 @Component({
   selector: 'app-companie',
-  templateUrl: './companieDetail.component.html',
+  templateUrl: './companiePictures.component.html',
   styleUrls: ['./companie.component.css'],
 })
-export class CompanieDetailComponent implements OnInit {
+
+export class CompaniePicturesComponent implements OnInit {
   maxPictureToShow=3
   fetchedCompanie = {
     _id:'',

@@ -25,7 +25,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 export class SingleUserComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
-  maxPictureToShow=3;
+  maxPictureToShow=3
   fetchedUser = {
     _id: '',
     lastVisit: new Date,
@@ -111,7 +111,6 @@ export class SingleUserComponent implements OnInit {
 
   seeAllPicture(){
     this.router.navigate(['user/' + this.fetchedUser._id + "/userPictures"]);
-    //this.maxPictureToShow = 9999
   }
   openDialog(positionImage) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);

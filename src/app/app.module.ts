@@ -79,6 +79,8 @@ import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 import {MainPageHomeService} from './mainPageHome/mainPageHome.service';
 
 
+
+import {CompaniePicturesComponent} from './companie/companiePictures.component';
 import {CompaniesComponent} from './companie/companies.component';
 import {CompanieComponent} from './companie/companie.component';
 import {EditCompanieComponent} from './companie/editCompanie.component';
@@ -86,6 +88,7 @@ import {EditAddUserToCompanieComponent} from './companie/editAddUserToCompanie.c
 import {CompanieDialogComponent} from './companie/companies.component';
 import {CompanieDetailComponent} from './companie/companieDetail.component';
 import {CompanieService} from './companie/companie.service';
+
 
 
 import {ResetPasswordComponent} from './user/accountRecover/resetPassword.component';
@@ -199,6 +202,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ErrorComponent,
 
     MainPageHomeComponent,
+    CompaniePicturesComponent,
     CompaniesComponent,
     CompanieComponent,
     EditCompanieComponent,
