@@ -116,7 +116,6 @@ export class EditCompanieComponent implements OnInit {
     this.companieService.getCompanie(id)
       .subscribe(
         res => {
-          console.log(res)
           this.fetchedCompanie = res
           this.fetchedCompanie._users.forEach((user) => {
             this.addUser(user)

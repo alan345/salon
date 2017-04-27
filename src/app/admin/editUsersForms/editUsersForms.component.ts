@@ -67,7 +67,7 @@ export class EditUsersFormsComponent implements OnInit, AfterViewInit {
 
   // cancel and return to the user's forms page
   cancel() {
-    this.router.navigate(['user/forms']);
+    this.router.navigate(['user/forms'])
   }
 
   // event fired when the user selects an image

@@ -136,21 +136,10 @@ export class VideosComponent implements OnInit {
         res => {
           this.paginationData = res.paginationData;
           let fetchedVideosNotSecure =  res.data
-//          console.log(fetchedVideosNotSecure)
           fetchedVideosNotSecure.forEach((video) => {
-
             video['embedSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + video['embed'])
-            console.log(video)
             this.fetchedVideos.push(video)
-            // this.fetchedVideos.push()
-            // var rObj = {};
-            // rObj[video] = video;
-            // rObj[video]['embedSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + video['embed']);
-            // console.log(rObj)
-            // return rObj;
           })
-
-          //console.log(this.fetchedVideos[0]['[object Object]'])
         },
         error => {
           console.log(error);

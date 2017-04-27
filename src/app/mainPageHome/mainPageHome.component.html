@@ -27,7 +27,7 @@
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
                   <div *ngFor="let img of fetchedObj.design.mainPage._imgHome2">
-                    <a [routerLink]="['/user']" routerLinkActive="active">
+                    <a [routerLink]="['/promotion']" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
                   </div>
@@ -43,19 +43,21 @@
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
                   <div *ngFor="let img of fetchedObj.design.mainPage._imgHome3">
-                    <a [routerLink]="['/user']" routerLinkActive="active">
+                    <a [routerLink]="['/social']" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
                   </div>
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome3')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
-                <label class="homelabel">Social</label>
+                <a [routerLink]="['/social']" routerLinkActive="active">
+                  <label class="homelabel">Social</label>
+                </a>
               </div>
 
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
                   <div *ngFor="let img of fetchedObj.design.mainPage._imgHome4">
-                    <a [routerLink]="['/user']" routerLinkActive="active">
+                    <a [routerLink]="['/press']" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
                   </div>
@@ -71,7 +73,7 @@
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
                   <div *ngFor="let img of fetchedObj.design.mainPage._imgHome5">
-                    <a [routerLink]="['/user']" routerLinkActive="active">
+                    <a [routerLink]="['/video']" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
                   </div>

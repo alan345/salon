@@ -3,29 +3,7 @@
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">My Salon</h3>
   </div>
-  <div class="beigeback phyto-ctnr">
-    <div class="sln-adrs">
-      <!--id: {{fetchedCompanie._id}}</h4>-->
-      <h3>Welcome to {{fetchedCompanie.name}}</h3>
-      <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}}</h6>
-    </div>
-    <div class="sln-sty phyto-ctnr">
-      <div *ngFor="let user of fetchedCompanie._users" class="one-sty">
-        <div *ngFor="let profilePicture of user.profile._profilePicture">
-          <img
-            class="img-responsive"
-            src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}"
-            onerror="this.src ='assets/images/no-image-found.jpg'"
-          >
-        </div>
-        <div class="sty-ttl">
-          <label>{{ user.profile.name}}</label>
-          <p>Add Stylist Title</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--forms-->
+
   <div class="img-row phyto-ctnr">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="img-frm phyto-ctnr">
       <div class="col-sm-3">
@@ -34,7 +12,7 @@
       <div class="col-sm-9">
         <div formArrayName="forms" class="phyto-ctnr">
           <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
-            <div *ngIf="i < maxPictureToShow">
+            <div>
               <div [formGroupName]="i">
                 <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedCompanie.forms[i]._id">
                 <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedCompanie.forms[i].owner">
@@ -46,25 +24,9 @@
           </div>
         </div>
       </div>
-      <div>
-        <div *ngIf="fetchedUser.forms.length>maxPictureToShow">
-          <a class="seemre" (click)="seeAllPicture()">See All</a>
-        </div>
 
-      </div>
     </form>
   </div>
-  <!--forms-->
-  <div class="beigeback phyto-ctnr">
-    <div class="sln-inf">
-      <h6> Your Phyto Sales Representative</h6>
-      <p>John Doe</p>
-      <p>515-885-9852</p>
-      <p>john@ales-group.com</p>
-    </div>
-    <div class="sln-mng">
-      <button class="delete"><a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a></button>
-      <button class="done"><a href="mailto:you@youraddress.com">Contact Sales</a></button>
-    </div>
-  </div>
+
+
 </div>

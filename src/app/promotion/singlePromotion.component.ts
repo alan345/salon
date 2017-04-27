@@ -106,12 +106,14 @@ export class SinglePromotionComponent implements OnInit {
     })
   }
 
+
   save(form) {
     if(this.fetchedPromotion._id) {
       this.promotionService.updatePromotion(this.fetchedPromotion)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.router.navigate(['promotion/'])
           },
           error => {console.log(error)}
         )
@@ -120,6 +122,7 @@ export class SinglePromotionComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.router.navigate(['promotion/'])
           },
           error => {console.log(error)}
         );
