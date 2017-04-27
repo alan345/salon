@@ -8,7 +8,7 @@
     <tr *ngFor="let promotion of fetchedPromotions | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="prm-ctnr">
       <div class="prm-wrpr">
         <td class="promo-cnt">
-          <button class="editicon" [routerLink]="['/promotion/singlepromotion/' + promotion._id]" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
+          <button class="editicon" [routerLink]="['/promotion/singlepromotion/' + promotion._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
           <img class="promo-img" src="./uploads/forms/{{promotion.form[0].owner}}/{{promotion.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
         </td>
       </div>
