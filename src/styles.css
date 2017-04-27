@@ -21,6 +21,9 @@ body {
     float: left;
     width: 100%;
 }
+input {
+    padding: 15px !important;
+}
 img {
     max-width: 100%;
 }
