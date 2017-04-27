@@ -60,11 +60,7 @@ export class UserProfileComponent implements OnInit {
         hairPorosity : '',
         hairTexture : '',
       },
-      _profilePicture:{
-        _id:'',
-        owner:'',
-        imagePath:''
-      },
+      _profilePicture:[],
     },
     notes:[{
       text:'',
@@ -107,14 +103,16 @@ export class UserProfileComponent implements OnInit {
       forms: this._fb.array([])
     })
 
-    let userId = this.authService.currentUser.userId
-    this.companieService.getCompanieByUserId(userId)
-    .subscribe(
-      (data => this.companies = data)
-    )
+    //let userId = this.authService.currentUser.userId
+
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      this.getUser(this.authService.currentUser.userId)
+      let userId = params['id']
+      this.getUser(userId)
+      this.companieService.getCompanieByUserId(userId)
+      .subscribe(
+        (data => this.companies = data)
+      )
     })
   }
 
