@@ -30,22 +30,9 @@
         </div>-->
 
       <div class="col-sm-8 form-group">
-        <div class="appnt-ctnr">
-          <label><h5>Last Visit:</h5></label>
-          <p>{{fetchedUser.lastVisit | date:'medium'}}</p>
-          <button class="dat-btn dat-btnl" type="button" md-button (click)="setDateToday()">Today</button>
-          or
-          <button class="dat-btn dat-btnr" type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/choosedate']" routerLinkActive="active">Choose Date</button>
-        </div>
-        <div class="prt-ctnr">
-          <label><h5>Products Bought:</h5></label>
-          <!--Connect button below to add product form-->
-          <button class="addpdt-btn">Add Product <i class="fa fa-plus"></i></button>
-          <!--Add last two products bought here-->
-          <p class="blue">PhytoElixir Oil - 02/14/2017</p>
-          <p class="blue">PhytoElixir Mask - 12/21/2016</p>
-          <a class="seemre" href="#">See Products History</a>
-        </div>
+        <!--id: {{fetchedCompanie._id}}</h4>-->
+        <h3>Welcome to {{fetchedCompanie.name}}</h3>
+        <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}}</h6>
       </div>
     </div>
     <div class="img-row">
