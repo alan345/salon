@@ -6,6 +6,28 @@
 .prf-chal {
     background-color: #fff;
 }
+.prf-cpt .editicon {
+  right: 3px !important;
+  left: inherit !important;
+  background: none !important;
+  padding: 15px !important;
+  height: 100% !important;
+  outline: none !important;
+}
+.insta-promo {
+  padding: 30px 15px;
+  background-image: url(/assets/images/instabackdarker.png);
+  background-size: cover;
+}
+.insta-pic {   
+  width: auto;
+  padding: 10px;
+}
+.see, .submit {
+  padding:15px;
+  text-transform: uppercase;
+  border: 1px solid #ffffff;
+}
 
 @media screen and (min-height: 768px) {
   
@@ -23,11 +45,19 @@
     display: table-cell;
     vertical-align: top;
 }
+.see, .submit {
+  float: left;
+}
 }
 
 @media screen and (max-height: 767px) {
   
 .prf-basic {
     padding: 5px;
+}
+.prf-chal {
+    background-color: #fff;
+    padding: 15px;
+    margin: 0 5px 15px !important;
 }
 }
