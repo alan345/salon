@@ -18,7 +18,7 @@
                   <input *ngIf="isAdmin()" type="hidden" class="form-control"
                     name="_imgHome1" [(ngModel)]="fetchedObj.design.mainPage._imgHome1[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome1')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
+                  <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome1')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/product']" routerLinkActive="active">
                   <label class="homelabel">Products</label>
