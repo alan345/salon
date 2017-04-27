@@ -34,11 +34,7 @@ export class SinglePromotionComponent implements OnInit {
       dateEnd:'',
     },
     name:'',
-    form:{
-      _id:'',
-      owner:'',
-      imagePath:'',
-    }
+    form:[]
   }
 
   public myForm: FormGroup;
@@ -60,9 +56,7 @@ export class SinglePromotionComponent implements OnInit {
 
         _id: [''],
         name: ['', [Validators.required, Validators.minLength(5)]],
-        form: this._fb.group({
-          _id: ['', [Validators.required, Validators.minLength(5)]]
-        }),
+
         date: this._fb.group({
             dateBegin: ['', [Validators.required, Validators.minLength(5)]],
             dateEnd: ['', [Validators.required, Validators.minLength(5)]],
@@ -101,13 +95,13 @@ export class SinglePromotionComponent implements OnInit {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        this.fetchedPromotion.form = result
+        this.fetchedPromotion.form[0] = result
       }
     })
   }
 
 
-  save(form) {
+  save() {
     if(this.fetchedPromotion._id) {
       this.promotionService.updatePromotion(this.fetchedPromotion)
         .subscribe(

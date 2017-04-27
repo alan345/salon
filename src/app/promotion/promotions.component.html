@@ -9,12 +9,14 @@
       <div class="prm-wrpr">
         <td class="promo-cnt">
           <button class="editicon" [routerLink]="['/promotion/singlepromotion/' + promotion._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
-          <img class="promo-img" src="./uploads/forms/{{promotion.form[0].owner}}/{{promotion.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          <div *ngFor="let singleForm of promotion.form">
+            <img class="promo-img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          </div>
         </td>
       </div>
-      
+
       <!-- <td>{{promotion._id }}</td> -->
-      
+
       <td class="dspl-nn"><a [routerLink]="['/promotion/' + promotion._id]" routerLinkActive="active">{{promotion.email}}</a></td>
     </tr>
     </tbody>
@@ -24,8 +26,8 @@
   </div>
   <div class="has-text-centered">
       <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
-    
+
       <!-- <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls> -->
-    
+
   </div>
 </div>

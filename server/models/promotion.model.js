@@ -11,7 +11,7 @@ var promotion = new Schema({
       dateEnd: String,
     },
     owner: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    form: {type: Schema.Types.ObjectId, ref: 'Form'},
+    form: [{type: Schema.Types.ObjectId, ref: 'Form'}],
 
   },
   {

@@ -4,7 +4,7 @@
     <h3 style="text-align: center;">Add Promotion</h3>
   </div>
   <div class="single-wrpr beigeback">
-   <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion._id">
     <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedPromotion.name" placeholder="Promotion Title">
     <div class="form-group">
@@ -15,16 +15,18 @@
       </small> -->
 
     </div>
-    <div formGroupName="form">
+
       <div class="form-group prmimg-cnt">
         <!--  <label>_idPic</label> -->
         <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion.form._id">
-        <img src="./uploads/forms/{{fetchedPromotion.form.owner}}/{{fetchedPromotion.form.imagePath}}" onerror="this.src =''">
+        <div *ngFor="let singleForm of fetchedPromotion.form">
+          <img class="promo-img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+        </div>
         <div>
           <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
         </div>
       </div>
-    </div>
+
     <div formGroupName="date">
       <div class="form-group col-sm-6" id="strt-dt">
         <label>Start Date</label>

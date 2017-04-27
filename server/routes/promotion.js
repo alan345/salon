@@ -65,7 +65,7 @@ router.put('/:id', function (req, res, next) {
         item.name = req.body.name
         item.date = req.body.date
         item.owner = req.body.owner
-        item.forms = req.body.forms
+        item.form = req.body.form
 
 
         item.save(function (err, result) {
@@ -121,38 +121,38 @@ router.get('/page/:page', function (req, res, next) {
   //var limit = (itemsPerPage * pageNumber) + itemsPerPage
 
   Promotion.find().count((err, totalItems) => {
-    if(err)
+    if(err) {
       res.send(err);
-    else
-        Promotion.aggregate(
-        [
-          { $skip : skip },
-          { $limit : itemsPerPage },
-          { $lookup: {
-              "from": "forms",
-              "localField": "form",
-              "foreignField": "_id",
-              "as": "form"
-         }},
-        ], function(err, data) {
-             if (err) {
-               res.send(err);
-             }
-             else {
-               var jsonOb =
-                {
-                  "paginationData" : {
-                    "totalItems": totalItems,
-                    "currentPage" : currentPage,
-                    "itemsPerPage" : itemsPerPage
-                  },
-                  "data": data
-                };
+    } else {
+      Promotion
+      .find()
+      .populate('form')
+      .limit(itemsPerPage)
+      .skip(skip)
+      .exec(function (err, item) {
+        if (err) {
+          return res.status(404).json({
+            message: 'No results',
+            err: err
+          })
+        } else {
+          Promotion
+          .find()
+          .count()
+          .exec(function (err, count) {
+          res.status(200).json({
+              paginationData : {
+                totalItems: count,
+                currentPage : currentPage,
+                itemsPerPage : itemsPerPage
+              },
+              data: item
+            })
+          })
+        }
+      })
+    }
 
-               res.send(jsonOb);
-             }
-           }
-        )
   })
 })
 
