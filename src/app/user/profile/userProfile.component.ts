@@ -155,14 +155,14 @@ export class UserProfileComponent implements OnInit {
     this.location.back();
   }
   seeAllPicture(){
-    this.maxPictureToShow = 9999
+    this.maxPictureToShow = 999
   }
   openDialog(positionImage) {
     if(positionImage == '_profilePicture') {
       let dialogRef = this.dialog.open(EditOptionsComponentDialog);
       dialogRef.afterClosed().subscribe(result => {
         if(result) {
-          this.fetchedUser.profile._profilePicture = result
+          this.fetchedUser.profile._profilePicture[0] = result
           this.save()
         }
       })

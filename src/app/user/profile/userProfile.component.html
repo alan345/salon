@@ -8,7 +8,6 @@
       <div class="col-sm-4 prf-basic">
         <div formGroupName="profile">
           <div formGroupName="_profilePicture">
-            {{fetchedUser.profile._profilePicture|json}}
             <div *ngFor="let profilePicture of fetchedUser.profile._profilePicture">
               <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="profilePicture._id">
               <img src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
@@ -17,7 +16,7 @@
           <div class="prf-cpt">
             <label>{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</label>
             <p>{{fetchedUser.profile.title}}</p>
-            <button class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
+            <button type="button" md-button (click)="openDialog('_profilePicture')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
           </div>
         </div>
       </div>
