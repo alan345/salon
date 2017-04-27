@@ -13,6 +13,7 @@ import { User } from '../users/user.model'
 import { Form } from '../users/user.model'
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { CompanieService} from '../../companie/companie.service';
 
 
 @Component({
@@ -26,6 +27,18 @@ export class UserProfileComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   maxPictureToShow=3;
+  companies=[{
+    _id:'',
+    name:'',
+    address:{
+      address : '',
+      city : '',
+      state:'',
+      zip:'',
+    },
+    _users : [
+    ]
+  }]  
   fetchedUser = {
     _id: '',
     lastVisit: new Date,
@@ -68,6 +81,7 @@ export class UserProfileComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     private authService: AuthService,
+    private companieService: CompanieService,
   ) {
   }
 
@@ -90,7 +104,11 @@ export class UserProfileComponent implements OnInit {
       forms: this._fb.array([])
     })
 
-
+    let userId = this.authService.currentUser.userId
+    this.companieService.getCompanieByUserId(userId)
+    .subscribe(
+      (data => this.companies = data)
+    )
 
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getUser(this.authService.currentUser.userId)

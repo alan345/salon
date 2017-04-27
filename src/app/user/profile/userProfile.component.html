@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      
+
         <!--ALAN: These should be added in a modal:
         <div>
           <div>
@@ -30,9 +30,14 @@
         </div>-->
 
       <div class="col-sm-8 form-group">
+        <div *ngFor="let companie of companies">
+          <h6>{{companie.address.address}}, {{companie.address.city}}, {{companie.address.state}} {{companie.address.zip}}</h6>
+        </div>
+        <!-- </div> -->
+        <!-- {{companies|json}} -->
         <!--id: {{fetchedCompanie._id}}</h4>-->
-        <h3>{{fetchedCompanie.name}}</h3>
-        <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}}</h6>
+        <!-- <h3>{{fetchedCompanie.name}}</h3>
+        <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}}</h6> -->
       </div>
     </div>
     <div class="img-row">

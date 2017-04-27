@@ -41,7 +41,6 @@ export class EditCompanieComponent implements OnInit {
   }
   myForm: FormGroup;
 
-
   constructor(
     private companieService: CompanieService,
     private modalService: NgbModal,

@@ -36,9 +36,7 @@ export class SideNavbarComponent implements OnInit {
       let userId = this.authService.currentUser.userId
       this.companieService.getCompanieByUserId(userId)
       .subscribe(
-        (data => {
-          this.companies = data
-        })
+        (data => this.companies = data)
       )
       this.profileService.getUserDetails(userId)
       .subscribe(
