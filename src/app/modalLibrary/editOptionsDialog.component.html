@@ -3,7 +3,7 @@
 
 <md-tab-group>
   <md-tab label="Load">
-    <app-form (onUploadFinisedChildToParent)="onUploadFinisedChildToParent()"></app-form>
+    <app-form (onPassForm)="dialogRef.close($event)" (onUploadFinisedChildToParent)="onUploadFinisedChildToParent()"></app-form>
   </md-tab>
   <md-tab label="Medias">
     <app-user-form (onPassForm)="dialogRef.close($event)"></app-user-form>

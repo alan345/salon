@@ -13,7 +13,7 @@ import {AuthService} from '../auth/auth.service';
 })
 export class FormComponent implements OnInit, AfterViewInit {
 
-
+  @Output() onPassForm = new EventEmitter<any>();
   // setting up the form
   myForm: FormGroup;
   textInput1: FormControl;
@@ -147,7 +147,11 @@ export class FormComponent implements OnInit, AfterViewInit {
         if (xhr.status === 201) {
           //this.router.navigateByUrl('/user/forms');
         //  location.reload();
+          let form = JSON.parse(xhr.response).obj
+          console.log(form)
+          this.onPassForm.emit(form);
           this.onUploadFinisedChildToParent.emit()
+
           this.toastr.success('Form submitted successfully');
         } else if (xhr.status !== 201) {
           this.toastr.error('There was an error!');
