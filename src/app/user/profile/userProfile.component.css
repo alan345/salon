@@ -2,6 +2,7 @@
     padding: 15px;
     background-color: #231f20;
     color: #ffffff;
+    position: relative;
 }
 .prf-chal {
     background-color: #fff;
@@ -27,6 +28,32 @@
   padding:15px;
   text-transform: uppercase;
   border: 1px solid #ffffff;
+  min-width: 250px;
+}
+.img-row {
+  margin-bottom: 30px;
+  margin-top: 15px;
+  position: relative;
+}
+.insta-txt {
+  color: #fff;
+}
+.insta-txt p {
+    margin-bottom: 25px;
+}
+.insta-txt h3 {
+    color: #fff;
+    margin: 0 0 20px;
+}
+.see {
+    background: none !important;
+}
+.see a {
+  color: #fff !important;
+}
+.submit {
+    color: #0a2f87;
+    background-color: #fff;
 }
 
 @media screen and (min-height: 768px) {
@@ -47,6 +74,13 @@
 }
 .see, .submit {
   float: left;
+}
+.insta-txt {
+  padding: 0 15px;
+  float: left;
+}
+.see {
+    margin-right: 15px;
 }
 }
 
