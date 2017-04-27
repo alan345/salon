@@ -16,7 +16,6 @@ import { Design } from './design.model';
 })
 export class MainPageHomeComponent implements OnInit {
 
-
   design  = {
     mainPage:{
       _imgHome1:[{

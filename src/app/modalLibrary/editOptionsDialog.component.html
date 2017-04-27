@@ -1,5 +1,11 @@
 
-<md-dialog-content>
-  <app-form (onUploadFinisedChildToParent)="onUploadFinisedChildToParent()"></app-form>
-  <app-user-form (onPassForm)="dialogRef.close($event)"></app-user-form>
-</md-dialog-content>
+
+
+<md-tab-group>
+  <md-tab label="Load">
+    <app-form (onUploadFinisedChildToParent)="onUploadFinisedChildToParent()"></app-form>
+  </md-tab>
+  <md-tab label="Medias">
+    <app-user-form (onPassForm)="dialogRef.close($event)"></app-user-form>
+  </md-tab>
+</md-tab-group>
