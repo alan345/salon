@@ -25,25 +25,10 @@
   padding: 10px;
 }
 .see, .submit {
-  padding:15px;
+  padding: 12px 15px;
   text-transform: uppercase;
   border: 1px solid #ffffff;
   min-width: 250px;
-}
-.img-row {
-  margin-bottom: 30px;
-  margin-top: 15px;
-  position: relative;
-}
-.insta-txt {
-  color: #fff;
-}
-.insta-txt p {
-    margin-bottom: 25px;
-}
-.insta-txt h3 {
-    color: #fff;
-    margin: 0 0 20px;
 }
 .see {
     background: none !important;
@@ -54,6 +39,21 @@
 .submit {
     color: #0a2f87;
     background-color: #fff;
+}
+.img-row {
+  margin-bottom: 30px;
+  margin-top: 15px;
+  position: relative;
+}
+.insta-txt {
+  color: #fff;
+  float: left;
+}
+.insta-txt p {
+    margin-bottom: 25px;
+}
+.insta-txt h3 {
+    color: #fff;
 }
 
 @media screen and (min-height: 768px) {
@@ -75,12 +75,15 @@
 .see, .submit {
   float: left;
 }
-.insta-txt {
-  padding: 0 15px;
-  float: left;
-}
 .see {
     margin-right: 15px;
+}
+.insta-txt {
+  padding: 0 15px;
+  max-width:80%;
+}
+.insta-txt h3 {
+    margin: 0 0 20px;
 }
 }
 
@@ -93,5 +96,11 @@
     background-color: #fff;
     padding: 15px;
     margin: 0 5px 15px !important;
+}
+.insta-txt h3 {
+    margin: 20px 0;
+}
+.see, .submit {
+  margin: 15px 0;
 }
 }
