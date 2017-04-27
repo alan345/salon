@@ -66,9 +66,9 @@
       <a class="seemre" (click)="seeAllPicture()">See All</a>
     </div>
   </div>
-  <div class="insta-promo">
-    <div formArrayName="forms" class="phyto-ctnr">
-      <div *ngFor="let form of getObjects(myForm); let i=index" class="insta-pic">
+  <div class="phyto-ctnr">
+    <div formArrayName="forms" class="phyto-ctnr insta-pic goldgradient">
+      <div *ngFor="let form of getObjects(myForm); let i=index">
         <div *ngIf="i < instapic">
           <div [formGroupName]="i">
             <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
@@ -79,6 +79,10 @@
         </div>
       </div>
     </div>
+    <h3>Be The Next Phyto Feature!</h3>
+    <p>Submit on of your pictures to the Picture of the Month Phyto Challenge and your photo may be selected and promoted on all the Phyto Social Media channels. A great way to get yourself visibility!</p>
+    <button class="see"><a href="/social">See this month's winner</a></button>
+    <button class="submit">Submit your picture</button>
   </div>
   <div class="clearfix"></div>
   </form>
