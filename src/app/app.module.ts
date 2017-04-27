@@ -120,8 +120,13 @@ import {EditOptionsService} from './admin/editOptions/editOptions.service';
 import {AdminGuardService} from './admin/services/adminGuard';
 import {AdminComponent} from './admin/admin.component';
 
-import { UserProfileComponent } from './user/profile/userProfile.component';
+
+import {UserProfilePicturesComponent } from './user/profile/userProfilePictures.component';
+import {UserProfileComponent } from './user/profile/userProfile.component';
 import {ProfileService} from "./user/profile/profile.service";
+
+
+
 import { ChangePasswordComponent } from './user/profile/changePassword/changePassword.component';
 import { MaterialModule } from '@angular/material';
 import {Ng2PaginationModule} from 'ng2-pagination';
@@ -219,6 +224,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     EditOptionsComponentDialog,
     AdminComponent,
     UserProfileComponent,
+    UserProfilePicturesComponent,
     ChangePasswordComponent,
 
 

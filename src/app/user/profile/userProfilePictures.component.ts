@@ -20,12 +20,13 @@ import { CompanieService} from '../../companie/companie.service';
 
 @Component({
   selector: 'app-users',
-  templateUrl: './userProfile.component.html',
+  templateUrl: './userProfilePictures.component.html',
   styleUrls: ['./userProfile.component.css'],
 })
 
 
-export class UserProfileComponent implements OnInit {
+
+export class UserProfilePicturesComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   maxPictureToShow=3;

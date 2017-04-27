@@ -7,14 +7,15 @@ import {UserFormsComponent} from '../form/userForms.component';
 import {AuthGuardService} from '../auth/authguard.service';
 import {AppComponent} from '../app.component';
 import {UserProfileComponent} from './profile/userProfile.component';
+import {UserProfilePicturesComponent} from './profile/userProfilePictures.component';
+
+
 import {ChangePasswordComponent} from './profile/changePassword/changePassword.component';
 import {UsersComponent} from './users/users.component';
 import {SingleUserComponent} from './users/singleUser.component';
 import {AddNoteComponent} from './users/addNote.component';
 import {ChooseDateComponent} from './users/chooseDate.component';
 import {UserPicturesComponent} from './users/userPictures.component';
-
-
 
 import {NewUserComponent} from './users/newUser.component';
 
@@ -31,6 +32,7 @@ export const USER_ROUTES: Routes = [
   {path: 'reset/:token', component: ResetPasswordComponent},
   {path: 'forms', component: UserFormsComponent, canActivate: [AuthGuardService]},
   {path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuardService]},
+  {path: 'profile/:id/userProfilePictures', component: UserProfilePicturesComponent, canActivate: [AuthGuardService]},
   {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
   {path: ':id', component: SingleUserComponent},
   {path: ':id/addnote', component: AddNoteComponent},

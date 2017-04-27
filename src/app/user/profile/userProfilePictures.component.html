@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="goldgradient beigeborder subnav">
+    <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
+    <h3 style="text-align: center;">Profile</h3>
+  </div>
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+    
+
+    <!--ALAN: These should be added in a modal:
+    <div>
+      <div>
+        <button type="button" md-button (click)="openDialog('_profilePicture')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+      </div>
+      <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
+      <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
+      <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
+      <button type="submit" class="done">Done</button>
+    </div>-->
+
+    <!-- {{companies|json}} -->
+    <!--id: {{fetchedCompanie._id}}</h4>-->
+    <!-- <h3>{{fetchedCompanie.name}}</h3>
+    <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}}</h6> -->
+
+    <div class="img-row phyto-ctnr">
+      <h3 style="padding: 0 15px !important;">Your Photos (Tap to Expand)</h3>
+      <div class="col-sm-3">
+        <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+      </div>
+      <div class="col-sm-9">
+        <div formArrayName="forms" class="phyto-ctnr">
+          <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
+            <div>
+              <div [formGroupName]="i">
+                <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
+                <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
+                <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
+                <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                <span class="glyphicon glyphicon-remove pull-right  dlt-img"  (click)="removeForm(i)"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </form>
+</div>

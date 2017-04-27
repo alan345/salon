@@ -43,7 +43,7 @@
         <div formArrayName="forms">
           <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
             <div *ngIf="i < maxPictureToShow">
-              
+
               <div [formGroupName]="i">
                 <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
                 <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
@@ -54,6 +54,7 @@
             </div>
           </div>
         </div>
+        
         <div *ngIf="fetchedUser.forms.length>maxPictureToShow">
           <a class="seemre" (click)="seeAllPicture()">See All</a>
         </div>
