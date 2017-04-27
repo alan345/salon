@@ -141,15 +141,13 @@ export class NewUserComponent implements OnInit {
 
     this.fetchedUser.profile = form.value.profile
 
-    // if(!this.fetchedUser.profile.parentUser.length) {
-    //   this.fetchedUser.profile.parentUser.push({_id : this.authService.currentUser.userId})
-    // }
 
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.router.navigate(['user'])
           },
           error => {console.log(error)}
         );
@@ -158,6 +156,7 @@ export class NewUserComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.router.navigate(['user'])
           },
           error => {console.log(error)}
         );
