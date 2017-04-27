@@ -29,6 +29,7 @@ export class UserProfileComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   maxPictureToShow=3;
+  instapic=1;
   companies=[{
     _id:'',
     name:'',
