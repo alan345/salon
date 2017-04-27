@@ -12,12 +12,11 @@
             <div class="row">
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <a [routerLink]="['/product']" routerLinkActive="active">
-                    <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome1[0].owner}}/{{fetchedObj.design.mainPage._imgHome1[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                  </a>
-                  <input *ngIf="isAdmin()" type="hidden" class="form-control"
-                    name="_imgHome1" [(ngModel)]="fetchedObj.design.mainPage._imgHome1[0]._id"
-                    #name="ngModel" required minlength="5">
+                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome1">
+                    <a [routerLink]="['/product']" routerLinkActive="active">
+                      <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                    </a>
+                  </div>
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome1')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/product']" routerLinkActive="active">
@@ -27,12 +26,11 @@
 
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <a [routerLink]="['/promotion']" routerLinkActive="active">
-                    <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome2[0].owner}}/{{fetchedObj.design.mainPage._imgHome2[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                  </a>
-                  <input *ngIf="isAdmin()" type="hidden" class="form-control"
-                    name="_imgHome2" [(ngModel)]="fetchedObj.design.mainPage._imgHome2[0]._id"
-                    #name="ngModel" required minlength="5">
+                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome2">
+                    <a [routerLink]="['/user']" routerLinkActive="active">
+                      <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                    </a>
+                  </div>
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome2')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/promotion']" routerLinkActive="active">
@@ -44,12 +42,11 @@
             <div class="row">
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <a [routerLink]="['/social']" routerLinkActive="active">
-                    <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome3[0].owner}}/{{fetchedObj.design.mainPage._imgHome3[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                  </a>
-                  <input *ngIf="isAdmin()" type="hidden" class="form-control"
-                    name="_imgHome3" [(ngModel)]="fetchedObj.design.mainPage._imgHome3[0]._id"
-                    #name="ngModel" required minlength="5">
+                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome3">
+                    <a [routerLink]="['/user']" routerLinkActive="active">
+                      <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                    </a>
+                  </div>
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome3')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <label class="homelabel">Social</label>
@@ -57,17 +54,15 @@
 
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <a [routerLink]="['/press']" routerLinkActive="active">
-                    <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome4[0].owner}}/{{fetchedObj.design.mainPage._imgHome4[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                  </a>
-                  {{trackinPage.lastVisitPagePressCount }} DORIANE
-                  <input *ngIf="isAdmin()" type="hidden" class="form-control"
-                    name="_imgHome4" [(ngModel)]="fetchedObj.design.mainPage._imgHome4[0]._id"
-                    #name="ngModel" required minlength="5">
+                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome4">
+                    <a [routerLink]="['/user']" routerLinkActive="active">
+                      <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                    </a>
+                  </div>
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome4')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/press']" routerLinkActive="active">
-                  <label class="homelabel">Press</label>
+                  <label class="homelabel">Press {{trackinPage.lastVisitPagePressCount }}</label>
                 </a>
               </div>
             </div>
@@ -75,28 +70,25 @@
             <div class="row">
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <a [routerLink]="['/video']" routerLinkActive="active">
-                    <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome5[0].owner}}/{{fetchedObj.design.mainPage._imgHome5[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                  </a>
-                  {{trackinPage.lastVisitPageVideoCount }} DORIANE
-                  <input *ngIf="isAdmin()" type="hidden" class="form-control"
-                    name="_imgHome5" [(ngModel)]="fetchedObj.design.mainPage._imgHome5[0]._id"
-                    #name="ngModel" required minlength="5">
+                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome5">
+                    <a [routerLink]="['/user']" routerLinkActive="active">
+                      <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                    </a>
+                  </div>
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome5')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/video']" routerLinkActive="active">
-                  <label class="homelabel">Videos</label>
+                  <label class="homelabel">Videos {{trackinPage.lastVisitPageVideoCount }} </label>
                 </a>
               </div>
 
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <a [routerLink]="['/user']" routerLinkActive="active">
-                    <img class="img-thumbnail img-responsive" src="./uploads/forms/{{fetchedObj.design.mainPage._imgHome6[0].owner}}/{{fetchedObj.design.mainPage._imgHome6[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                  </a>
-                  <input *ngIf="isAdmin()" type="hidden" class="form-control"
-                    name="_imgHome6" [(ngModel)]="fetchedObj.design.mainPage._imgHome6[0]._id"
-                    #name="ngModel" required minlength="5">
+                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome6">
+                    <a [routerLink]="['/user']" routerLinkActive="active">
+                      <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                    </a>
+                  </div>
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome6')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/user']" routerLinkActive="active">
