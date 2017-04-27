@@ -9,10 +9,12 @@ import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MdDialog, MdDialogRef, MdDialogConfig} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { CompanieAddUserDialog} from './companieAddUserDialog.component'
+
 
 @Component({
   selector: 'app-companie',
@@ -82,6 +84,19 @@ export class EditCompanieComponent implements OnInit {
         },
         error => {console.log(error)}
       )
+  }
+
+  openDialogAddUser(){
+    let config = new MdDialogConfig();
+    let dialogRef:MdDialogRef<CompanieAddUserDialog>= this.dialog.open(CompanieAddUserDialog, config)
+    dialogRef.componentInstance.fetchedCompanie = this.fetchedCompanie
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        // this.onDelete(this.fetchedPress._id)
+        // this.router.navigate(['press']);
+      }
+    })
+
   }
   onDelete(id: string) {
     this.companieService.deleteCompanie(id)

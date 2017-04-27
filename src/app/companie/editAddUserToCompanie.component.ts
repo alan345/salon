@@ -1,10 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-
+import {ChangeDetectionStrategy, EventEmitter, Component, OnInit, Input, Output } from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {CompanieService} from './companie.service';
-
 import {Companie} from './companie.model';
-import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
@@ -17,12 +14,14 @@ import {UserService} from '../user/user.service';
 
 
 @Component({
-  selector: 'app-companie',
+  selector: 'editAddUserToCompanie',
   templateUrl: './editAddUserToCompanie.component.html',
   styleUrls: ['./companie.component.css'],
 })
 export class EditAddUserToCompanieComponent implements OnInit {
-  fetchedCompanie = {
+  @Output() onPassForm = new EventEmitter<any>();
+
+  @Input() fetchedCompanie = {
     _id:'',
     address:{
       address : '',
@@ -159,6 +158,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     this.companieService.updateCompanie(this.fetchedCompanie)
       .subscribe(
         res => {
+          this.onPassForm.emit();
           this.toastr.success('Great!', res.message)
         },
         error => {console.log(error)}
@@ -178,20 +178,10 @@ export class EditAddUserToCompanieComponent implements OnInit {
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(2)]],
             lastName: ['', [Validators.required, Validators.minLength(2)]],
-            // parentUser: this._fb.array([]),
-            // hair: this._fb.group({
-            //     hairTexture: ['', <any>Validators.required],
-            //     hairDensity: ['', <any>Validators.required],
-            //     hairPorosity: ['', <any>Validators.required],
-            //
-            // })
+
         })
     })
 
-
-    this.activatedRoute.params.subscribe((params: Params) => {
-      this.getCompanie(params['id'])
-    })
   }
 
   onDelete(id: string) {
@@ -212,23 +202,23 @@ export class EditAddUserToCompanieComponent implements OnInit {
     this.location.back();
   }
 
-  getCompanie(id) {
-
-    this.activatedRoute.params
-      .switchMap((params: Params) => this.companieService.getCompanie(params['id']))
-  //    .subscribe((hero: Hero) => this.hero = hero);
-
-    //this.companieService.getCompanie(id)
-      .subscribe(
-        res => {
-        //  console.log("companies");
-        //  console.log(res);
-          this.fetchedCompanie = res
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+  // getCompanie(id) {
+  //
+  //   this.activatedRoute.params
+  //     .switchMap((params: Params) => this.companieService.getCompanie(params['id']))
+  // //    .subscribe((hero: Hero) => this.hero = hero);
+  //
+  //   //this.companieService.getCompanie(id)
+  //     .subscribe(
+  //       res => {
+  //       //  console.log("companies");
+  //       //  console.log(res);
+  //         this.fetchedCompanie = res
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
 }

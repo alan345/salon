@@ -22,7 +22,7 @@
           >
           <!-- <div ngModelGroup="address"> -->
           <div formGroupName="address">
-            
+
             <input
               type="text"
               class="form-control"
@@ -68,6 +68,8 @@
       </div>
       <div class="sln-stymng phyto-ctnr">
         <h3>Manage Stylists:</h3>
+        <button type="button" md-button (click)="openDialogAddUser()" class="addpic-squr">Add New <i class="fa fa-plus"></i></button>
+
         <a [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]"  routerLinkActive="active">Add New  <i class="fa fa-plus"></i></a>
         <div *ngFor="let user of fetchedCompanie._users" class="sln-styone">{{ user.profile.name}}</div>
       </div>
