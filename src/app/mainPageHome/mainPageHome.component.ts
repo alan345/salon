@@ -7,7 +7,7 @@ import { EditOptionsComponentDialog }  from '../modalLibrary/modalLibrary.compon
 import { AdminService} from '../admin/services/admin.service';
 import { VideoService} from '../video/video.service';
 import { PressService} from '../press/press.service';
-
+import { Design } from './design.model';
 
 @Component({
   selector: 'app-admin',
@@ -16,7 +16,7 @@ import { PressService} from '../press/press.service';
 })
 export class MainPageHomeComponent implements OnInit {
 
-  design = {
+  design  = {
     mainPage:{
       _imgHome1:[{
         _id:'',

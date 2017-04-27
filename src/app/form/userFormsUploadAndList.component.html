@@ -1,5 +1,10 @@
 
-<div>
-  <app-form (onUploadFinisedChildToParent)="onUploadFinisedChildToParent()"></app-form>
-  <app-user-form></app-user-form>
-<div>
+
+<md-tab-group>
+  <md-tab label="Load">
+    <app-form (onUploadFinisedChildToParent)="onUploadFinisedChildToParent()"></app-form>
+  </md-tab>
+  <md-tab label="Medias">
+    <app-user-form></app-user-form>
+  </md-tab>
+</md-tab-group>
