@@ -33,19 +33,9 @@ export class PressSingleComponent implements OnInit {
     _id: '',
     title: '',
     link: '',
-    formPDF: {
-      _id:'',
-      owner:'',
-      imagePath:''
-    },
-    form: {
-      _id:'',
-      owner:'',
-      imagePath:''
-    },
-    owner: {
-      _id:''
-    }
+    formPDF: [],
+    form: [],
+    owner: []
   }
 
   public myForm: FormGroup;
@@ -67,12 +57,6 @@ export class PressSingleComponent implements OnInit {
       _id: [''],
       title: ['', [Validators.required, Validators.minLength(5)]],
       link: [''],
-      formPDF: this._fb.group({
-        _id : ['', [Validators.required, Validators.minLength(5)]]
-      }),
-      form:  this._fb.group({
-        _id : ['', [Validators.required, Validators.minLength(5)]]
-      })
     });
 
     //this.addAddress();
@@ -134,12 +118,13 @@ export class PressSingleComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        this.fetchedPress[positionImage] = result
+        this.fetchedPress[positionImage][0] = result
       }
     })
   }
 
-  save(press) {
+  save() {
+    let press = this.fetchedPress
     if(press._id) {
       this.pressService.updatePress(press)
         .subscribe(

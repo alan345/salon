@@ -12,8 +12,9 @@
         <td class="prss-cnt">
           <div class="prss-wrpr">
             <button class="editicon" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
-            <div class="img-wrpr">
-              <img class="img-responsive" src="./uploads/forms/{{press.form[0].owner}}/{{press.form[0].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+
+            <div *ngFor="let form of press.form" class="img-wrpr">
+              <img class="img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             </div>
             <div class="prssttl-wrpr">
               <p class="prss-ttl">{{press.title}}</p>
@@ -27,8 +28,8 @@
   </table>
   <div class="has-text-centered">
       <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
-    
+
       <!-- <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>-->
-    
+
   </div>
 </div>
