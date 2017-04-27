@@ -25,6 +25,10 @@ a.follow {
     float: left;
     max-width: 75%;
 }
+.follow img {
+    width: 50px;
+    float: left;
+}
 
 @media screen and (min-width: 494px) {
 
