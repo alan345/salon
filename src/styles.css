@@ -288,6 +288,9 @@ a.seemre {
     height: 150px;
     width: auto;
 }
+.pic-list div {
+    position: relative;
+}
 a.seemre {
   margin-top: -26px;
   float: right;
