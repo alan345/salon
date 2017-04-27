@@ -56,65 +56,14 @@ router.use('/', function (req, res, next) {
 
 
 
-// to be depracted. see in routes/options
-// router.get('/singleFormFromOptions/:typeOption/:namePage/:positionImage', function (req, res, next) {
-//   Options.findOne({}, function (err, obj) {
-//     if (err) {
-//       return res.status(403).json({
-//         title: 'There was a problem',
-//         error: err
-//       });
-//     }
-//     if (!obj) {
-//       return res.status(403).json({
-//         title: 'Wrong Email or Password',
-//         error: {message: 'Please check if your password or email are correct'}
-//       })
-//     }
-//     let idForm = obj[req.params.typeOption][req.params.namePage][req.params.positionImage]
-//     Form.findById((idForm), function (err, form) {
-//       if (err) {
-//         return res.status(500).json({
-//           message: 'An error occured',
-//           err: err
-//         })
-//       }
-//       if (!form) {
-//         return res.status(404).json({
-//           title: 'No form found',
-//           error: {message: 'Form not found!'}
-//         });
-//       }
-//       res.status(200).json({
-//         obj: form
-//       });
-//     });
-//
-//   })
-//
-// });
 
-
-
-
-// getting user forms but NOT necessary Owner
-// router.get('/form/:id', function (req, res, next) {
-//   User.find(({owner: req.params.id}), function (err, forms) {
-//     if (err) {
-//       return res.status(404).json({
-//         message: 'An error occured',
-//         err: err
-//       })
-//     }
-//     res.status(200).json({
-//       message: 'Success',
-//       forms: forms
-//     });
-//   })
-// });
 
 // getting user forms to display them on front end
-router.get('/:id', function (req, res, next) {
+router.get('/:id/page/:page', function (req, res, next) {
+  var itemsPerPage = 5
+  var currentPage = Number(req.params.page)
+  var pageNumber = currentPage - 1
+  var skip = (itemsPerPage * pageNumber)
 
   User.findById(({_id: req.params.id}), function (err) {
     if (err) {
@@ -122,20 +71,38 @@ router.get('/:id', function (req, res, next) {
         message: 'No forms found for this user',
         err: err
       })
-    }
-    else {
-      Form.find(({owner: req.params.id}), function (err, forms) {
-        if (err) {
-          return res.status(404).json({
-            message: 'An error occured',
-            err: err
-          })
-        }
-        res.status(200).json({
-          message: 'Success',
-          forms: forms
-        });
-      })
+    } else {
+
+        Form
+        .find({owner: req.params.id})
+        .limit(itemsPerPage)
+        .skip(skip)
+        .exec(function (err, item) {
+          if (err) {
+            return res.status(404).json({
+              message: 'No results',
+              err: err
+            })
+          } else {
+            Form
+            .find({owner: req.params.id})
+            .count()
+            .exec(function (err, count) {
+            res.status(200).json({
+                paginationData : {
+                  totalItems: count,
+                  currentPage : currentPage,
+                  itemsPerPage : itemsPerPage
+                },
+                data: item
+              })
+            })
+          }
+        })
+
+
+
+
     }
   })
 });

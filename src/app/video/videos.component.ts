@@ -36,11 +36,6 @@ export class VideosComponent implements OnInit {
     totalItems: 0
   };
 
-  // categories1 = {
-  //   'phyto' : true,
-  //   'phytoSpecific' : false,
-  //   'subtil' : true
-  // }
   categories1 = [{
       name:'phyto',
       selected : false

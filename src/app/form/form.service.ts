@@ -25,23 +25,16 @@ export class FormService {
     private authService: AuthService) {}
 
   // get user forms from backend in order to display them in the front end
-  getUserForms(id: String) {
+  getUserForms(page: number, id: String) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     let options = new RequestOptions({ headers: headers});
 
-    return this.http.get(this.url + 'forms/' + id, options)
+    return this.http.get(this.url + 'forms/' + id + '/page/' + page, options)
       .timeout(8000)
       .map((response: Response) => {
 
-        const forms = response.json().forms;
-        let fetchedForms = [];
-        for (let form of forms) {
-          fetchedForms.push(form);
-        }
-
-        this.forms = fetchedForms;
-        return fetchedForms;
+        return response.json();
       })
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -103,17 +96,17 @@ export class FormService {
   }
 
   //must be depracted. See options service
-  getSingleFormFromOptions(typeOption, namePage, positionImage) {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
-    return this.http.get(this.url + 'forms/singleFormFromOptions/' + typeOption  + '/' + namePage + '/' + positionImage, {headers: headers})
-      .map((response: Response) => {
-        this.singleForm = response.json();
-        return this.singleForm;
-      })
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
-  }
+  // getSingleFormFromOptions(typeOption, namePage, positionImage) {
+  //   let headers = new Headers({'Content-Type': 'application/json'});
+  //   headers.append('Authorization', '' + this.token);
+  //   return this.http.get(this.url + 'forms/singleFormFromOptions/' + typeOption  + '/' + namePage + '/' + positionImage, {headers: headers})
+  //     .map((response: Response) => {
+  //       this.singleForm = response.json();
+  //       return this.singleForm;
+  //     })
+  //     .catch((error: Response) => {
+  //       this.errorService.handleError(error.json());
+  //       return Observable.throw(error.json());
+  //     });
+  // }
 }

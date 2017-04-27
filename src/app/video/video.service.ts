@@ -25,6 +25,7 @@ export class VideoService {
     private authService: AuthService) {}
 
 
+
   getVideos(page: number, search) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);

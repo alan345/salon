@@ -120,9 +120,9 @@ export class FormComponent implements OnInit, AfterViewInit {
   }
   // focus on first input box after the view is initialized
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.renderer.invokeElementMethod(this.textOne.nativeElement, 'focus', []);
-    }, 50);
+    // setTimeout(() => {
+    //   this.renderer.invokeElementMethod(this.textOne.nativeElement, 'focus', []);
+    // }, 50);
   }
 
   isLoggedIn() {

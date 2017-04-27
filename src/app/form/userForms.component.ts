@@ -14,22 +14,40 @@ export class UserFormsComponent implements OnInit {
   fetchedForms = [];
 
 
+  paginationData = {
+    currentPage: 1,
+    itemsPerPage: 0,
+    totalItems: 0
+  };
+
   constructor(
-      private formService: FormService,
-      private activatedRoute: ActivatedRoute,
-      private authService: AuthService,
-      ) {}
+    private formService: FormService,
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService,
+  ) {}
 
   ngOnInit() {
+
+      this.getUserForms(this.paginationData.currentPage)
+
+  }
+
+  getPage(page: number) {
+    this.getUserForms(page);
+  }
+
+  getUserForms(page){
     this.activatedRoute.params.subscribe((params: Params) => {
       let id=this.authService.currentUser.userId
       if(params['id']) {
         id = params['id']
       }
-
-      this.formService.getUserForms(id)
+      this.formService.getUserForms(page, id)
         .subscribe(
-          forms => this.fetchedForms = forms,
+          res => {
+            this.paginationData = res.paginationData;
+            this.fetchedForms = res.data
+          },
           error => console.log(error))
     })
   }
