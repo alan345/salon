@@ -33,7 +33,7 @@
                   <input *ngIf="isAdmin()" type="hidden" class="form-control"
                     name="_imgHome2" [(ngModel)]="fetchedObj.design.mainPage._imgHome2[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome2')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
+                  <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome2')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/promotion']" routerLinkActive="active">
                   <label class="homelabel">Promotions</label>
@@ -50,7 +50,7 @@
                   <input *ngIf="isAdmin()" type="hidden" class="form-control"
                     name="_imgHome3" [(ngModel)]="fetchedObj.design.mainPage._imgHome3[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome3')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
+                  <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome3')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <label class="homelabel">Social</label>
               </div>
@@ -64,7 +64,7 @@
                   <input *ngIf="isAdmin()" type="hidden" class="form-control"
                     name="_imgHome4" [(ngModel)]="fetchedObj.design.mainPage._imgHome4[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome4')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
+                  <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome4')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/press']" routerLinkActive="active">
                   <label class="homelabel">Press</label>
@@ -82,7 +82,7 @@
                   <input *ngIf="isAdmin()" type="hidden" class="form-control"
                     name="_imgHome5" [(ngModel)]="fetchedObj.design.mainPage._imgHome5[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome5')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
+                  <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome5')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/video']" routerLinkActive="active">
                   <label class="homelabel">Videos</label>
@@ -97,7 +97,7 @@
                   <input *ngIf="isAdmin()" type="hidden" class="form-control"
                     name="_imgHome6" [(ngModel)]="fetchedObj.design.mainPage._imgHome6[0]._id"
                     #name="ngModel" required minlength="5">
-                  <button *ngIf="isAdmin()" type="button" md-button (click)="openDialog('_imgHome6')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
+                  <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome6')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/user']" routerLinkActive="active">
                   <label class="homelabel">Clients</label>
