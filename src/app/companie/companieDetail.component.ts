@@ -16,6 +16,7 @@ import { Form } from '../user/users/user.model'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 
+
 @Component({
   selector: 'app-companie',
   templateUrl: './companieDetail.component.html',
@@ -64,6 +65,14 @@ export class CompanieDetailComponent implements OnInit {
   goBack() {
     this.location.back();
   }
+
+  removeForm(i: number) {
+      this.fetchedCompanie.forms.splice(i, 1)
+      const control = <FormArray>this.myForm.controls['forms'];
+      control.removeAt(i)
+      this.save()
+  }
+
   onDelete(id: string) {
     this.companieService.deleteCompanie(id)
       .subscribe(
@@ -77,7 +86,15 @@ export class CompanieDetailComponent implements OnInit {
       );
   }
 
-  save(form) {}
+  save() {
+    this.companieService.updateCompanie(this.fetchedCompanie)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+        },
+        error => {console.log(error)}
+      )
+  }
 
   addForm(form) {
     const control = <FormArray>this.myForm.controls['forms'];
@@ -99,13 +116,7 @@ export class CompanieDetailComponent implements OnInit {
       if(result) {
         this.addForm(result)
         this.fetchedCompanie.forms.push(result)
-        this.companieService.updateCompanie(this.fetchedCompanie)
-          .subscribe(
-            res => {
-              this.toastr.success('Great!', res.message)
-            },
-            error => {console.log(error)}
-          )
+        this.save()
       }
     })
   }
