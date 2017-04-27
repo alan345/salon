@@ -19,10 +19,11 @@
         </div>
       </div>
       <div class="col-sm-8 form-group prf-chal">
-        <div *ngFor="let companie of companies">
+        <div *ngFor="let companie of companies" class="act-chal">
           <h3>{{companie.name}}</h3>
           <h6>{{companie.address.address}}, {{companie.address.city}}, {{companie.address.state}} {{companie.address.zip}}</h6>
         </div>
+        <div class="chal-rslt"><p>More Features coming soon!</p></div>
       </div>
     </div>
     
