@@ -21,7 +21,7 @@ var user = new Schema({
     // you might want more user roles, so an array would be fine
     role: {type: Array, default: ['user']},
     profile : {
-      _profilePicture : {type: Schema.Types.ObjectId, ref: 'Form'},
+      _profilePicture : [{type: Schema.Types.ObjectId, ref: 'Form'}],
       parentUser: [{type: Schema.Types.ObjectId, ref: 'User'}],
       name: {type: String, default: ['']},
       title: {type: String, default: ['']},
