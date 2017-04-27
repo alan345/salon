@@ -1,59 +1,41 @@
-.promo-cnt {
-    width: 100% !important;
-    display: block;
+.crrt-win {
+    padding: 15px;
 }
-.promo-cnt .editicon {
-    position: relative !important;
-    padding-top: 5px !important;
+.crrt-win h3 {
+    text-align: center;
 }
-.dlticon {
-    position: relative;
-    top: 3px;
-    right: 3px;
-    padding: 8px 13px 7px;
-    background-color: red;
-    color: #ffffff;
-    outline: none !important;
-    border: none;
-    float: right;
+.crrt-wincnt {
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 10px 10px 5px;
 }
-img.promo-img {
-    width: 100% !important;
-    vertical-align: top !important;
-    top: 0 !important;
-    cursor: default !important;
+.done {
+    width: 100%;
+    margin: 15px 0;
+    padding: 15px !important;
 }
-.prmimg-cnt img {
-    max-width: 100%;
+.prevwin {
+    padding: 15px;
 }
-.prmimg-cnt .addpic-squr {
-    margin-top: 15px !important;
-    height: 75px !important;
-    width: 100% !important;
+a.follow {
+    margin-top: 15px;
 }
-.add-prm {
-    width: 100% !important;
-    margin-bottom: 15px !important;
-    padding: 20px 10px;
-    background-color: #999999;
-    color: #ffffff;
-    outline: none !important;
-    border: 1px dashed #0a2f87;
+.follow p {
+    color: indianred;
+    float: left;
+    max-width: 75%;
 }
 
-@media screen and (min-width: 768px) {
-  
-#strt-dt {
-  padding-left: 0 !important;
-}
-#end-dt {
-  padding-right: 0 !important;
+@media screen and (min-width: 494px) {
+
+.follow p {
+    margin: 15px 0;
 }
 }
 
-@media screen and (max-width: 767px) {
-  
-#strt-dt, #end-dt {
-  padding: 0 !important;
+@media screen and (max-width: 493px) {
+
+.follow p {
+    margin: 5px;
 }
 }
