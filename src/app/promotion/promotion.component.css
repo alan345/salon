@@ -1,9 +1,11 @@
+.prm-wrpr {
+    position: relative;
+}
 .promo-cnt {
     width: 100% !important;
     display: block;
 }
 .promo-cnt .editicon {
-    position: relative !important;
     padding-top: 5px !important;
 }
 .dlticon {
