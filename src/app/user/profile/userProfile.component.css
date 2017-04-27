@@ -1,8 +1,33 @@
-.prf-basic {
-    padding: 5px 2.5px 5px 5px;
-}
 .prf-cpt {
     padding: 15px;
     background-color: #231f20;
     color: #ffffff;
+}
+.prf-chal {
+    background-color: #fff;
+}
+
+@media screen and (min-height: 768px) {
+  
+#stypro {
+    display: table;
+    padding: 2.5px;
+}
+.prf-basic {
+    padding: 0 2.5px 0 0;
+    display: table-cell;
+    float: none;
+}
+.prf-chal {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+}
+
+@media screen and (max-height: 767px) {
+  
+.prf-basic {
+    padding: 5px;
+}
 }
