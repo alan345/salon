@@ -1,6 +1,6 @@
 .phyto-topnav {
     height: 100% !important;
-    background-color: #efe9df;
+    background-color: #efe9df !important;
 }
 .done, .pas-done {
     margin: 15px 0px;
