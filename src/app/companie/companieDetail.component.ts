@@ -24,7 +24,7 @@ import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.compone
 })
 export class CompanieDetailComponent implements OnInit {
   maxPictureToShow=3
-  fetchedCompanie = {
+  fetchedCompanie : Companie = {
     _id:'',
     forms:[],
     name:'',

@@ -1,4 +1,4 @@
-
+import { Form } from '../form/form.model'
 
 export interface Press {
   _id: string;
@@ -12,12 +12,8 @@ export interface Press {
   //   dateEnd:Date;
   // }
 }
-//
-export interface Form {
-  _id: string;
-  owner: string;
-  imagePath: string;
-}
+
+
 export interface Owner {
   _id: string;
 }
