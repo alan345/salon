@@ -64,7 +64,8 @@
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome4')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/press']" routerLinkActive="active">
-                  <label class="homelabel">Press
+                  <label class="homelabel">
+                    <div style="float:right;">Press</div>
                     <div *ngIf="trackinPage.lastVisitPagePressCount > -1" class="notif">
                       {{trackinPage.lastVisitPagePressCount }}
                     </div>
@@ -85,7 +86,8 @@
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome5')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/video']" routerLinkActive="active">
-                  <label class="homelabel">Videos
+                  <label class="homelabel">
+                    <div style="float:right;">Videos</div>
                     <div *ngIf="trackinPage.lastVisitPageVideoCount > -1" class="notif">
                       {{trackinPage.lastVisitPageVideoCount }}
                     </div>
