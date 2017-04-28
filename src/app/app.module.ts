@@ -4,6 +4,30 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule, RequestOptions, Http} from '@angular/http';
 import {AppComponent} from './app.component';
 
+
+import { MaterialModule } from '@angular/material';
+import {Ng2PaginationModule} from 'ng2-pagination';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ProgressBarModule} from 'ng2-progress-bar';
+import {RouterModule} from '@angular/router';
+import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastModule, ToastOptions} from 'ng2-toastr';
+
+import {AuthHttp, AuthConfig} from 'angular2-jwt';
+
+
+
+import {  ApplicationRef } from '@angular/core';
+
+let options = <ToastOptions> {
+  animate: 'flyRight',
+  positionClass: 'toast-top-right',
+};
+
+
+
 import {NavbarComponent} from './navbar/navbar.component';
 import {SideNavbarComponent} from './sideNavbar/sideNavbar.component';
 
@@ -56,15 +80,13 @@ import {UserPicturesComponent} from './user/users/userPictures.component';
 import {UsersComponent} from './user/users/users.component';
 import {UserService} from './user/user.service';
 
-import {RouterModule} from '@angular/router';
+
 import {AppRoutingModule} from './appRouting.module';
-import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
+
 import {AuthGuardService} from './auth/authguard.service';
 import {AuthService} from './auth/auth.service';
 import {ErrorService} from './errorHandler/error.service';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ToastModule, ToastOptions} from 'ng2-toastr';
 
 import {LoginComponent} from './user/login/login.component';
 import {ErrorComponent} from './errorHandler/error.component';
@@ -94,7 +116,7 @@ import {FormService} from './form/form.service';
 
 
 
-import {ProgressBarModule} from 'ng2-progress-bar';
+
 import {ErrorPageComponent} from './errorPage/errorPage.component';
 
 import {AdminPageComponent} from './admin/adminPage/adminPage.component';
@@ -123,11 +145,6 @@ import {ProfileService} from "./user/profile/profile.service";
 
 
 import { ChangePasswordComponent } from './user/profile/changePassword/changePassword.component';
-import { MaterialModule } from '@angular/material';
-import {Ng2PaginationModule} from 'ng2-pagination';
-
-
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -137,16 +154,7 @@ import {UserFormsUploadAndList} from './form/userFormsUploadAndList.component';
 
 
 
-import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
-
-
-import {  ApplicationRef } from '@angular/core';
-
-let options = <ToastOptions> {
-  animate: 'flyRight',
-  positionClass: 'toast-top-right',
-};
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp( new AuthConfig({}), http, options);
@@ -170,10 +178,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PressSingleComponent,
 
 
-    VideoDeleteDialog,
-    VideoComponent,
-    VideosComponent,
-    VideoSingleComponent,
+    // VideoDeleteDialog,
+    // VideoComponent,
+    // VideosComponent,
+    // VideoSingleComponent,
 
     PromotionDeleteDialog,
     PromotionComponent,
@@ -247,7 +255,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AuthService,
     ErrorService,
     CompanieService,
-    VideoService,
+  //  VideoService,
     MainPageHomeService,
     PressService,
     FormService,
@@ -270,7 +278,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SubmitPicDialog,
     PromotionDeleteDialog,
     EditOptionsComponentDialog,
-    VideoDeleteDialog
+  //  VideoDeleteDialog
   ],
 
   bootstrap: [AppComponent],
