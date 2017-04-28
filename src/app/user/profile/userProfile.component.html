@@ -48,26 +48,27 @@
 
     <div class="img-row phyto-ctnr">
       <h3 style="padding: 0 15px !important;">Your Photos (Tap to Expand)</h3>
-      <div class="col-sm-3">
-        <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
-      </div>
-      <div class="flt-lft">
-        <div formArrayName="forms" class="phyto-ctnr">
-          <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
-            <div *ngIf="i < maxPictureToShow">
-              <div [formGroupName]="i">
-                <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
-                <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
-                <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
-                <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                <span class="glyphicon glyphicon-remove pull-right  dlt-img"  (click)="removeForm(i)"></span>
+      <div class="phyto-ctnr">
+        <div class="col-sm-3">
+          <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+        </div>
+        <div class="flt-lft">
+          <div formArrayName="forms" class="phyto-ctnr">
+            <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
+              <div *ngIf="i < maxPictureToShow">
+                <div [formGroupName]="i">
+                  <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
+                  <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
+                  <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
+                  <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  <span class="glyphicon glyphicon-remove pull-right  dlt-img"  (click)="removeForm(i)"></span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div *ngIf="fetchedUser.forms.length>maxPictureToShow">
+      <div *ngIf="fetchedUser.forms.length>maxPictureToShow" class="phyto-ctnr single-wrpr">
         <a class="seemre" (click)="seeAllPicture()">See All</a>
       </div>
     </div>
