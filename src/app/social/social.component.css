@@ -9,6 +9,10 @@
     margin: 0 auto;
     padding: 10px 10px 5px;
 }
+.crrt-winpic {
+    padding: 15px 0 0 16px;
+    height: 224px;
+}
 .done {
     width: 100%;
     margin: 15px 0;
@@ -41,5 +45,29 @@ a.follow {
 
 .follow p {
     margin: 5px;
+}
+}
+
+@media screen and (min-width: 746px) {
+.prevwin-pics {
+    height: 350px;
+}
+}
+
+@media screen and (min-width: 572px) and (max-width: 745px) {
+.prevwin-pics {
+    height: 440px;
+}
+}
+
+@media screen and (min-width: 381px) and (max-width: 571px) {
+.prevwin-pics {
+    height: 700px;
+}
+}
+
+@media screen and (max-width: 380px) {
+.prevwin-pics {
+    height: 1400px;
 }
 }
