@@ -65,7 +65,7 @@ export class PressesComponent implements OnInit {
     this.getPresses(page);
   }
 
-  getPresses(page) {
+  getPresses(page: number) {
     this.pressService.getPresses(page)
       .subscribe(
         res => {
@@ -80,7 +80,7 @@ export class PressesComponent implements OnInit {
 
 
   ngOnInit() {
-    let userId = this.authService.currentUser.userId
+    let userId : string = this.authService.currentUser.userId
     this.userService.getUser(userId)
       .subscribe(
         res => {
@@ -100,13 +100,3 @@ export class PressesComponent implements OnInit {
       )
   }
 }
-
-
-// @Component({
-//   selector: 'press-dialog',
-//   templateUrl: './pressDialog.component.html',
-// })
-// export class PressDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<PressDialogComponent>) {}
-//
-// }
