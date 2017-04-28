@@ -42,21 +42,22 @@ a.shopbutton {
 }
 
 @media screen and (min-width: 768px) {
-  .topnav-ad {
+
+.topnav-ad {
     width: 80%;
     float: left;
 }
-  }
-  a.shopbutton {
+a.shopbutton {
     margin: 15px 0;
-  }
+}
 }
 
 @media screen and (max-width: 767px) {
-  .topnav-ad {
+
+.topnav-ad {
     width: 90%;
-  }
-  a.shopbutton {
+}
+a.shopbutton {
     width: 150px;
     margin: 15px auto;
     display: block;
