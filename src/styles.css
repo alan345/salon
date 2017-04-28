@@ -272,8 +272,6 @@ th, td {
   justify-content: center;
 }
 .pic-list img {
-  height: 150px;
-  width: auto;
   flex: none;
   max-width: none !important;
 }
@@ -364,7 +362,7 @@ a.seemre {
 
 .pic-list {
     float: left;
-    margin: 15px 0 15px 15px;
+    margin: 15px 0;
 }
 .justkd, .dltfrv {
   width: 100%;
@@ -385,6 +383,10 @@ a.seemre {
 .input-group {
     width: 290px;
 }
+.pic-list img {
+  height: 150px;
+  width: auto;
+}
 }
 
 @media screen and (max-width: 499px) {
@@ -395,5 +397,9 @@ a.seemre {
 }
 .input-group {
     width: 100% !important;
+}
+.pic-list img {
+  height: auto;
+  width: 100%;
 }
 }
