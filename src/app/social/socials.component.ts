@@ -33,7 +33,6 @@ export class SocialsComponent implements OnInit {
   openDialog() {
     let dialogRef = this.dialog.open(SubmitPicDialog)
     dialogRef.afterClosed().subscribe(result => {
-
     })
   }
 
