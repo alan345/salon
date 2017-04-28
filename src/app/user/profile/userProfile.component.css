@@ -9,10 +9,16 @@
   padding: 0 !important;
 }
 .prf-cpt .editicon {
-  right: 3px !important;
-  left: inherit !important;
-  background: none !important;
-  outline: none !important;
+    right: 3px !important;
+    top: 0 !important;
+    left: inherit !important;
+    background: none !important;
+    outline: none !important;
+    height: 100%;
+    padding: 15px !important;
+}
+.prf-cpt p {
+    margin-bottom: 0 !important;
 }
 .chal-rslt {
   bottom: 0;
@@ -68,6 +74,18 @@
     width: 100%;
     height: 100%;
     z-index: 999999;
+}
+.chng-pic img {
+    width: 50%;
+    float: left;
+    padding: 0 15px 15px 0;
+}
+.browse {
+    font-family: inherit !important;
+    text-transform: uppercase !important;
+    font-size: 12px !important;
+    border: 1px solid !important;
+    color: #0A2F87 !important;
 }
 
 @media screen and (min-height: 768px) {
