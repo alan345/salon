@@ -13,12 +13,19 @@ import { Form } from '../form/form.model'
 export interface User {
   _id: string;
   email: string;
-  lastVisit: {};
-  addresses: Address[];
+  lastVisit: Date;
+
   forms: Form[];
   profile: Profile;
   notes:Note[];
 }
+
+
+// export interface Form {
+//   _id: string;
+//   owner: string;
+//   imagePath: string;
+// }
 
 
 export interface Profile {

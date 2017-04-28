@@ -31,11 +31,7 @@ export class UserPicturesComponent implements OnInit {
     _id: '',
     lastVisit: new Date,
     email:'',
-    forms:[{
-      _id:'',
-      owner:'',
-      imagePath:'',
-    }],
+    forms:[],
     profile:{
       name:'',
       hair:{
@@ -45,10 +41,7 @@ export class UserPicturesComponent implements OnInit {
       }
 
     },
-    notes:[{
-      text:'',
-      dateNote: ''
-    }]
+    notes:[]
   }
 
   public myForm: FormGroup;
