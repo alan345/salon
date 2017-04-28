@@ -18,6 +18,7 @@
           <label class="phyto-ctnr">Or Upload a PDF Version</label>
           <button type="button" md-button (click)="openDialog('formPDF')">Upload</button>
         </div>
+        
         <div *ngFor="let singleFormPDF of fetchedPress.formPDF" class="tagz">
            <span class="tagz-name">{{singleFormPDF.imagePath}}</span>
            <i class="tagz-icn fa fa-times pull-right"></i>
