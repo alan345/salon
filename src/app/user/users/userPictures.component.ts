@@ -24,10 +24,9 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 
 
 export class UserPicturesComponent implements OnInit {
-  //fetchedUser = new User()
-  //fetchedUser : User;
+
   maxPictureToShow= 3
-  
+
   fetchedUser : User = {
     _id: '',
     lastVisit: new Date,
