@@ -12,7 +12,7 @@
 
         <div class="form-group prmimg-cnt">
 
-          <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion.form._id">
+          <!-- <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion.form._id"> -->
           <div *ngFor="let singleForm of fetchedPromotion.form">
             <img class="promo-img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
           </div>

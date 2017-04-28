@@ -13,7 +13,7 @@ export class UserFormsComponent implements OnInit {
   @Output() onPassForm = new EventEmitter<any>();
   fetchedForms = [];
 
-
+  loading: boolean;
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,
