@@ -19,7 +19,7 @@
           <button type="button" md-button (click)="openDialog('formPDF')">Upload</button>
         </div>
         <div *ngFor="let singleFormPDF of fetchedPress.formPDF" class="tagz">
-           <span class="tagz-name">Name-of-PDF.pdf</span>
+           <span class="tagz-name">{{singleFormPDF.imagePath | truncate : 20}}</span>
            <i class="tagz-icn fa fa-times pull-right"></i>
           <!--< width="150" src="./uploads/forms/{{singleFormPDF.owner}}/{{singleFormPDF.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">-->
         </div>
