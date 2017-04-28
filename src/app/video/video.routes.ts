@@ -10,15 +10,9 @@ import {VideoSingleComponent} from './videoSingle.component';
 //import {NewVideoComponent} from './newVideo.component';
 
 
-const routes: Routes = [
+export const VIDEOS: Routes = [
   {path: '', component: VideosComponent},
   {path: 'videoSingle', component: VideoSingleComponent},
   {path: 'videoSingle/:id', component: VideoSingleComponent},
   {path: ':id', component: VideoSingleComponent},
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class VideoRoutingModule {}

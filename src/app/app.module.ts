@@ -178,10 +178,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PressSingleComponent,
 
 
-    // VideoDeleteDialog,
-    // VideoComponent,
-    // VideosComponent,
-    // VideoSingleComponent,
+    VideoDeleteDialog,
+    VideoComponent,
+    VideosComponent,
+    VideoSingleComponent,
 
     PromotionDeleteDialog,
     PromotionComponent,
@@ -255,7 +255,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AuthService,
     ErrorService,
     CompanieService,
-  //  VideoService,
+   VideoService,
     MainPageHomeService,
     PressService,
     FormService,
@@ -278,7 +278,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SubmitPicDialog,
     PromotionDeleteDialog,
     EditOptionsComponentDialog,
-  //  VideoDeleteDialog
+    VideoDeleteDialog
   ],
 
   bootstrap: [AppComponent],
