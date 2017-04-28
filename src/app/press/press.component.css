@@ -23,6 +23,7 @@
 .prssttl-wrpr {
     bottom: 0 !important;
     position: absolute;
+    max-width: 80%;
 }
 .upld-pdf input {
     width: 80%;
