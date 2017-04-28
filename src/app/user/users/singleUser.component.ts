@@ -9,8 +9,8 @@ import { Inject, forwardRef} from '@angular/core';
 import { MdDialog, MdDialogRef} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { User } from './user.model'
-import { Form } from './user.model'
+import { User } from '../user.model'
+import { Form } from '../../form/form.model'
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 
@@ -26,7 +26,7 @@ export class SingleUserComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   maxPictureToShow=3
-  fetchedUser = {
+  fetchedUser  = {
     _id: '',
     lastVisit: new Date,
     email:'',
@@ -42,7 +42,6 @@ export class SingleUserComponent implements OnInit {
         hairPorosity : '',
         hairTexture : '',
       }
-
     },
     notes:[{
       text:'',

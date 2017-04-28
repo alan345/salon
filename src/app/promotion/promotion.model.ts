@@ -1,3 +1,4 @@
+import { Form } from '../form/form.model'
 
 
 export class Promotion {
@@ -8,11 +9,7 @@ export class Promotion {
 }
 
 
-export class Form{
-  _id= '';
-  owner= '';
-  imagePath= '';
-}
+
 
 export class DatePromo{
   dateBegin='';

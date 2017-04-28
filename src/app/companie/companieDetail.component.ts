@@ -12,7 +12,7 @@ import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import {Location} from '@angular/common';
-import { Form } from '../user/users/user.model'
+import { Form } from '../form/form.model'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 

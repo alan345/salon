@@ -11,8 +11,8 @@ import { Inject, forwardRef} from '@angular/core';
 import { MdDialog, MdDialogRef} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { User } from '../users/user.model'
-import { Form } from '../users/user.model'
+import { User } from '../user.model'
+import { Form } from '../../form/form.model'
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { CompanieService} from '../../companie/companie.service';
