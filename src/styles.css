@@ -255,11 +255,6 @@ th, td {
   display: inline-block;
   width: 100%;
 }
-a.seemre {
-    margin-top: 15px;
-    font-size: 12px !important;
-    color: #999999;
-}
 .dspl-nn {
     display: none;
 }
@@ -279,8 +274,9 @@ a.seemre {
     position: relative;
 }
 a.seemre {
-  margin-top: -26px;
-  float: right;
+  margin-top: 15px;
+  font-size: 12px !important;
+  color: #999999;
 }
 .img-row a.seemre {
     bottom: -20px !important;
