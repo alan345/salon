@@ -29,7 +29,7 @@ export class PressSingleComponent implements OnInit {
   //fetchedPress._id='';
 
 
-  fetchedPress = {
+  fetchedPress : Press = {
     _id: '',
     title: '',
     link: '',
@@ -37,6 +37,7 @@ export class PressSingleComponent implements OnInit {
     form: [],
     owner: []
   }
+
 
   public myForm: FormGroup;
 
@@ -124,7 +125,7 @@ export class PressSingleComponent implements OnInit {
   }
 
   save() {
-    let press = this.fetchedPress
+    let press: Press = this.fetchedPress
     if(press._id) {
       this.pressService.updatePress(press)
         .subscribe(
@@ -149,7 +150,7 @@ export class PressSingleComponent implements OnInit {
 
 
 
-  getPress(id) {
+  getPress(id: string) {
     this.pressService.getPress(id)
       .subscribe(
         res => {

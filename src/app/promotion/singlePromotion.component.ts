@@ -53,14 +53,13 @@ export class SinglePromotionComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
-
         _id: [''],
         name: ['', [Validators.required, Validators.minLength(5)]],
-
         date: this._fb.group({
             dateBegin: ['', [Validators.required, Validators.minLength(5)]],
             dateEnd: ['', [Validators.required, Validators.minLength(5)]],
-        })
+        }),
+        form: this._fb.array([])
     });
 
 

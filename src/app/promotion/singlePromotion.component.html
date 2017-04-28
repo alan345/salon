@@ -5,50 +5,37 @@
   </div>
   <div class="single-wrpr beigeback">
    <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
-    <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion._id">
-    <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedPromotion.name" placeholder="Promotion Title">
-    <div class="form-group">
+      <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion._id">
+      <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedPromotion.name" placeholder="Promotion Title">
+      <div class="form-group">
+      </div>
 
-      <!-- <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedPromotion.name">
-      <small *ngIf="!myForm.controls.name.valid" class="text-danger">
-           Required (minimum 5 characters).
-      </small> -->
+        <div class="form-group prmimg-cnt">
 
-    </div>
-
-      <div class="form-group prmimg-cnt">
-        <!--  <label>_idPic</label> -->
-        <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion.form._id">
-        <div *ngFor="let singleForm of fetchedPromotion.form">
-          <img class="promo-img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPromotion.form._id">
+          <div *ngFor="let singleForm of fetchedPromotion.form">
+            <img class="promo-img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          </div>
+          <div>
+            <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+          </div>
         </div>
-        <div>
-          <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+
+      <div formGroupName="date">
+        <div class="form-group col-sm-6" id="strt-dt">
+          <label>Start Date</label>
+          <input type="date" class="form-control" formControlName="dateBegin" [(ngModel)]="fetchedPromotion.date.dateBegin">
+        </div>
+        <div class="form-group col-sm-6" id="end-dt">
+          <label>End Date</label>
+          <input type="date" class="form-control" formControlName="dateEnd" [(ngModel)]="fetchedPromotion.date.dateEnd">
         </div>
       </div>
-
-    <div formGroupName="date">
-      <div class="form-group col-sm-6" id="strt-dt">
-        <label>Start Date</label>
-        <input type="date" class="form-control" formControlName="dateBegin" [(ngModel)]="fetchedPromotion.date.dateBegin">
-      </div>
-      <div class="form-group col-sm-6" id="end-dt">
-        <label>End Date</label>
-        <input type="date" class="form-control" formControlName="dateEnd" [(ngModel)]="fetchedPromotion.date.dateEnd">
-      </div>
-    </div>
-    <div class="valid-edit">
-      <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Add Promotion</button>
-      <button type="button" class="delete" md-button (click)="openDialogDelete()">Delete Promotion</button>
-     </div>
-    <div class="clearfix"></div>
-
-    <!--
-    <div class="margin-20">
-      <div>myForm details:-</div>
-      <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
-      <pre>form value: <br>{{myForm.value | json}}</pre>
-    </div> -->
+      <div class="valid-edit">
+        <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Add Promotion</button>
+        <button type="button" class="delete" md-button (click)="openDialogDelete()">Delete Promotion</button>
+       </div>
+      <div class="clearfix"></div>
 
     </form>
   </div>
