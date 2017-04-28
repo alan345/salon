@@ -102,15 +102,18 @@
     display: table;
     padding: 2.5px;
 }
+
+.prf-basic, .prf-chal {
+  display: table-cell;
+  float: none;
+}
 .prf-basic {
-    padding: 0 2.5px 0 0;
-    display: table-cell;
-    float: none;
+  padding: 0 2.5px 0 0;
+  width: 33.333333%;
 }
 .prf-chal {
-    float: none;
-    display: table-cell;
-    vertical-align: top;
+  vertical-align: top;
+  width: 66.666666%;
 }
 .see, .submit {
   float: left;
@@ -129,13 +132,17 @@
 
 @media screen and (max-height: 767px) {
   
+.prf-basic, .prf-chal {
+  float: left;
+  width: 100%;  
+}
 .prf-basic {
-    padding: 5px;
+  padding: 5px;
 }
 .prf-chal {
-    background-color: #fff;
-    padding: 15px;
-    margin: 0 5px 15px !important;
+  background-color: #fff;
+  padding: 15px;
+  margin: 0 5px 15px !important;
 }
 .insta-txt h3 {
     margin: 20px 0;
