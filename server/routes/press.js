@@ -92,7 +92,7 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-      console.log(req.body)
+      //console.log(req.body)
         item.title = req.body.title
         item.link = req.body.link
         item.formPDF = req.body.formPDF
@@ -116,7 +116,7 @@ router.put('/:id', function (req, res, next) {
 })
 
 router.post('/', function (req, res, next) {
-  console.log(req.body)
+  //console.log(req.body)
   //var Press = new Press(req.body)
   var press = new Press(req.body)
 
