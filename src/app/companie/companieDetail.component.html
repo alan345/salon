@@ -12,9 +12,8 @@
     <div class="sln-sty phyto-ctnr">
       <div *ngFor="let user of fetchedCompanie._users" class="one-sty">
         <div [routerLink]="['/user/profile/' + user._id]" routerLinkActive="active">
-          <div *ngFor="let profilePicture of user.profile._profilePicture">
+          <div *ngFor="let profilePicture of user.profile._profilePicture" class="one-stypic">
             <img
-              class="img-responsive"
               src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}"
               onerror="this.src ='assets/images/no-image-found.jpg'"
             >
