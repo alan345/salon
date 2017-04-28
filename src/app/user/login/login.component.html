@@ -1,19 +1,16 @@
-<div class="container topPad">
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="login-form form" novalidate>
+<div class="single-wrpr beigeback">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="login-form" novalidate>
+    <h3>Welcome to the Phyto Salon App!</h3>
     <div class="input-group">
-      <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
       <input #userEmail type="text" formControlName="email" placeholder="Email" class="form-control">
     </div>
     <div [hidden]="email.valid || email.pristine" class="alert alert-danger">Please enter a valid email format</div>
     <span class="help-block"></span>
     <div class="input-group">
-      <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
       <input type="password" formControlName="password" placeholder="Password" class="form-control">
     </div>
     <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Password must contain 6 or more characters</div>
-    <br>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!myForm.valid">Login</button>
-    <p class="message"><a [routerLink]="'/user/reset'">Lost password?</a></p>
+    <button class="done" type="submit" [disabled]="!myForm.valid">Login</button>
+    <p class="message"><a [routerLink]="'/user/reset'">Forgot Your Password?</a></p>
   </form>
-
 </div>
