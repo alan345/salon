@@ -265,12 +265,16 @@ th, td {
 /*--Picture section--*/
 
 .pic-list {
-    max-width: 150px;
-    overflow: hidden;
+  max-width: 150px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 .pic-list img {
-    height: 150px;
-    width: auto;
+  height: 150px;
+  width: auto;
+  flex: none;
+  max-width: none !important;
 }
 .pic-list div {
     position: relative;
