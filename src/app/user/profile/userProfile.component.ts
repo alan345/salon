@@ -195,6 +195,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   save() {
+    this.editMode()
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {

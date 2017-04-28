@@ -7,7 +7,7 @@
     <div class="beigeback phyto-ctnr" id="stypro">
       <div class="col-sm-4 prf-basic">
         <div formGroupName="profile">
-          <button type="button" (click)="editMode()" class="done">Edit</button>
+          <button *ngIf="!isEditMode" type="button" (click)="editMode()" class="done">Edit</button>
           <div *ngIf="isEditMode">
             <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
             <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
@@ -32,7 +32,12 @@
           <div class="prf-cpt">
             <label>{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</label>
             <p>{{fetchedUser.profile.title}}</p>
-            <button type="button" md-button (click)="openDialog('_profilePicture')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
+            <button
+              *ngIf="isEditMode"
+              type="button"
+              md-button (click)="openDialog('_profilePicture')"
+              class="editicon">
+            <span class="glyphicon glyphicon-edit"></span></button>
           </div>
         </div>
       </div>
