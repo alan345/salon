@@ -26,7 +26,8 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 export class UserPicturesComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
-  maxPictureToShow= 3;
+  maxPictureToShow= 3
+  
   fetchedUser : User = {
     _id: '',
     lastVisit: new Date,
@@ -78,10 +79,6 @@ export class UserPicturesComponent implements OnInit {
   }
 
 
-
-
-
-
   removeForm(i: number) {
       this.fetchedUser.forms.splice(i, 1)
       const control = <FormArray>this.myForm.controls['forms'];
@@ -119,12 +116,6 @@ export class UserPicturesComponent implements OnInit {
   }
 
   save() {
-    // let user = form.value
-    // console.log(user)
-    // console.log(model);
-    //this.fetchedUser.forms = form.value.forms
-    //this.fetchedUser.notes = form.value.notes
-
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {
@@ -175,16 +166,4 @@ export class UserPicturesComponent implements OnInit {
         }
       );
   }
-
-
 }
-
-
-// @Component({
-//   selector: 'user-dialog',
-//   templateUrl: './userDialog.component.html',
-// })
-// export class UserDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<UserDialogComponent>) {}
-//
-// }
