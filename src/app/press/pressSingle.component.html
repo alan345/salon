@@ -8,9 +8,10 @@
       <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedPress._id">
       <div class="form-group">
         <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedPress.title" placeholder="Title">
-      <div class="form-group">
-        <label>Add Link to the Article</label>
-        <input type="text" class="form-control" formControlName="link" [(ngModel)]="fetchedPress.link">
+        <div class="form-group">
+          <label>Add Link to the Article</label>
+          <input type="text" class="form-control" formControlName="link" [(ngModel)]="fetchedPress.link">
+        </div>
       </div>
       <div class="form-group upld-pdf">
         <label>Or Upload a PDF Version</label>
@@ -18,7 +19,7 @@
         <button type="button" md-button (click)="openDialog('formPDF')">Upload</button>
         <div *ngFor="let singleFormPDF of fetchedPress.formPDF">
            <span class="tagz-name">Name-of-PDF.pdf</span>
-           <i class="tagz-icn fa fa-times pull-right" (click)="removeCategorie(i)"></i>
+           <i class="tagz-icn fa fa-times pull-right"></i>
           <!--< width="150" src="./uploads/forms/{{singleFormPDF.owner}}/{{singleFormPDF.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">-->
         </div>
       </div>
