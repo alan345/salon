@@ -251,9 +251,8 @@ th, td {
     background-color: #ed1c24 !important;
     color: #ffffff !important;
 }
-.dspl-flx {
-  display: inline-block;
-  width: 100%;
+.flt-lft {
+    float:left;
 }
 .dspl-nn {
     display: none;
