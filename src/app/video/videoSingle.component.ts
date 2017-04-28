@@ -25,6 +25,7 @@ import { VideoDeleteDialog } from './videoDeleteDialog.component'
 
 export class VideoSingleComponent implements OnInit {
 
+
   fetchedVideo : Video = {
     _id: '',
     title: '',
