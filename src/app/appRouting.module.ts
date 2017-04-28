@@ -41,7 +41,11 @@ import {AdminComponent} from './admin/admin.component';
 import {ErrorPageComponent} from './errorPage/errorPage.component';
 import {AdminGuardService} from './admin/services/adminGuard';
 
-const APP_ROUTES: Routes = [
+import { NgModule }             from '@angular/core';
+
+
+
+export const routes: Routes = [
 //  {path: '', component: MainPageHomeComponent, pathMatch: 'full'},
   {path: '', component: MainPageHomeComponent, canActivate: [AuthGuardService], pathMatch: 'full'},
   {path: 'social', component: SocialComponent, canActivate: [AuthGuardService], children: SOCIAL},
@@ -67,4 +71,8 @@ const APP_ROUTES: Routes = [
   {path: '**', redirectTo: '404'}
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

@@ -57,7 +57,7 @@ import {UsersComponent} from './user/users/users.component';
 import {UserService} from './user/user.service';
 
 import {RouterModule} from '@angular/router';
-import {routing} from './routes.component';
+import {AppRoutingModule} from './appRouting.module';
 import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AuthGuardService} from './auth/authguard.service';
 import {AuthService} from './auth/auth.service';
@@ -238,7 +238,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     HttpModule,
     RouterModule,
     ReactiveFormsModule,
-    routing,
+    AppRoutingModule,
     BrowserAnimationsModule,
     ToastModule.forRoot(options),
     ProgressBarModule,
