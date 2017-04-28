@@ -4,6 +4,7 @@
     <h3 style="text-align: center;">Profile</h3>
   </div>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+    <div *ngIf="isEditMode" class="ovrl"></div>
     <div class="beigeback phyto-ctnr" id="stypro">
       <div class="col-sm-4 prf-basic">
         <div formGroupName="profile">
