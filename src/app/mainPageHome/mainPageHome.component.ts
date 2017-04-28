@@ -76,8 +76,8 @@ export class MainPageHomeComponent implements OnInit {
     let dialogRef = this.dialog.open(
       EditOptionsComponentDialog,
       {
-        height: '700px',
-        width: '500px',
+        height: '400px',
+        width: '300px',
       });
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
