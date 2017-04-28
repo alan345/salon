@@ -30,11 +30,13 @@ export class SingleUserComponent implements OnInit {
     _id: '',
     lastVisit: new Date,
     email:'',
-    forms:[{
-      _id:'',
-      owner:'',
-      imagePath:'',
-    }],
+    forms:[
+    //   {
+    //   _id:'',
+    //   owner:'',
+    //   imagePath:'',
+    // }
+    ],
     profile:{
       name:'',
       hair:{
@@ -43,10 +45,12 @@ export class SingleUserComponent implements OnInit {
         hairTexture : '',
       }
     },
-    notes:[{
-      text:'',
-      dateNote: ''
-    }]
+    notes:[
+    //   {
+    //   text:'',
+    //   dateNote: ''
+    // }
+    ]
   }
 
   public myForm: FormGroup;

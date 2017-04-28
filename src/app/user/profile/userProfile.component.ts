@@ -46,11 +46,13 @@ export class UserProfileComponent implements OnInit {
     _id: '',
     lastVisit: new Date,
     email:'',
-    forms:[{
-      _id:'',
-      owner:'',
-      imagePath:'',
-    }],
+    forms:[
+    //   {
+    //   _id:'',
+    //   owner:'',
+    //   imagePath:'',
+    // }
+    ],
     profile:{
       title:'',
       name:'',
@@ -62,10 +64,12 @@ export class UserProfileComponent implements OnInit {
       },
       _profilePicture:[],
     },
-    notes:[{
-      text:'',
-      dateNote: ''
-    }]
+    notes:[
+    //   {
+    //   text:'',
+    //   dateNote: ''
+    // }
+    ]
   }
 
   public myForm: FormGroup;
