@@ -1,5 +1,6 @@
-import {Routes} from '@angular/router';
-
+import { Routes,
+         RouterModule }        from '@angular/router';
+import { NgModule }            from '@angular/core';
 import {AuthGuardService} from '../auth/authguard.service';
 
 import {AppComponent} from '../app.component';
@@ -12,9 +13,15 @@ import {VideoSingleComponent} from './videoSingle.component';
 
 
 
-export const VIDEOS: Routes = [
+const routes: Routes = [
   {path: '', component: VideosComponent},
   {path: 'videoSingle', component: VideoSingleComponent},
   {path: 'videoSingle/:id', component: VideoSingleComponent},
   {path: ':id', component: VideoSingleComponent},
 ];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class VideoRoutingModule {}

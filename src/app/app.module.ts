@@ -63,13 +63,8 @@ import {AuthGuardService} from './auth/authguard.service';
 import {AuthService} from './auth/auth.service';
 import {ErrorService} from './errorHandler/error.service';
 
-
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastModule, ToastOptions} from 'ng2-toastr';
-
-
-
 
 import {LoginComponent} from './user/login/login.component';
 import {ErrorComponent} from './errorHandler/error.component';
@@ -77,8 +72,6 @@ import {ErrorComponent} from './errorHandler/error.component';
 
 import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 import {MainPageHomeService} from './mainPageHome/mainPageHome.service';
-
-
 
 import {CompaniePicturesComponent} from './companie/companiePictures.component';
 import {CompaniesComponent} from './companie/companies.component';
