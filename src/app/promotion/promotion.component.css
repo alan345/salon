@@ -31,9 +31,11 @@ img.promo-img {
     height: 75px !important;
     width: 100% !important;
 }
+.add-prmctnr {
+  margin:15px 2.5px;
+}
 .add-prm {
     width: 100% !important;
-    margin-bottom: 15px !important;
     padding: 20px 10px;
     background-color: #999999;
     color: #ffffff;
