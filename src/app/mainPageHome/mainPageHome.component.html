@@ -64,7 +64,11 @@
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome4')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/press']" routerLinkActive="active">
-                  <label class="homelabel">Press {{trackinPage.lastVisitPagePressCount }}</label>
+                  <label class="homelabel">Press
+                    <div *ngif="trackinPage.lastVisitPagePressCount>0">
+                      {{trackinPage.lastVisitPagePressCount }}
+                    </div>
+                  </label>
                 </a>
               </div>
             </div>
