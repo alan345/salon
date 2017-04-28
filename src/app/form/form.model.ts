@@ -10,10 +10,11 @@
 //     this.formId = formId;
 //   }
 // }
+import { User } from '../user/user.model'
 
 
 export interface Form {
   _id: string;
-  owner: string;
+  owner: User[];
   imagePath: string;
 }

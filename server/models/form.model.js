@@ -8,7 +8,7 @@ var form = new Schema({
   textInputOne: {type: String},
   textInputTwo: {type: String},
   imagePath: {type: String},
-  owner: {type: Schema.Types.ObjectId, ref: 'User'}
+  owner: [{type: Schema.Types.ObjectId, ref: 'User'}]
 },
   {
     timestamps: { createdAt: 'dateSubmitted'}
