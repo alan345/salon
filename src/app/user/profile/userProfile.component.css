@@ -4,6 +4,9 @@
   color: #ffffff;
   position: relative;
 }
+.prf-chal {
+    position: relative;
+}
 .prf-cpt .editicon {
     right: 3px !important;
     top: 0 !important;
@@ -15,6 +18,9 @@
 }
 .prf-cpt p {
     margin-bottom: 0 !important;
+}
+.prf-basic{
+    position: relative;
 }
 .chal-rslt {
   bottom: 0;
@@ -72,9 +78,7 @@
     z-index: 999999;
 }
 .chng-pic img {
-    width: 50%;
     float: left;
-    padding: 0 15px 15px 0;
 }
 .browse {
     font-family: inherit !important;
@@ -90,6 +94,22 @@
     position: absolute;
     z-index: 50;
     opacity: 0.5;
+}
+
+@media screen and (min-height: 992px) {
+
+.chng-pic img {
+    width: 50%;
+    padding: 0 15px 15px 0;
+}
+}
+
+@media screen and (max-height: 991px) {
+
+.chng-pic img {
+    width: 45%;
+    padding: 0 15px 12px 0;
+}
 }
 
 @media screen and (min-height: 768px) {
@@ -134,7 +154,7 @@
   width: 100%;  
 }
 .prf-basic {
-  padding: 5px;
+  padding: 0 5px 5px;
 }
 .prf-chalcnt {
     position: relative;
