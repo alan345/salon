@@ -4,10 +4,6 @@
   color: #ffffff;
   position: relative;
 }
-.prf-chal {
-  background-color: #ffffff;
-  position: relative;
-}
 .prf-cpt .editicon {
     right: 3px !important;
     top: 0 !important;
@@ -114,6 +110,7 @@
 .prf-chal {
   vertical-align: top;
   width: 66.666666%;
+  background-color: #fff;
 }
 .see, .submit {
   float: left;
@@ -139,10 +136,10 @@
 .prf-basic {
   padding: 5px;
 }
-.prf-chal {
-  background-color: #fff;
-  padding: 15px;
-  margin: 0 5px 15px !important;
+.prf-chalcnt {
+    position: relative;
+    margin: 5px;
+    background-color: #fff;
 }
 .insta-txt h3 {
     margin: 20px 0;
