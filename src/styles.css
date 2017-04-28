@@ -229,9 +229,6 @@ th, td {
     line-height: inherit !important;
     border-radius: 0 !important;
 }
-.done, .pas-done, .fnl-delete {
-    border: none !important;
-}
 .done {
     background-color: #0a2f87 !important;
     border: 1px solid #0a2f87 !important;
