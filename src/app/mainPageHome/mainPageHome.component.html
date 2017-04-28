@@ -65,10 +65,11 @@
                 </div>
                 <a [routerLink]="['/press']" routerLinkActive="active">
                   <label class="homelabel">Press
-                    <div *ngif="trackinPage.lastVisitPagePressCount>0">
+                    <div *ngIf="trackinPage.lastVisitPagePressCount">
                       {{trackinPage.lastVisitPagePressCount }}
                     </div>
                   </label>
+
                 </a>
               </div>
             </div>
