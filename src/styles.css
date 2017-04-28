@@ -317,8 +317,8 @@ a.seemre {
   outline: none !important;
   border: none !important;  
   padding: 10px 15px !important;
-  text-transform: uppercase;
-  color: #ffffff;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
 }
 .justkd {
   background-color: #999999 !important;
