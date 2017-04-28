@@ -44,6 +44,7 @@ export class UserProfileComponent implements OnInit {
     _users : [
     ]
   }]
+  isEditMode:boolean = false
   fetchedUser = {
     _id: '',
     lastVisit: new Date,
@@ -94,6 +95,9 @@ export class UserProfileComponent implements OnInit {
      return myForm.get('forms').controls
    }
 
+   editMode(){
+     this.isEditMode = !this.isEditMode
+   }
 
   ngOnInit() {
     this.myForm = this._fb.group({

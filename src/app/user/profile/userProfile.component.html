@@ -7,6 +7,21 @@
     <div class="beigeback phyto-ctnr" id="stypro">
       <div class="col-sm-4 prf-basic">
         <div formGroupName="profile">
+          <button type="button" (click)="editMode()" class="done">Edit</button>
+          <div *ngIf="isEditMode">
+            <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
+            <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
+            <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
+            <button type="submit" class="done">Done</button>
+          </div>
+          <div *ngIf="!isEditMode">
+            <p>{{fetchedUser.profile.name}}</p>
+            <p>{{fetchedUser.profile.lastName}}</p>
+            <p>{{fetchedUser.profile.title}}</p>
+
+          </div>
+
+
           <div formGroupName="_profilePicture">
             <img *ngIf="fetchedUser.profile._profilePicture.length == 0" src="assets/images/no-image-found.jpg" >
             <div *ngFor="let profilePicture of fetchedUser.profile._profilePicture">
