@@ -8,6 +8,7 @@
       <div class="col-sm-4 prf-basic">
         <div formGroupName="profile">
           <div formGroupName="_profilePicture">
+            <img *ngIf="fetchedUser.profile._profilePicture.length == 0" src="assets/images/no-image-found.jpg" >
             <div *ngFor="let profilePicture of fetchedUser.profile._profilePicture">
               <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="profilePicture._id">
               <img src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">

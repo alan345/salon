@@ -64,7 +64,7 @@ router.get('/getUsersByEmail', function (req, res, next) {
   var skip = (itemsPerPage * pageNumber)
   var limit = (itemsPerPage * pageNumber) + itemsPerPage
   //lastVisit
-  console.log(req.query.email)
+  //console.log(req.query.email)
 
   User
   .find({
@@ -271,7 +271,7 @@ router.put('/:id', function (req, res, next) {
         item.lastVisit = req.body.lastVisit
         item.notes = req.body.notes
         item.trackinPage = req.body.trackinPage
-        console.log(req.body)
+      //  console.log(req.body)
         item.save(function (err, result) {
           if (err) {
             return res.status(404).json({
@@ -299,7 +299,7 @@ function makeid() {
 
 // user Create without email. See register
 router.post('/', function (req, res, next) {
-  console.log(req.body)
+//  console.log(req.body)
   let uniqueString = makeid()
   let email = ''
   let role = ''
@@ -321,7 +321,7 @@ router.post('/', function (req, res, next) {
     profile : req.body.profile,
     role : role
   });
-  console.log(user)
+//  console.log(user)
   user.save(function (err, result) {
     if (err) {
       console.log(err)
