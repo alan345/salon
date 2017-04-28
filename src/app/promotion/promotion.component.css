@@ -28,7 +28,7 @@ img.promo-img {
 }
 .prmimg-cnt .addpic-squr {
     margin-top: 15px !important;
-    height: 75px !important;
+    height: auto !important;
     width: 100% !important;
 }
 .add-prmctnr {
