@@ -10,9 +10,6 @@ import {VideoSingleComponent} from './videoSingle.component';
 //import {NewVideoComponent} from './newVideo.component';
 
 
-
-
-
 const routes: Routes = [
   {path: '', component: VideosComponent},
   {path: 'videoSingle', component: VideoSingleComponent},
