@@ -63,13 +63,24 @@ router.get('/page/:page', function (req, res, next) {
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
   var limit = (itemsPerPage * pageNumber) + itemsPerPage
-  //lastVisit
-  console.log(req.query.parentUser)
+
+  let parentUserToSearch = ''
+  let roleToSearch = []
+
+  if(req.user.role[0] === 'stylist') {
+    parentUserToSearch = req.user._id
+    roleToSearch = ['client']
+  } else if(req.user.role[0] === 'admin') {
+    parentUserToSearch = req.query.parentUser
+    roleToSearch = ['client', 'stylist']
+  }
+
 
   User
   .find({
     'profile.name' : new RegExp(req.query.search, 'i'),
-    'profile.parentUser' : mongoose.Types.ObjectId(req.query.parentUser)
+    'profile.parentUser' : mongoose.Types.ObjectId(parentUserToSearch),
+    'role': {$in: roleToSearch}
   })
   .limit(itemsPerPage)
   .skip(skip)
