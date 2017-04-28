@@ -9,19 +9,15 @@
         <div formGroupName="profile">
           <button *ngIf="!isEditMode" type="button" (click)="editMode()" class="done">Edit</button>
           <div *ngIf="isEditMode">
+            <div class="chng-pic">
+              <p>Change Profile picture</p>
+              <button type="button" md-button (click)="openDialog('_profilePicture')" class="delete">Browse</button>
+            </div>
             <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
             <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
             <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
             <button type="submit" class="done">Done</button>
           </div>
-          <div *ngIf="!isEditMode">
-            <p>{{fetchedUser.profile.name}}</p>
-            <p>{{fetchedUser.profile.lastName}}</p>
-            <p>{{fetchedUser.profile.title}}</p>
-
-          </div>
-
-
           <div formGroupName="_profilePicture">
             <img *ngIf="fetchedUser.profile._profilePicture.length == 0" src="assets/images/no-image-found.jpg" >
             <div *ngFor="let profilePicture of fetchedUser.profile._profilePicture">
@@ -32,12 +28,9 @@
           <div class="prf-cpt">
             <label>{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</label>
             <p>{{fetchedUser.profile.title}}</p>
-            <button
-              *ngIf="isEditMode"
-              type="button"
-              md-button (click)="openDialog('_profilePicture')"
-              class="editicon">
-            <span class="glyphicon glyphicon-edit"></span></button>
+            <button *ngIf="!isEditMode" type="button" md-button (click)="editMode()" class="editicon">
+              <span class="glyphicon glyphicon-edit"></span>
+            </button>
           </div>
         </div>
       </div>
