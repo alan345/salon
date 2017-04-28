@@ -25,15 +25,13 @@ import { VideoDeleteDialog } from './videoDeleteDialog.component'
 
 export class VideoSingleComponent implements OnInit {
 
-  fetchedVideo = {
+  fetchedVideo : Video = {
     _id: '',
     title: '',
     embed:'',
     embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
     categories: [],
-    owner: {
-      _id:''
-    }
+    owner: []
   }
   categoriesHard2 = [{
       name:'treatments',
@@ -231,7 +229,7 @@ export class VideoSingleComponent implements OnInit {
     this.videoService.getVideo(id)
       .subscribe(
         res => {
-          this.fetchedVideo = res
+          this.fetchedVideo = <Video>res
           this.fetchedVideo.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
           this.fetchedVideo.categories.forEach((categorie) => {
             this.addCategorie()
