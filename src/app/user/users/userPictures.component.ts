@@ -23,7 +23,6 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 })
 
 
-
 export class UserPicturesComponent implements OnInit {
 
   maxPictureToShow= 3
