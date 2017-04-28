@@ -147,11 +147,11 @@ export class UserPicturesComponent implements OnInit {
       )
   }
 
-  getUser(id) {
+  getUser(id: string) {
     this.userService.getUser(id)
       .subscribe(
         res => {
-          this.fetchedUser = res.user
+          this.fetchedUser = <User>res.user
           this.fetchedUser.forms.forEach((form : Form) => {
             this.addForm(form)
           })
