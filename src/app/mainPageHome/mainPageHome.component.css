@@ -27,14 +27,14 @@ a.shopbutton {
 .boxpadding {
     padding: 1px !important;
 }
-  .topnav-ad {
+.topnav-ad {
     text-align: center;
-    margin: 19px 0;
+    margin: 19px auto;
 }
 .notif {
     background-color: #FB8417;
     float: right;
-    margin: 4px 15px;
+    padding: 2px 6.5px 0;
     padding: 1px 6px 0;
     color: #fff;
     font-size: 16px;
@@ -45,6 +45,7 @@ a.shopbutton {
   .topnav-ad {
     width: 80%;
     float: left;
+}
   }
   a.shopbutton {
     margin: 15px 0;
@@ -53,7 +54,7 @@ a.shopbutton {
 
 @media screen and (max-width: 767px) {
   .topnav-ad {
-    width: 100%;
+    width: 90%;
   }
   a.shopbutton {
     width: 150px;
