@@ -19,8 +19,8 @@
     width: auto !important;
     max-width: none;
     position: relative;
-    top: -50%;
-    left: -50%;
+    top: 0;
+    left: 0;
 }
 .sty-ttl {
   padding: 15px;
