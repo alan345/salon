@@ -32,7 +32,7 @@ export class UserService {
 
     let options = new RequestOptions({ headers: headers, search: search});
 
-    return this.http.get(this.url + 'user/page/' + page , options)
+    return this.http.get(this.url + 'profile/page/' + page , options)
       .timeout(9000)
       .map((response: Response) => {
 

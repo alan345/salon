@@ -24,8 +24,9 @@ export class UsersComponent implements OnInit {
   fetchedRegions = [];
   loading: boolean;
   search = {
-    orderBy : 'profile.name',
-    search:''
+    orderBy : '',
+    search:'',
+    parentUser:''
   }
   paginationData = {
     currentPage: 1,
@@ -40,10 +41,14 @@ export class UsersComponent implements OnInit {
     public dialog: MdDialog,
     private router: Router,
     private location: Location,
+    private authService: AuthService,
   ) {}
 
 
   ngOnInit() {
+
+    this.search.orderBy = 'profile.name'
+    this.search.parentUser = this.authService.currentUser.userId
     this.getUsers(this.paginationData.currentPage, this.search)
   }
   goBack() {
@@ -77,7 +82,6 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers(page, search) {
-
     this.userService.getUsers(page, search)
       .subscribe(
         res => {
