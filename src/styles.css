@@ -311,6 +311,22 @@ a.seemre {
     opacity: 0.7;
 }
 
+/*--Are you Sure?--*/
+
+.justkd, .dltfrv {
+  outline: none !important;
+  border: none !important;  
+  padding: 10px 15px !important;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.justkd {
+  background-color: #999999 !important;
+}
+.dltfrv {
+  background-color: #ED1C24 !important;
+}
+
 /*--Other--*/
 
 .form-group.col-sm-12 {
@@ -339,6 +355,9 @@ a.seemre {
   float: left;
   margin-right: 10px;
 }
+.dltfrv {
+  float: right !important;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -346,6 +365,12 @@ a.seemre {
 .pic-list {
     float: left;
     margin: 15px 0 15px 15px;
+}
+.justkd, .dltfrv {
+  width: 100%;
+}
+.justkd {
+  margin-bottom: 15px;
 }
 }
 
