@@ -31,11 +31,11 @@ export interface User {
 export interface Profile {
   title:string;
   name:string;
-  _profilePicture:Form;
+  _profilePicture:Form[];
   hair : {
     hairTexture:string;
     hairDensity:string;
-    hairDhairPorosityensity:string;
+    hairPorosity:string;
   }
 }
 
