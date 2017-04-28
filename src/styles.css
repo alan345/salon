@@ -353,6 +353,9 @@ a.seemre {
 .fnl-delete {
     margin-right:15px !important;
 }
+.input-group {
+    width: 290px;
+}
 }
 
 @media screen and (max-width: 499px) {
@@ -360,5 +363,8 @@ a.seemre {
 .delete, .done, .pas-done {
     width: 100% !important;
     margin: 15px 0 !important;
+}
+.input-group {
+    width: 100% !important;
 }
 }
