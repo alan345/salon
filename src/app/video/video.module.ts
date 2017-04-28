@@ -12,7 +12,6 @@ import {VideoSingleComponent} from './videoSingle.component';
 import {VideoService} from './video.service';
 
 
-
 import { VideoRoutingModule }    from './videoRouting.module';
 
 @NgModule({
