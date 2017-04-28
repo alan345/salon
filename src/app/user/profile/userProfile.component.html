@@ -7,8 +7,9 @@
     <div class="beigeback phyto-ctnr" id="stypro">
       <div class="col-sm-4 prf-basic">
         <div formGroupName="profile">
-          <div *ngIf="isEditMode">
+          <div *ngIf="isEditMode" class="beigeback updt-prof">
             <div class="chng-pic">
+              <img *ngIf="fetchedUser.profile._profilePicture.length == 0" src="assets/images/no-image-found.jpg" >
               <p>Change Profile picture</p>
               <button type="button" md-button (click)="openDialog('_profilePicture')" class="delete">Browse</button>
             </div>
@@ -23,13 +24,13 @@
               <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="profilePicture._id">
               <img src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             </div>
-          </div>
-          <div class="prf-cpt">
-            <label>{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</label>
-            <p>{{fetchedUser.profile.title}}</p>
-            <button *ngIf="!isEditMode" type="button" md-button (click)="editMode()" class="editicon">
-              <span class="glyphicon glyphicon-edit"></span>
-            </button>
+            <div class="prf-cpt">
+              <label>{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</label>
+              <p>{{fetchedUser.profile.title}}</p>
+              <button *ngIf="!isEditMode" type="button" md-button (click)="editMode()" class="editicon">
+                <span class="glyphicon glyphicon-edit"></span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
