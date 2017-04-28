@@ -65,7 +65,7 @@
                 </div>
                 <a [routerLink]="['/press']" routerLinkActive="active">
                   <label class="homelabel">Press
-                    <div *ngIf="trackinPage.lastVisitPagePressCount > -1">
+                    <div *ngIf="trackinPage.lastVisitPagePressCount > -1" class="notif">
                       {{trackinPage.lastVisitPagePressCount }}
                     </div>
                   </label>
@@ -86,7 +86,7 @@
                 </div>
                 <a [routerLink]="['/video']" routerLinkActive="active">
                   <label class="homelabel">Videos
-                    <div *ngIf="trackinPage.lastVisitPageVideoCount > -1">
+                    <div *ngIf="trackinPage.lastVisitPageVideoCount > -1" class="notif">
                       {{trackinPage.lastVisitPageVideoCount }}
                     </div>
                   </label>
