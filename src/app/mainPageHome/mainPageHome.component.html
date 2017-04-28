@@ -65,7 +65,7 @@
                 </div>
                 <a [routerLink]="['/press']" routerLinkActive="active">
                   <label class="homelabel">Press
-                    <div *ngIf="trackinPage.lastVisitPagePressCount">
+                    <div *ngIf="trackinPage.lastVisitPagePressCount > -1">
                       {{trackinPage.lastVisitPagePressCount }}
                     </div>
                   </label>
@@ -85,7 +85,11 @@
                   <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome5')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
                 <a [routerLink]="['/video']" routerLinkActive="active">
-                  <label class="homelabel">Videos {{trackinPage.lastVisitPageVideoCount }} </label>
+                  <label class="homelabel">Videos
+                    <div *ngIf="trackinPage.lastVisitPageVideoCount > -1">
+                      {{trackinPage.lastVisitPageVideoCount }}
+                    </div>
+                  </label>
                 </a>
               </div>
 
