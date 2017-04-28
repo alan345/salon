@@ -82,9 +82,6 @@ p.blue {
     color: #0a2f87;
     margin-bottom: 15px;
 }
-.col-sm-9 {
-    padding-left: 0 !important;
-}
 label {
   display:inherit !important;
 }
