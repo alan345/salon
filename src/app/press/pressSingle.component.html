@@ -14,9 +14,10 @@
         </div>
       </div>
       <div class="form-group upld-pdf">
-        <label>Or Upload a PDF Version</label>
-        <input type="text" class="form-control" formControlName="link" placeholder="Upload">
-        <button type="button" md-button (click)="openDialog('formPDF')">Upload</button>
+        <div>
+          <label>Or Upload a PDF Version</label>
+          <button type="button" md-button (click)="openDialog('formPDF')">Upload</button>
+        </div>
         <div *ngFor="let singleFormPDF of fetchedPress.formPDF">
            <span class="tagz-name">Name-of-PDF.pdf</span>
            <i class="tagz-icn fa fa-times pull-right"></i>
