@@ -18,7 +18,7 @@ var adminPage    = require('./routes/admin')
 var options    = require('./routes/options')
 var presses    = require('./routes/press')
 var videos    = require('./routes/video')
-
+var products    = require('./routes/product')
 
 var app = express()
 
@@ -57,6 +57,8 @@ app.use('/press', presses)
 app.use('/video', videos)
 app.use('/admin', adminPage)
 app.use('/options', options)
+app.use('/product', products)
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
