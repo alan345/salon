@@ -10,7 +10,7 @@
       <input type="password" formControlName="password" placeholder="Password" class="form-control">
     </div>
     <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Password must contain 6 or more characters</div>
-    <button class="done" type="submit" [disabled]="!myForm.valid">Login</button>
+    <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Login</button>
     <p class="message"><a [routerLink]="'/user/reset'">Forgot Your Password?</a></p>
   </form>
 </div>
