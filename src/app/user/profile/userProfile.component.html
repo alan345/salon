@@ -3,7 +3,7 @@
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Profile</h3>
   </div>
-  <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save()" style="position: relative;">
     <div *ngIf="isEditMode" class="ovrl"></div>
     <div class="beigeback phyto-ctnr" id="stypro">
       <div class="prf-basic">
