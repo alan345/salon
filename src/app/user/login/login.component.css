@@ -12,3 +12,18 @@
     color: #999999;
     font-size: 12px;
 }
+
+@media screen and (min-width:500px) {
+
+.input-group {
+    width: 290px;
+}
+}
+
+
+@media screen and (max-width:499px) {
+
+.input-group {
+    width: 100% !important;
+}
+}
