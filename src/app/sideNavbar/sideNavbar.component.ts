@@ -19,9 +19,7 @@ export class SideNavbarComponent implements OnInit {
   fetchedUser={
     _id: ''
   };
-  companies=[{
-    _id:''
-  }]
+  companies=[]
 
   constructor(
       private authService: AuthService,

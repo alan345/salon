@@ -126,6 +126,7 @@ export class CompanieDetailComponent implements OnInit {
     })
   }
 
+
   getCompanie(id) {
     this.companieService.getCompanie(id)
       .subscribe(

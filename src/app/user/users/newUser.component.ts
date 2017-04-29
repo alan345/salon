@@ -24,32 +24,24 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 export class NewUserComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
-  fetchedUser = {
+  fetchedUser : User = {
     _id: '',
-    lastVisit: '',
+    lastVisit: new Date,
     email:'',
-    forms:[{
-      _id:'',
-      owner:'',
-      imagePath:'',
-    }],
     profile:{
+      phoneNumber:'',
       name:'',
-      parentUser:[
-      //   {
-      //   _id:''
-      // }
-      ],
+      title:'',
+      _profilePicture:[],
       hair:{
         hairDensity : '',
         hairPorosity : '',
         hairTexture : '',
       }
     },
-    notes:[{
-      text:'',
-      dateNote: ''
-    }]
+    notes:[],
+    forms:[],
+    role:[],
   }
 
   public myForm: FormGroup;

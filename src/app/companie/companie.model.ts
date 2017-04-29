@@ -1,4 +1,5 @@
 import { Form } from '../form/form.model'
+import { User } from '../user/user.model'
 
 export interface Companie {
   _id: string;
@@ -13,8 +14,4 @@ export interface Address {
   city : '';
   state:'';
   zip:'';
-}
-
-export interface User {
-
 }

@@ -14,22 +14,16 @@ export interface User {
   _id: string;
   email: string;
   lastVisit: Date;
-
+  role: string[];
   forms: Form[];
   profile: Profile;
   notes:Note[];
 }
 
 
-// export interface Form {
-//   _id: string;
-//   owner: string;
-//   imagePath: string;
-// }
-
-
 export interface Profile {
   title:string;
+  phoneNumber: string;
   name:string;
   _profilePicture:Form[];
   hair : {

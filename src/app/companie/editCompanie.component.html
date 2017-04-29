@@ -68,7 +68,8 @@
       </div>
       <div class="sln-stymng phyto-ctnr">
         <h3>Manage Stylists:</h3>
-        <button type="button" (click)="openDialogAddUser()">Add New <i class="fa fa-plus"></i></button>
+
+        <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active">Add New <i class="fa fa-plus"></i></button>
         <div *ngFor="let user of fetchedCompanie._users" class="sln-styone">{{ user.profile.name}}</div>
       </div>
       <div class="valid-edit">

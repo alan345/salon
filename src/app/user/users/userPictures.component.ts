@@ -32,6 +32,7 @@ export class UserPicturesComponent implements OnInit {
     lastVisit: new Date,
     email:'',
     profile:{
+      phoneNumber:'',
       name:'',
       title:'',
       _profilePicture:[],
@@ -43,6 +44,7 @@ export class UserPicturesComponent implements OnInit {
     },
     notes:[],
     forms:[],
+    role:[],
   }
 
   public myForm: FormGroup;

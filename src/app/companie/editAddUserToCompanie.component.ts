@@ -2,13 +2,14 @@ import {ChangeDetectionStrategy, EventEmitter, Component, OnInit, Input, Output 
 import {AuthService} from '../auth/auth.service';
 import {CompanieService} from './companie.service';
 import {Companie} from './companie.model';
+import {User} from '../user/user.model';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import {Location} from '@angular/common';
-import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 
 import {UserService} from '../user/user.service';
 
@@ -19,56 +20,41 @@ import {UserService} from '../user/user.service';
   styleUrls: ['./companie.component.css'],
 })
 export class EditAddUserToCompanieComponent implements OnInit {
-  @Output() onPassForm = new EventEmitter<any>();
+  //@Output() onPassForm = new EventEmitter<any>();
 
-  @Input() fetchedCompanie = {
+  fetchedCompanie : Companie = {
     _id:'',
+    name:'',
     address:{
       address : '',
       city : '',
       state:'',
       zip:'',
     },
-    _users : [
-      // {
-      //   _user : [
-      //     {
-      //       email:''
-      //     }
-      //   ]
-      // }
-    ]
+    _users : [],
+    forms : []
   }
   search = {
     email : '',
   }
-  fetchedUser = {
+  fetchedUser : User = {
     _id: '',
-    lastVisit: '',
+    lastVisit: new Date,
     email:'',
-    forms:[
-    //   {
-    //   _id:'',
-    //   owner:'',
-    //   imagePath:'',
-    // }
-    ],
     profile:{
+      phoneNumber:'',
       name:'',
-      lastName:'',
-      parentUser:[
-        // {
-        //   _id:''
-        // }
-      ],
+      title:'',
+      _profilePicture:[],
       hair:{
-        // hairDensity : '',
-        // hairPorosity : '',
-        // hairTexture : '',
+        hairDensity : '',
+        hairPorosity : '',
+        hairTexture : '',
       }
     },
     notes:[],
-    role: ['stylist']
+    forms:[],
+    role:[],
   }
 
   myForm: FormGroup;
@@ -86,6 +72,25 @@ export class EditAddUserToCompanieComponent implements OnInit {
 
   }
 
+  ngOnInit() {
+
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.getCompanie(params['id'])
+    })
+    this.myForm = this._fb.group({
+      lastVisit: [''],
+      _id: [''],
+      role: this._fb.array([]),
+      email: ['', [Validators.required, Validators.minLength(5)]],
+
+      profile: this._fb.group({
+        phoneNumber: [''],
+        name: ['', [Validators.required, Validators.minLength(2)]],
+        lastName: ['', [Validators.required, Validators.minLength(2)]],
+      })
+    })
+
+  }
 
   searchEmails() {
     this.filteredUsers = []
@@ -117,7 +122,20 @@ export class EditAddUserToCompanieComponent implements OnInit {
 
   userFounded(i) {
     this.fetchedUser = this.filteredUsers[i]
+    this.fetchedUser
+    this.fetchedUser.role.forEach((role) => {
+      this.addRole(role)
+    })
+
     this.filteredUsers = []
+  }
+
+  addRole(form) {
+    const control = <FormArray>this.myForm.controls['role'];
+    const addrCtrl = this._fb.group({
+        role: ['']
+    });
+    control.push(addrCtrl);
   }
 
   save(form: FormGroup) {
@@ -158,7 +176,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     this.companieService.updateCompanie(this.fetchedCompanie)
       .subscribe(
         res => {
-          this.onPassForm.emit();
+          //this.onPassForm.emit();
           this.toastr.success('Great!', res.message)
         },
         error => {console.log(error)}
@@ -168,21 +186,24 @@ export class EditAddUserToCompanieComponent implements OnInit {
   getObjects(myForm){
     return myForm.get('profile').get('parentUser').controls
   }
-
-
-  ngOnInit() {
-    this.myForm = this._fb.group({
-        lastVisit: [''],
-        _id: [''],
-        email: ['', [Validators.required, Validators.minLength(5)]],
-        profile: this._fb.group({
-            name: ['', [Validators.required, Validators.minLength(2)]],
-            lastName: ['', [Validators.required, Validators.minLength(2)]],
-
-        })
-    })
-
+  getObjectsRole(myForm){
+    return myForm.get('role').controls
   }
+  getCompanie(id: string) {
+    this.companieService.getCompanie(id)
+      .subscribe(
+        res => {
+          this.fetchedCompanie = res
+          // this.fetchedCompanie._users.forEach((user) => {
+          //   this.addUser(user)
+          // })
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
+
 
   onDelete(id: string) {
     this.companieService.deleteCompanie(id)
@@ -202,23 +223,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
     this.location.back();
   }
 
-  // getCompanie(id) {
-  //
-  //   this.activatedRoute.params
-  //     .switchMap((params: Params) => this.companieService.getCompanie(params['id']))
-  // //    .subscribe((hero: Hero) => this.hero = hero);
-  //
-  //   //this.companieService.getCompanie(id)
-  //     .subscribe(
-  //       res => {
-  //       //  console.log("companies");
-  //       //  console.log(res);
-  //         this.fetchedCompanie = res
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
+
 
 }

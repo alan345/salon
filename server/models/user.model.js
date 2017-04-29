@@ -26,6 +26,7 @@ var user = new Schema({
       name: {type: String, default: ['']},
       title: {type: String, default: ['']},
       lastName: {type: String, default: ['']},
+      phoneNumber:{type: String, default: ['']},
       hair : {
         hairDensity : {type: String, default: ['user']},
         hairPorosity : {type: String, default: ['user']},

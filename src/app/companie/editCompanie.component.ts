@@ -13,7 +13,7 @@ import {MdDialog, MdDialogRef, MdDialogConfig} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
-import { CompanieAddUserDialog} from './companieAddUserDialog.component'
+//import { CompanieAddUserDialog} from './companieAddUserDialog.component'
 
 
 @Component({
@@ -22,7 +22,7 @@ import { CompanieAddUserDialog} from './companieAddUserDialog.component'
   styleUrls: ['./companie.component.css'],
 })
 export class EditCompanieComponent implements OnInit {
-  fetchedCompanie = {
+  fetchedCompanie : Companie = {
     _id:'',
     name:'',
     address:{
@@ -31,15 +31,8 @@ export class EditCompanieComponent implements OnInit {
       state:'',
       zip:'',
     },
-    _users : [
-      // {
-      //   _user : [
-      //     {
-      //       email:''
-      //     }
-      //   ]
-      // }
-    ]
+    _users : [],
+    forms : []
   }
   myForm: FormGroup;
 
@@ -86,18 +79,18 @@ export class EditCompanieComponent implements OnInit {
       )
   }
 
-  openDialogAddUser(){
-    let config = new MdDialogConfig();
-    let dialogRef:MdDialogRef<CompanieAddUserDialog>= this.dialog.open(CompanieAddUserDialog, config)
-    dialogRef.componentInstance.fetchedCompanie = this.fetchedCompanie
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        // this.onDelete(this.fetchedPress._id)
-        // this.router.navigate(['press']);
-      }
-    })
-
-  }
+  // openDialogAddUser(){
+  //   let config = new MdDialogConfig();
+  //   let dialogRef:MdDialogRef<CompanieAddUserDialog>= this.dialog.open(CompanieAddUserDialog, config)
+  //   dialogRef.componentInstance.fetchedCompanie = this.fetchedCompanie
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       // this.onDelete(this.fetchedPress._id)
+  //       // this.router.navigate(['press']);
+  //     }
+  //   })
+  //
+  // }
   onDelete(id: string) {
     this.companieService.deleteCompanie(id)
       .subscribe(
