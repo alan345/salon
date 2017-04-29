@@ -4,14 +4,14 @@
     <h3 style="text-align: center;">Clients</h3>
   </div>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
-    <div class="beigeback dspl-flx">
+    <div class="beigeback phyto-ctnr">
       <div class="col-sm-4 usr-basic">
         <h3>{{fetchedUser.profile.name}}</h3>
         <h5>Hair Density</h5>
         {{fetchedUser.profile.hair.hairDensity}}
         <h5>Hair Texture</h5>
         {{fetchedUser.profile.hair.hairTexture}}
-        <h5>hairPorosity</h5>
+        <h5>Hair Porosity</h5>
         {{fetchedUser.profile.hair.hairPorosity}}
         <button class="edit-clt" [routerLink]="['/user/newuser/' + fetchedUser._id ]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
       </div>
