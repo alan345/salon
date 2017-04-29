@@ -29,6 +29,9 @@
   display: flex;
   justify-content: center;
 }
+.imgrw td {
+    padding: 0 !important;
+}
 .imgrw-cnt img {
   height: 100%;
   width: auto;
