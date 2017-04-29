@@ -11,7 +11,10 @@
     </div>
     <div class="sln-sty phyto-ctnr">
       <div *ngFor="let user of fetchedCompanie._users" class="one-sty">
-        <div [routerLink]="['/user/profile/' + user._id]" routerLinkActive="active">
+        <div
+          *ngIf="user.role == 'stylist'"
+          [routerLink]="['/user/profile/' + user._id]"
+          routerLinkActive="active">
           <div *ngFor="let profilePicture of user.profile._profilePicture" class="one-stypic">
             <img
               src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}"
@@ -27,7 +30,7 @@
     </div>
   </div>
   <!--forms-->
-  
+
   <div class="img-row phyto-ctnr">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="img-frm phyto-ctnr">
       <div class="phyto-ctnr">
@@ -59,9 +62,17 @@
   <div class="beigeback phyto-ctnr">
     <div class="sln-inf">
       <h6> Your Phyto Sales Representative</h6>
-      <p>John Doe</p>
-      <p>515-885-9852</p>
-      <p>john@ales-group.com</p>
+
+      <div *ngFor="let user of fetchedCompanie._users">
+        <div
+          *ngIf="user.role == 'saleRep'"
+          [routerLink]="['/user/profile/' + user._id]"
+          routerLinkActive="active">
+            <p>{{ user.profile.name}}</p>
+            <p>{{ user.profile.phoneNumber}}</p>
+            <p>{{ user.email}}</p>
+        </div>
+      </div>
     </div>
     <div class="sln-mng">
       <button class="delete"><a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a></button>

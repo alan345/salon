@@ -45,14 +45,36 @@
         </div>
 
       </div>
-      <div formArrayName="role" class="phyto-ctnr">
+      <!-- <div formArrayName="role">
         <div *ngFor="let role of getObjectsRole(myForm); let i=index" >
           <div [formGroupName]="i">
             <input type="text" class="form-control" formControlName="role" [(ngModel)]="fetchedUser.role[i]">
           </div>
         </div>
+      </div> -->
+
+
+      <div formArrayName="role">
+        <div *ngFor="let role of getObjectsRole(myForm); let i=index" >
+          <div [formGroupName]="i">
+            <select
+              class="form-control"
+              formControlName="role"
+              [(ngModel)]="fetchedUser.role[i]">
+              <option value="admin">admin</option>
+              <option value="saleRep">saleRep</option>
+              <option value="stylist">stylist</option>
+              <option value="client">client</option>
+            </select>
+            <!-- <input type="text" class="form-control" formControlName="role" [(ngModel)]="fetchedUser.role[i]"> -->
+          </div>
+        </div>
       </div>
 
+
+        <!-- <md-option *ngFor="let role of fetchedUser.role" [value]="role" [(ngModel)]="fetchedUser.role">
+          {{ role }}
+        </md-option> -->
 
 
       <!--forms-->
@@ -92,5 +114,9 @@
       <div class="clearfix"></div>
 
     </form>
+
+
+
+
 
   </div>
