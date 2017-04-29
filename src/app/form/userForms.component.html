@@ -1,16 +1,16 @@
 <div >
   <table class="table table-hover table-responsive table-condensed">
     <tbody>
-    <tr *ngFor="let form of fetchedForms| paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="imgrw">
-      <td class="imgrw-cnt">
-        <img (click)="onSelectRow(form)" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-        <button class="dlt-btn" (click)="onDelete(form._id)"><i class="fa fa-times"></i></button>
-      </td>
-    </tr>
+      <tr *ngFor="let form of fetchedForms| paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="imgrw">
+        <td class="imgrw-cnt">
+          <img (click)="onSelectRow(form)" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+          <button class="dlt-btn" (click)="onDelete(form._id)"><i class="fa fa-times"></i></button>
+        </td>
+      </tr>
     </tbody>
   </table>
   <div class="has-text-centered">
-      <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
-      <pagination-controls (pageChange)="getPage($event)" id="server" class="change-page"></pagination-controls>
+    <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
+    <pagination-controls (pageChange)="getPage($event)" id="server" class="change-page"></pagination-controls>
   </div>
 </div>
