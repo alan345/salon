@@ -379,6 +379,9 @@ a.seemre {
     top: 200px !important;
     position: absolute !important;
 }
+.mat-ink-bar, .mat-tab-label {
+    width: 50% !important;
+}
 
 /*--Responsive--*/
 
