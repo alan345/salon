@@ -1,44 +1,44 @@
-
 .cho-fil button {
-    width: 100%;
-    color: #0A2F87 !important;
-    border: none;
-    padding: 0 !important;
-    background: none !important;
+  width: 100%;
+  color: #0A2F87 !important;
+  border: none;
+  padding: 0 !important;
+  background: none !important;
 }
 .cho-fil input {
-    margin: 15px !important;
-    width: 94%;
-    padding: 30px !important;
-    float: left;
-    background: #ccc;
-    border: 1px dashed #0A2F87;
+  margin: 15px !important;
+  width: 94%;
+  padding: 30px !important;
+  float: left;
+  background: #ccc;
+  border: 1px dashed #0A2F87;
 }
 .sbmt-pic {
-    padding: 15px;
+  padding: 15px;
 }
 .imgrw {
-    float: left;
+  float: left;
 }
 .imgrw-cnt {
-    float: left;
-    overflow: hidden;
-    height: 150px;
-    width: 150px;
-    position: relative;
-    margin: 6px;
+  float: left;
+  overflow: hidden;
+  height: 150px;
+  width: 150px;
+  position: relative;
+  margin: 6px;
+  padding: 0 !important;
 }
 .imgrw-cnt img {
-    height: 100%;
-    width: auto;
-    max-width: none;
+  height: 100%;
+  width: auto;
+  max-width: none;
 }
 .dlt-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    outline: none !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  outline: none !important;
 }
