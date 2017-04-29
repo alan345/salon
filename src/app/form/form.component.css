@@ -2,15 +2,16 @@
     padding: 15px;
 }
 .cho-fil button {
-  color: #0A2F87 !important;
-  padding: 0 !important;
-  background: #ccc !important;
+  color: #0A2F87;
+  padding: 0;
+  background: #ccc;
   border: 1px dashed #0A2F87;
 }
 .cho-fil input {
   width: 100%;
   padding: 30px !important;
   float: left;
+  margin: 0 !important;
 }
 .cho-fil img {
     max-width: 50%;
