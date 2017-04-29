@@ -119,15 +119,7 @@ export class NewUserComponent implements OnInit {
   }
 
 
-  // openDialog(positionImage) {
-  //   let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if(result) {
-  //       this.addForm(result)
-  //       this.fetchedUser.forms.push(result)
-  //     }
-  //   })
-  // }
+
 
   save(form) {
 

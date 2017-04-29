@@ -110,7 +110,7 @@ export class UserPicturesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.addForm(result)
-        this.fetchedUser.forms.push(result)
+        this.fetchedUser.forms.unshift(result)
         this.save()
       }
     })
