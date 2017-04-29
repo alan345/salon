@@ -138,6 +138,9 @@ th, td {
 .form-group {
     margin-bottom: 0 !important;
 }
+.form-group.col-sm-12 {
+  padding: 0;
+}
 .goldgradient {
     background: #c9bda5;
     background: -webkit-radial-gradient(#ffffff, #c9bda5); /* Safari */
@@ -335,13 +338,20 @@ a.seemre {
   float: right;
   min-width: 0 !important;
   padding: 0 !important;
+  border: none !important;
+  background: none !important;
 }
 .close-sub {
-  margin: -5px;
+  margin: -12px;
   padding: 8px 10px;
   color: #0A2F87;
   background-color: #fff;
   border-radius: 25px;
+  outline: none !important;
+  border: none !important;
+}
+.close-sub:active, .close-sub:hover, .close-sub:focus {
+  outline: none !important;
 }
 .getfeat {
   padding: 25px;
@@ -359,15 +369,6 @@ a.seemre {
   width: 100%;
   margin-top: 20px;
   color: #0a2f87;
-}
-
-/*--Other--*/
-
-.form-group.col-sm-12 {
-  padding: 0;
-}
-.cdk-overlay-pane {
-    max-width: 100vh !important;
 }
 
 /*--Responsive--*/
