@@ -13,14 +13,11 @@
 .one-stypic {
   height:300px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 .one-sty img {
-    height: auto !important;
-    width: auto !important;
-    max-width: none;
-    position: relative;
-    top: 0;
-    left: 0;
+  flex: none;
 }
 .sty-ttl {
   padding: 15px;
