@@ -34,42 +34,6 @@ a.follow {
     float: left;
 }
 
-/*--Insta Popup--*/
-
-.mat-dialog-container {
-  padding: 0 !important;
-  overflow: visible !important;
-}
-.cls-btn {
-  float: right;
-  min-width: 0 !important;
-  padding: 0 !important;
-}
-.close-sub {
-  margin: -5px;
-  padding: 8px 10px;
-  color: #0A2F87;
-  background-color: #fff;
-  border-radius: 25px;
-}
-.getfeat {
-  padding: 25px;
-  width: 350px;
-  max-width: 100%;
-  text-align: center;
-}
-.steps {
-  background-color: #ffffff;
-  padding: 0 20px 20px;
-  margin: 20px 0;
-  color: #999999;
-}
-.steps label {
-  width: 100%;
-  margin-top: 20px;
-  color: #0a2f87;
-}
-
 /*--Responsive--*/
 
 @media screen and (min-width: 494px) {
