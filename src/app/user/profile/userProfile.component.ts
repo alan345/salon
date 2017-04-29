@@ -153,9 +153,9 @@ export class UserProfileComponent implements OnInit {
   addForm(form: Form) {
     const control = <FormArray>this.myForm.controls['forms'];
     const addrCtrl = this._fb.group({
-        _id: ['', Validators.required],
-        owner: ['', Validators.required],
-        imagePath: ['', Validators.required],
+        // _id: ['', Validators.required],
+        // owner: ['', Validators.required],
+        // imagePath: ['', Validators.required],
     });
     control.push(addrCtrl);
   }
@@ -195,7 +195,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   save() {
-    this.editMode()
+    this.isEditMode = false
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {
