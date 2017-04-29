@@ -41,12 +41,13 @@
 }
 .dlt-btn {
   position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #000000;
-  color: #fff;
-  border: none;
+  top: 0 !important;
+  left: 0 !important;
+  background-color: #000000 !important;
+  color: #fff !important;
+  border: none !important;
   outline: none !important;
+  padding: 10px !important
 }
 
 @media screen and (min-width:768px) {
