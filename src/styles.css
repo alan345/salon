@@ -308,8 +308,28 @@ a.seemre {
     opacity: 0.7;
 }
 
-/*--Are you Sure?--*/
+/*--Modal--*/
 
+.cdk-overlay-pane {
+  max-width: 100vh !important;
+  width: 613px !important;
+  max-height: 80%;
+  position: absolute !important;
+  overflow: auto;
+}
+.mat-dialog-container {
+  padding: 0 !important;
+  overflow: visible !important;
+  background: none !important;
+}
+
+/*--Are you Sure?--*/
+.areusure {
+    max-width: 300px !important;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 20px;
+}
 .justkd, .dltfrv {
   outline: none !important;
   border: none !important;  
@@ -326,10 +346,6 @@ a.seemre {
 
 /*--Insta Popup--*/
 
-.mat-dialog-container {
-  padding: 0 !important;
-  overflow: visible !important;
-}
 .cls-btn {
   float: right;
   min-width: 0 !important;
@@ -369,13 +385,6 @@ a.seemre {
 
 /*--Picture Modal--*/
 
-.cdk-overlay-pane {
-  max-width: 100vh !important;
-  width: 613px !important;
-  max-height: 80%;
-  position: absolute !important;
-  overflow: scroll;
-}
 .mat-ink-bar, .mat-tab-label {
     width: 50% !important;
 }
