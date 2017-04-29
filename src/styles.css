@@ -312,7 +312,6 @@ a.seemre {
 
 .cdk-overlay-pane {
   max-width: 100vh !important;
-  width: 613px !important;
   max-height: 80%;
   position: absolute !important;
   overflow: auto;
@@ -387,6 +386,13 @@ a.seemre {
 
 .mat-ink-bar, .mat-tab-label {
     width: 50% !important;
+}
+.mat-tab-header, .mat-tab-body-wrapper {
+    background: #fff !important;
+}
+.mat-tab-body-wrapper {
+    width: 613px;
+    max-width: 100%;
 }
 
 /*--Responsive--*/
