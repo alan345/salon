@@ -42,7 +42,7 @@
     margin-bottom: 15px;
 }
 .prss-img .addpic-squr {
-    height: 75px !important;
+    height: auto !important;
 }
 .prss-img img {
     display: block;
