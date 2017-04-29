@@ -21,8 +21,6 @@
 .imgrw-cnt {
   float: left;
   overflow: hidden;
-  height: 150px;
-  width: 150px;
   position: relative;
   margin: 6px;
   padding: 0 !important;
