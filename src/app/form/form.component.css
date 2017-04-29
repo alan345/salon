@@ -1,6 +1,4 @@
-.mat-ink-bar, .mat-tab-label {
-    width: 50% !important;
-}
+
 .cho-fil button {
     width: 100%;
     color: #0A2F87 !important;
@@ -21,4 +19,26 @@
 }
 .imgrw {
     float: left;
+}
+.imgrw-cnt {
+    float: left;
+    overflow: hidden;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    margin: 6px;
+}
+.imgrw-cnt img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+}
+.dlt-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    outline: none !important;
 }
