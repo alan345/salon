@@ -12,6 +12,9 @@
   padding: 30px !important;
   float: left;
 }
+.cho-fil img {
+    max-width: 50%;
+}
 .sbmt-pic {
   padding: 15px;
 }
