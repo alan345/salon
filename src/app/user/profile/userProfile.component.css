@@ -22,6 +22,9 @@
 .prf-basic{
     position: relative;
 }
+.prf-basic img {
+    width: 100%;
+}
 .chal-rslt {
   bottom: 0;
   position: absolute;
