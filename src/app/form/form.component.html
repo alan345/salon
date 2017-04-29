@@ -1,35 +1,24 @@
 <div >
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form-horizontal register-form" novalidate>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="imgupl-mod" novalidate>
     <fieldset>
-
-
-
-
-      <!-- Text input-->
-
-
-      <!-- File Button -->
       <div class="form-group">
-        <div class="col-md-4 col-centered">
-          <button type="button" class="btn">
+        <div class="cho-fil">
+          <button type="button">
             <input #fileInput name="fileUp" type="file" (change)="onFileSelect($event)">
           </button>
           <div *ngIf="hasFiles()">
             <div *ngFor="let file of files">
-              <img [src]="file.objectURL" *ngIf="isImage(file)" class="img-thumbnail img-responsive topMargin" onerror="this.src ='assets/images/no-image-found.jpg'"><br>
+              <img [src]="file.objectURL" *ngIf="isImage(file)" class="img-thumbnail img-responsive" onerror="this.src ='assets/images/no-image-found.jpg'"><br>
               <div>
-                <button type="button" class="btn-danger topMargin" (click)="remove(i)">Remove Image</button>
+                <button type="button" class="btn-danger" (click)="remove(i)">Remove Image</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Button -->
       <div class="form-group">
-        <div class="col-md-4 col-centered">
-          <button type="submit" [disabled]="!myForm.valid || !hasFiles()" id="submitForm" name="sumbitForm" class="btn btn-primary text-center bottomMargin">Submit</button>
-          <br/>
+        <div class="sbmt-pic">
+          <button type="submit" [disabled]="!myForm.valid || !hasFiles()" id="submitForm" name="sumbitForm" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Submit</button>
           <progress-bar [value]="progress" [max]="100" *ngIf="hasFiles() && submitStarted"></progress-bar>
         </div>
       </div>
