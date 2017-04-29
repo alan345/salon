@@ -1,16 +1,30 @@
-.topPad {
-  padding-top: 100px !important;
+.cdk-overlay-pane {
+    max-width: 100vh !important;
+    width: 500px !important;
+    top: 200px !important;
+    position: absolute !important;
 }
-
-.topMargin {
-  margin-top: 20px !important;
+.mat-ink-bar, .mat-tab-label {
+    width: 50% !important;
 }
-
-.bottomMargin {
-  margin-bottom: 20px !important;
+.cho-fil button {
+    width: 100%;
+    color: #0A2F87 !important;
+    border: none;
+    padding: 0 !important;
+    background: none !important;
 }
-
-
-.img-resized {
-  width: 10%;
+.cho-fil input {
+    margin: 15px !important;
+    width: 94%;
+    padding: 30px !important;
+    float: left;
+    background: #ccc;
+    border: 1px dashed #0A2F87;
+}
+.sbmt-pic {
+    padding: 15px;
+}
+.imgrw {
+    float: left;
 }
