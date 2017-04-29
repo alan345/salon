@@ -378,6 +378,7 @@ a.seemre {
   width: 613px !important;
   max-height: 80%;
   position: absolute !important;
+  overflow: scroll;
 }
 .mat-ink-bar, .mat-tab-label {
     width: 50% !important;
