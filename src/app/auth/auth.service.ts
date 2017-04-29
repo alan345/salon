@@ -9,6 +9,7 @@ import {ErrorService} from '../errorHandler/error.service';
 import {Reset} from './resetPassword';
 import {tokenNotExpired} from 'angular2-jwt';
 import {Router} from '@angular/router';
+import {JwtHelper} from 'angular2-jwt';
 
 @Injectable()
 
@@ -19,6 +20,7 @@ export class AuthService {
     token: ''
 
   }
+  jwtHelper: JwtHelper = new JwtHelper();
   //public userId: string;
 
 
@@ -76,6 +78,26 @@ export class AuthService {
         return Observable.throw(error.json());
       });
   }
+
+  isAdmin() {
+    let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
+    if (userInfo) {
+      if (userInfo.user.role[0] === 'admin') {
+        return true;
+      }
+    }
+    return false;
+  }
+  isStylist() {
+    let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
+    if (userInfo) {
+      if (userInfo.user.role[0] === 'stylist') {
+        return true;
+      }
+    }
+    return false;
+  }
+
 
   // sending request for password reset
   forget(reset: Reset) {

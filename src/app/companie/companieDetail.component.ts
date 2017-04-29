@@ -15,7 +15,7 @@ import {Location} from '@angular/common';
 import { Form } from '../form/form.model'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
-
+import { AdminService} from '../admin/services/admin.service';
 
 @Component({
   selector: 'app-companie',
@@ -42,7 +42,7 @@ export class CompanieDetailComponent implements OnInit {
 
   constructor(
     private companieService: CompanieService,
-
+    private adminService: AdminService,
     private modalService: NgbModal,
     private toastr: ToastsManager,
     public dialog: MdDialog,
@@ -50,6 +50,7 @@ export class CompanieDetailComponent implements OnInit {
     private location: Location,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
+    private authService: AuthService,
   ) {
 
   }
@@ -140,6 +141,13 @@ export class CompanieDetailComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+  isStylist() {
+    return this.authService.isStylist();
   }
 
 }
