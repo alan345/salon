@@ -97,7 +97,15 @@ export class AuthService {
     }
     return false;
   }
-
+  isSalesRep() {
+    let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
+    if (userInfo) {
+      if (userInfo.user.role[0] === 'salesRep') {
+        return true;
+      }
+    }
+    return false;
+  }
 
   // sending request for password reset
   forget(reset: Reset) {

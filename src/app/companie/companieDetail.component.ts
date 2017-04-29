@@ -150,5 +150,8 @@ export class CompanieDetailComponent implements OnInit {
   isStylist() {
     return this.authService.isStylist();
   }
+  isSalesRep(){
+    return this.authService.isSalesRep();
+  }
 
 }
