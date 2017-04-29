@@ -8,7 +8,7 @@
           </button>
           <div *ngIf="hasFiles()">
             <div *ngFor="let file of files">
-              <img [src]="file.objectURL" *ngIf="isImage(file)" class="img-thumbnail img-responsive" onerror="this.src ='assets/images/no-image-found.jpg'"><br>
+              <img [src]="file.objectURL" *ngIf="isImage(file)" class="img-responsive" onerror="this.src ='assets/images/no-image-found.jpg'"><br>
               <div>
                 <button type="button" class="btn-danger" (click)="remove(i)">Remove Image</button>
               </div>
