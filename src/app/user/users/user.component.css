@@ -59,6 +59,7 @@ p.blue {
 .usr-basic {
   background-color: #ffffff;
   padding: 10px !important;
+  position: relative;
 }
 .usr-dits, .usr-basic {
   float: none;
