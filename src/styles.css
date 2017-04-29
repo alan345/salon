@@ -371,6 +371,15 @@ a.seemre {
   color: #0a2f87;
 }
 
+/*--Picture Modal--*/
+
+.cdk-overlay-pane {
+    max-width: 100vh !important;
+    width: 500px !important;
+    top: 200px !important;
+    position: absolute !important;
+}
+
 /*--Responsive--*/
 
 @media screen and (max-width: 991px) {
