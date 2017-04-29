@@ -4,8 +4,8 @@
     <h3 style="text-align: center;">Clients</h3>
   </div>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
-    <div class="beigeback phyto-ctnr">
-      <div class="col-sm-4 usr-basic">
+    <div class="beigeback phyto-ctnr usr-top">
+      <div class="usr-basic">
         <h3>{{fetchedUser.profile.name}}</h3>
         <h5>Hair Density</h5>
         {{fetchedUser.profile.hair.hairDensity}}
@@ -15,7 +15,7 @@
         {{fetchedUser.profile.hair.hairPorosity}}
         <button class="edit-clt" [routerLink]="['/user/newuser/' + fetchedUser._id ]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
       </div>
-      <div class="col-sm-7 form-group">
+      <div class="usr-dits form-group">
         <div class="appnt-ctnr">
           <label><h5>Last Visit:</h5></label>
           <p>{{fetchedUser.lastVisit | date:'medium'}}</p>
