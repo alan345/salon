@@ -85,6 +85,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
 
       profile: this._fb.group({
         phoneNumber: [''],
+        title: ['', [Validators.required, Validators.minLength(2)]],
         name: ['', [Validators.required, Validators.minLength(2)]],
         lastName: ['', [Validators.required, Validators.minLength(2)]],
       })

@@ -44,6 +44,11 @@
           <input type="text" class="form-control" formControlName="phoneNumber" [(ngModel)]="fetchedUser.profile.phoneNumber">
         </div>
 
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title">
+        </div>
+
       </div>
       <!-- <div formArrayName="role">
         <div *ngFor="let role of getObjectsRole(myForm); let i=index" >

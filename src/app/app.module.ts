@@ -138,6 +138,8 @@ import {AdminGuardService} from './admin/services/adminGuard';
 import {AdminComponent} from './admin/admin.component';
 
 
+
+import {UserProfileSettingsComponent } from './user/profile/userProfileSettings.component';
 import {UserProfilePicturesComponent } from './user/profile/userProfilePictures.component';
 import {UserProfileComponent } from './user/profile/userProfile.component';
 import {ProfileService} from "./user/profile/profile.service";
@@ -227,8 +229,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     EditOptionsComponent,
     EditOptionsComponentDialog,
     AdminComponent,
+
+
     UserProfileComponent,
     UserProfilePicturesComponent,
+    UserProfileSettingsComponent,
     ChangePasswordComponent,
 
 

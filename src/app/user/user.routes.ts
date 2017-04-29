@@ -8,6 +8,9 @@ import {AuthGuardService} from '../auth/authguard.service';
 import {AppComponent} from '../app.component';
 import {UserProfileComponent} from './profile/userProfile.component';
 import {UserProfilePicturesComponent} from './profile/userProfilePictures.component';
+import {UserProfileSettingsComponent} from './profile/userProfileSettings.component';
+
+
 
 
 import {ChangePasswordComponent} from './profile/changePassword/changePassword.component';
@@ -33,6 +36,8 @@ export const USER_ROUTES: Routes = [
   {path: 'forms', component: UserFormsComponent, canActivate: [AuthGuardService]},
   {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
   {path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuardService]},
+
+  {path: 'profile/:id/userProfileSettings', component: UserProfileSettingsComponent, canActivate: [AuthGuardService]},
   {path: 'profile/:id/userProfilePictures', component: UserProfilePicturesComponent, canActivate: [AuthGuardService]},
   {path: ':id', component: SingleUserComponent},
   {path: ':id/addnote', component: AddNoteComponent},
