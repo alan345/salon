@@ -374,10 +374,10 @@ a.seemre {
 /*--Picture Modal--*/
 
 .cdk-overlay-pane {
-    max-width: 100vh !important;
-    width: 500px !important;
-    top: 200px !important;
-    position: absolute !important;
+  max-width: 100vh !important;
+  width: 613px !important;
+  max-height: 80%;
+  position: absolute !important;
 }
 .mat-ink-bar, .mat-tab-label {
     width: 50% !important;
@@ -405,6 +405,9 @@ a.seemre {
 .dltfrv {
   float: right !important;
 }
+.cdk-overlay-pane {
+    top: 200px !important;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -418,6 +421,10 @@ a.seemre {
 }
 .justkd {
   margin-bottom: 15px;
+}
+.cdk-overlay-pane {
+  top: 50px !important;
+  left:10%;
 }
 }
 
