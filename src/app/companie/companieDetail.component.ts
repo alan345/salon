@@ -143,6 +143,7 @@ export class CompanieDetailComponent implements OnInit {
       );
   }
 
+
   isAdmin() {
     return this.authService.isAdmin();
   }
