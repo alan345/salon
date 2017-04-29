@@ -1,17 +1,16 @@
+.cho-fil {
+    padding: 15px;
+}
 .cho-fil button {
-  width: 100%;
   color: #0A2F87 !important;
-  border: none;
   padding: 0 !important;
-  background: none !important;
+  background: #ccc !important;
+  border: 1px dashed #0A2F87;
 }
 .cho-fil input {
-  margin: 15px !important;
-  width: 94%;
+  width: 100%;
   padding: 30px !important;
   float: left;
-  background: #ccc;
-  border: 1px dashed #0A2F87;
 }
 .sbmt-pic {
   padding: 15px;
