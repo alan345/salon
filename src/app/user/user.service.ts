@@ -86,7 +86,7 @@ export class UserService {
   deleteUser(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.delete(this.url + 'user/' + id, {headers: headers})
+    return this.http.delete(this.url + 'profile/' + id, {headers: headers})
       .map((response: Response) => {
       //  console.log("delete",response)
         return response.json();

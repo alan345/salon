@@ -32,14 +32,16 @@ export class UserPicturesComponent implements OnInit {
     lastVisit: new Date,
     email:'',
     profile:{
+      parentUser:[],
       phoneNumber:'',
       name:'',
+      lastName:'',
       title:'',
       _profilePicture:[],
       hair:{
-        hairDensity : '',
-        hairPorosity : '',
-        hairTexture : '',
+        hairDensity : 'alan',
+        hairPorosity : 'alan',
+        hairTexture : 'alan',
       }
     },
     notes:[],

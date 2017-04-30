@@ -12,6 +12,7 @@ import { User } from '../user.model'
 import { Form } from '../../form/form.model'
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { PressDeleteDialog } from '../../press/pressDeleteDialog.component'
 
 
 @Component({
@@ -29,8 +30,10 @@ export class NewUserComponent implements OnInit {
     lastVisit: new Date,
     email:'',
     profile:{
+      parentUser:[],
       phoneNumber:'',
       name:'',
+      lastName:'',
       title:'',
       _profilePicture:[],
       hair:{
@@ -118,27 +121,40 @@ export class NewUserComponent implements OnInit {
     this.location.back();
   }
 
+  openDialogDelete(){
+    let this2 = this
+    let dialogRefDelete = this.dialog.open(PressDeleteDialog)
+    dialogRefDelete.afterClosed().subscribe(result => {
+      if(result) {
+        this.onDelete(this.fetchedUser._id).then(function(){
+          this2.router.navigate(['user']);
+        })
 
+      }
+    })
+  }
 
 
   save(form) {
-    this.fetchedUser.profile = form.value.profile
-    this.fetchedUser.role=['client']
     if(this.fetchedUser._id) {
+      console.log(this.fetchedUser)
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.router.navigate(['user'])
+            //console.log(res)
+            this.router.navigate(['user/' + res.obj._id])
           },
           error => {console.log(error)}
         );
     } else {
+      this.fetchedUser.role=['client']
       this.userService.saveUser(this.fetchedUser)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.router.navigate(['user'])
+            this.router.navigate(['user/' + res.obj._id])
+            //this.router.navigate(['user'])
           },
           error => {console.log(error)}
         );
@@ -178,15 +194,20 @@ export class NewUserComponent implements OnInit {
 
 
   onDelete(id: string) {
-    this.userService.deleteUser(id)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message);
-        },
-        error => {
-          console.log(error);
-        }
-      );
+    let this2 = this
+    return new Promise(function(resolve, reject) {
+      this2.userService.deleteUser(id)
+        .subscribe(
+          res => {
+            this2.toastr.success('Great!', res.message);
+            resolve(res)
+          },
+          error => {
+            console.log(error);
+            reject(error)
+          }
+        )
+      })
   }
 
 

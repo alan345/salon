@@ -323,13 +323,19 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-        item.role = req.body.role
-        item.email = req.body.email
-        item.profile = req.body.profile
-        item.forms = req.body.forms
-        item.lastVisit = req.body.lastVisit
-        item.notes = req.body.notes
-        item.trackinPage = req.body.trackinPage
+      console.log(req.body)
+        for (var prop in req.body) {
+          item[prop] = req.body[prop]
+        }
+        console.log(item)
+
+        // item.role = req.body.role
+        // item.email = req.body.email
+        // item.profile = req.body.profile
+        // item.forms = req.body.forms
+        // item.lastVisit = req.body.lastVisit
+        // item.notes = req.body.notes
+        // item.trackinPage = req.body.trackinPage
       //  console.log(req.body)
         item.save(function (err, result) {
           if (err) {
@@ -421,6 +427,37 @@ var rmDir = function (dirPath, removeSelf) {
 
 
 
+
+router.delete('/:id', function (req, res, next) {
+  User.findById((req.params.id), function (err, item) {
+    if (err) {
+      return res.status(500).json({
+        message: 'An error occured',
+        err: err
+      })
+    }
+    if (!item) {
+      return res.status(404).json({
+        title: 'No form found',
+        error: {message: 'Form not found!'}
+      })
+    }
+
+    // deleting the form from the database
+    item.remove(function (err, result) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occured',
+          error: err
+        })
+      }
+      res.status(200).json({
+        message: 'Item is deleted',
+        obj: result
+      })
+    })
+  })
+})
 
 
 

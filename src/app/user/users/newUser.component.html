@@ -113,7 +113,7 @@
         <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
         <button
           *ngIf="fetchedUser._id"
-          type="submit"
+          type="button"
           class="delete"
           md-button
           (click)="openDialogDelete()">

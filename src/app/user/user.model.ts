@@ -22,9 +22,11 @@ export interface User {
 
 
 export interface Profile {
+  name:string;
+  lastName: string;
   title:string;
   phoneNumber: string;
-  name:string;
+  parentUser:User[];
   _profilePicture:Form[];
   hair : {
     hairTexture:string;
