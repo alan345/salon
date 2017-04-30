@@ -122,10 +122,8 @@ export class NewUserComponent implements OnInit {
 
 
   save(form) {
-
     this.fetchedUser.profile = form.value.profile
-
-
+    this.fetchedUser.role=['client']
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(

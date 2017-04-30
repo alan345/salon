@@ -95,7 +95,8 @@ router.get('/page/:page', function (req, res, next) {
       User
       .find({
         'profile.name' : new RegExp(req.query.search, 'i'),
-        'profile.parentUser' : mongoose.Types.ObjectId(req.query.parentUser)
+        'profile.parentUser' : mongoose.Types.ObjectId(req.query.parentUser),
+        'role': {$in: roleToSearch}
       })
       .count().exec(function (err, count) {
       res.status(200).json({
