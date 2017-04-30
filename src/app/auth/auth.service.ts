@@ -60,7 +60,7 @@ export class AuthService {
           let currentUser = { userId: userId, token: token }
           this.token = token
           this.currentUser = currentUser
-          console.log(this.currentUser)
+        //  console.log(this.currentUser)
           localStorage.setItem('currentUser', JSON.stringify(currentUser))
         }
 

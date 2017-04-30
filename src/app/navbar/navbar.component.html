@@ -2,7 +2,7 @@
   <a [routerLink]="['/']">
     <img src="/assets/images/my_chair_logo.png">
   </a>
-  <button md-button (click)="sideNavOpen()" class="hamburger">
+  <button *ngIf="isLoggedIn()" md-button (click)="sideNavOpen()" class="hamburger">
     &#9776;
   </button>
 </div>
