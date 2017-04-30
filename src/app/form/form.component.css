@@ -1,6 +1,10 @@
 .cho-fil {
     padding: 15px;
 }
+.cho-filcnt {
+  position:relative;
+  width: 50%;
+}
 .cho-fil button {
   color: #0A2F87;
   padding: 0;
@@ -14,7 +18,8 @@
   margin: 0 !important;
 }
 .cho-fil img {
-    max-width: 50%;
+  width: 100%;
+  height: auto;
 }
 .sbmt-pic {
   padding: 15px;
