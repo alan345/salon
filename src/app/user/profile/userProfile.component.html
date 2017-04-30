@@ -78,7 +78,7 @@
                   <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
                   <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath"> -->
                   <img src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                  <i class="fa fa-trash pull-right dlt-img" (click)="removeForm(i)"></i>
+                  <i class="fa fa-times pull-right dlt-img" (click)="removeForm(i)"></i>
                 </div>
               </div>
             </div>
