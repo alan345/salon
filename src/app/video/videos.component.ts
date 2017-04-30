@@ -131,6 +131,7 @@ export class VideosComponent implements OnInit {
   }
 
   getVideos(page, search) {
+    this.fetchedVideos =[]
     this.videoService.getVideos(page, search)
       .subscribe(
         res => {
