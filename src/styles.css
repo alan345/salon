@@ -269,9 +269,10 @@ th, td {
   overflow: hidden;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 .pic-list img {
-  flex: none;
+  flex: none !important;
   max-width: none !important;
 }
 .pic-list div {
@@ -322,6 +323,7 @@ a.seemre {
 }
 
 /*--Are you Sure?--*/
+
 .areusure {
     max-width: 300px !important;
     background-color: #fff;
