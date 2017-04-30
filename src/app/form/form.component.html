@@ -7,9 +7,9 @@
             <input #fileInput name="fileUp" type="file" (change)="onFileSelect($event)">
           </button>
           <div *ngIf="hasFiles()">
-            <div *ngFor="let file of files" style="position: relative;">
+            <div *ngFor="let file of files" class="cho-filcnt">
               <img [src]="file.objectURL" *ngIf="isImage(file)" class="img-responsive" onerror="this.src ='assets/images/no-image-found.jpg'"><br>
-              <button type="button" class="dlt-btn" (click)="remove(i)"><i class="fa fa-times"></i></button>
+              <button type="button" class="dlt-btn" (click)="remove(i)"><i class="fa fa-trash"></i></button>
             </div>
           </div>
         </div>
