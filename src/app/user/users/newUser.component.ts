@@ -34,9 +34,9 @@ export class NewUserComponent implements OnInit {
       title:'',
       _profilePicture:[],
       hair:{
-        hairDensity : '',
-        hairPorosity : '',
-        hairTexture : '',
+        hairDensity : 'alan',
+        hairPorosity : 'alan',
+        hairTexture : 'alan',
       }
     },
     notes:[],
