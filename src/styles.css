@@ -307,6 +307,7 @@ a.seemre {
     position: absolute;
     background-color: #000;
     opacity: 0.7;
+    right: 0;
 }
 
 /*--Modal--*/
