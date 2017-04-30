@@ -41,10 +41,9 @@
       </div>
       <div class="flt-lft">
         <div formArrayName="forms">
-          <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
+          <div *ngFor="let form of getObjects(myForm); let i=index">
             <div *ngIf="i < maxPictureToShow">
-
-              <div [formGroupName]="i">
+              <div [formGroupName]="i" class="pic-list">
                 <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
                 <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
                 <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
