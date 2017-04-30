@@ -137,7 +137,6 @@ export class NewUserComponent implements OnInit {
 
   save(form) {
     if(this.fetchedUser._id) {
-      console.log(this.fetchedUser)
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
           res => {

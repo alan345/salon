@@ -323,11 +323,11 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-      console.log(req.body)
+
         for (var prop in req.body) {
           item[prop] = req.body[prop]
         }
-        console.log(item)
+
 
         // item.role = req.body.role
         // item.email = req.body.email
