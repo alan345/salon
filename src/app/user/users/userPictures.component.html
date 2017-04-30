@@ -4,17 +4,15 @@
     <h3 style="text-align: center;">Clients</h3>
   </div>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
-
     <div class="img-row">
-
       <div class="col-sm-3">
         <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
       </div>
       <div class="col-sm-9">
         <div formArrayName="forms">
-          <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
+          <div *ngFor="let form of getObjects(myForm); let i=index" class="flt-lft">
             <div>
-              <div [formGroupName]="i">
+              <div [formGroupName]="i" class="pic-list">
                 <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
                 <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
                 <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath">
@@ -24,10 +22,8 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
-
     <div class="clearfix"></div>
   </form>
 </div>
