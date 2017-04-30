@@ -3,7 +3,6 @@
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">My Salon</h3>
   </div>
-
   <div class="img-row phyto-ctnr">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="img-frm phyto-ctnr">
       <div class="col-sm-3">
@@ -11,9 +10,9 @@
       </div>
       <div class="col-sm-9">
         <div formArrayName="forms" class="phyto-ctnr">
-          <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-list">
+          <div *ngFor="let form of getObjects(myForm); let i=index" class="flt-lft">
             <div>
-              <div [formGroupName]="i">
+              <div [formGroupName]="i" class="pic-list">
                 <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedCompanie.forms[i]._id">
                 <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedCompanie.forms[i].owner">
                 <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedCompanie.forms[i].imagePath">
@@ -24,9 +23,6 @@
           </div>
         </div>
       </div>
-
     </form>
   </div>
-
-
 </div>
