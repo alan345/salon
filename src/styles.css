@@ -407,11 +407,6 @@ a.seemre {
   float:left;
   width: 100% !important;
 }
-.spinner img {
-  float: none !important;
-  margin: 200px auto !important;
-  text-align: center !important;
-}
 
 /*--Responsive--*/
 
