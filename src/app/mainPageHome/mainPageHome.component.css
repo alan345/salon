@@ -54,13 +54,15 @@ a.shopbutton {
     max-width: 100%;
 }
 .edtttl-ok {
-    margin: 15px 15px 15px 0;
-    width: 90px;
-    height: 40px;
-    background-color: #0A2F87 !important;
+    background: none !important;
     border: none !important;
-    color: #ffffff !important;
-    text-transform: uppercase !important;
+    color: #999999 !important;
+    position: absolute;
+    font-size: 16px;
+    max-width: 75px !important;
+    float: right;
+    right: 5px;
+    bottom: 18px;
 }
 
 @media screen and (min-width: 768px) {
