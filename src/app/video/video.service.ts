@@ -66,7 +66,7 @@ export class VideoService {
     headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.get(this.url + 'video/' + id, {headers: headers})
       .map((response: Response) => {
-        console.log(response.json().item)
+        //console.log(response.json().item)
         return response.json().item;
       //  this.singleForm = response.json();
         //return this.singleForm;
@@ -96,7 +96,7 @@ export class VideoService {
       });
   }
 
-  saveVideo(video) {
+  saveVideo(video : Video) {
   //  console.log("this.authService.currentUser.token",this.authService.currentUser.token);
   //  delete video._id;
   delete video._id
@@ -112,7 +112,7 @@ export class VideoService {
       });
   }
 
-  updateVideo(video) {
+  updateVideo(video : Video) {
     const body = JSON.stringify(video);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);

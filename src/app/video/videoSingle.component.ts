@@ -175,7 +175,7 @@ export class VideoSingleComponent implements OnInit {
     })
   }
 
-  save(video) {
+  save(video : Video) {
     if(video._id) {
       this.videoService.updateVideo(video)
         .subscribe(
@@ -222,13 +222,12 @@ export class VideoSingleComponent implements OnInit {
         }
       })
     })
-
   }
 
 
 
 
-  getVideo(id) {
+  getVideo(id : string) {
     this.videoService.getVideo(id)
       .subscribe(
         res => {
