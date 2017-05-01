@@ -64,7 +64,6 @@ export class PressService {
     headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.get(this.url + 'press/' + id, {headers: headers})
       .map((response: Response) => {
-
         return response.json().item;
       //  this.singleForm = response.json();
         //return this.singleForm;

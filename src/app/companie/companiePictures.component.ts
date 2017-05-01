@@ -43,7 +43,6 @@ export class CompaniePicturesComponent implements OnInit {
 
   constructor(
     private companieService: CompanieService,
-
     private modalService: NgbModal,
     private toastr: ToastsManager,
     public dialog: MdDialog,
@@ -102,7 +101,7 @@ export class CompaniePicturesComponent implements OnInit {
     this.router.navigate(['companie/' + this.fetchedCompanie._id + "/companiePictures"]);
   }
 
-  addForm(form) {
+  addForm(form : Form) {
     const control = <FormArray>this.myForm.controls['forms'];
     const addrCtrl = this._fb.group({
         _id: ['', Validators.required],
@@ -127,7 +126,7 @@ export class CompaniePicturesComponent implements OnInit {
     })
   }
 
-  getCompanie(id) {
+  getCompanie(id: string) {
     this.companieService.getCompanie(id)
       .subscribe(
         res => {

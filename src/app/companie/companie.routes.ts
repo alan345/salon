@@ -18,12 +18,7 @@ export const USER_COMPANIES: Routes = [
 
   {path: '', component: CompaniesComponent},
   {path: ':id', component: CompanieDetailComponent},
-
   {path: 'edit/addUser/:id', component: EditAddUserToCompanieComponent},
   {path: 'edit/:id', component: EditCompanieComponent},
-
   {path: ':id/companiePictures', component: CompaniePicturesComponent},
-
-
-
 ];
