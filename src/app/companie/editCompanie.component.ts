@@ -76,7 +76,7 @@ export class EditCompanieComponent implements OnInit {
       }
     })
   }
-  
+
   save(redirect:boolean) {
     this.companieService.updateCompanie(this.fetchedCompanie)
       .subscribe(
@@ -84,7 +84,6 @@ export class EditCompanieComponent implements OnInit {
           this.toastr.success('Great!', res.message)
           if(redirect)
             this.router.navigate(['companie/' + this.fetchedCompanie._id])
-
         },
         error => {console.log(error)}
       )

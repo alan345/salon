@@ -4,6 +4,9 @@ import {Response, Headers, Http} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
 import {Companie} from './companie.model';
 import {ToastsManager} from 'ng2-toastr';
+import { AuthService } from '../auth/auth.service';
+
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -11,24 +14,24 @@ import 'rxjs/add/operator/catch';
 export class CompanieService {
 
   private url: string = '/';
-  private token: string = localStorage.getItem('id_token');
-  private userId: string = localStorage.getItem('userId');
+//  private token: string = localStorage.getItem('id_token');
+//  private userId: string = localStorage.getItem('userId');
   private companies = [];
   private singleCompanie = Object;
 
-  constructor(private http: Http, private errorService: ErrorService, private toastr: ToastsManager) {}
+  constructor(
+    private http: Http,
+    private errorService: ErrorService,
+    private toastr: ToastsManager,
+    private authService: AuthService) {}
 
-  // get user forms from backend in order to display them in the front end
   getCompanies(page: number) {
-
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.get(this.url + 'companie/page/' + page , {headers: headers})
       .timeout(1000)
       .map((response: Response) => {
-
         const companies = response.json();
-
         return companies;
       })
       .catch((error: Response) => {
@@ -40,7 +43,7 @@ export class CompanieService {
 
   getCompanieByUserId(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.get(this.url + 'companie/byuserid/' + id, {headers: headers})
       .map((response: Response) => {
         return response.json().item;
@@ -50,9 +53,9 @@ export class CompanieService {
         return Observable.throw(error.json());
       });
   }
-  getCompanie(id: string) {
+  getCompanie(id: string) : Observable<Companie> {
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.get(this.url + 'companie/' + id, {headers: headers})
       .map((response: Response) => {
         return response.json().item;
@@ -66,7 +69,7 @@ export class CompanieService {
   }
   deleteCompanie(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.delete(this.url + 'companie/' + id, {headers: headers})
       .map((response: Response) => {
       //  console.log("delete",response)
@@ -80,13 +83,13 @@ export class CompanieService {
       });
   }
 
-  saveCompanie(companie) {
-  //  console.log("this.token",this.token);
+  saveCompanie(companie: Companie) {
+  //  console.log("this.authService.currentUser.token",this.authService.currentUser.token);
     delete companie._id;
     const body = JSON.stringify(companie);
     const headers = new Headers({'Content-Type': 'application/json'});
   //  let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.post(this.url + 'companie/',body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
@@ -95,10 +98,10 @@ export class CompanieService {
       });
   }
 
-  updateCompanie(companie) {
+  updateCompanie(companie: Companie) {
     const body = JSON.stringify(companie);
     const headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.token);
+    headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.put(this.url + 'companie/' + companie._id, body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
@@ -107,34 +110,4 @@ export class CompanieService {
       });
   }
 
-
-  //
-  // deleteForm(form: Form) {
-  //   this.forms.splice(this.forms.indexOf(form), 1);
-  //   let headers = new Headers({'Content-Type': 'application/json'});
-  //   headers.append('Authorization', '' + this.token);
-  //   return this.http.delete(this.url + 'forms/' + form, {headers: headers})
-  //     .map((response: Response) => {
-  //       this.toastr.success('Form deleted successfully!');
-  //       response.json();
-  //     })
-  //     .catch((error: Response) => {
-  //       this.errorService.handleError(error.json());
-  //       return Observable.throw(error.json());
-  //     });
-  // }
-  //
-  // getSingleForm(formId) {
-  //   let headers = new Headers({'Content-Type': 'application/json'});
-  //   headers.append('Authorization', '' + this.token);
-  //   return this.http.get(this.url + 'forms/edit/' + formId, {headers: headers})
-  //     .map((response: Response) => {
-  //       this.singleForm = response.json();
-  //       return this.singleForm;
-  //     })
-  //     .catch((error: Response) => {
-  //       this.errorService.handleError(error.json());
-  //       return Observable.throw(error.json());
-  //     });
-  // }
 }

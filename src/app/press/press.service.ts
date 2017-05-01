@@ -59,12 +59,12 @@ export class PressService {
 
 
   //getPress(id: string) : Observable<Press> {
-  getPress(id: string) {
+  getPress(id: string) : Observable<Press>{
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.get(this.url + 'press/' + id, {headers: headers})
       .map((response: Response) => {
-        console.log(response.json().item)
+
         return response.json().item;
       //  this.singleForm = response.json();
         //return this.singleForm;

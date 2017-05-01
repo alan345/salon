@@ -20,7 +20,7 @@ import { UserService} from '../user/user.service';
 
 })
 export class PressesComponent implements OnInit {
-  fetchedPresses : Array<PressesComponent> = [];
+  fetchedPresses : Press[] = [];
   loading: boolean;
   paginationData = {
     currentPage: 1,
@@ -61,7 +61,6 @@ export class PressesComponent implements OnInit {
   }
 
   getPage(page: number) {
-
     this.getPresses(page);
   }
 
@@ -70,7 +69,7 @@ export class PressesComponent implements OnInit {
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
-          this.fetchedPresses =  res.data
+          this.fetchedPresses = res.data
         },
         error => {
           console.log(error);

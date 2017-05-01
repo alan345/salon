@@ -25,7 +25,7 @@ import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.compone
 
 export class CompaniePicturesComponent implements OnInit {
   maxPictureToShow=3
-  fetchedCompanie = {
+  fetchedCompanie : Companie = {
     _id:'',
     forms:[],
     name:'',
@@ -141,5 +141,4 @@ export class CompaniePicturesComponent implements OnInit {
         }
       );
   }
-
 }
