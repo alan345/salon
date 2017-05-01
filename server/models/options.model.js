@@ -5,6 +5,7 @@ var mongoose                = require('mongoose'),
 var options = new Schema({
     design: {
       mainPage : {
+        titleHomePage:{type: String, default: ['']},
         _imgHome1:[{type: Schema.Types.ObjectId, ref: 'Form'}],
         _imgHome2:[{type: Schema.Types.ObjectId, ref: 'Form'}],
         _imgHome3:[{type: Schema.Types.ObjectId, ref: 'Form'}],

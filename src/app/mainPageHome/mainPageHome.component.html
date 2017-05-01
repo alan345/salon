@@ -1,18 +1,21 @@
 <div class="container goldgradient beigeborder">
-  <h3 class="topnav-ad">New! Curl Legend: Voluptuous, Silky and Bouncy Curls</h3>
+  <button *ngIf="!isEditTitle" type="button" (click)="editTitleHomePage()">Edit</button>
+  <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.titleHomePage">
+  <h3 *ngIf="!isEditTitle" class="topnav-ad">{{options.design.mainPage.titleHomePage}}</h3>
+  <button *ngIf="isEditTitle" type="button" (click)="editTitleHomePage()">Ok</button>
   <a href="https://www.phyto.com/" class="btn shopbutton" target="_blank">SHOP NOW</a>
 </div>
 
 <div class="container beigeback">
-  <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
+  <form #f="ngForm" novalidate (ngSubmit)="save()">
     <div class="form-group">
-      <div ngModelGroup="fetchedObj">
+      <div ngModelGroup="options">
         <div ngModelGroup="design">
           <div ngModelGroup="mainPage">
             <div class="row">
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome1">
+                  <div *ngFor="let img of options.design.mainPage._imgHome1">
                     <a [routerLink]="['/product']" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
@@ -26,7 +29,7 @@
 
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome2">
+                  <div *ngFor="let img of options.design.mainPage._imgHome2">
                     <a [routerLink]="['/promotion']" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
@@ -42,7 +45,7 @@
             <div class="row">
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome3">
+                  <div *ngFor="let img of options.design.mainPage._imgHome3">
                     <a [routerLink]="['/social']" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
@@ -56,7 +59,7 @@
 
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome4">
+                  <div *ngFor="let img of options.design.mainPage._imgHome4">
                     <a [routerLink]="['/press']" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
@@ -78,7 +81,7 @@
             <div class="row">
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome5">
+                  <div *ngFor="let img of options.design.mainPage._imgHome5">
                     <a [routerLink]="['/video']" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
@@ -97,7 +100,7 @@
 
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <div *ngFor="let img of fetchedObj.design.mainPage._imgHome6">
+                  <div *ngFor="let img of options.design.mainPage._imgHome6">
                     <a [routerLink]="['/user']" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
@@ -113,3 +116,5 @@
         </div>
       </div>
     </div>
+  </form>
+</div>

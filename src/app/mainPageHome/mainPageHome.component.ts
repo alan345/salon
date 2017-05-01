@@ -7,7 +7,7 @@ import { EditOptionsComponentDialog }  from '../modalLibrary/modalLibrary.compon
 import { AdminService} from '../admin/services/admin.service';
 import { VideoService} from '../video/video.service';
 import { PressService} from '../press/press.service';
-import { Design } from './design.model';
+import { Options } from './options.model';
 
 @Component({
   selector: 'app-admin',
@@ -16,50 +16,24 @@ import { Design } from './design.model';
 })
 export class MainPageHomeComponent implements OnInit {
 
-  design  = {
-    mainPage:{
-      _imgHome1:[{
-        _id:'',
-        owner:'',
-        imagePath:''
-      }],
-      _imgHome2:[{
-        _id:'',
-        owner:'',
-        imagePath:''
-      }],
-      _imgHome3:[{
-        _id:'',
-        owner:'',
-        imagePath:''
-      }],
-      _imgHome4:[{
-        _id:'',
-        owner:'',
-        imagePath:''
-      }],
-      _imgHome5:[{
-        _id:'',
-        owner:'',
-        imagePath:''
-      }],
-      _imgHome6:[{
-        _id:'',
-        owner:'',
-        imagePath:''
-      }],
-    }
-  };
-
   trackinPage = {
     lastVisitPagePressCount:0,
     lastVisitPageVideoCount:0
   }
-
+  isEditTitle:boolean = false
   myForm: FormGroup;
-  fetchedObj = {
-    'dateSubmitted' : '',
-    'design' : this.design,
+  options : Options = {
+    design : {
+      mainPage:{
+        titleHomePage:'',
+        _imgHome1:[],
+        _imgHome2:[],
+        _imgHome3:[],
+        _imgHome4:[],
+        _imgHome5:[],
+        _imgHome6:[],
+      }
+    }
   }
 
   constructor(
@@ -71,32 +45,31 @@ export class MainPageHomeComponent implements OnInit {
     public pressService: PressService
   ) {}
 
-
+  editTitleHomePage(){
+    if(this.isEditTitle)
+      this.save()
+    this.isEditTitle = !this.isEditTitle
+  }
   openDialog(positionImage) {
-    let dialogRef = this.dialog.open(
-      EditOptionsComponentDialog,
-      {
-        height: '400px',
-        width: '300px',
-      });
+    let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        this.fetchedObj.design.mainPage[positionImage][0] = result
-        this.saveAuto()
+        this.options.design.mainPage[positionImage][0] = result
+        this.save()
       }
     })
   }
-  save(model: FormGroup, isValid: boolean) {
-    // this.mainPageHomeService.updateOptions(model)
-    //   .subscribe(
-    //     res => {
-    //       this.toastr.success('Great!', res.message)
-    //     },
-    //     error => {console.log(error)}
-    //   )
-  }
-  saveAuto(){
-    this.mainPageHomeService.updateOptions(this.fetchedObj)
+  // save(model: FormGroup, isValid: boolean) {
+  //   // this.mainPageHomeService.updateOptions(model)
+  //   //   .subscribe(
+  //   //     res => {
+  //   //       this.toastr.success('Great!', res.message)
+  //   //     },
+  //   //     error => {console.log(error)}
+  //   //   )
+  // }
+  save(){
+    this.mainPageHomeService.updateOptions(this.options)
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message)
@@ -125,7 +98,7 @@ export class MainPageHomeComponent implements OnInit {
     )
     this.mainPageHomeService.getOptions()
       .subscribe(
-        options => this.fetchedObj = options.obj,
+        options => this.options = options.obj,
         error => {console.log(error)}
       );
   }
