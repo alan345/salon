@@ -15,7 +15,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 
 @Component({
   selector: 'pressDeleteDialog',
-  templateUrl: './DeleteDialog.component.html',
+  templateUrl: './deleteDialog.component.html',
 })
 export class DeleteDialog {
   constructor(public dialogRefDelete: MdDialogRef<DeleteDialog>) {}
