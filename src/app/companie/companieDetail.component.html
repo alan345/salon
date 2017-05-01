@@ -15,7 +15,7 @@
           *ngIf="user.role == 'stylist'"
           [routerLink]="['/user/profile/' + user._id]"
           routerLinkActive="active">
-          <img *ngIf="user.profile._profilePicture.length == 0" src="assets/images/no-image-found.jpg">
+          <img *ngIf="user.profile._profilePicture.length == 0" src="assets/images/profilePicture.jpg">
           <div *ngFor="let profilePicture of user.profile._profilePicture" class="one-stypic">
             <img
               src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}"
