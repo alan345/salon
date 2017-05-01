@@ -13,7 +13,7 @@
       <div *ngFor="let user of fetchedCompanie._users">
         <div *ngIf="user.role == 'stylist'" [routerLink]="['/user/profile/' + user._id]" routerLinkActive="active" class="one-sty">
           <div class="one-stypic" *ngIf="user.profile._profilePicture.length == 0">
-            <img src="assets/images/Temp_Prof_Pic.png">
+            <img src="assets/images/prof-pic-placeholder.png">
           </div>
           <div *ngFor="let profilePicture of user.profile._profilePicture" class="one-stypic">
             <img src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}"
