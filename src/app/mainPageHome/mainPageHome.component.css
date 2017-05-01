@@ -42,18 +42,6 @@ a.shopbutton {
     border-radius: 25px;
 }
 .edtttl-btn {
-    margin: 12px 0 0 8px !important;
-    background: none !important;
-    border: none !important;
-    color: #999999 !important;
-    max-width: 75px !important;
-}
-.edtttl-txt {
-    margin: 15px;
-    width: 550px;
-    max-width: 100%;
-}
-.edtttl-ok {
     background: none !important;
     border: none !important;
     color: #999999 !important;
@@ -63,6 +51,20 @@ a.shopbutton {
     float: right;
     right: 5px;
     bottom: 18px;
+}
+.edtttl-txt {
+    margin: 15px;
+    width: 550px;
+    max-width: 100%;
+}
+.edtttl-ok {
+  margin: 15px 15px 15px 0;
+  width: 90px;
+  height: 40px;
+  background-color: #0A2F87 !important;
+  border: none !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
 }
 
 @media screen and (min-width: 768px) {
