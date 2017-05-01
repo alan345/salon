@@ -53,7 +53,7 @@ a.shopbutton {
     bottom: 18px;
 }
 .edtttl-txt {
-    margin: 5px 15px;
+    margin: 5px 15px !important;
     width: 550px;
     max-width: 100%;
 }
