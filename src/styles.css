@@ -392,7 +392,7 @@ a.seemre {
 .mat-tab-header, .mat-tab-body-wrapper {
     background: #fff !important;
 }
-.mat-tab-body-wrapper {
+.cdk-overlay-container .mat-tab-body-wrapper {
     width: 613px;
     max-width: 100%;
 }
