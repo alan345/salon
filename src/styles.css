@@ -397,6 +397,17 @@ a.seemre {
     max-width: 100%;
 }
 
+/*--Loading...--*/
+
+.spinner-ctnr {
+  height: 100% !important;
+}
+.spinner img {
+  float: none !important;
+  margin: 200px auto !important;
+  text-align: center !important;
+}
+
 /*--Responsive--*/
 
 @media screen and (max-width: 991px) {
