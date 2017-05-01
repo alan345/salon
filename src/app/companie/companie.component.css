@@ -68,6 +68,7 @@ button.sln-styadd {
     padding: 20px;
     background-color: #ffffff;
     margin: 2.5px 0;
+    position: relative;
 }
 .sln-stymng {
     margin-bottom: 15px;
