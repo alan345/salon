@@ -53,12 +53,12 @@ a.shopbutton {
     bottom: 18px;
 }
 .edtttl-txt {
-    margin: 15px;
+    margin: 5px 15px;
     width: 550px;
     max-width: 100%;
 }
 .edtttl-ok {
-  margin: 15px 15px 15px 0;
+  margin: 10px 15px 0 0;
   width: 90px;
   height: 40px;
   background-color: #0A2F87 !important;
