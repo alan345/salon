@@ -27,9 +27,7 @@ export class UserFormsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
       this.getUserForms(this.paginationData.currentPage)
-
   }
 
   getPage(page: number) {
@@ -58,7 +56,11 @@ export class UserFormsComponent implements OnInit {
 
   onDelete(formId) {
     this.formService.deleteForm(formId)
-      .subscribe();
+      .subscribe(
+        res => {
+          this.getUserForms(this.paginationData.currentPage)
+        },
+        error => console.log(error))
   }
   onUploadFinisedParentToChild(){
     this.ngOnInit()

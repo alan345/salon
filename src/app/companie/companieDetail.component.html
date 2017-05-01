@@ -76,7 +76,11 @@
     </div>
     <div class="sln-mng">
       <button class="delete"><a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a></button>
-      <button class="done"><a href="mailto:you@youraddress.com">Contact Sales</a></button>
+      <div *ngFor="let user of fetchedCompanie._users">
+        <div *ngIf="user.role == 'saleRep'">
+            <button type="button" class="done"><a href="mailto:{{ user.email}}">Contact Sales</a></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
