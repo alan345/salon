@@ -401,6 +401,11 @@ a.seemre {
 
 .spinner-ctnr {
   height: 100% !important;
+  width: 100% !important;
+}
+.spinner {
+  float:left;
+  width: 100% !important;
 }
 .spinner img {
   float: none !important;
