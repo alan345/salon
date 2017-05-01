@@ -35,6 +35,7 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
     forms:[],
     role:[],
   }
+  myForm: FormGroup;
   resetPasswordForm: FormGroup;
   currentPassword: FormControl;
   newPassword: FormControl;
@@ -57,10 +58,11 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
     this.resetPasswordForm = this.fb.group({
       currentPassword: this.currentPassword,
       newPassword: this.newPassword,
+    })
+    this.myForm = this.fb.group({
       email: ['', [Validators.required, Validators.minLength(2)]],
       phoneNumber: ['', [Validators.required, Validators.minLength(2)]],
     })
-
     this.getUser(this.authService.currentUser.userId)
 
 
@@ -89,6 +91,15 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
     // }, 50);
   }
 
+  save() {
+    this.userService.updateUser(this.fetchedUser)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+        },
+        error => {console.log(error)}
+      )
+  }
   // submit the password change form to the backend with the new desired credentials
   onSubmit() {
     const newPass = new newPassword(this.resetPasswordForm.value.currentPassword, this.resetPasswordForm.value.newPassword);
