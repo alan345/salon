@@ -39,6 +39,8 @@ import {SingleUserComponent} from './user/users/singleUser.component';
 import {AddNoteComponent} from './user/users/addNote.component';
 import {ChooseDateComponent} from './user/users/chooseDate.component';
 
+import {FooterComponent} from './footer/footer.component';
+
 
 
 
@@ -164,6 +166,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 @NgModule({
   declarations: [
+    FooterComponent,
     AppComponent,
     NavbarComponent,
     SideNavbarComponent,
