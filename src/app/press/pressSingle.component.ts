@@ -12,7 +12,7 @@ import { Location }               from '@angular/common';
 import { Press } from './press.model'
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
-import { PressDeleteDialog } from './pressDeleteDialog.component'
+import { DeleteDialog } from '../deleteDialog/deleteDialog.component'
 
 
 
@@ -70,7 +70,7 @@ export class PressSingleComponent implements OnInit {
 
 
   openDialogDelete(){
-    let dialogRefDelete = this.dialog.open(PressDeleteDialog)
+    let dialogRefDelete = this.dialog.open(DeleteDialog)
     dialogRefDelete.afterClosed().subscribe(result => {
       if(result) {
         this.onDelete(this.fetchedPress._id)

@@ -14,6 +14,8 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 //import { CompanieAddUserDialog} from './companieAddUserDialog.component'
+import { DeleteDialog } from '../deleteDialog/deleteDialog.component'
+
 
 
 @Component({
@@ -64,15 +66,24 @@ export class EditCompanieComponent implements OnInit {
       this.getCompanie(params['id'])
     })
   }
-
-  save() {
+  removeUserFromCompanie(i:number){
+    let this2 = this
+    let dialogRefDelete = this.dialog.open(DeleteDialog)
+    dialogRefDelete.afterClosed().subscribe(result => {
+      if(result) {
+        this.fetchedCompanie._users.splice(i, 1)
+        this.save(false)
+      }
+    })
+  }
+  
+  save(redirect:boolean) {
     this.companieService.updateCompanie(this.fetchedCompanie)
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message)
-          this.activatedRoute.params.subscribe((params: Params) => {
-            this.router.navigate(['companie/' + params['id']]);
-          })
+          if(redirect)
+            this.router.navigate(['companie/' + this.fetchedCompanie._id])
 
         },
         error => {console.log(error)}

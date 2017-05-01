@@ -12,7 +12,7 @@ import { User } from '../user.model'
 import { Form } from '../../form/form.model'
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
-import { PressDeleteDialog } from '../../press/pressDeleteDialog.component'
+import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 
 
 @Component({
@@ -123,7 +123,7 @@ export class NewUserComponent implements OnInit {
 
   openDialogDelete(){
     let this2 = this
-    let dialogRefDelete = this.dialog.open(PressDeleteDialog)
+    let dialogRefDelete = this.dialog.open(DeleteDialog)
     dialogRefDelete.afterClosed().subscribe(result => {
       if(result) {
         this.onDelete(this.fetchedUser._id).then(function(){
