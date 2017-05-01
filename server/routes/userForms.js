@@ -74,7 +74,8 @@ router.get('/:id/page/:page', function (req, res, next) {
     } else {
 
         Form
-        .find({owner: req.params.id})
+        //.find({owner: req.params.id})
+        .find({owner: req.user._id})
         .limit(itemsPerPage)
         .skip(skip)
         .exec(function (err, item) {

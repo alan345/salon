@@ -181,6 +181,7 @@ export class VideoSingleComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.router.navigate(['video']);
           },
           error => {console.log(error)}
         );
@@ -189,6 +190,7 @@ export class VideoSingleComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.router.navigate(['video']);
           },
           error => {console.log(error)}
         );
