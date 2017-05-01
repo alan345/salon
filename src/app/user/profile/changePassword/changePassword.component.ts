@@ -7,6 +7,7 @@ import {ProfileService} from '../profile.service';
 import { AuthService} from '../../../auth/auth.service';
 import { UserService} from '../../user.service';
 import { User } from '../../user.model'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-change-password',
@@ -47,6 +48,7 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
     private renderer: Renderer,
     private authService: AuthService,
     private userService: UserService,
+    private location: Location,
   ) {
   }
 
@@ -64,11 +66,11 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
       phoneNumber: ['', [Validators.required, Validators.minLength(2)]],
     })
     this.getUser(this.authService.currentUser.userId)
-
-
   }
 
-
+  goBack() {
+    this.location.back();
+  }
 
   getUser(id : string) {
     this.userService.getUser(id)
