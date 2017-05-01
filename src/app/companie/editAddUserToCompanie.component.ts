@@ -56,7 +56,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     },
     notes:[],
     forms:[],
-    role:[],
+    role:['client'],
   }
 
   myForm: FormGroup;
@@ -64,6 +64,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
 
 
   constructor(
+    private router: Router,
     private userService: UserService,
     private companieService: CompanieService,
     private toastr: ToastsManager,
@@ -83,8 +84,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
       lastVisit: [''],
       _id: [''],
       role: this._fb.array([]),
-      email: ['', [Validators.required, Validators.minLength(5)]],
-
+      email: [{value: '', disabled: true}],
       profile: this._fb.group({
         phoneNumber: [''],
         title: ['', [Validators.required, Validators.minLength(2)]],
@@ -121,11 +121,14 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
   initFormNewUser() {
     this.fetchedUser.email = this.search.email
+    this.fetchedUser.role.forEach((role) => {
+      this.addRole(role)
+    })
   }
 
   userFounded(i) {
     this.fetchedUser = this.filteredUsers[i]
-    this.fetchedUser
+    //this.fetchedUser
     this.fetchedUser.role.forEach((role) => {
       this.addRole(role)
     })
@@ -142,6 +145,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   save(form: FormGroup) {
+
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
@@ -164,26 +168,29 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   addUserIdToCompanie(user) {
-    let okAddUserToCompanie = true
-    this.fetchedCompanie._users.forEach((userFetch) => {
-      if(userFetch._id === user._id) {
-        okAddUserToCompanie = false
-      }
-    })
-    if(!okAddUserToCompanie){
-      this.toastr.error('error! user already exists in salon')
-      return
-    }
 
-    this.fetchedCompanie._users.push(user)
-    this.companieService.updateCompanie(this.fetchedCompanie)
-      .subscribe(
-        res => {
-          //this.onPassForm.emit();
-          this.toastr.success('Great!', res.message)
-        },
-        error => {console.log(error)}
-      )
+      let okAddUserToCompanie = true
+      this.fetchedCompanie._users.forEach((userFetch) => {
+        if(userFetch._id === user._id) {
+          okAddUserToCompanie = false
+        }
+      })
+      if(!okAddUserToCompanie){
+        this.toastr.error('error! user already exists in salon')
+        this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+      }
+
+      this.fetchedCompanie._users.push(user)
+      this.companieService.updateCompanie(this.fetchedCompanie)
+        .subscribe(
+          res => {
+            //this.onPassForm.emit();
+            this.toastr.success('Great!', res.message)
+            this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+          },
+          error => {console.log(error)}
+        )
+
   }
 
   getObjects(myForm){
