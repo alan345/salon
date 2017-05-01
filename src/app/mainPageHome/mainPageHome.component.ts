@@ -98,7 +98,7 @@ export class MainPageHomeComponent implements OnInit {
     )
     this.mainPageHomeService.getOptions()
       .subscribe(
-        options => this.options = options.obj,
+        options => this.options = <Options>options.obj,
         error => {console.log(error)}
       );
   }
