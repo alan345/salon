@@ -109,10 +109,16 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
       .subscribe(
         data => {
           // after successfull registration, the user is redirected to the login page
-          this.router.navigate(['/user/login']);
-          localStorage.removeItem('id_token');
+          //this.router.navigate(['/user/login']);
+
+          this.authService.logout();
+          let this2 = this
+          setTimeout(function(){
+              this2.router.navigate(['/user/login']);
+          }, 150);
+        //  localStorage.removeItem('id_token');
           // toastr message pops up to inform user that the registration was successfull
-          this.toastr.success('Please login with your new password', 'Password changed');
+          //this.toastr.success('Please login with your new password', 'Password changed');
         }
       );
   }
