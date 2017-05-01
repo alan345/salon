@@ -7,7 +7,6 @@
   <button *ngIf="isEditTitle" type="button" (click)="editTitleHomePage()">Ok</button>
   <a href="https://www.phyto.com/" class="btn shopbutton" target="_blank">SHOP NOW</a>
 </div>
-
 <div class="container beigeback">
   <form #f="ngForm" novalidate (ngSubmit)="save()">
     <div class="form-group">
@@ -28,7 +27,6 @@
                   <label class="homelabel">Products</label>
                 </a>
               </div>
-
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
                   <div *ngFor="let img of options.design.mainPage._imgHome2">
@@ -43,7 +41,6 @@
                 </a>
               </div>
             </div>
-
             <div class="row">
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
@@ -58,7 +55,6 @@
                   <label class="homelabel">Social</label>
                 </a>
               </div>
-
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
                   <div *ngFor="let img of options.design.mainPage._imgHome4">
@@ -75,11 +71,9 @@
                       {{trackinPage.lastVisitPagePressCount }}
                     </div>
                   </label>
-
                 </a>
               </div>
             </div>
-
             <div class="row">
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
@@ -99,7 +93,6 @@
                   </label>
                 </a>
               </div>
-
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
                   <div *ngFor="let img of options.design.mainPage._imgHome6">
