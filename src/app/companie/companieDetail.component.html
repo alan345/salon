@@ -10,11 +10,8 @@
       <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}}</h6>
     </div>
     <div class="sln-sty phyto-ctnr">
-      <div *ngFor="let user of fetchedCompanie._users" class="one-sty">
-        <div
-          *ngIf="user.role == 'stylist'"
-          [routerLink]="['/user/profile/' + user._id]"
-          routerLinkActive="active">
+      <div *ngFor="let user of fetchedCompanie._users">
+        <div *ngIf="user.role == 'stylist'" [routerLink]="['/user/profile/' + user._id]" routerLinkActive="active" class="one-sty">
           <img *ngIf="user.profile._profilePicture.length == 0" src="assets/images/profilePicture.jpg">
           <div *ngFor="let profilePicture of user.profile._profilePicture" class="one-stypic">
             <img
