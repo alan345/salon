@@ -11,14 +11,16 @@
   float: left;
 }
 .one-stypic {
-  height:300px;
+  height: 330px !important;
   overflow: hidden;
   display: flex;
   justify-content: center;
 }
 .one-sty img {
   flex: none;
-  width: 100% !important;
+  width: auto !important;
+  height: 100%;
+  max-width: none;
 }
 .sty-ttl {
   padding: 15px;
