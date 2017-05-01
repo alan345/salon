@@ -171,12 +171,20 @@ router.get('/:id', function (req, res, next) {
         message: '',
         err: err
       })
-    } else {
-      res.status(200).json({
-        message: 'Success',
-        item: item
-      })
     }
+
+    if (!item) {
+      return res.status(404).json({
+        title: 'No form found',
+        error: {message: 'Item not found!'}
+      });
+    }
+
+    res.status(200).json({
+      message: 'Success',
+      item: item
+    })
+
   })
 })
 

@@ -34,7 +34,12 @@ export class VideoSingleComponent implements OnInit {
     categories: [],
     owner: []
   }
-  categoriesHard2 = [{
+  categoriesHard2 = [
+    {
+      name:'whatsnew',
+      selected : false
+    },
+    {
       name:'treatments',
       selected : false
     },

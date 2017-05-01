@@ -180,6 +180,14 @@ router.get('/:id', function (req, res, next) {
         error: err
       });
     }
+
+    if (!user) {
+      return res.status(404).json({
+        title: 'No form found',
+        error: {message: 'Item not found!'}
+      });
+    }
+    
     return res.status(200).json({
       user: user
     })
