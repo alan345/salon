@@ -404,8 +404,9 @@ a.seemre {
   width: 100% !important;
 }
 .spinner {
-  float:left;
   width: 100% !important;
+  position: absolute;
+  top: 35%;
 }
 
 /*--Responsive--*/
