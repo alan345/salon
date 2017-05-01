@@ -18,7 +18,7 @@ export class AuthGuardService implements CanActivate {
       // user is not logged in, return the user to the login page
     } else {
       this.router.navigate(['/user/login']);
-      this.toastr.error('Please login first');
+    //  this.toastr.error('Please login first');
     }
   }
 }
