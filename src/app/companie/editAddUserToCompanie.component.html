@@ -1,57 +1,41 @@
-
-
-  <div class="container topPadTable">
-    <h2 class="text-center">
-      Add stylist to salon
-    </h2>
-
-    <hr>
-
+<div class="container">
+  <div class="goldgradient beigeborder subnav">
+    <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
+    <h3 style="text-align: center;">Add Member</h3>
+  </div>
+  <div class="beigeback single-wrpr">
     <div *ngIf="!fetchedUser.email">
       <div class="form-group">
-        <label>email_</label>
-        <input type="text" class="form-control"
-          [(ngModel)]="search.email"
-          (keyup.enter)="searchEmails()"
-        >
+        <input type="text" class="form-control" [(ngModel)]="search.email" (keyup.enter)="searchEmails()" placeholder="Email">
       </div>
     </div>
-
     <form  *ngIf="fetchedUser.email" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
       <div class="form-group">
         <div class="form-group">
-          <input type="hidden" class="form-control"
-            formControlName="_id"
-            [(ngModel)]="fetchedUser._id">
+          <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedUser._id">
         </div>
-        <label>email</label>
         <input
           type="text"
           class="form-control"
           formControlName="email"
-          [(ngModel)]="fetchedUser.email">
+          [(ngModel)]="fetchedUser.email"
+          placeholder="Email">
       </div>
-
       <div formGroupName="profile">
         <div class="form-group">
-          <label>name</label>
-          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name">
+          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="First Name">
         </div>
         <div class="form-group">
-          <label>lastName</label>
-          <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName">
+          <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="Last Name">
         </div>
         <div class="form-group">
-          <label>phoneNumber</label>
-          <input type="text" class="form-control" formControlName="phoneNumber" [(ngModel)]="fetchedUser.profile.phoneNumber">
+          <input type="text" class="form-control" formControlName="phoneNumber" [(ngModel)]="fetchedUser.profile.phoneNumber" placeholder="Phone Number">
         </div>
-
         <div class="form-group">
-          <label>Title</label>
-          <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title">
+          <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
         </div>
-
       </div>
+      
       <!-- <div formArrayName="role">
         <div *ngFor="let role of getObjectsRole(myForm); let i=index" >
           <div [formGroupName]="i">
@@ -60,7 +44,6 @@
         </div>
       </div> -->
 
-
       <div formArrayName="role">
         <div *ngFor="let role of getObjectsRole(myForm); let i=index" >
           <div [formGroupName]="i">
@@ -68,22 +51,20 @@
               class="form-control"
               formControlName="role"
               [(ngModel)]="fetchedUser.role[i]">
-              <option value="admin">admin</option>
-              <option value="saleRep">saleRep</option>
-              <option value="stylist">stylist</option>
-              <option value="client">client</option>
+              <option value="admin">Administrator</option>
+              <option value="saleRep">Sales Rep</option>
+              <option value="stylist">Stylist</option>
             </select>
+            
             <!-- <input type="text" class="form-control" formControlName="role" [(ngModel)]="fetchedUser.role[i]"> -->
+            
           </div>
         </div>
       </div>
 
-
         <!-- <md-option *ngFor="let role of fetchedUser.role" [value]="role" [(ngModel)]="fetchedUser.role">
           {{ role }}
         </md-option> -->
-
-
       <!--forms-->
       <!-- <div formArrayName="forms">
         <div *ngFor="let form of myForm.controls.forms.controls; let i=index" class="panel panel-default">
@@ -101,29 +82,18 @@
         <button type="button" md-button (click)="openDialog('img')">+ Media</button>
       </div> -->
       <!--forms-->
-
-
-
       <!-- <div class="form-group">
         <label>Notes</label>
         <div *ngFor="let note of fetchedUser.notes">
           <h3>{{note.text}}</h3>
           {{note.dateNote| date}}
         </div>
-
       </div>
       <button class="btn-default" [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">+ Add note <i class="fa fa-arrow-right"></i></button> -->
-
 
       <div class="margin-20">
         <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
       </div>
       <div class="clearfix"></div>
-
     </form>
-
-
-
-
-
   </div>
