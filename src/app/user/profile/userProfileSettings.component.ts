@@ -45,34 +45,26 @@ export class UserProfileSettingsComponent implements OnInit {
     ]
   }]
   isEditMode:boolean = false
-  fetchedUser = {
+  fetchedUser : User = {
     _id: '',
     lastVisit: new Date,
     email:'',
-    forms:[
-    //   {
-    //   _id:'',
-    //   owner:'',
-    //   imagePath:'',
-    // }
-    ],
     profile:{
-      title:'',
+      parentUser:[],
+      phoneNumber:'',
       name:'',
       lastName:'',
-      hair:{
-        hairDensity : '',
-        hairPorosity : '',
-        hairTexture : '',
-      },
+      title:'',
       _profilePicture:[],
+      hair:{
+        hairDensity : 'alan',
+        hairPorosity : 'alan',
+        hairTexture : 'alan',
+      }
     },
-    notes:[
-    //   {
-    //   text:'',
-    //   dateNote: ''
-    // }
-    ]
+    notes:[],
+    forms:[],
+    role:[],
   }
 
   public myForm: FormGroup;
