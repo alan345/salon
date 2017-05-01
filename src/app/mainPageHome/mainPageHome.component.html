@@ -1,10 +1,10 @@
 <div class="container goldgradient beigeborder">
-  <div *ngIf="isAdmin()">
-    <button *ngIf="!isEditTitle" type="button" (click)="editTitleHomePage()">Edit</button>
+  <div *ngIf="isAdmin()" class="flt-lft">
+    <button *ngIf="!isEditTitle" type="button" (click)="editTitleHomePage()" class="edtttl-btn">Edit</button>
   </div>
-  <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.titleHomePage">
+  <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.titleHomePage" class="edtttl-txt">
   <h3 *ngIf="!isEditTitle" class="topnav-ad">{{options.design.mainPage.titleHomePage}}</h3>
-  <button *ngIf="isEditTitle" type="button" (click)="editTitleHomePage()">Ok</button>
+  <button *ngIf="isEditTitle" type="button" (click)="editTitleHomePage()" class="edtttl-ok">Ok</button>
   <a href="https://www.phyto.com/" class="btn shopbutton" target="_blank">SHOP NOW</a>
 </div>
 <div class="container beigeback">
