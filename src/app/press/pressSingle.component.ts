@@ -66,7 +66,9 @@ export class PressSingleComponent implements OnInit {
     })
   }
 
-
+  removePDF(i:number){
+    this.fetchedPress.formPDF.splice(i, 1);
+  }
   openDialogDelete(){
     let dialogRefDelete = this.dialog.open(DeleteDialog)
     dialogRefDelete.afterClosed().subscribe(result => {

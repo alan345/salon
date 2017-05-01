@@ -9,7 +9,6 @@ export class PressComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
