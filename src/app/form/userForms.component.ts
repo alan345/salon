@@ -9,7 +9,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./form.component.css']
 })
 export class UserFormsComponent implements OnInit {
-
+  @Input() itemsPerPage
   @Output() onPassForm = new EventEmitter<any>();
   fetchedForms = [];
 
@@ -35,19 +35,19 @@ export class UserFormsComponent implements OnInit {
   }
 
   getUserForms(page){
-    //this.activatedRoute.params.subscribe((params: Params) => {
-      let id=this.authService.currentUser.userId
-      // if(params['id']) {
-      //   id = params['id']
-      // }
-      this.formService.getUserForms(page, id)
-        .subscribe(
-          res => {
-            this.paginationData = res.paginationData;
-            this.fetchedForms = res.data
-          },
-          error => console.log(error))
-  //  })
+    let search = {
+      id:this.authService.currentUser.userId,
+      itemsPerPage:this.itemsPerPage
+    }
+
+    this.formService.getUserForms(page, search)
+      .subscribe(
+        res => {
+          this.paginationData = res.paginationData;
+          this.fetchedForms = res.data
+        },
+        error => console.log(error))
+
   }
 
   onSelectRow(formId){

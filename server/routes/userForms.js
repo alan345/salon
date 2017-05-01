@@ -59,20 +59,20 @@ router.use('/', function (req, res, next) {
 
 
 // getting user forms to display them on front end
-router.get('/:id/page/:page', function (req, res, next) {
-  var itemsPerPage = 5
+router.get('/page/:page', function (req, res, next) {
+  console.log(req.query)
+  var itemsPerPage = Number(req.query.itemsPerPage)
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
 
-  User.findById(({_id: req.params.id}), function (err) {
+  User.findById(({_id: req.user.id}), function (err) {
     if (err) {
       return res.status(404).json({
         message: '',
         err: err
       })
     } else {
-
         Form
         //.find({owner: req.params.id})
         .find({owner: req.user._id})
@@ -86,7 +86,7 @@ router.get('/:id/page/:page', function (req, res, next) {
             })
           } else {
             Form
-            .find({owner: req.params.id})
+            .find({owner: req.user.id})
             .count()
             .exec(function (err, count) {
             res.status(200).json({
