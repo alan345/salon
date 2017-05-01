@@ -28,8 +28,11 @@ let options = <ToastOptions> {
 
 
 
-import {NavbarComponent} from './navbar/navbar.component';
-import {SideNavbarComponent} from './sideNavbar/sideNavbar.component';
+import {NavbarComponent} from './nav/navbar/navbar.component';
+import {SideNavbarComponent} from './nav/sideNavbar/sideNavbar.component';
+import {FooterComponent} from './nav/footer/footer.component';
+
+
 
 import {FormComponent} from './form/form.component';
 import {RegisterComponent} from './user/register/register.component';
@@ -39,7 +42,6 @@ import {SingleUserComponent} from './user/users/singleUser.component';
 import {AddNoteComponent} from './user/users/addNote.component';
 import {ChooseDateComponent} from './user/users/chooseDate.component';
 
-import {FooterComponent} from './footer/footer.component';
 
 
 
