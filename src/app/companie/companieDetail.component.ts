@@ -23,7 +23,7 @@ import { AdminService} from '../admin/services/admin.service';
   styleUrls: ['./companie.component.css'],
 })
 export class CompanieDetailComponent implements OnInit {
-  maxPictureToShow=3
+  maxPictureToShow = 3
   fetchedCompanie : Companie = {
     _id:'',
     forms:[],
@@ -102,7 +102,7 @@ export class CompanieDetailComponent implements OnInit {
     this.router.navigate(['companie/' + this.fetchedCompanie._id + "/companiePictures"]);
   }
 
-  addForm(form) {
+  addForm(form : Form) {
     const control = <FormArray>this.myForm.controls['forms'];
     const addrCtrl = this._fb.group({
         _id: ['', Validators.required],
@@ -128,7 +128,7 @@ export class CompanieDetailComponent implements OnInit {
   }
 
 
-  getCompanie(id) {
+  getCompanie(id : string) {
     this.companieService.getCompanie(id)
       .subscribe(
         res => {

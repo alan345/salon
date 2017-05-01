@@ -60,8 +60,6 @@ export class PressSingleComponent implements OnInit {
       link: [''],
     });
 
-    //this.addAddress();
-
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id'])
        this.getPress(params['id'])
@@ -78,36 +76,6 @@ export class PressSingleComponent implements OnInit {
       }
     })
   }
-
-
-  // removeAddress(i: number) {
-  //     const control = <FormArray>this.myForm.controls['addresses'];
-  //     control.removeAt(i);
-  // }
-  //
-  // addAddress() {
-  //   const control = <FormArray>this.myForm.controls['addresses'];
-  //   const addrCtrl = this._fb.group({
-  //       street: ['', Validators.required],
-  //       postcode: ['']
-  //   });
-  //   control.push(addrCtrl);
-  // }
-
-  // removeForm(i: number) {
-  //     this.fetchedPress.forms.splice(i, 1)
-  //     const control = <FormArray>this.myForm.controls['forms'];
-  //     control.removeAt(i);
-  // }
-
-  // addForm(form: Form) {
-  //
-  //   const control = <FormArray>this.myForm.controls['forms'];
-  //   const addrCtrl = this._fb.group({
-  //       _id: ['', Validators.required],
-  //   });
-  //   control.push(addrCtrl);
-  // }
 
 
   goBack() {
@@ -175,16 +143,4 @@ export class PressSingleComponent implements OnInit {
         }
       );
   }
-
-
 }
-
-
-// @Component({
-//   selector: 'press-dialog',
-//   templateUrl: './pressDialog.component.html',
-// })
-// export class PressDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<PressDialogComponent>) {}
-//
-// }

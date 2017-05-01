@@ -20,7 +20,6 @@ import {UserService} from '../user/user.service';
   styleUrls: ['./companie.component.css'],
 })
 export class EditAddUserToCompanieComponent implements OnInit {
-  //@Output() onPassForm = new EventEmitter<any>();
 
   fetchedCompanie : Companie = {
     _id:'',
@@ -76,7 +75,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getCompanie(params['id'])
     })
@@ -136,7 +134,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     this.filteredUsers = []
   }
 
-  addRole(form) {
+  addRole(role) {
     const control = <FormArray>this.myForm.controls['role'];
     const addrCtrl = this._fb.group({
         role: ['']
@@ -167,7 +165,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     }
   }
 
-  addUserIdToCompanie(user) {
+  addUserIdToCompanie(user : User) {
 
       let okAddUserToCompanie = true
       this.fetchedCompanie._users.forEach((userFetch) => {
@@ -228,11 +226,8 @@ export class EditAddUserToCompanieComponent implements OnInit {
       );
   }
 
-
   goBack() {
     this.location.back();
   }
-
-
 
 }
