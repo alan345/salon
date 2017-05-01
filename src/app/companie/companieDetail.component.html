@@ -12,7 +12,9 @@
     <div class="sln-sty phyto-ctnr">
       <div *ngFor="let user of fetchedCompanie._users">
         <div *ngIf="user.role == 'stylist'" [routerLink]="['/user/profile/' + user._id]" routerLinkActive="active" class="one-sty">
-          <img *ngIf="user.profile._profilePicture.length == 0" src="assets/images/profilePicture.jpg">
+          <div class="one-stypic" *ngIf="user.profile._profilePicture.length == 0">
+            <img  src="assets/images/profilePicture.jpg">
+          </div>
           <div *ngFor="let profilePicture of user.profile._profilePicture" class="one-stypic">
             <img
               src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}"

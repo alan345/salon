@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-
 import {AuthService} from '../auth/auth.service';
 import {CompanieService} from './companie.service';
-
 
 import {Companie} from './companie.model';
 import {ChangeDetectionStrategy, Input} from "@angular/core";
@@ -47,6 +45,7 @@ export class EditCompanieComponent implements OnInit {
     private router: Router,
     private location: Location,
     private _fb: FormBuilder,
+    private authService:AuthService,
   ) {}
 
   ngOnInit() {
@@ -143,6 +142,9 @@ export class EditCompanieComponent implements OnInit {
           console.log(error);
         }
       )
+  }
+  isAdmin() {
+    return this.authService.isAdmin();
   }
 
 }

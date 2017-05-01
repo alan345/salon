@@ -71,7 +71,7 @@
           </div>
         </div>
       </div>
-      <div class="sln-stymng phyto-ctnr">
+      <div *ngIf="isAdmin()" class="sln-stymng phyto-ctnr">
         <h3>Manage Admins:</h3>
         <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
         <div *ngFor="let user of fetchedCompanie._users; let i=index">

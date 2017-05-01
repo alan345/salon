@@ -58,7 +58,7 @@ router.put('/:id', function (req, res, next) {
   Product.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
       return res.status(404).json({
-        message: 'No forms found for this user',
+        message: '',
         err: err
       })
     } else {
@@ -76,7 +76,7 @@ router.put('/:id', function (req, res, next) {
             });
           }
           res.status(201).json({
-            message: 'Profile picture uploaded successfully',
+            message: '',
             obj: result
           });
         });
@@ -168,7 +168,7 @@ router.get('/:id', function (req, res, next) {
   .exec(function (err, item) {
     if (err) {
       return res.status(404).json({
-        message: 'No forms found for this user',
+        message: '',
         err: err
       })
     } else {

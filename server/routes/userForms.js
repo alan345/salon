@@ -68,7 +68,7 @@ router.get('/:id/page/:page', function (req, res, next) {
   User.findById(({_id: req.params.id}), function (err) {
     if (err) {
       return res.status(404).json({
-        message: 'No forms found for this user',
+        message: '',
         err: err
       })
     } else {
