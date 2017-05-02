@@ -55,6 +55,13 @@ button.sln-styadd {
     margin: 2.5px 0;
     position: relative;
 }
+button.updn-btn {
+    background-color: #0A2F87;
+    border: none !important;
+    margin-right: 15px;
+    color: #ffffff;
+    outline: none !important;
+}
 .sln-stymng {
     margin-bottom: 15px;
 }
