@@ -12,7 +12,7 @@
       <div class="phyto-ctnr">
         <div formArrayName="forms" class="phyto-ctnr">
           <div *ngFor="let form of getObjects(myForm); let i=index" class="flt-lft">
-            <div>
+            <div class="fll-pge">
               <div [formGroupName]="i" class="pic-list">
                 <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
                 <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
