@@ -16,7 +16,7 @@
       </div>
       <div class="form-group">
         <div class="sbmt-pic">
-          <button type="submit" [disabled]="!myForm.valid || !hasFiles()" id="submitForm" name="sumbitForm" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Submit</button>
+          <button type="submit" [disabled]="!myForm.valid || !hasFiles()" id="submitForm" name="sumbitForm" [ngClass]="{'done':hasFiles(),'pas-done':!hasFiles()}">Submit</button>
           <progress-bar [value]="progress" [max]="100" *ngIf="hasFiles() && submitStarted"></progress-bar>
         </div>
       </div>
