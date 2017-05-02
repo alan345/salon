@@ -71,7 +71,7 @@ export class VideosComponent implements OnInit {
     this.location.back();
   }
 
-    onSelectChange = ($event: any): void => {
+  onSelectChange = ($event: any): void => {
 //    console.log($event)
     this.categories2 = $event.tab.textLabel
     this.updateCategerories()

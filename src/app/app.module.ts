@@ -125,9 +125,12 @@ import {FormService} from './form/form.service';
 
 import {ErrorPageComponent} from './errorPage/errorPage.component';
 
-import {AdminPageComponent} from './admin/adminPage/adminPage.component';
-import {AdminService} from './admin/services/admin.service';
-import {EditUsersFormsComponent} from './admin/editUsersForms/editUsersForms.component';
+
+
+import {AdminUsersComponent} from './admin/user/adminUsers.component'
+import {AdminPageComponent} from './admin/adminPage/adminPage.component'
+import {AdminService} from './admin/services/admin.service'
+import {EditUsersFormsComponent} from './admin/editUsersForms/editUsersForms.component'
 
 
 
@@ -233,6 +236,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     UserFormsUploadAndList,
     ErrorPageComponent,
     AdminPageComponent,
+    AdminUsersComponent,
     EditUsersFormsComponent,
     EditOptionsComponent,
     EditOptionsComponentDialog,

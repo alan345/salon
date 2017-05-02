@@ -68,24 +68,40 @@ router.get('/page/:page', function (req, res, next) {
   let roleToSearch = []
 
 
-  if(req.user.role[0] === 'stylist') {
-    parentUserToSearch = req.user._id
-    roleToSearch = ['client']
-  } else if(req.user.role[0] === 'admin') {
-    parentUserToSearch = req.query.parentUser
-    roleToSearch = ['client', 'stylist']
+  // if(req.user.role[0] === 'stylist') {
+  //   parentUserToSearch = req.user._id
+  //   roleToSearch = ['client']
+  // } else if(req.user.role[0] === 'admin') {
+  //   parentUserToSearch = req.query.parentUser
+  //   roleToSearch = ['client', 'stylist']
+  // }
+
+
+
+  let findQuery = {
+    //'profile.name' : new RegExp(req.query.search, 'i'),
+//    'profile.parentUser' : mongoose.Types.ObjectId(parentUserToSearch),
+  //  'role': {$in: roleToSearch}
+  }
+
+  //parentUserToSearch = req.query.parentUser
+  if(req.query.parentUser) {
+    findQuery['profile.parentUser'] = mongoose.Types.ObjectId(req.query.parentUser)
+  }
+
+  if(req.query.search) {
+    findQuery['profile.name'] = new RegExp(req.query.search, 'i')
   }
 
   if(req.query.role) {
     roleToSearch = [req.query.role]
+    findQuery['role'] = {$in: roleToSearch}
   }
 
+
+  console.log(findQuery)
   User
-  .find({
-    'profile.name' : new RegExp(req.query.search, 'i'),
-    'profile.parentUser' : mongoose.Types.ObjectId(parentUserToSearch),
-    'role': {$in: roleToSearch}
-  })
+  .find(findQuery)
   .limit(itemsPerPage)
   .skip(skip)
   .sort(req.query.orderBy)
@@ -97,11 +113,7 @@ router.get('/page/:page', function (req, res, next) {
       })
     } else {
       User
-      .find({
-        'profile.name' : new RegExp(req.query.search, 'i'),
-        'profile.parentUser' : mongoose.Types.ObjectId(req.query.parentUser),
-        'role': {$in: roleToSearch}
-      })
+      .find(findQuery)
       .count().exec(function (err, count) {
       res.status(200).json({
           paginationData : {
