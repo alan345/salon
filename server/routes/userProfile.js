@@ -349,7 +349,10 @@ router.put('/:id', function (req, res, next) {
     } else {
 
         for (var prop in req.body) {
-          item[prop] = req.body[prop]
+          if(prop !== '__v') {
+            console.log(prop)
+            item[prop] = req.body[prop]
+          }
         }
 
 

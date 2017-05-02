@@ -26,17 +26,11 @@ export class SingleUserComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   maxPictureToShow=3
-  fetchedUser  = {
+  fetchedUser = {
     _id: '',
     lastVisit: new Date,
     email:'',
-    forms:[
-    //   {
-    //   _id:'',
-    //   owner:'',
-    //   imagePath:'',
-    // }
-    ],
+    forms:[],
     profile:{
       name:'',
       hair:{
@@ -45,12 +39,7 @@ export class SingleUserComponent implements OnInit {
         hairTexture : '',
       }
     },
-    notes:[
-    //   {
-    //   text:'',
-    //   dateNote: ''
-    // }
-    ]
+    notes:[]
   }
 
   public myForm: FormGroup;
@@ -72,6 +61,7 @@ export class SingleUserComponent implements OnInit {
    }
 
 
+
   ngOnInit() {
     this.myForm = this._fb.group({
       lastVisit: [''],
@@ -87,7 +77,11 @@ export class SingleUserComponent implements OnInit {
 
 
 
+  removeNote(i: number){
+    this.fetchedUser.notes.splice(i, 1)
 
+    this.save()
+  }
 
 
   removeForm(i: number) {
