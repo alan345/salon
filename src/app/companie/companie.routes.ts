@@ -14,6 +14,7 @@ import {CompaniePicturesComponent} from './companiePictures.component';
 
 
 
+
 export const USER_COMPANIES: Routes = [
 
   {path: '', component: CompaniesComponent},
