@@ -98,6 +98,7 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message)
+          this.router.navigate(['/']);
         },
         error => {console.log(error)}
       )
