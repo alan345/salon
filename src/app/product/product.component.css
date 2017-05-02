@@ -8,6 +8,25 @@
     font-size: 13px;
     text-align: center;
 }
+.cat-btn, .cat-btn-on {
+    border: none;
+    outline: none !important;
+    text-transform: uppercase;
+    padding: 5px 15px 5px;
+    border-radius: 14px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    float: left !important;
+}
+.cat-btn {
+    background-color: #ffffff;
+    color: #0a2f87;
+}
+.cat-btn-on {
+    background-color: #0a2f87 !important;
+    color: #ffffff !important;
+}
 
 @media screen and (min-width: 768px) {
   
