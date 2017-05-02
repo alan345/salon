@@ -360,6 +360,7 @@ a.seemre {
   padding: 0 !important;
   border: none !important;
   background: none !important;
+  outline: none !important;
 }
 .close-sub {
   margin: -12px;
