@@ -25,6 +25,8 @@ let options = <ToastOptions> {
   animate: 'flyRight',
   positionClass: 'toast-top-right',
 };
+import { DragulaModule } from 'ng2-dragula';
+
 
 
 
@@ -170,8 +172,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 @NgModule({
   declarations: [
-    FooterComponent,
     AppComponent,
+    FooterComponent,
     NavbarComponent,
     SideNavbarComponent,
     FormComponent,
@@ -247,6 +249,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
   ],
   imports: [
+    DragulaModule,
     BrowserModule,
     CommonModule,
     HttpModule,
