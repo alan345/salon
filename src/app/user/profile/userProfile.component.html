@@ -87,13 +87,10 @@
       </div>
     </div>
     <div class="phyto-ctnr insta-promo">
-      <div class="phyto-ctnr insta-pic goldgradient">
+      <div *ngIf="fetchedUser.forms[i].imagePath" class="phyto-ctnr insta-pic goldgradient">
         <div *ngFor="let form of getObjects(myForm); let i=index">
           <div *ngIf="i < instapic">
             <div >
-              <!-- <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
-              <input type="hidden" class="form-control" formControlName="owner" [(ngModel)]="fetchedUser.forms[i].owner">
-              <input type="hidden" class="form-control" formControlName="imagePath" [(ngModel)]="fetchedUser.forms[i].imagePath"> -->
               <img width="150" src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             </div>
           </div>
