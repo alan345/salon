@@ -219,6 +219,7 @@ export class UserProfileComponent implements OnInit {
       return true
     return false
   }
+  
 
   onDelete(id: string) {
     this.userService.deleteUser(id)
