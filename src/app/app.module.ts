@@ -64,6 +64,8 @@ import {PressService} from './press/press.service';
 
 
 import {VideoDeleteDialog} from './video/videoDeleteDialog.component';
+import {VideoWhereDialogComponent} from './video/videoWhereDialog.component';
+
 import {VideoComponent} from './video/video.component';
 import {VideosComponent} from './video/videos.component';
 import {VideoSingleComponent} from './video/videoSingle.component';
@@ -192,6 +194,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 
     VideoDeleteDialog,
+    VideoWhereDialogComponent,
     VideoComponent,
     VideosComponent,
     VideoSingleComponent,
@@ -295,7 +298,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SubmitPicDialog,
     PromotionDeleteDialog,
     EditOptionsComponentDialog,
-    VideoDeleteDialog
+    VideoDeleteDialog,
+    VideoWhereDialogComponent
   ],
 
   bootstrap: [AppComponent],

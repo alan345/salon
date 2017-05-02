@@ -14,6 +14,8 @@ import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.compone
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
 import { VideoDeleteDialog } from './videoDeleteDialog.component'
+import { VideoWhereDialogComponent } from './videoWhereDialog.component'
+
 
 
 @Component({
@@ -161,7 +163,15 @@ export class VideoSingleComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
+  openDialogWhereVideo(){
+    let dialogRefDelete = this.dialog.open(VideoWhereDialogComponent)
+    dialogRefDelete.afterClosed().subscribe(result => {
+      // if(result) {
+      //   this.onDelete(this.fetchedVideo._id)
+      //   this.router.navigate(['video']);
+      // }
+    })
+  }
   openDialog(positionImage) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
     dialogRef.afterClosed().subscribe(result => {
