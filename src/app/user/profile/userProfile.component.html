@@ -69,7 +69,7 @@
         <div *ngIf="canEditPage()" class="col-sm-3">
           <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
         </div>
-        <div class="flt-lft">
+        <div class="col-sm-9">
           <div class="phyto-ctnr">
             <div *ngFor="let form of getObjects(myForm); let i=index" class="flt-lft">
               <div *ngIf="i < maxPictureToShow">
