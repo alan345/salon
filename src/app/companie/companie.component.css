@@ -37,21 +37,6 @@
 .delete a {
     color: inherit !important;
 }
-.img-row .col-sm-3 {
-  padding: 0 15px 0 0 !important;
-}
-.img-row .col-sm-9 {
-  padding: 0 !important;
-}
-.img-frm {
-  padding: 15px;
-}
-.img-row a.seemre {
-  position: relative !important;
-  margin: 0!important;
-  right: 0 !important;
-  bottom: 0 !important;
-}
 button.sln-styadd {
   width: 100% !important;
   padding: 20px;
