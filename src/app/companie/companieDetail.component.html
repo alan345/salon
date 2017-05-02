@@ -37,7 +37,7 @@
         </div>
         <div class="col-sm-9">
           <div formArrayName="forms" class="phyto-ctnr">
-            <div *ngFor="let form of getObjects(myForm); let i=index" class="flt-lft">
+            <div *ngFor="let form of getObjects(myForm); let i=index" class="col-sm-4">
               <div *ngIf="i < maxPictureToShow">
                 <div [formGroupName]="i" class="pic-list">
                   <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedCompanie.forms[i]._id">
