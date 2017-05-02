@@ -13,7 +13,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 //import { CompanieAddUserDialog} from './companieAddUserDialog.component'
 import { DeleteDialog } from '../deleteDialog/deleteDialog.component'
-
+import { User } from '../user/user.model'
 
 
 @Component({
@@ -34,6 +34,10 @@ export class EditCompanieComponent implements OnInit {
     _users : [],
     forms : []
   }
+  userAdmins : User[] = []
+  userClients : User[] = []
+  userSaleReps : User[] = []
+  userStylists : User[] = []
   myForm: FormGroup;
 
   constructor(
@@ -77,6 +81,12 @@ export class EditCompanieComponent implements OnInit {
   }
 
   save(redirect:boolean) {
+    this.fetchedCompanie._users = []
+    this.userAdmins.forEach(user => this.fetchedCompanie._users.push(user))
+    this.userClients.forEach(user => this.fetchedCompanie._users.push(user))
+    this.userStylists.forEach(user => this.fetchedCompanie._users.push(user))
+    this.userSaleReps.forEach(user => this.fetchedCompanie._users.push(user))
+
     this.companieService.updateCompanie(this.fetchedCompanie)
       .subscribe(
         res => {
@@ -88,11 +98,11 @@ export class EditCompanieComponent implements OnInit {
       )
   }
 
-  move(i, incremet) {
-    if(i>0 && i<this.fetchedCompanie._users.length + incremet) {
-      var tmp = this.fetchedCompanie._users[i];
-      this.fetchedCompanie._users[i] = this.fetchedCompanie._users[i + incremet]
-      this.fetchedCompanie._users[i + incremet] = tmp
+  move(i, incremet, typeUser) {
+    if(i>=0 && i<=this[typeUser].length + incremet) {
+      var tmp = this[typeUser][i];
+      this[typeUser][i] = this[typeUser][i + incremet]
+      this[typeUser][i + incremet] = tmp
       this.save(false)
     }
   }
@@ -146,7 +156,17 @@ export class EditCompanieComponent implements OnInit {
         res => {
           this.fetchedCompanie = res
           this.fetchedCompanie._users.forEach((user) => {
-            this.addUser(user)
+            if(user.role[0] === 'admin')
+              this.userAdmins.push(user)
+            if(user.role[0] === 'saleRep')
+              this.userSaleReps.push(user)
+            if(user.role[0] === 'client')
+              this.userClients.push(user)
+            if(user.role[0] === 'stylist')
+              this.userStylists.push(user)
+
+
+          //  this.addUser(user)
           })
         },
         error => {

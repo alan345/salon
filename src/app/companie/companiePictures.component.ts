@@ -37,6 +37,7 @@ export class CompaniePicturesComponent implements OnInit {
     },
     _users:[]
   }
+
   public myForm: FormGroup;
 
 
