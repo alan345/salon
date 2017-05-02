@@ -264,6 +264,16 @@ th, td {
 
 /*--Picture section--*/
 
+.img-row {
+  margin: 15px 0;
+  position: relative;
+}
+.img-row .col-sm-9 {
+  padding: 0 !important;
+}
+.img-frm {
+  padding: 15px;
+}
 .pic-list {
   overflow: hidden;
   display: flex;
@@ -280,14 +290,12 @@ th, td {
 a.seemre {
   font-size: 12px !important;
   color: #999999;
-}
-.img-row a.seemre {
   text-align: right;
   margin: 0 !important;
-}
-.img-row {
-  margin: 15px 0;
-  position: relative;
+  position: relative !important;
+  margin: 0!important;
+  right: 0 !important;
+  bottom: 0 !important;
 }
 .addpic-squr {
     width: 100% !important;
@@ -434,6 +442,13 @@ a.seemre {
 .cdk-overlay-pane {
     top: 200px !important;
 }
+.img-row .col-sm-3 {
+  padding: 0 15px 0 0 !important;
+}
+.pic-list img {
+  height: 150px;
+  width: auto;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -452,6 +467,13 @@ a.seemre {
   top: 50px !important;
   left:10%;
 }
+.img-row .col-sm-3 {
+  padding: 0 !important;
+}
+.pic-list img {
+    height: 100%;
+    width: 100%;
+}
 }
 
 @media screen and (min-width: 500px) {
@@ -465,10 +487,6 @@ a.seemre {
 .input-group {
     width: 290px;
 }
-.pic-list img {
-  height: 150px;
-  width: auto;
-}
 }
 
 @media screen and (max-width: 499px) {
@@ -479,9 +497,5 @@ a.seemre {
 }
 .input-group {
     width: 100% !important;
-}
-.pic-list img {
-    height: 100%;
-    width: 100%;
 }
 }
