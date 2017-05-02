@@ -68,6 +68,7 @@
           <div *ngIf="user.role=='stylist'" class="sln-styone">
             <button type="tutton" (click)="moveUp(i)">Up</button>
             <button type="tutton" (click)="moveDown(i)">Down</button>
+            
             {{ user.profile.name}}
             <button type="button" (click)="removeUserFromCompanie(i)" class="dlt-sty"><i class="fa fa-times"></i></button>
           </div>
