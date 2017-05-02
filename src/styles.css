@@ -265,14 +265,8 @@ th, td {
 /*--Picture section--*/
 
 .img-row {
-  margin: 15px 0;
+  padding: 15px 0;
   position: relative;
-}
-.img-row .col-sm-9 {
-  padding: 0 !important;
-}
-.img-frm {
-  padding: 15px;
 }
 .pic-list {
   overflow: hidden;
@@ -290,16 +284,11 @@ th, td {
 a.seemre {
   font-size: 12px !important;
   color: #999999;
-  text-align: right;
   margin: 0 !important;
   position: relative !important;
-  margin: 0!important;
-  right: 0 !important;
-  bottom: 0 !important;
 }
-.addpic-squr {
+.addpic-squr, .addpic-rectgl {
     width: 100% !important;
-    height: 150px !important;
     background-color: #efe9df !important;
     outline: none !important;
     border: 1px dashed #0a2f87 !important;
@@ -307,6 +296,12 @@ a.seemre {
     font-size: 18px !important;
     font-weight: 100 !important;
     padding: 8px !important;
+}
+.addpic-squr {
+    height: 150px !important;
+}
+.addpic-rectgl {
+    height: auto !important;
 }
 .dlt-img {
     color: #fff;
@@ -430,11 +425,15 @@ h3 {
 
 a.seemre {
     float: right;
+    padding-right: 15px;
 }
 .pic-list {
-  float: left;
-  margin: 0 15px 15px 0;
-  max-width: 150px;
+    float: left;
+    margin: 15px 15px 0 15px;
+}
+.pic-list img {
+  height: 150px;
+  width: auto;
 }
 .dltfrv {
   float: right !important;
@@ -442,20 +441,14 @@ a.seemre {
 .cdk-overlay-pane {
     top: 200px !important;
 }
-.img-row .col-sm-3 {
-  padding: 0 15px 0 0 !important;
-}
-.pic-list img {
-  height: 150px;
-  width: auto;
-}
+
 }
 
 @media screen and (max-width: 767px) {
 
 .pic-list {
-    float: left;
-    margin: 15px 0;
+  float: left;
+  margin: 15px 0;
 }
 .justkd, .dltfrv {
   width: 100%;
@@ -467,12 +460,13 @@ a.seemre {
   top: 50px !important;
   left:10%;
 }
-.img-row .col-sm-3 {
-  padding: 0 !important;
-}
 .pic-list img {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
+}
+a.seemre {
+  padding: 15px;
+  display: block;
 }
 }
 
