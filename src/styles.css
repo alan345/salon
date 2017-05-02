@@ -287,7 +287,6 @@ th, td {
 a.seemre {
   font-size: 12px !important;
   color: #999999;
-  margin: 0 !important;
   position: relative !important;
 }
 .addpic-wrpr {
@@ -430,15 +429,12 @@ h3 {
 @media screen and (min-width: 768px) {
 
 a.seemre {
-    float: right;
-    padding-right: 15px;
+  float: right;
+  padding-right: 15px;
+  margin-top: 15px;
 }
 .fll-pge .pic-list {
     margin: 15px 0 0 15px;
-}
-.pic-list {
-    float: left;
-    margin: 0 15px 15px 0;
 }
 .pic-list img {
   height: 150px;
@@ -451,15 +447,14 @@ a.seemre {
     top: 200px !important;
 }
 .img-row .col-sm-4 {
-    padding-right: 0 !important;
+    padding-left: 0 !important;
 }
 }
 
 @media screen and (max-width: 767px) {
 
 .pic-list {
-  float: left;
-  margin: 15px 0;
+    margin-top: 15px;
 }
 .justkd, .dltfrv {
   width: 100%;
@@ -470,6 +465,9 @@ a.seemre {
 .cdk-overlay-pane {
   top: 50px !important;
   left:10%;
+}
+.fll-pge .pic-list {
+    margin: 15px 15px 0;
 }
 .pic-list img {
   height: 100%;
