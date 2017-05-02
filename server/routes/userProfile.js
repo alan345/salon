@@ -67,6 +67,7 @@ router.get('/page/:page', function (req, res, next) {
   let parentUserToSearch = ''
   let roleToSearch = []
 
+
   if(req.user.role[0] === 'stylist') {
     parentUserToSearch = req.user._id
     roleToSearch = ['client']
@@ -75,6 +76,9 @@ router.get('/page/:page', function (req, res, next) {
     roleToSearch = ['client', 'stylist']
   }
 
+  if(req.query.role) {
+    roleToSearch = [req.query.role]
+  }
 
   User
   .find({
@@ -187,7 +191,7 @@ router.get('/:id', function (req, res, next) {
         error: {message: 'Item not found!'}
       });
     }
-    
+
     return res.status(200).json({
       user: user
     })

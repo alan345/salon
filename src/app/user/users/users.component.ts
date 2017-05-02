@@ -26,7 +26,8 @@ export class UsersComponent implements OnInit {
   search = {
     orderBy : '',
     search:'',
-    parentUser:''
+    parentUser:'',
+    role:''
   }
   paginationData = {
     currentPage: 1,
@@ -48,6 +49,7 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
 
     this.search.orderBy = 'profile.name'
+    this.search.role = 'client'
     this.search.parentUser = this.authService.currentUser.userId
     this.getUsers(this.paginationData.currentPage, this.search)
   }
