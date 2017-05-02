@@ -41,7 +41,7 @@
       </div>
       <div class="col-sm-9">
         <div formArrayName="forms">
-          <div *ngFor="let form of getObjects(myForm); let i=index" class="col-sm-4">
+          <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-wrpr">
             <div *ngIf="i < maxPictureToShow">
               <div [formGroupName]="i" class="pic-list">
                 <input type="text" class="form-control dspl-nn" formControlName="_id" [(ngModel)]="fetchedUser.forms[i]._id">
