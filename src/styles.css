@@ -277,6 +277,9 @@ th, td {
   justify-content: center;
   position: relative;
 }
+.pic-wrpr {
+  float: left;
+}
 .pic-list img {
   flex: none !important;
   max-width: none !important;
@@ -436,6 +439,10 @@ a.seemre {
 .fll-pge .pic-list {
     margin: 15px 0 0 15px;
 }
+.pic-wrpr {
+    width: 150px;
+    margin-right: 15px;
+}
 .pic-list img {
   height: 150px;
   width: auto;
@@ -445,9 +452,6 @@ a.seemre {
 }
 .cdk-overlay-pane {
     top: 200px !important;
-}
-.img-row .col-sm-4 {
-    padding-left: 0 !important;
 }
 }
 
@@ -468,6 +472,9 @@ a.seemre {
 }
 .fll-pge .pic-list {
     margin: 15px 15px 0;
+}
+.pic-wrpr {
+    margin: 0 15px;
 }
 .pic-list img {
   height: 100%;
