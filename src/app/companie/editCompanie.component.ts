@@ -54,19 +54,19 @@ export class EditCompanieComponent implements OnInit {
     // });
 
     dragulaService.drag.subscribe((value:any) => {
-      // console.log(`drag: ${value[0]}`); // value[0] will always be bag name
+       console.log(`drag: ${value[0]}`); // value[0] will always be bag name
       this.onDrag(value.slice(1));
     });
     dragulaService.drop.subscribe((value:any) => {
-      // console.log(`drop: ${value[0]}`);
+       console.log(`drop: ${value[0]}`);
       this.onDrop(value.slice(1));
     });
     dragulaService.over.subscribe((value:any) => {
-      // console.log(`over: ${value[0]}`);
+       console.log(`over: ${value[0]}`);
       this.onOver(value.slice(1));
     });
     dragulaService.out.subscribe((value:any) => {
-      // console.log(`out: ${value[0]}`);
+       console.log(`out: ${value[0]}`);
       this.onOut(value.slice(1));
     });
 
