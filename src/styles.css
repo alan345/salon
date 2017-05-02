@@ -394,7 +394,7 @@ a.seemre {
 
 /*--Picture Modal--*/
 
-.mat-ink-bar, .mat-tab-label {
+.img-tabs .mat-ink-bar, .img-tabs .mat-tab-label {
     width: 50% !important;
 }
 .mat-tab-header, .mat-tab-body-wrapper {
