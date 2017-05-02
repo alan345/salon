@@ -66,7 +66,7 @@
     <div class="img-row phyto-ctnr">
       <h3 *ngIf="isMyProfile()" style="padding: 0 15px !important;">Your Photos (Tap to Expand)</h3>
       <div class="phyto-ctnr">
-        <div class="col-sm-3">
+        <div *ngIf="isMyProfile()" class="col-sm-3">
           <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
         </div>
         <div class="col-sm-9">
