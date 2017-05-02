@@ -5,10 +5,10 @@
   </div>
   <div class="img-row phyto-ctnr">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="img-frm phyto-ctnr">
-      <div class="col-sm-3">
-        <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+      <div class="phyto-ctnr">
+        <button type="button" md-button (click)="openDialog('img')" class="addpic-rectgl">Add Picture<br><i class="fa fa-plus"></i></button>
       </div>
-      <div class="col-sm-9">
+      <div class="phyto-ctnr">
         <div formArrayName="forms" class="phyto-ctnr">
           <div *ngFor="let form of getObjects(myForm); let i=index" class="flt-lft">
             <div>
