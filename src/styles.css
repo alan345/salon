@@ -268,6 +268,9 @@ th, td {
   padding: 15px 0;
   position: relative;
 }
+.img-row .col-sm-9 {
+    padding-left: 0 !important;
+}
 .pic-list {
   overflow: hidden;
   display: flex;
@@ -286,6 +289,9 @@ a.seemre {
   color: #999999;
   margin: 0 !important;
   position: relative !important;
+}
+.addpic-wrpr {
+    padding: 15px;
 }
 .addpic-squr, .addpic-rectgl {
     width: 100% !important;
@@ -427,9 +433,12 @@ a.seemre {
     float: right;
     padding-right: 15px;
 }
+.fll-pge .pic-list {
+    margin: 15px 0 0 15px;
+}
 .pic-list {
     float: left;
-    margin: 15px 15px 0 15px;
+    margin: 0 15px 15px 0;
 }
 .pic-list img {
   height: 150px;
