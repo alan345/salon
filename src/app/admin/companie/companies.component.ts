@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth/auth.service';
-import {CompanieService} from './companie.service';
+import {AuthService} from '../../auth/auth.service';
+import {CompanieService} from '../../companie/companie.service';
 
-import {Companie} from './companie.model';
+import {Companie} from '../../companie/companie.model';
 import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastsManager} from 'ng2-toastr';
@@ -17,7 +17,7 @@ import {Location} from '@angular/common';
 @Component({
   selector: 'app-companie',
   templateUrl: './companies.component.html',
-  styleUrls: ['./companie.component.css'],
+  styleUrls: ['../../companie/companie.component.css'],
 
 })
 export class CompaniesComponent implements OnInit {

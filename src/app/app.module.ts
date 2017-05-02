@@ -102,7 +102,7 @@ import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 import {MainPageHomeService} from './mainPageHome/mainPageHome.service';
 
 import {CompaniePicturesComponent} from './companie/companiePictures.component';
-import {CompaniesComponent} from './companie/companies.component';
+import {CompaniesComponent} from './admin/companie/companies.component';
 import {CompanieComponent} from './companie/companie.component';
 import {EditCompanieComponent} from './companie/editCompanie.component';
 import {EditAddUserToCompanieComponent} from './companie/editAddUserToCompanie.component';
