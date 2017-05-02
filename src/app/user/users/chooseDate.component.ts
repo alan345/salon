@@ -28,12 +28,7 @@ export class ChooseDateComponent implements OnInit {
   fetchedUser = {
     lastVisit : ''
   }
-  newDate = {
-    newDate: ''
-    // monthNewDate: Number,
-    // dayNewDate: Number,
-    // yearNewDate: Number
-  }
+  newDate = ''
 
   public myForm: FormGroup;
 
