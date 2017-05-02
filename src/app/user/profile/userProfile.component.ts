@@ -213,6 +213,7 @@ export class UserProfileComponent implements OnInit {
     return this.authService.isAdmin();
   }
 
+
   
   canEditPage() {
     if(this.fetchedUser._id === this.authService.currentUser.userId)
