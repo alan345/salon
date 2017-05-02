@@ -1,4 +1,4 @@
-.mat-tab-label {
+.vid-tabs .mat-tab-label {
   text-transform: uppercase!important;
   color: #010870 !important;
   font-size: 13px !important;
@@ -10,17 +10,17 @@
   min-width: auto !important;
   background-color: #efe9df !important;
 }
-.mat-tab-label-active {
+.vid-tabs .mat-tab-label-active {
   background-color: #ffffff !important;
 }
-.mat-tab-header, .mat-tab-nav-bar {
+.vid-tabs .mat-tab-header, .vid-tabs .mat-tab-nav-bar {
   border: none !important;
 }
-.mat-tab-label:hover, .mat-tab-label:active, .mat-tab-label:focus {
+.vid-tabs .mat-tab-label:hover, .vid-tabs .mat-tab-label:active, .vid-tabs .mat-tab-label:focus {
   background-color: #ffffff !important;
 }
-.mat-ink-bar {
-  display: none !important;
+.vid-tabs .mat-ink-bar {
+    display: none !important;
 }
 .subsubnav-video {
   padding: 0 15px;
