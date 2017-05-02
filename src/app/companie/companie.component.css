@@ -31,11 +31,13 @@
   color: #999999;
   font-size: 12px !important;
 }
-.delete {
+.sln-mng .delete {
   margin: 15px 0;
+  padding: 8px 0
 }
-.delete a {
-    color: inherit !important;
+.sln-mng .delete a {
+  color: inherit !important;
+  padding: 10px 15px;  
 }
 button.sln-styadd {
   width: 100% !important;
