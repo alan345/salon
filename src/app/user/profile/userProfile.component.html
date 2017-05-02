@@ -87,7 +87,7 @@
       </div>
     </div>
     <div class="phyto-ctnr insta-promo">
-      <div class="phyto-ctnr insta-pic goldgradient">
+      <div *ngIf="fetchedUser.forms.length" class="phyto-ctnr insta-pic goldgradient">
         <div *ngFor="let form of getObjects(myForm); let i=index">
           <div *ngIf="i < instapic">
             <div >
@@ -96,7 +96,7 @@
           </div>
         </div>
       </div>
-      <div class="insta-txt">
+      <div *ngIf="isMyProfile()" class="insta-txt">
         <h3>Be The Next Phyto Feature!</h3>
         <p>Submit on of your pictures to the Picture of the Month Phyto Challenge and your photo may be selected and promoted on all the Phyto Social Media channels. A great way to get yourself visibility!</p>
         <button class="see"><a [routerLink]="['/social']">See this month's winner</a></button>
