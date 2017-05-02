@@ -18,8 +18,6 @@
 }
 .one-sty img {
   flex: none;
-  width: auto !important;
-  height: 100%;
   max-width: none;
 }
 .sty-ttl {
@@ -95,6 +93,10 @@ button.sln-styadd {
     width: 33.333333% !important;
     padding: 0 0 5px 5px;
 }
+.one-sty img {
+  width: auto !important;
+  height: 100%;
+}
 .sln-inf {
   float:left;
 }
@@ -111,5 +113,9 @@ button.sln-styadd {
 .one-sty {
     width: 100% !important;
     padding: 5px;
+}
+.one-sty img {
+  width: 100% !important;
+  height: auto;
 }
 }
