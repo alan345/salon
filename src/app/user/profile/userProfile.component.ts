@@ -214,11 +214,10 @@ export class UserProfileComponent implements OnInit {
   }
 
 
-  
-  canEditPage() {
+  isMyProfile() {
     if(this.fetchedUser._id === this.authService.currentUser.userId)
       return true
-    return true
+    return false
   }
 
   onDelete(id: string) {
