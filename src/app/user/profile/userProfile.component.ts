@@ -49,13 +49,7 @@ export class UserProfileComponent implements OnInit {
     _id: '',
     lastVisit: new Date,
     email:'',
-    forms:[
-    //   {
-    //   _id:'',
-    //   owner:'',
-    //   imagePath:'',
-    // }
-    ],
+    forms:[],
     profile:{
       title:'',
       name:'',
@@ -67,12 +61,7 @@ export class UserProfileComponent implements OnInit {
       },
       _profilePicture:[],
     },
-    notes:[
-    //   {
-    //   text:'',
-    //   dateNote: ''
-    // }
-    ]
+    notes:[]
   }
 
   public myForm: FormGroup;
@@ -220,7 +209,14 @@ export class UserProfileComponent implements OnInit {
 
 
 
-
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+  canEditPage() {
+    if(this.fetchedUser._id === this.authService.currentUser.userId)
+      return true
+    return true
+  }
 
   onDelete(id: string) {
     this.userService.deleteUser(id)
@@ -236,13 +232,3 @@ export class UserProfileComponent implements OnInit {
 
 
 }
-
-
-// @Component({
-//   selector: 'user-dialog',
-//   templateUrl: './userDialog.component.html',
-// })
-// export class UserDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<UserDialogComponent>) {}
-//
-// }

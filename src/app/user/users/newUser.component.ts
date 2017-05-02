@@ -179,10 +179,6 @@ export class NewUserComponent implements OnInit {
         res => {
           this.fetchedUser = res.user
 
-          // this.fetchedUser.profile.parentUser.forEach((parentUser) => {
-          //   this.addParentUser(parentUser)
-          // })
-
         },
         error => {
           console.log(error);

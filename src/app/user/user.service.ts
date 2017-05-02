@@ -101,7 +101,7 @@ export class UserService {
 
   saveUser(user) {
     user.profile.parentUser=[]
-    console.log(this.authService.currentUser.userId)
+  //  console.log(this.authService.currentUser.userId)
     user.profile.parentUser.push(this.authService.currentUser.userId)
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
