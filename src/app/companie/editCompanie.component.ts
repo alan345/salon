@@ -108,19 +108,6 @@ export class EditCompanieComponent implements OnInit {
   }
 
 
-
-  // openDialogAddUser(){
-  //   let config = new MdDialogConfig();
-  //   let dialogRef:MdDialogRef<CompanieAddUserDialog>= this.dialog.open(CompanieAddUserDialog, config)
-  //   dialogRef.componentInstance.fetchedCompanie = this.fetchedCompanie
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if(result) {
-  //       // this.onDelete(this.fetchedPress._id)
-  //       // this.router.navigate(['press']);
-  //     }
-  //   })
-  //
-  // }
   onDelete(id: string) {
     this.companieService.deleteCompanie(id)
       .subscribe(
@@ -137,10 +124,6 @@ export class EditCompanieComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
-
-
-
 
   addUser(user) {
     const control = <FormArray>this.myForm.controls['_users'];
