@@ -26,7 +26,6 @@
       <tbody class="clienttbl">
       <tr *ngFor="let user of fetchedUsers | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" [routerLink]="['/user/' + user._id]" routerLinkActive="active">
         <td>{{user.profile.name }}</td>
-        <td class="rightdate">{{user.lastVisit | date: 'medium'}}</td>
       </tr>
       </tbody>
     </table>
