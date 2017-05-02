@@ -88,15 +88,17 @@ export class EditCompanieComponent implements OnInit {
       )
   }
 
-  moveUp(i) {
-    if(i>0) {
-      console.log(i)
+  move(i, incremet) {
+    if(i>0 && i<this.fetchedCompanie._users.length + incremet) {
       var tmp = this.fetchedCompanie._users[i];
-      this.fetchedCompanie._users[i] = this.fetchedCompanie._users[i-1]
-      this.fetchedCompanie._users[i-1] = tmp
+      this.fetchedCompanie._users[i] = this.fetchedCompanie._users[i + incremet]
+      this.fetchedCompanie._users[i + incremet] = tmp
+      this.save(false)
     }
-
   }
+
+
+
   // openDialogAddUser(){
   //   let config = new MdDialogConfig();
   //   let dialogRef:MdDialogRef<CompanieAddUserDialog>= this.dialog.open(CompanieAddUserDialog, config)
