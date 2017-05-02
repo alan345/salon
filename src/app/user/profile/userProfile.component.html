@@ -64,9 +64,9 @@
     </div>-->
 
     <div class="img-row phyto-ctnr">
-      <h3 style="padding: 0 15px !important;">Your Photos (Tap to Expand)</h3>
+      <h3 *ngIf="isMyProfile()" style="padding: 0 15px !important;">Your Photos (Tap to Expand)</h3>
       <div class="phyto-ctnr">
-        <div *ngIf="isMyProfile()" class="col-sm-3">
+        <div class="col-sm-3">
           <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
         </div>
         <div class="col-sm-9">
@@ -86,7 +86,7 @@
         <a class="seemre" (click)="seeAllPicture()">See All</a>
       </div>
     </div>
-    <div class="phyto-ctnr insta-promo">
+    <div *ngIf="isMyProfile()" class="phyto-ctnr insta-promo">
       <div *ngIf="fetchedUser.forms.length" class="phyto-ctnr insta-pic goldgradient">
         <div *ngFor="let form of getObjects(myForm); let i=index">
           <div *ngIf="i < instapic">
@@ -96,7 +96,7 @@
           </div>
         </div>
       </div>
-        <div *ngIf="isMyProfile()" class="insta-txt">
+        <div class="insta-txt">
         <h3>Be The Next Phyto Feature!</h3>
         <p>Submit on of your pictures to the Picture of the Month Phyto Challenge and your photo may be selected and promoted on all the Phyto Social Media channels. A great way to get yourself visibility!</p>
         <button class="see"><a [routerLink]="['/social']">See this month's winner</a></button>
