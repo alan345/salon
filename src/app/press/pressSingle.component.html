@@ -36,7 +36,7 @@
       </div>
       <div class="valid-edit">
         <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Done</button>
-        <button *ngIf="fetchedPress._id" type="button" class="delete" (click)="openDialogDelete()">Delete Article</button>
+        <button *ngIf="fetchedPress._id" type="button" class="delete" (click)="openDialogDelete()">Delete</button>
       </div>
       <div class="clearfix"></div>
     </form>
