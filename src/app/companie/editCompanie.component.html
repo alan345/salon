@@ -64,27 +64,12 @@
       <div class="sln-stymng phyto-ctnr">
         <h3>Manage Stylists:</h3>
         <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
-        <div *ngFor="let user of fetchedCompanie._users; let i=index" >
-          <div [dragula]="'first-bag'">
-            <div *ngIf="user.role=='stylist'" class="sln-styone">
-              {{ user.profile.name}}
-              <button type="button" (click)="removeUserFromCompanie(i)" class="dlt-sty"><i class="fa fa-times"></i></button>
-            </div>
+        <div *ngFor="let user of fetchedCompanie._users; let i=index">
+          <div *ngIf="user.role=='stylist'" class="sln-styone">
+            {{ user.profile.name}}
+            <button type="button" (click)="removeUserFromCompanie(i)" class="dlt-sty"><i class="fa fa-times"></i></button>
           </div>
         </div>
-
-<!--
-        <div class='wrapper'>
-          <div *ngFor="let user of fetchedCompanie._users; let i=index" [dragula]="'first-bag'">
-            <div *ngIf="user.role=='stylist'" class='container' >
-              {{ user.profile.name}}
-              <button type="button" (click)="removeUserFromCompanie(i)" class="dlt-sty"><i class="fa fa-times"></i></button>
-            </div>
-          </div>
-        </div> -->
-
-
-
       </div>
       <div *ngIf="isAdmin()" class="sln-stymng phyto-ctnr">
         <h3>Manage Admins:</h3>
