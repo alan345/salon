@@ -269,7 +269,7 @@ th, td {
   position: relative;
 }
 .img-row .col-sm-9 {
-    padding-left: 0 !important;
+    padding: 0 !important;
 }
 .pic-list {
   overflow: hidden;
@@ -450,7 +450,9 @@ a.seemre {
 .cdk-overlay-pane {
     top: 200px !important;
 }
-
+.img-row .col-sm-4 {
+    padding-right: 0 !important;
+}
 }
 
 @media screen and (max-width: 767px) {
