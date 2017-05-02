@@ -69,12 +69,12 @@ export class EditCompanieComponent implements OnInit {
       this.getCompanie(params['id'])
     })
   }
-  removeUserFromCompanie(i:number){
+  removeUserFromCompanie(i:number, typeUser){
     let this2 = this
     let dialogRefDelete = this.dialog.open(DeleteDialog)
     dialogRefDelete.afterClosed().subscribe(result => {
       if(result) {
-        this.fetchedCompanie._users.splice(i, 1)
+        this[typeUser].splice(i, 1)
         this.save(false)
       }
     })
@@ -125,13 +125,13 @@ export class EditCompanieComponent implements OnInit {
     this.location.back();
   }
 
-  addUser(user) {
-    const control = <FormArray>this.myForm.controls['_users'];
-    const addrCtrl = this._fb.group({
-        _id: ['', Validators.required],
-    });
-    control.push(addrCtrl);
-  }
+  // addUser(user) {
+  //   const control = <FormArray>this.myForm.controls['_users'];
+  //   const addrCtrl = this._fb.group({
+  //       _id: ['', Validators.required],
+  //   });
+  //   control.push(addrCtrl);
+  // }
 
   getCompanie(id: string) {
     this.companieService.getCompanie(id)
@@ -147,8 +147,6 @@ export class EditCompanieComponent implements OnInit {
               this.userClients.push(user)
             if(user.role[0] === 'stylist')
               this.userStylists.push(user)
-
-
           //  this.addUser(user)
           })
         },
