@@ -291,6 +291,7 @@ a.seemre {
   font-size: 12px !important;
   color: #999999;
   position: relative !important;
+  cursor: pointer;
 }
 .addpic-wrpr {
     padding: 15px;
