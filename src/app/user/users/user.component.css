@@ -148,6 +148,18 @@ p.cmt-dat {
     padding: 2px 6px;
 }
 
+/*-------Admin Users-------*/
+
+.admin-users .mat-tab-label {
+    text-transform: uppercase;
+    width: 33.33333%;
+}
+.admin-users .mat-ink-bar {
+    width: 33.333333% !important;
+}
+
+/*-------Responsive-------*/
+
 @media screen and (min-width: 768px) {
   
 .newclientsml-btn {
