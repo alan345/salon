@@ -16,6 +16,9 @@
 .vid-tabs .mat-tab-header, .vid-tabs .mat-tab-nav-bar {
   border: none !important;
 }
+.vid-tabs .mat-tab-labels {
+    background-color: #efe9df !important;
+}
 .vid-tabs .mat-tab-label:hover, .vid-tabs .mat-tab-label:active, .vid-tabs .mat-tab-label:focus {
   background-color: #ffffff !important;
 }
