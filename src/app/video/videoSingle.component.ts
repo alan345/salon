@@ -37,10 +37,10 @@ export class VideoSingleComponent implements OnInit {
     owner: []
   }
   categoriesHard2 = [
-    {
-      name:'whatsnew',
-      selected : false
-    },
+    // {
+    //   name:'whatsnew',
+    //   selected : false
+    // },
     {
       name:'treatments',
       selected : false
@@ -104,7 +104,7 @@ export class VideoSingleComponent implements OnInit {
   ngOnInit() {
     this.myForm = this._fb.group({
       _id: [''],
-      title: [''],
+      title: ['', [Validators.required, Validators.minLength(5)]],
       embed: ['', [Validators.required, Validators.minLength(5)]],
       categories: this._fb.array([])
     });
@@ -191,6 +191,11 @@ export class VideoSingleComponent implements OnInit {
   }
 
   save(video : Video) {
+    if(!this.fetchedVideo.categories.length){
+      this.toastr.error('Error!', 'Please select at least one categorie')
+      return
+    }
+
     if(video._id) {
       this.videoService.updateVideo(video)
         .subscribe(

@@ -20,13 +20,13 @@
               <div *ngIf="press.isNewObj">New Viveo</div>
               <p class="prss-ttl">
                 <a
-                  *ngIf="press.formPDF.length>0"
+                  *ngIf="+ press.formPDF.length"
                   href="./uploads/forms/{{press.formPDF[0].owner}}/{{press.formPDF[0].imagePath}}"
                   target="_blank">
                   {{press.title}}
                 </a>
                 <a
-                  *ngIf="!press.formPDF.length>0"
+                  *ngIf="!press.formPDF.length"
                   href="{{press.link}}"
                   target="_blank">
                   {{press.title}}
