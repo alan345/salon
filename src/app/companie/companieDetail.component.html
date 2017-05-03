@@ -60,10 +60,9 @@
   <div class="beigeback phyto-ctnr">
     <div class="sln-inf">
       <h6> Your Phyto Sales Representative</h6>
-
-      <div *ngFor="let user of fetchedCompanie._users">
+      <div *ngFor="let user of userSaleReps; let i=index">
         <div
-          *ngIf="user.role == 'saleRep'"
+          *ngIf="i==0"
           [routerLink]="['/user/profile/' + user._id]"
           routerLinkActive="active">
             <p>{{ user.profile.name}}</p>
@@ -74,8 +73,8 @@
     </div>
     <div class="sln-mng">
       <button class="delete"><a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a></button>
-      <div *ngFor="let user of fetchedCompanie._users">
-        <div *ngIf="user.role == 'saleRep'">
+      <div *ngFor="let user of userSaleReps; let i=index">
+        <div *ngIf="i==0">
             <button type="button" class="done"><a href="mailto:{{ user.email}}">Contact Sales</a></button>
         </div>
       </div>

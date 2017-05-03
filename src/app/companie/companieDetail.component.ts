@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 
 import {AuthService} from '../auth/auth.service';
 import {CompanieService} from './companie.service';
-
-
 import {Companie} from './companie.model';
 import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
@@ -16,6 +14,7 @@ import { Form } from '../form/form.model'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 import { AdminService} from '../admin/services/admin.service';
+import { User } from '../user/user.model'
 
 @Component({
   selector: 'app-companie',
@@ -24,6 +23,7 @@ import { AdminService} from '../admin/services/admin.service';
 })
 export class CompanieDetailComponent implements OnInit {
   maxPictureToShow = 3
+  userSaleReps : User[] = []
   fetchedCompanie : Companie = {
     _id:'',
     forms:[],
@@ -133,6 +133,12 @@ export class CompanieDetailComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedCompanie = res
+
+          this.fetchedCompanie._users.forEach((user) => {
+            if(user.role[0] === 'saleRep')
+              this.userSaleReps.push(user)
+          })
+
           this.fetchedCompanie.forms.forEach((form: Form) => {
             this.addForm(form)
           })

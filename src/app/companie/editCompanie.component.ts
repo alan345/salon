@@ -34,6 +34,7 @@ export class EditCompanieComponent implements OnInit {
     _users : [],
     forms : []
   }
+  
   userAdmins : User[] = []
   userClients : User[] = []
   userSaleReps : User[] = []
