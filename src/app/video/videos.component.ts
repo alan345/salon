@@ -52,8 +52,8 @@ export class VideosComponent implements OnInit {
   categories2 = ''
 
   trackinPage = {
-    lastVisitPagePressCount:0,
-    lastVisitPageVideoCount:0
+    lastVisitPagePressCount:[],
+    lastVisitPageVideoCount:[]
   }
 
   constructor(
@@ -109,8 +109,6 @@ export class VideosComponent implements OnInit {
   }
 
   addSearchInput(){
-    //console.log(this.inputSearch)
-
 //    console.log(this.search.categories)
     this.updateCategerories()
     // this.search.categories.pop()
@@ -141,7 +139,15 @@ export class VideosComponent implements OnInit {
           this.paginationData = res.paginationData;
           let fetchedVideosNotSecure =  res.data
           fetchedVideosNotSecure.forEach((video) => {
+            //isNewVideo = false
             video['embedSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + video['embed'])
+            video['isNewVideo'] = false
+            this.trackinPage.lastVisitPageVideoCount.forEach(videoNotRead => {
+                if(videoNotRead._id == video._id)
+                  video['isNewVideo'] = true
+            })
+
+
             this.fetchedVideos.push(video)
           })
         },
@@ -158,16 +164,13 @@ export class VideosComponent implements OnInit {
     .subscribe(
       data => {
         this.trackinPage.lastVisitPageVideoCount = data.item
-
-
         this.userService.getUser(userId)
         .subscribe(
         res => {
           res.user.trackinPage.lastVisitPageVideo = new Date()
           this.userService.updateUser(res.user)
             .subscribe(
-              res => {
-              },
+              res => {},
               error => {
                 console.log(error);
               }
@@ -181,21 +184,7 @@ export class VideosComponent implements OnInit {
       },
       error => console.log(error)
     )
-
-
-
-
     this.categories2 = 'whatsnew'
     this.updateCategerories()
   }
 }
-
-
-// @Component({
-//   selector: 'video-dialog',
-//   templateUrl: './videoDialog.component.html',
-// })
-// export class VideoDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<VideoDialogComponent>) {}
-//
-// }

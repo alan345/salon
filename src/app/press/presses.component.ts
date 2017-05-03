@@ -28,6 +28,10 @@ export class PressesComponent implements OnInit {
     totalItems: 0
   };
 
+  trackinPage = {
+    lastVisitPagePressCount:[],
+    lastVisitPageVideoCount:[]
+  }
 
   constructor(
     private pressService: PressService,
@@ -46,7 +50,6 @@ export class PressesComponent implements OnInit {
     this.location.back();
   }
 
-
   onDelete(id: string) {
     this.pressService.deletePress(id)
       .subscribe(
@@ -60,6 +63,11 @@ export class PressesComponent implements OnInit {
       );
   }
 
+  loadMore(){
+    this.paginationData.currentPage = this.paginationData.currentPage+1
+    this.getPresses(this.paginationData.currentPage)
+  }
+
   getPage(page: number) {
     this.getPresses(page);
   }
@@ -69,7 +77,15 @@ export class PressesComponent implements OnInit {
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
-          this.fetchedPresses = res.data
+          let fetchedPressesTemp = res.data
+          fetchedPressesTemp.forEach((press) => {
+            press['isNewVideo'] = false
+            this.trackinPage.lastVisitPageVideoCount.forEach(videoNotRead => {
+                if(videoNotRead._id == press._id)
+                  press['isNewVideo'] = true
+            })
+            this.fetchedPresses.push(press)
+          })
         },
         error => {
           console.log(error);
@@ -80,22 +96,32 @@ export class PressesComponent implements OnInit {
 
   ngOnInit() {
     let userId : string = this.authService.currentUser.userId
-    this.userService.getUser(userId)
-      .subscribe(
-        res => {
-          res.user.trackinPage.lastVisitPagePress = new Date()
-          this.userService.updateUser(res.user)
-            .subscribe(
-              res => {
-              },
-              error => {
-                console.log(error);
-              }
-            )
-        },
-        error => {
-          console.log(error);
-        }
-      )
+
+    this.pressService.countNewItemForUser()
+    .subscribe(
+      data => {
+        this.trackinPage.lastVisitPagePressCount = data.item
+        this.userService.getUser(userId)
+          .subscribe(
+            res => {
+              res.user.trackinPage.lastVisitPagePress = new Date()
+              this.userService.updateUser(res.user)
+                .subscribe(
+                  res => {},
+                  error => {
+                    console.log(error);
+                  }
+                )
+            },
+            error => {
+              console.log(error);
+            }
+          )
+      },
+      error => console.log(error)
+    )
+
+
+
   }
 }

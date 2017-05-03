@@ -8,7 +8,7 @@
 
   <table class="table table-hover table-responsive table-condensed prss-tbl">
     <tbody>
-      <tr *ngFor="let press of fetchedPresses | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="prss-ctnr">
+      <tr *ngFor="let press of fetchedPresses" class="prss-ctnr">
         <td class="prss-cnt">
           <div class="prss-wrpr">
             <button class="editicon" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
@@ -17,6 +17,7 @@
               <img class="img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             </div>
             <div class="prssttl-wrpr">
+              <div *ngIf="press.isNewVideo">New Viveo</div>
               <p class="prss-ttl">
                 <a
                   *ngIf="press.formPDF.length>0"
@@ -39,4 +40,5 @@
       </tr>
     </tbody>
   </table>
+  <button type="button" (click)="loadMore()">Load More</button>
 </div>
