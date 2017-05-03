@@ -105,7 +105,9 @@
     width: 400px;
     max-width: 100%;
 }
-
+.whrto img {
+  padding: 15px 0;
+}
 @media screen and (min-width: 768px) {
   
 .vid-ctnr {
