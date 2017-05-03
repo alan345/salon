@@ -157,6 +157,7 @@ router.get('/page/:page', function (req, res, next) {
         Press
         .find()
         .populate('form')
+        .populate('formPDF')
         .limit(itemsPerPage)
         .skip(skip)
         .exec(function (err, item) {

@@ -17,7 +17,20 @@
               <img class="img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             </div>
             <div class="prssttl-wrpr">
-              <p class="prss-ttl">{{press.title}}</p>
+              <p class="prss-ttl">
+                <a
+                  *ngIf="press.formPDF.length>0"
+                  href="./uploads/forms/{{press.formPDF[0].owner}}/{{press.formPDF[0].imagePath}}"
+                  target="_blank">
+                  {{press.title}}
+                </a>
+                <a
+                  *ngIf="!press.formPDF.length>0"
+                  href="{{press.link}}"
+                  target="_blank">
+                  {{press.title}}
+                </a>
+              </p>
             </div>
           </div>
         </td>

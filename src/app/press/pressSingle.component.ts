@@ -86,12 +86,18 @@ export class PressSingleComponent implements OnInit {
 
   openDialog(positionImage) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
-
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.fetchedPress[positionImage][0] = result
+        this.disableLinkInput()
       }
     })
+  }
+
+  disableLinkInput(){
+    let ctrl = this.myForm.get('link')
+    ctrl.enabled ? ctrl.disable() : ctrl.enable()
+    this.fetchedPress.link=''
   }
 
   save() {
