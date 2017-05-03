@@ -16,7 +16,7 @@ import {Location} from '@angular/common';
 @Component({
   selector: 'app-companie',
   templateUrl: './companies.component.html',
-  styleUrls: ['./admin.component.css'],
+  styleUrls: ['../../admin.component.css'],
 
 })
 export class CompaniesComponent implements OnInit {
