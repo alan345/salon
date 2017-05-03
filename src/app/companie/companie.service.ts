@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {Response, Headers, Http} from '@angular/http';
+import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
 import {Companie} from './companie.model';
 import {ToastsManager} from 'ng2-toastr';
@@ -25,10 +25,11 @@ export class CompanieService {
     private toastr: ToastsManager,
     private authService: AuthService) {}
 
-  getCompanies(page: number) {
+  getCompanies(page: number, search) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.get(this.url + 'companie/page/' + page , {headers: headers})
+    headers.append('Authorization', '' + this.authService.currentUser.token)
+    let options = new RequestOptions({ headers: headers, search: search});
+    return this.http.get(this.url + 'companie/page/' + page , options)
       .timeout(1000)
       .map((response: Response) => {
         const companies = response.json();

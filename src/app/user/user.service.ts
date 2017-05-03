@@ -29,9 +29,7 @@ export class UserService {
   getUsers(page: number, search) {
     let headers = new Headers({'Content-Type': 'application/json'})
     headers.append('Authorization', '' + this.authService.currentUser.token)
-
     let options = new RequestOptions({ headers: headers, search: search});
-
     return this.http.get(this.url + 'profile/page/' + page , options)
       .timeout(9000)
       .map((response: Response) => {

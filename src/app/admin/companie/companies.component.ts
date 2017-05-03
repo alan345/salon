@@ -29,6 +29,10 @@ export class CompaniesComponent implements OnInit {
     totalItems: 0
   };
 
+  search = {
+    orderBy : '',
+    search:'',
+  }
 
   constructor(
     private companieService: CompanieService,
@@ -38,25 +42,29 @@ export class CompaniesComponent implements OnInit {
     public dialog: MdDialog,
     private router: Router,
     private location: Location,
-  ) {
-    this.getCompanies(this.paginationData.currentPage);
+  ) {}
+
+  ngOnInit() {
+    this.search.orderBy = 'name'
+    this.getCompanies(this.paginationData.currentPage, this.search)
   }
 
-
   openDialog() {
-    // let dialogRef = this.dialog.open(CompanieDialogComponent);
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if(result) {
-    // //    this.fetchedObj.design.mainPage[positionImage][0] = result
-    //   }
 
-    // });
   }
 
   goBack() {
     this.location.back();
   }
 
+  searchInput(){
+    this.getCompanies(this.paginationData.currentPage, this.search)
+  }
+
+  orderBy(orderBy:string) {
+    this.search.orderBy = orderBy
+    this.getCompanies(this.paginationData.currentPage, this.search)
+  }
 
   onDelete(id: string) {
     this.companieService.deleteCompanie(id)
@@ -71,13 +79,13 @@ export class CompaniesComponent implements OnInit {
       );
   }
 
-  getPage(page: number) {
+  getPage(page: number, search) {
     this.loading = true;
-    this.getCompanies(page);
+    this.getCompanies(page, search);
   }
 
-  getCompanies(page) {
-    this.companieService.getCompanies(page)
+  getCompanies(page, search) {
+    this.companieService.getCompanies(page, search)
       .subscribe(
         res => {
         //  console.log("companies");
@@ -96,6 +104,5 @@ export class CompaniesComponent implements OnInit {
 
 
 
-  ngOnInit() {
-  }
+
 }

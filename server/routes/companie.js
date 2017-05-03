@@ -114,10 +114,18 @@ router.get('/page/:page', function (req, res, next) {
   var skip = (itemsPerPage * pageNumber);
   var limit = (itemsPerPage * pageNumber) + itemsPerPage;
 
+
+  let findQuery = {}
+
+  if(req.query.search)
+    findQuery['name'] = new RegExp(req.query.search, 'i')
+
+
   Companie
-  .find()
+  .find(findQuery)
   .limit(itemsPerPage)
   .skip(skip)
+  .sort(req.query.orderBy)
   .exec(function (err, item) {
     if (err) {
       return res.status(404).json({

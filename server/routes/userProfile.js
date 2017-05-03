@@ -66,32 +66,15 @@ router.get('/page/:page', function (req, res, next) {
 
   let parentUserToSearch = ''
   let roleToSearch = []
+  let findQuery = {}
 
-
-  // if(req.user.role[0] === 'stylist') {
-  //   parentUserToSearch = req.user._id
-  //   roleToSearch = ['client']
-  // } else if(req.user.role[0] === 'admin') {
-  //   parentUserToSearch = req.query.parentUser
-  //   roleToSearch = ['client', 'stylist']
-  // }
-
-
-
-  let findQuery = {
-    //'profile.name' : new RegExp(req.query.search, 'i'),
-//    'profile.parentUser' : mongoose.Types.ObjectId(parentUserToSearch),
-  //  'role': {$in: roleToSearch}
-  }
-
-  //parentUserToSearch = req.query.parentUser
-  if(req.query.parentUser) {
+  if(req.query.parentUser)
     findQuery['profile.parentUser'] = mongoose.Types.ObjectId(req.query.parentUser)
-  }
 
-  if(req.query.search) {
+
+  if(req.query.search)
     findQuery['profile.name'] = new RegExp(req.query.search, 'i')
-  }
+
 
   if(req.query.role) {
     roleToSearch = [req.query.role]
