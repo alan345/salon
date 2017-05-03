@@ -17,6 +17,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 @Component({
   selector: 'videoDeleteDialog',
   templateUrl: './videoWhereDialog.component.html',
+  styleUrls: ['./video.component.css'],
 })
 export class VideoWhereDialogComponent {
   constructor(public dialogRefDelete: MdDialogRef<VideoWhereDialogComponent>) {}
