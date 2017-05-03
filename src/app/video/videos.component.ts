@@ -25,10 +25,11 @@ export class VideosComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
   fetchedVideos : Array<VideosComponent> = [];
   search = {
-    categories : []
+    categories : [],
+    search:''
   }
   loading: boolean
-  inputSearch:''
+  //inputSearch:''
 
   paginationData = {
     currentPage: 1,
@@ -87,8 +88,8 @@ export class VideosComponent implements OnInit {
   updateCategerories(){
     this.search.categories = []
     this.search.categories.push({name:this.categories2})
-    if(this.inputSearch)
-      this.search.categories.push({name:this.inputSearch})
+    // if(this.inputSearch)
+    //   this.search.categories.push({name:this.inputSearch})
     this.categories1.forEach((categorie1)=>{
       if(categorie1.selected == true) {
         this.search.categories.push({name : categorie1.name})

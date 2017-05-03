@@ -122,23 +122,48 @@ router.get('/page/:page', function (req, res, next) {
   } else {
     categories = req.query.categories
   }
-
+  var dateRef = new Date();
+  dateRef.setDate(dateRef.getDate()-60)
   var matchRules = []
+
+  let hasWhatsNewCateg = true
   categories.forEach(function (categ) {
     categorie = JSON.parse(categ)
-    if(categorie.name) {
-      matchRules.push({
-         '$elemMatch': categorie
-       })
+    if(categorie.name !== 'whatsnew') {
+      hasWhatsNewCateg = false
+      if(categorie.name) {
+        matchRules.push({
+           '$elemMatch': categorie
+         })
+      }
+    } else {
+
     }
   })
 
+  let categoriesArray= {
+     "$all": matchRules
+  }
+  let searchQuery = {
+  //  createdAt:{"$lt": dateRef}
+//    categories: categoriesArray,
+  //  createdAt:{"$gt": dateRef},
+  }
+
+  if(hasWhatsNewCateg)
+    searchQuery['createdAt'] = {"$gt": dateRef}
+
+  if(!hasWhatsNewCateg)
+    searchQuery['categories'] = categoriesArray
+  if(req.query.search)
+    searchQuery['title'] = new RegExp(req.query.search, 'i')
+
+  // console.log(hasWhatsNewCateg)
+  // console.log(searchQuery)
+
   Video
-  .find({
-    categories: {
-       "$all": matchRules
-     }
-  })
+  .find(searchQuery)
+  .sort('-createdAt')
   .limit(itemsPerPage)
   .skip(skip)
   .exec(function (err, item) {
@@ -149,11 +174,7 @@ router.get('/page/:page', function (req, res, next) {
       })
     } else {
       Video
-      .find({
-          categories: {
-             "$all": matchRules
-           }
-        })
+      .find(searchQuery)
       .count()
       .exec(function (err, count) {
       res.status(200).json({
