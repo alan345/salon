@@ -69,7 +69,8 @@ export class EditCompanieComponent implements OnInit {
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      this.getCompanie(params['id'])
+      if(params['id'])
+        this.getCompanie(params['id'])
     })
   }
   removeUserFromCompanie(i:number, typeUser){
@@ -89,16 +90,28 @@ export class EditCompanieComponent implements OnInit {
     this.userClients.forEach(user => this.fetchedCompanie._users.push(user))
     this.userStylists.forEach(user => this.fetchedCompanie._users.push(user))
     this.userSaleReps.forEach(user => this.fetchedCompanie._users.push(user))
+    if(this.fetchedCompanie._id) {
+      this.companieService.updateCompanie(this.fetchedCompanie)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+            if(redirect)
+              this.router.navigate(['companie/' + this.fetchedCompanie._id])
+          },
+          error => {console.log(error)}
+        )
+    } else {
+      this.companieService.saveCompanie(this.fetchedCompanie)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+            if(redirect)
+              this.router.navigate(['companie/' + res.obj._id])
+          },
+          error => {console.log(error)}
+        )
+    }
 
-    this.companieService.updateCompanie(this.fetchedCompanie)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message)
-          if(redirect)
-            this.router.navigate(['companie/' + this.fetchedCompanie._id])
-        },
-        error => {console.log(error)}
-      )
   }
 
   move(i, incremet, typeUser) {
