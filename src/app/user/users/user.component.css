@@ -113,9 +113,10 @@ label {
     font-weight: 100;
 }
 .cmt-cnt {
-    background-color: #ffffff;
-    margin-top: 5px;
-    padding: 10px 10px 1px;
+  background-color: #ffffff;
+  margin-top: 5px;
+  padding: 10px 10px 1px;
+  position: relative;
 }
 p.cmt-txt {
     margin-bottom: 2px;
@@ -134,6 +135,16 @@ p.cmt-dat {
     width: 100%;
     display: inline-block;
     padding-bottom: 20px;
+}
+.dlt-nte {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #333333;
+    outline: none !important;
+    border: none !important;
+    color: #fff;
+    padding: 2px 6px;
 }
 
 @media screen and (min-width: 768px) {
