@@ -79,10 +79,10 @@ export class PressesComponent implements OnInit {
           this.paginationData = res.paginationData;
           let fetchedPressesTemp = res.data
           fetchedPressesTemp.forEach((press) => {
-            press['isNewVideo'] = false
-            this.trackinPage.lastVisitPageVideoCount.forEach(videoNotRead => {
-                if(videoNotRead._id == press._id)
-                  press['isNewVideo'] = true
+            press['isNewObj'] = false
+            this.trackinPage.lastVisitPagePressCount.forEach(objNotRead => {
+                if(objNotRead._id == press._id)
+                  press['isNewObj'] = true
             })
             this.fetchedPresses.push(press)
           })
