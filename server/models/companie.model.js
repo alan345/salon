@@ -12,6 +12,7 @@ var companie = new Schema({
       state : '',
       zip : '',
     },
+    phoneNumber: '',
     name: '',
     _users : [{type: Schema.Types.ObjectId, ref: 'User'}],
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],

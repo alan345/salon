@@ -19,6 +19,15 @@
             minlength="5"
             placeholder="Name of Your Salon"
           >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="phoneNumber"
+            [(ngModel)]="fetchedCompanie.phoneNumber"
+            required
+            minlength="5"
+            placeholder="Phone Number"
+          >
           <!-- <div ngModelGroup="address"> -->
           <div formGroupName="address">
 
@@ -31,6 +40,7 @@
               minlength="5"
               placeholder="Street Address"
             >
+
             <input
               type="text"
               class="form-control"

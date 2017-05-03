@@ -4,6 +4,7 @@ import { User } from '../user/user.model'
 export interface Companie {
   _id: string;
   name:string;
+  phoneNumber:string;
   address: Address;
   _users : User[];
   forms : Form[];

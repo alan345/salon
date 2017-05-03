@@ -25,6 +25,7 @@ export class EditCompanieComponent implements OnInit {
   fetchedCompanie : Companie = {
     _id:'',
     name:'',
+    phoneNumber: '',
     address:{
       address : '',
       city : '',
@@ -34,7 +35,7 @@ export class EditCompanieComponent implements OnInit {
     _users : [],
     forms : []
   }
-  
+
   userAdmins : User[] = []
   userClients : User[] = []
   userSaleReps : User[] = []
@@ -56,6 +57,7 @@ export class EditCompanieComponent implements OnInit {
   ngOnInit() {
     this.myForm = this._fb.group({
       name: [''],
+      phoneNumber: ['', [Validators.required, Validators.minLength(2)]],
       address: this._fb.group({
         address: ['', [Validators.required, Validators.minLength(2)]],
         city: ['', [Validators.required, Validators.minLength(2)]],

@@ -63,10 +63,12 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-        item.address = req.body.address
-        item.name = req.body.name
-        item.forms = req.body.forms
-        item._users = req.body._users
+
+
+        for (var prop in req.body) {
+          if(prop !== '__v')
+            item[prop] = req.body[prop]
+        }
 
 
         item.save(function (err, result) {

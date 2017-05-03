@@ -348,35 +348,33 @@ router.put('/:id', function (req, res, next) {
       })
     } else {
 
-        for (var prop in req.body) {
-          if(prop !== '__v') {
-            console.log(prop)
-            item[prop] = req.body[prop]
-          }
-        }
+      for (var prop in req.body) {
+        if(prop !== '__v')
+          item[prop] = req.body[prop]
+      }
 
 
 
-        // item.role = req.body.role
-        // item.email = req.body.email
-        // item.profile = req.body.profile
-        // item.forms = req.body.forms
-        // item.lastVisit = req.body.lastVisit
-        // item.notes = req.body.notes
-        // item.trackinPage = req.body.trackinPage
-      //  console.log(req.body)
-        item.save(function (err, result) {
-          if (err) {
-            return res.status(404).json({
-              message: 'There was an error, please try again',
-              err: err
-            });
-          }
-          res.status(201).json({
-            message: '',
-            obj: result
+      // item.role = req.body.role
+      // item.email = req.body.email
+      // item.profile = req.body.profile
+      // item.forms = req.body.forms
+      // item.lastVisit = req.body.lastVisit
+      // item.notes = req.body.notes
+      // item.trackinPage = req.body.trackinPage
+    //  console.log(req.body)
+      item.save(function (err, result) {
+        if (err) {
+          return res.status(404).json({
+            message: 'There was an error, please try again',
+            err: err
           });
+        }
+        res.status(201).json({
+          message: '',
+          obj: result
         });
+      });
 
     }
   })

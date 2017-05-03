@@ -24,6 +24,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
   fetchedCompanie : Companie = {
     _id:'',
     name:'',
+    phoneNumber:'',
     address:{
       address : '',
       city : '',
