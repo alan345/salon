@@ -2,9 +2,6 @@
   background-color: #0A2F87;
   padding: 15px 15px 0;
 }
-.tbl-left {
-  background-color: #fff;
-}
 p.tblnav-cl {
   float: left;
   padding: 15px 15px 15px 0;
@@ -25,6 +22,9 @@ p.tblnav-cl {
 }
 .clienttbl tr {
     background-color: #fff;
+}
+.clienttbl a {
+    color: inherit !important;
 }
 .change-page ul {
     padding: 20px !important;
