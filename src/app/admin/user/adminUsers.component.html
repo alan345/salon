@@ -7,10 +7,10 @@
   <div class="subsubnav-clients">
     <input type="text" name="Search" placeholder="Search" [(ngModel)]="search.search" (ngModelChange)="searchInput()">
   </div>
-  <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback">
-    <md-tab label="admin" textLabel="ADMINS" ></md-tab>
-    <md-tab label="stylist" textLabel="STYLISTS"></md-tab>
-    <md-tab label="saleRep" textLabel="SALES REPS"></md-tab>
+  <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback admin-users">
+    <md-tab label="admin" textLabel="admin" ></md-tab>
+    <md-tab label="stylist" textLabel="stylist"></md-tab>
+    <md-tab label="sales rep" textLabel="saleRep"></md-tab>
   </md-tab-group>
   <div class="beigeback">
     <table class="table table-hover table-responsive table-condensed">
