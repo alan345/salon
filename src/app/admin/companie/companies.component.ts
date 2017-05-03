@@ -13,7 +13,6 @@ import {Location} from '@angular/common';
 
 
 
-
 @Component({
   selector: 'app-companie',
   templateUrl: './companies.component.html',
