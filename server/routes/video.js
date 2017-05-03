@@ -206,7 +206,6 @@ router.get('/countNewItemForUser/:id', function (req, res, next) {
     } else {
       Video
       .find({createdAt:{"$gt": user.trackinPage.lastVisitPageVideo}})
-      .count()
       .exec(function (err, item) {
         if (err) {
           return res.status(404).json({

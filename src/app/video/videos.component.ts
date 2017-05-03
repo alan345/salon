@@ -51,7 +51,10 @@ export class VideosComponent implements OnInit {
 
   categories2 = ''
 
-
+  trackinPage = {
+    lastVisitPagePressCount:0,
+    lastVisitPageVideoCount:0
+  }
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -151,8 +154,14 @@ export class VideosComponent implements OnInit {
 
   ngOnInit() {
     let userId = this.authService.currentUser.userId
-    this.userService.getUser(userId)
-      .subscribe(
+    this.videoService.countNewItemForUser()
+    .subscribe(
+      data => {
+        this.trackinPage.lastVisitPageVideoCount = data.item
+
+
+        this.userService.getUser(userId)
+        .subscribe(
         res => {
           res.user.trackinPage.lastVisitPageVideo = new Date()
           this.userService.updateUser(res.user)
@@ -167,7 +176,13 @@ export class VideosComponent implements OnInit {
         error => {
           console.log(error);
         }
-      )
+        )
+
+      },
+      error => console.log(error)
+    )
+
+
 
 
     this.categories2 = 'whatsnew'

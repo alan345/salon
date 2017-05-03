@@ -1,5 +1,6 @@
 <div class="container">
   <div class="goldgradient beigeborder subnav">
+    {{trackinPage|json}}
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Videos</h3>
     <button class="subnav-btnright" [routerLink]="['/video/videoSingle']" routerLinkActive="active"><i class="fa fa-plus"></i></button>

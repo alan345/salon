@@ -65,7 +65,6 @@ router.get('/countNewItemForUser/:id', function (req, res, next) {
     } else {
       Press
       .find({createdAt:{"$gt": user.trackinPage.lastVisitPagePress}})
-      .count()
       .exec(function (err, item) {
         if (err) {
           return res.status(404).json({

@@ -17,8 +17,8 @@ import { Options } from './options.model';
 export class MainPageHomeComponent implements OnInit {
 
   trackinPage = {
-    lastVisitPagePressCount:0,
-    lastVisitPageVideoCount:0
+    lastVisitPagePressCount:[],
+    lastVisitPageVideoCount:[]
   }
   isEditTitle:boolean = false
   myForm: FormGroup;
