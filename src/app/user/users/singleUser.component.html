@@ -64,7 +64,7 @@
         <div *ngFor="let note of fetchedUser.notes; let i=index" class="cmt-cnt">
           <p class="cmt-txt">{{note.text}}</p>
           <p class="cmt-dat">{{note.dateNote| date}}</p>
-          <button type="button" (click)="removeNote(i)">X</button>
+          <button type="button" (click)="removeNote(i)" class="dlt-nte">X</button>
         </div>
       </div>
     </div>
