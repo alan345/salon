@@ -125,7 +125,19 @@ router.get('/page/:page', function (req, res, next) {
       res.send(err);
     } else {
       Promotion
-      .find()
+      .find(
+        {
+          // 'date.dateBegin':{"$lte": recentDate},
+          // 'date.dateEnd':{"$gte": recentDate},
+
+          'date.dateBegin':{"$lte": Date()},
+          'date.dateEnd':{"$gte": Date()},
+
+          // date : {
+          //   dateBegin:{"$lte": recentDate},
+          //   dateEnd:{"$gte": recentDate},
+          // }
+        })
       .populate('form')
       .limit(itemsPerPage)
       .skip(skip)

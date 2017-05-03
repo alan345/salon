@@ -7,8 +7,8 @@ var mongoose                = require('mongoose'),
 var promotion = new Schema({
     name: {type: String},
     date : {
-      dateBegin: String,
-      dateEnd: String,
+      dateBegin: {type: Date, default: ['']},
+      dateEnd: {type: Date, default: ['']},
     },
     owner: [{type: Schema.Types.ObjectId, ref: 'User'}],
     form: [{type: Schema.Types.ObjectId, ref: 'Form'}],
