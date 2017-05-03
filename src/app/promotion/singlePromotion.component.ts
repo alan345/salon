@@ -27,11 +27,11 @@ export class SinglePromotionComponent implements OnInit {
   //fetchedPromotion: Promotion;
   //fetchedPromotion._id='';
 
-  fetchedPromotion = {
+  fetchedPromotion : Promotion = {
     _id: '',
     date:{
-      dateBegin:'',
-      dateEnd:'',
+      dateBegin: new Date().toISOString().substr(0,10),
+      dateEnd: new Date().toISOString().substr(0,10),
     },
     name:'',
     form:[]
@@ -139,6 +139,8 @@ export class SinglePromotionComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedPromotion = res
+          this.fetchedPromotion.date.dateBegin = new Date(this.fetchedPromotion.date.dateBegin).toISOString().substr(0,10)
+          this.fetchedPromotion.date.dateEnd = new Date(this.fetchedPromotion.date.dateEnd).toISOString().substr(0,10)
         },
         error => {
           console.log(error);
