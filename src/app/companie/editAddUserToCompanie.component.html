@@ -35,7 +35,7 @@
           <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
         </div>
       </div>
-      
+
       <!-- <div formArrayName="role">
         <div *ngFor="let role of getObjectsRole(myForm); let i=index" >
           <div [formGroupName]="i">
@@ -51,13 +51,14 @@
               class="form-control"
               formControlName="role"
               [(ngModel)]="fetchedUser.role[i]">
-              <option value="admin">Administrator</option>
-              <option value="saleRep">Sales Rep</option>
-              <option value="stylist">Stylist</option>
+              <option *ngIf="isAdmin()" value="admin">Administrator</option>
+              <option *ngIf="isSalesRep() || isAdmin()" value="saleRep">Sales Rep</option>
+              <option *ngIf="isSalesRep() || isAdmin() || isStylist()" value="stylist">Stylist</option>
+              <option value="client">Client</option>
             </select>
-            
+
             <!-- <input type="text" class="form-control" formControlName="role" [(ngModel)]="fetchedUser.role[i]"> -->
-            
+
           </div>
         </div>
       </div>

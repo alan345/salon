@@ -71,6 +71,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     private _fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private location: Location,
+    private authService: AuthService,
   ) {
 
   }
@@ -230,5 +231,13 @@ export class EditAddUserToCompanieComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+  isStylist() {
+    return this.authService.isStylist();
+  }
+  isSalesRep(){
+    return this.authService.isSalesRep();
+  }
 }
