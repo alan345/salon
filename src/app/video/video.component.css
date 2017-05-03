@@ -100,6 +100,11 @@
 .lng-form {
     margin-bottom: 15px !important;
 }
+.whrto {
+    padding: 25px;
+    width: 400px;
+    max-width: 100%;
+}
 
 @media screen and (min-width: 768px) {
   
