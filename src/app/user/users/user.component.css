@@ -120,6 +120,7 @@ label {
 }
 p.cmt-txt {
     margin-bottom: 2px;
+    width: 95%;
 }
 p.cmt-dat {
     font-size: 10px;
