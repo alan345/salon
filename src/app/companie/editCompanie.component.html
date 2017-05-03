@@ -65,7 +65,7 @@
         <h3>Manage Stylists:</h3>
         <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
         <div *ngFor="let user of userStylists; let i=index">
-          <div *ngIf="user.role=='stylist'" class="sln-styone">
+          <div class="sln-styone">
             <button type="button" (click)="move(i, -1, 'userStylists')" class="updn-btn"><i class="fa fa-chevron-up"></i></button>
             <button type="button" (click)="move(i, 1, 'userStylists')" class="updn-btn"><i class="fa fa-chevron-down"></i></button>
             {{ user.profile.name}}
@@ -77,7 +77,7 @@
         <h3>Manage Admins:</h3>
         <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
         <div *ngFor="let user of userAdmins; let i=index">
-          <div *ngIf="user.role=='admin'" class="sln-styone">
+          <div class="sln-styone">
             {{ user.profile.name}}
             <button type="button" (click)="removeUserFromCompanie(i, 'userAdmins')" class="dlt-sty"><i class="fa fa-times"></i></button>
           </div>
@@ -87,11 +87,12 @@
         <h3>Manage SalesRep:</h3>
         <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
         <div *ngFor="let user of userSaleReps; let i=index">
-          <div *ngIf="user.role=='saleRep'" class="sln-styone">
+          <div class="sln-styone">
             <button type="button" (click)="move(i, -1, 'userSaleReps')" class="updn-btn"><i class="fa fa-chevron-up"></i></button>
             <button type="button" (click)="move(i, 1, 'userSaleReps')" class="updn-btn"><i class="fa fa-chevron-down"></i></button>
             {{ user.profile.name}}
             <button type="button" (click)="removeUserFromCompanie(i, 'userSaleReps')" class="dlt-sty"><i class="fa fa-times"></i></button>
+            <div *ngIf="i==0">OK Show</div>
           </div>
         </div>
       </div>
