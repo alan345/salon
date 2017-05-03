@@ -151,11 +151,11 @@ p.cmt-dat {
 /*-------Admin Users-------*/
 
 .admin-users .mat-tab-label {
-    text-transform: uppercase;
-    width: 33.33333%;
+  text-transform: uppercase !important;
+  width: 33.33333% !important;
 }
 .admin-users .mat-ink-bar {
-    width: 33.333333% !important;
+  width: 33.333333% !important;
 }
 
 /*-------Responsive-------*/
