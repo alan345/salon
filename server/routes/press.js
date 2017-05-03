@@ -152,36 +152,35 @@ router.get('/page/:page', function (req, res, next) {
     if(err){
       res.send(err)
     } else {
-
-        Press
-        .find()
-        .populate('form')
-        .populate('formPDF')
-        .sort('-createdAt')
-        .limit(itemsPerPage)
-        .skip(skip)
-        .exec(function (err, item) {
-          if (err) {
-            return res.status(404).json({
-              message: 'No results',
-              err: err
+      Press
+      .find()
+      .populate('form')
+      .populate('formPDF')
+      .sort('-createdAt')
+      .limit(itemsPerPage)
+      .skip(skip)
+      .exec(function (err, item) {
+        if (err) {
+          return res.status(404).json({
+            message: 'No results',
+            err: err
+          })
+        } else {
+          Press
+          .find()
+          .count()
+          .exec(function (err, count) {
+          res.status(200).json({
+              paginationData : {
+                totalItems: count,
+                currentPage : currentPage,
+                itemsPerPage : itemsPerPage
+              },
+              data: item
             })
-          } else {
-            Press
-            .find()
-            .count()
-            .exec(function (err, count) {
-            res.status(200).json({
-                paginationData : {
-                  totalItems: count,
-                  currentPage : currentPage,
-                  itemsPerPage : itemsPerPage
-                },
-                data: item
-              })
-            })
-          }
-        })
+          })
+        }
+      })
     }
   })
 })

@@ -67,7 +67,8 @@ export class PressSingleComponent implements OnInit {
   }
 
   removePDF(i:number){
-    this.fetchedPress.formPDF.splice(i, 1);
+    this.fetchedPress.formPDF.splice(i, 1)
+    this.disableLinkInput()
   }
   openDialogDelete(){
     let dialogRefDelete = this.dialog.open(DeleteDialog)
@@ -80,9 +81,6 @@ export class PressSingleComponent implements OnInit {
   }
 
 
-  goBack() {
-    this.location.back();
-  }
 
   openDialog(positionImage) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
@@ -94,6 +92,9 @@ export class PressSingleComponent implements OnInit {
     })
   }
 
+  goBack() {
+    this.location.back();
+  }
   disableLinkInput(){
     let ctrl = this.myForm.get('link')
     ctrl.enabled ? ctrl.disable() : ctrl.enable()
