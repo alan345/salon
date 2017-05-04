@@ -63,6 +63,7 @@ button.updn-btn {
     margin-right: 15px;
     color: #ffffff;
     outline: none !important;
+    float: left;
 }
 .sln-stymng {
     margin-bottom: 15px;
@@ -76,6 +77,11 @@ button.updn-btn {
     border: none !important;
     color: #fff;
     padding: 2px 6px;
+}
+.sales-star {
+    float: left;
+    margin: 0 10px;
+    color: #fb8417;
 }
 
 @media screen and (min-width: 768px) {
