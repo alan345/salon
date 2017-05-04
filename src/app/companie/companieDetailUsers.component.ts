@@ -24,6 +24,12 @@ import { User } from '../user/user.model'
 export class CompanieDetailUsersComponent implements OnInit {
   maxPictureToShow = 3
   userSaleReps : User[] = []
+  search = {
+    orderBy : '',
+    search:'',
+    parentUser:'',
+    role:''
+  }  
   fetchedCompanie : Companie = {
     _id:'',
     forms:[],

@@ -19,6 +19,7 @@ import { Location }               from '@angular/common';
   styleUrls: ['./user.component.css'],
 
 })
+
 export class UsersComponent implements OnInit {
   fetchedUsers : Array<UsersComponent> = [];
   fetchedRegions = [];

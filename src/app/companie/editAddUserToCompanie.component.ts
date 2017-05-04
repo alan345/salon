@@ -236,4 +236,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
   isSalesRep(){
     return this.authService.isSalesRep();
   }
+  isManager(){
+    return this.authService.isManager();
+  }
 }
