@@ -161,5 +161,11 @@ export class CompanieDetailComponent implements OnInit {
   isSalesRep(){
     return this.authService.isSalesRep();
   }
+  isHQcompanie(){
+    if(this.fetchedCompanie.typeCompanie === 'HQ')
+      return true
+    return false
+  }
+
 
 }

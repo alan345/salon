@@ -2,10 +2,14 @@
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">My Salon</h3>
+
+
   </div>
   <div class="beigeback phyto-ctnr">
     <div class="sln-adrs">
-      <!--id: {{fetchedCompanie._id}}</h4>-->
+
+      <h3 *ngIf="isHQcompanie()" style="text-align: center;">HQ Companie</h3>
+      
       <h3>Welcome to {{fetchedCompanie.name}}</h3>
       <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}} {{fetchedCompanie.phoneNumber}}</h6>
     </div>
