@@ -49,7 +49,7 @@ export class AdminUsersComponent implements OnInit {
 
   ngOnInit() {
     this.search.orderBy = 'profile.name'
-    this.search.role = 'client'
+    this.search.role = 'admin'
     //this.search.parentUser = this.authService.currentUser.userId
     this.getUsers(this.paginationData.currentPage, this.search)
   }
@@ -58,7 +58,7 @@ export class AdminUsersComponent implements OnInit {
   }
 
   onSelectChange = ($event: any): void => {
-
+    console.log($event.tab)
     this.search.role = $event.tab.textLabel
     this.getUsers(this.paginationData.currentPage, this.search)
 

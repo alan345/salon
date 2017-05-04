@@ -195,7 +195,7 @@ router.get('/:id', function (req, res, next) {
 
     let findQuery = {}
     findQuery['_id'] = req.params.id
-    // 
+    //
     // if(req.query.search)
     //   findQuery['name'] = new RegExp(req.query.search, 'i')
     //
