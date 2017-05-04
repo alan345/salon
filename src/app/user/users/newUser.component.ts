@@ -1,7 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { UserService} from '../user.service';
-
+import { Companie } from '../../companie/companie.model';
+import { CompanieService } from '../../companie/companie.service';
 import { ChangeDetectionStrategy, Input} from "@angular/core";
 import { ToastsManager} from 'ng2-toastr';
 import { Inject, forwardRef} from '@angular/core';
@@ -25,6 +26,21 @@ import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 export class NewUserComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
+  companies=[]
+  fetchedCompanie : Companie = {
+    _id:'',
+    name:'',
+    phoneNumber:'',
+    address:{
+      address : '',
+      city : '',
+      state:'',
+      zip:'',
+    },
+    _users : [],
+    forms : []
+  }
+
   fetchedUser : User = {
     _id: '',
     lastVisit: new Date,
@@ -57,7 +73,8 @@ export class NewUserComponent implements OnInit {
     private location: Location,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-    private authService:AuthService
+    private authService: AuthService,
+    private companieService: CompanieService,
   ) {
   }
 
@@ -79,6 +96,15 @@ export class NewUserComponent implements OnInit {
         })
     })
 
+
+    let userId = this.authService.currentUser.userId
+    this.companieService.getCompanieByUserId(userId)
+    .subscribe(
+      (data => {
+        if(data.length)
+          this.fetchedCompanie = data[0]
+      })
+    )
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id'])
@@ -141,36 +167,58 @@ export class NewUserComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            //console.log(res)
-            this.router.navigate(['user/' + res.obj._id])
+            //this.router.navigate(['user/' + res.obj._id])
+            //this.addUserIdToCompanie(res.obj)
           },
           error => {console.log(error)}
-        );
+        )
     } else {
       this.fetchedUser.role=['client']
       this.userService.saveUser(this.fetchedUser)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.router.navigate(['user/' + res.obj._id])
+            //this.router.navigate(['user/' + res.obj._id])
+            this.addUserIdToCompanie(res.obj)
             //this.router.navigate(['user'])
           },
           error => {console.log(error)}
         );
     }
   }
-  // save(model: FormGroup, isValid: boolean) {
-  //   console.log(model)
-  //
-  //   this.userService.updateUser(model)
-  //     .subscribe(
-  //       res => {
-  //         this.toastr.success('Great!', res.message)
-  //       },
-  //       error => {console.log(error)}
-  //     );
-  //   }
 
+
+  addUserIdToCompanie(user : User) {
+      let okAddUserToCompanie = true
+      this.fetchedCompanie._users.forEach((userFetch) => {
+        if(userFetch._id === user._id) {
+          okAddUserToCompanie = false
+        }
+      })
+      if(!okAddUserToCompanie){
+        this.toastr.error('error! user already exists in salon')
+        //this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+        //this.navigate(this.fetchedCompanie._id)
+      } else {
+        this.fetchedCompanie._users.push(user)
+        this.companieService.updateCompanie(this.fetchedCompanie)
+          .subscribe(
+            res => {
+              //this.onPassForm.emit();
+              this.toastr.success('Great!', res.message)
+              //this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+              this.navigate(user._id)
+            },
+            error => {console.log(error)}
+          )
+      }
+
+
+  }
+
+  navigate(id: string){
+    this.router.navigate(['user/' + id])
+  }
 
 
   getUser(id) {
@@ -186,7 +234,17 @@ export class NewUserComponent implements OnInit {
       )
   }
 
-
+  getCompanie(id: string) {
+    this.companieService.getCompanie(id)
+      .subscribe(
+        res => {
+          this.fetchedCompanie = res
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
 
   onDelete(id: string) {
     let this2 = this
@@ -205,15 +263,4 @@ export class NewUserComponent implements OnInit {
       })
   }
 
-
 }
-
-
-// @Component({
-//   selector: 'user-dialog',
-//   templateUrl: './userDialog.component.html',
-// })
-// export class UserDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<UserDialogComponent>) {}
-//
-// }

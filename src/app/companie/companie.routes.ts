@@ -10,7 +10,7 @@ import {EditCompanieComponent} from './editCompanie.component';
 import {EditAddUserToCompanieComponent} from './editAddUserToCompanie.component';
 import {CompaniePicturesComponent} from './companiePictures.component';
 import {AdminGuardService} from '../admin/services/adminGuard';
-
+import {CompanieDetailUsersComponent} from './companieDetailUsers.component';
 
 
 
@@ -23,4 +23,6 @@ export const USER_COMPANIES: Routes = [
   {path: 'edit/:id', component: EditCompanieComponent},
   {path: ':id/companiePictures', component: CompaniePicturesComponent},
   {path: ':id', component: CompanieDetailComponent},
+  {path: ':id/users', component: CompanieDetailUsersComponent},
+
 ];

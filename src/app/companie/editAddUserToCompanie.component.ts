@@ -151,7 +151,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.addUserIdToCompanie(res.obj)
+            //this.addUserIdToCompanie(res.obj)
           },
           error => {console.log(error)}
         );
@@ -166,7 +166,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
         );
     }
   }
-
   addUserIdToCompanie(user : User) {
 
       let okAddUserToCompanie = true
@@ -204,9 +203,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedCompanie = res
-          // this.fetchedCompanie._users.forEach((user) => {
-          //   this.addUser(user)
-          // })
         },
         error => {
           console.log(error);

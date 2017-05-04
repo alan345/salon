@@ -178,34 +178,59 @@ router.get('/byuserid/:id', function (req, res, next) {
 
 // getting user forms to display them on front end
 router.get('/:id', function (req, res, next) {
-  Companie
-  .findById({_id: req.params.id})
-  .populate({
-    path: 'forms',
-    model: 'Form'
-  })
-  .populate(
-    {
-      path: '_users',
-      model: 'User',
-      populate: {
-        path: 'profile._profilePicture',
-        model: 'Form'
-      }
-    })
-  //.populate('users._user.profile.profilePicture._id')
-  .exec(function (err, item) {
+
+  Companie.findById((req.params.id), function (err, obj) {
     if (err) {
-      return res.status(404).json({
-        message: '',
+      return res.status(500).json({
+        message: 'An error occured',
         err: err
       })
-    } else {
-      res.status(200).json({
-        message: 'Success',
-        item: item
-      });
     }
+    if (!obj) {
+      return res.status(404).json({
+        title: 'No form found',
+        error: {message: 'Form not found!'}
+      })
+    }
+
+    Companie
+    .findById({_id: req.params.id})
+    .populate({
+      path: 'forms',
+      model: 'Form'
+    })
+    .populate(
+      {
+        path: '_users',
+        model: 'User',
+        populate: {
+          path: 'profile._profilePicture',
+          model: 'Form'
+        }
+      })
+      .populate(
+        {
+          path: '_users',
+          model: 'User',
+          populate: {
+            path: 'profile.parentUser',
+            model: 'User'
+          }
+        })
+    //.populate('users._user.profile.profilePicture._id')
+    .exec(function (err, item) {
+      if (err) {
+        return res.status(404).json({
+          message: '',
+          err: err
+        })
+      } else {
+        res.status(200).json({
+          message: 'Success',
+          item: item
+        });
+      }
+    })
   })
 })
 

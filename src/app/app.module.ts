@@ -103,6 +103,8 @@ import {ErrorComponent} from './errorHandler/error.component';
 import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 import {MainPageHomeService} from './mainPageHome/mainPageHome.service';
 
+
+import {CompanieDetailUsersComponent} from './companie/companieDetailUsers.component';
 import {CompaniePicturesComponent} from './companie/companiePictures.component';
 import {CompaniesComponent} from './admin/companie/companies.component';
 import {CompanieComponent} from './companie/companie.component';
@@ -225,6 +227,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ErrorComponent,
 
     MainPageHomeComponent,
+    CompanieDetailUsersComponent,
     CompaniePicturesComponent,
     CompaniesComponent,
     CompanieComponent,
