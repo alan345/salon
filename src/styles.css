@@ -405,6 +405,9 @@ a.seemre {
 .img-tabs .mat-ink-bar, .img-tabs .mat-tab-label {
     width: 50% !important;
 }
+.mat-ink-bar {
+    background-color: #0a2f87 !important;
+}
 .mat-tab-header, .mat-tab-body-wrapper {
     background: #fff !important;
 }
