@@ -12,12 +12,22 @@
         <td class="prss-cnt">
           <div class="prss-wrpr">
             <button class="editicon" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
-
+            <div *ngIf="press.isNewObj" class="new-ntf">New!</div>
             <div *ngFor="let form of press.form" class="img-wrpr">
-              <img class="img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              <a
+                *ngIf="+ press.formPDF.length"
+                href="./uploads/forms/{{press.formPDF[0].owner}}/{{press.formPDF[0].imagePath}}"
+                target="_blank">
+                <img class="img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              </a>
+              <a
+                *ngIf="!press.formPDF.length"
+                href="{{press.link}}"
+                target="_blank">
+                <img class="img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              </a>
             </div>
             <div class="prssttl-wrpr">
-              <div *ngIf="press.isNewObj">New Viveo</div>
               <p class="prss-ttl">
                 <a
                   *ngIf="+ press.formPDF.length"

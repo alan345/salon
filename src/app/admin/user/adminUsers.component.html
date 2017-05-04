@@ -8,18 +8,20 @@
     <input type="text" name="Search" placeholder="Search" [(ngModel)]="search.search" (ngModelChange)="searchInput()">
   </div>
   <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback admin-users">
-    <md-tab label="admin">
+
+    <md-tab label="ADMINS">
       <template md-tab-label>Admins</template>
     </md-tab>
-    <md-tab label="saleRep">
+    <md-tab label="SALES REPS">
       <template md-tab-label>Sales reps</template>
     </md-tab>
-    <md-tab label="stylist">
+    <md-tab label="STYLISTS">
       <template md-tab-label>stylists</template>
     </md-tab>
-    <md-tab label="manager">
+    <md-tab label="MANAGER">
       <template md-tab-label>Manager</template>
     </md-tab>
+
   </md-tab-group>
   <div class="beigeback">
     <table class="table table-hover table-responsive table-condensed">

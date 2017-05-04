@@ -3,7 +3,6 @@
     <h3>My Chair App</h3>
     <button (click)="sidenav.close()" class="cross">&#735;</button>
   </div>
-
   <div class="sidenav-menu">
     <ul class="sidenav-list">
       <li *ngFor="let companie of companies">
@@ -12,9 +11,8 @@
       <li *ngIf="fetchedUser._id"><a (click)="goTo('/user/profile/' + fetchedUser._id)">My Profile</a></li>
       <li><a (click)="goTo('/user/profile/password')">My Account Settings</a></li>
       <li><a (click)="goTo('/userForms')">Manage Pictures</a></li>
-      <li><a *ngIf="isAdmin()" (click)="goTo('/admin/user')">Admin Users</a></li>
-      <li><a *ngIf="isAdmin()" (click)="goTo('/admin/companie')">Admin Saloons</a></li>
-
+      <li><a *ngIf="isAdmin()" (click)="goTo('/admin/user')" class="admn-btn">Admin Users</a></li>
+      <li><a *ngIf="isAdmin()" (click)="goTo('/admin/companie')" class="admn-btn">Admin Salons</a></li>
       <li><a href="#" (click)="logout()" *ngIf="isLoggedIn()">Log out</a></li>
     </ul>
   </div>

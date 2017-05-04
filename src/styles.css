@@ -257,6 +257,14 @@ th, td {
 .dspl-nn {
     display: none;
 }
+.new-ntf {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fb8417;
+  color: #fff;
+  padding: 5px 7px;
+}
 
 /*--Picture section--*/
 
@@ -396,6 +404,9 @@ a.seemre {
 
 .img-tabs .mat-ink-bar, .img-tabs .mat-tab-label {
     width: 50% !important;
+}
+.mat-ink-bar {
+    background-color: #0a2f87 !important;
 }
 .mat-tab-header, .mat-tab-body-wrapper {
     background: #fff !important;
