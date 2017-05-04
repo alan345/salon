@@ -85,8 +85,10 @@ export class NewUserComponent implements OnInit {
     this.myForm = this._fb.group({
         lastVisit: [''],
         _id: [''],
+        email: ['', [Validators.required, Validators.minLength(5)]],
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
+            phoneNumber: ['', [Validators.required, Validators.minLength(5)]],
             // parentUser: this._fb.array([]),
             hair: this._fb.group({
                 hairTexture: ['', <any>Validators.required],
@@ -113,36 +115,6 @@ export class NewUserComponent implements OnInit {
     })
   }
 
-  // getObjects(myForm){
-  //    return myForm.get('profile').get('parentUser').controls
-  //  }
-
-
-
-  // addParentUser(parentUser) {
-  //   const control = <FormArray>this.myForm.get('profile').get('parentUser');
-  //   //console.log(control)
-  //   const addrCtrl = this._fb.group({
-  //       _id: [''],
-  //   });
-  //   control.push(addrCtrl);
-  // }
-
-
-
-  // removeForm(i: number) {
-  //     this.fetchedUser.forms.splice(i, 1)
-  //     const control = <FormArray>this.myForm.controls['forms'];
-  //     control.removeAt(i);
-  // }
-  // addForm(form: Form) {
-  //
-  //   const control = <FormArray>this.myForm.controls['forms'];
-  //   const addrCtrl = this._fb.group({
-  //       _id: ['', Validators.required],
-  //   });
-  //   control.push(addrCtrl);
-  // }
 
   goBack() {
     this.location.back();
@@ -169,7 +141,7 @@ export class NewUserComponent implements OnInit {
           res => {
             this.toastr.success('Great!', res.message)
             //this.router.navigate(['user/' + res.obj._id])
-            //this.addUserIdToCompanie(res.obj)
+            this.addUserIdToCompanie(res.obj)
           },
           error => {console.log(error)}
         )
@@ -197,8 +169,9 @@ export class NewUserComponent implements OnInit {
         }
       })
       if(!okAddUserToCompanie){
-        this.toastr.error('error! user already exists in salon')
-        //this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+        console.log('error! user already exists in salon')
+        //this.toastr.error('error! user already exists in salon')
+        this.router.navigate(['companie/' + this.fetchedCompanie._id]);
         //this.navigate(this.fetchedCompanie._id)
       } else {
         this.fetchedCompanie._users.push(user)
@@ -235,17 +208,17 @@ export class NewUserComponent implements OnInit {
       )
   }
 
-  getCompanie(id: string) {
-    this.companieService.getCompanie(id, {})
-      .subscribe(
-        res => {
-          this.fetchedCompanie = res
-        },
-        error => {
-          console.log(error);
-        }
-      )
-  }
+  // getCompanie(id: string) {
+  //   this.companieService.getCompanie(id, {})
+  //     .subscribe(
+  //       res => {
+  //         this.fetchedCompanie = res
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     )
+  // }
 
   onDelete(id: string) {
     let this2 = this

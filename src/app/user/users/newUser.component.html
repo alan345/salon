@@ -5,10 +5,33 @@
   </div>
   <div class="single-wrpr beigeback">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+      <div class="form-group col-sm-12">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="email"
+          [(ngModel)]="fetchedUser.email"
+          placeholder="Email">
+      </div>
       <div formGroupName="profile">
         <div class="form-group col-sm-12">
-          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Client's Name">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            [(ngModel)]="fetchedUser.profile.name"
+            placeholder="Client's Name">
         </div>
+
+        <div class="form-group col-sm-12">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="phoneNumber"
+            [(ngModel)]="fetchedUser.profile.phoneNumber"
+            placeholder="Phone Number">
+        </div>
+
         <div formGroupName="hair">
           <div class="form-group col-sm-4" id="lfthair">
             <label>Hair Texture</label>

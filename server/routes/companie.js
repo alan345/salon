@@ -159,6 +159,24 @@ router.get('/byuserid/:id', function (req, res, next) {
     path: 'forms',
     model: 'Form'
   })
+  .populate(
+    {
+      path: '_users',
+      model: 'User',
+      populate: {
+        path: 'profile._profilePicture',
+        model: 'Form'
+      }
+    })
+    .populate(
+      {
+        path: '_users',
+        model: 'User',
+        populate: {
+          path: 'profile.parentUser',
+          model: 'User'
+        }
+      })
   .exec(function (err, item) {
     if (err) {
       return res.status(404).json({
