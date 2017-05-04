@@ -28,6 +28,7 @@ export class CompanieDetailComponent implements OnInit {
     _id:'',
     forms:[],
     name:'',
+    typeCompanie:'',
     phoneNumber:'',
     address: {
       address : '',

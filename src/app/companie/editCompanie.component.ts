@@ -24,16 +24,17 @@ import { User } from '../user/user.model'
 export class EditCompanieComponent implements OnInit {
   fetchedCompanie : Companie = {
     _id:'',
+    forms:[],
     name:'',
-    phoneNumber: '',
-    address:{
+    typeCompanie:'',
+    phoneNumber:'',
+    address: {
       address : '',
-      city : '',
-      state:'',
-      zip:'',
+      city :  '',
+      state :  '',
+      zip :  ''
     },
-    _users : [],
-    forms : []
+    _users:[]
   }
 
   userAdmins : User[] = []

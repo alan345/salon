@@ -34,6 +34,7 @@ export class CompanieDetailUsersComponent implements OnInit {
     _id:'',
     forms:[],
     name:'',
+    typeCompanie:'',
     phoneNumber:'',
     address: {
       address : '',

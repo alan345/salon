@@ -23,16 +23,17 @@ export class EditAddUserToCompanieComponent implements OnInit {
 
   fetchedCompanie : Companie = {
     _id:'',
+    forms:[],
     name:'',
+    typeCompanie:'',
     phoneNumber:'',
-    address:{
+    address: {
       address : '',
-      city : '',
-      state:'',
-      zip:'',
+      city :  '',
+      state :  '',
+      zip :  ''
     },
-    _users : [],
-    forms : []
+    _users:[]
   }
   search = {
     email : '',
