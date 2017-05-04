@@ -68,7 +68,6 @@ router.post('/', function (req, res, next) {
           }
       })
 
-
       var mailOptions = {
         to: user.email,
         from: 'no-reply@yourdomain.com',
@@ -81,7 +80,8 @@ router.post('/', function (req, res, next) {
       mailer.sendMail(mailOptions, function (err) {
         console.log('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
         return res.status(200).json({
-          message: 'Success'
+          message: 'Success',
+          token:token
         })
       });
     }

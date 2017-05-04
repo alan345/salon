@@ -25,7 +25,7 @@ export class CompanieDetailUsersComponent implements OnInit {
   maxPictureToShow = 3
   userSaleReps : User[] = []
   search = {
-    orderBy : '',
+    orderBy : '-client',
     search:'',
     parentUser:'',
     role:''
@@ -102,7 +102,7 @@ export class CompanieDetailUsersComponent implements OnInit {
   }
   orderBy(orderBy:string) {
     this.search.orderBy = orderBy
-    this.getCompanie(this.fetchedCompanie._id)
+    //this.getCompanie(this.fetchedCompanie._id)
   }
   save() {
     this.companieService.updateCompanie(this.fetchedCompanie)

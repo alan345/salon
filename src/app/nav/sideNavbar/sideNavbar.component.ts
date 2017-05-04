@@ -30,11 +30,15 @@ export class SideNavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.authService.isLoggedIn())
     if (this.authService.isLoggedIn()) {
       let userId = this.authService.currentUser.userId
       this.companieService.getCompanieByUserId(userId)
       .subscribe(
-        (data => this.companies = data)
+        (data => {
+          console.log(data)
+          this.companies = data
+        })
       )
       this.profileService.getUserDetails(userId)
       .subscribe(

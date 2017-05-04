@@ -151,6 +151,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.addUserIdToCompanie(res.obj)
             //this.addUserIdToCompanie(res.obj)
           },
           error => {console.log(error)}
@@ -177,18 +178,20 @@ export class EditAddUserToCompanieComponent implements OnInit {
       if(!okAddUserToCompanie){
         this.toastr.error('error! user already exists in salon')
         this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+      } else {
+        this.fetchedCompanie._users.push(user)
+        this.companieService.updateCompanie(this.fetchedCompanie)
+          .subscribe(
+            res => {
+              //this.onPassForm.emit();
+              this.toastr.success('Great!', res.message)
+              this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+            },
+            error => {console.log(error)}
+          )
       }
 
-      this.fetchedCompanie._users.push(user)
-      this.companieService.updateCompanie(this.fetchedCompanie)
-        .subscribe(
-          res => {
-            //this.onPassForm.emit();
-            this.toastr.success('Great!', res.message)
-            this.router.navigate(['companie/' + this.fetchedCompanie._id]);
-          },
-          error => {console.log(error)}
-        )
+
 
   }
 
