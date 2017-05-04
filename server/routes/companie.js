@@ -65,25 +65,24 @@ router.put('/:id', function (req, res, next) {
     } else {
 
 
-        for (var prop in req.body) {
-          if(prop !== '__v')
-            item[prop] = req.body[prop]
-        }
+      for (var prop in req.body) {
+        if(prop !== '__v')
+          item[prop] = req.body[prop]
+      }
 
 
-        item.save(function (err, result) {
-          if (err) {
-            return res.status(404).json({
-              message: 'There was an error, please try again',
-              err: err
-            });
-          }
-          res.status(201).json({
-            message: '',
-            obj: result
+      item.save(function (err, result) {
+        if (err) {
+          return res.status(404).json({
+            message: 'There was an error, please try again',
+            err: err
           });
+        }
+        res.status(201).json({
+          message: '',
+          obj: result
         });
-
+      });
     }
   })
 });
@@ -193,8 +192,18 @@ router.get('/:id', function (req, res, next) {
       })
     }
 
+
+    let findQuery = {}
+    findQuery['_id'] = req.params.id
+    // 
+    // if(req.query.search)
+    //   findQuery['name'] = new RegExp(req.query.search, 'i')
+    //
+    //
+
     Companie
-    .findById({_id: req.params.id})
+    .findOne(findQuery)
+    //.find()
     .populate({
       path: 'forms',
       model: 'Form'

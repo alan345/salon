@@ -96,7 +96,9 @@ export class CompanieDetailUsersComponent implements OnInit {
   }
 
   searchInput(){
-    this.getCompanie(this.fetchedCompanie._id)
+    //this.getCompanie(this.fetchedCompanie._id)
+  //  this.fetchedCompanie.
+
   }
   orderBy(orderBy:string) {
     this.search.orderBy = orderBy

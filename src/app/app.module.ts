@@ -104,6 +104,8 @@ import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 import {MainPageHomeService} from './mainPageHome/mainPageHome.service';
 
 
+
+import {CompanieFilterPipe} from './companie/companieFilter.pipe';
 import {CompanieDetailUsersComponent} from './companie/companieDetailUsers.component';
 import {CompaniePicturesComponent} from './companie/companiePictures.component';
 import {CompaniesComponent} from './admin/companie/companies.component';
@@ -234,6 +236,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     EditCompanieComponent,
     EditAddUserToCompanieComponent,
     CompanieDetailComponent,
+    CompanieFilterPipe,
   //  CompanieAddUserDialog,
 
     ResetPasswordComponent,
