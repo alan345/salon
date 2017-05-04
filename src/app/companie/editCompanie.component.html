@@ -85,12 +85,12 @@
           </div>
         </div>
         <div *ngIf="isAdmin()" class="sln-stymng phyto-ctnr">
-          <h3>Manage Admins:</h3>
+          <h3>Manage Managers:</h3>
           <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
-          <div *ngFor="let user of userAdmins; let i=index">
+          <div *ngFor="let user of userManagers; let i=index">
             <div class="sln-styone">
               {{ user.profile.name}}
-              <button type="button" (click)="removeUserFromCompanie(i, 'userAdmins')" class="dlt-sty"><i class="fa fa-times"></i></button>
+              <button type="button" (click)="removeUserFromCompanie(i, 'userManagers')" class="dlt-sty"><i class="fa fa-times"></i></button>
             </div>
           </div>
         </div>

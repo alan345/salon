@@ -38,6 +38,7 @@ export class EditCompanieComponent implements OnInit {
   }
 
   userAdmins : User[] = []
+  userManagers : User[] = []
   userClients : User[] = []
   userSaleReps : User[] = []
   userStylists : User[] = []
@@ -91,6 +92,7 @@ export class EditCompanieComponent implements OnInit {
     this.userClients.forEach(user => this.fetchedCompanie._users.push(user))
     this.userStylists.forEach(user => this.fetchedCompanie._users.push(user))
     this.userSaleReps.forEach(user => this.fetchedCompanie._users.push(user))
+    this.userManagers.forEach(user => this.fetchedCompanie._users.push(user))
     if(this.fetchedCompanie._id) {
       this.companieService.updateCompanie(this.fetchedCompanie)
         .subscribe(
