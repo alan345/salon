@@ -38,6 +38,9 @@ ul.sidenav-list {
     padding: 20px;
     cursor: pointer;
 }
+a.admn-btn {
+    background-color: #cccccc !important;
+}
 .sidenav-list li:hover, .phyto-sidenav li:active {
     opacity: 0.8;
 }
