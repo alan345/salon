@@ -87,7 +87,8 @@ export class PressSingleComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.fetchedPress[positionImage][0] = result
-        this.disableLinkInput()
+        if(positionImage === 'formPDF')
+          this.disableLinkInput()
       }
     })
   }
