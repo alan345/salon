@@ -166,6 +166,8 @@ export class EditCompanieComponent implements OnInit {
               this.userClients.push(user)
             if(user.role[0] === 'stylist')
               this.userStylists.push(user)
+            if(user.role[0] === 'manager')
+              this.userManagers.push(user)
           //  this.addUser(user)
           })
         },
