@@ -18,7 +18,8 @@
       <div class="usr-dits form-group">
         <div class="appnt-ctnr">
           <label><h5>Last Visit:</h5></label>
-          <p>{{fetchedUser.lastVisit | date:'medium'}}</p>
+          <p>{{fetchedUser.lastVisit | date :'dd-MMM-yyyy'}}</p>
+          <p>{{fetchedUser.lastVisit}}</p>
           <button class="dat-btn dat-btnl" type="button" md-button (click)="setDateToday()">Today</button>
           or
           <button class="dat-btn dat-btnr" type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/choosedate']" routerLinkActive="active">Choose Date</button>

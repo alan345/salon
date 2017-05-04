@@ -26,7 +26,7 @@ export class ChooseDateComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   fetchedUser = {
-    lastVisit : ''
+    lastVisit : new Date,
   }
   newDate = ''
 
@@ -80,9 +80,19 @@ export class ChooseDateComponent implements OnInit {
 
 
   save(model: FormGroup, isValid: boolean) {
-
+    console.log(this.newDate)
+    let year = Number(this.newDate.substring(0, 4))
+    let month = Number(this.newDate.substring(5, 7))
+    let day = Number(this.newDate.substring(8, 10))
+    console.log(year)
+    console.log(month)
+    console.log(day)
+    // console.log(new Date(Date.UTC(2017, 7, 7, 7, 7, 7,7)))
+    // console.log(new Date(this.newDate))
+    // console.log( model.value.newDate)
     //let stringNewDate = model.value.newDate.yearNewDate + '-' + model.value.newDate.monthNewDate   + '-' + model.value.newDate.dayNewDate
-    this.fetchedUser.lastVisit = model.value.newDate
+    this.fetchedUser.lastVisit = new Date(year, month-1, day)
+    //this.fetchedUser.lastVisit = model.value.newDate
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {
