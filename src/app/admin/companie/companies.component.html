@@ -20,7 +20,7 @@
       </thead>
       <tbody class="clienttbl">
         <tr *ngFor="let companie of fetchedCompanies | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
-          <td><a [routerLink]="['/companie/' + companie._id]" routerLinkActive="active">{{companie.name}}</a></td>
+          <a [routerLink]="['/companie/' + companie._id]" routerLinkActive="active"><td>{{companie.name}}</td></a>
         </tr>
       </tbody>
     </table>
