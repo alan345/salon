@@ -199,7 +199,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     return myForm.get('role').controls
   }
   getCompanie(id: string) {
-    this.companieService.getCompanie(id)
+    this.companieService.getCompanie(id, {})
       .subscribe(
         res => {
           this.fetchedCompanie = res

@@ -13,6 +13,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class CompanieService {
 
+
   private url: string = '/';
 //  private token: string = localStorage.getItem('id_token');
 //  private userId: string = localStorage.getItem('userId');
@@ -54,10 +55,11 @@ export class CompanieService {
         return Observable.throw(error.json());
       });
   }
-  getCompanie(id: string) : Observable<Companie> {
+  getCompanie(id: string, search) : Observable<Companie> {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.get(this.url + 'companie/' + id, {headers: headers})
+    let options = new RequestOptions({ headers: headers, search: search});
+    return this.http.get(this.url + 'companie/' + id, options)
       .map((response: Response) => {
         return response.json().item;
       //  this.singleForm = response.json();

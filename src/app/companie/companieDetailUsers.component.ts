@@ -143,7 +143,7 @@ export class CompanieDetailUsersComponent implements OnInit {
 
 
   getCompanie(id : string) {
-    this.companieService.getCompanie(id)
+    this.companieService.getCompanie(id, this.search)
       .subscribe(
         res => {
           this.fetchedCompanie = res
