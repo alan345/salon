@@ -29,7 +29,7 @@ export class CompanieDetailUsersComponent implements OnInit {
     search:'',
     parentUser:'',
     role:''
-  }  
+  }
   fetchedCompanie : Companie = {
     _id:'',
     forms:[],
@@ -95,6 +95,13 @@ export class CompanieDetailUsersComponent implements OnInit {
       );
   }
 
+  searchInput(){
+    this.getCompanie(this.fetchedCompanie._id)
+  }
+  orderBy(orderBy:string) {
+    this.search.orderBy = orderBy
+    this.getCompanie(this.fetchedCompanie._id)
+  }
   save() {
     this.companieService.updateCompanie(this.fetchedCompanie)
       .subscribe(
