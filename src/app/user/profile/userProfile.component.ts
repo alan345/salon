@@ -212,7 +212,10 @@ export class UserProfileComponent implements OnInit {
   }
 
 
-
+  toggleFeature(){
+    this.fetchedUser.profile.isFeatured = !this.fetchedUser.profile.isFeatured
+    this.save()
+  }
 
   isAdmin() {
     return this.authService.isAdmin();
