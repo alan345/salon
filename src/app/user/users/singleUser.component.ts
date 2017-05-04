@@ -26,20 +26,27 @@ export class SingleUserComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   maxPictureToShow=3
-  fetchedUser = {
+  fetchedUser : User = {
     _id: '',
     lastVisit: new Date,
     email:'',
-    forms:[],
     profile:{
+      parentUser:[],
+      isFeatured:false,
+      phoneNumber:'',
       name:'',
+      lastName:'',
+      title:'',
+      _profilePicture:[],
       hair:{
-        hairDensity : '',
-        hairPorosity : '',
-        hairTexture : '',
+        hairDensity : 'alan',
+        hairPorosity : 'alan',
+        hairTexture : 'alan',
       }
     },
-    notes:[]
+    notes:[],
+    forms:[],
+    role:[],
   }
 
   public myForm: FormGroup;

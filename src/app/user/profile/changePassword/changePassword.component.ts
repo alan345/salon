@@ -21,6 +21,7 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
     email:'',
     profile:{
       parentUser:[],
+      isFeatured:false,
       phoneNumber:'',
       name:'',
       lastName:'',

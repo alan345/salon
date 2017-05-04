@@ -45,23 +45,27 @@ export class UserProfileComponent implements OnInit {
     ]
   }]
   isEditMode:boolean = false
-  fetchedUser = {
+  fetchedUser : User = {
     _id: '',
     lastVisit: new Date,
     email:'',
-    forms:[],
     profile:{
-      title:'',
+      parentUser:[],
+      isFeatured:false,
+      phoneNumber:'',
       name:'',
       lastName:'',
-      hair:{
-        hairDensity : '',
-        hairPorosity : '',
-        hairTexture : '',
-      },
+      title:'',
       _profilePicture:[],
+      hair:{
+        hairDensity : 'alan',
+        hairPorosity : 'alan',
+        hairTexture : 'alan',
+      }
     },
-    notes:[]
+    notes:[],
+    forms:[],
+    role:[],
   }
 
   public myForm: FormGroup;
@@ -219,7 +223,7 @@ export class UserProfileComponent implements OnInit {
       return true
     return false
   }
-  
+
 
   onDelete(id: string) {
     this.userService.deleteUser(id)

@@ -44,6 +44,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     email:'',
     profile:{
       parentUser:[],
+      isFeatured:false,
       phoneNumber:'',
       name:'',
       lastName:'',
@@ -57,7 +58,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     },
     notes:[],
     forms:[],
-    role:['client'],
+    role:[],
   }
 
   myForm: FormGroup;

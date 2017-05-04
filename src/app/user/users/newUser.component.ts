@@ -48,6 +48,7 @@ export class NewUserComponent implements OnInit {
     email:'',
     profile:{
       parentUser:[],
+      isFeatured:false,
       phoneNumber:'',
       name:'',
       lastName:'',

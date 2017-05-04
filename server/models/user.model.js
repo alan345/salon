@@ -24,6 +24,7 @@ var user = new Schema({
       _profilePicture : [{type: Schema.Types.ObjectId, ref: 'Form'}],
       parentUser: [{type: Schema.Types.ObjectId, ref: 'User'}],
       name: {type: String, default: ['']},
+      isFeatured: {type: Boolean, default: ['false']},
       title: {type: String, default: ['']},
       lastName: {type: String, default: ['']},
       phoneNumber:{type: String, default: ['']},

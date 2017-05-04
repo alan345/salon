@@ -33,6 +33,7 @@ export class UserPicturesComponent implements OnInit {
     email:'',
     profile:{
       parentUser:[],
+      isFeatured:false,
       phoneNumber:'',
       name:'',
       lastName:'',

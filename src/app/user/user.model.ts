@@ -23,6 +23,7 @@ export interface User {
 
 export interface Profile {
   name:string;
+  isFeatured: boolean;
   lastName: string;
   title:string;
   phoneNumber: string;
