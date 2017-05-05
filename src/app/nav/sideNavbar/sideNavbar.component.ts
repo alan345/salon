@@ -30,6 +30,10 @@ export class SideNavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.refresh()
+  }
+
+  refresh() {
     //console.log(this.authService.isLoggedIn())
     if (this.authService.isLoggedIn()) {
       let userId = this.authService.currentUser.userId
@@ -46,7 +50,7 @@ export class SideNavbarComponent implements OnInit {
           this.fetchedUser = data.user
         })
         )
-    }
+    }    
   }
 
 

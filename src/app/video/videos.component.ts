@@ -162,6 +162,7 @@ export class VideosComponent implements OnInit {
         },
         error => {
           console.log(error);
+          this.loading = false;
         }
       );
   }
