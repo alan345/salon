@@ -115,13 +115,24 @@ router.get('/page/:page', function (req, res, next) {
 
 
   let findQuery = {}
-
-  if(req.query.search)
+  let findQuery2 = {}
+  let search = {}
+  let arrObj = []
+  if(req.query.search) {
     findQuery['name'] = new RegExp(req.query.search, 'i')
+    findQuery2['address.city'] = new RegExp(req.query.search, 'i')
+    arrObj.push(findQuery)
+    arrObj.push(findQuery2)
+    search = {$or:arrObj}
+    //findQuery['address.city'] = new RegExp(req.query.search, 'i')
+  }
 
+
+  //let arrObj = [{findQuery}]
+  console.log(arrObj)
 
   Companie
-  .find(findQuery)
+  .find(search)
   .limit(itemsPerPage)
   .skip(skip)
   .sort(req.query.orderBy)
