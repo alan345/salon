@@ -28,10 +28,10 @@
             <button type="submit" class="done">Done</button>
           </div>
           <div formGroupName="_profilePicture">
-            <img *ngIf="fetchedUser.profile._profilePicture.length == 0" src="assets/images/profilePicture.jpg" >
+            <img *ngIf="fetchedUser.profile._profilePicture.length == 0" src="assets/images/prof-pic-placeholder.png" >
             <div *ngFor="let profilePicture of fetchedUser.profile._profilePicture" class="prf-frame">
               <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="profilePicture._id">
-              <img src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}" onerror="this.src ='assets/images/prof-pic-placeholder.png'">
+              <img src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}" onerror="this.src ='assets/images/profilePicture.jpg'">
             </div>
             <div class="prf-cpt">
               <label>{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</label>
