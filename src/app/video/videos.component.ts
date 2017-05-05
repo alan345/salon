@@ -188,4 +188,8 @@ export class VideosComponent implements OnInit {
     this.categories2 = 'whatsnew'
     this.updateCategerories()
   }
+
+    isAdmin() {
+    return this.authService.isAdmin();
+  }
 }
