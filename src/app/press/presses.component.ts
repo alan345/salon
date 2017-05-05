@@ -21,7 +21,7 @@ import { UserService} from '../user/user.service';
 })
 export class PressesComponent implements OnInit {
   fetchedPresses : Press[] = [];
-  loading: boolean;
+  loading: boolean = false;
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,
@@ -68,11 +68,13 @@ export class PressesComponent implements OnInit {
     this.getPresses(this.paginationData.currentPage)
   }
 
-  getPage(page: number) {
-    this.getPresses(page);
-  }
+  // getPage(page: number) {
+  //   this.getPresses(page);
+  // }
 
   getPresses(page: number) {
+    this.loading = true;
+
     this.pressService.getPresses(page)
       .subscribe(
         res => {
@@ -85,6 +87,7 @@ export class PressesComponent implements OnInit {
                   press['isNewObj'] = true
             })
             this.fetchedPresses.push(press)
+            this.loading = false;
           })
         },
         error => {
@@ -121,9 +124,9 @@ export class PressesComponent implements OnInit {
       error => console.log(error)
     )
   }
-  
+
   isAdmin() {
     return this.authService.isAdmin();
   }
-  
+
 }
