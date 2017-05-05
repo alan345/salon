@@ -74,7 +74,6 @@ export class PressesComponent implements OnInit {
 
   getPresses(page: number) {
     this.loading = true;
-
     this.pressService.getPresses(page)
       .subscribe(
         res => {
