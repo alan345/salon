@@ -79,18 +79,22 @@ a.shopbutton {
   margin: 5px 15px !important;
 }
 .edtttl-ok {
-  margin: 10px 15px 0 0;
+  margin: 0 20px;
 }
 }
 
 @media screen and (max-width: 767px) {
 
 .topnav-ad {
-    width: 90%;
+  width: 90%;
 }
 a.shopbutton {
-    width: 150px;
-    margin: 15px auto;
-    display: block;
+  width: 150px;
+  margin: 15px auto;
+  display: block;
+}
+.edtttl-ok {
+  margin: 15px;
+  float: right;
 }
 }
