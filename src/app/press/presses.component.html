@@ -48,10 +48,12 @@
       </tr>
     </tbody>
   </table>
-  <div [ngClass]="{ 'hidden': !loading }">Loading...</div>
-  <button
-    *ngIf="paginationData.currentPage * paginationData.itemsPerPage < paginationData.totalItems"
-    type="button" (click)="loadMore()" class="ldmre">
-    Load More
-  </button>
+  <div>
+    <div [ngClass]="{ 'hidden': !loading }">Loading...</div>
+    <button
+      *ngIf="paginationData.currentPage * paginationData.itemsPerPage < paginationData.totalItems"
+      type="button" (click)="loadMore()" class="ldmre">
+      Load More
+    </button>
+  </div>
 </div>

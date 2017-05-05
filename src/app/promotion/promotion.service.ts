@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {Response, Headers, Http} from '@angular/http';
+import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
 import {Promotion} from './promotion.model';
 import {ToastsManager} from 'ng2-toastr';
@@ -21,14 +21,17 @@ export class PromotionService {
     private http: Http,
     private errorService: ErrorService,
     private toastr: ToastsManager,
+    private requestOptions: RequestOptions,
     private authService: AuthService) {}
 
   // get promotion forms from backend in order to display them in the front end
-  getPromotions(page: number) {
+  getPromotions(page: number, search) {
 
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.get(this.url + 'promotion/page/' + page , {headers: headers})
+    let options = new RequestOptions({ headers: headers, search: search });
+
+    return this.http.get(this.url + 'promotion/page/' + page , options)
       .timeout(9000)
       .map((response: Response) => {
 
@@ -55,8 +58,6 @@ export class PromotionService {
         return Observable.throw(error.json());
       });
   }
-
-
 
 
   deletePromotion(id: string) {

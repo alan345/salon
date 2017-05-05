@@ -25,8 +25,9 @@ export class PromotionsSeeInactiveComponent implements OnInit {
   search = {
     orderBy : '',
     search:'',
+    filterDate: false
   }
-    
+
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,
@@ -64,17 +65,29 @@ export class PromotionsSeeInactiveComponent implements OnInit {
       );
   }
 
-  getPage(page: number) {
+  // getPage(page: number) {
+  //
+  //   this.getPromotions(page);
+  // }
 
-    this.getPromotions(page);
+  loadMore(){
+    this.paginationData.currentPage = this.paginationData.currentPage+1
+    this.getPromotions(this.paginationData.currentPage)
   }
 
   getPromotions(page) {
-    this.promotionService.getPromotions(page)
+    this.promotionService.getPromotions(page, this.search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
-          this.fetchedPromotions =  res.data
+        //  this.fetchedPromotions =  res.data
+          //this.fetchedPromotions.push(res.data)
+          res.data.forEach(obj => {
+            this.fetchedPromotions.push(obj)
+          })
+
+            console.log(this.fetchedPromotions)
+
         },
         error => {
           console.log(error);

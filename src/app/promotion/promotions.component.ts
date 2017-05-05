@@ -28,6 +28,11 @@ export class PromotionsComponent implements OnInit {
     totalItems: 0
   };
 
+  search = {
+    orderBy : '',
+    search:'',
+    filterDate: true
+  }
 
   constructor(
     private promotionService: PromotionService,
@@ -64,8 +69,8 @@ export class PromotionsComponent implements OnInit {
     this.getPromotions(page);
   }
 
-  getPromotions(page) {
-    this.promotionService.getPromotions(page)
+  getPromotions(page: number) {
+    this.promotionService.getPromotions(page, this.search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;

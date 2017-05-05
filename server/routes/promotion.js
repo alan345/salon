@@ -111,6 +111,7 @@ router.post('/', function (req, res, next) {
 
 
 
+
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
 
@@ -120,15 +121,25 @@ router.get('/page/:page', function (req, res, next) {
   var skip = (itemsPerPage * pageNumber)
   //var limit = (itemsPerPage * pageNumber) + itemsPerPage
 
+  let querySearch = {}
+  if(req.query.filterDate === 'true') {
+    querySearch['date.dateBegin'] = {"$lte": Date()}
+    querySearch['date.dateEnd'] = {"$gte": Date()}
+  }
+
+
   Promotion.find().count((err, totalItems) => {
     if(err) {
       res.send(err);
     } else {
       Promotion
-      .find({
-        'date.dateBegin':{"$lte": Date()},
-        'date.dateEnd':{"$gte": Date()},
-      })
+      .find(
+        querySearch
+      //   {
+      //   'date.dateBegin':{"$lte": Date()},
+      //   'date.dateEnd':{"$gte": Date()},
+      // }
+      )
       .populate('form')
       .limit(itemsPerPage)
       .skip(skip)
@@ -140,7 +151,7 @@ router.get('/page/:page', function (req, res, next) {
           })
         } else {
           Promotion
-          .find()
+          .find(querySearch)
           .count()
           .exec(function (err, count) {
           res.status(200).json({
