@@ -4,10 +4,10 @@
   </div>
   <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.titleHomePage" class="edtttl-txt">
   <h3 *ngIf="!isEditTitle" class="topnav-ad">{{options.design.mainPage.titleHomePage}}</h3>
-  <button *ngIf="isEditTitle" type="button" (click)="editTitleHomePage()" class="edtttl-ok">Ok</button>
   <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.buttonHomePage" class="edtttl-txt">
   <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.linkButtonHomePage" class="edtttl-txt">
   <a href="{{options.design.mainPage.linkButtonHomePage}}" class="btn shopbutton" target="_blank">{{options.design.mainPage.buttonHomePage}}</a>
+  <button *ngIf="isEditTitle" type="button" (click)="editTitleHomePage()" class="edtttl-ok">DONE</button>
 </div>
 <div class="container beigeback">
   <form #f="ngForm" novalidate (ngSubmit)="save()">
