@@ -43,7 +43,8 @@ h3 {
 }
 h5 {
   color: #999999 !important;
-  margin-top: 30px;
+  margin-top: 25px;
+  margin-bottom: 2px;
 }
 h6 {
   font-family: 'Playfair Display', serif !important;
