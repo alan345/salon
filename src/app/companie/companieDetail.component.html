@@ -7,9 +7,6 @@
   </div>
   <div class="beigeback phyto-ctnr">
     <div class="sln-adrs">
-
-      <h3 *ngIf="isHQcompanie()" style="text-align: center;">HQ</h3>
-
       <h3>Welcome to {{fetchedCompanie.name}}</h3>
       <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}} {{fetchedCompanie.phoneNumber}}</h6>
     </div>
@@ -31,7 +28,6 @@
       </div>
     </div>
   </div>
-
   <div class="img-row phyto-ctnr">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="img-frm phyto-ctnr">
       <div class="phyto-ctnr">
@@ -59,15 +55,11 @@
       </div>
     </form>
   </div>
-
   <div class="beigeback phyto-ctnr">
     <div class="sln-inf">
       <h6> Your Phyto Sales Representative</h6>
       <div *ngFor="let user of userSaleReps; let i=index">
-        <div
-          *ngIf="i==0"
-          [routerLink]="['/user/profile/' + user._id]"
-          routerLinkActive="active">
+        <div *ngIf="i==0" [routerLink]="['/user/profile/' + user._id]" routerLinkActive="active">
             <p>{{ user.profile.name}}</p>
             <p>{{ user.profile.phoneNumber}}</p>
             <p>{{ user.email}}</p>
@@ -76,9 +68,18 @@
     </div>
     <div class="sln-mng">
       <button class="delete"><a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a></button>
-      <div *ngFor="let user of userSaleReps; let i=index">
-        <div *ngIf="i==0">
-            <button type="button" class="done"><a href="mailto:{{ user.email}}">Contact Sales</a></button>
+      <div *ngIf="!isHQcompanie()">
+        <div *ngFor="let user of userSaleReps; let i=index">
+          <div *ngIf="i==0">
+              <button type="button" class="done"><a href="mailto:{{ user.email}}">Contact Sales</a></button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="isHQcompanie()">
+        <div *ngFor="let user of userAdmin; let i=index">
+          <div *ngIf="i==0">
+              <button type="button" class="done"><a href="mailto:{{ user.email}}">Contact Admin</a></button>
+          </div>
         </div>
       </div>
     </div>
