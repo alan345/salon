@@ -179,5 +179,10 @@ export class EditCompanieComponent implements OnInit {
   isAdmin() {
     return this.authService.isAdmin();
   }
+  isHQcompanie(){
+    if(this.fetchedCompanie.typeCompanie === 'HQ')
+      return true
+    return false
+  }
 
 }
