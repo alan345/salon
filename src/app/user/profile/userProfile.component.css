@@ -25,6 +25,9 @@
 .prf-basic img {
     width: 100%;
 }
+.prf-frame {
+    min-height: 300px;
+}
 .chal-rslt {
   bottom: 0;
   position: absolute;
@@ -36,7 +39,6 @@
 }
 .act-chal {
   padding: 15px;
-  min-height: 200px;
 }
 .insta-promo {
   padding: 30px 15px;
