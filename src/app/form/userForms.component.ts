@@ -36,7 +36,14 @@ export class UserFormsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-      this.getUserForms(this.paginationData.currentPage)
+      this.refresh()
+  }
+  refresh(){
+    let this2 = this
+    setTimeout(function(){
+        this2.getUserForms(this2.paginationData.currentPage)
+    }, 50);
+
   }
 
   getPage(page: number) {

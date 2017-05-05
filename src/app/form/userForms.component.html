@@ -1,6 +1,10 @@
 <div class="upld-mod">
   <table class="table table-hover table-responsive table-condensed">
     <tbody class="upld-modbdy">
+
+      <md-checkbox class="example-margin" [(ngModel)]="search.seeAll" (click)="refresh()">See all</md-checkbox>
+
+
       <tr *ngFor="let form of fetchedForms| paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="imgrw">
         <td>
           <div class="imgrw-cnt">
