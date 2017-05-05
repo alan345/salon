@@ -128,6 +128,18 @@ p.tblnav-cl {
 .change-page li {
     font-size: 15px !important;
 }
+.newclientbig-btn, .newclientsml-btn {
+    background: none;
+    border: 1px solid;
+    color: #fff;
+    font-size: 12px;
+    padding: 12px 20px;
+    float: right;
+}
+.newclientbig-btn:hover, .newclientbig-btn:active, .newclientsml-btn:hover, .newclientsml-btn:active {
+    color: #0a2f87;
+    background: #ffffff;
+}
 
 @media screen and (min-width: 768px) {
 
@@ -151,6 +163,9 @@ p.tblnav-cl {
 .sln-edt.done {
   float: left !important;
 }
+.newclientsml-btn {
+  display:none;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -162,5 +177,8 @@ p.tblnav-cl {
 .one-sty img {
   width: 100% !important;
   height: auto;
+}
+.newclientbig-btn {
+  display:none;
 }
 }
