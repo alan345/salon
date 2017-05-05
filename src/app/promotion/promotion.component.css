@@ -87,7 +87,8 @@ button.see-allbtn {
     padding: 15px;
     margin: 0 auto 15px !important;
     background: #999999;
-    border: none;
+    border: none !important;
+    outline: none !important;
     color: #fff;
 }
 .see-all {
