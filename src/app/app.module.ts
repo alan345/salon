@@ -205,6 +205,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     VideoSingleComponent,
 
     PromotionDeleteDialog,
+    PromotionsSeeInactiveComponent,
     PromotionComponent,
     PromotionsComponent,
     SinglePromotionComponent,

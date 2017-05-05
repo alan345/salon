@@ -8,11 +8,12 @@ import {PromotionsComponent} from './promotions.component';
 import {SinglePromotionComponent} from './singlePromotion.component';
 //import {NewPromotionComponent} from './newPromotion.component';
 
-
+import {PromotionsSeeInactiveComponent} from './promotionsSeeInactive.component';
 
 
 export const USER_PROMOTIONS: Routes = [
   {path: '', component: PromotionsComponent},
+  {path: 'seeInactive', component: PromotionsSeeInactiveComponent},
   {path: 'singlepromotion', component: SinglePromotionComponent},
   {path: 'singlepromotion/:id', component: SinglePromotionComponent},
   {path: ':id', component: SinglePromotionComponent},
