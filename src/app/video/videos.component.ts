@@ -36,7 +36,7 @@ export class VideosComponent implements OnInit {
     itemsPerPage: 0,
     totalItems: 0
   };
-  
+
   categories1 = [{
       name:'phyto',
       selected : false
@@ -68,8 +68,8 @@ export class VideosComponent implements OnInit {
     private userService: UserService,
 
   ) {
-    this.getVideos(this.paginationData.currentPage);
   }
+
 
   goBack() {
     this.location.back();
@@ -128,27 +128,27 @@ export class VideosComponent implements OnInit {
       );
   }
 
-  loadMore(){
-    this.paginationData.currentPage = this.paginationData.currentPage+1
-    this.getVideos(this.paginationData.currentPage)
-  }
-  
   getPage(page: number) {
     this.getVideos(page, this.search);
   }
 
-  getVideos(page: number) {
-    this.videoService.getVideos(page)
+  getVideos(page, search) {
+    this.fetchedVideos =[]
+    this.videoService.getVideos(page, search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
-          let fetchedVideosTemp = res.data
-          fetchedVideosTemp.forEach((video) => {
-            video['isNewObj'] = false
-            this.trackinPage.lastVisitPageVideoCount.forEach(objNotRead => {
-                if(objNotRead._id == video._id)
-                  video['isNewObj'] = true
+          let fetchedVideosNotSecure =  res.data
+          fetchedVideosNotSecure.forEach((video) => {
+            //isNewVideo = false
+            video['embedSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + video['embed'])
+            video['isNewVideo'] = false
+            this.trackinPage.lastVisitPageVideoCount.forEach(videoNotRead => {
+                if(videoNotRead._id == video._id)
+                  video['isNewVideo'] = true
             })
+
+
             this.fetchedVideos.push(video)
           })
         },
