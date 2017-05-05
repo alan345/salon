@@ -12,7 +12,6 @@ import { Location }               from '@angular/common';
 
 
 
-
 @Component({
   selector: 'app-promotions',
   templateUrl: './promotionsSeeInactive.component.html',
