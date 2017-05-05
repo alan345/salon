@@ -67,13 +67,9 @@ export class VideosComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService,
 
-  ){
+  ) {
     this.getVideos(this.paginationData.currentPage);
   }
-  
-  {
-  }
-
 
   goBack() {
     this.location.back();
