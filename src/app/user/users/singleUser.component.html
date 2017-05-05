@@ -13,21 +13,23 @@
         {{fetchedUser.profile.hair.hairTexture}}
         <h5>Hair Porosity</h5>
         {{fetchedUser.profile.hair.hairPorosity}}
-        <button class="edit-clt" [routerLink]="['/user/newuser/' + fetchedUser._id ]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+        <button *ngIf="isMyClient()" class="edit-clt" [routerLink]="['/user/newuser/' + fetchedUser._id ]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
       </div>
       <div class="usr-dits form-group">
         <div class="appnt-ctnr">
           <label><h5>Last Visit:</h5></label>
           <p>{{fetchedUser.lastVisit | date :'dd-MMM-yyyy'}}</p>
           <!-- <p>{{fetchedUser.lastVisit}}</p> -->
-          <button class="dat-btn dat-btnl" type="button" md-button (click)="setDateToday()">Today</button>
-          or
-          <button class="dat-btn dat-btnr" type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/choosedate']" routerLinkActive="active">Choose Date</button>
+          <div *ngIf="isMyClient()">
+            <button class="dat-btn dat-btnl" type="button" md-button (click)="setDateToday()">Today</button>
+            or
+            <button class="dat-btn dat-btnr" type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/choosedate']" routerLinkActive="active">Choose Date</button>
+          </div>
         </div>
         <div class="prt-ctnr">
           <label><h5>Products Bought:</h5></label>
           <!--Connect button below to add product form-->
-          <button class="addpdt-btn">Add Product <i class="fa fa-plus"></i></button>
+          <button *ngIf="isMyClient()" class="addpdt-btn">Add Product <i class="fa fa-plus"></i></button>
           <!--Add last two products bought here-->
           <p class="blue">PhytoElixir Oil - 02/14/2017</p>
           <p class="blue">PhytoElixir Mask - 12/21/2016</p>
@@ -37,7 +39,7 @@
     </div>
     <div class="img-row">
       <h3 style="padding: 0 15px !important;">Client Photos (Tap to Expand)</h3>
-      <div class="col-sm-3">
+      <div *ngIf="isMyClient()" class="col-sm-3">
         <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
       </div>
       <div class="col-sm-9">
@@ -59,7 +61,7 @@
         </div>
       </div>
     </div>
-    <div class="clt-cmts">
+    <div *ngIf="isMyClient()" class="clt-cmts">
       <div class="form-group">
         <button class="addnte" type="button" md-button [routerLink]="['/user/' + fetchedUser._id + '/addnote']" routerLinkActive="active">Add Note<br><i class="fa fa-plus"></i></button>
         <div *ngFor="let note of fetchedUser.notes; let i=index" class="cmt-cnt">

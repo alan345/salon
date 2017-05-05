@@ -71,15 +71,16 @@ export class PressSingleComponent implements OnInit {
     this.disableLinkInput()
   }
   openDialogDelete(){
+    let this2 = this
     let dialogRefDelete = this.dialog.open(DeleteDialog)
     dialogRefDelete.afterClosed().subscribe(result => {
       if(result) {
-        this.onDelete(this.fetchedPress._id)
-        this.router.navigate(['press']);
+        this.onDelete(this.fetchedPress._id).then(function(){
+          this2.router.navigate(['press']);
+        })
       }
     })
   }
-
 
 
   openDialog(positionImage) {
@@ -103,9 +104,19 @@ export class PressSingleComponent implements OnInit {
   }
 
   save() {
-    let press: Press = this.fetchedPress
-    if(press._id) {
-      this.pressService.updatePress(press)
+    //let press: Press = this.fetchedPress
+    if(!this.fetchedPress.form.length) {
+      this.toastr.error('Error!', 'Select picture')
+      return
+    }
+    if(!((this.fetchedPress.link || this.fetchedPress.formPDF.length)
+      && this.fetchedPress.form.length)) {
+        this.toastr.error('Error!', 'Select PDF or link')
+        return
+      }
+
+    if(this.fetchedPress._id) {
+      this.pressService.updatePress(this.fetchedPress)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
@@ -114,7 +125,7 @@ export class PressSingleComponent implements OnInit {
           error => {console.log(error)}
         );
     } else {
-      this.pressService.savePress(press)
+      this.pressService.savePress(this.fetchedPress)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
@@ -143,14 +154,20 @@ export class PressSingleComponent implements OnInit {
 
 
   onDelete(id: string) {
-    this.pressService.deletePress(id)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message);
-        },
-        error => {
-          console.log(error);
-        }
-      );
+    let this2 = this
+    return new Promise(function(resolve, reject) {
+
+      this2.pressService.deletePress(id)
+        .subscribe(
+          res => {
+            this2.toastr.success('Great!', res.message);
+            resolve(res)
+          },
+          error => {
+            console.log(error);
+            reject(error)
+          }
+        );
+    })
   }
 }

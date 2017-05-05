@@ -86,10 +86,10 @@ export class NewUserComponent implements OnInit {
     this.myForm = this._fb.group({
         lastVisit: [''],
         _id: [''],
-        email: ['', [Validators.required, Validators.minLength(5)]],
+        email: [''],
         profile: this._fb.group({
-            name: ['', [Validators.required, Validators.minLength(5)]],
-            phoneNumber: ['', [Validators.required, Validators.minLength(5)]],
+            name: ['', [Validators.required, Validators.minLength(3)]],
+            phoneNumber: [''],
             // parentUser: this._fb.array([]),
             hair: this._fb.group({
                 hairTexture: ['', <any>Validators.required],
@@ -209,17 +209,6 @@ export class NewUserComponent implements OnInit {
       )
   }
 
-  // getCompanie(id: string) {
-  //   this.companieService.getCompanie(id, {})
-  //     .subscribe(
-  //       res => {
-  //         this.fetchedCompanie = res
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     )
-  // }
 
   onDelete(id: string) {
     let this2 = this

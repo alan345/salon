@@ -23,10 +23,32 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angu
 
 
 export class SingleUserComponent implements OnInit {
-  //fetchedUser = new User()
-  //fetchedUser : User;
+
   maxPictureToShow=3
   fetchedUser : User = {
+    _id: '',
+    lastVisit: new Date,
+    email:'',
+    profile:{
+      parentUser:[],
+      isFeatured:false,
+      phoneNumber:'',
+      name:'',
+      lastName:'',
+      title:'',
+      _profilePicture:[],
+      hair:{
+        hairDensity : 'alan',
+        hairPorosity : 'alan',
+        hairTexture : 'alan',
+      }
+    },
+    notes:[],
+    forms:[],
+    role:[],
+  }
+
+  meUser: User = {
     _id: '',
     lastVisit: new Date,
     email:'',
@@ -53,6 +75,7 @@ export class SingleUserComponent implements OnInit {
 
 
   constructor(
+    private authService: AuthService,
     private userService: UserService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
@@ -74,13 +97,12 @@ export class SingleUserComponent implements OnInit {
       lastVisit: [''],
       forms: this._fb.array([])
     })
-
-
-
+  //  this.getMeUser()
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getUser(params['id'])
     })
   }
+
 
 
 
@@ -128,12 +150,6 @@ export class SingleUserComponent implements OnInit {
   }
 
   save() {
-    // let user = form.value
-    // console.log(user)
-    // console.log(model);
-    //this.fetchedUser.forms = form.value.forms
-    //this.fetchedUser.notes = form.value.notes
-
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {
@@ -155,6 +171,26 @@ export class SingleUserComponent implements OnInit {
         error => {console.log(error)}
       )
   }
+  isMyClient(){
+    let isMyClient = false
+    this.fetchedUser.profile.parentUser.forEach(parentUser => {
+      if(parentUser._id  === this.authService.currentUser.userId)
+        isMyClient =  true
+    })
+    return isMyClient
+  }
+  // getMeUser() {
+  //   let id = this.authService.currentUser.userId
+  //   this.userService.getUser(id)
+  //     .subscribe(
+  //       res => {
+  //         this.meUser = res.user
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     )
+  // }
 
   getUser(id) {
     this.userService.getUser(id)
