@@ -91,6 +91,9 @@ button.updn-btn {
   background-color: #0A2F87;
   padding: 15px 15px 0;
 }
+.tbl-left, .tbl-center, .tbl-right {
+  width:33.333333%;
+}
 p.tblnav-cl {
   float: left;
   padding: 15px 15px 15px 0;
@@ -165,6 +168,18 @@ p.tblnav-cl {
 }
 .newclientsml-btn {
   display:none;
+}
+.tbl-right p.tblnav-cl, .tbl-center p.tblnav-cl {
+  text-align: right;
+}
+.tbl-center p.tblnav-cl {
+   width: 50%;
+}
+.tbl-right p.tblnav-cl {
+   width: 67%;
+}
+.tbl-right {
+    text-align: right;
 }
 }
 
