@@ -72,12 +72,13 @@ import {VideoSingleComponent} from './video/videoSingle.component';
 import {VideoService} from './video/video.service';
 
 
-
+import {PromotionsSeeInactiveComponent} from './promotion/promotionsSeeInactive.component';
 import {PromotionDeleteDialog} from './promotion/promotionDeleteDialog.component';
 import {PromotionComponent} from './promotion/promotion.component';
 import {PromotionsComponent} from './promotion/promotions.component';
 import {SinglePromotionComponent} from './promotion/singlePromotion.component';
 import {PromotionService} from './promotion/promotion.service';
+
 
 
 import {SubmitPicDialog} from './social/submitPicDialog.component';

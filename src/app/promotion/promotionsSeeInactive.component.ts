@@ -15,12 +15,12 @@ import { Location }               from '@angular/common';
 
 @Component({
   selector: 'app-promotions',
-  templateUrl: './promotionSeeInactive.component.html',
+  templateUrl: './promotionsSeeInactive.component.html',
   styleUrls: ['./promotion.component.css'],
 
 })
-export class PromotionsComponent implements OnInit {
-  fetchedPromotions : Array<PromotionsComponent> = [];
+export class PromotionsSeeInactiveComponent implements OnInit {
+  fetchedPromotions : Array<PromotionsSeeInactiveComponent> = [];
   loading: boolean;
   paginationData = {
     currentPage: 1,
@@ -83,12 +83,3 @@ export class PromotionsComponent implements OnInit {
     return this.authService.isAdmin();
   }
 }
-
-// @Component({
-//   selector: 'promotion-dialog',
-//   templateUrl: './promotionDialog.component.html',
-// })
-// export class PromotionDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<PromotionDialogComponent>) {}
-//
-// }
