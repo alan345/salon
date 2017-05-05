@@ -94,7 +94,16 @@ button.see-allbtn {
 .see-all {
     margin: 0 3px;
 }
-
+.subsubnav-promos {
+  background-color: #0A2F87;
+  padding: 15px 15px 0;
+}
+.tbl-right {
+    width: 215px;
+    display: block;
+    float: right;
+    max-width: 50%;
+}
 @media screen and (min-width: 768px) {
   
 #strt-dt {
