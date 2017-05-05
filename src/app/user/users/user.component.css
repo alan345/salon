@@ -147,6 +147,11 @@ p.cmt-dat {
     color: #fff;
     padding: 2px 6px;
 }
+.usr-basic p {
+    color: #0a2f87;
+    margin-top: 15px;
+    font-size: 12px;
+}
 
 /*-------Admin Users-------*/
 
