@@ -137,23 +137,18 @@ export class VideosComponent implements OnInit {
     this.getVideos(page, this.search);
   }
 
-  getVideos(page, search) {
-    this.fetchedVideos =[]
-    this.videoService.getVideos(page, search)
+  getVideos(page: number) {
+    this.videoService.getVideos(page)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
-          let fetchedVideosNotSecure =  res.data
-          fetchedVideosNotSecure.forEach((video) => {
-            //isNewVideo = false
-            video['embedSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + video['embed'])
-            video['isNewVideo'] = false
-            this.trackinPage.lastVisitPageVideoCount.forEach(videoNotRead => {
-                if(videoNotRead._id == video._id)
-                  video['isNewVideo'] = true
+          let fetchedVideosTemp = res.data
+          fetchedVideosTemp.forEach((video) => {
+            video['isNewObj'] = false
+            this.trackinPage.lastVisitPageVideoCount.forEach(objNotRead => {
+                if(objNotRead._id == video._id)
+                  video['isNewObj'] = true
             })
-
-
             this.fetchedVideos.push(video)
           })
         },
