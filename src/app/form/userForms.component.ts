@@ -10,6 +10,8 @@ import { AuthService } from '../auth/auth.service';
 })
 export class UserFormsComponent implements OnInit {
   @Input() itemsPerPage
+
+
   @Output() onPassForm = new EventEmitter<any>();
   fetchedForms = [];
 
@@ -19,6 +21,13 @@ export class UserFormsComponent implements OnInit {
     itemsPerPage: 0,
     totalItems: 0
   };
+
+  search = {
+    id:'',
+    itemsPerPage:5,
+    seeAll:false
+  }
+
 
   constructor(
     private formService: FormService,
@@ -35,19 +44,17 @@ export class UserFormsComponent implements OnInit {
   }
 
   getUserForms(page){
-    let search = {
-      id:this.authService.currentUser.userId,
-      itemsPerPage:this.itemsPerPage
-    }
+    this.search['id'] = this.authService.currentUser.userId,
+    this.search['itemsPerPage'] = this.itemsPerPage,
 
-    this.formService.getUserForms(page, search)
+
+    this.formService.getUserForms(page, this.search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
           this.fetchedForms = res.data
         },
         error => console.log(error))
-
   }
 
   onSelectRow(formId){

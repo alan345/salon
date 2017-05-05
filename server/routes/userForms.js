@@ -60,11 +60,6 @@ router.use('/', function (req, res, next) {
 
 // getting user forms to display them on front end
 router.get('/page/:page', function (req, res, next) {
-  console.log(req.query)
-  var itemsPerPage = Number(req.query.itemsPerPage)
-  var currentPage = Number(req.params.page)
-  var pageNumber = currentPage - 1
-  var skip = (itemsPerPage * pageNumber)
 
   User.findById(({_id: req.user.id}), function (err) {
     if (err) {
@@ -73,9 +68,27 @@ router.get('/page/:page', function (req, res, next) {
         err: err
       })
     } else {
+
+
+
+
+        console.log(req.query)
+        var itemsPerPage = Number(req.query.itemsPerPage)
+        var currentPage = Number(req.params.page)
+        var pageNumber = currentPage - 1
+        var skip = (itemsPerPage * pageNumber)
+
+
+        let findQuery = {}
+        if(req.query.seeAll !== 'true')
+          findQuery['owner'] = req.user._id
+
+
+
+
         Form
         //.find({owner: req.params.id})
-        .find({owner: req.user._id})
+        .find(findQuery)
         .limit(itemsPerPage)
         .skip(skip)
         .exec(function (err, item) {
@@ -86,7 +99,7 @@ router.get('/page/:page', function (req, res, next) {
             })
           } else {
             Form
-            .find({owner: req.user.id})
+            .find(findQuery)
             .count()
             .exec(function (err, count) {
             res.status(200).json({
