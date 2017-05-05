@@ -157,12 +157,11 @@ export class VideosComponent implements OnInit {
                   video['isNewVideo'] = true
             })
             this.fetchedVideos.push(video)
-            this.loading = false;
           })
+          this.loading = false;
         },
         error => {
           console.log(error);
-          this.loading = false;
         }
       );
   }

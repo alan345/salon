@@ -87,12 +87,12 @@ export class PressesComponent implements OnInit {
                   press['isNewObj'] = true
             })
             this.fetchedPresses.push(press)
-            this.loading = false;
+
           })
+          this.loading = false;
         },
         error => {
           console.log(error);
-          this.loading = false;
         }
       );
   }
