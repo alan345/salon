@@ -76,15 +76,14 @@ export class PromotionsComponent implements OnInit {
       );
   }
 
-
-
-
-
   ngOnInit() {
 
   }
-}
 
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+}
 
 // @Component({
 //   selector: 'promotion-dialog',
