@@ -31,8 +31,6 @@
       </tr>
       </thead>
       <tbody class="clienttbl">
-
-
         <tr *ngFor="let user of (fetchedCompanie._users | companieFilter: search.search : search.orderBy )">
           <div *ngIf="user.role == 'client'" [routerLink]="['/user/' + user._id]" routerLinkActive="active" class="one-sty">
             <div *ngFor="let parentUser of user.profile.parentUser">
@@ -47,9 +45,6 @@
             </div>
           </div>
         </tr>
-
-
-
       </tbody>
     </table>
     <!-- <div class="has-text-centered">
