@@ -30,7 +30,8 @@ export class SideNavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.refresh()
+    console.log('alan')
+    //this.refresh()
   }
 
   refresh() {
@@ -50,7 +51,7 @@ export class SideNavbarComponent implements OnInit {
           this.fetchedUser = data.user
         })
         )
-    }    
+    }
   }
 
 

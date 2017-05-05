@@ -20,7 +20,7 @@
     </tbody>
   </table>
   <div class="see-all">
-    <button *ngIf="isAdmin()" class="see-allbtn">See Inactive Promotions</button>
+    <button *ngIf="isAdmin()" [routerLink]="['/promotion/seeInactive']"  class="see-allbtn">See Inactive Promotions</button>
   </div>
   <div class="has-text-centered">
     <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>

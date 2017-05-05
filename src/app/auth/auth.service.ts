@@ -17,7 +17,8 @@ export class AuthService {
   public token: string;
   public currentUser={
     userId: '',
-    token: ''
+    token: '',
+  //  companieId:[]
 
   }
   jwtHelper: JwtHelper = new JwtHelper();
@@ -30,6 +31,7 @@ export class AuthService {
     private toastr: ToastsManager,
     private router: Router) {
     // set token if saved in local storage
+    console.log('AuthService called')
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
     this.currentUser = currentUser;
@@ -58,6 +60,7 @@ export class AuthService {
         if (token) {
 
           let currentUser = { userId: userId, token: token }
+
           this.token = token
           this.currentUser = currentUser
         //  console.log(this.currentUser)
