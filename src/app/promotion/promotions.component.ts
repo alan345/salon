@@ -35,7 +35,7 @@ export class PromotionsComponent implements OnInit {
     public dialog: MdDialog,
     private router: Router,
     private location: Location,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     this.getPromotions(this.paginationData.currentPage);
   }
@@ -77,9 +77,7 @@ export class PromotionsComponent implements OnInit {
       );
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   isAdmin() {
     return this.authService.isAdmin();

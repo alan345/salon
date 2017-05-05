@@ -26,6 +26,8 @@ export class MainPageHomeComponent implements OnInit {
     design : {
       mainPage:{
         titleHomePage:'',
+        buttonHomePage:'',
+        linkButtonHomePage:'',
         _imgHome1:[],
         _imgHome2:[],
         _imgHome3:[],
