@@ -31,6 +31,57 @@ img.promo-img {
     height: auto !important;
     width: 100% !important;
 }
+subsubnav-clients {
+    background-color: #0a2f87;
+    padding: 15px;
+}
+.subsubnav-clients input {
+    margin-bottom: 0 !important;
+}
+.newclientbig-btn, .newclientsml-btn {
+    background: none;
+    border: 1px solid;
+    color: #fff;
+    font-size: 12px;
+    padding: 12px 20px;
+    float: right;
+}
+.newclientbig-btn:hover, .newclientbig-btn:active, .newclientsml-btn:hover, .newclientsml-btn:active {
+    color: #0a2f87;
+    background: #ffffff;
+}
+p.tblnav-cl {
+    margin: inherit !important;
+}
+.tbl-right p.tblnav-cl {
+    text-align: right;
+}
+.updownbtn {
+    background-color: #ffffff;
+    border: none;
+    padding: 2px 8px;
+    margin: 11px 5px;
+    color: #0a2f87;
+    font-size: 19px;
+    outline: none !important;
+}
+.tbl-right .updownbtn {
+    float:right;
+}
+.clienttbl tr {
+    background-color: #fff;
+}
+.clienttbl td {
+    border-bottom: 2px solid #efe9df !important;
+    border-top: none !important;
+    padding: 20px 15px !important;
+}
+td.rightdate {
+    text-align: right;
+    color: #999999;
+    font-size: 11px;
+    padding: 22px 15px !important;
+}
 
 @media screen and (min-width: 768px) {
   
