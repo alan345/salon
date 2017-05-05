@@ -23,9 +23,9 @@
         </tr>
       </thead>
       <tbody class="clienttbl">
-        <tr *ngFor="let companie of fetchedCompanies | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
-          <td>{{Promotion.name }}</td>
-          <td class="rightdate">{{Promotion.dateBegin | date: 'medium'}}</td>
+        <tr *ngFor="let promotion of fetchedPromotions | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
+          <td>{{promotion.name }}</td>
+          <td class="rightdate">{{promotion.dateBegin | date: 'medium'}}</td>
         </tr>
       </tbody>
     </table>
