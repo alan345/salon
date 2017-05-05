@@ -21,6 +21,12 @@ import { Location }               from '@angular/common';
 export class PromotionsSeeInactiveComponent implements OnInit {
   fetchedPromotions : Array<PromotionsSeeInactiveComponent> = [];
   loading: boolean;
+
+  search = {
+    orderBy : '',
+    search:'',
+  }
+    
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,
