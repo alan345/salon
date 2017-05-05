@@ -42,6 +42,31 @@ export class VideosComponent implements OnInit {
     this.getVideos(this.paginationData.currentPage)
   }
   
+  getPage(page: number) {
+  this.getVideos(page);
+  }
+
+  getVideos(page: number) {
+    this.videoService.getVideos(page)
+      .subscribe(
+        res => {
+          this.paginationData = res.paginationData;
+          let fetchedVideosTemp = res.data
+          fetchedVideosTemp.forEach((video) => {
+            video['isNewObj'] = false
+            this.trackinPage.lastVisitPagePressCount.forEach(objNotRead => {
+                if(objNotRead._id == video._id)
+                  video['isNewObj'] = true
+            })
+            this.fetchedVideos.push(video)
+          })
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+  
   categories1 = [{
       name:'phyto',
       selected : false
