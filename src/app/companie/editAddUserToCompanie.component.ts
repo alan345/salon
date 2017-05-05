@@ -58,7 +58,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     },
     notes:[],
     forms:[],
-    role:[],
+    role:['client'],
   }
 
   myForm: FormGroup;
