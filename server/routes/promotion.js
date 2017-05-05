@@ -121,11 +121,15 @@ router.get('/page/:page', function (req, res, next) {
   var skip = (itemsPerPage * pageNumber)
   //var limit = (itemsPerPage * pageNumber) + itemsPerPage
 
-  let querySearch = {}
+  let findQuery = {}
   if(req.query.filterDate === 'true') {
-    querySearch['date.dateBegin'] = {"$lte": Date()}
-    querySearch['date.dateEnd'] = {"$gte": Date()}
+    findQuery['date.dateBegin'] = {"$lte": Date()}
+    findQuery['date.dateEnd'] = {"$gte": Date()}
   }
+
+
+  if(req.query.search)
+    findQuery['name'] = new RegExp(req.query.search, 'i')
 
 
   Promotion.find().count((err, totalItems) => {
@@ -133,13 +137,8 @@ router.get('/page/:page', function (req, res, next) {
       res.send(err);
     } else {
       Promotion
-      .find(
-        querySearch
-      //   {
-      //   'date.dateBegin':{"$lte": Date()},
-      //   'date.dateEnd':{"$gte": Date()},
-      // }
-      )
+      .find(findQuery)
+      .sort(req.query.orderBy)
       .populate('form')
       .limit(itemsPerPage)
       .skip(skip)
@@ -151,7 +150,7 @@ router.get('/page/:page', function (req, res, next) {
           })
         } else {
           Promotion
-          .find(querySearch)
+          .find(findQuery)
           .count()
           .exec(function (err, count) {
           res.status(200).json({

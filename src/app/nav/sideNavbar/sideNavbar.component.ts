@@ -30,7 +30,7 @@ export class SideNavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('alan')
+    //console.log('alan')
     this.refresh()
   }
 

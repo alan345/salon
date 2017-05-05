@@ -12,6 +12,7 @@ import { Location }               from '@angular/common';
 
 
 
+
 @Component({
   selector: 'app-promotions',
   templateUrl: './promotionsSeeInactive.component.html',
@@ -23,7 +24,7 @@ export class PromotionsSeeInactiveComponent implements OnInit {
   loading: boolean;
 
   search = {
-    orderBy : '',
+    orderBy : 'name',
     search:'',
     filterDate: false
   }
@@ -51,6 +52,9 @@ export class PromotionsSeeInactiveComponent implements OnInit {
     this.location.back();
   }
 
+  searchInput(){
+    this.getPromotions(1)
+  }
 
   onDelete(id: string) {
     this.promotionService.deletePromotion(id)
@@ -75,19 +79,26 @@ export class PromotionsSeeInactiveComponent implements OnInit {
     this.getPromotions(this.paginationData.currentPage)
   }
 
-  getPromotions(page) {
+  orderBy(orderBy:string) {
+    this.search.orderBy = orderBy
+    this.getPromotions(1)
+  }
+
+  getPromotions(page : number) {
+    this.loading = true
     this.promotionService.getPromotions(page, this.search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
+          if(this.paginationData.currentPage ===1)
+            this.fetchedPromotions = []
+
         //  this.fetchedPromotions =  res.data
           //this.fetchedPromotions.push(res.data)
           res.data.forEach(obj => {
             this.fetchedPromotions.push(obj)
           })
-
-            console.log(this.fetchedPromotions)
-
+          this.loading = false
         },
         error => {
           console.log(error);
