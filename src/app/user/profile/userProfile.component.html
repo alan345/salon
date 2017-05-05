@@ -12,11 +12,11 @@
         <tbody>
           <tr>
             <div class="prf-basic">
-              <div formGroupName="profile" style="position: relative;">
+              <div formGroupName="profile">
                 <td *ngIf="isEditMode" class="beigeback updt-prof">
                   <div class="chng-pic">
                     <div formGroupName="_profilePicture">
-                     <img *ngIf="fetchedUser.profile._profilePicture.length == 0" src="assets/images/profilePicture.jpg">
+                      <img *ngIf="fetchedUser.profile._profilePicture.length == 0" src="assets/images/profilePicture.jpg">
                       <div *ngFor="let profilePicture of fetchedUser.profile._profilePicture">
                         <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="profilePicture._id">
                         <img src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}" onerror="this.src ='assets/images/prof-pic-placeholder.png'">
