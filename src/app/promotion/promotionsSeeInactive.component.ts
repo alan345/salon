@@ -92,11 +92,11 @@ export class PromotionsSeeInactiveComponent implements OnInit {
           if(this.paginationData.currentPage ===1)
             this.fetchedPromotions = []
 
-        //  this.fetchedPromotions =  res.data
-          //this.fetchedPromotions.push(res.data)
-          res.data.forEach(obj => {
-            this.fetchedPromotions.push(obj)
-          })
+            this.fetchedPromotions =  res.data
+
+          // res.data.forEach(obj => {
+          //   this.fetchedPromotions.push(obj)
+          // })
           this.loading = false
         },
         error => {
