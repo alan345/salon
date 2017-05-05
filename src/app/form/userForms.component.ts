@@ -67,6 +67,9 @@ export class UserFormsComponent implements OnInit {
   onSelectRow(formId){
     this.onPassForm.emit(formId);
   }
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
 
   onDelete(formId) {
     this.formService.deleteForm(formId)
