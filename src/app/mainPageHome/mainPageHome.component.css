@@ -3,6 +3,7 @@ a.shopbutton {
     border: 1px solid #0a2f87;
     color: #0a2f87 !important;
     font-weight: 600;
+    text-transform: uppercase;
 }
 .homelabel {
     font-size: 23px;
