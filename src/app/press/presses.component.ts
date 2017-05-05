@@ -120,8 +120,10 @@ export class PressesComponent implements OnInit {
       },
       error => console.log(error)
     )
-
-
-
   }
+  
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+  
 }
