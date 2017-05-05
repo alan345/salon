@@ -21,7 +21,7 @@ import { UserService} from '../user/user.service';
 })
 export class PressesComponent implements OnInit {
   fetchedPresses : Press[] = [];
-  loading: boolean = false;
+  loading: boolean;
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,

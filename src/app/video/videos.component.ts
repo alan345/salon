@@ -96,7 +96,8 @@ export class VideosComponent implements OnInit {
       }
     })
 //    console.log(this.search.categories)
-    this.getVideos(this.paginationData.currentPage, this.search)
+    this.fetchedVideos = []
+    this.getVideos(1, this.search)
   }
 
   changeCateg1(nameCateg){
@@ -128,12 +129,20 @@ export class VideosComponent implements OnInit {
       );
   }
 
-  getPage(page: number) {
-    this.getVideos(page, this.search);
+  // getPage(page: number) {
+  //   this.getVideos(page, this.search);
+  // }
+
+
+  loadMore(){
+    this.paginationData.currentPage = this.paginationData.currentPage+1
+    this.getVideos(this.paginationData.currentPage, this.search)
   }
 
-  getVideos(page, search) {
-    this.fetchedVideos =[]
+
+  getVideos(page : number, search) {
+    //this.fetchedVideos =[]
+    this.loading = true;
     this.videoService.getVideos(page, search)
       .subscribe(
         res => {
@@ -147,9 +156,8 @@ export class VideosComponent implements OnInit {
                 if(videoNotRead._id == video._id)
                   video['isNewVideo'] = true
             })
-
-
             this.fetchedVideos.push(video)
+            this.loading = false;
           })
         },
         error => {
@@ -157,7 +165,6 @@ export class VideosComponent implements OnInit {
         }
       );
   }
-
 
   ngOnInit() {
     let userId = this.authService.currentUser.userId
@@ -189,7 +196,7 @@ export class VideosComponent implements OnInit {
     this.updateCategerories()
   }
 
-    isAdmin() {
+  isAdmin() {
     return this.authService.isAdmin();
   }
 }
