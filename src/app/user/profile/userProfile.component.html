@@ -2,8 +2,8 @@
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Profile</h3>
-    <p *ngIf="fetchedUser.profile.isFeatured" (click)="toggleFeature()"> Feature <p>
-    <p *ngIf="!fetchedUser.profile.isFeatured" (click)="toggleFeature()"> X <p>
+    <!--<p *ngIf="fetchedUser.profile.isFeatured" (click)="toggleFeature()"><i class="fa fa-star" style="color:#0a2f87"></i><p>
+    <p *ngIf="!fetchedUser.profile.isFeatured" (click)="toggleFeature()"><i class="fa fa-star" style="color:#999999"></i><p>-->
   </div>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()" style="position: relative;">
     <div *ngIf="isEditMode" class="ovrl"></div>
