@@ -69,10 +69,11 @@
           </div>
         <!-- </div> -->
       </div>
-      <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
+      <h4>Manage Users:</h4>
       <div *ngIf="fetchedCompanie._id">
+        <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
         <div class="sln-stymng phyto-ctnr">
-          <h4>Manage Stylists:</h4>
+          <p>Stylists:</p>
           <div *ngFor="let user of userStylists; let i=index">
             <div class="sln-styone">
               <button type="button" (click)="move(i, -1, 'userStylists')" class="updn-btn"><i class="fa fa-chevron-up"></i></button>
@@ -83,7 +84,7 @@
           </div>
         </div>
         <div *ngIf="isAdmin()" class="sln-stymng phyto-ctnr">
-          <h4>Manage Managers:</h4>
+          <p>Managers:</p>
           <div *ngFor="let user of userManagers; let i=index">
             <div class="sln-styone">
               {{ user.profile.name}}
@@ -92,7 +93,7 @@
           </div>
         </div>
         <div *ngIf="isAdmin()" class="sln-stymng phyto-ctnr">
-          <h4>Manage SalesRep:</h4>
+          <p>SalesRep:</p>
           <div *ngFor="let user of userSaleReps; let i=index">
             <div class="sln-styone">
               <button type="button" (click)="move(i, -1, 'userSaleReps')" class="updn-btn"><i class="fa fa-chevron-up"></i></button>
@@ -105,7 +106,7 @@
         </div>
         <div *ngIf="isHQcompanie()">
           <div *ngIf="isAdmin()" class="sln-stymng phyto-ctnr">
-            <h4>Manage Admins:</h4>
+            <p>Admins:</p>
             <div *ngFor="let user of userAdmins; let i=index">
               <div class="sln-styone">
                 <button type="button" (click)="move(i, -1, 'userAdmins')" class="updn-btn"><i class="fa fa-chevron-up"></i></button>
