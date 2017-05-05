@@ -36,7 +36,12 @@ export class VideosComponent implements OnInit {
     itemsPerPage: 0,
     totalItems: 0
   };
-
+  
+  loadMore(){
+    this.paginationData.currentPage = this.paginationData.currentPage+1
+    this.getPresses(this.paginationData.currentPage)
+  }
+  
   categories1 = [{
       name:'phyto',
       selected : false
