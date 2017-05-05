@@ -113,7 +113,6 @@ router.get('/page/:page', function (req, res, next) {
   var skip = (itemsPerPage * pageNumber);
   var limit = (itemsPerPage * pageNumber) + itemsPerPage;
 
-
   let nameQuery = {}
   let cityQuery = {}
   let search = {}
