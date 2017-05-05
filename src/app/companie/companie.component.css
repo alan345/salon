@@ -48,6 +48,7 @@ button.sln-styadd {
   margin: 2.5px 0;
   border: 1px dashed #ffffff;
   text-align: left;
+  margin: 10px 0 20px !important
 }
 .sln-styone {
     width: 100%;
@@ -56,6 +57,9 @@ button.sln-styadd {
     background-color: #ffffff;
     margin: 2.5px 0;
     position: relative;
+}
+.sln-styone p {
+    margin: 0 !important;
 }
 button.updn-btn {
     background-color: #0A2F87;
