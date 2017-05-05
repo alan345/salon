@@ -23,6 +23,16 @@
     <button *ngIf="isAdmin()" [routerLink]="['/promotion/seeInactive']"  class="see-allbtn">See Inactive Promotions</button>
   </div>
   <div class="has-text-centered">
-    <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
+
+    <div>
+      <div [ngClass]="{ 'hidden': !loading }">Loading...</div>
+      <button
+        *ngIf="paginationData.currentPage * paginationData.itemsPerPage < paginationData.totalItems"
+        type="button" (click)="loadMore()" class="ldmre">
+        Load More
+      </button>
+    </div>
+
+
   </div>
 </div>
