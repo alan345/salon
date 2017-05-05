@@ -79,6 +79,8 @@ export class AuthService {
       });
   }
 
+
+
   isAdmin() {
     let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
     if (userInfo) {

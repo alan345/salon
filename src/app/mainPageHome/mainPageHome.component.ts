@@ -8,6 +8,10 @@ import { AdminService} from '../admin/services/admin.service';
 import { VideoService} from '../video/video.service';
 import { PressService} from '../press/press.service';
 import { Options } from './options.model';
+import {Router} from '@angular/router';
+import {CompanieService} from '../companie/companie.service';
+import {AuthService} from '../auth/auth.service';
+import {Companie} from '../companie/companie.model';
 
 @Component({
   selector: 'app-admin',
@@ -15,7 +19,7 @@ import { Options } from './options.model';
   styleUrls: ['./mainPageHome.component.css']
 })
 export class MainPageHomeComponent implements OnInit {
-
+  companies : Companie[] = []
   trackinPage = {
     lastVisitPagePressCount:[],
     lastVisitPageVideoCount:[]
@@ -39,12 +43,15 @@ export class MainPageHomeComponent implements OnInit {
   }
 
   constructor(
+    private companieService:CompanieService,
+    private router:Router,
     private adminService: AdminService,
     private mainPageHomeService: MainPageHomeService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
     public videoService: VideoService,
-    public pressService: PressService
+    public pressService: PressService,
+    private authService: AuthService,
   ) {}
 
   editTitleHomePage(){
@@ -81,13 +88,28 @@ export class MainPageHomeComponent implements OnInit {
   }
 
 
-
-
-  isAdmin() {
-    return this.adminService.isAdmin();
+  goTo(path){
+    if( (this.isAdmin() || this.isManager()) && path === 'user') {
+      if(this.companies.length)
+        this.router.navigate(['/companie/' + this.companies[0]._id + '/users']);
+    } else {
+      this.router.navigate([path]);
+    }
   }
 
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+  isManager() {
+    return this.authService.isManager();
+  }
   ngOnInit() {
+    this.companieService.getCompanieByUserId(this.authService.currentUser.userId)
+    .subscribe(
+      (data => this.companies = data)
+    )
+
+
     this.videoService.countNewItemForUser()
     .subscribe(
       data => this.trackinPage.lastVisitPageVideoCount = data.item,

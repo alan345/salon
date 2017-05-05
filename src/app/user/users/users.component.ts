@@ -48,16 +48,35 @@ export class UsersComponent implements OnInit {
 
 
   ngOnInit() {
-
-    this.search.orderBy = 'profile.name'
-    this.search.role = 'client'
-    this.search.parentUser = this.authService.currentUser.userId
-    this.getUsers(this.paginationData.currentPage, this.search)
+    // if(this.isAdmin()) {
+    //   this.companieService.getCompanieByUserId(this.authService.currentUser.userId)
+    //   .subscribe((data => {
+    //       if(data.length)
+    //         this.router.navigate(['/companie/' + data[0]._id + '/users']);
+    //     })
+    //   )
+    // } else {
+      this.search.orderBy = 'profile.name'
+      this.search.role = 'client'
+      this.search.parentUser = this.authService.currentUser.userId
+      this.getUsers(this.paginationData.currentPage, this.search)
+    // }
   }
   goBack() {
     this.location.back();
   }
-
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+  isStylist() {
+    return this.authService.isStylist();
+  }
+  isSalesRep(){
+    return this.authService.isSalesRep();
+  }
+  isManager(){
+    return this.authService.isManager();
+  }
   searchInput(){
     this.getUsers(this.paginationData.currentPage, this.search)
   }

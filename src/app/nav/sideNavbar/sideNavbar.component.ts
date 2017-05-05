@@ -30,7 +30,7 @@ export class SideNavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.authService.isLoggedIn())
+    //console.log(this.authService.isLoggedIn())
     if (this.authService.isLoggedIn()) {
       let userId = this.authService.currentUser.userId
       this.companieService.getCompanieByUserId(userId)

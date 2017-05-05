@@ -32,18 +32,20 @@ export class UserProfileSettingsComponent implements OnInit {
   //fetchedUser : User;
   maxPictureToShow=3;
   instapic=1;
-  companies=[{
-    _id:'',
-    name:'',
-    address:{
-      address : '',
-      city : '',
-      state:'',
-      zip:'',
-    },
-    _users : [
-    ]
-  }]
+  companies=[
+  //   {
+  //   _id:'',
+  //   name:'',
+  //   address:{
+  //     address : '',
+  //     city : '',
+  //     state:'',
+  //     zip:'',
+  //   },
+  //   _users : [
+  //   ]
+  // }
+  ]
   isEditMode:boolean = false
   fetchedUser : User = {
     _id: '',
