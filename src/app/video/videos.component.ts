@@ -39,7 +39,7 @@ export class VideosComponent implements OnInit {
   
   loadMore(){
     this.paginationData.currentPage = this.paginationData.currentPage+1
-    this.getPresses(this.paginationData.currentPage)
+    this.getVideos(this.paginationData.currentPage)
   }
   
   categories1 = [{
