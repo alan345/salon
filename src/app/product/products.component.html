@@ -50,6 +50,7 @@
     </tr>
     </thead>
     <tbody>
+      
     <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
       <td class="img-resized">
         <img class="img-thumbnail img-responsive" src="./uploads/profiles/{{product._id}}/{{product.profilePic}}" onerror="this.src ='assets/images/no-image-found.jpg'">

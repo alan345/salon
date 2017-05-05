@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody class="clienttbl">
-        <tr *ngFor="let promotion of fetchedPromotions">
+        <tr *ngFor="let promotion of fetchedPromotions| paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
 
           <td [routerLink]="['/promotion/singlepromotion/' + promotion._id]" routerLinkActive="active">{{promotion.name}}</td>
           <td class="rightdate">{{promotion.date.dateBegin | date :'dd-MMM-yyyy'}}</td>
@@ -32,13 +32,17 @@
     </table>
   </div>
   <div class="has-text-centered">
-    <div>
+    <div class="has-text-centered">
+        <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
+        <pagination-controls (pageChange)="getPage($event)" id="server" class="change-page"></pagination-controls>
+    </div>
+    <!-- <div>
       <div [ngClass]="{ 'hidden': !loading }">Loading...</div>
       <button
         *ngIf="paginationData.currentPage * paginationData.itemsPerPage < paginationData.totalItems"
         type="button" (click)="loadMore()" class="ldmre">
         Load More
       </button>
-    </div>
+    </div> -->
   </div>
 </div>

@@ -69,15 +69,14 @@ export class PromotionsSeeInactiveComponent implements OnInit {
       );
   }
 
-  // getPage(page: number) {
-  //
-  //   this.getPromotions(page);
-  // }
-
-  loadMore(){
-    this.paginationData.currentPage = this.paginationData.currentPage+1
-    this.getPromotions(this.paginationData.currentPage)
+  getPage(page: number) {
+    this.getPromotions(page);
   }
+
+  // loadMore(){
+  //   this.paginationData.currentPage = this.paginationData.currentPage+1
+  //   this.getPromotions(this.paginationData.currentPage)
+  // }
 
   orderBy(orderBy:string) {
     this.search.orderBy = orderBy
