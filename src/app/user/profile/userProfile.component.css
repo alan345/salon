@@ -26,12 +26,17 @@
     width: 100%;
 }
 .chal-rslt {
+  bottom: 0;
+  position: absolute;
+  height: 75px;
   background-color: #231f20;
+  width: 100%;
   padding: 15px;
   color: #fff;
 }
 .act-chal {
   padding: 15px;
+  min-height: 200px;
 }
 .insta-promo {
   padding: 30px 15px;
@@ -115,8 +120,10 @@
 @media screen and (min-height: 768px) {
   
 #stypro {
-  padding: 2.5px;
+    display: table;
+    padding: 2.5px;
 }
+
 .prf-basic, .prf-chal {
   display: table-cell;
   float: none;
