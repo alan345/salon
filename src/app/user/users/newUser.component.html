@@ -5,20 +5,16 @@
   </div>
   <div class="single-wrpr beigeback">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-
       <div [ngClass]="{ 'hidden': fetchedUser._id }" class="form-group col-sm-4" id="lfthair">
-        <label>Salon</label>
-
           <select
             class="form-control"
             formControlName="companieIndexToSelect"
             [(ngModel)]="companieIndexToSelect"
+            placeholder="Choose salon this client belongs to"
             >
             <option *ngFor="let companie of fetchedCompanies; let i=index" value="{{companie._id}}">{{companie.name}}</option>
           </select>
       </div>
-
-
       <div class="form-group col-sm-12">
         <input
           type="text"
@@ -36,7 +32,6 @@
             [(ngModel)]="fetchedUser.profile.name"
             placeholder="Client's Name">
         </div>
-
         <div class="form-group col-sm-12">
           <input
             type="text"
@@ -45,7 +40,6 @@
             [(ngModel)]="fetchedUser.profile.phoneNumber"
             placeholder="Phone Number">
         </div>
-
         <div formGroupName="hair">
           <div class="form-group col-sm-4" id="lfthair">
             <label>Hair Texture</label>
