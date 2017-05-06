@@ -42,7 +42,6 @@
   background-size: cover;
 }
 .insta-pic {   
-  width: auto;
   padding: 10px;
 }
 .see, .submit {
@@ -146,6 +145,9 @@
 .see {
     margin-right: 15px;
 }
+.insta-pic {
+  width: 170px;
+}
 .insta-txt {
   padding: 0 15px;
   max-width:76%;
@@ -168,6 +170,9 @@
     position: relative;
     margin: 5px;
     background-color: #fff;
+}
+.insta-pic {
+  width: 100%;
 }
 .insta-txt h3 {
     margin: 20px 0;
