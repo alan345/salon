@@ -9,6 +9,8 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { UserService} from '../user/user.service';
+import { Form } from '../form/form.model'
+import { SeePictureDialogComponent } from '../seePictureDialog/seePictureDialog.component'
 
 
 
@@ -49,7 +51,12 @@ export class PressesComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
+  openPictureDialog(form : Form){
+    let dialogRef = this.dialog.open(SeePictureDialogComponent)
+    dialogRef.componentInstance.form = form;
+    dialogRef.afterClosed().subscribe(result => {
+    })
+  }
   onDelete(id: string) {
     this.pressService.deletePress(id)
       .subscribe(

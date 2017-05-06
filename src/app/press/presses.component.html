@@ -12,12 +12,15 @@
             <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/press/pressSingle/' + press._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
             <div *ngIf="press.isNewObj" class="new-ntf">NEW!</div>
             <div *ngFor="let form of press.form" class="img-wrpr">
-              <a
-                *ngIf="+ press.formPDF.length"
-                href="./uploads/forms/{{press.formPDF[0].owner}}/{{press.formPDF[0].imagePath}}"
-                target="_blank">
-                <img class="img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-              </a>
+              <div *ngIf="+ press.formPDF.length">
+                <img
+                  (click)="openPictureDialog(form)"
+                  class="img-responsive"
+                  src="./uploads/forms/{{form.owner}}/{{form.imagePath}}"
+                  onerror="this.src ='assets/images/no-image-found.jpg'"
+                >
+              </div>
+
               <a
                 *ngIf="!press.formPDF.length"
                 href="{{press.link}}"

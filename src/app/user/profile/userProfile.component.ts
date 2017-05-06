@@ -163,6 +163,7 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['user/profile/' + this.fetchedUser._id + "/userProfilePictures"]);
   }
 
+
   openPictureDialog(form : Form){
     let dialogRef = this.dialog.open(SeePictureDialogComponent)
     dialogRef.componentInstance.form = form;
