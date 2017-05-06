@@ -8,6 +8,7 @@ var form = new Schema({
   textInputOne: {type: String},
   textInputTwo: {type: String},
   imagePath: {type: String},
+  type: {type: String, default: ['']},
   owner: [{type: Schema.Types.ObjectId, ref: 'User'}]
 },
   {

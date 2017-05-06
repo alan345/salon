@@ -138,10 +138,12 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
     //   });
 //Gooplus
 
+
     var form = new Form({
       textInputOne: req.body.textInput1,
       textInputTwo: req.body.textInput2,
       imagePath: req.file.filename,
+      type: req.file.filename.slice(-3)
       owner: user._id
     });
 

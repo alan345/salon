@@ -17,4 +17,5 @@ export interface Form {
   _id: string;
   owner: User[];
   imagePath: string;
+  type: string;
 }
