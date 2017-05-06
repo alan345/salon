@@ -9,8 +9,8 @@
         <td>
           <div class="imgrw-cnt">
 
-            <img *ngIf="form.type='pdf'" (click)="onSelectRow(form)" src="./assets/images/pdf_icon.png">
-            <img *ngIf="!form.type='pdf'" (click)="onSelectRow(form)" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+            <img *ngIf="isFormPdf(form)" (click)="onSelectRow(form)" src="./assets/images/pdf_icon.png">
+            <img *ngIf="!isFormPdf(form)" (click)="onSelectRow(form)" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             <button class="dlt-btn" (click)="onDelete(form._id)"><i class="fa fa-trash"></i></button>
           </div>
         </td>

@@ -1,7 +1,9 @@
-import {Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import {FormService} from './form.service';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { FormService} from './form.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { SeePictureDialogComponent } from '../seePictureDialog/seePictureDialog.component'
+import { MdDialog, MdDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-user-form',
@@ -10,6 +12,8 @@ import { AuthService } from '../auth/auth.service';
 })
 export class UserFormsComponent implements OnInit {
   @Input() itemsPerPage
+  @Input() isDialog
+
 
 
   @Output() onPassForm = new EventEmitter<any>();
@@ -30,6 +34,7 @@ export class UserFormsComponent implements OnInit {
 
 
   constructor(
+    public dialog: MdDialog,
     private formService: FormService,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
@@ -63,9 +68,28 @@ export class UserFormsComponent implements OnInit {
         },
         error => console.log(error))
   }
+  isFormPdf(form){
+    if(form.type === 'pdf')
+      return true
+    return false
+  }
+  onSelectRow(form){
 
-  onSelectRow(formId){
-    this.onPassForm.emit(formId);
+    if(this.isDialog) {
+      this.onPassForm.emit(form);
+    } else {
+      if(this.isFormPdf(form)) {
+        let url = './uploads/forms/' + form.owner + '/' + form.imagePath
+        window.open(url);
+      } else {
+        let dialogRef = this.dialog.open(SeePictureDialogComponent)
+        dialogRef.componentInstance.form = form;
+        // dialogRef.afterClosed().subscribe(result => {
+        // })
+      }
+
+    }
+
   }
   isAdmin() {
     return this.authService.isAdmin();
