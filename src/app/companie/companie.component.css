@@ -168,7 +168,7 @@ p.tblnav-cl {
 .sln-inf {
   float:left;
 }
-.sln-mng, .done {
+.sln-mng {
   float:right;
 }
 .sln-edt.done {
