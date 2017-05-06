@@ -25,9 +25,6 @@
 .prf-basic img {
     width: 100%;
 }
-.prf-frame {
-    min-height: 300px;
-}
 .chal-rslt {
   bottom: 0;
   height: 75px;
@@ -124,7 +121,9 @@
     display: table;
     padding: 2.5px;
 }
-
+.prf-frame {
+    min-height: 300px;
+}
 .prf-basic, .prf-chal {
   display: table-cell;
   float: none;
