@@ -56,7 +56,7 @@ h6 {
 button {
   outline: none !important;
 }
-input {
+input, select {
   padding: 9px !important;
   margin-bottom: 15px !important;
   min-height: 40px !important;
@@ -98,7 +98,7 @@ th, td {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.form input {
+.form input, .form select {
   font-family: "Montserrat", sans-serif;
   outline: 0;
   background: #f2f2f2;
