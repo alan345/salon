@@ -55,6 +55,8 @@ import {ProductService} from './product/product.service';
 
 
 import {DeleteDialog} from './deleteDialog/deleteDialog.component';
+import {SeePictureDialogComponent} from './seePictureDialog/seePictureDialog.component';
+
 
 
 import {PressComponent} from './press/press.component';
@@ -192,6 +194,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SingleProductComponent,
 
     DeleteDialog,
+    SeePictureDialogComponent,
 
     PressComponent,
     PressesComponent,
@@ -307,7 +310,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PromotionDeleteDialog,
     EditOptionsComponentDialog,
     VideoDeleteDialog,
-    VideoWhereDialogComponent
+    VideoWhereDialogComponent,
+    SeePictureDialogComponent,
   ],
 
   bootstrap: [AppComponent],

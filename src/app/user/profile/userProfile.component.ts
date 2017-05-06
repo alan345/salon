@@ -17,6 +17,8 @@ import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.comp
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { CompanieService} from '../../companie/companie.service';
 import { SubmitPicDialog } from '../../social/submitPicDialog.component'
+import { SeePictureDialogComponent } from '../../seePictureDialog/seePictureDialog.component'
+
 
 
 
@@ -159,6 +161,13 @@ export class UserProfileComponent implements OnInit {
   }
   seeAllPicture(){
     this.router.navigate(['user/profile/' + this.fetchedUser._id + "/userProfilePictures"]);
+  }
+
+  openPictureDialog(form : Form){
+    let dialogRef = this.dialog.open(SeePictureDialogComponent)
+    dialogRef.componentInstance.form = form;
+    dialogRef.afterClosed().subscribe(result => {
+    })
   }
 
   openDialogSocial(){
