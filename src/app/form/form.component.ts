@@ -64,6 +64,14 @@ export class FormComponent implements OnInit, AfterViewInit {
       }
     }
   }
+  isImagePure(file: File): boolean {
+    if (!file.type.match('image/*')) {
+      //this.toastr.error('Only images are allowed');
+      return false;
+    }
+    return true;
+  }
+
   // check if the image is actually an image by checking the mime type
   isImage(file: File): boolean {
     if (!file.type.match('image/*') && !file.type.match('application/pdf')) {
