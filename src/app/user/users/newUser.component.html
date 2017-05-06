@@ -10,8 +10,8 @@
             class="form-control"
             formControlName="companieIndexToSelect"
             [(ngModel)]="companieIndexToSelect"
-            placeholder="Choose salon this client belongs to"
             >
+            <option value="" disabled selected>Select Salon</option>
             <option *ngFor="let companie of fetchedCompanies; let i=index" value="{{companie._id}}">{{companie.name}}</option>
           </select>
       </div>
