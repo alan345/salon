@@ -26,8 +26,8 @@ import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 export class NewUserComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
-  companies=[]
-  fetchedCompanie : Companie = {
+  fetchedCompanies=[]
+  fetchedCompanieInit : Companie = {
     _id:'',
     forms:[],
     name:'',
@@ -41,6 +41,21 @@ export class NewUserComponent implements OnInit {
     },
     _users:[]
   }
+  fetchedCompanieAfter : Companie = {
+    _id:'',
+    forms:[],
+    name:'',
+    typeCompanie:'',
+    phoneNumber:'',
+    address: {
+      address : '',
+      city :  '',
+      state :  '',
+      zip :  ''
+    },
+    _users:[]
+  }
+  companieIndexToSelect = ''
 
   fetchedUser : User = {
     _id: '',
@@ -84,6 +99,7 @@ export class NewUserComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
+        companieIndexToSelect: ['',[Validators.required, Validators.minLength(3)]],
         lastVisit: [''],
         _id: [''],
         email: [''],
@@ -95,7 +111,6 @@ export class NewUserComponent implements OnInit {
                 hairTexture: ['', <any>Validators.required],
                 hairDensity: ['', <any>Validators.required],
                 hairPorosity: ['', <any>Validators.required],
-
             })
         })
     })
@@ -105,16 +120,32 @@ export class NewUserComponent implements OnInit {
     this.companieService.getCompanieByUserId(userId)
     .subscribe(
       (data => {
-        if(data.length)
-          this.fetchedCompanie = data[0]
+        this.fetchedCompanies = data
+        // Ok mes tes clients sont dans quel salon? ==> je prends le premier salon qui nest pas HQ
+        // if(data.length)
+        //   this.fetchedCompanie = data[0]
       })
     )
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      if(params['id'])
+      if(params['id']) {
+        this.companieService.getCompanieByUserId(params['id']).subscribe(
+            res => {
+              console.log(res)
+              if(res.length) {
+                this.fetchedCompanieInit = res[0]
+                this.companieIndexToSelect = this.fetchedCompanieInit._id
+              }
+            },
+            error => {console.log(error)}
+          )
         this.getUser(params['id'])
+      }
+
     })
   }
+
+
 
 
   goBack() {
@@ -163,8 +194,39 @@ export class NewUserComponent implements OnInit {
 
 
   addUserIdToCompanie(user : User) {
+    console.log(this.fetchedCompanieInit)
+    console.log(this.fetchedCompanieAfter)
+    //let companieToUpdate = {}
+
+
+      if(this.fetchedCompanieInit._id !== this.fetchedCompanieAfter._id ) {
+        this.fetchedCompanieInit._users.forEach((userInit, index) =>{
+          if(userInit._id === this.fetchedUser._id) {
+            delete this.fetchedCompanieInit._users[index]
+            this.companieService.updateCompanie(this.fetchedCompanieInit)
+              .subscribe(
+                res => {
+                  //console.log('User removed from previous companie' + this.fetchedCompanieInit.name)
+                  //this.onPassForm.emit();
+                  this.toastr.success('Great!', 'User removed from previous companie' + this.fetchedCompanieInit.name)
+                  //this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+
+                },
+                error => {console.log(error)}
+              )
+
+          }
+        })
+      }
+
+      this.fetchedCompanies.forEach((companie, index) => {
+        if(companie._id == this.companieIndexToSelect) {
+          this.fetchedCompanieAfter = this.fetchedCompanies[index]
+        }
+      })
+
       let okAddUserToCompanie = true
-      this.fetchedCompanie._users.forEach((userFetch) => {
+      this.fetchedCompanieAfter._users.forEach((userFetch) => {
         if(userFetch._id === user._id) {
           okAddUserToCompanie = false
         }
@@ -172,11 +234,11 @@ export class NewUserComponent implements OnInit {
       if(!okAddUserToCompanie){
         console.log('error! user already exists in salon')
         //this.toastr.error('error! user already exists in salon')
-        this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+        this.router.navigate(['companie/' + this.fetchedCompanieAfter._id]);
         //this.navigate(this.fetchedCompanie._id)
       } else {
-        this.fetchedCompanie._users.push(user)
-        this.companieService.updateCompanie(this.fetchedCompanie)
+        this.fetchedCompanieAfter._users.push(user)
+        this.companieService.updateCompanie(this.fetchedCompanieAfter)
           .subscribe(
             res => {
               //this.onPassForm.emit();
