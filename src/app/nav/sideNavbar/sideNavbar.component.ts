@@ -4,7 +4,7 @@ import {AdminService} from '../../admin/services/admin.service';
 import {ProfileService} from '../../user/profile/profile.service';
 import {Router} from '@angular/router';
 import {CompanieService} from '../../companie/companie.service';
-
+import {Companie} from './companie.model';
 
 @Component({
   selector: 'app-sideNavbar',
@@ -13,7 +13,12 @@ import {CompanieService} from '../../companie/companie.service';
 })
 export class SideNavbarComponent implements OnInit {
   @Input() sidenav
+export class CompanieDetailComponent implements OnInit {
 
+  fetchedCompanie : Companie = {
+    _id:'',
+    name:'',
+  }
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   fetchedUser={
