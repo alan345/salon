@@ -121,7 +121,7 @@
     padding: 2.5px;
 }
 .prf-frame {
-    min-height: 300px;
+    min-height: 250px;
 }
 .prf-basic, .prf-chal {
   display: table-cell;
