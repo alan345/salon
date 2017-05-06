@@ -175,7 +175,9 @@ export class FormComponent implements OnInit, AfterViewInit {
     xhr.send(formData);
     console.log(xhr);
   }
-
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
 
 
 
