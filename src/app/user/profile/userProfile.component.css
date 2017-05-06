@@ -30,7 +30,6 @@
 }
 .chal-rslt {
   bottom: 0;
-  position: absolute;
   height: 75px;
   background-color: #231f20;
   width: 100%;
@@ -138,6 +137,9 @@
   vertical-align: top;
   width: 66.666666%;
   background-color: #fff;
+}
+.chal-rslt {
+  position: absolute;
 }
 .see, .submit {
   float: left;
