@@ -8,8 +8,9 @@
       <tr *ngFor="let form of fetchedForms| paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="imgrw">
         <td>
           <div class="imgrw-cnt">
-              {{form.type | json}}
-            <img (click)="onSelectRow(form)" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+
+            <img *ngIf="form.type='pdf'" (click)="onSelectRow(form)" src="./assets/images/pdf_icon.png">
+            <img *ngIf="!form.type='pdf'" (click)="onSelectRow(form)" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             <button class="dlt-btn" (click)="onDelete(form._id)"><i class="fa fa-trash"></i></button>
           </div>
         </td>
