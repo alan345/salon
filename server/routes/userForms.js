@@ -138,7 +138,7 @@ router.delete('/:id', function (req, res, next) {
         error: {message: 'Form not found!'}
       });
     }
-    if (form.owner != req.user._id.toString()) {
+    if (form.owner != req.user._id.toString() && req.user.role[0] !== "admin") {
       return res.status(401).json({
         title: 'Not your form!',
         error: {message: 'Users do not match'}
