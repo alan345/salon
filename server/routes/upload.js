@@ -143,7 +143,8 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
       textInputOne: req.body.textInput1,
       textInputTwo: req.body.textInput2,
       imagePath: req.file.filename,
-      type: req.file.filename.slice(-3),
+      //type: req.file.filename.slice(-3),
+      type: req.file.filename.split('.').pop(),
       owner: user._id
     });
 
