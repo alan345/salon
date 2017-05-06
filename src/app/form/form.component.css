@@ -55,6 +55,10 @@
   outline: none !important;
   padding: 10px !important
 }
+.rec-sze {
+  font-size: 10px !important;
+  color: #999999 !important;
+}
 
 @media screen and (min-width:768px) {
 
