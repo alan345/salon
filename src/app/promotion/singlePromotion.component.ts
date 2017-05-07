@@ -101,6 +101,11 @@ export class SinglePromotionComponent implements OnInit {
 
 
   save() {
+    if(!this.fetchedPromotion.form.length){
+      this.toastr.error('Need a picture')
+      return
+    }
+
     if(this.fetchedPromotion._id) {
       this.promotionService.updatePromotion(this.fetchedPromotion)
         .subscribe(
