@@ -5,14 +5,15 @@ var mongoose                = require('mongoose'),
     mongooseUniqueValidator = require('mongoose-unique-validator');
 
 var form = new Schema({
-  textInputOne: {type: String},
-  textInputTwo: {type: String},
+  // textInputOne: {type: String},
+  // textInputTwo: {type: String},
   imagePath: {type: String},
+  title: {type: String, default: ['']},
   type: {type: String, default: ['']},
   owner: [{type: Schema.Types.ObjectId, ref: 'User'}]
 },
   {
-    timestamps: { createdAt: 'dateSubmitted'}
+    timestamps: true
   });
 
 

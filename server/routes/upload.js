@@ -136,12 +136,16 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
     //       // });// this will result a 404 when frontend tries to access the image, I ll provide a fix soon
     //     }
     //   });
-//Gooplus
 
+    
+//Gooplus
+    let nbChar = req.file.filename.split('.').shift().length + 1
+    //console.log(req.file.filename.substring(nbChar))
 
     var form = new Form({
-      textInputOne: req.body.textInput1,
-      textInputTwo: req.body.textInput2,
+    //  textInputOne: req.body.textInput1,
+    //  textInputTwo: req.body.textInput2,
+      title: req.file.filename.substring(nbChar),
       imagePath: req.file.filename,
       //type: req.file.filename.slice(-3),
       type: req.file.filename.split('.').pop(),
@@ -209,8 +213,8 @@ router.patch('/edit/:id', upload.single('fileUp'), function (req, res, err) {
     if (req.file !== undefined) {
       fs.unlink('server/uploads/forms/' + form.owner + '/' + form.imagePath);
     }
-    form.textInputOne = req.body.textInput1;
-    form.textInputTwo = req.body.textInput2;
+  //  form.textInputOne = req.body.textInput1;
+  //  form.textInputTwo = req.body.textInput2;
     // check if the user has uploaded a new file, if he has, then store the image path to Mongo and replace the old one
     if (req.file !== undefined) {
       form.imagePath = req.file.filename;

@@ -64,7 +64,7 @@ export class CompanieDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       //this.fetchedCompanie=
       //this.router.navigate(['companie/' + params['id'] ]);
-      console.log('init')
+      //console.log('init')
       this.myForm = this._fb.group({
         forms: this._fb.array([])
       })

@@ -6,8 +6,8 @@
     <tr>
       <th>Image</th>
       <th>Form ID</th>
-      <th>Text Input One</th>
-      <th>Text Input Two</th>
+      <!-- <th>Text Input One</th>
+      <th>Text Input Two</th> -->
       <th>Owner</th>
       <th>Date Submitted</th>
       <th>Date Edited</th>
@@ -19,8 +19,8 @@
     <tr *ngFor="let form of fetchedForms">
       <td class="img-resized"><img class="img-thumbnail img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'"></td>
       <td>{{form._id }}</td>
-      <td>{{form.textInputOne}}</td>
-      <td>{{form.textInputTwo}}</td>
+      <!-- <td>{{form.textInputOne}}</td>
+      <td>{{form.textInputTwo}}</td> -->
       <td>{{form.owner}}</td>
       <td>{{form.dateSubmitted | date: 'medium'}}</td>
       <td>

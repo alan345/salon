@@ -234,8 +234,8 @@ router.patch('/edit/:id', upload.single('fileUp'), function (req, res, err) {
       if (req.file !== undefined) {
        fs.unlink('server/uploads/forms/' + form.owner + '/' + form.imagePath);
       }
-      form.textInputOne = req.body.textInput1;
-      form.textInputTwo = req.body.textInput2;
+    //  form.textInputOne = req.body.textInput1;
+    //  form.textInputTwo = req.body.textInput2;
       // check if the user has uploaded a new file, if he has, then store the image path to Mongo and replace the old one
       if (req.file !== undefined) {
         form.imagePath = req.file.filename;
