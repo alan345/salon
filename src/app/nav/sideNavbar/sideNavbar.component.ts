@@ -4,7 +4,7 @@ import {AdminService} from '../../admin/services/admin.service';
 import {ProfileService} from '../../user/profile/profile.service';
 import {Router} from '@angular/router';
 import {CompanieService} from '../../companie/companie.service';
-
+import {Companie} from '../../companie/companie.model'
 
 @Component({
   selector: 'app-sideNavbar',
@@ -20,7 +20,28 @@ export class SideNavbarComponent implements OnInit {
     _id: ''
   };
   companies=[]
+  userBelongToHQ : boolean = false
 
+  HQCompanie: Companie = {
+    _id:'',
+    forms:[],
+    name:'',
+    typeCompanie:'',
+    phoneNumber:'',
+    address: {
+      address : '',
+      city :  '',
+      state :  '',
+      zip :  ''
+    },
+    _users:[]
+  }
+
+  search = {
+    orderBy : 'name',
+    search:'',
+    typeCompanie:'HQ',
+  }
   constructor(
       private authService: AuthService,
       private adminService: AdminService,
@@ -41,8 +62,11 @@ export class SideNavbarComponent implements OnInit {
       this.companieService.getCompanieByUserId(userId)
       .subscribe(
         (data => {
-          console.log(data)
           this.companies = data
+          this.companies.forEach(companie => {
+            if(companie.typeCompanie === 'HQ')
+              this.userBelongToHQ = true
+          })
         })
       )
       this.profileService.getUserDetails(userId)
@@ -51,9 +75,29 @@ export class SideNavbarComponent implements OnInit {
           this.fetchedUser = data.user
         })
         )
+
+
+      this.companieService.getCompanies(1, this.search)
+        .subscribe(
+          res => {
+          //  console.log("companies");
+          //  console.log(res);
+            this.HQCompanie =  res.data[0]
+
+          },
+          error => {
+            console.log(error);
+          }
+        );
+
+
     }
   }
-
+  isHQcompanie(companie: Companie){
+    if(companie.typeCompanie === 'HQ')
+      return true
+    return false
+  }
 
   // check if user is logged in by asking our authentication service, we use this function in html file *ngIf directive
   isLoggedIn() {
@@ -76,6 +120,9 @@ export class SideNavbarComponent implements OnInit {
   }
 
   isAdmin() {
-    return this.adminService.isAdmin();
+    return this.authService.isAdmin();
+  }
+  isSaleRep() {
+    return this.authService.isSalesRep();
   }
 }

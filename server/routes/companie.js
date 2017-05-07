@@ -107,6 +107,40 @@ router.post('/', function (req, res, next) {
 
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
+
+
+  if (req.user.role[0] !== "admin" && req.user.role[0] !== "salesRep") {
+    return res.status(401).json({
+      title: 'There was an error',
+      error: {message: 'You are not the administrator'}
+    })
+  }
+});
+
+
+if (req.user.role[0] === "admin") {
+  Form.find(({}), function (err, forms) {
+    if (err) {
+      return res.status(404).json({
+        message: 'An error occured',
+        err: err
+      })
+    }
+    res.status(200).json({
+      message: 'Success',
+      forms: forms
+    });
+  })
+} else {
+  return res.status(401).json({
+    title: 'There was an error',
+    error: {message: 'You are not the administrator'}
+  })
+}
+});
+
+
+
   var itemsPerPage = 5;
   var currentPage = Number(req.params.page);
   var pageNumber = currentPage - 1;
@@ -126,6 +160,11 @@ router.get('/page/:page', function (req, res, next) {
     search = {$or:arrObj}
     //findQuery['address.city'] = new RegExp(req.query.search, 'i')
   }
+
+
+  if(req.query.typeCompanie)
+    search['typeCompanie'] = req.query.typeCompanie
+
 
 
   //let arrObj = [{findQuery}]

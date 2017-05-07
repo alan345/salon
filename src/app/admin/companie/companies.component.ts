@@ -32,6 +32,7 @@ export class CompaniesComponent implements OnInit {
   search = {
     orderBy : '',
     search:'',
+    companieType:'',
   }
 
   constructor(
@@ -84,6 +85,7 @@ export class CompaniesComponent implements OnInit {
     this.loading = true;
     this.getCompanies(page, this.search);
   }
+
 
   getCompanies(page, search) {
     this.companieService.getCompanies(page, search)

@@ -5,9 +5,22 @@
   </div>
   <div class="sidenav-menu">
     <ul class="sidenav-list">
-      <li *ngFor="let companie of companies">
-        <a (click)="goTo('/companie/' + companie._id)">{{companie.name}}</a>
-      </li>
+
+
+      <!-- ADMIN CASE -->
+      <div *ngIf="isAdmin() || isSaleRep()">
+        <li *ngIf="HQCompanie._id">
+          <a (click)="goTo('/companie/' + HQCompanie._id)">My Salon</a>
+        </li>
+      </div>
+      <div *ngIf="!(isAdmin() || isSaleRep())">
+        <li *ngFor="let companie of companies">
+          <a *ngIf="companies.length>1" (click)="goTo('/companie/' + companie._id)">{{companie.name}}</a>
+          <a *ngIf="companies.length==1" (click)="goTo('/companie/' + companie._id)">My Salon</a>
+        </li>
+      </div>
+
+
       <li *ngIf="fetchedUser._id"><a (click)="goTo('/user/profile/' + fetchedUser._id)">My Profile</a></li>
       <li><a (click)="goTo('/user/profile/password')">My Account Settings</a></li>
       <li><a (click)="goTo('/userForms')">Manage Pictures</a></li>
