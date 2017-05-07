@@ -144,6 +144,8 @@ export class PressSingleComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedPress = res
+          if(this.fetchedPress.formPDF.length)
+            this.disableLinkInput()
         },
         error => {
           console.log(error);
