@@ -15,9 +15,10 @@ export class FooterComponent implements OnInit {
 
 
   constructor(
-      private authService: AuthService,
-      private router: Router,
+    private authService: AuthService,
+    private router: Router,
   ) {}
+
 
   ngOnInit() {}
 
