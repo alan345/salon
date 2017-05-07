@@ -59,12 +59,17 @@ export class CompanieDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.myForm = this._fb.group({
-      forms: this._fb.array([])
-    })
+
 
     this.activatedRoute.params.subscribe((params: Params) => {
+      //this.fetchedCompanie=
+      //this.router.navigate(['companie/' + params['id'] ]);
+      console.log('init')
+      this.myForm = this._fb.group({
+        forms: this._fb.array([])
+      })
       this.getCompanie(params['id'])
+
     })
   }
   goBack() {
@@ -142,8 +147,6 @@ export class CompanieDetailComponent implements OnInit {
               this.userSaleReps.push(user)
             if(user.role[0] === 'admin')
               this.userAdmins.push(user)
-
-
 
           })
 

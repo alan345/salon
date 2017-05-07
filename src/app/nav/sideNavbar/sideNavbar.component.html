@@ -6,7 +6,7 @@
   <div class="sidenav-menu">
     <ul class="sidenav-list">
       <li *ngFor="let companie of companies">
-        <a (click)="goTo('/companie/' + companie._id)">Name of Salon Here</a>
+        <a (click)="goTo('/companie/' + companie._id)">{{companie.name}}</a>
       </li>
       <li *ngIf="fetchedUser._id"><a (click)="goTo('/user/profile/' + fetchedUser._id)">My Profile</a></li>
       <li><a (click)="goTo('/user/profile/password')">My Account Settings</a></li>
