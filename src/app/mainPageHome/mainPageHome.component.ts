@@ -89,12 +89,21 @@ export class MainPageHomeComponent implements OnInit {
 
 
   goTo(path){
-    if( (this.isAdmin() || this.isManager()) && path === 'user') {
+
+    if( path === 'user') {
       if(this.companies.length)
         this.router.navigate(['/companie/' + this.companies[0]._id + '/users']);
     } else {
       this.router.navigate([path]);
     }
+
+
+    // if( (this.isAdmin() || this.isManager()) && path === 'user') {
+    //   if(this.companies.length)
+    //     this.router.navigate(['/companie/' + this.companies[0]._id + '/users']);
+    // } else {
+    //   this.router.navigate([path]);
+    // }
   }
 
   isAdmin() {

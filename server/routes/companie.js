@@ -118,11 +118,6 @@ router.get('/page/:page', function (req, res, next) {
 
 
 
-
-
-
-
-
   var itemsPerPage = 5;
   var currentPage = Number(req.params.page);
   var pageNumber = currentPage - 1;
@@ -280,7 +275,8 @@ router.get('/:id', function (req, res, next) {
           model: 'User',
           populate: {
             path: 'profile.parentUser',
-            model: 'User'
+            model: 'User',
+        //    match: { _id : mongoose.Types.ObjectId('58ed2d1a3bccc80dc8c17964') },
           }
         })
     //.populate('users._user.profile.profilePicture._id')
