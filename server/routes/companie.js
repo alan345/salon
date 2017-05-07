@@ -260,7 +260,6 @@ router.get('/:id', function (req, res, next) {
           populate: {
             path: 'profile.parentUser',
             model: 'User',
-            //match: { _id : mongoose.Types.ObjectId('58ed2d1a3bccc80dc8c17964') },
           }
         }
     if (req.user.role[0] === 'stylist' || req.user.role[0] === 'client')
@@ -271,7 +270,6 @@ router.get('/:id', function (req, res, next) {
           populate: {
             path: 'profile.parentUser',
             model: 'User',
-            match: { _id : mongoose.Types.ObjectId('58ed2d1a3bccc80dc8c17964') },
           }
         }
 
