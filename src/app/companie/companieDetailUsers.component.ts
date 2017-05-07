@@ -23,13 +23,15 @@ import { User } from '../user/user.model'
 })
 export class CompanieDetailUsersComponent implements OnInit {
   maxPictureToShow = 3
-  users : User[] = []
+//  users : User[] = []
+  fetchedCompanies : Companie[]=[]
   search = {
     orderBy : '-client',
     search:'',
     parentUser:'',
     role:''
   }
+  companieIdToSelect = ''
   fetchedCompanie : Companie = {
     _id:'',
     forms:[],
@@ -64,18 +66,33 @@ export class CompanieDetailUsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.myForm = this._fb.group({
-      forms: this._fb.array([])
-    })
+
 
     this.activatedRoute.params.subscribe((params: Params) => {
+      this.myForm = this._fb.group({
+        forms: this._fb.array([])
+      })
       this.getCompanie(params['id'])
     })
+
+    let userId = this.authService.currentUser.userId
+    this.companieService.getCompanieByUserId(userId)
+    .subscribe(
+      (data => {
+        this.fetchedCompanies = data
+        // Ok mes tes clients sont dans quel salon? ==> je prends le premier salon qui nest pas HQ
+        // if(data.length)
+        //   this.fetchedCompanie = data[0]
+      })
+    )
+
   }
   goBack() {
     this.location.back();
   }
-
+  onChangeCompanie(event){
+    this.router.navigate(['companie/' + event + "/users"]);
+  }
   removeForm(i: number) {
       this.fetchedCompanie.forms.splice(i, 1)
       const control = <FormArray>this.myForm.controls['forms'];
@@ -150,11 +167,11 @@ export class CompanieDetailUsersComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedCompanie = res
-
-          this.fetchedCompanie._users.forEach((user) => {
-            if(user.role[0] === 'saleRep')
-              this.users.push(user)
-          })
+          this.companieIdToSelect = this.fetchedCompanie._id
+          // this.fetchedCompanie._users.forEach((user) => {
+          //   if(user.role[0] === 'saleRep')
+          //     this.users.push(user)
+          // })
 
           this.fetchedCompanie.forms.forEach((form: Form) => {
             this.addForm(form)

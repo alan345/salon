@@ -115,7 +115,6 @@ export class NewUserComponent implements OnInit {
         })
     })
 
-
     let userId = this.authService.currentUser.userId
     this.companieService.getCompanieByUserId(userId)
     .subscribe(
