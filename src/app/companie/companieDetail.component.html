@@ -81,7 +81,7 @@
   <div class="beigeback phyto-ctnr">
     <div *ngIf="!isHQcompanie()" class="sln-inf">
       <h6> Your Phyto Sales Representative</h6>
-      <div *ngFor="let user of userSaleReps; let i=index">
+      <div *ngFor="let user of users; let i=index">
         <div *ngIf="i==0" [routerLink]="['/user/profile/' + user._id]" routerLinkActive="active">
             <p>{{ user.profile.name}}</p>
             <p>{{ user.profile.phoneNumber}}</p>
@@ -102,7 +102,7 @@
     <div class="sln-mng">
       <button class="delete"><a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a></button>
       <div *ngIf="!isHQcompanie()">
-        <div *ngFor="let user of userSaleReps; let i=index">
+        <div *ngFor="let user of users; let i=index">
           <div *ngIf="i==0">
               <button type="button" class="done"><a href="mailto:{{ user.email}}">Contact Sales</a></button>
           </div>

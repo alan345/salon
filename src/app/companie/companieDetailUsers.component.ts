@@ -23,7 +23,7 @@ import { User } from '../user/user.model'
 })
 export class CompanieDetailUsersComponent implements OnInit {
   maxPictureToShow = 3
-  userSaleReps : User[] = []
+  users : User[] = []
   search = {
     orderBy : '-client',
     search:'',
@@ -153,7 +153,7 @@ export class CompanieDetailUsersComponent implements OnInit {
 
           this.fetchedCompanie._users.forEach((user) => {
             if(user.role[0] === 'saleRep')
-              this.userSaleReps.push(user)
+              this.users.push(user)
           })
 
           this.fetchedCompanie.forms.forEach((form: Form) => {

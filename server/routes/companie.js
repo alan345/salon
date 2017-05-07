@@ -115,29 +115,11 @@ router.get('/page/:page', function (req, res, next) {
       error: {message: 'You are not the administrator'}
     })
   }
-});
 
 
-if (req.user.role[0] === "admin") {
-  Form.find(({}), function (err, forms) {
-    if (err) {
-      return res.status(404).json({
-        message: 'An error occured',
-        err: err
-      })
-    }
-    res.status(200).json({
-      message: 'Success',
-      forms: forms
-    });
-  })
-} else {
-  return res.status(401).json({
-    title: 'There was an error',
-    error: {message: 'You are not the administrator'}
-  })
-}
-});
+
+
+
 
 
 
@@ -165,7 +147,14 @@ if (req.user.role[0] === "admin") {
   if(req.query.typeCompanie)
     search['typeCompanie'] = req.query.typeCompanie
 
+  if (req.user.role[0] === "salesRep")
+    search['_users'] = mongoose.Types.ObjectId(req.query.parentUser)
 
+
+
+  // if(req.query.parentUser)
+  //   findQuery['profile.parentUser'] = mongoose.Types.ObjectId(req.query.parentUser)
+  //
 
   //let arrObj = [{findQuery}]
 //  console.log(arrObj)

@@ -64,7 +64,7 @@ router.get('/page/:page', function (req, res, next) {
   var skip = (itemsPerPage * pageNumber)
   var limit = (itemsPerPage * pageNumber) + itemsPerPage
 
-  let parentUserToSearch = ''
+//  let parentUserToSearch = ''
   let roleToSearch = []
   let findQuery = {}
 

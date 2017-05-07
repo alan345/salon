@@ -23,7 +23,7 @@ import { User } from '../user/user.model'
 })
 export class CompanieDetailComponent implements OnInit {
   maxPictureToShow = 3
-  userSaleReps : User[] = []
+  users : User[] = []
   userAdmins : User[] = []
   fetchedCompanie : Companie = {
     _id:'',
@@ -144,7 +144,7 @@ export class CompanieDetailComponent implements OnInit {
 
           this.fetchedCompanie._users.forEach((user) => {
             if(user.role[0] === 'saleRep')
-              this.userSaleReps.push(user)
+              this.users.push(user)
             if(user.role[0] === 'admin')
               this.userAdmins.push(user)
 

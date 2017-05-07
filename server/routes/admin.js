@@ -71,8 +71,7 @@ router.get('/', function (req, res, next) {
         forms: forms
       });
     })
-  }
-  else {
+  } else {
     return res.status(401).json({
       title: 'There was an error',
       error: {message: 'You are not the administrator'}

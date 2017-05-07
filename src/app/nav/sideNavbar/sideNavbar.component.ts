@@ -122,7 +122,7 @@ export class SideNavbarComponent implements OnInit {
   isAdmin() {
     return this.authService.isAdmin();
   }
-  isSaleRep() {
+  is() {
     return this.authService.isSalesRep();
   }
 }

@@ -40,7 +40,7 @@ export class EditCompanieComponent implements OnInit {
   userAdmins : User[] = []
   userManagers : User[] = []
   userClients : User[] = []
-  userSaleReps : User[] = []
+  users : User[] = []
   userStylists : User[] = []
   myForm: FormGroup;
 
@@ -91,7 +91,7 @@ export class EditCompanieComponent implements OnInit {
     this.userAdmins.forEach(user => this.fetchedCompanie._users.push(user))
     this.userClients.forEach(user => this.fetchedCompanie._users.push(user))
     this.userStylists.forEach(user => this.fetchedCompanie._users.push(user))
-    this.userSaleReps.forEach(user => this.fetchedCompanie._users.push(user))
+    this.users.forEach(user => this.fetchedCompanie._users.push(user))
     this.userManagers.forEach(user => this.fetchedCompanie._users.push(user))
     if(this.fetchedCompanie._id) {
       this.companieService.updateCompanie(this.fetchedCompanie)
@@ -161,7 +161,7 @@ export class EditCompanieComponent implements OnInit {
             if(user.role[0] === 'admin')
               this.userAdmins.push(user)
             if(user.role[0] === 'saleRep')
-              this.userSaleReps.push(user)
+              this.users.push(user)
             if(user.role[0] === 'client')
               this.userClients.push(user)
             if(user.role[0] === 'stylist')
