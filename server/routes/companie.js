@@ -252,6 +252,28 @@ router.get('/:id', function (req, res, next) {
     //   findQuery['name'] = new RegExp(req.query.search, 'i')
     //
     //
+    let findUsers ={}
+    if (req.user.role[0] === 'admin' || req.user.role[0] === 'salesRep')
+      findUsers = {
+          path: '_users',
+          model: 'User',
+          populate: {
+            path: 'profile.parentUser',
+            model: 'User',
+            //match: { _id : mongoose.Types.ObjectId('58ed2d1a3bccc80dc8c17964') },
+          }
+        }
+    if (req.user.role[0] === 'stylist' || req.user.role[0] === 'client')
+      findUsers = {
+          path: '_users',
+          model: 'User',
+          match: { 'profile.parentUser' : mongoose.Types.ObjectId(req.user._id.toString()) },
+          populate: {
+            path: 'profile.parentUser',
+            model: 'User',
+            match: { _id : mongoose.Types.ObjectId('58ed2d1a3bccc80dc8c17964') },
+          }
+        }
 
     Companie
     .findOne(findQuery)
@@ -270,15 +292,8 @@ router.get('/:id', function (req, res, next) {
         }
       })
       .populate(
-        {
-          path: '_users',
-          model: 'User',
-          populate: {
-            path: 'profile.parentUser',
-            model: 'User',
-        //    match: { _id : mongoose.Types.ObjectId('58ed2d1a3bccc80dc8c17964') },
-          }
-        })
+        findUsers
+      )
     //.populate('users._user.profile.profilePicture._id')
     .exec(function (err, item) {
       if (err) {
