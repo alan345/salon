@@ -13,19 +13,21 @@
 
 
           <div *ngIf="!isHQcompanie()">
-            <div *ngIf="user.role == 'stylist'" [routerLink]="['/user/profile/' + user._id]" routerLinkActive="active" class="one-sty">
-              <div class="one-stypic" *ngIf="user.profile._profilePicture.length == 0">
-                <img src="assets/images/prof-pic-placeholder.png">
+            <div >
+              <div [routerLink]="['/user/profile/' + user._id]" routerLinkActive="active" class="one-sty">
+                <div class="one-stypic" *ngIf="user.profile._profilePicture.length == 0">
+                  <img src="assets/images/prof-pic-placeholder.png">
+                </div>
+                <div *ngFor="let profilePicture of user.profile._profilePicture" class="one-stypic">
+                  <img src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}"
+                    onerror="this.src ='assets/images/no-image-found.jpg'">
+                </div>
+                <div class="sty-ttl">
+                  <label>{{ user.profile.name}}</label>
+                  <p>{{ user.profile.title}}</p>
+                </div>
               </div>
-              <div *ngFor="let profilePicture of user.profile._profilePicture" class="one-stypic">
-                <img src="./uploads/forms/{{profilePicture.owner}}/{{profilePicture.imagePath}}"
-                  onerror="this.src ='assets/images/no-image-found.jpg'">
-              </div>
-              <div class="sty-ttl">
-                <label>{{ user.profile.name}}</label>
-                <p>{{ user.profile.title}}</p>
-              </div>
-            </div>
+            <div>
           </div>
 
           <div *ngIf="isHQcompanie()">
