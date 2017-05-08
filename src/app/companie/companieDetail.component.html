@@ -54,8 +54,13 @@
   <div class="img-row phyto-ctnr">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="img-frm phyto-ctnr">
       <div class="phyto-ctnr">
-        <div *ngIf="!isStylist()" class="col-sm-3">
+        <div *ngIf = "isHQcompanie()">
           <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+        </div>
+        <div *ngIf = "!isHQcompanie()">
+          <div *ngIf="!isStylist()" class="col-sm-3">
+            <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+          </div>
         </div>
         <div class="col-sm-9">
           <div formArrayName="forms" class="phyto-ctnr">
@@ -100,7 +105,21 @@
       </div>
     </div>
     <div class="sln-mng">
-      <button class="delete"><a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">Edit Salon Info</a></button>
+      <div *ngIf="isHQcompanie()">
+        <div *ngIf="isAdmin()">
+          <button class="delete">
+            <a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">
+              Edit Salon Info</a></button>
+        </div>
+      </div>
+      <div *ngIf="!isHQcompanie()">
+        <div *ngIf="isAdmin() || isManager() || isSalesRep()">
+          <button class="delete">
+            <a [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active">
+              Edit Salon Info</a></button>
+        </div>
+      </div>
+
       <div *ngIf="!isHQcompanie()">
         <div *ngFor="let user of users; let i=index">
           <div *ngIf="i==0">

@@ -227,7 +227,8 @@ router.get('/byuserid/:id', function (req, res, next) {
 })
 
 
-// getting user forms to display them on front end
+
+
 router.get('/:id', function (req, res, next) {
 
   if(req.user.role[0] === 'client') {
@@ -253,11 +254,6 @@ router.get('/:id', function (req, res, next) {
 
     let findQuery = {}
 
-    //
-    // if(req.query.search)
-    //   findQuery['name'] = new RegExp(req.query.search, 'i')
-    //
-    //
     findQuery['_id'] = req.params.id
     let findUsers ={}
     if (req.user.role[0] === 'admin' || req.user.role[0] === 'manager') {
@@ -270,21 +266,31 @@ router.get('/:id', function (req, res, next) {
           }
         }
     }
-
-    if (req.user.role[0] === 'stylist' || req.user.role[0] === 'salesRep') {
-      //findQuery['_users'] = {$in: req.user._id}
-      findQuery['_users'] = req.user._id
+    if(obj.typeCompanie === 'HQ') {
       findUsers = {
           path: '_users',
           model: 'User',
-          match: { 'profile.parentUser' : mongoose.Types.ObjectId(req.user._id.toString()) },
           populate: {
             path: 'profile.parentUser',
             model: 'User',
           }
         }
     }
-
+    if(obj.typeCompanie !== 'HQ') {
+      if (req.user.role[0] === 'stylist' || req.user.role[0] === 'salesRep') {
+        //findQuery['_users'] = {$in: req.user._id}
+        findQuery['_users'] = req.user._id
+        findUsers = {
+            path: '_users',
+            model: 'User',
+            match: { 'profile.parentUser' : mongoose.Types.ObjectId(req.user._id.toString()) },
+            populate: {
+              path: 'profile.parentUser',
+              model: 'User',
+            }
+          }
+      }
+    }
     Companie
     .findOne(findQuery)
     //.find()
