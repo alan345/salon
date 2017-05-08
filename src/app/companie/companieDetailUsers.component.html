@@ -5,14 +5,16 @@
   </div>
   <div class="subsubnav-clients">
     <div>
-      <select
-        class="form-control"
-        [(ngModel)]="companieIdToSelect"
-        (ngModelChange)="onChangeCompanie($event)"
-        >
-        <option value="" disabled selected>Select Salon</option>
-        <option *ngFor="let companie of fetchedCompanies" value="{{companie._id}}">{{companie.name}}</option>
-      </select>
+      <div *ngIf="fetchedCompanies.length">
+        <select
+          class="form-control"
+          [(ngModel)]="companieIdToSelect"
+          (ngModelChange)="onChangeCompanie($event)"
+          >
+          <option value="" disabled selected>Select Salon</option>
+          <option *ngFor="let companie of fetchedCompanies" value="{{companie._id}}">{{companie.name}}</option>
+        </select>
+      </div>
     </div>
     <input
       type="text"

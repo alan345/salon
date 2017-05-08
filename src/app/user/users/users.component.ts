@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {UserService} from '../user.service';
-//import {RegionComponent} from '../region/region.component';
+import {CompanieService} from '../../companie/companie.service';
 import {User} from '../user.model';
 import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {ToastsManager} from 'ng2-toastr';
@@ -44,10 +44,19 @@ export class UsersComponent implements OnInit {
     private router: Router,
     private location: Location,
     private authService: AuthService,
+    private companieService: CompanieService
   ) {}
 
 
   ngOnInit() {
+      this.companieService.getCompanieByUserId(this.authService.currentUser.userId)
+      .subscribe((data => {
+          if(data.length)
+            this.router.navigate(['/companie/' + data[0]._id + '/users']);
+        })
+      )
+
+
     // if(this.isAdmin()) {
     //   this.companieService.getCompanieByUserId(this.authService.currentUser.userId)
     //   .subscribe((data => {

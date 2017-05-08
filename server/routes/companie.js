@@ -317,6 +317,11 @@ router.get('/:id', function (req, res, next) {
           message: '',
           err: err
         })
+      } if (!item) {
+        return res.status(404).json({
+          title: 'No obj found',
+          error: {message: 'Obj not found!'}
+        })
       } else {
         res.status(200).json({
           message: 'Success',

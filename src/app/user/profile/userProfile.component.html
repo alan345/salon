@@ -74,13 +74,15 @@
         <div class="col-sm-9">
           <div class="phyto-ctnr">
             <div *ngFor="let form of getObjects(myForm); let i=index" class="pic-wrpr">
-              <div *ngIf="i < maxPictureToShow">
-                <div class="pic-list">
-                  <img
-                    (click)="openPictureDialog(fetchedUser.forms[i])"
-                    src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}"
-                    onerror="this.src ='assets/images/no-image-found.jpg'">
-                  <i *ngIf="isMyProfile()" class="fa fa-times pull-right dlt-img" (click)="removeForm(i)"></i>
+              <div *ngIf="fetchedUser.forms[i].type !== 'pdf'">
+                <div *ngIf="i < maxPictureToShow">
+                  <div class="pic-list">
+                    <img
+                      (click)="openPictureDialog(fetchedUser.forms[i])"
+                      src="./uploads/forms/{{fetchedUser.forms[i].owner}}/{{fetchedUser.forms[i].imagePath}}"
+                      onerror="this.src ='assets/images/no-image-found.jpg'">
+                    <i *ngIf="isMyProfile()" class="fa fa-times pull-right dlt-img" (click)="removeForm(i)"></i>
+                  </div>
                 </div>
               </div>
             </div>
