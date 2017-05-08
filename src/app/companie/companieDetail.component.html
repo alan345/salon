@@ -55,7 +55,9 @@
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="img-frm phyto-ctnr">
       <div class="phyto-ctnr">
         <div *ngIf = "isHQcompanie()">
-          <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+          <div class="col-sm-3">
+            <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
+          </div>
         </div>
         <div *ngIf = "!isHQcompanie()">
           <div *ngIf="!isStylist()" class="col-sm-3">
