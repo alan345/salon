@@ -163,6 +163,14 @@ router.get('/pureOptions', function (req, res, next) {
 
 //update
 router.put('/updateoption', function (req, res, next) {
+
+  if(req.user.role[0] !== 'admin') {
+    return res.status(404).json({
+      title: 'Cannot edit Homepage',
+      error: {message: 'Cannot edit Homepage!'}
+    })
+  }
+
   Options
   .findOne()
   .exec(function (err, item) {
@@ -173,20 +181,19 @@ router.put('/updateoption', function (req, res, next) {
         err: err
       })
     } else {
-      console.log(req.body.design)
-        item.design = req.body.design
-        item.save(function (err, result) {
-          if (err) {
-            return res.status(404).json({
-              message: 'There was an error, please try again',
-              err: err
-            });
-          }
-          res.status(201).json({
-            message: 'Successfully',
-            obj: result
+      item.design = req.body.design
+      item.save(function (err, result) {
+        if (err) {
+          return res.status(404).json({
+            message: 'There was an error, please try again',
+            err: err
           });
+        }
+        res.status(201).json({
+          message: 'Successfully',
+          obj: result
         });
+      });
 
     }
   })
