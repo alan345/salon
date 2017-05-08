@@ -5,7 +5,8 @@
   </div>
   <div class="subsubnav-clients">
     <div>
-      <div *ngIf="fetchedCompanies.length">
+      {{fetchedCompanies.length|json}}
+      <div [ngClass]="{ 'hidden': fetchedCompanies.length<2 }">
         <select
           class="form-control"
           [(ngModel)]="companieIdToSelect"
