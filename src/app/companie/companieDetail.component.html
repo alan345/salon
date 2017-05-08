@@ -78,7 +78,7 @@
       </div>
     </form>
   </div>
-  <div class="beigeback phyto-ctnr">
+  <div *ngIf="!isStylist()" class="beigeback phyto-ctnr">
     <div *ngIf="!isHQcompanie()" class="sln-inf">
       <h6> Your Phyto Sales Representative</h6>
       <div *ngFor="let user of users; let i=index">
