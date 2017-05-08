@@ -183,7 +183,11 @@ export class CompanieDetailUsersComponent implements OnInit {
       );
   }
 
-
+  showColomnStylist(){
+    if(this.isAdmin() || this.isSalesRep())
+      return true
+    return false
+  }
   isAdmin() {
     return this.authService.isAdmin();
   }

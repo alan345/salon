@@ -89,7 +89,6 @@ export class MainPageHomeComponent implements OnInit {
 
 
   goTo(path){
-
     if( path === 'user') {
       if(this.companies.length)
         this.router.navigate(['/companie/' + this.companies[0]._id + '/users']);

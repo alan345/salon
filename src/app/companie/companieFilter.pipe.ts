@@ -28,14 +28,15 @@ export class CompanieFilterPipe implements PipeTransform {
           if(orderBy === 'client')
             returnObj = { index: i, value: e.profile.name.toLowerCase() };
           if(orderBy === 'stylist') {
-
             if(e.profile.parentUser[0]) {
-              console.log(e.profile.parentUser[0].profile.name.toLowerCase(), 'alan')
+              //console.log(e.profile.parentUser[0].profile.name.toLowerCase(), 'alan')
               returnObj = { index: i, value: e.profile.parentUser[0].profile.name.toLowerCase() };
             }
-
           }
-
+          if(orderBy === 'lastVisit') {
+            if(e.lastVisit)
+              returnObj = { index: i, value: e.lastVisit };
+          }
           return returnObj
         })
 

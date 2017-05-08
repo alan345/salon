@@ -109,12 +109,12 @@ router.post('/', function (req, res, next) {
 router.get('/page/:page', function (req, res, next) {
 
 
-  if (req.user.role[0] !== "admin" && req.user.role[0] !== "salesRep") {
-    return res.status(401).json({
-      title: 'There was an error',
-      error: {message: 'You are not the administrator'}
-    })
-  }
+  // if (req.user.role[0] !== "admin" && req.user.role[0] !== "salesRep") {
+  //   return res.status(401).json({
+  //     title: 'There was an error',
+  //     error: {message: 'You are not the administrator'}
+  //   })
+  // }
 
 
 
@@ -230,6 +230,12 @@ router.get('/byuserid/:id', function (req, res, next) {
 // getting user forms to display them on front end
 router.get('/:id', function (req, res, next) {
 
+  if(req.user.role[0] === 'client') {
+    return res.status(404).json({
+      title: 'No obj found',
+      error: {message: 'Not found!'}
+    })
+  }
   Companie.findById((req.params.id), function (err, obj) {
     if (err) {
       return res.status(500).json({
@@ -246,14 +252,15 @@ router.get('/:id', function (req, res, next) {
 
 
     let findQuery = {}
-    findQuery['_id'] = req.params.id
+
     //
     // if(req.query.search)
     //   findQuery['name'] = new RegExp(req.query.search, 'i')
     //
     //
+    findQuery['_id'] = req.params.id
     let findUsers ={}
-    if (req.user.role[0] === 'admin' || req.user.role[0] === 'salesRep')
+    if (req.user.role[0] === 'admin' || req.user.role[0] === 'manager') {
       findUsers = {
           path: '_users',
           model: 'User',
@@ -262,7 +269,11 @@ router.get('/:id', function (req, res, next) {
             model: 'User',
           }
         }
-    if (req.user.role[0] === 'stylist' || req.user.role[0] === 'client')
+    }
+
+    if (req.user.role[0] === 'stylist' || req.user.role[0] === 'salesRep') {
+      //findQuery['_users'] = {$in: req.user._id}
+      findQuery['_users'] = req.user._id
       findUsers = {
           path: '_users',
           model: 'User',
@@ -272,6 +283,7 @@ router.get('/:id', function (req, res, next) {
             model: 'User',
           }
         }
+    }
 
     Companie
     .findOne(findQuery)
