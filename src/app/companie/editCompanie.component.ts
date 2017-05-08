@@ -101,7 +101,10 @@ export class EditCompanieComponent implements OnInit {
             if(redirect)
               this.router.navigate(['companie/' + this.fetchedCompanie._id])
           },
-          error => {console.log(error)}
+          error => {
+            //console.log(error)
+            this.toastr.error('error!', error)
+          }
         )
     } else {
       this.companieService.saveCompanie(this.fetchedCompanie)

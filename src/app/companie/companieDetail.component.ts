@@ -128,9 +128,15 @@ export class CompanieDetailComponent implements OnInit {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        this.addForm(result)
-        this.fetchedCompanie.forms.push(result)
-        this.save()
+        console.log(result)
+        if(result.type==='pdf') {
+          this.toastr.error('No pdf!');
+        } else {
+          this.addForm(result)
+          this.fetchedCompanie.forms.push(result)
+          this.save()
+        }
+
       }
     })
   }

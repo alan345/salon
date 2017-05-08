@@ -62,8 +62,20 @@ router.put('/:id', function (req, res, next) {
         message: '',
         err: err
       })
-    } else {
-
+    }
+    if( req.user.role[0] !== 'admin') {
+      let belongToThisComp = false
+      item._users.forEach(user => {
+        if(user === req.user._id.toString())
+          belongToThisComp = true
+      })
+      if(!belongToThisComp) {
+        return res.status(404).json({
+          message: 'Not your companie',
+          err: 'Not your companie'
+        })
+      }
+    }
 
       for (var prop in req.body) {
         if(prop !== '__v')
@@ -83,7 +95,7 @@ router.put('/:id', function (req, res, next) {
           obj: result
         });
       });
-    }
+
   })
 });
 

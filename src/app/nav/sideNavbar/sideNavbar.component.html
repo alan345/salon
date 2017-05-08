@@ -8,12 +8,12 @@
 
 
       <!-- ADMIN CASE -->
-      <div *ngIf="isAdmin() || is()">
+      <div *ngIf="isAdmin() || isSalesRep()">
         <li *ngIf="HQCompanie._id">
           <a (click)="goTo('/companie/' + HQCompanie._id)">My Salon</a>
         </li>
       </div>
-      <div *ngIf="!(isAdmin() || is())">
+      <div *ngIf="!(isAdmin() || isSalesRep())">
         <li *ngFor="let companie of companies">
           <a *ngIf="companies.length>1" (click)="goTo('/companie/' + companie._id)">{{companie.name}}</a>
           <a *ngIf="companies.length==1" (click)="goTo('/companie/' + companie._id)">My Salon</a>

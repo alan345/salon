@@ -181,17 +181,28 @@ export class UserProfileComponent implements OnInit {
       let dialogRef = this.dialog.open(EditOptionsComponentDialog);
       dialogRef.afterClosed().subscribe(result => {
         if(result) {
-          this.fetchedUser.profile._profilePicture[0] = result
-          this.save()
+          if(result.type==='pdf') {
+            this.toastr.error('No pdf!');
+          } else {
+            this.fetchedUser.profile._profilePicture[0] = result
+            this.save()
+          }
+
+
         }
       })
     } else {
       let dialogRef = this.dialog.open(EditOptionsComponentDialog);
       dialogRef.afterClosed().subscribe(result => {
         if(result) {
-          this.addForm(result)
-          this.fetchedUser.forms.unshift(result)
-          this.save()
+          if(result.type==='pdf') {
+            this.toastr.error('No pdf!');
+          } else {
+            this.addForm(result)
+            this.fetchedUser.forms.unshift(result)
+            this.save()
+          }
+
         }
       })
     }

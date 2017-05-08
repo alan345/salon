@@ -81,8 +81,9 @@ export class SideNavbarComponent implements OnInit {
         .subscribe(
           res => {
           //  console.log("companies");
-          //  console.log(res);
-            this.HQCompanie =  res.data[0]
+            console.log(res);
+            if(res.data.length)
+              this.HQCompanie =  res.data[0]
 
           },
           error => {
@@ -122,7 +123,7 @@ export class SideNavbarComponent implements OnInit {
   isAdmin() {
     return this.authService.isAdmin();
   }
-  is() {
+  isSalesRep() {
     return this.authService.isSalesRep();
   }
 }
