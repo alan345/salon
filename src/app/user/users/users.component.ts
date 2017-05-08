@@ -47,7 +47,6 @@ export class UsersComponent implements OnInit {
   ) {}
 
 
-
   ngOnInit() {
     // if(this.isAdmin()) {
     //   this.companieService.getCompanieByUserId(this.authService.currentUser.userId)
