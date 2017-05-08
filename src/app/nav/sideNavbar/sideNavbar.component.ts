@@ -81,7 +81,7 @@ export class SideNavbarComponent implements OnInit {
         .subscribe(
           res => {
           //  console.log("companies");
-            console.log(res);
+            //console.log(res);
             if(res.data.length)
               this.HQCompanie =  res.data[0]
 

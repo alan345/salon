@@ -58,12 +58,11 @@ export class AdminUsersComponent implements OnInit {
   }
 
   onSelectChange = ($event: any): void => {
-    console.log($event.tab)
     this.search.role = $event.tab.textLabel
     this.getUsers(this.paginationData.currentPage, this.search)
 
   }
-  
+
 
   searchInput(){
     this.getUsers(this.paginationData.currentPage, this.search)
@@ -78,7 +77,7 @@ export class AdminUsersComponent implements OnInit {
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message);
-          console.log(res);
+          //console.log(res);
         },
         error => {
           console.log(error);
