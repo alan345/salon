@@ -81,6 +81,10 @@
 .chng-pic img {
     float: left;
 }
+.prf-frame {
+    max-height: 300px;
+    overflow: hidden;
+}
 .browse {
     font-family: inherit !important;
     text-transform: uppercase !important;
