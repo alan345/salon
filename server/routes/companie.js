@@ -142,8 +142,8 @@ router.get('/page/:page', function (req, res, next) {
   if(req.query.typeCompanie)
     search['typeCompanie'] = req.query.typeCompanie
 
-  if (req.user.role[0] === "salesRep")
-    search['_users'] = mongoose.Types.ObjectId(req.query.parentUser)
+  if (req.user.role[0] === "salesRep" || req.user.role[0] === "manager" || req.user.role[0] === "stylist")
+    search['_users'] = mongoose.Types.ObjectId(req.user._id)
 
 
 
