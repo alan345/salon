@@ -183,8 +183,8 @@ export class CompanieDetailUsersComponent implements OnInit {
       );
   }
 
-  showColomnStylist(){
-    if(this.isAdmin() || this.isSalesRep())
+  showColumnStylist(){
+    if(this.isAdmin() || this.isSalesRep() || this.isManager())
       return true
     return false
   }
@@ -197,5 +197,7 @@ export class CompanieDetailUsersComponent implements OnInit {
   isSalesRep(){
     return this.authService.isSalesRep();
   }
-
+  isManager(){
+    return this.authService.isManager();
+  }
 }

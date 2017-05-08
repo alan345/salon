@@ -35,7 +35,7 @@
             <button class="updownbtn" (click)="orderBy('client')"><i class="fa fa-chevron-down"></i></button>
             <button class="updownbtn" (click)="orderBy('-client')"><i class="fa fa-chevron-up"></i></button>
           </th>
-          <th *ngIf="showColomnStylist()" class="tbl-center">
+          <th *ngIf="showColumnStylist()" class="tbl-center">
             <p class="tblnav-cl">Stylist</p>
             <button class="updownbtn" (click)="orderBy('stylist')"><i class="fa fa-chevron-up"></i></button>
             <button class="updownbtn" (click)="orderBy('-stylist')"><i class="fa fa-chevron-down"></i></button>
@@ -52,7 +52,7 @@
           <td *ngIf="user.role == 'client'" [routerLink]="['/user/' + user._id]" routerLinkActive="active">
               {{user.profile.name }}
           </td>
-          <td *ngIf="user.role == 'client' && showColomnStylist()" [routerLink]="['/user/' + user._id]" routerLinkActive="active">
+          <td *ngIf="user.role == 'client' && showColumnStylist()" [routerLink]="['/user/' + user._id]" routerLinkActive="active">
             <div *ngFor="let parentUser of user.profile.parentUser" class="mdl-sty">
               {{parentUser.profile.name}}
             </div>
