@@ -187,15 +187,18 @@ export class NewUserComponent implements OnInit {
             this.addUserIdToCompanie(res.obj)
             //this.router.navigate(['user'])
           },
-          error => {console.log(error)}
+          error => {
+            console.log(error)
+            this.toastr.error('Error!')
+          }
         );
     }
   }
 
 
   addUserIdToCompanie(user : User) {
-    console.log(this.fetchedCompanieInit)
-    console.log(this.fetchedCompanieAfter)
+  //  console.log(this.fetchedCompanieInit)
+  //  console.log(this.fetchedCompanieAfter)
     //let companieToUpdate = {}
 
 
@@ -234,7 +237,8 @@ export class NewUserComponent implements OnInit {
       if(!okAddUserToCompanie){
         console.log('error! user already exists in salon')
         //this.toastr.error('error! user already exists in salon')
-        this.router.navigate(['companie/' + this.fetchedCompanieAfter._id]);
+        this.goBack()
+        //this.router.navigate(['companie/' + this.fetchedCompanieAfter._id]);
         //this.navigate(this.fetchedCompanie._id)
       } else {
         this.fetchedCompanieAfter._users.push(user)
@@ -244,7 +248,8 @@ export class NewUserComponent implements OnInit {
               //this.onPassForm.emit();
               this.toastr.success('Great!', res.message)
               //this.router.navigate(['companie/' + this.fetchedCompanie._id]);
-              this.navigate(user._id)
+              this.goBack()
+              //this.navigate(user._id)
             },
             error => {console.log(error)}
           )
