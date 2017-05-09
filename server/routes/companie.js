@@ -67,7 +67,7 @@ router.put('/:id', function (req, res, next) {
       let belongToThisCompanie = false
       item._users.forEach(user => {
         if(user === req.user._id.toString())
-          belongToThisComp = true
+          belongToThisCompanie = true
       })
       if(!belongToThisCompanie) {
         return res.status(404).json({
