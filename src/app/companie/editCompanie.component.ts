@@ -89,10 +89,11 @@ export class EditCompanieComponent implements OnInit {
   save(redirect:boolean) {
     this.fetchedCompanie._users = []
     this.userAdmins.forEach(user => this.fetchedCompanie._users.push(user))
+    this.userManagers.forEach(user => this.fetchedCompanie._users.push(user))
     this.userClients.forEach(user => this.fetchedCompanie._users.push(user))
     this.userStylists.forEach(user => this.fetchedCompanie._users.push(user))
     this.users.forEach(user => this.fetchedCompanie._users.push(user))
-    this.userManagers.forEach(user => this.fetchedCompanie._users.push(user))
+
     if(this.fetchedCompanie._id) {
       this.companieService.updateCompanie(this.fetchedCompanie)
         .subscribe(

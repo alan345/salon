@@ -277,7 +277,7 @@ router.get('/:id', function (req, res, next) {
       findUsers = {
           path: '_users',
           model: 'User',
-          options: { sort: { 'role': +1 } },
+          //options: { sort: { 'role': +1 } },
           populate: {
             path: 'profile.parentUser',
             model: 'User',
@@ -288,7 +288,7 @@ router.get('/:id', function (req, res, next) {
       findUsers = {
           path: '_users',
           model: 'User',
-          options: { sort: { 'role': -1 } },
+        //  options: { sort: { 'role': -1 } },
           populate: {
             path: 'profile.parentUser',
             model: 'User',
@@ -308,7 +308,7 @@ router.get('/:id', function (req, res, next) {
               path: '_users',
               model: 'User',
               match: { 'profile.parentUser' : mongoose.Types.ObjectId(req.user._id.toString()) },
-              options: { sort: { 'role': -1 } },
+            //  options: { sort: { 'role': -1 } },
               populate: {
                 path: 'profile.parentUser',
                 model: 'User',
@@ -319,7 +319,7 @@ router.get('/:id', function (req, res, next) {
               findUsers = {
                   path: '_users',
                   model: 'User',
-                  options: { sort: { 'role': -1 } },
+                //  options: { sort: { 'role': -1 } },
                 //  match: { 'profile.parentUser' : mongoose.Types.ObjectId(req.user._id.toString()) },
                   populate: {
                     path: 'profile.parentUser',
