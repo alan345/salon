@@ -58,7 +58,7 @@ export class SideNavbarComponent implements OnInit {
   refresh() {
     //console.log(this.authService.isLoggedIn())
     if (this.authService.isLoggedIn()) {
-      // let userId = this.authService.currentUser.userId
+      let userId = this.authService.currentUser.userId
       // this.companieService.getCompanieByUserId(userId)
       this.companieService.getCompanieForCurrentUser()
       .subscribe(
