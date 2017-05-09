@@ -164,7 +164,7 @@ export class EditCompanieComponent implements OnInit {
           this.fetchedCompanie._users.forEach((user) => {
             if(user.role[0] === 'admin')
               this.userAdmins.push(user)
-            if(user.role[0] === 'saleRep')
+            if(user.role[0] === 'salesRep')
               this.users.push(user)
             if(user.role[0] === 'client')
               this.userClients.push(user)

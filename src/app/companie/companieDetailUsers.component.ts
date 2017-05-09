@@ -168,7 +168,7 @@ export class CompanieDetailUsersComponent implements OnInit {
           this.fetchedCompanie = res
           this.companieIdToSelect = this.fetchedCompanie._id
           // this.fetchedCompanie._users.forEach((user) => {
-          //   if(user.role[0] === 'saleRep')
+          //   if(user.role[0] === 'salesRep')
           //     this.users.push(user)
           // })
 

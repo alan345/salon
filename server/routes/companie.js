@@ -295,12 +295,15 @@ router.get('/:id', function (req, res, next) {
           }
         }
     }
+
     if(obj.typeCompanie !== 'HQ') {
+
       if (req.user.role[0] === 'stylist' || req.user.role[0] === 'salesRep') {
+
         //findQuery['_users'] = {$in: req.user._id}
         //findQuery['_users'] = req.user._id
         //let onlyMyUsers = JSON.parse(req.query.onlyMyUsers)
-        console.log(req.query.onlyMyUsers)
+    //    console.log(req.query.onlyMyUsers)
         if(req.query.onlyMyUsers === 'true') {
 
 

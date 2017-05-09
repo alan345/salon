@@ -52,7 +52,7 @@
               formControlName="role"
               [(ngModel)]="fetchedUser.role[i]">
               <option *ngIf="isAdmin()" value="admin">Administrator</option>
-              <option *ngIf="isAdmin()" value="saleRep">Sales Rep</option>
+              <option *ngIf="isAdmin()" value="salesRep">Sales Rep</option>
               <option *ngIf="isAdmin() || isSalesRep() || isManager()" value="manager">Manager</option>
               <option *ngIf="isAdmin() || isSalesRep() || isManager()" value="stylist">Stylist</option>
               <!--<option value="client">Client</option>-->
