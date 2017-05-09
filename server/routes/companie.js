@@ -299,7 +299,9 @@ router.get('/:id', function (req, res, next) {
         //findQuery['_users'] = req.user._id
         //let onlyMyUsers = JSON.parse(req.query.onlyMyUsers)
         console.log(req.query.onlyMyUsers)
-        if(req.query.onlyMyUsers === 'true')
+        if(req.query.onlyMyUsers === 'true') {
+
+
           findUsers = {
               path: '_users',
               model: 'User',
@@ -309,16 +311,18 @@ router.get('/:id', function (req, res, next) {
                 model: 'User',
               }
             }
-          if(req.query.onlyMyUsers === 'false')
-            findUsers = {
-                path: '_users',
-                model: 'User',
-              //  match: { 'profile.parentUser' : mongoose.Types.ObjectId(req.user._id.toString()) },
-                populate: {
-                  path: 'profile.parentUser',
+          } else {
+            if(req.query.onlyMyUsers === 'false')
+              findUsers = {
+                  path: '_users',
                   model: 'User',
+                //  match: { 'profile.parentUser' : mongoose.Types.ObjectId(req.user._id.toString()) },
+                  populate: {
+                    path: 'profile.parentUser',
+                    model: 'User',
+                  }
                 }
-              }
+          }
       }
     }
     Companie
