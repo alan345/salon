@@ -59,7 +59,7 @@
           </td>
           <td *ngIf="user.role == 'client'" [routerLink]="['/user/' + user._id]" routerLinkActive="active">
             <div *ngFor="let parentUser of user.profile.parentUser" class="rightdate">
-              {{user.lastVisit | date: 'medium'}}
+              {{user.lastVisit |  date :'dd-MMM-yyyy'}}
             </div>
           </td>
         </tr>
