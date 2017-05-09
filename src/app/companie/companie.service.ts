@@ -43,10 +43,11 @@ export class CompanieService {
   }
 
 
-  getCompanieByUserId(id: string) {
+  getCompanieForCurrentUser() {
     if(this.companies.length) {
       return Observable.of(this.companies)
     } else {
+      let id = this.authService.currentUser.userId
       let headers = new Headers({'Content-Type': 'application/json'});
       headers.append('Authorization', '' + this.authService.currentUser.token);
       return this.http.get(this.url + 'companie/byuserid/' + id, {headers: headers})
@@ -59,8 +60,23 @@ export class CompanieService {
           return Observable.throw(error.json());
         });
     }
-
   }
+
+  getCompanieByUserId(id: string) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    return this.http.get(this.url + 'companie/byuserid/' + id, {headers: headers})
+      .map((response: Response) => {
+        this.companies = response.json().item
+        return this.companies
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
+  
   getCompanie(id: string, search) : Observable<Companie> {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);

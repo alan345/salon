@@ -112,7 +112,8 @@ export class MainPageHomeComponent implements OnInit {
     return this.authService.isManager();
   }
   ngOnInit() {
-    this.companieService.getCompanieByUserId(this.authService.currentUser.userId)
+    //this.companieService.getCompanieByUserId(this.authService.currentUser.userId)
+    this.companieService.getCompanieForCurrentUser()
     .subscribe(
       (data => this.companies = data)
     )

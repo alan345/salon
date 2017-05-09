@@ -49,7 +49,8 @@ export class UsersComponent implements OnInit {
 
 
   ngOnInit() {
-      this.companieService.getCompanieByUserId(this.authService.currentUser.userId)
+      //this.companieService.getCompanieByUserId(this.authService.currentUser.userId)
+      this.companieService.getCompanieForCurrentUser()
       .subscribe((data => {
           if(data.length)
             this.router.navigate(['/companie/' + data[0]._id + '/users']);

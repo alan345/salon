@@ -75,14 +75,12 @@ export class CompanieDetailUsersComponent implements OnInit {
       this.getCompanie(params['id'])
     })
 
-    let userId = this.authService.currentUser.userId
-    this.companieService.getCompanieByUserId(userId)
+    //let userId = this.authService.currentUser.userId
+    //this.companieService.getCompanieByUserId(userId)
+    this.companieService.getCompanieForCurrentUser()
     .subscribe(
       (data => {
         this.fetchedCompanies = data
-        // Ok mes tes clients sont dans quel salon? ==> je prends le premier salon qui nest pas HQ
-        // if(data.length)
-        //   this.fetchedCompanie = data[0]
       })
     )
 
@@ -93,31 +91,30 @@ export class CompanieDetailUsersComponent implements OnInit {
   onChangeCompanie(event){
     this.router.navigate(['companie/' + event + "/users"]);
   }
-  removeForm(i: number) {
-      this.fetchedCompanie.forms.splice(i, 1)
-      const control = <FormArray>this.myForm.controls['forms'];
-      control.removeAt(i)
-      this.save()
-  }
+  // removeForm(i: number) {
+  //     this.fetchedCompanie.forms.splice(i, 1)
+  //     const control = <FormArray>this.myForm.controls['forms'];
+  //     control.removeAt(i)
+  //     this.save()
+  // }
 
-  onDelete(id: string) {
-    this.companieService.deleteCompanie(id)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message);
-          console.log(res);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+  // onDelete(id: string) {
+  //   this.companieService.deleteCompanie(id)
+  //     .subscribe(
+  //       res => {
+  //         this.toastr.success('Great!', res.message);
+  //         console.log(res);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
   searchInput(){
-    //this.getCompanie(this.fetchedCompanie._id)
-  //  this.fetchedCompanie.
-
   }
+
+
   orderBy(orderBy:string) {
     this.search.orderBy = orderBy
     //this.getCompanie(this.fetchedCompanie._id)
@@ -132,34 +129,34 @@ export class CompanieDetailUsersComponent implements OnInit {
       )
   }
 
-  seeAllPicture(){
-    this.router.navigate(['companie/' + this.fetchedCompanie._id + "/companiePictures"]);
-  }
+  // seeAllPicture(){
+  //   this.router.navigate(['companie/' + this.fetchedCompanie._id + "/companiePictures"]);
+  // }
 
-  addForm(form : Form) {
-    const control = <FormArray>this.myForm.controls['forms'];
-    const addrCtrl = this._fb.group({
-        _id: ['', Validators.required],
-        owner: ['', Validators.required],
-        imagePath: ['', Validators.required],
-    });
-    control.push(addrCtrl);
-  }
+  // addForm(form : Form) {
+  //   const control = <FormArray>this.myForm.controls['forms'];
+  //   const addrCtrl = this._fb.group({
+  //       _id: ['', Validators.required],
+  //       owner: ['', Validators.required],
+  //       imagePath: ['', Validators.required],
+  //   });
+  //   control.push(addrCtrl);
+  // }
 
-  getObjects(myForm){
-    return myForm.get('forms').controls
-  }
+  // getObjects(myForm){
+  //   return myForm.get('forms').controls
+  // }
 
-  openDialog(positionImage) {
-    let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        this.addForm(result)
-        this.fetchedCompanie.forms.push(result)
-        this.save()
-      }
-    })
-  }
+  // openDialog(positionImage) {
+  //   let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.addForm(result)
+  //       this.fetchedCompanie.forms.push(result)
+  //       this.save()
+  //     }
+  //   })
+  // }
 
 
   getCompanie(id : string) {
@@ -173,9 +170,9 @@ export class CompanieDetailUsersComponent implements OnInit {
           //     this.users.push(user)
           // })
 
-          this.fetchedCompanie.forms.forEach((form: Form) => {
-            this.addForm(form)
-          })
+          // this.fetchedCompanie.forms.forEach((form: Form) => {
+          //   this.addForm(form)
+          // })
         },
         error => {
           console.log(error);
