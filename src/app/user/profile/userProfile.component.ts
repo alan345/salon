@@ -60,8 +60,8 @@ export class UserProfileComponent implements OnInit {
       title:'',
       _profilePicture:[],
       hair:{
-        hairDensity : 'alan',
-        hairPorosity : 'alan',
+        hairCondition : 'alan',
+        scalpCondition : 'alan',
         hairTexture : 'alan',
       }
     },

@@ -51,9 +51,9 @@ export class EditAddUserToCompanieComponent implements OnInit {
       title:'',
       _profilePicture:[],
       hair:{
-        hairDensity : 'alan',
-        hairPorosity : 'alan',
-        hairTexture : 'alan',
+        hairCondition : 'Normal',
+        scalpCondition : 'Healthy',
+        hairTexture : 'Fine',
       }
     },
     notes:[],

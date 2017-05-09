@@ -47,28 +47,35 @@
                 class="form-control"
                 formControlName="hairTexture"
                 [(ngModel)]="fetchedUser.profile.hair.hairTexture">
-                <option value="alan">alan</option>
-                <option value="deb">deb</option>
+                <option value="Fine">Fine</option>
+                <option value="Medium">Medium</option>
+                <option value="Coarse">Coarse</option>
               </select>
           </div>
           <div class="form-group col-sm-4" id="mdlhair">
-            <label>Hair Porosity</label>
+            <label>Scalp Condition</label>
             <select
               class="form-control"
-              formControlName="hairPorosity"
-              [(ngModel)]="fetchedUser.profile.hair.hairPorosity">
-              <option value="alan">alan</option>
-              <option value="deb">deb</option>
+              formControlName="scalpCondition"
+              [(ngModel)]="fetchedUser.profile.hair.scalpCondition">
+              <option value="Healthy">Healthy</option>
+              <option value="Sensitive/Itchy">Sensitive/Itchy</option>
+              <option value="Dry">Dry</option>
+              <option value="Dandruff">Dandruff</option>
+              <option value="Oily">Oily</option>
             </select>
           </div>
           <div class="form-group col-sm-4" id="rghthair">
-            <label>Hair Density</label>
+            <label>Hair Condition</label>
             <select
               class="form-control"
-              formControlName="hairDensity"
-              [(ngModel)]="fetchedUser.profile.hair.hairDensity">
-              <option value="alan">alan</option>
-              <option value="deb">deb</option>
+              formControlName="hairCondition"
+              [(ngModel)]="fetchedUser.profile.hair.hairCondition">
+              <option value="Normal">Normal</option>
+              <option value="Dry">Dry</option>
+              <option value="Lifeless">Lifeless</option>
+              <option value="Aging">Aging</option>
+              <option value="Damaged">Damaged</option>
             </select>
           </div>
         </div>

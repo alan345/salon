@@ -31,8 +31,8 @@ export interface Profile {
   _profilePicture:Form[];
   hair : {
     hairTexture:string;
-    hairDensity:string;
-    hairPorosity:string;
+    hairCondition:string;
+    scalpCondition:string;
   }
 }
 

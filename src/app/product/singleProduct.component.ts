@@ -37,8 +37,8 @@ export class SingleProductComponent implements OnInit {
     profile:{
       name:'',
       hair:{
-        hairDensity : '',
-        hairPorosity : '',
+        hairCondition : '',
+        scalpCondition : '',
         hairTexture : '',
       }
     }

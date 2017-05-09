@@ -70,8 +70,8 @@ export class NewUserComponent implements OnInit {
       title:'',
       _profilePicture:[],
       hair:{
-        hairDensity : 'alan',
-        hairPorosity : 'alan',
+        hairCondition : 'alan',
+        scalpCondition : 'alan',
         hairTexture : 'alan',
       }
     },
@@ -109,8 +109,8 @@ export class NewUserComponent implements OnInit {
             // parentUser: this._fb.array([]),
             hair: this._fb.group({
                 hairTexture: ['', <any>Validators.required],
-                hairDensity: ['', <any>Validators.required],
-                hairPorosity: ['', <any>Validators.required],
+                hairCondition: ['', <any>Validators.required],
+                scalpCondition: ['', <any>Validators.required],
             })
         })
     })

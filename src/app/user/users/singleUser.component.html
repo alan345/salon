@@ -9,11 +9,11 @@
         <h3>{{fetchedUser.profile.name}}</h3>
         <p>{{fetchedUser.email}} - {{fetchedUser.profile.phoneNumber}}</p>
         <h5>Hair Density</h5>
-        {{fetchedUser.profile.hair.hairDensity}}
+        {{fetchedUser.profile.hair.hairCondition}}
         <h5>Hair Texture</h5>
         {{fetchedUser.profile.hair.hairTexture}}
         <h5>Hair Porosity</h5>
-        {{fetchedUser.profile.hair.hairPorosity}}
+        {{fetchedUser.profile.hair.scalpCondition}}
         <button *ngIf="isMyClient()" class="edit-clt" [routerLink]="['/user/newuser/' + fetchedUser._id ]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
       </div>
       <div class="usr-dits form-group">

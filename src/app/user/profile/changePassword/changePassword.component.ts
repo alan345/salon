@@ -28,8 +28,8 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
       title:'',
       _profilePicture:[],
       hair:{
-        hairDensity : 'alan',
-        hairPorosity : 'alan',
+        hairCondition : 'alan',
+        scalpCondition : 'alan',
         hairTexture : 'alan',
       }
     },

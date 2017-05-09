@@ -29,8 +29,8 @@ var user = new Schema({
       lastName: {type: String, default: ['']},
       phoneNumber:{type: String, default: ['']},
       hair : {
-        hairDensity : {type: String, default: ['user']},
-        hairPorosity : {type: String, default: ['user']},
+        hairCondition : {type: String, default: ['user']},
+        scalpCondition : {type: String, default: ['user']},
         hairTexture : {type: String, default: ['user']}
       }
     }
