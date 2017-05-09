@@ -297,15 +297,28 @@ router.get('/:id', function (req, res, next) {
       if (req.user.role[0] === 'stylist' || req.user.role[0] === 'salesRep') {
         //findQuery['_users'] = {$in: req.user._id}
         //findQuery['_users'] = req.user._id
-        findUsers = {
-            path: '_users',
-            model: 'User',
-            match: { 'profile.parentUser' : mongoose.Types.ObjectId(req.user._id.toString()) },
-            populate: {
-              path: 'profile.parentUser',
+        let onlyMyUsers = JSON.parse(req.query.onlyMyUsers)
+
+        if(onlyMyUsers)
+          findUsers = {
+              path: '_users',
               model: 'User',
+              match: { 'profile.parentUser' : mongoose.Types.ObjectId(req.user._id.toString()) },
+              populate: {
+                path: 'profile.parentUser',
+                model: 'User',
+              }
             }
-          }
+          if(!onlyMyUsers)
+            findUsers = {
+                path: '_users',
+                model: 'User',
+              //  match: { 'profile.parentUser' : mongoose.Types.ObjectId(req.user._id.toString()) },
+                populate: {
+                  path: 'profile.parentUser',
+                  model: 'User',
+                }
+              }
       }
     }
     Companie

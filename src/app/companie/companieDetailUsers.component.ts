@@ -29,7 +29,8 @@ export class CompanieDetailUsersComponent implements OnInit {
     orderBy : '-client',
     search:'',
     parentUser:'',
-    role:''
+    role:'',
+    onlyMyUsers: true,
   }
   companieIdToSelect = ''
   fetchedCompanie : Companie = {
@@ -72,7 +73,8 @@ export class CompanieDetailUsersComponent implements OnInit {
       this.myForm = this._fb.group({
         forms: this._fb.array([])
       })
-      this.getCompanie(params['id'])
+      if(params['id'])
+        this.getCompanie(params['id'])
     })
 
     //let userId = this.authService.currentUser.userId

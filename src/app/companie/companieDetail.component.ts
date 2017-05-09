@@ -39,6 +39,15 @@ export class CompanieDetailComponent implements OnInit {
     },
     _users:[]
   }
+
+  search = {
+    orderBy : '-client',
+    search:'',
+    parentUser:'',
+    role:'',
+    onlyMyUsers: false,
+  }
+
   public myForm: FormGroup;
 
 
@@ -68,7 +77,8 @@ export class CompanieDetailComponent implements OnInit {
       this.myForm = this._fb.group({
         forms: this._fb.array([])
       })
-      this.getCompanie(params['id'])
+      if(params['id'])
+        this.getCompanie(params['id'])
 
     })
   }
@@ -142,8 +152,9 @@ export class CompanieDetailComponent implements OnInit {
   }
 
 
+
   getCompanie(id : string) {
-    this.companieService.getCompanie(id, {})
+    this.companieService.getCompanie(id, this.search)
       .subscribe(
         res => {
           this.fetchedCompanie = res
