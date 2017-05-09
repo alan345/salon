@@ -135,7 +135,6 @@ router.get('/page/:page', function (req, res, next) {
 
 
 
-
   var itemsPerPage = 5;
   var currentPage = Number(req.params.page);
   var pageNumber = currentPage - 1;
