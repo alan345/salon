@@ -103,7 +103,8 @@ export class NewUserComponent implements OnInit {
         companieIndexToSelect: ['',[Validators.required, Validators.minLength(3)]],
         lastVisit: [''],
         _id: [''],
-        email: [''],
+        email: [this.emailValidator],
+
         profile: this._fb.group({
             name: ['', [Validators.required, Validators.minLength(3)]],
             phoneNumber: [''],
@@ -122,6 +123,9 @@ export class NewUserComponent implements OnInit {
     .subscribe(
       (data => {
         this.fetchedCompanies = data
+
+        if(this.fetchedCompanies.length)
+          this.companieIndexToSelect = this.fetchedCompanies[0]._id
         // Ok mes tes clients sont dans quel salon? ==> je prends le premier salon qui nest pas HQ
         // if(data.length)
         //   this.fetchedCompanie = data[0]
@@ -147,7 +151,13 @@ export class NewUserComponent implements OnInit {
   }
 
 
+  emailValidator(control) {
+    let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
+    if (!EMAIL_REGEXP.test(control.value)) {
+      return {invalidEmail: true};
+    }
+  }
 
   goBack() {
     this.location.back();

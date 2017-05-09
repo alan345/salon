@@ -66,9 +66,14 @@ router.put('/:id', function (req, res, next) {
     if( req.user.role[0] !== 'admin') {
       let belongToThisCompanie = false
       item._users.forEach(user => {
-        if(user === req.user._id.toString())
+          //console.log(user,req.user._id.toString())
+        if(user.toString() === req.user._id.toString()){
+      //    console.log('aa')
           belongToThisCompanie = true
+        }
+
       })
+      //console.log(belongToThisCompanie)
       if(!belongToThisCompanie) {
         return res.status(404).json({
           message: 'Not your companie',
