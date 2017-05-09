@@ -298,8 +298,8 @@ router.get('/:id', function (req, res, next) {
         //findQuery['_users'] = {$in: req.user._id}
         //findQuery['_users'] = req.user._id
         //let onlyMyUsers = JSON.parse(req.query.onlyMyUsers)
-        //console.log(req.query.onlyMyUsers)
-        if(req.query.onlyMyUsers == 'true')
+        console.log(req.query.onlyMyUsers)
+        if(req.query.onlyMyUsers === 'true')
           findUsers = {
               path: '_users',
               model: 'User',
@@ -309,7 +309,7 @@ router.get('/:id', function (req, res, next) {
                 model: 'User',
               }
             }
-          if(req.query.onlyMyUsers == 'false')
+          if(req.query.onlyMyUsers === 'false')
             findUsers = {
                 path: '_users',
                 model: 'User',
