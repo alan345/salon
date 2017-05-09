@@ -40,9 +40,9 @@ export class UserPicturesComponent implements OnInit {
       title:'',
       _profilePicture:[],
       hair:{
-        hairCondition : 'alan',
-        scalpCondition : 'alan',
-        hairTexture : 'alan',
+        hairCondition : 'Normal',
+        scalpCondition : 'Healthy',
+        hairTexture : 'Fine',
       }
     },
     notes:[],

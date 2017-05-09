@@ -30,11 +30,11 @@ export class AuthService {
     private errorService: ErrorService,
     private toastr: ToastsManager,
     private router: Router) {
-    // set token if saved in local storage
-    console.log('AuthService called')
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
-    this.currentUser = currentUser;
+      // set token if saved in local storage
+      //console.log('AuthService called')
+      var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.token = currentUser && currentUser.token;
+      this.currentUser = currentUser;
   }
 
   // sending request to back end to register our user

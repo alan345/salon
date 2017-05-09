@@ -23,9 +23,9 @@ export class NewProductComponent implements OnInit {
     profile: {
       name : '',
       hair: {
-        hairCondition : '',
-        scalpCondition : '',
-        hairTexture : '',
+        hairCondition : 'Normal',
+        scalpCondition : 'Healthy',
+        hairTexture : 'Fine',
       }
     }
   }

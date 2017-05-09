@@ -38,9 +38,9 @@ export class SingleUserComponent implements OnInit {
       title:'',
       _profilePicture:[],
       hair:{
-        hairCondition : 'alan',
-        scalpCondition : 'alan',
-        hairTexture : 'alan',
+        hairCondition : 'Normal',
+        scalpCondition : 'Healthy',
+        hairTexture : 'Fine',
       }
     },
     notes:[],
@@ -61,9 +61,9 @@ export class SingleUserComponent implements OnInit {
       title:'',
       _profilePicture:[],
       hair:{
-        hairCondition : 'alan',
-        scalpCondition : 'alan',
-        hairTexture : 'alan',
+        hairCondition : 'Normal',
+        scalpCondition : 'Healthy',
+        hairTexture : 'Fine',
       }
     },
     notes:[],

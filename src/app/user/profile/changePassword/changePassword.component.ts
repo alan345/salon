@@ -28,9 +28,9 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
       title:'',
       _profilePicture:[],
       hair:{
-        hairCondition : 'alan',
-        scalpCondition : 'alan',
-        hairTexture : 'alan',
+        hairCondition : 'Normal',
+        scalpCondition : 'Healthy',
+        hairTexture : 'Fine',
       }
     },
     notes:[],
