@@ -175,7 +175,10 @@ export class NewUserComponent implements OnInit {
             //this.router.navigate(['user/' + res.obj._id])
             this.addUserIdToCompanie(res.obj)
           },
-          error => {console.log(error)}
+          error => {
+            this.toastr.error('Error!')
+            console.log(error)
+          }
         )
     } else {
       this.fetchedUser.role=['client']
