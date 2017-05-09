@@ -17,7 +17,7 @@ export class CompanieService {
   private url: string = '/';
 //  private token: string = localStorage.getItem('id_token');
 //  private userId: string = localStorage.getItem('userId');
-  private companies = [];
+  private companiesForCurrentUser = [];
   private singleCompanie = Object;
 
   constructor(
@@ -44,16 +44,16 @@ export class CompanieService {
 
 
   getCompanieForCurrentUser() {
-    if(this.companies.length) {
-      return Observable.of(this.companies)
+    if(this.companiesForCurrentUser.length) {
+      return Observable.of(this.companiesForCurrentUser)
     } else {
       let id = this.authService.currentUser.userId
       let headers = new Headers({'Content-Type': 'application/json'});
       headers.append('Authorization', '' + this.authService.currentUser.token);
       return this.http.get(this.url + 'companie/byuserid/' + id, {headers: headers})
         .map((response: Response) => {
-          this.companies = response.json().item
-          return this.companies
+          this.companiesForCurrentUser = response.json().item
+          return this.companiesForCurrentUser
         })
         .catch((error: Response) => {
           this.errorService.handleError(error.json());
@@ -67,8 +67,7 @@ export class CompanieService {
     headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.get(this.url + 'companie/byuserid/' + id, {headers: headers})
       .map((response: Response) => {
-        this.companies = response.json().item
-        return this.companies
+        return response.json().item
       })
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -76,7 +75,7 @@ export class CompanieService {
       });
   }
 
-  
+
   getCompanie(id: string, search) : Observable<Companie> {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
