@@ -68,7 +68,9 @@ export class CompanieDetailUsersComponent implements OnInit {
 
   ngOnInit() {
 
-
+    if(this.isAdmin())
+      return
+      
     this.activatedRoute.params.subscribe((params: Params) => {
       this.myForm = this._fb.group({
         forms: this._fb.array([])
