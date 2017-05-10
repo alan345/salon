@@ -90,8 +90,19 @@ export class MainPageHomeComponent implements OnInit {
 
   goTo(path){
     if( path === 'user') {
-      if(this.companies.length)
-        this.router.navigate(['/companie/' + this.companies[0]._id + '/users']);
+      if(this.companies.length) {
+        if(this.isSalesRep() || this.isAdmin()) {
+          this.companies.forEach((companie, index) => {
+            if(this.isHQcompanie(companie)) {
+              this.router.navigate(['/companie/' + this.companies[index]._id + '/users']);
+            }
+          })
+        }
+        if(this.isStylist() || this.isManager()) {
+          this.router.navigate(['/companie/' + this.companies[0]._id + '/users']);
+        }
+      }
+
     } else {
       this.router.navigate([path]);
     }
@@ -105,12 +116,7 @@ export class MainPageHomeComponent implements OnInit {
     // }
   }
 
-  isAdmin() {
-    return this.authService.isAdmin();
-  }
-  isManager() {
-    return this.authService.isManager();
-  }
+
   ngOnInit() {
     //this.companieService.getCompanieByUserId(this.authService.currentUser.userId)
     this.companieService.getCompanieForCurrentUser()
@@ -135,5 +141,21 @@ export class MainPageHomeComponent implements OnInit {
         error => {console.log(error)}
       );
   }
-
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+  isStylist() {
+    return this.authService.isStylist();
+  }
+  isSalesRep(){
+    return this.authService.isSalesRep();
+  }
+  isManager(){
+    return this.authService.isManager();
+  }
+  isHQcompanie(companie){
+    if(companie.typeCompanie === 'HQ')
+      return true
+    return false
+  }
 }
