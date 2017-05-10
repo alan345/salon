@@ -37,7 +37,7 @@ export class CompaniesComponent implements OnInit {
 
   constructor(
     private companieService: CompanieService,
-
+    private authService: AuthService,
     private modalService: NgbModal,
     private toastr: ToastsManager,
     public dialog: MdDialog,
@@ -104,8 +104,17 @@ export class CompaniesComponent implements OnInit {
   }
 
 
-
-
-
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+  isStylist() {
+    return this.authService.isStylist();
+  }
+  isSalesRep(){
+    return this.authService.isSalesRep();
+  }
+  isManager(){
+    return this.authService.isManager();
+  }
 
 }
