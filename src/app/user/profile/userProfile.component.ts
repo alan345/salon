@@ -32,6 +32,7 @@ import { SeePictureDialogComponent } from '../../seePictureDialog/seePictureDial
 export class UserProfileComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
+  isUserBelongToHQ=false
   maxPictureToShow=3;
   instapic=1;
   companies=[{
@@ -116,7 +117,13 @@ export class UserProfileComponent implements OnInit {
       this.getUser(userId)
       this.companieService.getCompanieByUserId(userId)
       .subscribe(
-        (data => this.companies = data)
+        (data => {
+          this.companies = data
+          this.companies.forEach(companie => {
+            if(this.isHQcompanie(companie))
+              this.isUserBelongToHQ = true
+          })
+        })
       )
     })
   }
@@ -261,5 +268,12 @@ export class UserProfileComponent implements OnInit {
       );
   }
 
+
+
+  isHQcompanie(companie){
+    if(companie.typeCompanie === 'HQ')
+      return true
+    return false
+  }
 
 }
