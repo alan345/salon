@@ -74,8 +74,9 @@ export class AddNoteComponent implements OnInit {
 
 
 
+
   save(model: FormGroup, isValid: boolean) {
-    this.fetchedUser.notes.push({
+    this.fetchedUser.notes.unshift({
       text : model.value.newTextNote,
       dateNote: Date.now()
     })
