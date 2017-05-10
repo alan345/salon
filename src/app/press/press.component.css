@@ -19,6 +19,7 @@
 .img-wrpr {
     overflow: hidden;
     margin: 0 auto !important;
+    max-height: 86% !important;
 }
 .prssttl-wrpr {
     bottom: 0 !important;
