@@ -31,15 +31,20 @@
               </div>
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <div *ngFor="let img of options.design.mainPage._imgHome2">
-                    <a (click)="goTo('promotion')" routerLinkActive="active">
+                  <div *ngFor="let img of options.design.mainPage._imgHome5">
+                    <a (click)="goTo('video')" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
                   </div>
-                  <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome2')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
+                  <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome5')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
-                <a (click)="goTo('promotion')" routerLinkActive="active">
-                  <label class="homelabel">Promotions</label>
+                <a (click)="goTo('video')" routerLinkActive="active">
+                  <label class="homelabel">
+                    <div style="float:right;">Videos</div>
+                    <div *ngIf="trackinPage.lastVisitPageVideoCount.length > 0" class="notif">
+                      {{trackinPage.lastVisitPageVideoCount.length }}
+                    </div>
+                  </label>
                 </a>
               </div>
             </div>
@@ -79,20 +84,15 @@
             <div class="row">
               <div class="col-sm-6 boxpadding">
                 <div class="homeimage">
-                  <div *ngFor="let img of options.design.mainPage._imgHome5">
-                    <a (click)="goTo('video')" routerLinkActive="active">
+                  <div *ngFor="let img of options.design.mainPage._imgHome2">
+                    <a (click)="goTo('promotion')" routerLinkActive="active">
                       <img class="img-thumbnail img-responsive" src="./uploads/forms/{{img.owner}}/{{img.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                     </a>
                   </div>
-                  <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome5')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
+                  <button *ngIf="isAdmin()" type="button" (click)="openDialog('_imgHome2')" class="editicon"><span class="glyphicon glyphicon-edit"></span></button>
                 </div>
-                <a (click)="goTo('video')" routerLinkActive="active">
-                  <label class="homelabel">
-                    <div style="float:right;">Videos</div>
-                    <div *ngIf="trackinPage.lastVisitPageVideoCount.length > 0" class="notif">
-                      {{trackinPage.lastVisitPageVideoCount.length }}
-                    </div>
-                  </label>
+                <a (click)="goTo('promotion')" routerLinkActive="active">
+                  <label class="homelabel">Promotions</label>
                 </a>
               </div>
               <div class="col-sm-6 boxpadding">
