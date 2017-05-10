@@ -252,7 +252,9 @@ export class VideoSingleComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedVideo = <Video>res
-          this.fetchedVideo.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
+
+          this.fetchedVideo.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/' + res.embed )
+          //this.fetchedVideo.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
           this.fetchedVideo.categories.forEach((categorie) => {
             this.addCategorie()
           })
