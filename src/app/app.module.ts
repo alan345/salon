@@ -13,7 +13,6 @@ import {ProgressBarModule} from 'ng2-progress-bar';
 import {RouterModule} from '@angular/router';
 import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ToastModule, ToastOptions} from 'ng2-toastr';
 
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
@@ -21,10 +20,16 @@ import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
 import {  ApplicationRef } from '@angular/core';
 
-let options = <ToastOptions> {
-  animate: 'flyRight',
-  positionClass: 'toast-top-right',
-};
+
+
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {ToastOptions} from 'ng2-toastr';
+import { CustomOption } from './toast-options';
+
+// let options = <ToastOptions> {
+//   animate: 'flyRight',
+//   positionClass: 'toast-top-right',
+// };
 
 
 
@@ -275,7 +280,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastModule.forRoot(options),
+    ToastModule.forRoot(),
     ProgressBarModule,
     FormsModule,
     Ng2PaginationModule,
@@ -305,7 +310,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
       deps: [ Http, RequestOptions ]
-    }
+    },
+    {provide: ToastOptions, useClass: CustomOption},
   ],
   entryComponents: [
   //  CompanieAddUserDialog,

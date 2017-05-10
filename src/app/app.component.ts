@@ -1,5 +1,6 @@
 import {Component, ViewContainerRef} from '@angular/core';
-import {ToastsManager} from 'ng2-toastr';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 import {AuthService} from './auth/auth.service';
 
 @Component({
@@ -13,8 +14,9 @@ export class AppComponent {
   constructor(
     private authService: AuthService,
     public toastr: ToastsManager,
-    public vRef: ViewContainerRef) {
-    this.toastr.setRootViewContainerRef(vRef);
+    public vcr: ViewContainerRef
+  ) {
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   isLoggedIn() {
