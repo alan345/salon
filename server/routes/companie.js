@@ -282,7 +282,10 @@ router.get('/:id', function (req, res, next) {
     let findQuery = {}
 
     findQuery['_id'] = req.params.id
-    let findUsers ={}
+    let findUsers ={
+        path: '_users',
+        model: 'User',
+      }
     if (req.user.role[0] === 'admin' || req.user.role[0] === 'manager') {
       findUsers = {
           path: '_users',
