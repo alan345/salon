@@ -16,6 +16,7 @@ import { DeleteDialog } from '../deleteDialog/deleteDialog.component'
 import { User } from '../user/user.model'
 
 
+
 @Component({
   selector: 'app-companie',
   templateUrl: './editCompanie.component.html',
