@@ -72,7 +72,7 @@
       <h4 style="margin-top:35px !important;">Manage Users:</h4>
       <div *ngIf="fetchedCompanie._id">
         <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
-        <div *ngIf="isAdmin() || isManager()" class="sln-stymng phyto-ctnr">
+        <div *ngIf="isAdmin() || isManager() || isSalesRep()" class="sln-stymng phyto-ctnr">
           <p>Managers:</p>
           <div *ngFor="let user of userManagers; let i=index">
             <div class="sln-styone">
