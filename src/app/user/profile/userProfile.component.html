@@ -46,6 +46,8 @@
       <div class="form-group prf-chal">
         <div class="prf-chalcnt">
           <div *ngFor="let companie of companies" class="act-chal">
+
+<!-- 
             <div *ngIf="isUserBelongToHQ">
               <div *ngIf="isHQcompanie(companie)">
                 <h3>{{companie.name}}</h3>
@@ -53,11 +55,14 @@
               </div>
             </div>
             <div *ngIf="!isUserBelongToHQ">
-
               <h3>{{companie.name}}</h3>
               <h6>{{companie.address.address}}, {{companie.address.city}}, {{companie.address.state}} {{companie.address.zip}}</h6>
-
             </div>
+
+
+                         -->
+            <h3>{{companie.name}}</h3>
+            <h6>{{companie.address.address}}, {{companie.address.city}}, {{companie.address.state}} {{companie.address.zip}}</h6>
           </div>
           <div class="chal-rslt"><p>More Features coming soon!</p></div>
         </div>
