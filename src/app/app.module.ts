@@ -65,13 +65,16 @@ import {PressSingleComponent} from './press/pressSingle.component';
 import {PressService} from './press/press.service';
 
 
-import {VideoDeleteDialog} from './video/videoDeleteDialog.component';
-import {VideoWhereDialogComponent} from './video/videoWhereDialog.component';
 
-import {VideoComponent} from './video/video.component';
-import {VideosComponent} from './video/videos.component';
-import {VideoSingleComponent} from './video/videoSingle.component';
-import {VideoService} from './video/video.service';
+import {VideoModule} from './video/video.module';
+
+// import {VideoDeleteDialog} from './video/videoDeleteDialog.component';
+// import {VideoWhereDialogComponent} from './video/videoWhereDialog.component';
+//
+// import {VideoComponent} from './video/video.component';
+// import {VideosComponent} from './video/videos.component';
+// import {VideoSingleComponent} from './video/videoSingle.component';
+// import {VideoService} from './video/video.service';
 
 
 import {PromotionsSeeInactiveComponent} from './promotion/promotionsSeeInactive.component';
@@ -201,11 +204,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PressSingleComponent,
 
 
-    VideoDeleteDialog,
-    VideoWhereDialogComponent,
-    VideoComponent,
-    VideosComponent,
-    VideoSingleComponent,
+    // VideoDeleteDialog,
+    // VideoWhereDialogComponent,
+    // VideoComponent,
+    // VideosComponent,
+    // VideoSingleComponent,
 
     PromotionDeleteDialog,
     PromotionsSeeInactiveComponent,
@@ -278,6 +281,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     Ng2PaginationModule,
     NgbModule.forRoot(),
     MaterialModule.forRoot(),
+    VideoModule,
 
   ],
   providers: [
@@ -286,7 +290,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AuthService,
     ErrorService,
     CompanieService,
-   VideoService,
+    //VideoService,
     MainPageHomeService,
     PressService,
     FormService,
@@ -309,8 +313,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SubmitPicDialog,
     PromotionDeleteDialog,
     EditOptionsComponentDialog,
-    VideoDeleteDialog,
-    VideoWhereDialogComponent,
+    // VideoDeleteDialog,
+    // VideoWhereDialogComponent,
     SeePictureDialogComponent,
   ],
 

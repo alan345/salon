@@ -2,8 +2,6 @@ import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {USER_ROUTES} from './user/user.routes';
 
-
-
 import {ADMIN_ROUTES} from './admin/admin.routes';
 import {UserComponent} from './user/user.component';
 import {FormComponent} from './form/form.component';
@@ -31,7 +29,7 @@ import {PromotionComponent} from './promotion/promotion.component';
 import {USER_PRESSES} from './press/press.routes';
 import {PressComponent} from './press/press.component';
 
-import {VIDEOS} from './video/video.routes';
+//import {VIDEOS} from './video/video.routes';
 import {VideoComponent} from './video/video.component';
 
 import {USER_PRODUCTS} from './product/product.routes';
@@ -53,8 +51,8 @@ export const routes: Routes = [
   {path: 'companie', component: CompanieComponent, canActivate: [AuthGuardService], children: USER_COMPANIES},
   {path: 'press', component: PressComponent, canActivate: [AuthGuardService], children: USER_PRESSES},
   {path: 'product', component: ProductComponent, canActivate: [AuthGuardService], children: USER_PRODUCTS},
-  {path: 'video', component: VideoComponent, canActivate: [AuthGuardService], children: VIDEOS},
-//  {path: 'video', loadChildren: 'app/video/video.module#VideoModule'},
+//  {path: 'video', component: VideoComponent, canActivate: [AuthGuardService], children: VIDEOS},
+  {path: 'video', loadChildren: 'app/video/video.module#VideoModule'},
   {path: 'promotion', component: PromotionComponent, canActivate: [AuthGuardService], children: USER_PROMOTIONS},
 //  {path: 'companie/:id', component: CompanieDetailComponent},
 //  {path: 'companie/edit/:id', component: EditCompanieComponent},
