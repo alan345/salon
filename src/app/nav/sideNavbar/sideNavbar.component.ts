@@ -78,13 +78,24 @@ export class SideNavbarComponent implements OnInit {
         )
 
 
-      this.companieService.getCompanies(1, this.search)
+      this.companieService.getCompanieForCurrentUser()
         .subscribe(
           res => {
           //  console.log("companies");
             //console.log(res);
-            if(res.data.length)
-              this.HQCompanie =  res.data[0]
+
+
+            //console.log(res)
+            if(res.length) {
+              this.HQCompanie = res[0]
+              res.forEach(companie => {
+                if(this.isHQcompanie(companie))
+                  this.HQCompanie =  companie
+              })
+
+
+            }
+
 
           },
           error => {
