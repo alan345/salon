@@ -389,6 +389,11 @@ router.post('/', function (req, res, next) {
     role = ['client']
   }
 
+  if (!req.body.profile.parentUser.length) {
+    req.body.profile.parentUser = [req.user._id]
+  }
+
+
   var user = new User({
     email: email,
     password: passwordHash.generate(uniqueString),
