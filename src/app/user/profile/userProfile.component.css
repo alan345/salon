@@ -87,10 +87,6 @@
 .chng-pic img {
     float: left;
 }
-.prf-frame {
-    max-height: 300px;
-    overflow: hidden;
-}
 .browse {
     font-family: inherit !important;
     text-transform: uppercase !important;
@@ -119,6 +115,8 @@
 }
 .prf-frame {
     min-height: 250px;
+    max-height: 300px;
+    overflow: hidden;
 }
 .prf-basic, .prf-chal {
   display: table-cell;
