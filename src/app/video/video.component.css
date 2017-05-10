@@ -109,22 +109,17 @@
 .whrto img {
     padding: 5px 0 15px;
 }
+.ttl-cde input {
+    max-width: none !important;
+}
 
 @media screen and (min-width: 768px) {
   
-.vid-ctnr {
-    float: left;
-    width: 50%;
-}
 .vid-cnt {
     width: 100%;
     float: left;
 }
-label.vid-lableft {
-    width: 50%;
-    float: left;
-}
-.lft-form, .rght-form {
+.vid-ctnr, .lft-form, .rght-form, label.vid-lableft {
     width: 50%;
     float: left;
 }
@@ -132,13 +127,9 @@ label.vid-lableft {
 
 @media screen and (max-width: 767px) {
 
-.vid-ctnr {
+.vid-ctnr, .vid-cnt {
     float: left;
     width: 100%;
-}
-.vid-cnt {
-    width: 100%;
-    float: left;
 }
 label.vid-lableft {
     display: block;
