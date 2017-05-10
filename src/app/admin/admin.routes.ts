@@ -14,5 +14,5 @@ export const ADMIN_ROUTES: Routes = [
   {path: 'edit/:id', component: EditUsersFormsComponent, canActivate: [AdminGuardService]},
   {path: 'options', component: EditOptionsComponent, canActivate: [AdminGuardService]},
   {path: 'user', component: AdminUsersComponent, canActivate: [AdminGuardService]},
-  {path: 'companie', component: CompaniesComponent, canActivate: [AdminGuardService]},
+  {path: 'companie', component: CompaniesComponent},
 ];
