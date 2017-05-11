@@ -54,10 +54,10 @@ a.shopbutton {
     bottom: 18px;
 }
 .edtttl-txt {
-  width: 550px;
+  width: 95%;
   max-width: 95%;
 }
-.edtttl-txt, .edtttl-btn {
+.edtttl-txt, .edtttl-lnk {
   margin: 5px 15px !important;
 }
 .edtttl-ok {
