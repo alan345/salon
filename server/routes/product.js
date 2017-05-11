@@ -1,3 +1,28 @@
+"use strict";
+
+const Magento2 = require('node-magento2');
+
+
+const options = {
+  url: null,
+  store: 'default', //set a store to contextualise in
+  authentication: {
+    login: {
+      type: 'admin',
+      username: 'gooplus',
+      password: 'Gooplus123'
+    },
+    integration: {
+      consumer_key: 'mfgc7teo5vwgu1pkc2v7097sv0b7l702',
+      consumer_secret: 'o5g34phwlo6lyfaljgsfkam8pa08evm2',
+      access_token: 'lefasu9mgavnxd3353yqi0mxj2tv9dc2',
+      access_token_secret: 'kn3n1e8y2mip33v4gtvfpajsceb3n105'
+    }
+  }
+}
+const mageClient = new Magento2('http://52.2.61.43/', options)
+mageClient.init();
+
 var express = require('express'),
     router  = express.Router(),
     config  = require('../config/config'),
@@ -113,6 +138,42 @@ router.post('/', function (req, res, next) {
 
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
+  //console.log(mageClient)
+  // mageClient.get('/V1/products', {searchCriteria: { 'sku' : 'L1014N' }}) //Get a list of all products
+  //   .then(products => {
+  //     console.log(products)
+  //     //do something with the returned product data
+  //   })
+// mageClient.catalog.product.get('L1014N').then(product => {
+//   console.log(product)
+// })
+
+
+
+mageClient.catalog.product.get({
+  search_criteria: {
+    filter_groups: [
+      {
+      filters: [ {
+        // field: "price", value: 10, condition_type: "lt"
+        field: "name",
+        value: '%',
+        condition_type: "like"
+      }]
+    }
+    ],
+    "current_page": 1,
+    "page_size": 20
+  },
+  // fields: {
+  //   items: [ "sku" ]
+  // }
+})
+.catch(err => { console.log(err); })
+.then(response => {
+    console.log('aa')
+    console.log(JSON.stringify(response))
+  });
 
   var itemsPerPage = 5
   var currentPage = Number(req.params.page)
