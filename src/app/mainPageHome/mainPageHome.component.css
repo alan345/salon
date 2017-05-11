@@ -54,11 +54,11 @@ a.shopbutton {
     bottom: 18px;
 }
 .edtttl-txt {
-  width: 95%;
-  max-width: 95%;
+  max-width: none !important;
 }
 .edtttl-txt, .edtttl-lnk {
   margin: 5px 15px !important;
+  width: 90%;
 }
 .edtttl-ok {
   width: 90px;
