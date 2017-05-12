@@ -6,7 +6,7 @@ var mongoose                = require('mongoose'),
 
 var product = new Schema({
     bdd:{
-      perso: {type: String, default: ['']},
+      categories: [{name: {type: String}, type:{type: String}}],
     },
     magento: {
       id: {type: String, unique: true, required: true},
