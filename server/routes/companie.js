@@ -83,7 +83,7 @@ router.put('/:id', function (req, res, next) {
     }
 
       for (var prop in req.body) {
-        if(prop !== '__v')
+        if(prop !== '__v' && prop !== 'updatedAt' && prop !== 'createdAt')
           item[prop] = req.body[prop]
       }
 

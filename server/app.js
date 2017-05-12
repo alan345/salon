@@ -19,8 +19,10 @@ var options    = require('./routes/options')
 var presses    = require('./routes/press')
 var videos    = require('./routes/video')
 var products    = require('./routes/product')
+var productsBatch    = require('./routes/productsBatch')
 
 var app = express()
+productsBatch.jobScedule()
 
 mongoose.Promise = global.Promise  // gets rid of the mongoose promise deprecated warning
 mongoose.connect(config.database)
@@ -58,6 +60,7 @@ app.use('/video', videos)
 app.use('/admin', adminPage)
 app.use('/options', options)
 app.use('/product', products)
+
 
 
 // catch 404 and forward to error handler

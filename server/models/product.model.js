@@ -5,7 +5,9 @@ var mongoose                = require('mongoose'),
     mongooseUniqueValidator = require('mongoose-unique-validator');
 
 var product = new Schema({
-
+    bdd:{
+      perso: {type: String, default: ['']},
+    },
     magento: {
       id: {type: String, unique: true, required: true},
       sku: {type: String, unique: true, required: true},
@@ -16,7 +18,6 @@ var product = new Schema({
         attribute_code : {type: String},
         value : {type: String},
       }]
-
     }
   },
   {
