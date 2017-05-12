@@ -8,7 +8,7 @@
 /node_modules
 
 # log
-/server/log
+/server/log/magentoToDB.txt
 
 # media
 /server/uploads/forms
