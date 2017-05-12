@@ -136,6 +136,64 @@ router.post('/', function (req, res, next) {
 
 
 
+function updateFromMagentoToBdd() {
+
+  mageClient.catalog.product.get({
+    search_criteria: {
+      filter_groups: [
+        {
+        filters: [ {
+          // field: "price", value: 10, condition_type: "lt"
+          field: "name",
+          value: '%',
+          condition_type: "like"
+        }]
+      }
+      ],
+      "current_page": 1,
+      "page_size": 2
+    },
+    // fields: {
+    //   items: [ "sku" ]
+    // }
+  })
+  .catch(err => { console.log('b'); })
+  .then(response => {
+      //console.log('aa')
+      //console.log(JSON.stringify(response.items))
+      let products = response.items
+      console.log('e')
+      //console.log(response.items)
+      products.forEach(productMagento => {
+        //console.log(productMagento)
+        //console.log(new Product(productMagento))
+  console.log('d')
+         var product = new Product({
+           magento: productMagento
+         })
+         //console.log(product)
+
+        product.save(function (err, result) {
+          if (err) {
+            console.log('c')
+            // return res.status(403).json({
+            //   title: 'There was an issue',
+            //   error: {message: 'The email you entered already exists'}
+            // })
+          }
+          console.log('a')
+          // res.status(200).json({
+          //   message: 'Registration Successfull',
+          //   obj: result
+          // })
+
+
+        })
+
+
+      })
+    });
+}
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
   //console.log(mageClient)
@@ -147,33 +205,20 @@ router.get('/page/:page', function (req, res, next) {
 // mageClient.catalog.product.get('L1014N').then(product => {
 //   console.log(product)
 // })
+updateFromMagentoToBdd()
 
 
 
-mageClient.catalog.product.get({
-  search_criteria: {
-    filter_groups: [
-      {
-      filters: [ {
-        // field: "price", value: 10, condition_type: "lt"
-        field: "name",
-        value: '%',
-        condition_type: "like"
-      }]
-    }
-    ],
-    "current_page": 1,
-    "page_size": 20
-  },
-  // fields: {
-  //   items: [ "sku" ]
-  // }
-})
-.catch(err => { console.log(err); })
-.then(response => {
-    console.log('aa')
-    console.log(JSON.stringify(response))
-  });
+
+
+
+
+
+
+
+
+
+
 
   var itemsPerPage = 5
   var currentPage = Number(req.params.page)

@@ -5,14 +5,19 @@ var mongoose                = require('mongoose'),
     mongooseUniqueValidator = require('mongoose-unique-validator');
 
 var product = new Schema({
-    name: {type: String},
-    date : {
-      dateBegin: String,
-      dateEnd: String,
-    },
-    owner: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    form: [{type: Schema.Types.ObjectId, ref: 'Form'}],
 
+    magento: {
+      id: {type: String, unique: true, required: true},
+      sku: {type: String, unique: true, required: true},
+      name: {type: String},
+      price: {type: Number},
+      weight:{type: String},
+      custom_attributes:[{
+        attribute_code : {type: String},
+        value : {type: String},
+      }]
+
+    }
   },
   {
     timestamps: true
