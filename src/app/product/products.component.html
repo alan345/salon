@@ -1,78 +1,71 @@
 <div class="container">
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
-    <h3 style="text-align: center;">Phyto Products</h3>
+    <h3 style="text-align: center;">Products</h3>
+    <button *ngIf="isAdmin()" class="subnav-btnright" [routerLink]="['/product/productSingle']" routerLinkActive="active"><i class="fa fa-plus"></i></button>
   </div>
-  <div class="prdts-ln">
-    <div class="prdts-cat frst-cat">Phyto</div>
-    <div class="prdts-cat scd-cat">Phyto Specific</div>
-    <div class="prdts-cat thrd-cat">Subtil</div>
-  </div>
-  <div class="beigeback single-wrpr phyto-ctnr">
-    <input
-      placeholder="Search"
-    >
-    <div class="phyto-ctnr">
-      <p>Filter Your Search (Tap to Select):</p>
-      <h3>Hair Type</h3>
-      <button class="cat-btn">colored</button>
-      <button class="cat-btn">fine</button>
-      <button class="cat-btn">gray/platinum</button>
-      <button class="cat-btn">curly</button>
-      <button class="cat-btn">normal</button>
-      <button class="cat-btn">relaxed</button>
-      <button class="cat-btn">unruly</button>
+  <div class="subsubnav-product beigeback">
+    <div class="product-srchrow">
+      <div class="srchbar">
+        <input
+          [(ngModel)]="search.search"
+          placeholder="Search"
+          (ngModelChange)="addSearchInput()"
+        >
+      </div>
     </div>
-    <div class="phyto-ctnr">
-      <h3>Concerns</h3>
-      <button class="cat-btn">damaged</button>
-      <button class="cat-btn">aging</button>
-      <button class="cat-btn">dry</button>
-      <button class="cat-btn">dandruff</button>
-      <button class="cat-btn">unbalanced scalp</button>
-      <button class="cat-btn">sensitive scalp</button>
-      <button class="cat-btn">thinning</button>
-      <button class="cat-btn">life-stressed</button>
+    <div class="product-catrow">
+      <div *ngFor="let categorie1 of categories1">
+        <button
+          [ngClass]="{'cat-btn-on':categorie1.selected,'cat-btn':!categorie1.selected}"
+          (click)="changeCateg1(categorie1.name)"
+          >{{categorie1.name}}
+        </button>
+      </div>
     </div>
   </div>
-  <table class="table table-hover table-responsive table-condensed">
-    <thead>
-    <tr>
-      <th>Image</th>
-      <th>Form ID</th>
-      <th>Text Input One</th>
-      <th>Text Input Two</th>
-      <th>Owner</th>
-      <th>Date Submitted</th>
-      <th>Date Edited</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-    </thead>
+
+  <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback vid-tabs">
+    <md-tab label="what's new" textLabel="whatsnew" class="vid-tab"></md-tab>
+    <md-tab label="treatments" textLabel="treatments" class="vid-tab"></md-tab>
+    <md-tab label="knowledges" textLabel="knowledges" class="vid-tab"></md-tab>
+    <md-tab label="testimonials" textLabel="testimonials" class="vid-tab"></md-tab>
+    <md-tab label="merchandising" textLabel="merchandising" class="vid-tab"></md-tab>
+    <md-tab label="promotions" textLabel="promotions" class="vid-tab"></md-tab>
+  </md-tab-group>
+
+  <table class="table table-hover table-responsive table-condensed vid-tbl">
     <tbody>
-      
-    <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
-      <td class="img-resized">
-        <img class="img-thumbnail img-responsive" src="./uploads/profiles/{{product._id}}/{{product.profilePic}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-      </td>
-      <td>{{product._id }}</td>
-      <td><a [routerLink]="['/product/' + product._id]" routerLinkActive="active">{{product.email}}</a></td>
-      <td>{{product.region_id}}</td>
-      <td>{{product.address}}</td>
+      <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="vid-ctnr">
+        <td class="vid-cnt">
+          <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <div *ngFor="let custom_attribute of product.magento.custom_attributes">
+                <div *ngIf="custom_attribute.attribute_code == 'image'">
+                  <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  <p>{{product._id}}</p>
 
-
-      <td>
-        <button class="btn-default" (click)="onOpenModal(product._id)"><i class="fa fa-pencil"></i></button>
-      </td>
-      <td>
-        <button class="btn-danger" (click)="onDelete(product._id)"><i class="fa fa-trash"></i></button>
-      </td>
-    </tr>
+                  <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/product/productSingle/' + product._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <!-- <td>{{product._id }} </td> -->
+        <td><a [routerLink]="['/product/' + product._id]" routerLinkActive="active">{{product.email}}</a></td>
+      </tr>
     </tbody>
   </table>
-  <div class="has-text-centered">
-      <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
-      <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
-  </div>
 
+
+
+
+  <div class="has-text-centered">
+    <div [ngClass]="{ 'hidden': !loading }">Loading...</div>
+    <button
+      *ngIf="paginationData.currentPage * paginationData.itemsPerPage < paginationData.totalItems"
+      type="button" (click)="loadMore()" class="ldmre">
+      Load More
+    </button>
+  </div>
 </div>

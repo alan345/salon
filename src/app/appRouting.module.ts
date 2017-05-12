@@ -30,9 +30,9 @@ import {USER_PRESSES} from './press/press.routes';
 import {PressComponent} from './press/press.component';
 
 //import {VIDEOS} from './video/video.routes';
-import {VideoComponent} from './video/video.component';
+//import {VideoComponent} from './video/video.component';
 
-import {USER_PRODUCTS} from './product/product.routes';
+//import {USER_PRODUCTS} from './product/product.routes';
 import {ProductComponent} from './product/product.component';
 
 import {AdminComponent} from './admin/admin.component';
@@ -50,9 +50,10 @@ export const routes: Routes = [
 //  {path: 'home2', component: MainPageComponent, pathMatch: 'full'},
   {path: 'companie', component: CompanieComponent, canActivate: [AuthGuardService], children: USER_COMPANIES},
   {path: 'press', component: PressComponent, canActivate: [AuthGuardService], children: USER_PRESSES},
-  {path: 'product', component: ProductComponent, canActivate: [AuthGuardService], children: USER_PRODUCTS},
+  //{path: 'product', component: ProductComponent, canActivate: [AuthGuardService], children: USER_PRODUCTS},
 //  {path: 'video', component: VideoComponent, canActivate: [AuthGuardService], children: VIDEOS},
   {path: 'video', loadChildren: 'app/video/video.module#VideoModule'},
+  {path: 'product', loadChildren: 'app/product/product.module#ProductModule'},
   {path: 'promotion', component: PromotionComponent, canActivate: [AuthGuardService], children: USER_PROMOTIONS},
 //  {path: 'companie/:id', component: CompanieDetailComponent},
 //  {path: 'companie/edit/:id', component: EditCompanieComponent},

@@ -1,23 +1,37 @@
 
+//import { Categorie } from '../video/video.model'
+
+
+
+
 
 export interface Product {
+  _id: string;
+  bdd: Bdd;
+  magento: Magento;
+}
+
+
+
+export interface Bdd {
+  categories: Categorie[];
+}
+export interface Categorie {
   name: string;
-  email: string;
-  addresses: Address[];
-  forms: Form[];
-  porfile: {
-    name:string;
-    hair : {
-      hairTexture:string;
-    }
-  }
+  type: string;
+}
+export interface Magento {
+  id: string;
+  sku: string;
+  name: string;
+  price: number;
+  weight: string;
+  custom_attributes: Custom_attribute[];
 }
 
-export interface Address {
-    street: string;
-    postcode: string;
-}
 
-export interface Form {
-    _id: string;
+
+export interface Custom_attribute {
+  attribute_code: string;
+  value: string;
 }

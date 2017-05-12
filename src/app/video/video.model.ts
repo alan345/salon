@@ -5,13 +5,13 @@ export interface Video {
   title: string;
   embed: string;
   embedSecure: {};
-  categories:categorie[];
+  categories:Categorie[];
   owner: Owner[];
 }
 
 
 
-export interface categorie {
+export interface Categorie {
   name: string;
   type: string;
 }

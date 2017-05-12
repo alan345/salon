@@ -49,14 +49,14 @@ import {ChooseDateComponent} from './user/users/chooseDate.component';
 
 
 
-
-
-import {ProductComponent} from './product/product.component';
-import {ProductsComponent} from './product/products.component';
-import {NewProductComponent} from './product/newProduct.component';
-import {SingleProductComponent} from './product/singleProduct.component';
-import {ProductService} from './product/product.service';
-
+//
+//
+// import {ProductComponent} from './product/product.component';
+// import {ProductsComponent} from './product/products.component';
+// import {NewProductComponent} from './product/newProduct.component';
+// import {SingleProductComponent} from './product/singleProduct.component';
+// import {ProductService} from './product/product.service';
+//
 
 
 import {DeleteDialog} from './deleteDialog/deleteDialog.component';
@@ -72,7 +72,7 @@ import {PressService} from './press/press.service';
 
 
 import {VideoModule} from './video/video.module';
-
+import {ProductModule} from './product/product.module';
 // import {VideoDeleteDialog} from './video/videoDeleteDialog.component';
 // import {VideoWhereDialogComponent} from './video/videoWhereDialog.component';
 //
@@ -196,10 +196,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SideNavbarComponent,
     FormComponent,
 
-    ProductComponent,
-    ProductsComponent,
-    NewProductComponent,
-    SingleProductComponent,
+    // ProductComponent,
+    // ProductsComponent,
+    // NewProductComponent,
+    // SingleProductComponent,
 
     DeleteDialog,
     SeePictureDialogComponent,
@@ -287,6 +287,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NgbModule.forRoot(),
     MaterialModule.forRoot(),
     VideoModule,
+    ProductModule,
 
   ],
   providers: [
@@ -302,7 +303,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AdminService,
     EditOptionsService,
     UserService,
-    ProductService,
+  //  ProductService,
     PromotionService,
     AdminGuardService,
     ProfileService,
