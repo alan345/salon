@@ -49,7 +49,7 @@ var schedule = require('node-schedule');
             // }
           ]}],
           "current_page": 1,
-          "page_size": 5
+          "page_size": 10000
         },
         // fields: {
         //   items: [ "sku" ]
