@@ -103,7 +103,7 @@ export class ProductSingleComponent implements OnInit {
 
 
   getObjects(myForm){
-    console.log(myForm.get('categories').controls)
+    //console.log(myForm.get('categories').controls)
      return myForm.get('categories').controls
    }
 
@@ -134,7 +134,7 @@ export class ProductSingleComponent implements OnInit {
       //this.updatecategoriesHard2()
   }
   addCategorie() {
-    console.log('addCategorie')
+    //console.log('addCategorie')
     const control = <FormArray>this.myForm.controls['categories'];
     const addrCtrl = this._fb.group({
         name: [''],
@@ -144,12 +144,12 @@ export class ProductSingleComponent implements OnInit {
 
   }
   addCategorieInput() {
-    console.log('addCategorieInput')
+    //console.log('addCategorieInput')
     this.togglCategorieButton(this.inputCategorie, 'tag')
     this.inputCategorie=''
   }
   togglCategorieButton(nameCateg, type) {
-    console.log('togglCategorieButton')
+    //console.log('togglCategorieButton')
     var indexFound
     this.fetchedProduct.categories.forEach((categorie, index) => {
       if(categorie.name == nameCateg)
