@@ -21,6 +21,7 @@ var videos    = require('./routes/video')
 var products    = require('./routes/product')
 var productsBatch    = require('./routes/productsBatch')
 
+
 var app = express()
 productsBatch.jobScedule()
 

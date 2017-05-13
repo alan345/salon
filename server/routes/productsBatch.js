@@ -41,6 +41,7 @@ var schedule = require('node-schedule');
 
 
     function updateFromMagentoToBdd() {
+      console.log('starting..')
       var dateBegin = new Date()
       mageClient.catalog.product.get({
         search_criteria: {
@@ -61,72 +62,70 @@ var schedule = require('node-schedule');
       })
       .catch(err => { writeLog('error1',  dateBegin, 0,0,0,0,0,0) })
       .then(response => {
-          var nbProductsCreadted=0
-          var nbProductsNotCreadted=0
-          var nbProductsUpdated=0
-          var nbProductsNotUpdated=0
-          var itemsProcessed = 0;
-          let products = response.items
-          products.forEach((productMagento , index, array) => {
-              Product
-              .findOne(
-                {
-                  'magento.id': productMagento.id
-                }
-              )
-              .exec(function (err, item) {
-                if (err) {
-                  return res.status(403).json({
-                    title: 'There was a problem',
-                    error: err
-                  });
-                }
-                if (!item) {
-                     var product = new Product({
-                       magento: productMagento
-                     })
-                    product.save(function (err, result) {
-                      if (err) {
-                        nbProductsNotCreadted++;
-                        itemsProcessed++;
-                        if(itemsProcessed === array.length)
-                          writeLog('error', dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
-                      } else {
-                        nbProductsCreadted++
-                        itemsProcessed++;
-                        if(itemsProcessed === array.length)
-                          writeLog('ok',  dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
-                      }
-                    })
-                } else {
-                  // update
-                  for (var prop in productMagento) {
-                    if(prop !== '__v' && prop !== 'updatedAt' && prop !== 'createdAt')
-                      item['magento'][prop] = productMagento[prop]
+        var nbProductsCreadted=0
+        var nbProductsNotCreadted=0
+        var nbProductsUpdated=0
+        var nbProductsNotUpdated=0
+        var itemsProcessed = 0;
+        let products = response.items
+        products.forEach((productMagento , index, array) => {
+          console.log('treating product.. ' + index)
+          Product
+          .findOne(
+            {
+              'magento.id': productMagento.id
+            }
+          )
+          .exec(function (err, item) {
+            if (err) {
+              return res.status(403).json({
+                title: 'There was a problem',
+                error: err
+              });
+            }
+            if (!item) {
+                 var product = new Product({
+                   magento: productMagento
+                 })
+                product.save(function (err, result) {
+                  if (err) {
+                    nbProductsNotCreadted++;
+                    itemsProcessed++;
+                    if(itemsProcessed === array.length)
+                      writeLog('error', dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
+                  } else {
+                    nbProductsCreadted++
+                    itemsProcessed++;
+                    if(itemsProcessed === array.length)
+                      writeLog('ok',  dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
                   }
-                  item.save(function (err, result) {
-                    if (err) {
-                      nbProductsNotUpdated++
-                      itemsProcessed++;
-                      if(itemsProcessed === array.length)
-                        writeLog('error',  dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
-                    } else {
+                })
+            } else {
+              // update
+              for (var prop in productMagento) {
+                if(prop !== '__v' && prop !== 'updatedAt' && prop !== 'createdAt')
+                  item['magento'][prop] = productMagento[prop]
+              }
+              item.save(function (err, result) {
+                if (err) {
+                  nbProductsNotUpdated++
+                  itemsProcessed++;
+                  if(itemsProcessed === array.length)
+                    writeLog('error',  dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
+                } else {
 
-                      nbProductsUpdated++
-                      itemsProcessed++;
-                      if(itemsProcessed === array.length)
-                        writeLog('ok',  dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
-                    }
-                  })
+                  nbProductsUpdated++
+                  itemsProcessed++;
+                  if(itemsProcessed === array.length)
+                    writeLog('ok',  dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
                 }
               })
+            }
           })
-
-
-
-        });
+        })
+      });
     }
-
+    exports.updateFromMagentoToBdd = updateFromMagentoToBdd;
 
     function writeLog(
       status,
@@ -149,6 +148,7 @@ var schedule = require('node-schedule');
         'nbProductsNotCreadted' : nbProductsNotCreadted,
         'nbProductsNotUpdated' : nbProductsNotUpdated,
       }
+      console.log(logObj)
       var fs = require('fs');
       fs.appendFileSync('server/log/magentoToDB.txt', '\n' + JSON.stringify(logObj));
     }

@@ -6,6 +6,18 @@ var express = require('express'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
     jwt     = require('jsonwebtoken');
+var productsBatch    = require('./productsBatch')
+
+
+
+router.get('/refreshbdd', function (req, res, next) {
+  productsBatch.updateFromMagentoToBdd()
+  res.status(201).json({
+    message: 'request send to update database from magento',
+  });
+})
+
+
 
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function (err) {
@@ -107,7 +119,6 @@ router.post('/', function (req, res, next) {
     })
   })
 })
-
 
 
 
