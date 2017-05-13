@@ -24,7 +24,7 @@ import { UserService} from '../user/user.service';
 export class ProductsComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
   fetchedProducts : Array<ProductsComponent> = [];
-  urlMagento = 'http://52.2.61.43/pub/media/catalog/product/cache/1/thumbnail/beff4985b56e3afdbeabfc89641a4582'
+  urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
   search = {
     categories : [],
     search:''

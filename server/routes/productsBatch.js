@@ -7,7 +7,7 @@ var schedule = require('node-schedule');
 
 
     var jobScedule = function() {
-      var j = schedule.scheduleJob('20 * * * *', function(){
+      var j = schedule.scheduleJob('60 * * * *', function(){
         console.log('BatchProductScheduled')
         updateFromMagentoToBdd()
       });
@@ -139,7 +139,7 @@ var schedule = require('node-schedule');
       nbProductsNotUpdated) {
 
       let logObj = {
-        'dateBegin' :  dateBegin, 
+        'dateBegin' :  dateBegin,
         'dateEnd': new Date(),
         'status' : status,
         'total_count' : total_count,

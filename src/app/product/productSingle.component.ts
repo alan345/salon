@@ -27,7 +27,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 
 export class ProductSingleComponent implements OnInit {
 
-  urlMagento = 'http://52.2.61.43/pub/media/catalog/product/cache/1/thumbnail/beff4985b56e3afdbeabfc89641a4582'
+  urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
   fetchedProduct : Product = {
     _id: '',
     bdd: {
@@ -104,14 +104,14 @@ export class ProductSingleComponent implements OnInit {
 
 
   getObjects(myForm){
+    console.log(myForm.get('categories').controls)
      return myForm.get('categories').controls
    }
 
   ngOnInit() {
     this.myForm = this._fb.group({
       _id: [''],
-      title: ['', [Validators.required, Validators.minLength(5)]],
-      embed: ['', [Validators.required, Validators.minLength(5)]],
+
       categories: this._fb.array([])
     });
 
@@ -135,18 +135,22 @@ export class ProductSingleComponent implements OnInit {
       //this.updatecategoriesHard2()
   }
   addCategorie() {
+    console.log('addCategorie')
     const control = <FormArray>this.myForm.controls['categories'];
     const addrCtrl = this._fb.group({
         name: [''],
         type:['']
     });
     control.push(addrCtrl);
+
   }
   addCategorieInput() {
+    console.log('addCategorieInput')
     this.togglCategorieButton(this.inputCategorie, 'tag')
     this.inputCategorie=''
   }
   togglCategorieButton(nameCateg, type) {
+    console.log('togglCategorieButton')
     var indexFound
     this.fetchedProduct.bdd.categories.forEach((categorie, index) => {
       if(categorie.name == nameCateg)
@@ -198,13 +202,14 @@ export class ProductSingleComponent implements OnInit {
   // }
 
   save(product : Product) {
+    //console.log(this.fetchedProduct)
     if(!this.fetchedProduct.bdd.categories.length){
       this.toastr.error('Error!', 'Please select at least one categorie')
       return
     }
 
-    if(product._id) {
-      this.productService.updateProduct(product)
+    if(this.fetchedProduct._id) {
+      this.productService.updateProduct(this.fetchedProduct)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
@@ -213,7 +218,7 @@ export class ProductSingleComponent implements OnInit {
           error => {console.log(error)}
         );
     } else {
-      this.productService.saveProduct(product)
+      this.productService.saveProduct(this.fetchedProduct)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)

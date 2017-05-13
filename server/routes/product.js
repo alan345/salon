@@ -62,12 +62,11 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     } else {
-        item.name = req.body.name
-        item.date = req.body.date
-        item.owner = req.body.owner
-        item.form = req.body.form
-
-
+      for (var prop in req.body) {
+        if(prop !== '__v' && prop !== 'updatedAt' && prop !== 'createdAt')
+          item[prop] = req.body[prop]
+      }
+      console.log(req.body)
         item.save(function (err, result) {
           if (err) {
             return res.status(404).json({

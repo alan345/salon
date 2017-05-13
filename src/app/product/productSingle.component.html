@@ -38,11 +38,11 @@
         <div class="phyto-ctnr ttl-cde">
           <label class="vid-lableft">Insert the ID of your Vimeo Product:</label>
 
-          <input type="text" class="form-control" formControlName="embed" [(ngModel)]="fetchedProduct.embed" placeholder="<>">
+          <!-- <input type="text" class="form-control" formControlName="embed" [(ngModel)]="fetchedProduct.embed" placeholder="<>"> -->
         </div>
       </div>
       <div class="form-group phyto-ctnr ttl-cde">
-        <input type="text" class="form-control" formControlName="title" placeholder="Add Product Title" [(ngModel)]="fetchedProduct.title">
+        <!-- <input type="text" class="form-control" formControlName="title" placeholder="Add Product Title" [(ngModel)]="fetchedProduct.title"> -->
       </div>
       <div class="lft-form">
         <label>Select Categories For This Product:</label>
@@ -75,11 +75,11 @@
         <div formArrayName="categories">
           <div *ngFor="let categorie of getObjects(myForm); let i=index" class="tagz">
             <div [formGroupName]="i">
-              <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedProduct.categories[i].name">
-              <input type="hidden" class="form-control" formControlName="type" [(ngModel)]="fetchedProduct.categories[i].type">
-              <div class="tagz-cnt" *ngIf="fetchedProduct.categories[i].type=='tag'">
+              <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedProduct.bdd.categories[i].name">
+              <input type="hidden" class="form-control" formControlName="type" [(ngModel)]="fetchedProduct.bdd.categories[i].type">
+              <div class="tagz-cnt" *ngIf="fetchedProduct.bdd.categories[i].type=='tag'">
                 <div class="tagz">
-                  <span class="tagz-name">{{fetchedProduct.categories[i].name}}</span>
+                  <span class="tagz-name">{{fetchedProduct.bdd.categories[i].name}}</span>
                   <i class="tagz-icn fa fa-times pull-right" (click)="removeCategorie(i)"></i>
                 </div>
               </div>
