@@ -30,9 +30,8 @@ export class ProductSingleComponent implements OnInit {
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
   fetchedProduct : Product = {
     _id: '',
-    bdd: {
-      categories: [],
-    },
+
+    categories: [],
     magento : {
       id: '',
       sku: '',
@@ -123,7 +122,7 @@ export class ProductSingleComponent implements OnInit {
 
 
   removeCategorie(i: number) {
-      this.fetchedProduct.bdd.categories.splice(i, 1)
+      this.fetchedProduct.categories.splice(i, 1)
       const control = <FormArray>this.myForm.controls['categories'];
       control.removeAt(i);
       let _2this = this
@@ -152,7 +151,7 @@ export class ProductSingleComponent implements OnInit {
   togglCategorieButton(nameCateg, type) {
     console.log('togglCategorieButton')
     var indexFound
-    this.fetchedProduct.bdd.categories.forEach((categorie, index) => {
+    this.fetchedProduct.categories.forEach((categorie, index) => {
       if(categorie.name == nameCateg)
         indexFound = index
     })
@@ -164,7 +163,7 @@ export class ProductSingleComponent implements OnInit {
       }, 10);
 
     } else {
-      this.fetchedProduct.bdd.categories.push({name:nameCateg, type:type})
+      this.fetchedProduct.categories.push({name:nameCateg, type:type})
       this.addCategorie()
     }
   }
@@ -203,7 +202,7 @@ export class ProductSingleComponent implements OnInit {
 
   save(product : Product) {
     //console.log(this.fetchedProduct)
-    if(!this.fetchedProduct.bdd.categories.length){
+    if(!this.fetchedProduct.categories.length){
       this.toastr.error('Error!', 'Please select at least one categorie')
       return
     }
@@ -236,7 +235,7 @@ export class ProductSingleComponent implements OnInit {
     })
 
     this.categoriesHard2.forEach((HardCategorie, indexHard) => {
-      this.fetchedProduct.bdd.categories.forEach((fetchedCategorie, indexFetched) => {
+      this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
         if(HardCategorie.name == fetchedCategorie.name) {
           this.categoriesHard2[indexHard].selected = true
         }
@@ -248,7 +247,7 @@ export class ProductSingleComponent implements OnInit {
     })
 
     this.categoriesHard1.forEach((HardCategorie, indexHard) => {
-      this.fetchedProduct.bdd.categories.forEach((fetchedCategorie, indexFetched) => {
+      this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
         if(HardCategorie.name == fetchedCategorie.name) {
           this.categoriesHard1[indexHard].selected = true
         }
@@ -267,7 +266,7 @@ export class ProductSingleComponent implements OnInit {
 
         //  this.fetchedProduct.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/product/' + res.embed )
           //this.fetchedProduct.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
-          this.fetchedProduct.bdd.categories.forEach((categorie) => {
+          this.fetchedProduct.categories.forEach((categorie) => {
             this.addCategorie()
           })
           this.refreshHardCategories()

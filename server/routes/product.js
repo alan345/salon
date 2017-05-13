@@ -115,50 +115,132 @@ router.post('/', function (req, res, next) {
 
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
-
-//updateFromMagentoToBdd()
-
-  var itemsPerPage = 5
+  var itemsPerPage = 6
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
-  //var limit = (itemsPerPage * pageNumber) + itemsPerPage
+  //console.log(req.query.categories)
+  var categories = []
+  if(typeof req.query.categories === 'string') {
+    categories = [req.query.categories]
+  } else {
+    categories = req.query.categories
+  }
+  var dateRef = new Date();
+  dateRef.setDate(dateRef.getDate()-60)
+  var matchRules = []
 
-  Product.find().count((err, totalItems) => {
-    if(err) {
-      res.send(err);
+  let hasWhatsNewCateg = true
+  categories.forEach(function (categ) {
+    categorie = JSON.parse(categ)
+    if(categorie.name !== 'whatsnew') {
+      hasWhatsNewCateg = false
+      if(categorie.name) {
+        matchRules.push({
+           '$elemMatch': categorie
+         })
+      }
+    } else {
+
+    }
+  })
+
+  let categoriesArray= {
+     "$all": matchRules
+  }
+  let searchQuery = {
+  //  createdAt:{"$lt": dateRef}
+//    categories: categoriesArray,
+  //  createdAt:{"$gt": dateRef},
+  }
+
+  if(hasWhatsNewCateg)
+    searchQuery['createdAt'] = {"$gt": dateRef}
+
+  if(!hasWhatsNewCateg)
+    searchQuery['categories'] = categoriesArray
+  if(req.query.search)
+    searchQuery['title'] = new RegExp(req.query.search, 'i')
+
+  // console.log(hasWhatsNewCateg)
+  // console.log(searchQuery)
+
+  Product
+  .find(searchQuery)
+  .sort('-createdAt')
+  .limit(itemsPerPage)
+  .skip(skip)
+  .exec(function (err, item) {
+    if (err) {
+      return res.status(404).json({
+        message: 'No results',
+        err: err
+      })
     } else {
       Product
-      .find()
-      .populate('form')
-      .limit(itemsPerPage)
-      .skip(skip)
-      .exec(function (err, item) {
-        if (err) {
-          return res.status(404).json({
-            message: 'No results',
-            err: err
-          })
-        } else {
-          Product
-          .find()
-          .count()
-          .exec(function (err, count) {
-          res.status(200).json({
-              paginationData : {
-                totalItems: count,
-                currentPage : currentPage,
-                itemsPerPage : itemsPerPage
-              },
-              data: item
-            })
-          })
-        }
+      .find(searchQuery)
+      .count()
+      .exec(function (err, count) {
+      res.status(200).json({
+          paginationData : {
+            totalItems: count,
+            currentPage : currentPage,
+            itemsPerPage : itemsPerPage
+          },
+          data: item
+        })
       })
     }
-
   })
 })
+
+//
+// // get all forms from database
+// router.get('/page/:page', function (req, res, next) {
+//
+// //updateFromMagentoToBdd()
+//
+//   var itemsPerPage = 5
+//   var currentPage = Number(req.params.page)
+//   var pageNumber = currentPage - 1
+//   var skip = (itemsPerPage * pageNumber)
+//   //var limit = (itemsPerPage * pageNumber) + itemsPerPage
+//
+//   Product.find().count((err, totalItems) => {
+//     if(err) {
+//       res.send(err);
+//     } else {
+//       Product
+//       .find()
+//       .populate('form')
+//       .limit(itemsPerPage)
+//       .skip(skip)
+//       .exec(function (err, item) {
+//         if (err) {
+//           return res.status(404).json({
+//             message: 'No results',
+//             err: err
+//           })
+//         } else {
+//           Product
+//           .find()
+//           .count()
+//           .exec(function (err, count) {
+//           res.status(200).json({
+//               paginationData : {
+//                 totalItems: count,
+//                 currentPage : currentPage,
+//                 itemsPerPage : itemsPerPage
+//               },
+//               data: item
+//             })
+//           })
+//         }
+//       })
+//     }
+//
+//   })
+// })
 
 
 

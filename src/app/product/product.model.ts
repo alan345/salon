@@ -7,15 +7,12 @@
 
 export interface Product {
   _id: string;
-  bdd: Bdd;
+  categories: Categorie[];
   magento: Magento;
 }
 
 
 
-export interface Bdd {
-  categories: Categorie[];
-}
 export interface Categorie {
   name: string;
   type: string;

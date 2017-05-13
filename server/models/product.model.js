@@ -5,9 +5,9 @@ var mongoose                = require('mongoose'),
     mongooseUniqueValidator = require('mongoose-unique-validator');
 
 var product = new Schema({
-    bdd:{
-      categories: [{name: {type: String}, type:{type: String}}],
-    },
+
+    categories: [{name: {type: String}, type:{type: String}}],
+
     magento: {
       id: {type: String, unique: true, required: true},
       sku: {type: String, unique: true, required: true},
