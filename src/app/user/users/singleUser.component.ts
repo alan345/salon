@@ -13,7 +13,7 @@ import { User } from '../user.model'
 import { Form } from '../../form/form.model'
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
-
+import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 
 @Component({
   selector: 'app-users',
@@ -90,14 +90,11 @@ export class SingleUserComponent implements OnInit {
      return myForm.get('forms').controls
    }
 
-
-
   ngOnInit() {
     this.myForm = this._fb.group({
       lastVisit: [''],
       forms: this._fb.array([])
     })
-  //  this.getMeUser()
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getUser(params['id'])
     })
@@ -105,14 +102,30 @@ export class SingleUserComponent implements OnInit {
 
 
 
-
+  removeNoteDialog(i:number){
+    let this2 = this
+    let dialogRefDelete = this.dialog.open(DeleteDialog)
+    dialogRefDelete.afterClosed().subscribe(result => {
+      if(result) {
+        this.removeNote(i)
+      }
+    })
+  }
   removeNote(i: number){
     this.fetchedUser.notes.splice(i, 1)
-
     this.save()
   }
 
 
+  removeFormDialog(i:number){
+    let this2 = this
+    let dialogRefDelete = this.dialog.open(DeleteDialog)
+    dialogRefDelete.afterClosed().subscribe(result => {
+      if(result) {
+        this.removeForm(i)
+      }
+    })
+  }
   removeForm(i: number) {
       this.fetchedUser.forms.splice(i, 1)
       const control = <FormArray>this.myForm.controls['forms'];
