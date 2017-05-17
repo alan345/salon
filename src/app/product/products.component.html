@@ -34,31 +34,24 @@
     <md-tab label="promotions" textLabel="promotions" class="vid-tab"></md-tab>
   </md-tab-group>
 
-  <table class="table table-hover table-responsive table-condensed vid-tbl">
+  <table class="table table-hover table-responsive table-condensed pdt-tbl">
     <tbody>
-      <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="vid-ctnr">
-        <td class="vid-cnt">
-          <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
-            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
-              <div *ngFor="let custom_attribute of product.magento.custom_attributes">
-                <div *ngIf="custom_attribute.attribute_code == 'image'">
-                  <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                  <p>{{product._id}}</p>
-
-                  <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/product/productSingle/' + product._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
-                </div>
-              </div>
+      <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="pdt-ctnr">
+        <td class="pdt-cnt">
+          <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">
+            <div class="pdt-nm">Product Name Here</div>
+            <div class="pdt-desc">This is the product description no more than 90 characters"</div>
+            <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdt-img">
+              <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             </div>
+            <!--<p>{{product._id}}</p>-->
+            <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/product/productSingle/' + product._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
           </div>
         </td>
-        <!-- <td>{{product._id }} </td> -->
         <td><a [routerLink]="['/product/' + product._id]" routerLinkActive="active">{{product.email}}</a></td>
       </tr>
     </tbody>
   </table>
-
-
-
 
   <div class="has-text-centered">
     <div [ngClass]="{ 'hidden': !loading }">Loading...</div>
