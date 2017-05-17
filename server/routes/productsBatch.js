@@ -1,5 +1,6 @@
 
 var express = require('express'),
+    config = require('../config/config'),
     Product    = require('../models/product.model');
 const Magento2 = require('node-magento2');
 var schedule = require('node-schedule');
@@ -15,24 +16,24 @@ var schedule = require('node-schedule');
     exports.jobScedule = jobScedule;
 
 
-
-    const optionsBatch = {
-      url: null,
-      store: 'default', //set a store to contextualise in
-      authentication: {
-        login: {
-          type: 'admin',
-          username: 'gooplus',
-          password: 'Gooplus123'
-        },
-        integration: {
-          consumer_key: 'ieu6lhumh4kxfmc0df6wax3e1p5fsbjy',
-          consumer_secret: '4jywk7kygkc0aqwl6wrlcs8ntnoavqyr',
-          access_token: '1b2f3hojr2mdio0exhtj3d116fft8qde',
-          access_token_secret: 'v2cd0wqqwe4i0tkd08x99tnjvncj9dwo'
-        }
-      }
-    }
+    const optionsBatch = config.optionsBatch
+    // const optionsBatch = {
+    //   url: null,
+    //   store: 'default', //set a store to contextualise in
+    //   authentication: {
+    //     login: {
+    //       type: 'admin',
+    //       username: 'gooplus',
+    //       password: 'Gooplus123'
+    //     },
+    //     integration: {
+    //       consumer_key: 'ieu6lhumh4kxfmc0df6wax3e1p5fsbjy',
+    //       consumer_secret: '4jywk7kygkc0aqwl6wrlcs8ntnoavqyr',
+    //       access_token: '1b2f3hojr2mdio0exhtj3d116fft8qde',
+    //       access_token_secret: 'v2cd0wqqwe4i0tkd08x99tnjvncj9dwo'
+    //     }
+    //   }
+    // }
     const mageClient = new Magento2('http://52.2.61.43/', optionsBatch)
     mageClient.init();
 
