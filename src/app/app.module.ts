@@ -145,11 +145,8 @@ import {ErrorPageComponent} from './errorPage/errorPage.component';
 
 
 import {AdminUsersComponent} from './admin/user/adminUsers.component'
-import {AdminPageComponent} from './admin/adminPage/adminPage.component'
+
 import {AdminService} from './admin/services/admin.service'
-import {EditUsersFormsComponent} from './admin/editUsersForms/editUsersForms.component'
-
-
 
 
 import {EditOptionsComponentDialog} from './modalLibrary/modalLibrary.component';
@@ -253,9 +250,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     UserFormsComponent,
     UserFormsUploadAndList,
     ErrorPageComponent,
-    AdminPageComponent,
+
     AdminUsersComponent,
-    EditUsersFormsComponent,
+
     EditOptionsComponentDialog,
     AdminComponent,
 
