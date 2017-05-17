@@ -152,11 +152,7 @@ import {EditUsersFormsComponent} from './admin/editUsersForms/editUsersForms.com
 
 
 
-import {EditOptionsComponent} from './admin/editOptions/editOptions.component';
 import {EditOptionsComponentDialog} from './modalLibrary/modalLibrary.component';
-
-
-import {EditOptionsService} from './admin/editOptions/editOptions.service';
 
 
 
@@ -260,7 +256,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AdminPageComponent,
     AdminUsersComponent,
     EditUsersFormsComponent,
-    EditOptionsComponent,
     EditOptionsComponentDialog,
     AdminComponent,
 
@@ -301,7 +296,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PressService,
     FormService,
     AdminService,
-    EditOptionsService,
     UserService,
   //  ProductService,
     PromotionService,
