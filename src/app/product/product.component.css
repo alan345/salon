@@ -60,16 +60,16 @@
     flex-direction: row;
     flex-wrap: wrap !important;
 }
-.vid-tbl {
+.pdt-tbl {
     margin: 0 !important;
 }
-.vid-cnt {
+.pdt-cnt {
     padding-bottom: 30px !important;
 }
-.vid-ctnr:hover {
+.pdt-ctnr:hover {
     background: none !important;
 }
-.vid-cnt .editicon {
+.pdt-cnt .editicon {
     padding-top: 10px !important;
 }
 .lft-form, .rght-form {
@@ -115,11 +115,11 @@
 
 @media screen and (min-width: 768px) {
   
-.vid-cnt {
+.pdt-cnt {
     width: 100%;
     float: left;
 }
-.vid-ctnr, .lft-form, .rght-form, label.vid-lableft {
+.pdt-ctnr, .lft-form, .rght-form, label.vid-lableft {
     width: 50%;
     float: left;
 }
@@ -127,7 +127,7 @@
 
 @media screen and (max-width: 767px) {
 
-.vid-ctnr, .vid-cnt {
+.pdt-ctnr, .pdt-cnt {
     float: left;
     width: 100%;
 }
