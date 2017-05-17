@@ -27,6 +27,7 @@
 }
 .subsubnav-product {
   padding: 0 15px;
+  float: left;
 }
 .product-srchrow {
     height: 75px;
@@ -34,9 +35,17 @@
 .srchbar {
     padding: 15px 0 !important;
 }
+.bigcat-btn, .bigcat-btn-on {
+  border: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  float: left !important;
+  margin: 0 !important;
+  width: 33.33333%;
+  height: 50px;
+}
 .cat-btn, .cat-btn-on {
     border: none;
-    outline: none !important;
     text-transform: uppercase;
     padding: 5px 15px 5px;
     border-radius: 14px;
@@ -45,11 +54,11 @@
     font-size: 13px;
     float: left !important;
 }
-.cat-btn {
+.cat-btn, .bigcat-btn {
     background-color: #ffffff;
     color: #0a2f87;
 }
-.cat-btn-on {
+.cat-btn-on, .bigcat-btn-on {
     background-color: #0a2f87 !important;
     color: #ffffff !important;
 }
