@@ -123,10 +123,13 @@
 }
 .pdt-tagzctnr {
   padding-top: 100px;
+  padding-right: 5px;
+  float: left;
+  width: 50%;
 }
 .pdt-tagz {
-  padding: 5px 5px 0 0;
   float: left;
+  line-height: 1;
 }
 .pdt-tag {
   font-style: italic;
