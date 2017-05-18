@@ -46,18 +46,31 @@ export class ProductsComponent implements OnInit {
     { name:'Subtil', selected : false }
   ]
 
-
-  categoriesHard2 = [
-    { name:'Conditioners & masks', selected : false },
-    { name:'Diateray supplements', selected : false },
-    { name:'Leave-in care', selected : false },
-    { name:'Relaxers', selected : false },
-    { name:'Styling', selected : false },
-    { name:'Serums', selected : false },
-    { name:'Shampoos', selected : false },
-    { name:'Treatments', selected : false }
+  categoriesHard2 = []
+  categories2Dynamic = [
+      [
+        { name:'Conditioners & masks', selected : false },
+        { name:'Diateray supplements', selected : false },
+        { name:'Leave-in care', selected : false },
+        { name:'Relaxers', selected : false },
+        { name:'Styling', selected : false },
+        { name:'Serums', selected : false },
+        { name:'Shampoos', selected : false },
+        { name:'Treatments', selected : false }
+      ],
+      [
+       { name:'Toto & masks', selected : false },
+       { name:'Tata & masks', selected : false },
+     ],
+     [
+       { name:'random Data', selected : false },
+       { name:'Random Data', selected : false },
+     ]
   ]
-
+  //
+  // categories2PhytoSpecific =
+  //
+  // categories2Subtil =
   categories3 = [
     { name:'COLORED', selected : false},
     { name:'FINE', selected : false },
@@ -110,9 +123,22 @@ export class ProductsComponent implements OnInit {
     this.categories2 = $event.tab.textLabel
     this.updateCategerories()
   }
+
   onSelectChange1 = ($event: any): void => {
+    if($event.tab.textLabel === this.categoriesHard1[0].name)
+      this.categoriesHard2 = this.categories2Dynamic[0]
+    if($event.tab.textLabel === this.categoriesHard1[1].name)
+      this.categoriesHard2 = this.categories2Dynamic[1]
+    if($event.tab.textLabel === this.categoriesHard1[2].name)
+      this.categoriesHard2 = this.categories2Dynamic[2]
+
+
+
     this.categories1 = $event.tab.textLabel
     this.updateCategerories()
+
+
+
   }
 
   updateCategerories(){
@@ -206,6 +232,7 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.categoriesHard2 = this.categories2Dynamic[0]
     this.categories1 = this.categoriesHard1[0].name
     this.categories2 = this.categoriesHard2[0].name
     this.updateCategerories()
