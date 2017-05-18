@@ -81,7 +81,7 @@
             </a>
             <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">
               <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdt-img">
-                <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                <a href="#"><img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'"></a>
               </div>
               <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/product/productSingle/' + product._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
             </div>
