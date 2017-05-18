@@ -8,19 +8,17 @@
   height: 60px !important;
   line-height: 1 !important;
   min-width: auto !important;
-  background-color: #efe9df !important;
-}
-.pdt-tabs .mat-tab-label-active {
   background-color: #ffffff !important;
 }
 .pdt-tabs .mat-tab-header, .pdt-tabs .mat-tab-nav-bar {
   border: none !important;
 }
 .pdt-tabs .mat-tab-labels {
-    background-color: #efe9df !important;
+    background-color: #ffffff !important;
 }
 .pdt-tabs .mat-tab-label:hover, .pdt-tabs .mat-tab-label:active, .pdt-tabs .mat-tab-label:focus {
-  background-color: #ffffff !important;
+  background-color: #0a2f87 !important;
+  color: #ffffff !important;
 }
 .pdt-tabs .mat-ink-bar {
     display: none !important;
