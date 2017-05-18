@@ -10,6 +10,11 @@
 # config
 /server/config/config.js
 
+
+# backupJson DB
+/backupJson
+
+
 # log
 /server/log/magentoToDB.txt
 
