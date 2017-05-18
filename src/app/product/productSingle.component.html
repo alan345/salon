@@ -7,16 +7,17 @@
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
       <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedProduct._id">
       <div class="form-group">
-        <div class="phyto-ctnr">
+        <div class="phyto-ctnr magento-info">
           <div style="float:left;">
             <h4>Product Name:</h4>
             {{fetchedProduct.magento.name}}
-            <h4>Product Price (Not Visible to Stylists):</h4>
+            <h4>Product Price (Not Visible):</h4>
             {{fetchedProduct.magento.price}}$
-            <h4>Product SKU:</h4>
+            <h4>Product SKU (Not Visible):</h4>
             {{fetchedProduct.magento.sku}}
-            <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes" class="magento-cnt">
-              <div *ngIf="custom_attribute.attribute_code == 'description'">
+            <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
+              <h4>Product Description:</h4>
+              <div *ngIf="custom_attribute.attribute_code == 'description'" class="magento-desc">
                 {{custom_attribute.value}}
               </div>
               <div *ngIf="custom_attribute.attribute_code == 'country_of_manufacture'">
@@ -25,7 +26,7 @@
               <div *ngIf="custom_attribute.attribute_code == 'url_path'">
                 {{custom_attribute.value}}
               </div>
-              <div *ngIf="custom_attribute.attribute_code == 'image'">
+              <div *ngIf="custom_attribute.attribute_code == 'image'" class="magento-img">
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
             </div>
