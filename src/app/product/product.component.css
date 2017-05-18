@@ -1,6 +1,6 @@
 .pdt-tabs .mat-tab-label {
   text-transform: uppercase!important;
-  color: #010870 !important;
+  color: #010870;
   font-size: 13px !important;
   font-family: inherit !important;
   padding: 25px 20px !important;
@@ -8,7 +8,7 @@
   height: 60px !important;
   line-height: 1 !important;
   min-width: auto !important;
-  background-color: #ffffff !important;
+  background-color: #ffffff;
 }
 .pdt-tabs .mat-tab-header, .pdt-tabs .mat-tab-nav-bar {
   border: none !important;
