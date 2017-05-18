@@ -28,18 +28,18 @@
   padding: 0 15px;
   float: left;
   position: relative;
+  height: 115px;
+  width: 100%;
 }
 .product-srchrow {
-  height: 75px;
   float: left;
 }
 .srchbar {
-  padding: 15px 0 !important;
+  padding: 15px 0 0 !important;
 }
 .ctrl-hidit {
   position: absolute;
   bottom: 15px;
-  right: 15px;
   background: none;
   border: none;
   color: #999999;
@@ -51,7 +51,6 @@
   font-size: 13px;
   float: left !important;
   margin: 0 !important;
-  width: 33.33333%;
   height: 50px;
 }
 .cat-btn, .cat-btn-on {
@@ -235,6 +234,12 @@
     width: 33.333333%;
     float: left;
 }
+.bigcat-btn, .bigcat-btn-on {
+  width: 33.33333%;
+}
+.ctrl-hidit {
+  right: 15px;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -245,5 +250,11 @@
 }
 label.pdt-lableft {
     display: block;
+}
+.bigcat-btn, .bigcat-btn-on {
+  width: 100%;
+}
+.ctrl-hidit {
+  left: 15px;
 }
 }
