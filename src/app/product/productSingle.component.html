@@ -27,7 +27,7 @@
                 {{custom_attribute.value}}
               </div>
               <div *ngIf="custom_attribute.attribute_code == 'image'" class="magento-img">
-                <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                <img src="{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
             </div>
           </div>
