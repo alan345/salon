@@ -68,8 +68,10 @@
               <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
             </div>
           </div>
-          <div *ngFor="let categorie of product.categories" class="pdt-tagz">
-            <div class="pdt-tag">{{categorie.name}}</div>
+          <div class="pdt-tagzctnr">
+            <div *ngFor="let categorie of product.categories" class="pdt-tagz">
+              <div class="pdt-tag">{{categorie.name}}</div>
+            </div>
           </div>
           <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">
             <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdt-img">
