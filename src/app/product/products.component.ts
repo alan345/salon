@@ -11,7 +11,6 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
 import {ViewEncapsulation} from '@angular/core'
-import { UserService} from '../user/user.service';
 
 
 
@@ -110,7 +109,6 @@ export class ProductsComponent implements OnInit {
     private router: Router,
     private location: Location,
     private authService: AuthService,
-    private userService: UserService,
   ) {
   }
 

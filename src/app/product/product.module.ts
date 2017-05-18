@@ -20,6 +20,8 @@ import {ProductRouting} from './productRouting.module';
 import { MaterialModule } from '@angular/material';
 import {Ng2PaginationModule} from 'ng2-pagination';
 import {SmallDescriptionPipe} from './product.pipe';
+import {ProductsAdminComponent} from './admin/productsAdmin.component';
+
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import {SmallDescriptionPipe} from './product.pipe';
     MaterialModule,
     Ng2PaginationModule,
     ReactiveFormsModule,
+
   ],
   declarations: [
   //  ProductDeleteDialog,
@@ -39,6 +42,7 @@ import {SmallDescriptionPipe} from './product.pipe';
     ProductsComponent,
     ProductSingleComponent,
     ProductEditComponent,
+    ProductsAdminComponent,
   ],
   exports:      [ ProductsComponent ],
   providers:    [ ProductService ],

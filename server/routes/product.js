@@ -132,49 +132,43 @@ router.get('/page/:page', function (req, res, next) {
   var skip = (itemsPerPage * pageNumber)
   //console.log(req.query.categories)
   var categories = []
-  if(typeof req.query.categories === 'string') {
-    categories = [req.query.categories]
-  } else {
-    categories = req.query.categories
-  }
-  var dateRef = new Date();
-  dateRef.setDate(dateRef.getDate()-60)
   var matchRules = []
+  let searchQuery = {}
 
-  let hasWhatsNewCateg = true
-  categories.forEach(function (categ) {
-    categorie = JSON.parse(categ)
-    if(categorie.name !== 'whatsnew') {
-      hasWhatsNewCateg = false
+
+
+  if(req.query.categories) {
+    if(typeof req.query.categories === 'string') {
+      categories = [req.query.categories]
+    } else {
+      categories = req.query.categories
+    }
+
+    categories.forEach(function (categ) {
+      categorie = JSON.parse(categ)
       if(categorie.name) {
         matchRules.push({
            '$elemMatch': categorie
          })
       }
-    } else {
 
+    })
+    searchQuery['categories'] = {
+       "$all": matchRules
     }
-  })
-
-  let categoriesArray= {
-     "$all": matchRules
-  }
-  let searchQuery = {
-  //  createdAt:{"$lt": dateRef}
-//    categories: categoriesArray,
-  //  createdAt:{"$gt": dateRef},
   }
 
-  if(hasWhatsNewCateg)
-    searchQuery['createdAt'] = {"$gt": dateRef}
 
-  if(!hasWhatsNewCateg)
-    searchQuery['categories'] = categoriesArray
+
+
+
+
+
   if(req.query.search)
     searchQuery['title'] = new RegExp(req.query.search, 'i')
 
-  // console.log(hasWhatsNewCateg)
-  // console.log(searchQuery)
+   //
+  //  console.log(searchQuery)
 
   Product
   .find(searchQuery)

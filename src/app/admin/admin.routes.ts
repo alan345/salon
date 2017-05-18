@@ -4,7 +4,6 @@ import {AdminGuardService} from './services/adminGuard';
 import {AdminUsersComponent} from './user/adminUsers.component';
 import {CompaniesComponent} from './companie/companies.component';
 
-
 export const ADMIN_ROUTES: Routes = [
 
   {path: 'user', component: AdminUsersComponent, canActivate: [AdminGuardService]},
