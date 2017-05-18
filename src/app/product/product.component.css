@@ -1,11 +1,12 @@
 .pdt-tabs .mat-tab-label {
   text-transform: uppercase!important;
-  color: #010870;
+  color: #010870;  
   font-size: 13px !important;
   font-family: inherit !important;
-  padding: 25px 20px !important;
+  padding: 15px !important;
   opacity: 1 !important;
-  height: 60px !important;
+  height: auto !important;
+  width: 185px!important;
   line-height: 1 !important;
   min-width: auto !important;
   background-color: #ffffff;
@@ -139,7 +140,8 @@
   height: auto;
 }
 .hidit {
-  height:0px;
+  opacity: 0;
+  height: 0px;
   -webkit-transition:height, 0.5s linear;
   -moz-transition: height, 0.5s linear;
   -ms-transition: height, 0.5s linear;
@@ -147,6 +149,7 @@
   transition: height, 0.5s linear;
 }
 .hidit.open {
+  opacity: 1;
   -webkit-transition:height, 0.5s linear;
   -moz-transition: height, 0.5s linear;
   -ms-transition: height, 0.5s linear;
