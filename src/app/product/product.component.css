@@ -28,7 +28,6 @@
   padding: 0 15px;
   float: left;
   position: relative;
-  height: 115px;
   width: 100%;
 }
 .product-srchrow {
@@ -138,6 +137,11 @@
 
 /*--------- Hide Filters ----------*/
 
+.filtertoggle {
+  height: auto;
+  padding: 0 15px;
+  min-height: 30px;
+}
 #hidit-ctnr {
   height: auto;
 }
@@ -160,27 +164,6 @@
   -ms-transition: height, 0.5s linear;
   -o-transition: height, 0.5s linear;
   transition: height, 0.5s linear;
-}
-
-@media screen and (min-width: 650px) {
-
-.open {
-  height: 290px;
-}
-}
-
-@media screen and (min-width: 360px) and (max-width: 649px) {
-
-.open {
-  height: 420px;
-}
-}
-
-@media screen and (max-width: 359px) {
-
-.open {
-  height: 600px;
-}
 }
 
 /*--------- Individual product Page ----------*/
