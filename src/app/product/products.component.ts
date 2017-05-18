@@ -51,13 +51,11 @@ export class ProductsComponent implements OnInit {
       name:'subtil',
       selected : false
     }]
+  showFilters : boolean = false
 
   categories2 = ''
 
-  // trackinPage = {
-  //   lastVisitPagePressCount:[],
-  //   lastVisitPageProductCount:[]
-  // }
+
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -68,7 +66,6 @@ export class ProductsComponent implements OnInit {
     private location: Location,
     private authService: AuthService,
     private userService: UserService,
-
   ) {
   }
 
@@ -78,13 +75,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onSelectChange = ($event: any): void => {
-//    console.log($event)
     this.categories2 = $event.tab.textLabel
     this.updateCategerories()
-    // this.search.categories = []
-    // this.search.categories.push({name:$event.tab.textLabel})
-    // this.getProducts(this.paginationData.currentPage, this.search)
-
   }
 
   updateCategerories(){
@@ -117,7 +109,9 @@ export class ProductsComponent implements OnInit {
     this.updateCategerories()
     // this.search.categories.pop()
   }
-
+  toogleFilters() {
+    this.showFilters = !this.showFilters
+  }
   onDelete(id: string) {
     this.productService.deleteProduct(id)
       .subscribe(
