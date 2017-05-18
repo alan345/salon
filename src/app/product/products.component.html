@@ -75,7 +75,6 @@
             <div class="pdt-tagz">{{categorie.name}}</div>
           </div>
 
-
           <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">
             <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdt-img">
               <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
