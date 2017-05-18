@@ -25,7 +25,7 @@ module.exports = {
         access_token_secret: 'v2cd0wqqwe4i0tkd08x99tnjvncj9dwo'
       }
     }
-  }
+  },
   'urlServerMagento' : 'http://52.2.61.43/'
 
 };
