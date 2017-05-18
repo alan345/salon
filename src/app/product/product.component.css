@@ -71,6 +71,9 @@
     background-color: #0a2f87 !important;
     color: #ffffff !important;
 }
+.bigcat-btn {
+    border-left: 1px solid #0a2f87;
+}
 .product-catrow {
     padding: 15px 0;
     max-width: 100% !important;
