@@ -21,7 +21,7 @@ import {Ng2PaginationModule} from 'ng2-pagination';
     VideoRouting,
     CommonModule,
     FormsModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     Ng2PaginationModule,
     ReactiveFormsModule,
   ],

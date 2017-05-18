@@ -23,7 +23,7 @@ import {SmallDescriptionPipe} from './product.pipe';
     ProductRouting,
     CommonModule,
     FormsModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     Ng2PaginationModule,
     ReactiveFormsModule,
   ],

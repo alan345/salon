@@ -277,7 +277,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FormsModule,
     Ng2PaginationModule,
     NgbModule.forRoot(),
-    MaterialModule.forRoot(),
+    MaterialModule,
     VideoModule,
     ProductModule,
 
