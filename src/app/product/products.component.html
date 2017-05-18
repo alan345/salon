@@ -56,20 +56,20 @@
     </div>
   </div>
   <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdt-tabs">
-    <md-tab label="conditioners & masks" textLabel="whatsnew"></md-tab>
-    <md-tab label="diateray supplements" textLabel="treatments"></md-tab>
-    <md-tab label="leave-in care" textLabel="knowledges"></md-tab>
-    <md-tab label="relaxers" textLabel="testimonials"></md-tab>
-    <md-tab label="styling" textLabel="merchandising"></md-tab>
-    <md-tab label="serums" textLabel="promotions"></md-tab>
-    <md-tab label="shampoos" textLabel="promotions"></md-tab>
-    <md-tab label="treatments" textLabel="promotions"></md-tab>
+    <md-tab label="conditioners & masks" textLabel="conditionersMasks"></md-tab>
+    <md-tab label="diateray supplements" textLabel="diateraySupplements"></md-tab>
+    <md-tab label="leave-in care" textLabel="leaveInCare"></md-tab>
+    <md-tab label="relaxers" textLabel="relaxers"></md-tab>
+    <md-tab label="styling" textLabel="styling"></md-tab>
+    <md-tab label="serums" textLabel="serums"></md-tab>
+    <md-tab label="shampoos" textLabel="shampoos"></md-tab>
+    <md-tab label="treatments" textLabel="treatments"></md-tab>
   </md-tab-group>
   <table class="table table-hover table-responsive table-condensed pdt-tbl">
     <tbody>
       <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="pdt-ctnr">
           <td class="pdt-cnt">
-            <a href="#">
+            <a [routerLink]="['/product/' + product._id]">
               <div class="pdt-nm">{{product.magento.name}}</div>
               <div *ngFor="let custom_attribute of product.magento.custom_attributes">
                 <div *ngIf="custom_attribute.attribute_code == 'description'">
@@ -84,9 +84,9 @@
             </a>
             <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">
               <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdt-img">
-                <a href="#"><img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'"></a>
+                <a [routerLink]="['/product/' + product._id]"><img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'"></a>
               </div>
-              <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/product/productSingle/' + product._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+              <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/product/productEdit/' + product._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
             </div>
           </td>
         <td><a [routerLink]="['/product/' + product._id]" routerLinkActive="active">{{product.email}}</a></td>

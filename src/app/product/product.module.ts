@@ -7,9 +7,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 //import {ProductDeleteDialog} from './productDeleteDialog.component';
 //import {ProductWhereDialogComponent} from './productWhereDialog.component';
 
+
 import {ProductComponent} from './product.component';
 import {ProductsComponent} from './products.component';
 import {ProductSingleComponent} from './productSingle.component';
+import {ProductEditComponent} from './productEdit.component';
+
+
 import {ProductService} from './product.service';
 import {ProductRouting} from './productRouting.module';
 
@@ -34,6 +38,7 @@ import {SmallDescriptionPipe} from './product.pipe';
     ProductComponent,
     ProductsComponent,
     ProductSingleComponent,
+    ProductEditComponent,
   ],
   exports:      [ ProductsComponent ],
   providers:    [ ProductService ],

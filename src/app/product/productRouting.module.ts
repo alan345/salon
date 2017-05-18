@@ -7,14 +7,17 @@ import {AppComponent} from '../app.component';
 
 import {ProductsComponent} from './products.component';
 import {ProductSingleComponent} from './productSingle.component';
+import {ProductEditComponent} from './productEdit.component';
 //import {NewProductComponent} from './newProduct.component';
 
 
 export const routes: Routes = [
   {path: '', component: ProductsComponent},
-  {path: 'productSingle', component: ProductSingleComponent},
-  {path: 'productSingle/:id', component: ProductSingleComponent},
   {path: ':id', component: ProductSingleComponent},
+//  {path: 'productEdit', component: ProductEditComponent},
+  {path: 'productEdit/:id', component: ProductEditComponent},
+
+
 ];
 
 @NgModule({
