@@ -110,6 +110,8 @@
 .pdt-tagz {
   position: absolute;
   bottom: 35px;
+}
+.pdt-tag {
   font-style: italic;
   color: #999999;
 }
