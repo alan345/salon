@@ -39,7 +39,9 @@
 
 
       <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdt-tabs">
-        <md-tab *ngFor="let categorie of categories5" [label]="categorie.name"></md-tab>
+        <md-tab *ngFor="let categorie of categories5" [label]="categorie.name">
+          Hey !! {{categorie.name}}
+        </md-tab>
       </md-tab-group>
 
     <div class="valid-edit">
