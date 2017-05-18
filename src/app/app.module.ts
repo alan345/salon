@@ -8,7 +8,7 @@ import {AppComponent} from './app.component';
 import { MaterialModule } from '@angular/material';
 import {Ng2PaginationModule} from 'ng2-pagination';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+//import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ProgressBarModule} from 'ng2-progress-bar';
 import {RouterModule} from '@angular/router';
 import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
@@ -276,7 +276,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ProgressBarModule,
     FormsModule,
     Ng2PaginationModule,
-    NgbModule.forRoot(),
+//    NgbModule.forRoot(),
     MaterialModule,
     VideoModule,
     ProductModule,
