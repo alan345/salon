@@ -39,21 +39,34 @@ export class ProductsComponent implements OnInit {
     totalItems: 0
   };
 
-  categories1 = [{
-      name:'phyto',
-      selected : false
-    },
-    {
-      name:'phytoSpecific',
-      selected : false
-    },
-    {
-      name:'subtil',
-      selected : false
-    }]
+  categories3 = [
+    { name:'COLORED', selected : false},
+    { name:'FINE', selected : false },
+    { name:'GRAY/PLATINUM', selected : false },
+    { name:'CURLY', selected : false },
+    { name:'NORMAL', selected : false },
+    { name:'RELAXED', selected : false },
+    { name:'UNRULY', selected : false },
+  ]
+
+
+
+  categories4 = [
+    { name:'DAMAGED', selected : false},
+    { name:'AGING', selected : false },
+    { name:'DRY', selected : false },
+    { name:'DANDRUFF', selected : false },
+    { name:'UNBALANCED SCALP', selected : false },
+    { name:'SENSITIVE SCALP', selected : false },
+    { name:'THINNING', selected : false },
+    { name:'LIFE-STRESSED', selected : false },
+  ]
+
+
   showFilters : boolean = false
 
   categories2 = ''
+  categories1 = ''
 
 
 
@@ -78,27 +91,45 @@ export class ProductsComponent implements OnInit {
     this.categories2 = $event.tab.textLabel
     this.updateCategerories()
   }
+  onSelectChange1 = ($event: any): void => {
+    this.categories1 = $event.tab.textLabel
+    this.updateCategerories()
+  }
 
   updateCategerories(){
     this.search.categories = []
     this.search.categories.push({name:this.categories2})
+    this.search.categories.push({name:this.categories1})
     // if(this.inputSearch)
     //   this.search.categories.push({name:this.inputSearch})
-    this.categories1.forEach((categorie1)=>{
-      if(categorie1.selected == true) {
-        this.search.categories.push({name : categorie1.name})
+    this.categories3.forEach((categorie3)=>{
+      if(categorie3.selected == true) {
+        this.search.categories.push({name : categorie3.name})
       }
     })
-//    console.log(this.search.categories)
+
+    this.categories4.forEach((categorie4)=>{
+      if(categorie4.selected == true) {
+        this.search.categories.push({name : categorie4.name})
+      }
+    })
+
     this.fetchedProducts = []
     this.getProducts(1, this.search)
   }
 
-  changeCateg1(nameCateg){
-    //this.categories1[nameCateg] = !this.categories1[nameCateg]
-    this.categories1.forEach((categ, index)=>{
+  changeCateg3(nameCateg : string){
+    this.categories3.forEach((categ, index)=>{
       if(categ.name === nameCateg) {
-        this.categories1[index].selected = !this.categories1[index].selected
+        this.categories3[index].selected = !this.categories3[index].selected
+      }
+    })
+    this.updateCategerories()
+  }
+  changeCateg4(nameCateg : string){
+    this.categories4.forEach((categ, index)=>{
+      if(categ.name === nameCateg) {
+        this.categories4[index].selected = !this.categories4[index].selected
       }
     })
     this.updateCategerories()
@@ -192,6 +223,7 @@ export class ProductsComponent implements OnInit {
     //   },
     //   error => console.log(error)
     // )
+    this.categories1 = 'phyto'
     this.categories2 = 'whatsnew'
     this.updateCategerories()
   }

@@ -5,13 +5,17 @@
   </div>
   <div>
     <div class="prdts-ln">
-      <div *ngFor="let categorie1 of categories1">
-        <button
-          [ngClass]="{'bigcat-btn-on':categorie1.selected,'bigcat-btn':!categorie1.selected}"
-          (click)="changeCateg1(categorie1.name)"
-          >{{categorie1.name}}
-        </button>
-      </div>
+
+      <md-tab-group (selectChange)="onSelectChange1($event)" class="beigeback phyto-ctnr pdt-tabs">
+        <md-tab label="phyto" textLabel="phyto"></md-tab>
+        <md-tab label="phytoSpecific" textLabel="phytoSpecific"></md-tab>
+        <md-tab label="subtil" textLabel="subtil"></md-tab>
+      </md-tab-group>
+
+
+
+
+
     </div>
     <div class="subsubnav-product beigeback">
       <div class="product-srchrow">
@@ -32,24 +36,41 @@
           <p>Filter Your Search (Tap to Select):</p>
           <div class="phyto-ctnr">
             <h4>Hair Type</h4>
-            <button class="cat-btn">colored</button>
+
+            <div *ngFor="let categorie3 of categories3">
+              <button
+                [ngClass]="{'cat-btn-on':categorie3.selected,'cat-btn':!categorie3.selected}"
+                (click)="changeCateg3(categorie3.name)"
+                >{{categorie3.name}}
+              </button>
+            </div>
+
+            <!-- <button class="cat-btn">colored</button>
             <button class="cat-btn">fine</button>
             <button class="cat-btn">gray/platinum</button>
             <button class="cat-btn">curly</button>
             <button class="cat-btn">normal</button>
             <button class="cat-btn">relaxed</button>
-            <button class="cat-btn">unruly</button>
+            <button class="cat-btn">unruly</button> -->
           </div>
           <div class="phyto-ctnr">
             <h4>Concerns</h4>
-            <button class="cat-btn">damaged</button>
+            <div *ngFor="let categorie4 of categories4">
+              <button
+                [ngClass]="{'cat-btn-on':categorie4.selected,'cat-btn':!categorie4.selected}"
+                (click)="changeCateg4(categorie4.name)"
+                >{{categorie4.name}}
+              </button>
+            </div>
+
+            <!-- <button class="cat-btn">damaged</button>
             <button class="cat-btn">aging</button>
             <button class="cat-btn">dry</button>
             <button class="cat-btn">dandruff</button>
             <button class="cat-btn">unbalanced scalp</button>
             <button class="cat-btn">sensitive scalp</button>
             <button class="cat-btn">thinning</button>
-            <button class="cat-btn">life-stressed</button>
+            <button class="cat-btn">life-stressed</button> -->
           </div>
         </div>
       </div>
