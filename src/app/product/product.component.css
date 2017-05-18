@@ -181,6 +181,7 @@
 
 .magento-info {
   position: relative;
+  border-bottom: 1px solid #999999;
 }
 .magento-img img {
   height: 200px;
@@ -247,7 +248,8 @@
   right: 15px;
 }
 .magento-info {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 .magento-desc {
   width: 50%;
@@ -275,7 +277,8 @@ label.pdt-lableft {
   left: 15px;
 }
 .magento-info {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
 }
 .magento-img img {
   margin-top: 30px;
