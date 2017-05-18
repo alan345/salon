@@ -63,7 +63,7 @@
       <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="pdt-ctnr">
         <td class="pdt-cnt">
           <p class="dspl-nn">{{product._id}}</p>
-          <div class="pdt-nm">Product Name Here</div>
+          <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
           <div class="pdt-desc">This is the product description no more than 90 characters"</div>
           <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">
             <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdt-img">
