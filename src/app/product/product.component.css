@@ -80,6 +80,7 @@
 }
 .pdt-cnt {
   background-color: #ffffff;
+  padding: 15px !important;
 }
 .pdt-cnt .editicon {
   padding-top: 10px !important;
@@ -102,6 +103,12 @@
     width: 50%;
     float: right;
     margin-top: 30px;
+}
+.pdt-tagz {
+  position: absolute;
+  bottom: 35px;
+  font-style: italic;
+  color: #999999;
 }
 .lft-form, .rght-form {
     margin-bottom: 15px;
