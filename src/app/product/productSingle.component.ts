@@ -41,6 +41,15 @@ export class ProductSingleComponent implements OnInit {
       custom_attributes: [],
     }
   }
+
+  categories5 = [
+    { name:'Benefits & Results', selected : false},
+    { name:'How to apply', selected : false },
+    { name:'Active Ingredients', selected : false },
+
+  ]
+
+
   categoriesHard2 = [
     // {
     //   name:'whatsnew',
@@ -120,6 +129,9 @@ export class ProductSingleComponent implements OnInit {
     })
   }
 
+  onSelectChange = ($event: any): void => {
+    //
+  }
 
   removeCategorie(i: number) {
       this.fetchedProduct.categories.splice(i, 1)

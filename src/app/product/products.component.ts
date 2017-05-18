@@ -195,17 +195,6 @@ export class ProductsComponent implements OnInit {
           this.paginationData = res.paginationData;
           let fetchedProductsNotSecure =  res.data
           fetchedProductsNotSecure.forEach((product) => {
-            //isNewProduct = false
-            //product['embedSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + product['embed'])
-            // product['embedSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/product/' + product['embed'] )
-            //
-            //
-            //
-            // product['isNewProduct'] = false
-            // this.trackinPage.lastVisitPageProductCount.forEach(productNotRead => {
-            //     if(productNotRead._id == product._id)
-            //       product['isNewProduct'] = true
-            // })
             this.fetchedProducts.push(product)
           })
           this.loading = false;
