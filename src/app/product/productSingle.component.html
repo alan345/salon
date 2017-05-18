@@ -20,12 +20,15 @@
               <div *ngIf="custom_attribute.attribute_code == 'description'" class="magento-desc">
                 {{custom_attribute.value}}
               </div>
+            </div>
+            <h4>Other Information (Not Visible):</h4>
+            <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
               <div *ngIf="custom_attribute.attribute_code == 'country_of_manufacture'">
                 {{custom_attribute.value}}
               </div>
-              <!--<div *ngIf="custom_attribute.attribute_code == 'url_path'">
+              <div *ngIf="custom_attribute.attribute_code == 'url_path'">
                 {{custom_attribute.value}}
-              </div>-->
+              </div>
               <div *ngIf="custom_attribute.attribute_code == 'image'" class="magento-img">
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
