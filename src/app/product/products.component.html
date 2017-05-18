@@ -5,11 +5,9 @@
   </div>
   <div>
     <div class="prdts-ln">
-
       <md-tab-group (selectChange)="onSelectChange1($event)" class="beigeback phyto-ctnr pdt-tabs">
         <md-tab *ngFor="let categorieHard1 of categoriesHard1" [label]="categorieHard1.name"></md-tab>
       </md-tab-group>
-
     </div>
     <div class="subsubnav-product beigeback">
       <div class="product-srchrow">
@@ -21,19 +19,15 @@
           >
         </div>
       </div>
+    </div>
+    <div class="phyto-ctnr beigeback filtertoggle">
       <button (click)="toogleFilters()" class="ctrl-hidit"><i class="fa fa-chevron-down"></i> OPEN FILTERS</button>
-
-      <br><br><br><br><br><br><br> <!-- added to avoid css bug where button is not clicable. you can remove this-->
-
-
-
       <div [ngClass]="{'open phyto-ctnr': showFilters, 'hidit phyto-ctnr': !showFilters }" >
         <!-- <div class="hidit phyto-ctnr"> -->
         <div class="phyto-ctnr">
           <p>Filter Your Search (Tap to Select):</p>
           <div class="phyto-ctnr">
             <h4>Hair Type</h4>
-
             <div *ngFor="let categorie3 of categories3">
               <button
                 [ngClass]="{'cat-btn-on':categorie3.selected,'cat-btn':!categorie3.selected}"
@@ -41,14 +35,6 @@
                 >{{categorie3.name}}
               </button>
             </div>
-
-            <!-- <button class="cat-btn">colored</button>
-            <button class="cat-btn">fine</button>
-            <button class="cat-btn">gray/platinum</button>
-            <button class="cat-btn">curly</button>
-            <button class="cat-btn">normal</button>
-            <button class="cat-btn">relaxed</button>
-            <button class="cat-btn">unruly</button> -->
           </div>
           <div class="phyto-ctnr">
             <h4>Concerns</h4>
@@ -59,15 +45,6 @@
                 >{{categorie4.name}}
               </button>
             </div>
-
-            <!-- <button class="cat-btn">damaged</button>
-            <button class="cat-btn">aging</button>
-            <button class="cat-btn">dry</button>
-            <button class="cat-btn">dandruff</button>
-            <button class="cat-btn">unbalanced scalp</button>
-            <button class="cat-btn">sensitive scalp</button>
-            <button class="cat-btn">thinning</button>
-            <button class="cat-btn">life-stressed</button> -->
           </div>
         </div>
       </div>
