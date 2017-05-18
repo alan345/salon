@@ -68,17 +68,28 @@
     flex-wrap: wrap !important;
 }
 .pdt-tbl {
-    margin: 0 !important;
+  margin: 0 !important;
+  background-color: #efe9df;
 }
-.pdt-cnt {
-    padding-bottom: 30px !important;
+.pdt-ctnr {
+  padding: 2.5px;
+  position: relative;
 }
 .pdt-ctnr:hover {
-    background: none !important;
+  background: none !important;
 }
 .pdt-cnt .editicon {
-    padding-top: 10px !important;
+  padding-top: 10px !important;
+  right: 3px !important;
+  left: inherit !important;
 }
+.pdt-nm {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: #1c1c1c;
+}
+
+
 .lft-form, .rght-form {
     margin-bottom: 15px;
 }
