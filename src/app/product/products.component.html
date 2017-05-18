@@ -80,27 +80,29 @@
   <table class="table table-hover table-responsive table-condensed pdt-tbl">
     <tbody>
       <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="pdt-ctnr">
-          <td class="pdt-cnt">
-            <a [routerLink]="['/product/' + product._id]">
-              <div class="pdt-nm">{{product.magento.name}}</div>
-              <div *ngFor="let custom_attribute of product.magento.custom_attributes">
-                <div *ngIf="custom_attribute.attribute_code == 'description'">
-                  <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
-                </div>
+        <td class="pdt-cnt">
+          <a [routerLink]="['/product/' + product._id]">
+            <div class="pdt-nm">{{product.magento.name}}</div>
+            <div *ngFor="let custom_attribute of product.magento.custom_attributes">
+              <div *ngIf="custom_attribute.attribute_code == 'description'">
+                <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
               </div>
-              <div class="pdt-tagzctnr">
-                <div *ngFor="let categorie of product.categories" class="pdt-tagz">
+            </div>
+            <div class="pdt-tagzctnr">
+              <div *ngFor="let categorie of product.categories" class="pdt-tagz">
+                <div *ngIf="categorie.type == 'tag'">
                   <div class="pdt-tag">{{categorie.name}},</div>
                 </div>
               </div>
-            </a>
-            <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">
-              <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdt-img">
-                <a [routerLink]="['/product/' + product._id]"><img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'"></a>
-              </div>
-              <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/product/productEdit/' + product._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
             </div>
-          </td>
+          </a>
+          <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">
+            <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdt-img">
+              <a [routerLink]="['/product/' + product._id]"><img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'"></a>
+            </div>
+            <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/product/productEdit/' + product._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+          </div>
+        </td>
         <td><a [routerLink]="['/product/' + product._id]" routerLinkActive="active">{{product.email}}</a></td>
       </tr>
     </tbody>
