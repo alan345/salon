@@ -37,20 +37,16 @@ export class VideoSingleComponent implements OnInit {
     owner: []
   }
   categoriesHard2 = [
-    // {
-    //   name:'whatsnew',
-    //   selected : false
-    // },
     {
-      name:'treatments',
+      name:'throughYourEyes',
       selected : false
     },
     {
-      name:'knowledges',
+      name:'howTo',
       selected : false
     },
     {
-      name:'testimonials',
+      name:'fashion',
       selected : false
     },
     {
@@ -58,10 +54,12 @@ export class VideoSingleComponent implements OnInit {
       selected : false
     },
     {
-      name:'promotions',
+      name:'behindTheSceneTestimonials',
       selected : false
     }
   ]
+
+
 
   categoriesHard1 = [{
       name:'phyto',
