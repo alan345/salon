@@ -24,42 +24,45 @@
           >
         </div>
       </div>
-      <div class="phyto-ctnr">
-        <h3>Hair Type</h3>
-        <button class="cat-btn">colored</button>
-        <button class="cat-btn">fine</button>
-        <button class="cat-btn">gray/platinum</button>
-        <button class="cat-btn">curly</button>
-        <button class="cat-btn">normal</button>
-        <button class="cat-btn">relaxed</button>
-        <button class="cat-btn">unruly</button>
-      </div>
-      <div class="phyto-ctnr">
-        <h3>Concerns</h3>
-        <button class="cat-btn">damaged</button>
-        <button class="cat-btn">aging</button>
-        <button class="cat-btn">dry</button>
-        <button class="cat-btn">dandruff</button>
-        <button class="cat-btn">unbalanced scalp</button>
-        <button class="cat-btn">sensitive scalp</button>
-        <button class="cat-btn">thinning</button>
-        <button class="cat-btn">life-stressed</button>
+      <div class="hidit">
+        <p>Filter Your Search (Tap to Select):</p>
+        <div class="phyto-ctnr">
+          <h3>Hair Type</h3>
+          <button class="cat-btn">colored</button>
+          <button class="cat-btn">fine</button>
+          <button class="cat-btn">gray/platinum</button>
+          <button class="cat-btn">curly</button>
+          <button class="cat-btn">normal</button>
+          <button class="cat-btn">relaxed</button>
+          <button class="cat-btn">unruly</button>
+        </div>
+        <div class="phyto-ctnr">
+          <h3>Concerns</h3>
+          <button class="cat-btn">damaged</button>
+          <button class="cat-btn">aging</button>
+          <button class="cat-btn">dry</button>
+          <button class="cat-btn">dandruff</button>
+          <button class="cat-btn">unbalanced scalp</button>
+          <button class="cat-btn">sensitive scalp</button>
+          <button class="cat-btn">thinning</button>
+          <button class="cat-btn">life-stressed</button>
+        </div>
       </div>
     </div>
   </div>
   <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdt-tabs">
-    <md-tab label="conditioners & masks" textLabel="whatsnew" class="pdt-tab"></md-tab>
-    <md-tab label="treatments" textLabel="treatments" class="pdt-tab"></md-tab>
-    <md-tab label="knowledges" textLabel="knowledges" class="pdt-tab"></md-tab>
-    <md-tab label="testimonials" textLabel="testimonials" class="pdt-tab"></md-tab>
-    <md-tab label="merchandising" textLabel="merchandising" class="pdt-tab"></md-tab>
-    <md-tab label="promotions" textLabel="promotions" class="pdt-tab"></md-tab>
+    <md-tab label="conditioners & masks" textLabel="whatsnew"></md-tab>
+    <md-tab label="diateray supplements" textLabel="treatments"></md-tab>
+    <md-tab label="leave-in care" textLabel="knowledges"></md-tab>
+    <md-tab label="relaxers" textLabel="testimonials"></md-tab>
+    <md-tab label="styling" textLabel="merchandising"></md-tab>
+    <md-tab label="serums" textLabel="promotions"></md-tab>
   </md-tab-group>
   <table class="table table-hover table-responsive table-condensed pdt-tbl">
     <tbody>
       <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="pdt-ctnr">
         <td class="pdt-cnt">
-          <p>{{product._id}}</p>
+          <p class="dspl-nn">{{product._id}}</p>
           <div class="pdt-nm">Product Name Here</div>
           <div class="pdt-desc">This is the product description no more than 90 characters"</div>
           <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">
