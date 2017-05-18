@@ -79,7 +79,7 @@
   background: none !important;
 }
 .pdt-cnt {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 .pdt-cnt .editicon {
   padding-top: 10px !important;
@@ -89,7 +89,10 @@
 .pdt-nm {
   font-family: 'Playfair Display', serif;
   font-style: italic;
+  font-weight: 600;
+  font-size: 16px;
   color: #1c1c1c;
+  padding-bottom: 15px;
 }
 .pdt-desc {
     color: #0a2f87;
