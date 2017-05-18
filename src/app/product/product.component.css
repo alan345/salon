@@ -75,6 +75,7 @@
   padding: 5px 2.5px 0;
   position: relative;
   height: 305px;
+  background-color: #efe9df;
 }
 .pdt-ctnr:hover {
   background: none !important;
@@ -87,6 +88,7 @@
 .pdt-cnt .editicon {
   padding-top: 10px !important;
   right: 3px !important;
+  top: 5px !important;
   left: inherit !important;
 }
 .pdt-nm {
@@ -119,6 +121,51 @@
   font-style: italic;
   color: #999999;
 }
+
+/*--------- Hide Filters ----------*/
+
+#hidit-ctnr {
+  height: auto;
+}
+.hidit {
+  height:0px;
+  -webkit-transition:height, 0.5s linear;
+  -moz-transition: height, 0.5s linear;
+  -ms-transition: height, 0.5s linear;
+  -o-transition: height, 0.5s linear;
+  transition: height, 0.5s linear;
+}
+.hidit.open {
+  -webkit-transition:height, 0.5s linear;
+  -moz-transition: height, 0.5s linear;
+  -ms-transition: height, 0.5s linear;
+  -o-transition: height, 0.5s linear;
+  transition: height, 0.5s linear;
+}
+
+@media screen and (min-width: 650px) {
+
+.hidit.open {
+  height: 290px;
+}
+}
+
+@media screen and (min-width: 360px) and (max-width: 649px) {
+
+.hidit.open {
+  height: 420px;
+}
+}
+
+@media screen and (max-width: 359px) {
+
+.hidit.open {
+  height: 600px;
+}
+}
+
+/*--------- Individual product Page ----------*/
+
 .lft-form, .rght-form {
     margin-bottom: 15px;
 }
