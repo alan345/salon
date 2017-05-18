@@ -15,6 +15,8 @@ import {ProductRouting} from './productRouting.module';
 
 import { MaterialModule } from '@angular/material';
 import {Ng2PaginationModule} from 'ng2-pagination';
+import {SmallDescriptionPipe} from './product.pipe';
+
 
 @NgModule({
   imports:      [
@@ -28,6 +30,7 @@ import {Ng2PaginationModule} from 'ng2-pagination';
   declarations: [
   //  ProductDeleteDialog,
   //  ProductWhereDialogComponent,
+    SmallDescriptionPipe,
     ProductComponent,
     ProductsComponent,
     ProductSingleComponent,

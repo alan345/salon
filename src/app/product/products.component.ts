@@ -14,6 +14,7 @@ import {ViewEncapsulation} from '@angular/core'
 import { UserService} from '../user/user.service';
 
 
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -23,7 +24,7 @@ import { UserService} from '../user/user.service';
 })
 export class ProductsComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
-  fetchedProducts : Array<ProductsComponent> = [];
+  fetchedProducts : Product[] = [];
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
   search = {
     categories : [],
