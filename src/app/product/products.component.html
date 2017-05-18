@@ -64,16 +64,15 @@
         <td class="pdt-cnt">
           <p class="dspl-nn">{{product._id}}</p>
 
-          <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
+          <div class="pdt-nm">{{product.magento.name}}</div>
 
           <div *ngFor="let custom_attribute of product.magento.custom_attributes">
             <div *ngIf="custom_attribute.attribute_code == 'description'">
-              {{custom_attribute.value|smallDescription}}
+              <div class="pdt-desc">{{custom_attribute.value|smallDescription}}</div>
             </div>
           </div>
 
-                    
-          <div class="pdt-desc">This is the product description no more than 90 characters"</div>
+
           <div class="pdt-tagz">tags, for, the, product</div>
 
           <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">

@@ -10,9 +10,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 */
 @Pipe({name: 'smallDescription'})
 export class SmallDescriptionPipe implements PipeTransform {
-  transform(value: number, exponent: string): string {
-    let exp = parseFloat(exponent);
+  transform(description: string): string {
+
     //return Math.pow(value, isNaN(exp) ? 1 : exp);
-    return 'description'
+    return description.substring(0,90) + '...' 
   }
 }
