@@ -37,6 +37,19 @@
         </div>
       </div>
       <div class="lft-form">
+
+
+        <label>Select categoriesHard1 :</label>
+        <div *ngFor="let categorieHard of categoriesHard1; let i=index">
+          <md-checkbox
+            (click)="togglCategorieButton(categorieHard.name, 'categ1')"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="categoriesHard1[i].selected"
+          ></md-checkbox>
+          {{categorieHard.name}}
+        </div>
+
+
         <label>Select Categories For This Product:</label>
         <div *ngFor="let categorieHard of categoriesHard2; let i=index">
           <md-checkbox
@@ -46,6 +59,8 @@
           ></md-checkbox>
           {{categorieHard.name}}
         </div>
+
+
         <label>Hair Type - categ3:</label>
         <div *ngFor="let categorie of categories3; let i=index">
           <md-checkbox

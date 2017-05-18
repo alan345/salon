@@ -39,6 +39,25 @@ export class ProductsComponent implements OnInit {
     totalItems: 0
   };
 
+
+  categoriesHard1 = [
+    { name:'Phyto', selected : false },
+    { name:'Phyto Specific', selected : false },
+    { name:'Subtil', selected : false }
+  ]
+
+
+  categoriesHard2 = [
+    { name:'Conditioners & masks', selected : false },
+    { name:'Diateray supplements', selected : false },
+    { name:'Leave-in care', selected : false },
+    { name:'Relaxers', selected : false },
+    { name:'Styling', selected : false },
+    { name:'Serums', selected : false },
+    { name:'Shampoos', selected : false },
+    { name:'Treatments', selected : false }
+  ]
+
   categories3 = [
     { name:'COLORED', selected : false},
     { name:'FINE', selected : false },
@@ -198,33 +217,8 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // let userId = this.authService.currentUser.userId
-    // this.productService.countNewItemForUser()
-    // .subscribe(
-    //   data => {
-    //     this.trackinPage.lastVisitPageProductCount = data.item
-    //     this.userService.getUser(userId)
-    //     .subscribe(
-    //     res => {
-    //       res.user.trackinPage.lastVisitPageProduct = new Date()
-    //       this.userService.updateUser(res.user)
-    //         .subscribe(
-    //           res => {},
-    //           error => {
-    //             console.log(error);
-    //           }
-    //         )
-    //     },
-    //     error => {
-    //       console.log(error);
-    //     }
-    //     )
-    //
-    //   },
-    //   error => console.log(error)
-    // )
-    this.categories1 = 'phyto'
-    this.categories2 = 'whatsnew'
+    this.categories1 = this.categoriesHard1[0].name
+    this.categories2 = this.categoriesHard2[0].name
     this.updateCategerories()
   }
 

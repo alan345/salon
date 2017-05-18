@@ -7,14 +7,8 @@
     <div class="prdts-ln">
 
       <md-tab-group (selectChange)="onSelectChange1($event)" class="beigeback phyto-ctnr pdt-tabs">
-        <md-tab label="phyto" textLabel="phyto"></md-tab>
-        <md-tab label="phytoSpecific" textLabel="phytoSpecific"></md-tab>
-        <md-tab label="subtil" textLabel="subtil"></md-tab>
+        <md-tab *ngFor="let categorieHard1 of categoriesHard1" [label]="categorieHard1.name"></md-tab>
       </md-tab-group>
-
-
-
-
 
     </div>
     <div class="subsubnav-product beigeback">
@@ -79,15 +73,9 @@
       </div>
     </div>
   </div>
+
   <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdt-tabs">
-    <md-tab label="conditioners & masks" textLabel="conditionersMasks"></md-tab>
-    <md-tab label="diateray supplements" textLabel="diateraySupplements"></md-tab>
-    <md-tab label="leave-in care" textLabel="leaveInCare"></md-tab>
-    <md-tab label="relaxers" textLabel="relaxers"></md-tab>
-    <md-tab label="styling" textLabel="styling"></md-tab>
-    <md-tab label="serums" textLabel="serums"></md-tab>
-    <md-tab label="shampoos" textLabel="shampoos"></md-tab>
-    <md-tab label="treatments" textLabel="treatments"></md-tab>
+    <md-tab *ngFor="let categorieHard2 of categoriesHard2" [label]="categorieHard2.name"></md-tab>
   </md-tab-group>
   <table class="table table-hover table-responsive table-condensed pdt-tbl">
     <tbody>
