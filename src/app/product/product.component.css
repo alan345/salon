@@ -1,4 +1,4 @@
-.vid-tabs .mat-tab-label {
+.pdt-tabs .mat-tab-label {
   text-transform: uppercase!important;
   color: #010870 !important;
   font-size: 13px !important;
@@ -10,19 +10,19 @@
   min-width: auto !important;
   background-color: #efe9df !important;
 }
-.vid-tabs .mat-tab-label-active {
+.pdt-tabs .mat-tab-label-active {
   background-color: #ffffff !important;
 }
-.vid-tabs .mat-tab-header, .vid-tabs .mat-tab-nav-bar {
+.pdt-tabs .mat-tab-header, .pdt-tabs .mat-tab-nav-bar {
   border: none !important;
 }
-.vid-tabs .mat-tab-labels {
+.pdt-tabs .mat-tab-labels {
     background-color: #efe9df !important;
 }
-.vid-tabs .mat-tab-label:hover, .vid-tabs .mat-tab-label:active, .vid-tabs .mat-tab-label:focus {
+.pdt-tabs .mat-tab-label:hover, .pdt-tabs .mat-tab-label:active, .pdt-tabs .mat-tab-label:focus {
   background-color: #ffffff !important;
 }
-.vid-tabs .mat-ink-bar {
+.pdt-tabs .mat-ink-bar {
     display: none !important;
 }
 .subsubnav-product {
@@ -128,7 +128,7 @@
     width: 100%;
     float: left;
 }
-.pdt-ctnr, .lft-form, .rght-form, label.vid-lableft {
+.pdt-ctnr, .lft-form, .rght-form, label.pdt-lableft {
     width: 50%;
     float: left;
 }
@@ -140,7 +140,7 @@
     float: left;
     width: 100%;
 }
-label.vid-lableft {
+label.pdt-lableft {
     display: block;
 }
 }
