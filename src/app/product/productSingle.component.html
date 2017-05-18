@@ -15,8 +15,8 @@
             {{fetchedProduct.magento.price}}$
             <h4>Product SKU (Not Visible):</h4>
             {{fetchedProduct.magento.sku}}
+            <h4>Product Description:</h4>
             <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
-              <h4>Product Description:</h4>
               <div *ngIf="custom_attribute.attribute_code == 'description'" class="magento-desc">
                 {{custom_attribute.value}}
               </div>
