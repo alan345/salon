@@ -78,6 +78,9 @@
 .pdt-ctnr:hover {
   background: none !important;
 }
+.pdt-cnt {
+    background-color: #ffffff;
+}
 .pdt-cnt .editicon {
   padding-top: 10px !important;
   right: 3px !important;
@@ -88,8 +91,15 @@
   font-style: italic;
   color: #1c1c1c;
 }
-
-
+.pdt-desc {
+    color: #0a2f87;
+    font-weight: 600;
+}
+.pdt-img img {
+    width: 50%;
+    float: right;
+    margin-top: 30px;
+}
 .lft-form, .rght-form {
     margin-bottom: 15px;
 }
