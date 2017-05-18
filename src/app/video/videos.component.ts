@@ -52,6 +52,15 @@ export class VideosComponent implements OnInit {
 
   categories2 = ''
 
+
+  categoriesHard2 = [
+    { name:'Through your eyes', selected : false },
+    { name:'How to', selected : false },
+    { name:'Fashion', selected : false },
+    { name:'Merchandising', selected : false },
+    { name:'Behind the Scene & Testimonials', selected : false }
+  ]
+
   trackinPage = {
     lastVisitPagePressCount:[],
     lastVisitPageVideoCount:[]
@@ -196,7 +205,7 @@ export class VideosComponent implements OnInit {
       },
       error => console.log(error)
     )
-    this.categories2 = 'whatsnew'
+    this.categories2 = 'what\'s new'
     this.updateCategerories()
   }
 

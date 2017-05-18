@@ -46,15 +46,28 @@
           ></md-checkbox>
           {{categorieHard.name}}
         </div>
-        <label>Select Product Line For This Product:</label>
-        <div *ngFor="let categorieHard of categoriesHard1; let i=index">
+        <label>Hair Type - categ3:</label>
+        <div *ngFor="let categorie of categories3; let i=index">
           <md-checkbox
-            (click)="togglCategorieButton(categorieHard.name, 'categ1')"
+            (click)="togglCategorieButton(categorie.name, 'categ3')"
             [ngModelOptions]="{standalone: true}"
-            [(ngModel)]="categoriesHard1[i].selected"
+            [(ngModel)]="categories3[i].selected"
           ></md-checkbox>
-          {{categorieHard.name}}
+          {{categorie.name}}
         </div>
+
+
+        <label>Concerns - categ4:</label>
+        <div *ngFor="let categorie of categories4; let i=index">
+          <md-checkbox
+            (click)="togglCategorieButton(categorie.name, 'categ4')"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="categories4[i].selected"
+          ></md-checkbox>
+          {{categorie.name}}
+        </div>
+
+
       </div>
       <div class="rght-form">
         <input

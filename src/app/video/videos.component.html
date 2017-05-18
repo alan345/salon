@@ -18,20 +18,22 @@
       <div *ngFor="let categorie1 of categories1">
         <button
           [ngClass]="{'cat-btn-on':categorie1.selected,'cat-btn':!categorie1.selected}"
-          (click)="changeCateg1(categorie1.name)"
-          >{{categorie1.name}}
+          (click)="changeCateg1(categorie1.name)">
+          {{categorie1.name}}
         </button>
       </div>
     </div>
   </div>
 
   <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback vid-tabs">
-    <md-tab label="what's new" textLabel="whatsnew" class="vid-tab"></md-tab>
-    <md-tab label="Through your eyes" textLabel="throughYourEyes" class="vid-tab"></md-tab>
-    <md-tab label="How to" textLabel="howTo" class="vid-tab"></md-tab>
+    <md-tab label="what's new" textLabel="what's new" class="vid-tab"></md-tab>
+
+
+    <md-tab *ngFor="let categorieHard2 of categoriesHard2" [label]="categorieHard2.name" class="vid-tab"></md-tab>
+    <!-- <md-tab label="How to" textLabel="howTo" class="vid-tab"></md-tab>
     <md-tab label="Fashion" textLabel="fashion" class="vid-tab"></md-tab>
     <md-tab label="Merchandising" textLabel="merchandising" class="vid-tab"></md-tab>
-    <md-tab label="Behind the Scene & Testimonials" textLabel="behindTheSceneTestimonials" class="vid-tab"></md-tab>
+    <md-tab label="Behind the Scene & Testimonials" textLabel="behindTheSceneTestimonials" class="vid-tab"></md-tab> -->
   </md-tab-group>
 
   <table class="table table-hover table-responsive table-condensed vid-tbl">

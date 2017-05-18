@@ -129,7 +129,7 @@ router.get('/page/:page', function (req, res, next) {
   let hasWhatsNewCateg = true
   categories.forEach(function (categ) {
     categorie = JSON.parse(categ)
-    if(categorie.name !== 'whatsnew') {
+    if(categorie.name !== 'what\'s new') {
       hasWhatsNewCateg = false
       if(categorie.name) {
         matchRules.push({

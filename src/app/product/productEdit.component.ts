@@ -88,6 +88,30 @@ export class ProductEditComponent implements OnInit {
       selected : false
     }]
 
+
+    categories3 = [
+      { name:'COLORED', selected : false},
+      { name:'FINE', selected : false },
+      { name:'GRAY/PLATINUM', selected : false },
+      { name:'CURLY', selected : false },
+      { name:'NORMAL', selected : false },
+      { name:'RELAXED', selected : false },
+      { name:'UNRULY', selected : false },
+    ]
+
+
+
+    categories4 = [
+      { name:'DAMAGED', selected : false},
+      { name:'AGING', selected : false },
+      { name:'DRY', selected : false },
+      { name:'DANDRUFF', selected : false },
+      { name:'UNBALANCED SCALP', selected : false },
+      { name:'SENSITIVE SCALP', selected : false },
+      { name:'THINNING', selected : false },
+      { name:'LIFE-STRESSED', selected : false },
+    ]
+
   inputCategorie = ''
 
 
@@ -197,15 +221,6 @@ export class ProductEditComponent implements OnInit {
     })
   }
 
-  // openDialogDelete(){
-  //   let dialogRefDelete = this.dialog.open(ProductDeleteDialog)
-  //   dialogRefDelete.afterClosed().subscribe(result => {
-  //     if(result) {
-  //       this.onDelete(this.fetchedProduct._id)
-  //       this.router.navigate(['product']);
-  //     }
-  //   })
-  // }
 
   save(product : Product) {
     //console.log(this.fetchedProduct)
@@ -237,10 +252,10 @@ export class ProductEditComponent implements OnInit {
 
 
   refreshHardCategories(){
+    
     this.categoriesHard2.forEach((HardCategorie, indexHard) => {
       this.categoriesHard2[indexHard].selected = false
     })
-
     this.categoriesHard2.forEach((HardCategorie, indexHard) => {
       this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
         if(HardCategorie.name == fetchedCategorie.name) {
@@ -249,10 +264,10 @@ export class ProductEditComponent implements OnInit {
       })
     })
 
+
     this.categoriesHard1.forEach((HardCategorie, indexHard) => {
       this.categoriesHard1[indexHard].selected = false
     })
-
     this.categoriesHard1.forEach((HardCategorie, indexHard) => {
       this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
         if(HardCategorie.name == fetchedCategorie.name) {
@@ -260,6 +275,32 @@ export class ProductEditComponent implements OnInit {
         }
       })
     })
+
+
+    this.categories3.forEach((categorie, index) => {
+      this.categories3[index].selected = false
+    })
+    this.categories3.forEach((categorie, index) => {
+      this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
+        if(categorie.name == fetchedCategorie.name) {
+          this.categories3[index].selected = true
+        }
+      })
+    })
+
+
+    this.categories4.forEach((categorie, index) => {
+      this.categories4[index].selected = false
+    })
+    this.categories4.forEach((categorie, index) => {
+      this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
+        if(categorie.name == fetchedCategorie.name) {
+          this.categories4[index].selected = true
+        }
+      })
+    })
+
+
   }
 
 
