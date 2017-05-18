@@ -4,7 +4,7 @@ import {CompanieService} from '../../companie/companie.service';
 
 import {Companie} from '../../companie/companie.model';
 import {ChangeDetectionStrategy, Input} from "@angular/core";
-import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+//import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastsManager} from 'ng2-toastr';
 import {Inject, forwardRef} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
@@ -38,7 +38,7 @@ export class CompaniesComponent implements OnInit {
   constructor(
     private companieService: CompanieService,
     private authService: AuthService,
-    private modalService: NgbModal,
+  //  private modalService: NgbModal,
     private toastr: ToastsManager,
     public dialog: MdDialog,
     private router: Router,
