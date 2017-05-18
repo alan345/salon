@@ -2,7 +2,6 @@
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Products</h3>
-    <button *ngIf="isAdmin()" class="subnav-btnright" [routerLink]="['/product/productSingle']" routerLinkActive="active"><i class="fa fa-plus"></i></button>
   </div>
   <div>
     <div class="prdts-ln">
@@ -25,28 +24,30 @@
         </div>
       </div>
       <button class="ctrl-hidit"><i class="fa fa-chevron-down"></i> OPEN FILTERS</button>
-      <div class="hidit">
-        <p>Filter Your Search (Tap to Select):</p>
-        <div class="phyto-ctnr">
-          <h3>Hair Type</h3>
-          <button class="cat-btn">colored</button>
-          <button class="cat-btn">fine</button>
-          <button class="cat-btn">gray/platinum</button>
-          <button class="cat-btn">curly</button>
-          <button class="cat-btn">normal</button>
-          <button class="cat-btn">relaxed</button>
-          <button class="cat-btn">unruly</button>
-        </div>
-        <div class="phyto-ctnr">
-          <h3>Concerns</h3>
-          <button class="cat-btn">damaged</button>
-          <button class="cat-btn">aging</button>
-          <button class="cat-btn">dry</button>
-          <button class="cat-btn">dandruff</button>
-          <button class="cat-btn">unbalanced scalp</button>
-          <button class="cat-btn">sensitive scalp</button>
-          <button class="cat-btn">thinning</button>
-          <button class="cat-btn">life-stressed</button>
+      <div id="hidit-ctnr">
+        <div class="hidit phyto-ctnr">
+          <p>Filter Your Search (Tap to Select):</p>
+          <div class="phyto-ctnr">
+            <h4>Hair Type</h4>
+            <button class="cat-btn">colored</button>
+            <button class="cat-btn">fine</button>
+            <button class="cat-btn">gray/platinum</button>
+            <button class="cat-btn">curly</button>
+            <button class="cat-btn">normal</button>
+            <button class="cat-btn">relaxed</button>
+            <button class="cat-btn">unruly</button>
+          </div>
+          <div class="phyto-ctnr">
+            <h4>Concerns</h4>
+            <button class="cat-btn">damaged</button>
+            <button class="cat-btn">aging</button>
+            <button class="cat-btn">dry</button>
+            <button class="cat-btn">dandruff</button>
+            <button class="cat-btn">unbalanced scalp</button>
+            <button class="cat-btn">sensitive scalp</button>
+            <button class="cat-btn">thinning</button>
+            <button class="cat-btn">life-stressed</button>
+          </div>
         </div>
       </div>
     </div>
