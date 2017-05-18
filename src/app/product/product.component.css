@@ -179,6 +179,12 @@
 
 /*--------- Individual product Page ----------*/
 
+.magento-info {
+  position: relative;
+}
+.magento-img img {
+  height: 200px;
+}
 .lft-form, .rght-form {
     margin-bottom: 15px;
 }
@@ -240,6 +246,14 @@
 .ctrl-hidit {
   right: 15px;
 }
+.magento-info {
+  margin-bottom: 100px;
+}
+.magento-img img {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -256,5 +270,11 @@ label.pdt-lableft {
 }
 .ctrl-hidit {
   left: 15px;
+}
+.magento-info {
+  margin-bottom: 50px;
+}
+.magento-img img {
+  margin-top: 30px;
 }
 }
