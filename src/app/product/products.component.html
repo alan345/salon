@@ -62,19 +62,15 @@
     <tbody>
       <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="pdt-ctnr">
         <td class="pdt-cnt">
-
           <div class="pdt-nm">{{product.magento.name}}</div>
-
           <div *ngFor="let custom_attribute of product.magento.custom_attributes">
             <div *ngIf="custom_attribute.attribute_code == 'description'">
               <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
             </div>
           </div>
-
-          <div *ngFor="let categorie of product.categories">
-            <div class="pdt-tagz">{{categorie.name}}</div>
+          <div *ngFor="let categorie of product.categories" class="pdt-tagz">
+            <div class="pdt-tag">{{categorie.name}}</div>
           </div>
-
           <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="pdt-subcnt">
             <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdt-img">
               <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
