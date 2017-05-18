@@ -28,7 +28,6 @@
   padding: 0 15px;
   float: left;
   position: relative;
-  height: 115px;
   width: 100%;
 }
 .product-srchrow {
@@ -36,14 +35,6 @@
 }
 .srchbar {
   padding: 15px 0 0 !important;
-}
-.ctrl-hidit {
-  position: absolute;
-  bottom: 15px;
-  background: none;
-  border: none;
-  color: #999999;
-  font-size: 12px;
 }
 .bigcat-btn, .bigcat-btn-on {
   border: none;
@@ -138,6 +129,17 @@
 
 /*--------- Hide Filters ----------*/
 
+.filtertoggle {
+  height: auto;
+  padding: 0 15px;
+  min-height: 30px;
+}
+.ctrl-hidit {
+  background: none;
+  border: none;
+  color: #999999;
+  font-size: 12px;
+}
 #hidit-ctnr {
   height: auto;
 }
@@ -160,27 +162,6 @@
   -ms-transition: height, 0.5s linear;
   -o-transition: height, 0.5s linear;
   transition: height, 0.5s linear;
-}
-
-@media screen and (min-width: 650px) {
-
-.open {
-  height: 290px;
-}
-}
-
-@media screen and (min-width: 360px) and (max-width: 649px) {
-
-.open {
-  height: 420px;
-}
-}
-
-@media screen and (max-width: 359px) {
-
-.open {
-  height: 600px;
-}
 }
 
 /*--------- Individual product Page ----------*/
@@ -251,9 +232,6 @@
   width: 33.33333%;
   border-left: 1px solid #0a2f87;
 }
-.ctrl-hidit {
-  right: 15px;
-}
 .magento-info {
   margin-bottom: 50px;
   padding-bottom: 50px;
@@ -265,6 +243,9 @@
   position: absolute;
   top: 15px;
   right: 15px;
+}
+.ctrl-hidit {
+  float: right;
 }
 }
 
@@ -281,14 +262,14 @@ label.pdt-lableft {
   width: 100%;
   border-bottom: 1px solid #0a2f87;
 }
-.ctrl-hidit {
-  left: 15px;
-}
 .magento-info {
   margin-bottom: 25px;
   padding-bottom: 45px;
 }
 .magento-img img {
   margin-top: 30px;
+}
+.ctrl-hidit {
+  float: left;
 }
 }
