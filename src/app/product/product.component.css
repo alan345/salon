@@ -21,17 +21,28 @@
   color: #ffffff !important;
 }
 .pdt-tabs .mat-ink-bar {
-    display: none !important;
+  display: none !important;
 }
 .subsubnav-product {
   padding: 0 15px;
   float: left;
+  position: relative;
 }
 .product-srchrow {
-    height: 75px;
+  height: 75px;
+  float: left;
 }
 .srchbar {
-    padding: 15px 0 !important;
+  padding: 15px 0 !important;
+}
+.ctrl-hidit {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #999999;
+  font-size: 12px;
 }
 .bigcat-btn, .bigcat-btn-on {
   border: none;
