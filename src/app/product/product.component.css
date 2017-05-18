@@ -249,6 +249,9 @@
 .magento-info {
   margin-bottom: 100px;
 }
+.magento-desc {
+  width: 50%;
+}
 .magento-img img {
   position: absolute;
   top: 15px;
