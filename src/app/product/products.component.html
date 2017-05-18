@@ -68,7 +68,7 @@
 
           <div *ngFor="let custom_attribute of product.magento.custom_attributes">
             <div *ngIf="custom_attribute.attribute_code == 'description'">
-              <div class="pdt-desc">{{custom_attribute.value|smallDescription}}</div>
+              <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
             </div>
           </div>
 
