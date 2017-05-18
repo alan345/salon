@@ -26,5 +26,6 @@ module.exports = {
       }
     }
   }
+  'urlServerMagento' : 'http://52.2.61.43/'
 
 };

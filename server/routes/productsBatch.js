@@ -34,7 +34,9 @@ var schedule = require('node-schedule');
     //     }
     //   }
     // }
-    const mageClient = new Magento2('http://52.2.61.43/', optionsBatch)
+    //const mageClient = new Magento2('http://52.2.61.43/', optionsBatch)
+
+    const mageClient = new Magento2(config.urlServerMagento, optionsBatch)
     mageClient.init();
 
 
