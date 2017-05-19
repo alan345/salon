@@ -30,8 +30,12 @@ export class ProductSingleComponent implements OnInit {
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
   fetchedProduct : Product = {
     _id: '',
-
     categories: [],
+    description: {
+      benefitsAndResults:'',
+      howToApply:'',
+      ActiveIngredients:'',
+    },
     magento : {
       id: '',
       sku: '',

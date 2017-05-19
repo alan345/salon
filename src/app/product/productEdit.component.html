@@ -84,6 +84,29 @@
 
 
       </div>
+
+
+      <div formGroupName="description">
+        <input
+          type="text"
+          placeholder="benefitsAndResults"
+          class="form-control"
+          formControlName="benefitsAndResults"
+          [(ngModel)]="fetchedProduct.description.benefitsAndResults">
+        <input
+          type="text"
+          placeholder="howToApply"
+          class="form-control"
+          formControlName="howToApply"
+          [(ngModel)]="fetchedProduct.description.howToApply">
+        <input
+          type="text"
+          placeholder="ActiveIngredients"
+          class="form-control"
+          formControlName="ActiveIngredients"
+          [(ngModel)]="fetchedProduct.description.ActiveIngredients">
+      </div>
+
       <div class="rght-form">
         <input
           [ngModelOptions]="{standalone: true}"
@@ -92,6 +115,8 @@
           (keyup.enter)="addCategorieInput()"
           mdInput
         >
+
+
         <div formArrayName="categories">
           <div *ngFor="let categorie of getObjects(myForm); let i=index" class="tagz">
             <div [formGroupName]="i">

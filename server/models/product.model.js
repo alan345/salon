@@ -7,7 +7,11 @@ var mongoose                = require('mongoose'),
 var product = new Schema({
 
     categories: [{name: {type: String}, type:{type: String}}],
-
+    description: {
+      benefitsAndResults :{type: String,  default: ['']},
+      howToApply:{type: String,  default: ['']},
+      ActiveIngredients:{type: String,  default: ['']},
+    },
     magento: {
       id: {type: String, unique: true, required: true},
       sku: {type: String, unique: true, required: true},

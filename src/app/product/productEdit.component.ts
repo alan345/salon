@@ -31,6 +31,11 @@ export class ProductEditComponent implements OnInit {
   fetchedProduct : Product = {
     _id: '',
     categories: [],
+    description: {
+      benefitsAndResults:'',
+      howToApply:'',
+      ActiveIngredients:'',
+    },
     magento : {
       id: '',
       sku: '',
@@ -104,7 +109,11 @@ export class ProductEditComponent implements OnInit {
   ngOnInit() {
     this.myForm = this._fb.group({
       _id: [''],
-
+      description: this._fb.group({
+        benefitsAndResults: [''],
+        howToApply: [''],
+        ActiveIngredients: [''],
+      }),
       categories: this._fb.array([])
     });
 

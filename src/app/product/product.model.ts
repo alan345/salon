@@ -7,11 +7,17 @@
 
 export interface Product {
   _id: string;
+  description : Description;
   categories: Categorie[];
   magento: Magento;
 }
 
 
+export interface Description {
+  benefitsAndResults:string;
+  howToApply:string;
+  ActiveIngredients:string;
+}
 
 export interface Categorie {
   name: string;
