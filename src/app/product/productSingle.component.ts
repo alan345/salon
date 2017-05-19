@@ -31,6 +31,7 @@ export class ProductSingleComponent implements OnInit {
   fetchedProduct : Product = {
     _id: '',
     categories: [],
+    categoriesTag: [],
     description: {
       benefitsAndResults:'',
       howToApply:'',

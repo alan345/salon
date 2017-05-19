@@ -10,6 +10,7 @@ export interface Product {
   _id: string;
   description : Description;
   categories: Categorie[];
+  categoriesTag: Categorie[];
   magento: Magento;
 }
 
