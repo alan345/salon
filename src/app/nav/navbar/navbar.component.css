@@ -15,7 +15,7 @@
   min-width: auto !important;
   color: #0a2f87;
 }
-.mat-sidenav-content, .mat-sidenav-transition .mat-sidenav-content {
+.phyto-menu.mat-sidenav-transition .mat-sidenav-content {
   transform: none !important;
   transition: none !important;
 }
