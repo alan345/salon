@@ -4,7 +4,7 @@
     <h3 style="text-align: center;">My Salon</h3>
     <div *ngIf="isHQcompanie()">
       <div *ngIf="isAdmin()">
-        <button class="subnav-btnright" [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+        <button class="subnav-btnright" [routerLink]="['/companie/edit/' + fetchedCompanie._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span>Edit Salon</button>
       </div>
     </div>
     <div *ngIf="!isHQcompanie()">
