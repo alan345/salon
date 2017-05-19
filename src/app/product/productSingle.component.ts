@@ -283,6 +283,7 @@ export class ProductSingleComponent implements OnInit {
     this.productService.getProduct(id)
       .subscribe(
         res => {
+
           this.fetchedProduct = <Product>res
 
         //  this.fetchedProduct.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/product/' + res.embed )

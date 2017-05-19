@@ -33,8 +33,8 @@
               </div>
               <h4>Keywords</h4>
 
-                <div *ngFor="let categorieTag of product.categoriesTag; let i=index " class="pdt-tagz">
-                    <div class="pdt-tag">{{categorieTag.name}}<b *ngIf="product.categoriesTag.length!== i +1">,</b></div>
+                <div *ngFor="let categorieTag of fetchedProduct.categoriesTag; let i=index " class="pdt-tagz">
+                    <div class="pdt-tag">{{categorieTag.name}}<b *ngIf="fetchedProduct.categoriesTag.length!== i +1">,</b></div>
                 </div>
 
             </div>
