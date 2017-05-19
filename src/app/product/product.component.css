@@ -231,11 +231,15 @@ p.mgtpdt-desc {
     font-size: 12px;
 }
 .pronunciation {
-    width: 100%;
-    float: left;
+  width: 100%;
+  float: left;
 }
-p.pron-txt {
-    float: left;
+.pronunciation .fa.fa-volume-up {
+  padding: 7px;
+  background-color: #ffffff;
+  color: #0a2f87;
+  border: 1px solid;
+  font-size: 20px;
 }
 @media screen and (min-width: 768px) {
 
