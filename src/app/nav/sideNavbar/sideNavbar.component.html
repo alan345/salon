@@ -26,6 +26,7 @@
       <li><a (click)="goTo('/userForms')">Manage Pictures</a></li>
       <li><a *ngIf="isAdmin()" (click)="goTo('/admin/user')" class="admn-btn">Admin Users</a></li>
       <li><a *ngIf="isAdmin() || isSalesRep()" (click)="goTo('/admin/companie')" class="admn-btn">Admin Salons</a></li>
+      <li><a *ngIf="isAdmin()" (click)="goTo('/product/admin')" class="admn-btn">Admin Products</a></li>
       <li><a href="#" (click)="logout()" *ngIf="isLoggedIn()">Log out</a></li>
     </ul>
   </div>
