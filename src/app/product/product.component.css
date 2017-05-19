@@ -276,6 +276,20 @@ md-tab-header.mat-tab-header {
     width: 100%;
 }
 
+/*--------- Admin Products Page ----------*/
+
+.nolink {
+  font-weight: 600;
+  background-color: #fb8417;
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  padding: 5px 8px;
+}
+
+/*------------ Responsive -------------*/
+
 @media screen and (min-width: 768px) {
 
 .lft-form, .rght-form, label.pdt-lableft {
