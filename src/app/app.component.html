@@ -2,10 +2,10 @@
   <md-sidenav align="end" #sidenav class="phyto-sidenav">
     <app-sideNavbar *ngIf="isLoggedIn()" [sidenav]=sidenav></app-sideNavbar>
   </md-sidenav>
+  <app-navbar [sidenav]=sidenav></app-navbar>
   <div class="phyto-topnav beigeback">
     <router-outlet></router-outlet>
     <app-error></app-error>
     <app-footer></app-footer>
   </div>
 </md-sidenav-container>
-<app-navbar [sidenav]=sidenav></app-navbar>
