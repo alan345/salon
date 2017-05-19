@@ -32,9 +32,9 @@
                 </div>
               </div>
               <h4>Keywords</h4>
-              <div *ngFor="let categorie of fetchedProduct.categories" class="pdt-tagz">
-                <div *ngIf="categorie.type == 'tag'">
-                  <div class="pdt-tag">{{categorie.name}},</div>
+              <div *ngIf="product.categoriesTag">
+                <div *ngFor="let categorieTag of product.categoriesTag; let i=index " class="pdt-tagz">
+                    <div class="pdt-tag">{{categorieTag.name}}<b *ngIf="product.categoriesTag.length!== i +1">,</b></div>
                 </div>
               </div>
             </div>
@@ -42,7 +42,7 @@
         </div>
       </div>
       <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdtind-tabs">
-        <md-tab *ngFor="let categorie of categories5 ; let i=index " [label]="categorie.name">
+        <md-tab *ngFor="let categorie of categories5 ; let i=index" [label]="categorie.name">
           <div *ngIf="i == 0">{{fetchedProduct.description.benefitsAndResults}}</div>
           <div *ngIf="i == 1">{{fetchedProduct.description.howToApply}}</div>
           <div *ngIf="i == 2">{{fetchedProduct.description.activeIngredients}}</div>

@@ -213,6 +213,12 @@ export class ProductsAdminComponent implements OnInit {
           this.paginationData = res.paginationData;
           let fetchedProductsNotSecure =  res.data
           fetchedProductsNotSecure.forEach((product) => {
+            product['categoriesTag'] = []
+            product.categories.forEach((categorie) => {
+              if(categorie.type === 'tag') {
+                product['categoriesTag'].push(categorie)
+              }
+            })
             this.fetchedProducts.push(product)
           })
           this.loading = false;

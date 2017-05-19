@@ -23,7 +23,8 @@ import {ViewEncapsulation} from '@angular/core'
 })
 export class ProductsComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
-  fetchedProducts : Product[] = [];
+  fetchedProducts :  Array<ProductsComponent> = [];
+
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
   search = {
     categories : [],
@@ -219,6 +220,12 @@ export class ProductsComponent implements OnInit {
           this.paginationData = res.paginationData;
           let fetchedProductsNotSecure =  res.data
           fetchedProductsNotSecure.forEach((product) => {
+            product['categoriesTag'] = []
+            product.categories.forEach((categorie) => {
+              if(categorie.type === 'tag') {
+                product['categoriesTag'].push(categorie)
+              }
+            })
             this.fetchedProducts.push(product)
           })
           this.loading = false;

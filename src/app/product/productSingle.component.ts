@@ -286,9 +286,24 @@ export class ProductSingleComponent implements OnInit {
 
         //  this.fetchedProduct.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/product/' + res.embed )
           //this.fetchedProduct.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
-          this.fetchedProduct.categories.forEach((categorie) => {
-            this.addCategorie()
-          })
+
+
+
+            this.fetchedProduct['categoriesTag'] = []
+            this.fetchedProduct.categories.forEach((categorie) => {
+              this.addCategorie()
+              if(categorie.type === 'tag') {
+                this.fetchedProduct['categoriesTag'].push(categorie)
+              }
+            })
+            //this.fetchedProducts.push(product)
+
+
+
+
+          // this.fetchedProduct.categories.forEach((categorie) => {
+          //   this.addCategorie()
+          // })
           this.refreshHardCategories()
         },
         error => {
