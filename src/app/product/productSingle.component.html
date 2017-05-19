@@ -41,11 +41,15 @@
         </div>
       </div>
       <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdtind-tabs">
-        <md-tab *ngFor="let categorie of categories5" [label]="categorie.name">
+        <md-tab *ngFor="let categorie of categories5 ; let i=index " [label]="categorie.name">
+          <div *ngIf="i == 0">{{fetchedProduct.description.benefitsAndResults}}</div>
+          <div *ngIf="i == 1">{{fetchedProduct.description.howToApply}}</div>
+          <div *ngIf="i == 2">{{fetchedProduct.description.activeIngredients}}</div>
+          <!-- {{categorie.name}}
           Camellia Oil: Nourishes and protects
           Corn Germ Oil: Soothes and is rich in essential fatty acids
           Egg Yolk: Strengthens and replaces lost lipids and peptides
-          Karanja Oil: Hydrates and protects from external aggressors
+          Karanja Oil: Hydrates and protects from external aggressors -->
         </md-tab>
       </md-tab-group>
       <div class="rlt-pdts beigeback phyto-ctnr">
