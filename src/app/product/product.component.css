@@ -1,6 +1,6 @@
 .pdt-tabs .mat-tab-label {
   text-transform: uppercase!important;
-  color: #010870;  
+  color: #010870;
   font-size: 13px !important;
   font-family: inherit !important;
   padding: 15px !important;
@@ -215,7 +215,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  
+
 .pdt-cnt {
     width: 100%;
     float: left;

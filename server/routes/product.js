@@ -151,7 +151,6 @@ router.get('/page/:page', function (req, res, next) {
            '$elemMatch': categorie
          })
       }
-
     })
     searchQuery['categories'] = {
        "$all": matchRules
@@ -159,13 +158,8 @@ router.get('/page/:page', function (req, res, next) {
   }
 
 
-
-
-
-
-
   if(req.query.search)
-    searchQuery['title'] = new RegExp(req.query.search, 'i')
+    searchQuery['magento.name'] = new RegExp(req.query.search, 'i')
 
    //
   //  console.log(searchQuery)
