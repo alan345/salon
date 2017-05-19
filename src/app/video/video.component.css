@@ -7,7 +7,7 @@
   opacity: 1 !important;
   height: 60px !important;
   line-height: 1 !important;
-  min-width: auto !important;
+  min-width: 100px !important;
   background-color: #efe9df !important;
 }
 .vid-tabs .mat-tab-label-active {
