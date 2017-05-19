@@ -6,11 +6,9 @@ a.shopbutton {
     text-transform: uppercase;
 }
 .homelabel {
-    font-size: 23px;
     text-align: right !important;
     width: 100%;
     color: #0a2f87;
-    padding: 4% 4% 4% 0;
     margin: 0 !important;
     background-color: #fff;
     font-weight: 100;
@@ -81,6 +79,10 @@ a.shopbutton {
 .edtttl-ok {
   margin: 0 20px;
 }
+.homelabel {
+    font-size: 23px;
+    padding: 4% 4% 4% 0;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -97,5 +99,9 @@ a.shopbutton {
 .edtttl-ok {
   margin: 15px;
   float: right;
+}
+.homelabel {
+    font-size: 18px;
+    padding: 4% 8%;
 }
 }
