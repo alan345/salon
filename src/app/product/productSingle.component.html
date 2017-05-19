@@ -7,37 +7,35 @@
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
       <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedProduct._id">
       <div class="form-group">
-        <div class="phyto-ctnr magento-info">
+        <div class="phyto-ctnr first-half">
           <div style="float:left;">
-            <h4>Product Name:</h4>
-            {{fetchedProduct.magento.name}}
-            <h4>Product Price (Not Visible):</h4>
-            {{fetchedProduct.magento.price}}$
-            <h4>Product SKU (Not Visible):</h4>
-            {{fetchedProduct.magento.sku}}
-            <h4>Product Description:</h4>
             <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
-              <div *ngIf="custom_attribute.attribute_code == 'description'" class="magento-desc">
-                {{custom_attribute.value}}
-              </div>
-            </div>
-            <h4>Other Information (Not Visible):</h4>
-            <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
-              <div *ngIf="custom_attribute.attribute_code == 'country_of_manufacture'">
-                {{custom_attribute.value}}
-              </div>
-              <div *ngIf="custom_attribute.attribute_code == 'url_path'">
-                {{custom_attribute.value}}
-              </div>
-              <div *ngIf="custom_attribute.attribute_code == 'image'" class="magento-img">
+              <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
+            </div>
+            <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
+            <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
+              <p *ngIf="custom_attribute.attribute_code == 'description'" class="magento-desc">
+                {{custom_attribute.value}}
+              </p>
+            </div>
+            <div class="pronunciation">
+              <h4>Pronunciation</h4>
+              <div>
+                <p class="pron-txt">phyto əlɪksər</p>
+              </div>
+              <div>
+                <i class="fa fa-volume-up"></i>
+              </div>
+            </div>
+            <h4>Keywords</h4>
+            <div *ngIf="categorie.type == 'tag'">
+              <div class="pdt-tag">{{categorie.name}},</div>
             </div>
           </div>
         </div>
       </div>
-
-
       <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdt-tabs">
         <md-tab *ngFor="let categorie of categories5" [label]="categorie.name">
           Hey !! {{categorie.name}}
