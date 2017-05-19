@@ -1,7 +1,9 @@
+<md-sidenav align="end" #sidenav class="phyto-sidenav">
+  <app-sideNavbar *ngIf="isLoggedIn()" [sidenav]=sidenav></app-sideNavbar>
+</md-sidenav>
+
 <md-sidenav-container class="phyto-menu">
-  <md-sidenav align="end" #sidenav class="phyto-sidenav">
-    <app-sideNavbar *ngIf="isLoggedIn()" [sidenav]=sidenav></app-sideNavbar>
-  </md-sidenav>
+
 
 
   <div class="phyto-topnav beigeback">
