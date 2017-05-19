@@ -30,9 +30,18 @@
               </div>
             </div>
             <h4>Keywords</h4>
-            <div *ngIf="categorie.type == 'tag'">
-              <div class="pdt-tag">{{categorie.name}},</div>
+
+            <div *ngFor="let categorie of fetchedProduct.categories" class="pdt-tagz">
+              <div *ngIf="categorie.type == 'tag'">
+                <div class="pdt-tag">{{categorie.name}},</div>
+              </div>
             </div>
+
+
+
+            <!-- <div *ngIf="categorie.type == 'tag'">
+              <div class="pdt-tag">{{categorie.name}},</div>
+            </div> -->
           </div>
         </div>
       </div>
