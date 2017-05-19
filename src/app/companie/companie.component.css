@@ -97,7 +97,6 @@ table {
   width:33.333333% !important;
 }
 p.tblnav-cl {
-  float: left;
   padding: 15px 15px 15px 0;
 }
 .updownbtn {
@@ -226,5 +225,22 @@ p.tblnav-cl {
 .one-sty {
     width: 100% !important;
     padding: 5px;
+}
+}
+
+@media screen and (min-width: 630px) {
+
+p.tblnav-cl {
+  float: left;
+}
+}
+
+@media screen and (max-width: 450px) {
+
+.clienttbl td {
+  float: left;
+}
+.updownbtn {
+  width:100%;
 }
 }
