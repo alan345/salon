@@ -14,34 +14,29 @@
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
             </div>
-            <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
-            <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
-              <p *ngIf="custom_attribute.attribute_code == 'description'" class="magento-desc">
-                {{custom_attribute.value}}
-              </p>
-            </div>
-            <div class="pronunciation">
-              <h4>Pronunciation</h4>
-              <div>
-                <p class="pron-txt">phyto əlɪksər</p>
+            <div class="mgtpdt-txtcnt">
+              <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
+              <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
+                <p *ngIf="custom_attribute.attribute_code == 'description'" class="magento-desc">
+                  {{custom_attribute.value}}
+                </p>
               </div>
-              <div>
-                <i class="fa fa-volume-up"></i>
+              <div class="pronunciation">
+                <h4>Pronunciation</h4>
+                <div>
+                  <p class="pron-txt">phyto əlɪksər</p>
+                </div>
+                <div>
+                  <i class="fa fa-volume-up"></i>
+                </div>
+              </div>
+              <h4>Keywords</h4>
+              <div *ngFor="let categorie of fetchedProduct.categories" class="pdt-tagz">
+                <div *ngIf="categorie.type == 'tag'">
+                  <div class="pdt-tag">{{categorie.name}},</div>
+                </div>
               </div>
             </div>
-            <h4>Keywords</h4>
-
-            <div *ngFor="let categorie of fetchedProduct.categories" class="pdt-tagz">
-              <div *ngIf="categorie.type == 'tag'">
-                <div class="pdt-tag">{{categorie.name}},</div>
-              </div>
-            </div>
-
-
-
-            <!-- <div *ngIf="categorie.type == 'tag'">
-              <div class="pdt-tag">{{categorie.name}},</div>
-            </div> -->
           </div>
         </div>
       </div>
