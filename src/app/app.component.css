@@ -1,12 +1,26 @@
 .phyto-menu {
-    max-width: 950px;
-    margin: 0 auto;
-    height: 100% !important;
+  max-width: 950px;
+  margin: 0 auto;
+  height: 100% !important;
 }
 .phyto-sidenav {
-    box-shadow: none !important;
-    height: 100vh !important;
+  box-shadow: none !important;
+  height: 100vh !important;
 }
 .phyto-topnav {
-    height: 100vh;
+  height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  
+.phyto-topnav {
+  margin-top: 70px;
+}
+}
+
+@media screen and (max-width: 767px) {
+  
+.phyto-topnav {
+  margin-top: 50px;
+}
 }
