@@ -217,12 +217,26 @@
 /*--------- Individual product Page ----------*/
 
 .mgtpdt-img {
-  width: 300px;
   float: left;
-  margin: 2.5px;
+  padding: 2.5px;
 }
-
-
+.mgtpdt-txtcnt {
+    float: left;
+}
+.first-half .pdt-nm {
+    font-size: 25px;
+    font-weight: 100;
+}
+p.mgtpdt-desc {
+    font-size: 12px;
+}
+.pronunciation {
+    width: 100%;
+    float: left;
+}
+p.pron-txt {
+    float: left;
+}
 @media screen and (min-width: 768px) {
 
 .pdt-cnt {
@@ -259,6 +273,12 @@
 .prdts-ln .mat-tab-label {
   width: 33.333333% !important;
 }
+.mgtpdt-img {
+  width: 33.3333333%;
+}
+.mgtpdt-txtcnt {
+  width: 66.666666%;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -286,5 +306,8 @@ label.pdt-lableft {
 }
 .prdts-ln .mat-tab-label {
   width: 100% !important;
+}
+.mgtpdt-img, .mgtpdt-txtcnt {
+  width: 100%;
 }
 }
