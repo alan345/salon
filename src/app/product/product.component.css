@@ -351,7 +351,7 @@ label.pdt-lableft {
 }
 }
 
-@media screen and (min-width: 440px) and (max-width: 767px) {
+@media screen and (min-width: 535px) and (max-width: 767px) {
 
 .pdt-ctnr {
   float: left;
@@ -359,7 +359,7 @@ label.pdt-lableft {
 }
 }
 
-@media screen and (max-width: 439px) {
+@media screen and (max-width: 534px) {
 
 .pdt-ctnr {
   float: left;
