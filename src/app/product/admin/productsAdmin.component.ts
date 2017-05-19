@@ -210,6 +210,8 @@ export class ProductsAdminComponent implements OnInit {
     this.productService.getProducts(page, search)
       .subscribe(
         res => {
+          if(page === 1)
+            this.fetchedProducts =[]
           this.paginationData = res.paginationData;
           let fetchedProductsNotSecure =  res.data
           fetchedProductsNotSecure.forEach((product) => {
