@@ -216,7 +216,8 @@ export class ProductEditComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.router.navigate(['product']);
+            //this.router.navigate(['product']);
+            this.goBack()
           },
           error => {console.log(error)}
         );
@@ -225,7 +226,8 @@ export class ProductEditComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.router.navigate(['product']);
+            //this.router.navigate(['product']);
+            this.goBack()
           },
           error => {console.log(error)}
         );

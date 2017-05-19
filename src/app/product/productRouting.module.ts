@@ -21,7 +21,7 @@ export const routes: Routes = [
 
   {path: ':id', component: ProductSingleComponent},
 //  {path: 'productEdit', component: ProductEditComponent},
-  {path: 'productEdit/:id', component: ProductEditComponent},
+  {path: 'productEdit/:id', component: ProductEditComponent, canActivate: [AdminGuardService]},
 
 
 ];
