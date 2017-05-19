@@ -39,6 +39,7 @@ export class ProductSingleComponent implements OnInit {
       title : {
         prononciation : '',
         embed: '',
+        embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
       }
     },
     magento : {
@@ -290,6 +291,7 @@ export class ProductSingleComponent implements OnInit {
           //this.fetchedProduct.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
 
 
+            this.fetchedProduct.description.title.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + this.fetchedProduct.description.title.embed )
 
             this.fetchedProduct['categoriesTag'] = []
             this.fetchedProduct.categories.forEach((categorie) => {

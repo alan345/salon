@@ -25,6 +25,7 @@ export interface Description {
 export interface Title {
   prononciation : string;
   embed: string;
+  embedSecure: {};
 }
 
 export interface Categorie {

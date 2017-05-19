@@ -39,6 +39,7 @@ export class ProductEditComponent implements OnInit {
       title : {
         prononciation : '',
         embed: '',
+        embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
       }
     },
     magento : {
