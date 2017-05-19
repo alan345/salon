@@ -5,7 +5,6 @@
   </div>
   <div>
     <div class="prdts-ln">
-      {{categoriesHard1|json}}
       <md-tab-group (selectChange)="onSelectChange1($event)" class="beigeback phyto-ctnr pdt-tabs">
         <md-tab *ngFor="let categorieHard1 of categoriesHard1"
         [ngClass]="{'bigcat-btn-on':categorieHard1.selected,'bigcat-btn':!categorieHard1.selected}"
