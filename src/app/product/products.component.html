@@ -79,7 +79,7 @@
             <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdt-img">
               <a [routerLink]="['/product/' + product._id]"><img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'"></a>
             </div>
-            <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/product/productEdit/' + product._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button>
+            <!-- <button *ngIf="isAdmin()" class="editicon" [routerLink]="['/product/productEdit/' + product._id]" routerLinkActive="active"><span class="glyphicon glyphicon-edit"></span></button> -->
           </div>
         </td>
         <td><a [routerLink]="['/product/' + product._id]" routerLinkActive="active">{{product.email}}</a></td>

@@ -15,7 +15,7 @@
           >
         </div>
       </div>
-  
+
     </div>
   </div>
 
@@ -25,6 +25,10 @@
         <td class="pdt-cnt">
           <a [routerLink]="['/product/' + product._id]">
             <div class="pdt-nm">{{product.magento.name}}</div>
+            <div *ngIf="product.categories.length == 0">
+              NO CATEGS
+            </div>
+
             <div *ngFor="let custom_attribute of product.magento.custom_attributes">
               <div *ngIf="custom_attribute.attribute_code == 'description'">
                 <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
