@@ -55,10 +55,10 @@
           ></md-checkbox>
           {{categorieHard.name}}
         </div>
+        <label>Add Product Tags:</label>
         <input
           [ngModelOptions]="{standalone: true}"
           [(ngModel)]="inputCategorie"
-          placeholder="Add Tags to Product"
           (keyup.enter)="addCategorieInput()"
           mdInput
         >
