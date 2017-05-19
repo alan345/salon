@@ -81,8 +81,6 @@
           ></md-checkbox>
           {{categorie.name}}
         </div>
-
-
       </div>
 
 
@@ -101,11 +99,28 @@
           [(ngModel)]="fetchedProduct.description.howToApply">
         <input
           type="text"
-          placeholder="ActiveIngredients"
+          placeholder="activeIngredients"
           class="form-control"
-          formControlName="ActiveIngredients"
-          [(ngModel)]="fetchedProduct.description.ActiveIngredients">
+          formControlName="activeIngredients"
+          [(ngModel)]="fetchedProduct.description.activeIngredients">
+          <div formGroupName="title">
+            <input
+              type="text"
+              placeholder="prononciation"
+              class="form-control"
+              formControlName="prononciation"
+              [(ngModel)]="fetchedProduct.description.title.prononciation">
+            <input
+              type="text"
+              placeholder="embed"
+              class="form-control"
+              formControlName="embed"
+              [(ngModel)]="fetchedProduct.description.title.embed">
+          </div>
+
+
       </div>
+
 
       <div class="rght-form">
         <input

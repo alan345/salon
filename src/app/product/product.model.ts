@@ -16,7 +16,13 @@ export interface Product {
 export interface Description {
   benefitsAndResults:string;
   howToApply:string;
-  ActiveIngredients:string;
+  activeIngredients:string;
+  title: Title;
+}
+
+export interface Title {
+  prononciation : string;
+  embed: string;
 }
 
 export interface Categorie {

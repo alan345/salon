@@ -34,7 +34,11 @@ export class ProductSingleComponent implements OnInit {
     description: {
       benefitsAndResults:'',
       howToApply:'',
-      ActiveIngredients:'',
+      activeIngredients:'',
+      title : {
+        prononciation : '',
+        embed: '',
+      }
     },
     magento : {
       id: '',

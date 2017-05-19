@@ -10,7 +10,11 @@ var product = new Schema({
     description: {
       benefitsAndResults :{type: String,  default: ['']},
       howToApply:{type: String,  default: ['']},
-      ActiveIngredients:{type: String,  default: ['']},
+      activeIngredients:{type: String,  default: ['']},
+      title: {
+        prononciation : {type: String,  default: ['']},
+        embed: {type: String, default: ['']},
+      }
     },
     magento: {
       id: {type: String, unique: true, required: true},

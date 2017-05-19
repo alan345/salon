@@ -34,7 +34,11 @@ export class ProductEditComponent implements OnInit {
     description: {
       benefitsAndResults:'',
       howToApply:'',
-      ActiveIngredients:'',
+      activeIngredients:'',
+      title : {
+        prononciation : '',
+        embed: '',
+      }
     },
     magento : {
       id: '',
@@ -112,7 +116,11 @@ export class ProductEditComponent implements OnInit {
       description: this._fb.group({
         benefitsAndResults: [''],
         howToApply: [''],
-        ActiveIngredients: [''],
+        activeIngredients: [''],
+        title : this._fb.group({
+          prononciation : [''],
+          embed: [''],
+        })
       }),
       categories: this._fb.array([])
     });
