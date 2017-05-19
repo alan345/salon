@@ -1,4 +1,4 @@
-.pdt-tabs .mat-tab-label {
+.pdt-tabs .mat-tab-label, .prdts-ln .mat-tab-label {
   text-transform: uppercase!important;
   color: #010870;
   font-size: 13px !important;
@@ -15,9 +15,9 @@
   border: none !important;
 }
 .pdt-tabs .mat-tab-labels {
-    background-color: #ffffff !important;
+  background-color: #ffffff !important;
 }
-.pdt-tabs .mat-tab-label-active {
+.pdt-tabs .mat-tab-label-active, .pdt-tabs .mat-tab-label-active {
   background-color: #0a2f87 !important;
   color: #ffffff !important;
 }
@@ -247,6 +247,9 @@
 .ctrl-hidit {
   float: right;
 }
+.prdts-ln .mat-tab-label {
+  width: 33.333333%%;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -271,5 +274,8 @@ label.pdt-lableft {
 }
 .ctrl-hidit {
   float: left;
+}
+.prdts-ln .mat-tab-label {
+  width: 100%;
 }
 }
