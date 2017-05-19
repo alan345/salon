@@ -16,7 +16,6 @@ a.shopbutton {
     display: inline-table;
 }
 .homeimage {
-    max-height: 210px !important;
     overflow: hidden;
 }
 .homeimage img {
@@ -83,6 +82,9 @@ a.shopbutton {
     font-size: 23px;
     padding: 4% 4% 4% 0;
 }
+.homeimage {
+  max-height: 210px !important;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -103,5 +105,8 @@ a.shopbutton {
 .homelabel {
     font-size: 18px;
     padding: 4% 8%;
+}
+.homeimage {
+  max-height: 100px !important;
 }
 }
