@@ -37,8 +37,6 @@
         </div>
       </div>
       <div class="lft-form">
-
-
         <label>Select categoriesHard1 :</label>
         <div *ngFor="let categorieHard of categoriesHard1; let i=index">
           <md-checkbox
@@ -48,8 +46,6 @@
           ></md-checkbox>
           {{categorieHard.name}}
         </div>
-
-
         <label>Select Categories For This Product:</label>
         <div *ngFor="let categorieHard of categoriesHard2; let i=index">
           <md-checkbox
@@ -59,8 +55,8 @@
           ></md-checkbox>
           {{categorieHard.name}}
         </div>
-
-
+      </div>
+      <div class="rght-form">
         <label>Hair Type - categ3:</label>
         <div *ngFor="let categorie of categories3; let i=index">
           <md-checkbox
@@ -70,8 +66,6 @@
           ></md-checkbox>
           {{categorie.name}}
         </div>
-
-
         <label>Concerns - categ4:</label>
         <div *ngFor="let categorie of categories4; let i=index">
           <md-checkbox
@@ -81,9 +75,28 @@
           ></md-checkbox>
           {{categorie.name}}
         </div>
+        <input
+          [ngModelOptions]="{standalone: true}"
+          [(ngModel)]="inputCategorie"
+          placeholder="Add Tags to Product"
+          (keyup.enter)="addCategorieInput()"
+          mdInput
+        >
+        <div formArrayName="categories">
+          <div *ngFor="let categorie of getObjects(myForm); let i=index" class="tagz">
+            <div [formGroupName]="i">
+              <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedProduct.categories[i].name">
+              <input type="hidden" class="form-control" formControlName="type" [(ngModel)]="fetchedProduct.categories[i].type">
+              <div class="tagz-cnt" *ngIf="fetchedProduct.categories[i].type=='tag'">
+                <div class="tagz">
+                  <span class="tagz-name">{{fetchedProduct.categories[i].name}}</span>
+                  <i class="tagz-icn fa fa-times pull-right" (click)="removeCategorie(i)"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-
       <div formGroupName="description">
         <input
           type="text"
@@ -103,53 +116,25 @@
           class="form-control"
           formControlName="activeIngredients"
           [(ngModel)]="fetchedProduct.description.activeIngredients">
-          <div formGroupName="title">
-            <input
-              type="text"
-              placeholder="prononciation"
-              class="form-control"
-              formControlName="prononciation"
-              [(ngModel)]="fetchedProduct.description.title.prononciation">
-            <input
-              type="text"
-              placeholder="embed"
-              class="form-control"
-              formControlName="embed"
-              [(ngModel)]="fetchedProduct.description.title.embed">
-          </div>
-          <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/34019569"></iframe>
-      </div>
-
-
-      <div class="rght-form">
-        <input
-          [ngModelOptions]="{standalone: true}"
-          [(ngModel)]="inputCategorie"
-          placeholder="Add Tags to Product"
-          (keyup.enter)="addCategorieInput()"
-          mdInput
-        >
-
-
-        <div formArrayName="categories">
-          <div *ngFor="let categorie of getObjects(myForm); let i=index" class="tagz">
-            <div [formGroupName]="i">
-              <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedProduct.categories[i].name">
-              <input type="hidden" class="form-control" formControlName="type" [(ngModel)]="fetchedProduct.categories[i].type">
-              <div class="tagz-cnt" *ngIf="fetchedProduct.categories[i].type=='tag'">
-                <div class="tagz">
-                  <span class="tagz-name">{{fetchedProduct.categories[i].name}}</span>
-                  <i class="tagz-icn fa fa-times pull-right" (click)="removeCategorie(i)"></i>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div formGroupName="title">
+          <input
+            type="text"
+            placeholder="prononciation"
+            class="form-control"
+            formControlName="prononciation"
+            [(ngModel)]="fetchedProduct.description.title.prononciation">
+          <input
+            type="text"
+            placeholder="embed"
+            class="form-control"
+            formControlName="embed"
+            [(ngModel)]="fetchedProduct.description.title.embed">
         </div>
       </div>
-
-    <div class="valid-edit">
-      <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
-    </div>
-    <div class="clearfix"></div>
-  </form>
+      <div class="valid-edit">
+        <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
+      </div>
+      <div class="clearfix"></div>
+    </form>
+  </div>
 </div>
