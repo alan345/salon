@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="lft-form">
-        <label>Select categoriesHard1 :</label>
+        <label>Select Product Line for this Product:</label>
         <div *ngFor="let categorieHard of categoriesHard1; let i=index">
           <md-checkbox
             (click)="togglCategorieButton(categorieHard.name, 'categ1')"
@@ -78,7 +78,7 @@
         </div>
       </div>
       <div class="rght-form">
-        <label>Hair Type - categ3:</label>
+        <label>Hair Types:</label>
         <div *ngFor="let categorie of categories3; let i=index">
           <md-checkbox
             (click)="togglCategorieButton(categorie.name, 'categ3')"
@@ -87,7 +87,7 @@
           ></md-checkbox>
           {{categorie.name}}
         </div>
-        <label>Concerns - categ4:</label>
+        <label>Concerns:</label>
         <div *ngFor="let categorie of categories4; let i=index">
           <md-checkbox
             (click)="togglCategorieButton(categorie.name, 'categ4')"
@@ -98,34 +98,34 @@
         </div>
       </div>
       <div formGroupName="description">
+        <label>Benefits and Results:</label>
         <input
-          type="text"
-          placeholder="benefitsAndResults"
+          type="textarea"
           class="form-control"
           formControlName="benefitsAndResults"
           [(ngModel)]="fetchedProduct.description.benefitsAndResults">
+        <label>How to Apply:</label>
         <input
-          type="text"
-          placeholder="howToApply"
+          type="textarea"
           class="form-control"
           formControlName="howToApply"
           [(ngModel)]="fetchedProduct.description.howToApply">
+        <label>Ingredients:</label>
         <input
-          type="text"
-          placeholder="activeIngredients"
+          type="textarea"
           class="form-control"
           formControlName="activeIngredients"
           [(ngModel)]="fetchedProduct.description.activeIngredients">
         <div formGroupName="title">
+          <label>Pronunciation:</label>
           <input
-            type="text"
-            placeholder="prononciation"
+            type="textarea"
             class="form-control"
             formControlName="prononciation"
             [(ngModel)]="fetchedProduct.description.title.prononciation">
+          <label>Add SoundCloud Embed Code:</label>
           <input
             type="text"
-            placeholder="embed"
             class="form-control"
             formControlName="embed"
             [(ngModel)]="fetchedProduct.description.title.embed">
