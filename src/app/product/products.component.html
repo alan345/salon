@@ -5,7 +5,7 @@
   </div>
   <div>
     <div class="prdts-ln">
-      <md-tab-group (selectChange)="onSelectChange1($event)" class="beigeback phyto-ctnr pdt-tabs">
+      <md-tab-group (selectChange)="onSelectChange1($event)" class="beigeback phyto-ctnr">
         <md-tab *ngFor="let categorieHard1 of categoriesHard1"
         [ngClass]="{'bigcat-btn-on':categorieHard1.selected,'bigcat-btn':!categorieHard1.selected}"
         [label]="categorieHard1.name"></md-tab>
