@@ -126,7 +126,7 @@
             class="form-control"
             formControlName="prononciation"
             [(ngModel)]="fetchedProduct.description.title.prononciation">
-          <label>Add SoundCloud Embed Code:</label>
+          <label>Add SoundCloud Embed Code:</label> (e.g: 34019569)
           <input
             type="text"
             class="form-control"
@@ -134,7 +134,7 @@
             [(ngModel)]="fetchedProduct.description.title.embed">
         </div>
       </div>
-      
+
       <div class="valid-edit">
         <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
       </div>
