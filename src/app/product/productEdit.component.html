@@ -99,27 +99,30 @@
       </div>
       <div formGroupName="description">
         <label>Benefits and Results:</label>
-        <input
+        <textarea
           type="textarea"
           class="form-control"
           formControlName="benefitsAndResults"
           [(ngModel)]="fetchedProduct.description.benefitsAndResults">
+        </textarea>
         <label>How to Apply:</label>
-        <input
-          type="textarea"
+        <textarea
+          type="text"
           class="form-control"
           formControlName="howToApply"
-          [(ngModel)]="fetchedProduct.description.howToApply">
+                  [(ngModel)]="fetchedProduct.description.howToApply">
+        </textarea>
         <label>Ingredients:</label>
-        <input
-          type="textarea"
+        <textarea
+          type="text"
           class="form-control"
           formControlName="activeIngredients"
           [(ngModel)]="fetchedProduct.description.activeIngredients">
+        </textarea>
         <div formGroupName="title">
           <label>Pronunciation:</label>
           <input
-            type="textarea"
+            type="text"
             class="form-control"
             formControlName="prononciation"
             [(ngModel)]="fetchedProduct.description.title.prononciation">
