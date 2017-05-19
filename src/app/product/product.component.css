@@ -345,4 +345,11 @@ label.pdt-lableft {
 .mgtpdt-img, .mgtpdt-txtcnt {
   width: 100%;
 }
+.pdt-tabs .mat-tab-label {
+  width: 33.333333% !important;
+  float: left !important;
+}
+.pdt-tabs .mat-tab-labels {
+  display: block !important;
+}
 }
