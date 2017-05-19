@@ -25,9 +25,7 @@
         <td class="pdt-cnt">
           <a [routerLink]="['/product/' + product._id]">
             <div class="pdt-nm">{{product.magento.name}}</div>
-            <div *ngIf="product.categories.length == 0">
-              NO CATEGS
-            </div>
+            <div *ngIf="product.categories.length == 0" class="nolink"><i class="fa fa-exclamation-triangle"></i> UNLINKED</div>
 
             <div *ngFor="let custom_attribute of product.magento.custom_attributes">
               <div *ngIf="custom_attribute.attribute_code == 'description'">
