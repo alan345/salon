@@ -94,7 +94,7 @@ table {
     margin-bottom: 0 !important;
 }
 .tbl-left, .tbl-center, .tbl-right {
-  width:33.333333%;
+  width:33.333333% !important;
 }
 p.tblnav-cl {
   float: left;
@@ -186,12 +186,7 @@ p.tblnav-cl {
 }
 .tbl-right p.tblnav-cl, .tbl-center p.tblnav-cl {
   text-align: right;
-}
-.tbl-center p.tblnav-cl {
-   width: 50%;
-}
-.tbl-right p.tblnav-cl {
-   width: 67%;
+  width: 50%;
 }
 .tbl-right {
     text-align: right;
