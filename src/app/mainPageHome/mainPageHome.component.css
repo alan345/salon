@@ -31,7 +31,6 @@ a.shopbutton {
 }
 .topnav-ad {
     text-align: center;
-    margin: 19px auto;
 }
 .notif {
     background-color: #FB8417;
@@ -72,11 +71,12 @@ a.shopbutton {
 @media screen and (min-width: 768px) {
 
 .topnav-ad {
-    width: 80%;
-    float: left;
+  width: 80%;
+  float: left;
+  margin: 19px auto;
 }
 a.shopbutton {
-    margin: 15px 0;
+  margin: 15px 0;
 }
 .edtttl-ok {
   margin: 0 20px;
@@ -87,10 +87,11 @@ a.shopbutton {
 
 .topnav-ad {
   width: 90%;
+  margin: 8px auto;
 }
 a.shopbutton {
   width: 150px;
-  margin: 15px auto;
+  margin: 0 auto 15px;
   display: block;
 }
 .edtttl-ok {
