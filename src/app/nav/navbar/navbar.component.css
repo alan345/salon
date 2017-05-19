@@ -15,10 +15,6 @@
   min-width: auto !important;
   color: #0a2f87;
 }
-.phyto-menu.mat-sidenav-transition .mat-sidenav-content {
-  transform: none !important;
-  transition: none !important;
-}
 
 @media screen and (min-width: 768px) {
 
