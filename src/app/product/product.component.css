@@ -241,6 +241,36 @@ p.mgtpdt-desc {
   border: 1px solid;
   font-size: 20px;
 }
+.hlf-wdth {
+  width: 40%;
+  float: left;
+  margin-bottom: 15px;
+}
+.pdtind-tabs .mat-tab-labels, .pdtind-tabs .mat-tab-label {
+  background-color: #231f20;
+}
+.pdtind-tabs .mat-tab-label {
+  color: #ffffff !important;
+  font-family: "Montserrat", sans-serif !important;
+  text-transform: uppercase;
+  opacity: 1 !important;
+  width: 33.333333%;
+}
+.pdtind-tabs .mat-tab-label-active {
+    color: #231f20 !important;
+    background-color: #ffffff !important;
+}
+.mat-ink-bar {
+    display: none !important;
+}
+md-tab-header.mat-tab-header {
+    border-bottom: none !important;
+}
+.pdtind-tabs .mat-tab-body-content {
+    padding: 15px;
+    min-height: 200px;
+}
+
 @media screen and (min-width: 768px) {
 
 .pdt-cnt {
