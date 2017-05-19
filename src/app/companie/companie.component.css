@@ -237,9 +237,6 @@ p.tblnav-cl {
 
 @media screen and (max-width: 450px) {
 
-.clienttbl td {
-  float: left;
-}
 .updownbtn {
   width:100%;
 }
