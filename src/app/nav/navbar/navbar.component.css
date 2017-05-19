@@ -5,6 +5,7 @@
   background-color: #ffffff;
   position: fixed;
   width: 100%;
+  max-width: 950px;
   top: 0;
   z-index: 999999;
 }
