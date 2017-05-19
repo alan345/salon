@@ -271,13 +271,13 @@ md-tab-header.mat-tab-header {
     padding: 15px;
     min-height: 200px;
 }
+.pdt-cnt {
+    float: left;
+    width: 100%;
+}
 
 @media screen and (min-width: 768px) {
 
-.pdt-cnt {
-    width: 100%;
-    float: left;
-}
 .lft-form, .rght-form, label.pdt-lableft {
     width: 50%;
     float: left;
@@ -318,10 +318,6 @@ md-tab-header.mat-tab-header {
 
 @media screen and (max-width: 767px) {
 
-.pdt-ctnr, .pdt-cnt {
-    float: left;
-    width: 100%;
-}
 label.pdt-lableft {
     display: block;
 }
@@ -348,8 +344,31 @@ label.pdt-lableft {
 .pdt-tabs .mat-tab-label {
   width: 33.333333% !important;
   float: left !important;
+  height: 58px !important;
 }
 .pdt-tabs .mat-tab-labels {
   display: block !important;
+}
+}
+
+@media screen and (min-width: 440px) and (max-width: 767px) {
+
+.pdt-ctnr {
+  float: left;
+  width: 50%;
+}
+}
+
+@media screen and (max-width: 439px) {
+
+.pdt-ctnr {
+  float: left;
+  width: 100%;
+}
+}
+@media screen and (max-width: 365px) {
+  
+.pdt-tabs .mat-tab-label {
+  padding: 15px 5px !important;
 }
 }
