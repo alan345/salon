@@ -14,10 +14,10 @@
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
             </div>
-            <div class="mgtpdt-txtcnt">
+            <div class=" single-wrpr mgtpdt-txtcnt">
               <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
               <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
-                <p *ngIf="custom_attribute.attribute_code == 'description'" class="magento-desc">
+                <p *ngIf="custom_attribute.attribute_code == 'description'" class="mgtpdt-desc">
                   {{custom_attribute.value}}
                 </p>
               </div>
@@ -45,10 +45,6 @@
           Hey !! {{categorie.name}}
         </md-tab>
       </md-tab-group>
-
-    <div class="valid-edit">
-      <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
-    </div>
     <div class="clearfix"></div>
   </form>
 </div>
