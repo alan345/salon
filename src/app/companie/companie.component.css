@@ -85,7 +85,6 @@ button.updn-btn {
     margin: 0 10px;
     color: #fb8417;
 }
-
 .subsubnav-clients {
   background-color: #0A2F87;
   padding: 15px 15px 0;
@@ -95,6 +94,12 @@ table {
 }
 .head-clts th {
   width:33.333333% !important;
+}
+.tbl-center {
+    margin: 0 auto;
+}
+.tbl-right {
+    float: right;
 }
 .updownbtn {
     background-color: #ffffff;
@@ -182,17 +187,16 @@ table {
 }
 p.tblnav-cl {
   padding: 15px 15px 15px 0;
+  float: left;
 }
 .tbl-left {
     width: 160px;
 }
 .tbl-center {
     width: 157px;
-    margin: 0 auto;
 }
 .tbl-right {
     width: 180px;
-    float: right;
 }
 .edt-sln {
     padding: 4px 12px 2px;
@@ -214,8 +218,9 @@ p.tblnav-cl {
 .edt-slntxt {
   display:none;
 }
-.tbl-left, .tbl-centerk, .tbl-right {
-  text-align:center;
+.tbl-left, .tbl-center, .tbl-right {
+  text-align: center;
+  width: 95px;
 }
 }
 
