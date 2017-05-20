@@ -55,13 +55,13 @@ a.admn-btn {
 @media screen and (min-width: 768px) {
   
 .phyto-sidenav {
-    margin-top: 70px;
+    margin-top: 70px !important;
 }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 767px) {
   
 .phyto-sidenav {
-    margin-top: 50px;
+    margin-top: 50px !important;
 }
 }
