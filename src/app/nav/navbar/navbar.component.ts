@@ -57,6 +57,7 @@ export class NavbarComponent implements OnInit {
   sideNavOpen(){
     //this.sidenav.open()
     this.sidenav.toggle()
+    console.log(  this.sidenav.opened )
   }
   isAdmin() {
     return this.adminService.isAdmin();
