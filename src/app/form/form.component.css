@@ -1,5 +1,7 @@
 .cho-fil {
-    padding: 15px;
+  padding: 15px;
+  max-height: 345px;
+  overflow: auto;
 }
 .cho-filcnt {
   position:relative;
