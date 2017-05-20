@@ -2,7 +2,7 @@
   <a [routerLink]="['/']">
     <img src="/assets/images/my_chair_logo.png">
   </a>
-  <button *ngIf="isLoggedIn()" md-button (click)="sideNavOpen()" class="hamburger">
-    &#9776;
-  </button>
+  <i *ngIf="isLoggedIn()" md-button (click)="sideNavOpen()" class="fa fa-bars" ></i>
+  <!-- Voici la classe a appele quand ouver:
+   <i *ngIf="isLoggedIn()" md-button (click)="sideNavOpen()" class="fa fa-times" ></i>-->
 </div>
