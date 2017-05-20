@@ -96,9 +96,6 @@ table {
 .head-clts th {
   width:33.333333% !important;
 }
-p.tblnav-cl {
-  padding: 15px 15px 15px 0;
-}
 .updownbtn {
     background-color: #ffffff;
     border: none;
@@ -183,6 +180,20 @@ p.tblnav-cl {
 .newclientsml-btn {
   display:none;
 }
+p.tblnav-cl {
+  padding: 15px 15px 15px 0;
+}
+.tbl-left {
+    width: 160px;
+}
+.tbl-center {
+    width: 157px;
+    margin: 0 auto;
+}
+.tbl-right {
+    width: 180px;
+    float: right;
+}
 .edt-sln {
     padding: 4px 12px 2px;
 }
@@ -202,6 +213,9 @@ p.tblnav-cl {
 }
 .edt-slntxt {
   display:none;
+}
+.tbl-left, .tbl-centerk, .tbl-right {
+  text-align:center;
 }
 }
 
