@@ -11,9 +11,7 @@
 }
 .hamburger {
   float: right;
-  font-size: 25px;
-  font-family: inherit !important;
-  min-width: auto !important;
+  font-size: 20px;
   color: #0a2f87;
 }
 
@@ -30,7 +28,7 @@
   height: 70px!important;
 }
 .hamburger {
-  padding: 17px;
+  padding: 25px;
 }
 }
 
@@ -40,6 +38,6 @@
   height: 50px!important;
 }
 .hamburger {
-  padding: 7px 14px;
+  padding: 15px;
 }
 }
