@@ -218,13 +218,9 @@ p.tblnav-cl {
 .edt-slntxt {
   display:none;
 }
-.tbl-left, .tbl-center, .tbl-right {
-  text-align: center;
-  width: 95px;
-}
 }
 
-@media screen and (min-width: 440px) and (max-width: 768px) {
+@media screen and (min-width: 440px) and (max-width: 767px) {
 
 .one-sty {
     width: 50% !important;
@@ -240,9 +236,20 @@ p.tblnav-cl {
 }
 }
 
+@media screen and (min-width: 449px) and (max-width: 767px) {
+  
+.tbl-left, .tbl-center, .tbl-right {
+  text-align: center;
+  width: 95px;
+}
+
 @media screen and (max-width: 450px) {
 
 .updownbtn {
   width:100%;
+}
+.tbl-left, .tbl-center, .tbl-right {
+  text-align: center;
+  width: 70px;
 }
 }
