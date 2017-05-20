@@ -17,7 +17,7 @@
 .pdt-tabs .mat-tab-labels {
   background-color: #ffffff !important;
 }
-.pdt-tabs .mat-tab-label-active, .pdt-tabs .mat-tab-label-active {
+.pdt-tabs .mat-tab-label-active, .pdts-ln .mat-tab-label-active {
   background-color: #0a2f87 !important;
   color: #ffffff !important;
 }
