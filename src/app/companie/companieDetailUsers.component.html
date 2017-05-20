@@ -29,22 +29,28 @@
   </div>
   <div class="beigeback">
     <table class="table table-hover table-responsive table-condensed">
-      <thead>
+      <thead class="head-clts">
         <tr>
-          <th class="tbl-left">
-            <p class="tblnav-cl">Client</p>
-            <button class="updownbtn" (click)="orderBy('-client')"><i class="fa fa-chevron-up"></i></button>
-            <button class="updownbtn" (click)="orderBy('client')"><i class="fa fa-chevron-down"></i></button>
+          <th>
+            <div class="tbl-left">
+              <p class="tblnav-cl">Client</p>
+              <button class="updownbtn" (click)="orderBy('-client')"><i class="fa fa-chevron-up"></i></button>
+              <button class="updownbtn" (click)="orderBy('client')"><i class="fa fa-chevron-down"></i></button>
+            </div>
           </th>
-          <th *ngIf="showColumnStylist()" class="tbl-center">
-            <p class="tblnav-cl">Stylist</p>
-            <button class="updownbtn" (click)="orderBy('stylist')"><i class="fa fa-chevron-up"></i></button>
-            <button class="updownbtn" (click)="orderBy('-stylist')"><i class="fa fa-chevron-down"></i></button>
+          <th *ngIf="showColumnStylist()">
+            <div class="tbl-center">
+              <p class="tblnav-cl">Stylist</p>
+              <button class="updownbtn" (click)="orderBy('stylist')"><i class="fa fa-chevron-up"></i></button>
+              <button class="updownbtn" (click)="orderBy('-stylist')"><i class="fa fa-chevron-down"></i></button>
+            </div>
           </th>
-          <th class="tbl-right">
-            <p class="tblnav-cl">Last Visit</p>
-            <button class="updownbtn" (click)="orderBy('lastVisit')"><i class="fa fa-chevron-up"></i></button>
-            <button class="updownbtn" (click)="orderBy('-lastVisit')"><i class="fa fa-chevron-down"></i></button>
+          <th>
+            <div class="tbl-right">
+              <p class="tblnav-cl">Last Visit</p>
+              <button class="updownbtn" (click)="orderBy('lastVisit')"><i class="fa fa-chevron-up"></i></button>
+              <button class="updownbtn" (click)="orderBy('-lastVisit')"><i class="fa fa-chevron-down"></i></button>
+            </div>
           </th>
         </tr>
       </thead>
