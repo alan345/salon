@@ -93,7 +93,7 @@ button.updn-btn {
 table {
     margin-bottom: 0 !important;
 }
-.tbl-left, .tbl-center, .tbl-right {
+.head-clts th {
   width:33.333333% !important;
 }
 p.tblnav-cl {
@@ -183,13 +183,6 @@ p.tblnav-cl {
 .newclientsml-btn {
   display:none;
 }
-.tbl-right p.tblnav-cl, .tbl-center p.tblnav-cl {
-  text-align: right;
-  width: 50%;
-}
-.tbl-right {
-    text-align: right;
-}
 .edt-sln {
     padding: 4px 12px 2px;
 }
@@ -225,13 +218,6 @@ p.tblnav-cl {
 .one-sty {
     width: 100% !important;
     padding: 5px;
-}
-}
-
-@media screen and (min-width: 630px) {
-
-p.tblnav-cl {
-  float: left;
 }
 }
 
