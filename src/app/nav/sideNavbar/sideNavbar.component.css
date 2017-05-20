@@ -45,8 +45,6 @@ a.admn-btn {
     opacity: 0.8;
 }
 .sidenav-footer {
-    position: absolute;
-    bottom: 0;
     padding: 0 20px;
 }
 .sidenav-footer p, .sidenav-footer p a {
