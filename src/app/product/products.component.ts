@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {ProductService} from './product.service';
-//import {RegionComponent} from '../region/region.component';
 import {Product} from './product.model';
 import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {ToastsManager} from 'ng2-toastr';

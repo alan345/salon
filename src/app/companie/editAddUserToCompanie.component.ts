@@ -1,15 +1,14 @@
-import {ChangeDetectionStrategy, EventEmitter, Component, OnInit, Input, Output } from '@angular/core';
+import {ChangeDetectionStrategy, EventEmitter, Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {CompanieService} from './companie.service';
 import {Companie} from './companie.model';
 import {User} from '../user/user.model';
-//import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+
 import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
+
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import {Location} from '@angular/common';
-import {FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 
 import {UserService} from '../user/user.service';
 

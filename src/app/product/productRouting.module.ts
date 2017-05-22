@@ -1,15 +1,11 @@
-import { Routes,
-         RouterModule }        from '@angular/router';
+import { Routes, RouterModule }        from '@angular/router';
 import { NgModule }            from '@angular/core';
-import {AuthGuardService} from '../auth/authguard.service';
 
-import {AppComponent} from '../app.component';
 
 import {ProductsComponent} from './products.component';
 import {ProductSingleComponent} from './productSingle.component';
 import {ProductEditComponent} from './productEdit.component';
 import {ProductsAdminComponent} from './admin/productsAdmin.component';
-//import {NewProductComponent} from './newProduct.component';
 
 import {AdminGuardService} from '../admin/services/adminGuard';
 

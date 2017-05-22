@@ -1,16 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth/auth.service';
-
-import {Social} from './social.model';
-import {ChangeDetectionStrategy, Input} from "@angular/core";
-import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
-import { SubmitPicDialog } from './submitPicDialog.component'
-
-
+import { ToastsManager} from 'ng2-toastr';
+import { MdDialog} from '@angular/material';
+import { Router} from '@angular/router';
+import { Location } from '@angular/common';
+import { SubmitPicDialog } from './submitPicDialog.component';
 
 
 @Component({

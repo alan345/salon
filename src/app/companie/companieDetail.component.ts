@@ -1,52 +1,53 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 
-import {AuthService} from '../auth/auth.service';
-import {CompanieService} from './companie.service';
-import {Companie} from './companie.model';
+import {AuthService} from "../auth/auth.service";
+import {CompanieService} from "./companie.service";
+import {Companie} from "./companie.model";
 import {ChangeDetectionStrategy, Input} from "@angular/core";
-//import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
-import {Location} from '@angular/common';
-import { Form } from '../form/form.model'
-import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
-import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
-import { AdminService} from '../admin/services/admin.service';
-import { User } from '../user/user.model'
+import {ToastsManager} from "ng2-toastr";
+import {Inject, forwardRef} from "@angular/core";
+import {MdDialog, MdDialogRef} from "@angular/material";
+import {Router, ActivatedRoute, Params } from "@angular/router";
+import {Location} from "@angular/common";
+import { Form } from "../form/form.model";
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from "@angular/forms";
+import { EditOptionsComponentDialog } from "../modalLibrary/modalLibrary.component";
+import { AdminService} from "../admin/services/admin.service";
+import { User } from "../user/user.model";
+
+//import {NgbModal, NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: 'app-companie',
-  templateUrl: './companieDetail.component.html',
-  styleUrls: ['./companie.component.css'],
+  selector: "app-companie",
+  templateUrl: "./companieDetail.component.html",
+  styleUrls: ["./companie.component.css"],
 })
 export class CompanieDetailComponent implements OnInit {
-  maxPictureToShow = 3
-  users : User[] = []
-  userAdmins : User[] = []
-  fetchedCompanie : Companie = {
-    _id:'',
-    forms:[],
-    name:'',
-    typeCompanie:'',
-    phoneNumber:'',
+  maxPictureToShow = 3;
+  users: User[] = [];
+  userAdmins: User[] = [];
+  fetchedCompanie: Companie = {
+    _id: "",
+    forms: [],
+    name: "",
+    typeCompanie: "",
+    phoneNumber: "",
     address: {
-      address : '',
-      city :  '',
-      state :  '',
-      zip :  ''
+      address : "",
+      city :  "",
+      state :  "",
+      zip :  ""
     },
-    _users:[]
-  }
+    _users: []
+  };
 
   search = {
-    orderBy : '-client',
-    search:'',
-    parentUser:'',
-    role:'',
+    orderBy : "-client",
+    search: "",
+    parentUser: "",
+    role: "",
     onlyMyUsers: false,
-  }
+  };
 
   public myForm: FormGroup;
 
@@ -54,7 +55,7 @@ export class CompanieDetailComponent implements OnInit {
 
   constructor(
     private companieService: CompanieService,
-    private adminService: AdminService,
+
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
     public dialog: MdDialog,
@@ -89,8 +90,8 @@ export class CompanieDetailComponent implements OnInit {
   removeForm(i: number) {
       this.fetchedCompanie.forms.splice(i, 1)
       const control = <FormArray>this.myForm.controls['forms'];
-      control.removeAt(i)
-      this.save()
+      control.removeAt(i);
+      this.save();
   }
 
   onDelete(id: string) {
@@ -139,7 +140,7 @@ export class CompanieDetailComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         console.log(result)
-        if(result.type==='pdf') {
+        if(result.type ==='pdf') {
           this.toastr.error('No pdf!');
         } else {
           this.addForm(result)

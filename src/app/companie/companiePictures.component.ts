@@ -1,19 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-
-import {AuthService} from '../auth/auth.service';
 import {CompanieService} from './companie.service';
-
-
 import {Companie} from './companie.model';
-import {ChangeDetectionStrategy, Input} from "@angular/core";
-//import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MdDialog} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import {Location} from '@angular/common';
 import { Form } from '../form/form.model'
-import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 
 
@@ -24,9 +17,9 @@ import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.compone
 })
 
 export class CompaniePicturesComponent implements OnInit {
-  maxPictureToShow=3
-  fetchedCompanie : Companie = {
-    _id:'',
+  maxPictureToShow = 3
+  fetchedCompanie: Companie = {
+    _id: '',
     forms:[],
     name:'',
     typeCompanie:'',

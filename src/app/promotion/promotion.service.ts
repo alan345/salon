@@ -14,7 +14,7 @@ export class PromotionService {
   private url: string = '/';
 //  private token: string = localStorage.getItem('id_token');
 //  private promotionId: string = localStorage.getItem('promotionId');
-  private promotions = [];
+  private promotions: Promotion[] = [];
   private singlePromotion = Object;
 
   constructor(

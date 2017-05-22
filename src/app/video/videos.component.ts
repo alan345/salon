@@ -1,16 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {VideoService} from './video.service';
-//import {RegionComponent} from '../region/region.component';
 import {Video} from './video.model';
-import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
-import {ViewEncapsulation} from '@angular/core'
+import {MdDialog} from '@angular/material';
+import {Router} from '@angular/router';
+import { Location } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../user/user.service';
 
 
@@ -23,13 +20,12 @@ import { UserService} from '../user/user.service';
 })
 export class VideosComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
-  fetchedVideos : Array<VideosComponent> = [];
+  fetchedVideos: Video[] = [];
   search = {
     categories : [],
-    search:''
-  }
-  loading: boolean
-  //inputSearch:''
+    search: ''
+  };
+  loading: boolean;
 
   paginationData = {
     currentPage: 1,
@@ -38,19 +34,19 @@ export class VideosComponent implements OnInit {
   };
 
   categories1 = [{
-      name:'phyto',
-      selected : false
+      name: 'phyto',
+      selected: false
     },
     {
-      name:'phytoSpecific',
-      selected : false
+      name: 'phytoSpecific',
+      selected: false
     },
     {
-      name:'subtil',
-      selected : false
-    }]
+      name: 'subtil',
+      selected: false
+    }];
 
-  categories2 = ''
+  categories2 = '';
 
 
   categoriesHard2 = [
