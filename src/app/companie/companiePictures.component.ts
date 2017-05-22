@@ -20,10 +20,10 @@ export class CompaniePicturesComponent implements OnInit {
   maxPictureToShow = 3
   fetchedCompanie: Companie = {
     _id: '',
-    forms:[],
-    name:'',
-    typeCompanie:'',
-    phoneNumber:'',
+    forms: [],
+    name: '',
+    typeCompanie: '',
+    phoneNumber: '',
     address: {
       address : '',
       city :  '',

@@ -19,7 +19,7 @@ import { AdminService} from '../admin/services/admin.service';
 export class CompanieDetailUsersComponent implements OnInit {
   maxPictureToShow = 3
 //  users : User[] = []
-  fetchedCompanies : Companie[]=[]
+  fetchedCompanies: Companie[]= []
   search = {
     orderBy : '-client',
     search:'',

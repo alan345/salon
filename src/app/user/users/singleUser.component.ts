@@ -1,9 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { UserService} from '../user.service';
-
 import { ToastsManager} from 'ng2-toastr';
-
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
@@ -12,6 +10,7 @@ import { Form } from '../../form/form.model';
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
+
 
 @Component({
   selector: 'app-users',
@@ -22,8 +21,8 @@ import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 
 export class SingleUserComponent implements OnInit {
 
-  maxPictureToShow=3
-  fetchedUser : User = {
+  maxPictureToShow = 3
+  fetchedUser: User = {
     _id: '',
     lastVisit: new Date,
     email:'',

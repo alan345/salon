@@ -1,17 +1,13 @@
 import { Component, OnInit} from '@angular/core';
-
 import { PressService} from './press.service';
-
 import { ToastsManager} from 'ng2-toastr';
-
 import { MdDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
+import { Location } from '@angular/common';
 import { Press } from './press.model';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DeleteDialog } from '../deleteDialog/deleteDialog.component';
-
 
 
 @Component({

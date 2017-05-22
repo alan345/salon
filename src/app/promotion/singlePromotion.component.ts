@@ -9,7 +9,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { Promotion } from './promotion.model'
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
-import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { PromotionDeleteDialog } from './promotionDeleteDialog.component'
 
 

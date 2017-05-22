@@ -1,9 +1,9 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { FormService} from './form.service';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-import { SeePictureDialogComponent } from '../seePictureDialog/seePictureDialog.component'
-import { MdDialog, MdDialogRef} from '@angular/material';
+import { SeePictureDialogComponent } from '../seePictureDialog/seePictureDialog.component';
+import { MdDialog} from '@angular/material';
 
 @Component({
   selector: 'app-user-form',

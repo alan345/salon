@@ -1,8 +1,5 @@
-import {Component, OnInit, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {Component, ViewChild } from '@angular/core';
 import { UserFormsComponent }  from './userForms.component';
-
 
 
 @Component({

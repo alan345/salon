@@ -8,10 +8,10 @@ import { AdminService} from '../admin/services/admin.service';
 import { VideoService} from '../video/video.service';
 import { PressService} from '../press/press.service';
 import { Options } from './options.model';
-import {Router} from '@angular/router';
-import {CompanieService} from '../companie/companie.service';
-import {AuthService} from '../auth/auth.service';
-import {Companie} from '../companie/companie.model';
+import { Router} from '@angular/router';
+import { CompanieService} from '../companie/companie.service';
+import { AuthService} from '../auth/auth.service';
+import { Companie} from '../companie/companie.model';
 
 @Component({
   selector: 'app-admin',
@@ -19,19 +19,19 @@ import {Companie} from '../companie/companie.model';
   styleUrls: ['./mainPageHome.component.css']
 })
 export class MainPageHomeComponent implements OnInit {
-  companies : Companie[] = []
+  companies: Companie[] = []
   trackinPage = {
-    lastVisitPagePressCount:[],
-    lastVisitPageVideoCount:[]
+    lastVisitPagePressCount: [],
+    lastVisitPageVideoCount: []
   }
   isEditTitle:boolean = false
   myForm: FormGroup;
-  options : Options = {
+  options: Options = {
     design : {
       mainPage:{
-        titleHomePage:'',
-        buttonHomePage:'',
-        linkButtonHomePage:'',
+        titleHomePage: '',
+        buttonHomePage: '',
+        linkButtonHomePage: '',
         _imgHome1:[],
         _imgHome2:[],
         _imgHome3:[],

@@ -1,16 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {PromotionService} from './promotion.service';
-
 import {Promotion} from './promotion.model';
-
 import {ToastsManager} from 'ng2-toastr';
-
 import {MdDialog} from '@angular/material';
 import {Router} from '@angular/router';
 import { Location } from '@angular/common';
-
-
 
 
 @Component({
@@ -25,7 +20,7 @@ export class PromotionsSeeInactiveComponent implements OnInit {
 
   search = {
     orderBy : 'name',
-    search:'',
+    search: '',
     filterDate: false
   }
 

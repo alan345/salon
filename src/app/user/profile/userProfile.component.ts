@@ -1,23 +1,19 @@
 import { Component, OnInit} from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { UserService} from '../user.service';
-//import {RegionComponent} from '../region/region.component';
-import { AdminService} from '../../admin/services/admin.service';
 
-
-import { ChangeDetectionStrategy, Input} from "@angular/core";
 import { ToastsManager} from 'ng2-toastr';
-import { Inject, forwardRef} from '@angular/core';
-import { MdDialog, MdDialogRef} from '@angular/material';
+
+import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { User } from '../user.model'
-import { Form } from '../../form/form.model'
-import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component'
-import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { User } from '../user.model';
+import { Form } from '../../form/form.model';
+import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component';
+import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { CompanieService} from '../../companie/companie.service';
-import { SubmitPicDialog } from '../../social/submitPicDialog.component'
-import { SeePictureDialogComponent } from '../../seePictureDialog/seePictureDialog.component'
+import { SubmitPicDialog } from '../../social/submitPicDialog.component';
+import { SeePictureDialogComponent } from '../../seePictureDialog/seePictureDialog.component';
 
 
 
