@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
-import {Promotion} from './promotion.model';
+//import {Promotion} from './promotion.model';
 import {ToastsManager} from 'ng2-toastr';
 import { AuthService } from '../auth/auth.service';
 import 'rxjs/add/operator/map';
@@ -14,8 +14,8 @@ export class PromotionService {
   private url: string = '/';
 //  private token: string = localStorage.getItem('id_token');
 //  private promotionId: string = localStorage.getItem('promotionId');
-  private promotions: Promotion[] = [];
-  private singlePromotion = Object;
+  // private promotions: Promotion[] = [];
+  // private singlePromotion = Object;
 
   constructor(
     private http: Http,

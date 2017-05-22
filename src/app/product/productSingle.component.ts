@@ -9,7 +9,6 @@ import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.compone
 import { FormBuilder, FormGroup, FormArray} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 
-
 @Component({
   selector: 'app-products',
   templateUrl: './productSingle.component.html',

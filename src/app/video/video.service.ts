@@ -15,8 +15,8 @@ export class VideoService {
   private url: string = '/';
 //  private token: string = localStorage.getItem('id_token');
 //  private videoId: string = localStorage.getItem('videoId');
-  private videos = [];
-  private singleVideo = Object;
+  // private videos = [];
+  // private singleVideo = Object;
 
   constructor(
     private http: Http,

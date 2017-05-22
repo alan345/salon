@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, EventEmitter, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {CompanieService} from './companie.service';
 import {Companie} from './companie.model';

@@ -1,13 +1,7 @@
 import {Routes} from '@angular/router';
 
-import {AuthGuardService} from '../auth/authguard.service';
-
-import {AppComponent} from '../app.component';
-
 import {PressesComponent} from './presses.component';
 import {PressSingleComponent} from './pressSingle.component';
-//import {NewPressComponent} from './newPress.component';
-
 
 
 

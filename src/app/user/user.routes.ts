@@ -5,7 +5,7 @@ import {ResetPasswordComponent} from './accountRecover/resetPassword.component';
 import {ForgetPasswordComponent} from './accountRecover/forgetPassword.component';
 import {UserFormsComponent} from '../form/userForms.component';
 import {AuthGuardService} from '../auth/authguard.service';
-import {AppComponent} from '../app.component';
+// import {AppComponent} from '../app.component';
 import {UserProfileComponent} from './profile/userProfile.component';
 import {UserProfilePicturesComponent} from './profile/userProfilePictures.component';
 import {UserProfileSettingsComponent} from './profile/userProfileSettings.component';

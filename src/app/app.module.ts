@@ -18,8 +18,8 @@ import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
 
 
-import {  ApplicationRef } from '@angular/core';
-
+// import {  ApplicationRef } from '@angular/core';
+//
 
 
 import {ToastModule} from 'ng2-toastr/ng2-toastr';

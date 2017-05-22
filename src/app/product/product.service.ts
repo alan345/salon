@@ -15,8 +15,8 @@ export class ProductService {
   private url: string = '/';
 //  private token: string = localStorage.getItem('id_token');
 //  private productId: string = localStorage.getItem('productId');
-  private products = [];
-  private singleProduct = Object;
+  // private products = [];
+  // private singleProduct = Object;
 
   constructor(
     private http: Http,

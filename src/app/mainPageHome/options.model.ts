@@ -1,5 +1,5 @@
 
-import { Form } from '../form/form.model'
+import { Form } from '../form/form.model';
 
 export interface Options {
   design: Design

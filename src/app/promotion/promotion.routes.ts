@@ -1,12 +1,11 @@
 import {Routes} from '@angular/router';
 
-import {AuthGuardService} from '../auth/authguard.service';
-
-import {AppComponent} from '../app.component';
+// import {AuthGuardService} from '../auth/authguard.service';
+//
+// import {AppComponent} from '../app.component';
 
 import {PromotionsComponent} from './promotions.component';
 import {SinglePromotionComponent} from './singlePromotion.component';
-//import {NewPromotionComponent} from './newPromotion.component';
 
 import {PromotionsSeeInactiveComponent} from './promotionsSeeInactive.component';
 

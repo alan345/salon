@@ -2,16 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {PressService} from './press.service';
 import {Press} from './press.model';
-import {ChangeDetectionStrategy, Input} from "@angular/core";
+
 import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
+
+import {MdDialog } from '@angular/material';
+import {Router  } from '@angular/router';
 import { Location }               from '@angular/common';
 import { UserService} from '../user/user.service';
-import { Form } from '../form/form.model'
-//import { SeePictureDialogComponent } from '../seePictureDialog/seePictureDialog.component'
-
 
 
 

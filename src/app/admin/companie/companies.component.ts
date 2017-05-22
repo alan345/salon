@@ -3,12 +3,11 @@ import {AuthService} from '../../auth/auth.service';
 import {CompanieService} from '../../companie/companie.service';
 
 import {Companie} from '../../companie/companie.model';
-import {ChangeDetectionStrategy, Input} from "@angular/core";
-//import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+
 import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
+
+import {MdDialog} from '@angular/material';
+import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 
 
@@ -20,7 +19,7 @@ import {Location} from '@angular/common';
 
 })
 export class CompaniesComponent implements OnInit {
-  fetchedCompanies : Array<CompaniesComponent> = [];
+  fetchedCompanies: Companie[] = [];
 
   loading: boolean;
   paginationData = {

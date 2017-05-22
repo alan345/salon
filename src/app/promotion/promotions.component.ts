@@ -1,14 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {PromotionService} from './promotion.service';
-//import {RegionComponent} from '../region/region.component';
+
 import {Promotion} from './promotion.model';
-import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
+
+import {MdDialog} from '@angular/material';
+import {Router} from '@angular/router';
+import { Location } from '@angular/common';
 
 
 
@@ -20,7 +19,7 @@ import { Location }               from '@angular/common';
 
 })
 export class PromotionsComponent implements OnInit {
-  fetchedPromotions : Array<PromotionsComponent> = [];
+  fetchedPromotions: Promotion[] = [];
   loading: boolean;
   paginationData = {
     currentPage: 1,

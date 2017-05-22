@@ -1,8 +1,8 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MainPageHomeService} from './mainPageHome.service';
-import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog, MdDialogRef} from '@angular/material';
+import { MdDialog} from '@angular/material';
 import { EditOptionsComponentDialog }  from '../modalLibrary/modalLibrary.component';
 import { AdminService} from '../admin/services/admin.service';
 import { VideoService} from '../video/video.service';

@@ -2,14 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {ProductService} from './product.service';
 import {Product} from './product.model';
-import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
-import {ViewEncapsulation} from '@angular/core'
+import {MdDialog } from '@angular/material';
+import {Router} from '@angular/router';
+import { Location } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
+import {ViewEncapsulation} from '@angular/core';
 
 
 
@@ -22,7 +20,7 @@ import {ViewEncapsulation} from '@angular/core'
 })
 export class ProductsComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
-  fetchedProducts :  Array<ProductsComponent> = [];
+  fetchedProducts: Product[] = [];
 
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
   search = {

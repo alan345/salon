@@ -5,9 +5,9 @@ import {ToastsManager} from 'ng2-toastr';
 import {MdDialog} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import {Location} from '@angular/common';
-import { Form } from '../form/form.model'
+import { Form } from '../form/form.model';
 import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
-import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
+import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
 
 
 @Component({

@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth/auth.service';
-import {VideoService} from './video.service';
-import {Video} from './video.model';
-import {ToastsManager} from 'ng2-toastr';
-import {MdDialog} from '@angular/material';
-import {Router} from '@angular/router';
+import { Component, OnInit} from '@angular/core';
+import { AuthService} from '../auth/auth.service';
+import { VideoService} from './video.service';
+import { Video} from './video.model';
+import { ToastsManager} from 'ng2-toastr';
+import { MdDialog} from '@angular/material';
+import { Router} from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
