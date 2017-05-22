@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CompanieService} from './companie.service';
-import {Companie} from './companie.model';
+import {Companie, CompanieConst} from './companie.model';
 import {ToastsManager} from 'ng2-toastr';
 import {MdDialog} from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
@@ -18,20 +18,7 @@ import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.compone
 
 export class CompaniePicturesComponent implements OnInit {
   maxPictureToShow = 3
-  fetchedCompanie: Companie = {
-    _id: '',
-    forms: [],
-    name: '',
-    typeCompanie: '',
-    phoneNumber: '',
-    address: {
-      address : '',
-      city :  '',
-      state :  '',
-      zip :  ''
-    },
-    _users:[]
-  }
+  fetchedCompanie: Companie = CompanieConst
 
   public myForm: FormGroup;
 

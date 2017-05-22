@@ -47,3 +47,26 @@ export interface Address {
     postcode: string;
 
 }
+
+export const UserConst : User = {
+  _id: '',
+  lastVisit: new Date,
+  email: '',
+  profile:{
+    parentUser:[],
+    isFeatured:false,
+    phoneNumber: '',
+    name:'',
+    lastName:'',
+    title:'',
+    _profilePicture:[],
+    hair:{
+      hairCondition : 'Normal',
+      scalpCondition : 'Healthy',
+      hairTexture : 'Fine',
+    }
+  },
+  notes:[],
+  forms:[],
+  role:['stylist'],
+}

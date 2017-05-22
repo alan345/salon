@@ -17,3 +17,19 @@ export interface Address {
   state: '';
   zip: '';
 }
+
+
+export const CompanieConst: Companie = {
+  _id:'',
+  forms:[],
+  name:'',
+  typeCompanie:'',
+  phoneNumber:'',
+  address: {
+    address : '',
+    city :  '',
+    state :  '',
+    zip :  ''
+  },
+  _users:[]
+}

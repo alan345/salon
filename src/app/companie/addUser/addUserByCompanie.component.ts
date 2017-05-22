@@ -1,64 +1,44 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../auth/auth.service';
-import {CompanieService} from '../companie.service';
-import {Companie} from '../companie.model';
-import {User} from '../../user/user.model';
-
-import {ToastsManager} from 'ng2-toastr';
-
-import {Router, ActivatedRoute, Params } from '@angular/router';
-import {Location} from '@angular/common';
-import {FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
-
-import {UserService} from '../../user/user.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../auth/auth.service';
+import { CompanieService } from '../companie.service';
+import { Companie, CompanieConst } from '../companie.model';
+import { User, UserConst } from '../../user/user.model';
+import { ToastsManager } from 'ng2-toastr';
+import { Router, ActivatedRoute  } from '@angular/router';
+import { Location } from '@angular/common';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { UserService } from '../../user/user.service';
 
 
 @Component({
-  selector: 'editAddUserToCompanie',
-  templateUrl: './editAddUserToCompanie.component.html',
+  selector: 'addUserByCompanie',
+  templateUrl: './addUserByCompanie.component.html',
   styleUrls: ['../companie.component.css'],
 })
 export class AddUserByCompanieComponent implements OnInit {
 
-  fetchedCompanie: Companie = {
-    _id:'',
-    forms:[],
-    name:'',
-    typeCompanie:'',
-    phoneNumber:'',
-    address: {
-      address : '',
-      city :  '',
-      state :  '',
-      zip :  ''
-    },
-    _users:[]
-  }
+
+  fetchedCompanie = CompanieConst
+  // fetchedCompanie: Companie = {
+  //   _id:'',
+  //   forms:[],
+  //   name:'',
+  //   typeCompanie:'',
+  //   phoneNumber:'',
+  //   address: {
+  //     address : '',
+  //     city :  '',
+  //     state :  '',
+  //     zip :  ''
+  //   },
+  //   _users:[]
+  // }
+
+
   search = {
-    email : '',
+    search : '',
   }
-  fetchedUser : User = {
-    _id: '',
-    lastVisit: new Date,
-    email:'',
-    profile:{
-      parentUser:[],
-      isFeatured:false,
-      phoneNumber:'',
-      name:'',
-      lastName:'',
-      title:'',
-      _profilePicture:[],
-      hair:{
-        hairCondition : 'Normal',
-        scalpCondition : 'Healthy',
-        hairTexture : 'Fine',
-      }
-    },
-    notes:[],
-    forms:[],
-    role:['stylist'],
-  }
+  fetchedUser: User = UserConst;
 
   myForm: FormGroup;
   filteredUsers = []
@@ -78,9 +58,6 @@ export class AddUserByCompanieComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      this.getCompanie(params['id'])
-    })
     this.myForm = this._fb.group({
       lastVisit: [''],
       _id: [''],
@@ -96,35 +73,52 @@ export class AddUserByCompanieComponent implements OnInit {
 
   }
 
-  searchEmails() {
-    this.filteredUsers = []
-    if(this.search.email) {
-      this.userService.getUsersByEmail(this.search)
+  searchCompanie() {
+
+    if( this.search.search ) {
+
+      this.companieService.getCompanies(1, this.search)
         .subscribe(
           res => {
-            this.filteredUsers = res.data
             if(res.data.length) {
-              if(res.data[0].email === this.search.email) {
-                this.userFounded(0)
-              } else {
-                this.initFormNewUser()
-              }
+              this.fetchedCompanie  = <Companie>res.data[0]
             } else {
-              this.initFormNewUser()
+              this.fetchedCompanie = CompanieConst
             }
+
 
           },
           error => {
             console.log(error);
           }
-        )
+        );
+
+      // this.companieService.getUsersByEmail(this.search)
+      //   .subscribe(
+      //     res => {
+      //       this.filteredUsers = res.data
+      //       if(res.data.length) {
+      //         if(res.data[0].email === this.search.email) {
+      //           this.userFounded(0)
+      //         } else {
+      //           this.initFormNewUser()
+      //         }
+      //       } else {
+      //         this.initFormNewUser()
+      //       }
+      //
+      //     },
+      //     error => {
+      //       console.log(error);
+      //     }
+      //   )
       }
   }
   initFormNewUser() {
-    this.fetchedUser.email = this.search.email
-    this.fetchedUser.role.forEach((role) => {
-      this.addRole(role)
-    })
+    // this.fetchedUser.email = this.search.email
+    // this.fetchedUser.role.forEach((role) => {
+    //   this.addRole(role)
+    // })
   }
 
   userFounded(i) {
@@ -146,7 +140,6 @@ export class AddUserByCompanieComponent implements OnInit {
   }
 
   save(form: FormGroup) {
-
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
@@ -169,7 +162,6 @@ export class AddUserByCompanieComponent implements OnInit {
     }
   }
   addUserIdToCompanie(user : User) {
-
       let okAddUserToCompanie = true
       this.fetchedCompanie._users.forEach((userFetch) => {
         if(userFetch._id === user._id) {

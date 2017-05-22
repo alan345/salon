@@ -124,22 +124,11 @@ router.post('/', function (req, res, next) {
 
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
-
-
-  // if (req.user.role[0] !== "admin" && req.user.role[0] !== "salesRep") {
-  //   return res.status(401).json({
-  //     title: 'There was an error',
-  //     error: {message: 'You are not the administrator'}
-  //   })
-  // }
-
-
-
-  var itemsPerPage = 5;
-  var currentPage = Number(req.params.page);
-  var pageNumber = currentPage - 1;
-  var skip = (itemsPerPage * pageNumber);
-  var limit = (itemsPerPage * pageNumber) + itemsPerPage;
+  var itemsPerPage = 5
+  var currentPage = Number(req.params.page)
+  var pageNumber = currentPage - 1
+  var skip = (itemsPerPage * pageNumber)
+  //var limit = (itemsPerPage * pageNumber) + itemsPerPage
 
   let nameQuery = {}
   let cityQuery = {}
@@ -159,15 +148,15 @@ router.get('/page/:page', function (req, res, next) {
   if(req.query.typeCompanie)
     search['typeCompanie'] = req.query.typeCompanie
 
-  if (req.user.role[0] === "salesRep") {
+  if (req.user.role[0] === 'salesRep') {
     search['_users'] = mongoose.Types.ObjectId(req.user._id)
     search['typeCompanie'] = { $nin: 'HQ'}
 
   }
-  if (req.user.role[0] === "manager") {
+  if (req.user.role[0] === 'manager') {
     search['_users'] = mongoose.Types.ObjectId(req.user._id)
   }
-  if (req.user.role[0] === "stylist") {
+  if (req.user.role[0] === 'stylist') {
     search['_users'] = mongoose.Types.ObjectId(req.user._id)
   }
 

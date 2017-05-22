@@ -6,8 +6,13 @@
   <div class="beigeback single-wrpr">
     <div *ngIf="!fetchedUser.email">
       <div class="form-group">
-        <input type="text" class="form-control" [(ngModel)]="search.email" (keyup.enter)="searchEmails()" placeholder="Email">
+        <input type="text" class="form-control" [(ngModel)]="search.search" (keyup.enter)="searchCompanie()" placeholder="Salon">
       </div>
+    </div>
+    <div *ngIf="fetchedCompanie.name">
+      {{fetchedCompanie.name}}
+      <br>
+      <button>Request to add me into this companie</button>
     </div>
     <form  *ngIf="fetchedUser.email" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
       <div class="form-group">
