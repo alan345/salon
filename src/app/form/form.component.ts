@@ -13,6 +13,12 @@ import {AuthService} from '../auth/auth.service';
 })
 export class FormComponent implements OnInit, AfterViewInit {
 
+
+    @ViewChild('item') item: ElementRef;
+    @ViewChild('appendToChildEl') appendToChildEl: ElementRef;
+
+
+
   @Output() onPassForm = new EventEmitter<any>();
   // setting up the form
   myForm: FormGroup;
@@ -21,6 +27,7 @@ export class FormComponent implements OnInit, AfterViewInit {
 
   // get the Auth Token from localStorage in order to Authenticate to back end while submitting the form
   token: string = localStorage.getItem('id_token');
+  angleInDegrees = 0
   url: string = '/uploads';
   maxSize: number = 50000000;
   invalidFileSizeMessage: string = '{0}: Invalid file size, ';
@@ -48,16 +55,94 @@ export class FormComponent implements OnInit, AfterViewInit {
 
     ) {}
 
+
+
+
+
+    drawRotated(degrees, file){
+        var canvas;
+
+        var angleInDegrees=0;
+
+        var image=document.createElement("img");
+        if(canvas) document.body.removeChild(canvas);
+
+        image.src=file.notSafeURL;
+
+
+        canvas = document.createElement("canvas");
+        var ctx=canvas.getContext("2d");
+        canvas.style.width="20%";
+
+        if(degrees == 90 || degrees == 270) {
+    		canvas.width = image.height;
+    		canvas.height = image.width;
+        } else {
+    		canvas.width = image.width;
+    		canvas.height = image.height;
+        }
+
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        if(degrees == 90 || degrees == 270) {
+    		ctx.translate(image.height/2,image.width/2);
+        } else {
+    	    ctx.translate(image.width/2,image.height/2);
+       }
+        ctx.rotate(degrees*Math.PI/180);
+        ctx.drawImage(image,-image.width/2,-image.height/2);
+        this.appendToChildEl.nativeElement.appendChild(canvas);
+
+    }
+
+
+
+
+    rotate() {
+      this.angleInDegrees= (this.angleInDegrees + 90) % 360;
+      this.drawRotated(this.angleInDegrees, this.files[0])
+    //  this.resizeImage(this.files[0])
+    //  console.log(this.files)
+    }
   // event fired when the user selects an image
   onFileSelect(event) {
     this.clear();
     let files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
+
     for (let i = 0; i < files.length; i++) {
+
       let file = files[i];
       if (this.validate(file)) {
         if (this.isImage(file)) {
+
+
           file.objectURL = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(files[i])));
+          file.notSafeURL = window.URL.createObjectURL(files[i])
           this.files.push(files[i]);
+          // console.log(this.files)
+          //
+          //
+          //
+          // let canvas = document.createElement('canvas');
+          // let ctx = canvas.getContext('2d');
+          // var j = 0;
+          // var shipImg = new Image();
+          // shipImg.src = 'http://localhost/assets/images/my_chair_logo.png';
+          // ctx.fillStyle = '#000';
+          // ctx.fillRect(0,0,100,100);
+          //
+          // ctx.save();
+          // ctx.translate(50, 50);
+          // ctx.rotate(i / 180 / Math.PI);
+          // ctx.drawImage(file.objectURLshipImg, -16, -16);
+          // ctx.restore();
+          // i += 10;
+
+
+
+
+
+
+
         }
       } else if (!this.isImage(file)) {
         this.toastr.error('Only images are allowed');
@@ -183,6 +268,8 @@ export class FormComponent implements OnInit, AfterViewInit {
 
 }
 
+
+//http://stackoverflow.com/questions/18033812/how-to-rotate-image-using-native-javascript
 
 // TODO  sample code to resize image before uploading to reduce bandwidth from server
 // resizeImage(file) {
