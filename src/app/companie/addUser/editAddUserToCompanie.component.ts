@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth/auth.service';
-import {CompanieService} from './companie.service';
-import {Companie} from './companie.model';
-import {User} from '../user/user.model';
+import {AuthService} from '../../auth/auth.service';
+import {CompanieService} from '../companie.service';
+import {Companie} from '../companie.model';
+import {User} from '../../user/user.model';
 
 import {ToastsManager} from 'ng2-toastr';
 
@@ -10,17 +10,17 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 import {Location} from '@angular/common';
 import {FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 
-import {UserService} from '../user/user.service';
+import {UserService} from '../../user/user.service';
 
 
 @Component({
   selector: 'editAddUserToCompanie',
   templateUrl: './editAddUserToCompanie.component.html',
-  styleUrls: ['./companie.component.css'],
+  styleUrls: ['../companie.component.css'],
 })
 export class EditAddUserToCompanieComponent implements OnInit {
 
-  fetchedCompanie : Companie = {
+  fetchedCompanie: Companie = {
     _id:'',
     forms:[],
     name:'',

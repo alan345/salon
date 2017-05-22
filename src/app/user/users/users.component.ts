@@ -3,12 +3,10 @@ import {AuthService} from '../../auth/auth.service';
 import {UserService} from '../user.service';
 import {CompanieService} from '../../companie/companie.service';
 import {User} from '../user.model';
-import {ChangeDetectionStrategy, Input} from "@angular/core";
 import {ToastsManager} from 'ng2-toastr';
-import {Inject, forwardRef} from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
+import {MdDialog } from '@angular/material';
+import {Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 
@@ -21,14 +19,14 @@ import { Location }               from '@angular/common';
 })
 
 export class UsersComponent implements OnInit {
-  fetchedUsers : Array<UsersComponent> = [];
+  fetchedUsers: User[] = [];
   fetchedRegions = [];
   loading: boolean;
   search = {
     orderBy : '',
-    search:'',
-    parentUser:'',
-    role:''
+    search: '',
+    parentUser: '',
+    role: ''
   }
   paginationData = {
     currentPage: 1,

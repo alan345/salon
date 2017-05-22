@@ -1,14 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../auth/auth.service';
-import {CompanieService} from '../../companie/companie.service';
-
-import {Companie} from '../../companie/companie.model';
-
-import {ToastsManager} from 'ng2-toastr';
-
-import {MdDialog} from '@angular/material';
-import {Router} from '@angular/router';
-import {Location} from '@angular/common';
+import { Component, OnInit} from '@angular/core';
+import { AuthService} from '../../auth/auth.service';
+import { CompanieService} from '../../companie/companie.service';
+import { Companie} from '../../companie/companie.model';
+import { ToastsManager} from 'ng2-toastr';
+import { MdDialog} from '@angular/material';
+import { Router} from '@angular/router';
+import { Location} from '@angular/common';
 
 
 

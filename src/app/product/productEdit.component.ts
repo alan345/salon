@@ -22,7 +22,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ProductEditComponent implements OnInit {
 
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
-  fetchedProduct : Product = {
+  fetchedProduct: Product = {
     _id: '',
     categories: [],
     categoriesTag: [],

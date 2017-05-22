@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate, Router} from '@angular/router';
-import {Observable} from 'rxjs';
-import {ToastsManager} from 'ng2-toastr';
-import {AdminService} from './admin.service';
+import { Injectable} from '@angular/core';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate, Router} from '@angular/router';
+import { Observable} from 'rxjs';
+import { ToastsManager} from 'ng2-toastr';
+import { AdminService} from './admin.service';
 
 @Injectable()
 export class AdminGuardService implements CanActivate {

@@ -15,10 +15,6 @@ import { AuthHttp, AuthConfig} from 'angular2-jwt';
 
 
 
-// import {  ApplicationRef } from '@angular/core';
-//
-
-
 import { ToastModule} from 'ng2-toastr/ng2-toastr';
 import { ToastOptions} from 'ng2-toastr';
 import { CustomOption } from './toast-options';
@@ -119,10 +115,9 @@ import { CompaniePicturesComponent} from './companie/companiePictures.component'
 import { CompaniesComponent} from './admin/companie/companies.component';
 import { CompanieComponent} from './companie/companie.component';
 import { EditCompanieComponent} from './companie/editCompanie.component';
-import { EditAddUserToCompanieComponent} from './companie/editAddUserToCompanie.component';
+import { EditAddUserToCompanieComponent} from './companie/addUser/editAddUserToCompanie.component';
 import { CompanieDetailComponent} from './companie/companieDetail.component';
 import { CompanieService} from './companie/companie.service';
-
 
 
 
