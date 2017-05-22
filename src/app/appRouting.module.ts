@@ -15,7 +15,7 @@ import {AuthGuardService} from './auth/authguard.service';
 import {MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 
 
-import {USER_COMPANIES} from './companie/companie.routes';
+//import {USER_COMPANIES} from './companie/companie.routes';
 import {CompanieComponent} from './companie/companie.component';
 
 import {SOCIAL} from './social/social.routes';
@@ -48,10 +48,12 @@ export const routes: Routes = [
   {path: '', component: MainPageHomeComponent, canActivate: [AuthGuardService], pathMatch: 'full'},
   {path: 'social', component: SocialComponent, canActivate: [AuthGuardService], children: SOCIAL},
 //  {path: 'home2', component: MainPageComponent, pathMatch: 'full'},
-  {path: 'companie', component: CompanieComponent, canActivate: [AuthGuardService], children: USER_COMPANIES},
+
   {path: 'press', component: PressComponent, canActivate: [AuthGuardService], children: USER_PRESSES},
   //{path: 'product', component: ProductComponent, canActivate: [AuthGuardService], children: USER_PRODUCTS},
 //  {path: 'video', component: VideoComponent, canActivate: [AuthGuardService], children: VIDEOS},
+  //{path: 'companie', component: CompanieComponent, canActivate: [AuthGuardService], children: USER_COMPANIES},
+  {path: 'companie', loadChildren: 'app/companie/companie.module#CompanieModule'},
   {path: 'video', loadChildren: 'app/video/video.module#VideoModule'},
   {path: 'product', loadChildren: 'app/product/product.module#ProductModule'},
   {path: 'promotion', component: PromotionComponent, canActivate: [AuthGuardService], children: USER_PROMOTIONS},

@@ -66,6 +66,7 @@ import { PressService} from './press/press.service';
 
 import { VideoModule} from './video/video.module';
 import { ProductModule} from './product/product.module';
+import { CompanieModule} from './companie/companie.module';
 // import { VideoDeleteDialog} from './video/videoDeleteDialog.component';
 // import { VideoWhereDialogComponent} from './video/videoWhereDialog.component';
 //
@@ -109,16 +110,16 @@ import { MainPageHomeService} from './mainPageHome/mainPageHome.service';
 
 
 
-import { CompanieFilterPipe} from './companie/companieFilter.pipe';
-import { CompanieDetailUsersComponent} from './companie/companieDetailUsers.component';
-import { CompaniePicturesComponent} from './companie/companiePictures.component';
-import { CompaniesComponent} from './admin/companie/companies.component';
-import { CompanieComponent} from './companie/companie.component';
-import { EditCompanieComponent} from './companie/editCompanie.component';
-import { EditAddUserToCompanieComponent} from './companie/addUser/editAddUserToCompanie.component';
-import { CompanieDetailComponent} from './companie/companieDetail.component';
-import { CompanieService} from './companie/companie.service';
-
+// import { CompanieFilterPipe} from './companie/companieFilter.pipe';
+// import { CompanieDetailUsersComponent} from './companie/companieDetailUsers.component';
+// import { CompaniePicturesComponent} from './companie/companiePictures.component';
+// import { CompaniesComponent} from './admin/companie/companies.component';
+// import { CompanieComponent} from './companie/companie.component';
+// import { EditCompanieComponent} from './companie/editCompanie.component';
+// import { EditAddUserToCompanieComponent} from './companie/addUser/editAddUserToCompanie.component';
+// import { CompanieDetailComponent} from './companie/companieDetail.component';
+// import { CompanieService} from './companie/companie.service';
+//
 
 
 import { ResetPasswordComponent} from './user/accountRecover/resetPassword.component';
@@ -225,14 +226,18 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ErrorComponent,
 
     MainPageHomeComponent,
-    CompanieDetailUsersComponent,
-    CompaniePicturesComponent,
-    CompaniesComponent,
-    CompanieComponent,
-    EditCompanieComponent,
-    EditAddUserToCompanieComponent,
-    CompanieDetailComponent,
-    CompanieFilterPipe,
+
+
+    // CompanieDetailUsersComponent,
+    // CompaniePicturesComponent,
+    // CompaniesComponent,
+    // CompanieComponent,
+    // EditCompanieComponent,
+    // EditAddUserToCompanieComponent,
+    // CompanieDetailComponent,
+    // CompanieFilterPipe,
+
+
   //  CompanieAddUserDialog,
 
     ResetPasswordComponent,
@@ -268,8 +273,12 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     Ng2PaginationModule,
 //    NgbModule.forRoot(),
     MaterialModule,
+
+
+
     VideoModule,
     ProductModule,
+    CompanieModule,
 
   ],
   providers: [
@@ -277,7 +286,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     AuthService,
     ErrorService,
-    CompanieService,
+//    CompanieService,
     //VideoService,
     MainPageHomeService,
     PressService,
