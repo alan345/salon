@@ -30,9 +30,9 @@ export class CompaniesComponent implements OnInit {
 
   search = {
     orderBy : '',
-    search:'',
-    companieType:'',
-  }
+    search: '',
+    companieType: '',
+  };
 
   constructor(
     private companieService: CompanieService,
@@ -57,11 +57,11 @@ export class CompaniesComponent implements OnInit {
     this.location.back();
   }
 
-  searchInput(){
+  searchInput() {
     this.getCompanies(this.paginationData.currentPage, this.search)
   }
 
-  orderBy(orderBy:string) {
+  orderBy(orderBy: string) {
     this.search.orderBy = orderBy
     this.getCompanies(this.paginationData.currentPage, this.search)
   }
