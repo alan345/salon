@@ -210,17 +210,17 @@ export class ProductBatchsAdminComponent implements OnInit {
           if(page === 1)
             this.fetchedProductBatchs =[]
           this.paginationData = res.paginationData;
-          let fetchedProductBatchsNotSecure =  res.data
-          fetchedProductBatchsNotSecure.forEach((productBatch) => {
-            productBatch['categoriesTag'] = []
-            productBatch.categories.forEach((categorie) => {
-              if(categorie.type === 'tag') {
-                productBatch['categoriesTag'].push(categorie)
-              }
-            })
-            this.fetchedProductBatchs.push(productBatch)
-          })
-          this.loading = false;
+          this.fetchedProductBatchs =  res.data
+          // fetchedProductBatchsNotSecure.forEach((productBatch) => {
+          //   productBatch['categoriesTag'] = []
+          //   productBatch.categories.forEach((categorie) => {
+          //     if(categorie.type === 'tag') {
+          //       productBatch['categoriesTag'].push(categorie)
+          //     }
+          //   })
+          //   this.fetchedProductBatchs.push(productBatch)
+          // })
+          // this.loading = false;
         },
         error => {
           console.log(error);

@@ -6,16 +6,16 @@ var express = require('express'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
     jwt     = require('jsonwebtoken');
-// var productBatchServ    = require('./productBatchServ')
+ var productBatchServ    = require('./productBatchServ')
 //
 //
 //
-// router.get('/refreshbdd', function (req, res, next) {
-//   productBatchServ.updateFromMagentoToBdd()
-//   res.status(201).json({
-//     message: 'request send to update database from magento',
-//   });
-// })
+router.get('/refreshbdd', function (req, res, next) {
+  productBatchServ.updateFromMagentoToBdd()
+  res.status(201).json({
+    message: 'request send to update database from magento',
+  });
+})
 
 
 
