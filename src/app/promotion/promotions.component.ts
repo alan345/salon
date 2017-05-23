@@ -3,8 +3,6 @@ import {AuthService} from '../auth/auth.service';
 import {PromotionService} from './promotion.service';
 import {Promotion} from './promotion.model';
 import {ToastsManager} from 'ng2-toastr';
-import {MdDialog} from '@angular/material';
-import {Router} from '@angular/router';
 import { Location } from '@angular/common';
 
 
@@ -26,16 +24,14 @@ export class PromotionsComponent implements OnInit {
   };
 
   search = {
-    orderBy : '',
-    search:'',
+    orderBy: '',
+    search: '',
     filterDate: true
   }
 
   constructor(
     private promotionService: PromotionService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
-    private router: Router,
     private location: Location,
     private authService: AuthService,
   ) {
@@ -71,7 +67,7 @@ export class PromotionsComponent implements OnInit {
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
-          this.fetchedPromotions =  res.data
+          this.fetchedPromotions = res.data;
         },
         error => {
           console.log(error);
@@ -85,12 +81,3 @@ export class PromotionsComponent implements OnInit {
     return this.authService.isAdmin();
   }
 }
-
-// @Component({
-//   selector: 'promotion-dialog',
-//   templateUrl: './promotionDialog.component.html',
-// })
-// export class PromotionDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<PromotionDialogComponent>) {}
-//
-// }

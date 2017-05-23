@@ -20,16 +20,16 @@ export interface Address {
 
 
 export const CompanieConst: Companie = {
-  _id:'',
-  forms:[],
-  name:'',
-  typeCompanie:'',
-  phoneNumber:'',
+  _id: '',
+  forms: [],
+  name: '',
+  typeCompanie: '',
+  phoneNumber: '',
   address: {
     address : '',
     city :  '',
     state :  '',
     zip :  ''
   },
-  _users:[]
-}
+  _users: []
+};

@@ -47,3 +47,27 @@ export interface Custom_attribute {
   attribute_code: string;
   value: string;
 }
+
+export const ProductConst: Product = {
+  _id: '',
+  categories: [],
+  categoriesTag: [],
+  description: {
+    benefitsAndResults:'',
+    howToApply:'',
+    activeIngredients:'',
+    title : {
+      prononciation : '',
+      embed: '',
+      embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
+    }
+  },
+  magento : {
+    id: '',
+    sku: '',
+    name: '',
+    price: 0,
+    weight: '',
+    custom_attributes: [],
+  }
+}

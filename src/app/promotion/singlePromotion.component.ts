@@ -6,8 +6,8 @@ import { ToastsManager} from 'ng2-toastr';
 
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
-import { Promotion } from './promotion.model'
+import { Location } from '@angular/common';
+import { Promotion, PromotionConst } from './promotion.model'
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component'
 import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { PromotionDeleteDialog } from './promotionDeleteDialog.component'
@@ -25,15 +25,7 @@ export class SinglePromotionComponent implements OnInit {
   //fetchedPromotion: Promotion;
   //fetchedPromotion._id='';
 
-  fetchedPromotion : Promotion = {
-    _id: '',
-    date:{
-      dateBegin: new Date().toISOString().substr(0,10),
-      dateEnd: new Date().toISOString().substr(0,10),
-    },
-    name:'',
-    form:[]
-  }
+  fetchedPromotion : Promotion = PromotionConst;
 
   public myForm: FormGroup;
 

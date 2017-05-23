@@ -5,7 +5,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { Product } from './product.model';
+import { Product, ProductConst } from './product.model';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -22,29 +22,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ProductEditComponent implements OnInit {
 
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
-  fetchedProduct: Product = {
-    _id: '',
-    categories: [],
-    categoriesTag: [],
-    description: {
-      benefitsAndResults:'',
-      howToApply:'',
-      activeIngredients:'',
-      title : {
-        prononciation : '',
-        embed: '',
-        embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
-      }
-    },
-    magento : {
-      id: '',
-      sku: '',
-      name: '',
-      price: 0,
-      weight: '',
-      custom_attributes: [],
-    }
-  }
+  fetchedProduct: Product = ProductConst;
   categoriesHard2 = [
     { name:'Conditioners & masks', selected : false },
     { name:'Diateray supplements', selected : false },
@@ -95,8 +73,7 @@ export class ProductEditComponent implements OnInit {
     private location: Location,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-  ) {
-  }
+  ) { }
 
 
 
@@ -198,7 +175,7 @@ export class ProductEditComponent implements OnInit {
   }
 
 
-  save(product : Product) {
+  save(product: Product) {
     //console.log(this.fetchedProduct)
     if(!this.fetchedProduct.categories.length){
       this.toastr.error('Error!', 'Please select at least one categorie')
