@@ -1,15 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-productBatch',
   templateUrl: './productBatch.component.html'
 })
-export class ProductBatchComponent implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+export class ProductBatchComponent {
+  constructor() {}
 }

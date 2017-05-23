@@ -220,7 +220,7 @@ export class ProductBatchsAdminComponent implements OnInit {
           //   })
           //   this.fetchedProductBatchs.push(productBatch)
           // })
-          // this.loading = false;
+           this.loading = false;
         },
         error => {
           console.log(error);

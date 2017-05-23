@@ -9,18 +9,18 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import {ProductBatchComponent} from './productBatch.component';
-import {ProductBatchsComponent} from './productBatchs.component';
-import {ProductBatchSingleComponent} from './productBatchSingle.component';
-import {ProductBatchEditComponent} from './productBatchEdit.component';
+// import {ProductBatchsComponent} from './productBatchs.component';
+// import {ProductBatchSingleComponent} from './productBatchSingle.component';
+// import {ProductBatchEditComponent} from './productBatchEdit.component';
 
 
-import {ProductBatchService} from './productBatch.service';
-import {ProductBatchRouting} from './productBatchRouting.module';
+import { ProductBatchService} from './productBatch.service';
+import { ProductBatchRouting} from './productBatchRouting.module';
 
 import { MaterialModule } from '@angular/material';
-import {Ng2PaginationModule} from 'ng2-pagination';
-import {SmallDescriptionPipe} from './productBatch.pipe';
-import {ProductBatchsAdminComponent} from './admin/productBatchsAdmin.component';
+import { Ng2PaginationModule} from 'ng2-pagination';
+//import {SmallDescriptionPipe} from './productBatch.pipe';
+import { ProductBatchsAdminComponent} from './admin/productBatchsAdmin.component';
 
 
 
@@ -37,14 +37,14 @@ import {ProductBatchsAdminComponent} from './admin/productBatchsAdmin.component'
   declarations: [
   //  ProductBatchDeleteDialog,
   //  ProductBatchWhereDialogComponent,
-    SmallDescriptionPipe,
+  //  SmallDescriptionPipe,
     ProductBatchComponent,
-    ProductBatchsComponent,
-    ProductBatchSingleComponent,
-    ProductBatchEditComponent,
+    // ProductBatchsComponent,
+    // ProductBatchSingleComponent,
+    // ProductBatchEditComponent,
     ProductBatchsAdminComponent,
   ],
-  exports:      [ ProductBatchsComponent ],
+  exports:      [  ],
   providers:    [ ProductBatchService ],
   entryComponents: [
   //  ProductBatchDeleteDialog,
