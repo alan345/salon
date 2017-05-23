@@ -1,20 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../auth/auth.service';
-import {ProductBatchService} from '../productBatch.service';
-import {ProductBatch} from '../productBatch.model';
-import {ToastsManager} from 'ng2-toastr';
-import {MdDialog} from '@angular/material';
-import {Router} from '@angular/router';
-import { Location }               from '@angular/common';
+import { Component, OnInit} from '@angular/core';
+import { AuthService} from '../auth/auth.service';
+import { ProductBatchService} from './productBatch.service';
+import { ProductBatch} from './productBatch.model';
+import { ToastsManager} from 'ng2-toastr';
+import { MdDialog} from '@angular/material';
+import { Router} from '@angular/router';
+import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
-import {ViewEncapsulation} from '@angular/core';
+import { ViewEncapsulation} from '@angular/core';
 
 
 
 @Component({
   selector: 'app-productBatchs',
   templateUrl: './productBatchsAdmin.component.html',
-  styleUrls: ['../../productBatch/productBatch.component.css'],
+  styleUrls: ['./productBatch.component.css'],
   encapsulation: ViewEncapsulation.None
 
 })
@@ -210,16 +210,11 @@ export class ProductBatchsAdminComponent implements OnInit {
           if(page === 1)
             this.fetchedProductBatchs =[]
           this.paginationData = res.paginationData;
-          this.fetchedProductBatchs =  res.data
-          // fetchedProductBatchsNotSecure.forEach((productBatch) => {
-          //   productBatch['categoriesTag'] = []
-          //   productBatch.categories.forEach((categorie) => {
-          //     if(categorie.type === 'tag') {
-          //       productBatch['categoriesTag'].push(categorie)
-          //     }
-          //   })
-          //   this.fetchedProductBatchs.push(productBatch)
-          // })
+          //this.fetchedProductBatchs =  res.data
+          let fetchedProductBatchsNotSecure = res.data
+          fetchedProductBatchsNotSecure.forEach((productBatch) => {
+            this.fetchedProductBatchs.push(productBatch)
+          })
            this.loading = false;
         },
         error => {

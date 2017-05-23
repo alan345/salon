@@ -1,6 +1,6 @@
 import { Routes, RouterModule }        from '@angular/router';
 import { NgModule }            from '@angular/core';
-import {ProductBatchsAdminComponent} from './admin/productBatchsAdmin.component';
+import {ProductBatchsAdminComponent} from './productBatchsAdmin.component';
 import {AdminGuardService} from '../admin/services/adminGuard';
 
 

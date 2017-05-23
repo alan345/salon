@@ -7,31 +7,42 @@
 
     <div class="subsubnav-productBatch beigeback">
       <div class="productBatch-srchrow">
-    
+
       </div>
 
     </div>
   </div>
 
   <table class="table table-hover table-responsive table-condensed pdt-tbl">
+
+    <thead class="head-clts">
+      <tr>
+        <th>Status</th>
+        <th>Begin</th>
+        <th>End</th>
+        <th># Not Updated</th>
+        <th># Not Creadted</th>
+        <th># Updated</th>
+        <th># Creadted</th>
+        <th># treated</th>
+        <th>total</th>
+      </tr>
+    </thead>
     <tbody>
       <tr *ngFor="let productBatch of fetchedProductBatchs | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
-        <td >
-
-            <div class="pdt-nm">{{productBatch | json}}</div>
-
-            <div class="pdt-tagzctnr">
-
-              <!-- <div *ngFor="let categorie of productBatch.categories" class="pdt-tagz">
-                <div *ngIf="categorie.type == 'tag'">
-                  <div class="pdt-tag">{{categorie.name}},</div>
-                </div>
-              </div> -->
-            </div>
+        <td>{{productBatch.status}}</td>
+        <td>{{productBatch.dateBegin| date:'medium'}}</td>
+        <td>{{productBatch.dateEnd| date:'medium'}}</td>
+        <td>{{productBatch.nbProductsNotUpdated}}</td>
+        <td>{{productBatch.nbProductsNotCreadted}}</td>
+        <td>{{productBatch.nbProductsUpdated}}</td>
+        <td>{{productBatch.nbProductsCreadted}}</td>
+        <td>{{productBatch.total_item_treated}}</td>
+        <td>{{productBatch.total_count}}</td>
 
 
-        </td>
-        <!-- <td><a [routerLink]="['/productBatch/' + productBatch._id]" routerLinkActive="active">{{productBatch.email}}</a></td> -->
+
+
       </tr>
     </tbody>
   </table>

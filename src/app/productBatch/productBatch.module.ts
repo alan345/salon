@@ -8,7 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 //import {ProductBatchWhereDialogComponent} from './productBatchWhereDialog.component';
 
 
-import {ProductBatchComponent} from './productBatch.component';
+//import {ProductBatchComponent} from './productBatch.component';
 // import {ProductBatchsComponent} from './productBatchs.component';
 // import {ProductBatchSingleComponent} from './productBatchSingle.component';
 // import {ProductBatchEditComponent} from './productBatchEdit.component';
@@ -20,7 +20,7 @@ import { ProductBatchRouting} from './productBatchRouting.module';
 import { MaterialModule } from '@angular/material';
 import { Ng2PaginationModule} from 'ng2-pagination';
 //import {SmallDescriptionPipe} from './productBatch.pipe';
-import { ProductBatchsAdminComponent} from './admin/productBatchsAdmin.component';
+import { ProductBatchsAdminComponent} from './productBatchsAdmin.component';
 
 
 
@@ -38,7 +38,7 @@ import { ProductBatchsAdminComponent} from './admin/productBatchsAdmin.component
   //  ProductBatchDeleteDialog,
   //  ProductBatchWhereDialogComponent,
   //  SmallDescriptionPipe,
-    ProductBatchComponent,
+  //  ProductBatchComponent,
     // ProductBatchsComponent,
     // ProductBatchSingleComponent,
     // ProductBatchEditComponent,
