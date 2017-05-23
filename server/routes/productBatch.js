@@ -65,69 +65,76 @@ router.use('/', function (req, res, next) {
 });
 
 
-
-//update
-router.put('/:id', function (req, res, next) {
-  ProductBatchServ.findById(({_id: req.params.id}), function (err, item) {
-    if (err) {
-      return res.status(404).json({
-        message: '',
-        err: err
-      })
-    } else {
-      for (var prop in req.body) {
-        if(prop !== '__v' && prop !== 'updatedAt' && prop !== 'createdAt')
-          item[prop] = req.body[prop]
-      }
-      console.log(req.body)
-        item.save(function (err, result) {
-          if (err) {
-            return res.status(404).json({
-              message: 'There was an error, please try again',
-              err: err
-            });
-          }
-          res.status(201).json({
-            message: '',
-            obj: result
-          });
-        });
-
-    }
-  })
-});
-
-router.post('/', function (req, res, next) {
-  console.log(req.body)
-  delete req.body._id
-  var productsBatch = new ProductBatchServ(req.body)
-//  var productsBatch = new ProductBatchServ(req.body)
-//   delete productsBatch._id
-  // console.log(productsBatch)
-
-
-
-  productsBatch.save(function (err, result) {
-    if (err) {
-      return res.status(403).json({
-        title: 'There was an issue',
-        error: {message: 'The email you entered already exists'}
-      })
-    }
-    res.status(200).json({
-      message: 'Registration Successfull',
-      obj: result
-    })
-  })
-})
-
-
+//
+// //update
+// router.put('/:id', function (req, res, next) {
+//   ProductBatchServ.findById(({_id: req.params.id}), function (err, item) {
+//     if (err) {
+//       return res.status(404).json({
+//         message: '',
+//         err: err
+//       })
+//     } else {
+//       for (var prop in req.body) {
+//         if(prop !== '__v' && prop !== 'updatedAt' && prop !== 'createdAt')
+//           item[prop] = req.body[prop]
+//       }
+//       console.log(req.body)
+//         item.save(function (err, result) {
+//           if (err) {
+//             return res.status(404).json({
+//               message: 'There was an error, please try again',
+//               err: err
+//             });
+//           }
+//           res.status(201).json({
+//             message: '',
+//             obj: result
+//           });
+//         });
+//
+//     }
+//   })
+// });
+//
+// router.post('/', function (req, res, next) {
+//   console.log(req.body)
+//   delete req.body._id
+//   var productsBatch = new ProductBatchServ(req.body)
+// //  var productsBatch = new ProductBatchServ(req.body)
+// //   delete productsBatch._id
+//   // console.log(productsBatch)
+//
+//
+//
+//   productsBatch.save(function (err, result) {
+//     if (err) {
+//       return res.status(403).json({
+//         title: 'There was an issue',
+//         error: {message: 'The email you entered already exists'}
+//       })
+//     }
+//     res.status(200).json({
+//       message: 'Registration Successfull',
+//       obj: result
+//     })
+//   })
+// })
 
 
 
-// get all forms from database
+
+
 router.get('/page/:page', function (req, res, next) {
-  var itemsPerPage = 6
+
+  if(req.user.role[0] !== 'admin') {
+    return res.status(404).json({
+      title: 'Cannot edit Homepage',
+      error: {message: 'Cannot edit Homepage!'}
+    })
+  }
+    
+  var itemsPerPage = 10
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
@@ -246,85 +253,85 @@ router.get('/page/:page', function (req, res, next) {
 
 
 // getting user forms to display them on front end
-router.get('/:id', function (req, res, next) {
-  ProductBatchServ
-  .findById({_id: req.params.id})
-  .populate('form')
-  .populate('owner')
-  .exec(function (err, item) {
-    if (err) {
-      return res.status(404).json({
-        message: '',
-        err: err
-      })
-    } else {
-      res.status(200).json({
-        message: 'Success',
-        item: item
-      })
-    }
-  })
-})
+// router.get('/:id', function (req, res, next) {
+//   ProductBatchServ
+//   .findById({_id: req.params.id})
+//   .populate('form')
+//   .populate('owner')
+//   .exec(function (err, item) {
+//     if (err) {
+//       return res.status(404).json({
+//         message: '',
+//         err: err
+//       })
+//     } else {
+//       res.status(200).json({
+//         message: 'Success',
+//         item: item
+//       })
+//     }
+//   })
+// })
+//
+// router.delete('/:id', function (req, res, next) {
+//   ProductBatchServ.findById((req.params.id), function (err, item) {
+//     if (err) {
+//       return res.status(500).json({
+//         message: 'An error occured',
+//         err: err
+//       })
+//     }
+//     if (!item) {
+//       return res.status(404).json({
+//         title: 'No form found',
+//         error: {message: 'Form not found!'}
+//       });
+//     }
+//
+//
+//     // deleting the form from the database
+//     item.remove(function (err, result) {
+//       if (err) {
+//         return res.status(500).json({
+//           title: 'An error occured',
+//           error: err
+//         });
+//       }
+//       res.status(200).json({
+//         message: 'Item is deleted',
+//         obj: result
+//       });
+//     })
+//   });
+// });
 
-router.delete('/:id', function (req, res, next) {
-  ProductBatchServ.findById((req.params.id), function (err, item) {
-    if (err) {
-      return res.status(500).json({
-        message: 'An error occured',
-        err: err
-      })
-    }
-    if (!item) {
-      return res.status(404).json({
-        title: 'No form found',
-        error: {message: 'Form not found!'}
-      });
-    }
-
-
-    // deleting the form from the database
-    item.remove(function (err, result) {
-      if (err) {
-        return res.status(500).json({
-          title: 'An error occured',
-          error: err
-        });
-      }
-      res.status(200).json({
-        message: 'Item is deleted',
-        obj: result
-      });
-    })
-  });
-});
-
-
-// retrieving a single form
-router.get('/edit/:id', function (req, res, next) {
-  Form.findById((req.params.id), function (err, form) {
-    if (err) {
-      return res.status(500).json({
-        message: 'An error occured',
-        err: err
-      })
-    }
-    if (!form) {
-      return res.status(404).json({
-        title: 'No form found',
-        error: {message: 'Form not found!'}
-      });
-    }
-    // checking if the owner of the form is correct
-    if (form.owner != req.user._id.toString()) {
-      return res.status(401).json({
-        title: 'Not your form!',
-        error: {message: 'Users do not match, not your form'}
-      });
-    }
-    res.status(200).json({
-      obj: form
-    });
-  });
-});
+//
+// // retrieving a single form
+// router.get('/edit/:id', function (req, res, next) {
+//   Form.findById((req.params.id), function (err, form) {
+//     if (err) {
+//       return res.status(500).json({
+//         message: 'An error occured',
+//         err: err
+//       })
+//     }
+//     if (!form) {
+//       return res.status(404).json({
+//         title: 'No form found',
+//         error: {message: 'Form not found!'}
+//       });
+//     }
+//     // checking if the owner of the form is correct
+//     if (form.owner != req.user._id.toString()) {
+//       return res.status(401).json({
+//         title: 'Not your form!',
+//         error: {message: 'Users do not match, not your form'}
+//       });
+//     }
+//     res.status(200).json({
+//       obj: form
+//     });
+//   });
+// });
 
 module.exports = router;
