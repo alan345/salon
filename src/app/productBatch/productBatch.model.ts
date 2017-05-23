@@ -6,7 +6,7 @@
 
 
 
-export interface Product {
+export interface ProductBatch {
   _id: string;
   description : Description;
   categories: Categorie[];

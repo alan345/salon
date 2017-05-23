@@ -1,10 +1,12 @@
 
 var express = require('express'),
     config = require('../config/config'),
+    ProductBatch    = require('../models/productBatch.model'),
     Product    = require('../models/product.model');
+
+
 const Magento2 = require('node-magento2');
 var schedule = require('node-schedule');
-
 
 
     var jobScedule = function() {
@@ -140,18 +142,40 @@ var schedule = require('node-schedule');
       nbProductsNotCreadted,
       nbProductsNotUpdated) {
 
-      let logObj = {
-        'dateBegin' :  dateBegin,
-        'dateEnd': new Date(),
-        'status' : status,
-        'total_count' : total_count,
-        'total_item_treated' : total_item_treated,
-        'nbProductsCreadted' : nbProductsCreadted,
-        'nbProductsUpdated' : nbProductsUpdated,
-        'nbProductsNotCreadted' : nbProductsNotCreadted,
-        'nbProductsNotUpdated' : nbProductsNotUpdated,
-      }
-      console.log(logObj)
-      var fs = require('fs');
-      fs.appendFileSync('server/log/magentoToDB.txt', '\n' + JSON.stringify(logObj));
+
+
+
+        let logObj = {
+          'dateBegin' :  dateBegin,
+          'dateEnd': new Date(),
+          'status' : status,
+          'total_count' : total_count,
+          'total_item_treated' : total_item_treated,
+          'nbProductsCreadted' : nbProductsCreadted,
+          'nbProductsUpdated' : nbProductsUpdated,
+          'nbProductsNotCreadted' : nbProductsNotCreadted,
+          'nbProductsNotUpdated' : nbProductsNotUpdated,
+        }
+
+          var productBatch = new ProductBatch(logObj)
+          console.log(productBatch)
+          productBatch.save(function (err, result) {
+            if (err) {
+              console.log('Error')
+              console.log(err)
+            }
+            console.log('Ok')
+            console.log(result)
+          })
+
+
+
+
+
+
+      //
+      //
+      // console.log(logObj)
+      // var fs = require('fs');
+      // fs.appendFileSync('server/log/magentoToDB.txt', '\n' + JSON.stringify(logObj));
     }

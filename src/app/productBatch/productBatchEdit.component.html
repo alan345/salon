@@ -1,0 +1,144 @@
+<div class="container">
+  <div class="goldgradient beigeborder subnav">
+    <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
+    <h3 style="text-align: center;">Edit ProductBatch</h3>
+  </div>
+  <div class="single-wrpr beigeback">
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
+      <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedProductBatch._id">
+      <div class="form-group">
+        <div class="phyto-ctnr magento-info">
+          <div style="float:left;">
+            <h4>ProductBatch Name:</h4>
+            {{fetchedProductBatch.magento.name}}
+            <h4>ProductBatch Price (Not Visible):</h4>
+            {{fetchedProductBatch.magento.price}}$
+            <h4>ProductBatch SKU (Not Visible):</h4>
+            {{fetchedProductBatch.magento.sku}}
+            <h4>ProductBatch Description:</h4>
+            <div *ngFor="let custom_attribute of fetchedProductBatch.magento.custom_attributes">
+              <div *ngIf="custom_attribute.attribute_code == 'description'" class="magento-desc">
+                {{custom_attribute.value}}
+              </div>
+            </div>
+            <h4>Other Information (Not Visible):</h4>
+            <div *ngFor="let custom_attribute of fetchedProductBatch.magento.custom_attributes">
+              <div *ngIf="custom_attribute.attribute_code == 'country_of_manufacture'">
+                {{custom_attribute.value}}
+              </div>
+              <div *ngIf="custom_attribute.attribute_code == 'url_path'">
+                {{custom_attribute.value}}
+              </div>
+              <div *ngIf="custom_attribute.attribute_code == 'image'" class="magento-img">
+                <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lft-form">
+        <label>Select ProductBatch Line for this ProductBatch:</label>
+        <div *ngFor="let categorieHard of categoriesHard1; let i=index">
+          <md-checkbox
+            (click)="togglCategorieButton(categorieHard.name, 'categ1')"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="categoriesHard1[i].selected"
+          ></md-checkbox>
+          {{categorieHard.name}}
+        </div>
+        <label>Select Categories For This ProductBatch:</label>
+        <div *ngFor="let categorieHard of categoriesHard2; let i=index">
+          <md-checkbox
+            (click)="togglCategorieButton(categorieHard.name, 'categ2')"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="categoriesHard2[i].selected"
+          ></md-checkbox>
+          {{categorieHard.name}}
+        </div>
+        <label>Add ProductBatch Tags:</label>
+        <input
+          [ngModelOptions]="{standalone: true}"
+          [(ngModel)]="inputCategorie"
+          (keyup.enter)="addCategorieInput()"
+          mdInput
+        >
+        <div formArrayName="categories">
+          <div *ngFor="let categorie of getObjects(myForm); let i=index" class="tagz">
+            <div [formGroupName]="i">
+              <input type="hidden" class="form-control" formControlName="name" [(ngModel)]="fetchedProductBatch.categories[i].name">
+              <input type="hidden" class="form-control" formControlName="type" [(ngModel)]="fetchedProductBatch.categories[i].type">
+              <div class="tagz-cnt" *ngIf="fetchedProductBatch.categories[i].type=='tag'">
+                <div class="tagz">
+                  <span class="tagz-name">{{fetchedProductBatch.categories[i].name}}</span>
+                  <i class="tagz-icn fa fa-times pull-right" (click)="removeCategorie(i)"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rght-form">
+        <label>Hair Types:</label>
+        <div *ngFor="let categorie of categories3; let i=index">
+          <md-checkbox
+            (click)="togglCategorieButton(categorie.name, 'categ3')"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="categories3[i].selected"
+          ></md-checkbox>
+          {{categorie.name}}
+        </div>
+        <label>Concerns:</label>
+        <div *ngFor="let categorie of categories4; let i=index">
+          <md-checkbox
+            (click)="togglCategorieButton(categorie.name, 'categ4')"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="categories4[i].selected"
+          ></md-checkbox>
+          {{categorie.name}}
+        </div>
+      </div>
+      <div formGroupName="description">
+        <label>Benefits and Results:</label>
+        <textarea
+          type="textarea"
+          class="form-control"
+          formControlName="benefitsAndResults"
+          [(ngModel)]="fetchedProductBatch.description.benefitsAndResults">
+        </textarea>
+        <label>How to Apply:</label>
+        <textarea
+          type="text"
+          class="form-control"
+          formControlName="howToApply"
+                  [(ngModel)]="fetchedProductBatch.description.howToApply">
+        </textarea>
+        <label>Ingredients:</label>
+        <textarea
+          type="text"
+          class="form-control"
+          formControlName="activeIngredients"
+          [(ngModel)]="fetchedProductBatch.description.activeIngredients">
+        </textarea>
+        <div formGroupName="title">
+          <label>Pronunciation:</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="prononciation"
+            [(ngModel)]="fetchedProductBatch.description.title.prononciation">
+          <label>Add SoundCloud Embed Code:</label> (e.g: 34019569)
+          <input
+            type="text"
+            class="form-control"
+            formControlName="embed"
+            [(ngModel)]="fetchedProductBatch.description.title.embed">
+        </div>
+      </div>
+
+      <div class="valid-edit">
+        <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
+      </div>
+      <div class="clearfix"></div>
+    </form>
+  </div>
+</div>

@@ -67,6 +67,9 @@ import { PressService} from './press/press.service';
 import { VideoModule} from './video/video.module';
 import { ProductModule} from './product/product.module';
 import { CompanieModule} from './companie/companie.module';
+import { ProductBatchModule} from './productBatch/productBatch.module';
+
+
 // import { VideoDeleteDialog} from './video/videoDeleteDialog.component';
 // import { VideoWhereDialogComponent} from './video/videoWhereDialog.component';
 //
@@ -279,6 +282,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     VideoModule,
     ProductModule,
     CompanieModule,
+    ProductBatchModule,
 
   ],
   providers: [

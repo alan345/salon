@@ -56,6 +56,7 @@ export const routes: Routes = [
   {path: 'companie', loadChildren: 'app/companie/companie.module#CompanieModule'},
   {path: 'video', loadChildren: 'app/video/video.module#VideoModule'},
   {path: 'product', loadChildren: 'app/product/product.module#ProductModule'},
+  {path: 'productBatch', loadChildren: 'app/productBatch/productBatch.module#ProductBatchModule'},  
   {path: 'promotion', component: PromotionComponent, canActivate: [AuthGuardService], children: USER_PROMOTIONS},
 //  {path: 'companie/:id', component: CompanieDetailComponent},
 //  {path: 'companie/edit/:id', component: EditCompanieComponent},

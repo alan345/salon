@@ -1,11 +1,11 @@
 import { Component, OnInit} from '@angular/core';
-import { ProductService} from './product.service';
+import { ProductBatchService} from './productBatch.service';
 
 import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { Product } from './product.model';
+import { ProductBatch } from './productBatch.model';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -13,16 +13,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './productEdit.component.html',
-  styleUrls: ['./product.component.css'],
+  selector: 'app-productBatchs',
+  templateUrl: './productBatchEdit.component.html',
+  styleUrls: ['./productBatch.component.css'],
 
 })
 
-export class ProductEditComponent implements OnInit {
+export class ProductBatchEditComponent implements OnInit {
 
-  urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
-  fetchedProduct: Product = {
+  urlMagento = 'http://52.2.61.43/pub/media/catalog/productBatch'
+  fetchedProductBatch: ProductBatch = {
     _id: '',
     categories: [],
     categoriesTag: [],
@@ -88,7 +88,7 @@ export class ProductEditComponent implements OnInit {
 
   constructor(
     private sanitizer: DomSanitizer,
-    private productService: ProductService,
+    private productBatchService: ProductBatchService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
     private router: Router,
@@ -122,13 +122,13 @@ export class ProductEditComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id'])
-       this.getProduct(params['id'])
+       this.getProductBatch(params['id'])
     })
   }
 
 
   removeCategorie(i: number) {
-      this.fetchedProduct.categories.splice(i, 1)
+      this.fetchedProductBatch.categories.splice(i, 1)
       const control = <FormArray>this.myForm.controls['categories'];
       control.removeAt(i);
       let _2this = this
@@ -157,7 +157,7 @@ export class ProductEditComponent implements OnInit {
   togglCategorieButton(nameCateg, type) {
     //console.log('togglCategorieButton')
     var indexFound
-    this.fetchedProduct.categories.forEach((categorie, index) => {
+    this.fetchedProductBatch.categories.forEach((categorie, index) => {
       if(categorie.name == nameCateg)
         indexFound = index
     })
@@ -169,7 +169,7 @@ export class ProductEditComponent implements OnInit {
       }, 10);
 
     } else {
-      this.fetchedProduct.categories.push({name:nameCateg, type:type})
+      this.fetchedProductBatch.categories.push({name:nameCateg, type:type})
       this.addCategorie()
     }
   }
@@ -178,12 +178,12 @@ export class ProductEditComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-  // openDialogWhereProduct(){
-  //   let dialogRefDelete = this.dialog.open(ProductWhereDialogComponent)
+  // openDialogWhereProductBatch(){
+  //   let dialogRefDelete = this.dialog.open(ProductBatchWhereDialogComponent)
   //   dialogRefDelete.afterClosed().subscribe(result => {
   //     // if(result) {
-  //     //   this.onDelete(this.fetchedProduct._id)
-  //     //   this.router.navigate(['product']);
+  //     //   this.onDelete(this.fetchedProductBatch._id)
+  //     //   this.router.navigate(['productBatch']);
   //     // }
   //   })
   // }
@@ -191,35 +191,35 @@ export class ProductEditComponent implements OnInit {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        this.fetchedProduct[positionImage] = result
+        this.fetchedProductBatch[positionImage] = result
       }
     })
   }
 
 
-  save(product: Product) {
-    //console.log(this.fetchedProduct)
-    if(!this.fetchedProduct.categories.length){
+  save(productBatch: ProductBatch) {
+    //console.log(this.fetchedProductBatch)
+    if(!this.fetchedProductBatch.categories.length){
       this.toastr.error('Error!', 'Please select at least one categorie')
       return
     }
 
-    if(this.fetchedProduct._id) {
-      this.productService.updateProduct(this.fetchedProduct)
+    if(this.fetchedProductBatch._id) {
+      this.productBatchService.updateProductBatch(this.fetchedProductBatch)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            //this.router.navigate(['product']);
+            //this.router.navigate(['productBatch']);
             this.goBack()
           },
           error => {console.log(error)}
         );
     } else {
-      this.productService.saveProduct(this.fetchedProduct)
+      this.productBatchService.saveProductBatch(this.fetchedProductBatch)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            //this.router.navigate(['product']);
+            //this.router.navigate(['productBatch']);
             this.goBack()
           },
           error => {console.log(error)}
@@ -234,7 +234,7 @@ export class ProductEditComponent implements OnInit {
       this.categoriesHard2[indexHard].selected = false
     })
     this.categoriesHard2.forEach((HardCategorie, indexHard) => {
-      this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
+      this.fetchedProductBatch.categories.forEach((fetchedCategorie, indexFetched) => {
         if(HardCategorie.name == fetchedCategorie.name) {
           this.categoriesHard2[indexHard].selected = true
         }
@@ -246,7 +246,7 @@ export class ProductEditComponent implements OnInit {
       this.categoriesHard1[indexHard].selected = false
     })
     this.categoriesHard1.forEach((HardCategorie, indexHard) => {
-      this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
+      this.fetchedProductBatch.categories.forEach((fetchedCategorie, indexFetched) => {
         if(HardCategorie.name == fetchedCategorie.name) {
           this.categoriesHard1[indexHard].selected = true
         }
@@ -258,7 +258,7 @@ export class ProductEditComponent implements OnInit {
       this.categories3[index].selected = false
     })
     this.categories3.forEach((categorie, index) => {
-      this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
+      this.fetchedProductBatch.categories.forEach((fetchedCategorie, indexFetched) => {
         if(categorie.name == fetchedCategorie.name) {
           this.categories3[index].selected = true
         }
@@ -270,7 +270,7 @@ export class ProductEditComponent implements OnInit {
       this.categories4[index].selected = false
     })
     this.categories4.forEach((categorie, index) => {
-      this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
+      this.fetchedProductBatch.categories.forEach((fetchedCategorie, indexFetched) => {
         if(categorie.name == fetchedCategorie.name) {
           this.categories4[index].selected = true
         }
@@ -283,15 +283,15 @@ export class ProductEditComponent implements OnInit {
 
 
 
-  getProduct(id : string) {
-    this.productService.getProduct(id)
+  getProductBatch(id : string) {
+    this.productBatchService.getProductBatch(id)
       .subscribe(
         res => {
-          this.fetchedProduct = <Product>res
+          this.fetchedProductBatch = <ProductBatch>res
 
-        //  this.fetchedProduct.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/product/' + res.embed )
-          //this.fetchedProduct.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
-          this.fetchedProduct.categories.forEach((categorie) => {
+        //  this.fetchedProductBatch.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/productBatch/' + res.embed )
+          //this.fetchedProductBatch.embedSecure = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + res.embed)
+          this.fetchedProductBatch.categories.forEach((categorie) => {
             this.addCategorie()
           })
           this.refreshHardCategories()
@@ -303,7 +303,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    this.productService.deleteProduct(id)
+    this.productBatchService.deleteProductBatch(id)
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message);
