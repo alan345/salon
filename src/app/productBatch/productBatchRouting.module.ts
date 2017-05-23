@@ -6,7 +6,7 @@ import {AdminGuardService} from '../admin/services/adminGuard';
 
 
 export const routes: Routes = [
-  {path: 'admin', component: ProductBatchsAdminComponent, canActivate: [AdminGuardService]},
+  {path: '', component: ProductBatchsAdminComponent, canActivate: [AdminGuardService]},
 ];
 
 @NgModule({
