@@ -27,7 +27,7 @@ export class UserFormsComponent implements OnInit {
   };
 
   search = {
-    id:'',
+    id: '',
     itemsPerPage:5,
     seeAll:false
   }

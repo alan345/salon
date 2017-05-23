@@ -6,8 +6,6 @@ import {ToastsManager} from 'ng2-toastr';
 import { Location } from '@angular/common';
 
 
-
-
 @Component({
   selector: 'app-promotions',
   templateUrl: './promotions.component.html',

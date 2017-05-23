@@ -25,8 +25,8 @@ export class AdminUsersComponent implements OnInit {
   loading: boolean;
   search = {
     orderBy : '',
-    search:'',
-    parentUser:'',
+    search: '',
+    parentUser: '',
     role:''
   }
   paginationData = {

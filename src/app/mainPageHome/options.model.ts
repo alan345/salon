@@ -12,7 +12,7 @@ export interface Design {
 export interface MainPage {
   titleHomePage: string;
   buttonHomePage: string;
-  linkButtonHomePage:string;
+  linkButtonHomePage: string;
   _imgHome1 : Form[];
   _imgHome2 : Form[];
   _imgHome3 : Form[];

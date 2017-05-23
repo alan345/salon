@@ -13,11 +13,9 @@ import { Location} from '@angular/common';
   selector: 'app-companie',
   templateUrl: './companies.component.html',
   styleUrls: ['../../admin/admin.component.css'],
-
 })
 export class CompaniesComponent implements OnInit {
   fetchedCompanies: Companie[] = [];
-
   loading: boolean;
   paginationData = {
     currentPage: 1,

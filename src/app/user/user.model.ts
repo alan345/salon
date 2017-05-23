@@ -22,17 +22,17 @@ export interface User {
 
 
 export interface Profile {
-  name:string;
+  name: string;
   isFeatured: boolean;
   lastName: string;
-  title:string;
+  title: string;
   phoneNumber: string;
   parentUser:User[];
   _profilePicture:Form[];
   hair : {
-    hairTexture:string;
-    hairCondition:string;
-    scalpCondition:string;
+    hairTexture: string;
+    hairCondition: string;
+    scalpCondition: string;
   }
 }
 
@@ -56,9 +56,9 @@ export const UserConst : User = {
     parentUser:[],
     isFeatured:false,
     phoneNumber: '',
-    name:'',
-    lastName:'',
-    title:'',
+    name: '',
+    lastName: '',
+    title: '',
     _profilePicture:[],
     hair:{
       hairCondition : 'Normal',

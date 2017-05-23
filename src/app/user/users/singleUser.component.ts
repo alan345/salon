@@ -25,14 +25,14 @@ export class SingleUserComponent implements OnInit {
   fetchedUser: User = {
     _id: '',
     lastVisit: new Date,
-    email:'',
+    email: '',
     profile:{
       parentUser:[],
       isFeatured:false,
-      phoneNumber:'',
-      name:'',
-      lastName:'',
-      title:'',
+      phoneNumber: '',
+      name: '',
+      lastName: '',
+      title: '',
       _profilePicture:[],
       hair:{
         hairCondition : 'Normal',
@@ -48,14 +48,14 @@ export class SingleUserComponent implements OnInit {
   meUser: User = {
     _id: '',
     lastVisit: new Date,
-    email:'',
+    email: '',
     profile:{
       parentUser:[],
       isFeatured:false,
-      phoneNumber:'',
-      name:'',
-      lastName:'',
-      title:'',
+      phoneNumber: '',
+      name: '',
+      lastName: '',
+      title: '',
       _profilePicture:[],
       hair:{
         hairCondition : 'Normal',

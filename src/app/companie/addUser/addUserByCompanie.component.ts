@@ -20,11 +20,11 @@ export class AddUserByCompanieComponent implements OnInit {
 
   fetchedCompanie = CompanieConst
   // fetchedCompanie: Companie = {
-  //   _id:'',
+  //   _id: '',
   //   forms:[],
-  //   name:'',
-  //   typeCompanie:'',
-  //   phoneNumber:'',
+  //   name: '',
+  //   typeCompanie: '',
+  //   phoneNumber: '',
   //   address: {
   //     address : '',
   //     city :  '',

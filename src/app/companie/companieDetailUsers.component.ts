@@ -21,9 +21,9 @@ export class CompanieDetailUsersComponent implements OnInit {
   fetchedCompanies: Companie[]= []
   search = {
     orderBy : '-client',
-    search:'',
-    parentUser:'',
-    role:'',
+    search: '',
+    parentUser: '',
+    role: '',
     onlyMyUsers: true,
   }
   companieIdToSelect = ''

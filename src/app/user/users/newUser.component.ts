@@ -28,11 +28,11 @@ export class NewUserComponent implements OnInit {
   //fetchedUser : User;
   fetchedCompanies=[]
   fetchedCompanieInit : Companie = {
-    _id:'',
+    _id: '',
     forms:[],
-    name:'',
-    typeCompanie:'',
-    phoneNumber:'',
+    name: '',
+    typeCompanie: '',
+    phoneNumber: '',
     address: {
       address : '',
       city :  '',
@@ -42,11 +42,11 @@ export class NewUserComponent implements OnInit {
     _users:[]
   }
   fetchedCompanieAfter : Companie = {
-    _id:'',
+    _id: '',
     forms:[],
-    name:'',
-    typeCompanie:'',
-    phoneNumber:'',
+    name: '',
+    typeCompanie: '',
+    phoneNumber: '',
     address: {
       address : '',
       city :  '',
@@ -61,14 +61,14 @@ export class NewUserComponent implements OnInit {
   fetchedUser : User = {
     _id: '',
     lastVisit: new Date,
-    email:'',
+    email: '',
     profile:{
       parentUser:[],
       isFeatured:false,
-      phoneNumber:'',
-      name:'',
-      lastName:'',
-      title:'',
+      phoneNumber: '',
+      name: '',
+      lastName: '',
+      title: '',
       _profilePicture:[],
       hair:{
         hairCondition : 'Normal',

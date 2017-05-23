@@ -18,11 +18,11 @@ import {UserService} from '../../user/user.service';
 export class EditAddUserToCompanieComponent implements OnInit {
 
   fetchedCompanie: Companie = {
-    _id:'',
+    _id: '',
     forms:[],
-    name:'',
-    typeCompanie:'',
-    phoneNumber:'',
+    name: '',
+    typeCompanie: '',
+    phoneNumber: '',
     address: {
       address : '',
       city :  '',
@@ -37,14 +37,14 @@ export class EditAddUserToCompanieComponent implements OnInit {
   fetchedUser : User = {
     _id: '',
     lastVisit: new Date,
-    email:'',
+    email: '',
     profile:{
       parentUser:[],
       isFeatured:false,
-      phoneNumber:'',
-      name:'',
-      lastName:'',
-      title:'',
+      phoneNumber: '',
+      name: '',
+      lastName: '',
+      title: '',
       _profilePicture:[],
       hair:{
         hairCondition : 'Normal',

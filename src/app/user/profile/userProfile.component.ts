@@ -32,13 +32,13 @@ export class UserProfileComponent implements OnInit {
   maxPictureToShow=3;
   instapic=1;
   companies=[{
-    _id:'',
-    name:'',
+    _id: '',
+    name: '',
     address:{
       address : '',
       city : '',
-      state:'',
-      zip:'',
+      state: '',
+      zip: '',
     },
     _users : [
     ]
@@ -47,14 +47,14 @@ export class UserProfileComponent implements OnInit {
   fetchedUser : User = {
     _id: '',
     lastVisit: new Date,
-    email:'',
+    email: '',
     profile:{
       parentUser:[],
       isFeatured:false,
-      phoneNumber:'',
-      name:'',
-      lastName:'',
-      title:'',
+      phoneNumber: '',
+      name: '',
+      lastName: '',
+      title: '',
       _profilePicture:[],
       hair:{
         hairCondition : 'Normal',

@@ -16,9 +16,9 @@ export interface Product {
 
 
 export interface Description {
-  benefitsAndResults:string;
-  howToApply:string;
-  activeIngredients:string;
+  benefitsAndResults: string;
+  howToApply: string;
+  activeIngredients: string;
   title: Title;
 }
 
@@ -53,9 +53,9 @@ export const ProductConst: Product = {
   categories: [],
   categoriesTag: [],
   description: {
-    benefitsAndResults:'',
-    howToApply:'',
-    activeIngredients:'',
+    benefitsAndResults: '',
+    howToApply: '',
+    activeIngredients: '',
     title : {
       prononciation : '',
       embed: '',

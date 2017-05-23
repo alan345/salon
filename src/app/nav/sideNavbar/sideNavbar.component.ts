@@ -4,7 +4,7 @@ import {AdminService} from '../../admin/services/admin.service';
 import {ProfileService} from '../../user/profile/profile.service';
 import {Router} from '@angular/router';
 import {CompanieService} from '../../companie/companie.service';
-import {Companie} from '../../companie/companie.model';
+import {Companie, CompanieConst} from '../../companie/companie.model';
 
 @Component({
   selector: 'app-sideNavbar',
@@ -16,30 +16,17 @@ export class SideNavbarComponent implements OnInit {
 
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedUser={
+  fetchedUser = {
     _id: ''
   };
-  companies=[]
+  companies= []
   userBelongToHQ : boolean = false
 
-  HQCompanie: Companie = {
-    _id:'',
-    forms:[],
-    name:'',
-    typeCompanie:'',
-    phoneNumber:'',
-    address: {
-      address : '',
-      city :  '',
-      state :  '',
-      zip :  ''
-    },
-    _users:[]
-  }
+  HQCompanie: Companie = CompanieConst;
 
   search = {
     orderBy : 'name',
-    search:'',
+    search: '',
     typeCompanie:'HQ',
   }
   constructor(
@@ -47,11 +34,10 @@ export class SideNavbarComponent implements OnInit {
       private adminService: AdminService,
       private profileService: ProfileService,
       private router: Router,
-      private companieService:CompanieService) {
+      private companieService: CompanieService) {
   }
 
   ngOnInit() {
-    //console.log('alan')
     this.refresh()
   }
 
@@ -92,11 +78,7 @@ export class SideNavbarComponent implements OnInit {
                 if(this.isHQcompanie(companie))
                   this.HQCompanie =  companie
               })
-
-
             }
-
-
           },
           error => {
             console.log(error);
@@ -118,7 +100,7 @@ export class SideNavbarComponent implements OnInit {
   }
 
 
-  goTo(path){
+  goTo(path) {
     this.sidenav.close()
     this.router.navigate([path]);
   }

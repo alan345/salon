@@ -23,11 +23,11 @@ import { User } from '../user/user.model';
 })
 export class EditCompanieComponent implements OnInit {
   fetchedCompanie : Companie = {
-    _id:'',
+    _id: '',
     forms:[],
-    name:'',
-    typeCompanie:'',
-    phoneNumber:'',
+    name: '',
+    typeCompanie: '',
+    phoneNumber: '',
     address: {
       address : '',
       city :  '',
