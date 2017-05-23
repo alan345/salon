@@ -25,7 +25,7 @@ export class PromotionsComponent implements OnInit {
     orderBy: '',
     search: '',
     filterDate: true
-  }
+  };
 
   constructor(
     private promotionService: PromotionService,

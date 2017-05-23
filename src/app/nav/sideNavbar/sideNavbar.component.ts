@@ -84,8 +84,6 @@ export class SideNavbarComponent implements OnInit {
             console.log(error);
           }
         );
-
-
     }
   }
   isHQcompanie(companie: Companie){

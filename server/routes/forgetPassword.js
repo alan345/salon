@@ -58,7 +58,7 @@ router.post('/', function (req, res, next) {
 
 
       // see https://nodemailer.com/usage/
-      var mailer  = nodemailer.createTransport({
+      var mailer = nodemailer.createTransport({
           host: 'smtp.gmail.com',
           port: 587,
           secure: true, // upgrade later with STARTTLS
