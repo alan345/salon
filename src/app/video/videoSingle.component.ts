@@ -4,7 +4,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { Video } from './video.model';
+import { Video, VideoClass } from './video.model';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -23,14 +23,18 @@ import { VideoWhereDialogComponent } from './videoWhereDialog.component';
 export class VideoSingleComponent implements OnInit {
 
 
-  fetchedVideo: Video = {
-    _id: '',
-    title: '',
-    embed: '',
-    embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
-    categories: [],
-    owner: []
-  }
+  // fetchedVideo: Video = {
+  //   _id: '',
+  //   title: '',
+  //   embed: '',
+  //   embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
+  //   categories: [],
+  //   owner: []
+  // }
+
+
+  fetchedVideo: Video = new VideoClass(this.sanitizer);
+
   categoriesHard2 = [
     { name:'Through your eyes', selected : false },
     { name:'How to', selected : false },
@@ -80,6 +84,9 @@ export class VideoSingleComponent implements OnInit {
    }
 
   ngOnInit() {
+
+
+
     this.myForm = this._fb.group({
       _id: [''],
       title: ['', [Validators.required, Validators.minLength(5)]],

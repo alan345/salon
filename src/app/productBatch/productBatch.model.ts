@@ -3,7 +3,14 @@
 
 
 
-
+// 
+// export class ProductBatchClass {
+//     description: string = 'alan';
+//     greeting: string;
+//     constructor(message: string) {
+//         this.greeting = message;
+//     }
+// }
 
 
 export interface ProductBatch {

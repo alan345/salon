@@ -1,4 +1,17 @@
 
+export class VideoClass {
+    _id: string = '';
+    title: string = '';
+    embed: string = '';
+    embedSecure : string;
+    categories:Categorie[] = [];
+    owner: Owner[] = [];
+    constructor(sanitizer) {
+      this.embedSecure = sanitizer.bypassSecurityTrustResourceUrl('')
+    }
+}
+
+
 
 export interface Video {
   _id: string;

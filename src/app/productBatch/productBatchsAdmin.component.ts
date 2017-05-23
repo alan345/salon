@@ -10,7 +10,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 
 
-
 @Component({
   selector: 'app-productBatchs',
   templateUrl: './productBatchsAdmin.component.html',
@@ -227,6 +226,7 @@ export class ProductBatchsAdminComponent implements OnInit {
     this.updateCategerories()
   }
   ngOnInit() {
+
     // this.categoriesHard2 = this.categories2Dynamic[0]
     // this.categories1 = this.categoriesHard1[0].name
     // this.categories2 = this.categoriesHard2[0].name
