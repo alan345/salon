@@ -223,6 +223,9 @@ export class ProductBatchsAdminComponent implements OnInit {
       );
   }
 
+  refresh() {
+    this.updateCategerories()
+  }
   ngOnInit() {
     // this.categoriesHard2 = this.categories2Dynamic[0]
     // this.categories1 = this.categoriesHard1[0].name

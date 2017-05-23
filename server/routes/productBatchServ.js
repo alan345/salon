@@ -67,7 +67,7 @@ var schedule = require('node-schedule');
       })
       .catch(err => { writeLog('error1',  dateBegin, 0,0,0,0,0,0) })
       .then(response => {
-        var nbProductsCreadted=0
+        var nbProductsCreated=0
         var nbProductsNotCreadted=0
         var nbProductsUpdated=0
         var nbProductsNotUpdated=0
@@ -97,12 +97,12 @@ var schedule = require('node-schedule');
                     nbProductsNotCreadted++;
                     itemsProcessed++;
                     if(itemsProcessed === array.length)
-                      writeLog('error', dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
+                      writeLog('error', dateBegin, response.total_count, products.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
                   } else {
-                    nbProductsCreadted++
+                    nbProductsCreated++
                     itemsProcessed++;
                     if(itemsProcessed === array.length)
-                      writeLog('ok',  dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
+                      writeLog('ok',  dateBegin, response.total_count, products.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
                   }
                 })
             } else {
@@ -116,13 +116,13 @@ var schedule = require('node-schedule');
                   nbProductsNotUpdated++
                   itemsProcessed++;
                   if(itemsProcessed === array.length)
-                    writeLog('error',  dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
+                    writeLog('error',  dateBegin, response.total_count, products.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
                 } else {
 
                   nbProductsUpdated++
                   itemsProcessed++;
                   if(itemsProcessed === array.length)
-                    writeLog('ok',  dateBegin, response.total_count, products.length, nbProductsCreadted, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
+                    writeLog('ok',  dateBegin, response.total_count, products.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreadted, nbProductsNotUpdated)
                 }
               })
             }
@@ -137,7 +137,7 @@ var schedule = require('node-schedule');
       dateBegin,
       total_count,
       total_item_treated,
-      nbProductsCreadted,
+      nbProductsCreated,
       nbProductsUpdated,
       nbProductsNotCreadted,
       nbProductsNotUpdated) {
@@ -151,7 +151,7 @@ var schedule = require('node-schedule');
           'status' : status,
           'total_count' : total_count,
           'total_item_treated' : total_item_treated,
-          'nbProductsCreadted' : nbProductsCreadted,
+          'nbProductsCreated' : nbProductsCreated,
           'nbProductsUpdated' : nbProductsUpdated,
           'nbProductsNotCreadted' : nbProductsNotCreadted,
           'nbProductsNotUpdated' : nbProductsNotUpdated,

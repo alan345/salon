@@ -2,6 +2,8 @@
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">ProductBatchs</h3>
+    <button class="subnav" (click)="refresh()"><i class="fa fa-refresh"></i></button>
+    <button class="subnav-btnright" onclick="window.open('/productBatch/refreshbdd', '_blank')">New Pull Batch <i class="fa fa-refresh"></i></button>
   </div>
   <div>
 
@@ -36,7 +38,7 @@
         <td>{{productBatch.nbProductsNotUpdated}}</td>
         <td>{{productBatch.nbProductsNotCreadted}}</td>
         <td>{{productBatch.nbProductsUpdated}}</td>
-        <td>{{productBatch.nbProductsCreadted}}</td>
+        <td>{{productBatch.nbProductsCreated}}</td>
         <td>{{productBatch.total_item_treated}}</td>
         <td>{{productBatch.total_count}}</td>
 
