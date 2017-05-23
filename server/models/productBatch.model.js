@@ -14,7 +14,7 @@ var productBatch = new Schema({
     total_item_treated : {type: Number,  default: ['']},
     nbProductsCreated : {type: Number,  default: ['']},
     nbProductsUpdated : {type: Number,  default: ['']},
-    nbProductsNotCreadted : {type: Number,  default: ['']},
+    nbProductsNotCreated : {type: Number,  default: ['']},
     nbProductsNotUpdated : {type: Number,  default: ['']},
 
   },
