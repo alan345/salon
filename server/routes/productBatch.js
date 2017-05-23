@@ -13,7 +13,7 @@ var express = require('express'),
 router.get('/refreshbdd', function (req, res, next) {
   productBatchServ.updateFromMagentoToBdd()
   res.status(201).json({
-    message: 'request send to update database from magento',
+    message: 'request sent to update database from magento',
   });
 })
 
@@ -133,7 +133,7 @@ router.get('/page/:page', function (req, res, next) {
       error: {message: 'Cannot edit Homepage!'}
     })
   }
-    
+
   var itemsPerPage = 10
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
