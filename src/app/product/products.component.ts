@@ -208,6 +208,7 @@ export class ProductsComponent implements OnInit {
   }
 
 
+
   getProducts(page : number, search) {
     //this.fetchedProducts =[]
     this.loading = true;

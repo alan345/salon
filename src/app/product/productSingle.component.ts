@@ -19,29 +19,31 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ProductSingleComponent implements OnInit {
 
   urlMagento: string = 'http://52.2.61.43/pub/media/catalog/product';
-  fetchedProduct: Product = {
-    _id: '',
-    categories: [],
-    categoriesTag: [],
-    description: {
-      benefitsAndResults: '',
-      howToApply: '',
-      activeIngredients: '',
-      title : {
-        prononciation: '',
-        embed: '',
-        embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
-      }
-    },
-    magento : {
-      id: '',
-      sku: '',
-      name: '',
-      price: 0,
-      weight: '',
-      custom_attributes: [],
-    }
-  };
+  fetchedProduct: Product = new Product(this.sanitizer);
+
+  // fetchedProduct: Product = {
+  //   _id: '',
+  //   categories: [],
+  //   categoriesTag: [],
+  //   description: {
+  //     benefitsAndResults: '',
+  //     howToApply: '',
+  //     activeIngredients: '',
+  //     title : {
+  //       prononciation: '',
+  //       embed: '',
+  //       embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
+  //     }
+  //   },
+  //   magento : {
+  //     id: '',
+  //     sku: '',
+  //     name: '',
+  //     price: 0,
+  //     weight: '',
+  //     custom_attributes: [],
+  //   }
+  // };
 
   categories5 = [
     { name: 'Benefits & Results', selected : false},

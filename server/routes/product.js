@@ -248,8 +248,7 @@ router.get('/page/:page', function (req, res, next) {
 router.get('/:id', function (req, res, next) {
   Product
   .findById({_id: req.params.id})
-  .populate('form')
-  .populate('owner')
+  .populate('relatedProducts')
   .exec(function (err, item) {
     if (err) {
       return res.status(404).json({

@@ -135,6 +135,30 @@
         </div>
       </div>
 
+
+      <input
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="inputRelatedProduct"
+        placeholder="Choose related product"
+        (ngModelChange)="searchRelatedProducts()"
+        mdInput
+      >
+
+      <div *ngFor="let fetchedRelatedProduct of fetchedRelatedProducts; let i=index">
+        {{fetchedRelatedProduct.magento.sku}} - {{fetchedRelatedProduct.magento.name}}
+        <button type="button" (click)="selectProduct(fetchedRelatedProduct)">select</button>
+      </div>
+      <br>
+      Related Product
+      <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts; let i=index">
+        {{relatedProduct.magento.sku}} - {{relatedProduct.magento.name}}
+        <button type="button" (click)="removeProduct(i)">X</button>
+      </div>
+
+
+
+
+
       <div class="valid-edit">
         <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
       </div>

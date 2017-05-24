@@ -16,35 +16,15 @@ import { DomSanitizer } from '@angular/platform-browser';
   selector: 'app-products',
   templateUrl: './productEdit.component.html',
   styleUrls: ['./product.component.css'],
-
 })
 
 export class ProductEditComponent implements OnInit {
 
+
+  loading: boolean = false
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
-  fetchedProduct: Product = {
-    _id: '',
-    categories: [],
-    categoriesTag: [],
-    description: {
-      benefitsAndResults: '',
-      howToApply: '',
-      activeIngredients: '',
-      title : {
-        prononciation : '',
-        embed: '',
-        embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
-      }
-    },
-    magento : {
-      id: '',
-      sku: '',
-      name: '',
-      price: 0,
-      weight: '',
-      custom_attributes: [],
-    }
-  };
+  fetchedProduct: Product = new Product(this.sanitizer);
+  fetchedRelatedProducts: Product[] = [];
   categoriesHard2 = [
     { name:'Conditioners & masks', selected : false },
     { name:'Diateray supplements', selected : false },
@@ -80,7 +60,8 @@ export class ProductEditComponent implements OnInit {
     { name:'LIFE-STRESSED', selected : false },
   ]
 
-  inputCategorie = ''
+  inputCategorie = '';
+  inputRelatedProduct = '';
 
 
 
@@ -125,6 +106,7 @@ export class ProductEditComponent implements OnInit {
        this.getProduct(params['id'])
     })
   }
+
 
 
   removeCategorie(i: number) {
@@ -174,6 +156,49 @@ export class ProductEditComponent implements OnInit {
     }
   }
 
+  searchRelatedProducts(){
+    let search = {
+      categories : [],
+      search: this.inputRelatedProduct
+    }
+    this.getProducts(1, search)
+  }
+
+
+
+    getProducts(page : number, search) {
+      //this.fetchedProducts =[]
+      this.loading = true;
+      this.productService.getProducts(page, search)
+        .subscribe(
+          res => {
+            this.fetchedRelatedProducts = []
+            this.fetchedRelatedProducts = res.data
+            // let fetchedProductsNotSecure =  res.data
+            // fetchedProductsNotSecure.forEach((product) => {
+            //   product['categoriesTag'] = []
+            //   product.categories.forEach((categorie) => {
+            //     if(categorie.type === 'tag') {
+            //       product['categoriesTag'].push(categorie)
+            //     }
+            //   })
+            //   this.fetchedProducts.push(product)
+            // })
+            this.loading = false;
+          },
+          error => {
+            console.log(error);
+          }
+        );
+    }
+
+
+  selectProduct(product: Product){
+    this.fetchedProduct.relatedProducts.push(product)
+  }
+  removeProduct(i: number) {
+    this.fetchedProduct.relatedProducts.splice(i, 1)
+  }
 
   goBack() {
     this.location.back();
