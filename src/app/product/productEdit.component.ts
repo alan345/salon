@@ -194,8 +194,9 @@ export class ProductEditComponent implements OnInit {
 
 
   selectProduct(product: Product){
-    this.fetchedProduct.relatedProducts.push(product)
-    this.fetchedRelatedProducts = []
+    this.fetchedProduct.relatedProducts.push(product);
+    this.fetchedRelatedProducts = [];
+    this.inputRelatedProduct = '';
   }
   removeProduct(i: number) {
     this.fetchedProduct.relatedProducts.splice(i, 1)
