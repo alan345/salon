@@ -137,6 +137,7 @@
 
 
       <input
+        [disabled]="disableInputRelatedProduct()"
         [ngModelOptions]="{standalone: true}"
         [(ngModel)]="inputRelatedProduct"
         placeholder="Choose related product"
@@ -149,7 +150,7 @@
         <button type="button" (click)="selectProduct(fetchedRelatedProduct)">select</button>
       </div>
       <br>
-      Related Product
+      Related Products
       <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts; let i=index">
         {{relatedProduct.magento.sku}} - {{relatedProduct.magento.name}}
         <button type="button" (click)="removeProduct(i)">X</button>

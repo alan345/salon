@@ -195,6 +195,7 @@ export class ProductEditComponent implements OnInit {
 
   selectProduct(product: Product){
     this.fetchedProduct.relatedProducts.push(product)
+    this.fetchedRelatedProducts = []
   }
   removeProduct(i: number) {
     this.fetchedProduct.relatedProducts.splice(i, 1)
@@ -203,6 +204,15 @@ export class ProductEditComponent implements OnInit {
   goBack() {
     this.location.back();
   }
+
+  disableInputRelatedProduct() {
+    if(this.fetchedProduct.relatedProducts.length < 3)
+      return false;
+    return true;
+  }
+
+
+
   // openDialogWhereProduct(){
   //   let dialogRefDelete = this.dialog.open(ProductWhereDialogComponent)
   //   dialogRefDelete.afterClosed().subscribe(result => {
