@@ -26,7 +26,7 @@ import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 export class NewUserComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
-  fetchedCompanies=[]
+  fetchedCompanies: Companie[] = []
   fetchedCompanieInit : Companie = {
     _id: '',
     forms:[],
@@ -151,7 +151,7 @@ export class NewUserComponent implements OnInit {
   }
 
 
-  emailValidator(control) {
+  emailValidator(control: any) {
     let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
     if (!EMAIL_REGEXP.test(control.value)) {
@@ -177,7 +177,7 @@ export class NewUserComponent implements OnInit {
   }
 
 
-  save(form) {
+  save(form: Form) {
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
@@ -277,12 +277,11 @@ export class NewUserComponent implements OnInit {
   }
 
 
-  getUser(id) {
+  getUser(id: string) {
     this.userService.getUser(id)
       .subscribe(
         res => {
           this.fetchedUser = res.user
-
         },
         error => {
           console.log(error);

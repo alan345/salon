@@ -14,7 +14,7 @@ export class FormService {
   private url: string = '/';
   private token: string = localStorage.getItem('id_token');
   private userId: string = localStorage.getItem('userId');
-  private forms = [];
+  private forms: Form[] = [];
   private singleForm = Object;
 
   constructor(
@@ -82,7 +82,7 @@ export class FormService {
       });
   }
 
-  getSingleForm(formId) {
+  getSingleForm(formId: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
     return this.http.get(this.url + 'forms/edit/' + formId, {headers: headers})

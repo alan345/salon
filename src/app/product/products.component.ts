@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   fetchedProducts: Product[] = [];
 
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
-  search = {
+  search : any = {
     categories : [],
     search:''
   }
@@ -43,7 +43,7 @@ export class ProductsComponent implements OnInit {
     { name:'Subtil', selected : false }
   ]
 
-  categoriesHard2 = []
+  categoriesHard2 : any = []
   categories2Dynamic = [
       [
         { name:'Conditioners & masks', selected : false },
@@ -219,9 +219,9 @@ export class ProductsComponent implements OnInit {
             this.fetchedProducts =[]
           this.paginationData = res.paginationData;
           let fetchedProductsNotSecure =  res.data
-          fetchedProductsNotSecure.forEach((product) => {
+          fetchedProductsNotSecure.forEach((product: Product) => {
             product['categoriesTag'] = []
-            product.categories.forEach((categorie) => {
+            product.categories.forEach((categorie: any) => {
               if(categorie.type === 'tag') {
                 product['categoriesTag'].push(categorie)
               }

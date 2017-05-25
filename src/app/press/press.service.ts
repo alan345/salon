@@ -15,7 +15,7 @@ export class PressService {
   private url: string = '/';
   // private token: string = localStorage.getItem('id_token');
   // private pressId: string = localStorage.getItem('pressId');
-  private presses = [];
+  private presses: Press[] = [];
   private singlePress = Object;
 
   constructor(
@@ -93,7 +93,7 @@ export class PressService {
       });
   }
 
-  savePress(press) {
+  savePress(press: Press) {
   //  console.log("this.authService.currentUser.token",this.authService.currentUser.token);
   //  delete press._id;
   delete press._id
@@ -109,7 +109,7 @@ export class PressService {
       });
   }
 
-  updatePress(press) {
+  updatePress(press: Press) {
     const body = JSON.stringify(press);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);

@@ -59,7 +59,7 @@ export class FormComponent implements OnInit, AfterViewInit {
 
 
 
-    drawRotated(degrees, file){
+    drawRotated(degrees: number, file: any){
         var canvas;
 
         var angleInDegrees=0;
@@ -104,7 +104,7 @@ export class FormComponent implements OnInit, AfterViewInit {
     //  console.log(this.files)
     }
   // event fired when the user selects an image
-  onFileSelect(event) {
+  onFileSelect(event: any) {
     this.clear();
     let files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
 
@@ -189,7 +189,7 @@ export class FormComponent implements OnInit, AfterViewInit {
     return true;
   }
 // format the size to display it in toastr in case the user uploaded a file bigger than 5MB
-  formatSize(bytes) {
+  formatSize(bytes: number) {
     if (bytes === 0) {
       return '0 B';
     }

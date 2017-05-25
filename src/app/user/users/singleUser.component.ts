@@ -83,7 +83,7 @@ export class SingleUserComponent implements OnInit {
   ) {
   }
 
-  getObjects(myForm){
+  getObjects(myForm: any){
      return myForm.get('forms').controls
    }
 
@@ -202,7 +202,7 @@ export class SingleUserComponent implements OnInit {
   //     )
   // }
 
-  getUser(id) {
+  getUser(id: string) {
     this.userService.getUser(id)
       .subscribe(
         res => {

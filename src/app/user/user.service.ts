@@ -16,7 +16,7 @@ export class UserService {
   private url: string = '/';
   //private token: string = localStorage.getItem('id_token');
   //private userId: string = localStorage.getItem('userId');
-  private users = [];
+  private users: User[] = [];
   private singleUser = Object;
 
   constructor(
@@ -47,7 +47,7 @@ export class UserService {
 
 
   // get user forms from backend in order to display them in the front end
-  getUsersByEmail(search) {
+  getUsersByEmail(search: any) {
     let headers = new Headers({'Content-Type': 'application/json'})
     headers.append('Authorization', '' + this.authService.currentUser.token)
 
@@ -114,7 +114,7 @@ export class UserService {
       });
   }
 
-  updateUser(user) {
+  updateUser(user: User) {
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
@@ -126,34 +126,4 @@ export class UserService {
       });
   }
 
-
-  //
-  // deleteForm(form: Form) {
-  //   this.forms.splice(this.forms.indexOf(form), 1);
-  //   let headers = new Headers({'Content-Type': 'application/json'});
-  //   headers.append('Authorization', '' + this.token);
-  //   return this.http.delete(this.url + 'forms/' + form, {headers: headers})
-  //     .map((response: Response) => {
-  //       this.toastr.success('Form deleted successfully!');
-  //       response.json();
-  //     })
-  //     .catch((error: Response) => {
-  //       this.errorService.handleError(error.json());
-  //       return Observable.throw(error.json());
-  //     });
-  // }
-  //
-  // getSingleForm(formId) {
-  //   let headers = new Headers({'Content-Type': 'application/json'});
-  //   headers.append('Authorization', '' + this.token);
-  //   return this.http.get(this.url + 'forms/edit/' + formId, {headers: headers})
-  //     .map((response: Response) => {
-  //       this.singleForm = response.json();
-  //       return this.singleForm;
-  //     })
-  //     .catch((error: Response) => {
-  //       this.errorService.handleError(error.json());
-  //       return Observable.throw(error.json());
-  //     });
-  // }
 }

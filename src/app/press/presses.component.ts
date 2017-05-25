@@ -25,7 +25,7 @@ export class PressesComponent implements OnInit {
     totalItems: 0
   };
 
-  trackinPage = {
+  trackinPage: any= {
     lastVisitPagePressCount:[],
     lastVisitPageVideoCount:[]
   }
@@ -81,9 +81,9 @@ export class PressesComponent implements OnInit {
         res => {
           this.paginationData = res.paginationData;
           let fetchedPressesTemp = res.data
-          fetchedPressesTemp.forEach((press) => {
+          fetchedPressesTemp.forEach((press: Press) => {
             press['isNewObj'] = false
-            this.trackinPage.lastVisitPagePressCount.forEach(objNotRead => {
+            this.trackinPage.lastVisitPagePressCount.forEach((objNotRead: any) => {
                 if(objNotRead._id == press._id)
                   press['isNewObj'] = true
             })

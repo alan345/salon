@@ -125,7 +125,7 @@ export class VideoSingleComponent implements OnInit {
     this.togglCategorieButton(this.inputCategorie, 'tag')
     this.inputCategorie=''
   }
-  togglCategorieButton(nameCateg, type) {
+  togglCategorieButton(nameCateg: string, type: string) {
     var indexFound: number
     this.fetchedVideo.categories.forEach((categorie, index) => {
       if(categorie.name == nameCateg)

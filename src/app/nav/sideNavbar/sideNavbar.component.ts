@@ -19,7 +19,7 @@ export class SideNavbarComponent implements OnInit {
   fetchedUser: any = {
     _id: ''
   };
-  companies= []
+  companies: Companie[] = []
   userBelongToHQ : boolean = false
 
   HQCompanie: Companie = new Companie();
@@ -98,7 +98,7 @@ export class SideNavbarComponent implements OnInit {
   }
 
 
-  goTo(path) {
+  goTo(path: string) {
     this.sidenav.close()
     this.router.navigate([path]);
   }

@@ -58,7 +58,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   myForm: FormGroup;
-  filteredUsers = []
+  filteredUsers: User[] = []
 
 
   constructor(
@@ -124,7 +124,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     })
   }
 
-  userFounded(i) {
+  userFounded(i: number) {
     this.fetchedUser = this.filteredUsers[i]
     //this.fetchedUser
     this.fetchedUser.role.forEach((role) => {
@@ -134,7 +134,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     this.filteredUsers = []
   }
 
-  addRole(role) {
+  addRole(role: string) {
     const control = <FormArray>this.myForm.controls['role'];
     const addrCtrl = this._fb.group({
         role: ['']

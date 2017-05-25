@@ -17,7 +17,7 @@ export class CompanieService {
   private url: string = '/';
 //  private token: string = localStorage.getItem('id_token');
 //  private userId: string = localStorage.getItem('userId');
-  private companiesForCurrentUser = [];
+  private companiesForCurrentUser: Companie[] = [];
   private singleCompanie = Object;
 
   constructor(
@@ -87,7 +87,7 @@ export class CompanieService {
   }
 
 
-  getCompanie(id: string, search) : Observable<Companie> {
+  getCompanie(id: string, search: any) : Observable<Companie> {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     let options = new RequestOptions({ headers: headers, search: search});

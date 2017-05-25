@@ -1,0 +1,1 @@
+{"version":3,"sources":["admin.routes.ts"],"names":[],"mappings":"AACA,OAAO,EAAC,iBAAiB,EAAC,MAAM,uBAAuB,CAAC;AACxD,OAAO,EAAC,mBAAmB,EAAC,MAAM,6BAA6B,CAAC;AAEhE,MAAM,CAAC,IAAM,YAAY,GAAW;IAElC,EAAC,IAAI,EAAE,MAAM,EAAE,SAAS,EAAE,mBAAmB,EAAE,WAAW,EAAE,CAAC,iBAAiB,CAAC,EAAC;CAEjF,CAAC","file":"admin.routes.js","sourceRoot":""}

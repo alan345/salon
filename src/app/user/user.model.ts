@@ -10,30 +10,32 @@ import { Form } from '../form/form.model'
 
 
 
-export interface User {
-  _id: string;
-  email: string;
-  lastVisit: Date;
-  role: string[];
-  forms: Form[];
-  profile: Profile;
-  notes:Note[];
+export class User {
+  _id: string = '';
+  email: string = '';
+  lastVisit: Date = new Date;
+  role: string[] = [];
+  forms: Form[] = [];
+  profile: Profile = new Profile();
+  notes: Note[] = [];
 }
 
 
-export interface Profile {
-  name: string;
-  isFeatured: boolean;
-  lastName: string;
-  title: string;
-  phoneNumber: string;
-  parentUser:User[];
-  _profilePicture:Form[];
-  hair : {
-    hairTexture: string;
-    hairCondition: string;
-    scalpCondition: string;
-  }
+export class Profile {
+  name: string = '';
+  isFeatured: boolean = false;
+  lastName: string = '';
+  title: string = '';
+  phoneNumber: string = '';
+  parentUser:User[] = [];
+  _profilePicture:Form[] = [];
+  hair : Hair = new Hair();
+}
+
+export class Hair {
+  hairTexture: string = '';
+  hairCondition: string = '';
+  scalpCondition: string = '';
 }
 
 
@@ -47,26 +49,26 @@ export interface Address {
     postcode: string;
 
 }
-
-export const UserConst : User = {
-  _id: '',
-  lastVisit: new Date,
-  email: '',
-  profile:{
-    parentUser:[],
-    isFeatured:false,
-    phoneNumber: '',
-    name: '',
-    lastName: '',
-    title: '',
-    _profilePicture:[],
-    hair:{
-      hairCondition : 'Normal',
-      scalpCondition : 'Healthy',
-      hairTexture : 'Fine',
-    }
-  },
-  notes:[],
-  forms:[],
-  role:['stylist'],
-}
+//
+// export const UserConst : User = {
+//   _id: '',
+//   lastVisit: new Date,
+//   email: '',
+//   profile:{
+//     parentUser:[],
+//     isFeatured:false,
+//     phoneNumber: '',
+//     name: '',
+//     lastName: '',
+//     title: '',
+//     _profilePicture:[],
+//     hair:{
+//       hairCondition : 'Normal',
+//       scalpCondition : 'Healthy',
+//       hairTexture : 'Fine',
+//     }
+//   },
+//   notes:[],
+//   forms:[],
+//   role:['stylist'],
+// }

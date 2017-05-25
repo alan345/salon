@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { SeePictureDialogComponent } from '../seePictureDialog/seePictureDialog.component';
 import { MdDialog} from '@angular/material';
+import { Form } from './form.model';
+
 
 @Component({
   selector: 'app-user-form',
@@ -17,7 +19,7 @@ export class UserFormsComponent implements OnInit {
 
 
   @Output() onPassForm = new EventEmitter<any>();
-  fetchedForms = [];
+  fetchedForms: Form[] = [];
 
   loading: boolean;
   paginationData = {
@@ -55,7 +57,7 @@ export class UserFormsComponent implements OnInit {
     this.getUserForms(page);
   }
 
-  getUserForms(page){
+  getUserForms(page: number){
     this.search['id'] = this.authService.currentUser.userId,
     this.search['itemsPerPage'] = this.itemsPerPage,
 
@@ -68,12 +70,12 @@ export class UserFormsComponent implements OnInit {
         },
         error => console.log(error))
   }
-  isFormPdf(form){
+  isFormPdf(form: Form){
     if(form.type === 'pdf')
       return true
     return false
   }
-  onSelectRow(form){
+  onSelectRow(form: Form){
 
     if(this.isDialog) {
       this.onPassForm.emit(form);
@@ -95,7 +97,7 @@ export class UserFormsComponent implements OnInit {
     return this.authService.isAdmin();
   }
 
-  onDelete(formId) {
+  onDelete(formId: Form) {
     this.formService.deleteForm(formId)
       .subscribe(
         res => {

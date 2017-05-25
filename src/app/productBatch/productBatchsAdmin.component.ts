@@ -21,7 +21,7 @@ export class ProductBatchsAdminComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
   fetchedProductBatchs: ProductBatch[] = [];
   urlMagento = 'http://52.2.61.43/pub/media/catalog/productBatch'
-  search = {
+  search: any = {
     categories : [],
     search:''
   }
@@ -211,7 +211,7 @@ export class ProductBatchsAdminComponent implements OnInit {
           this.paginationData = res.paginationData;
           //this.fetchedProductBatchs =  res.data
           let fetchedProductBatchsNotSecure = res.data
-          fetchedProductBatchsNotSecure.forEach((productBatch) => {
+          fetchedProductBatchsNotSecure.forEach((productBatch: ProductBatch) => {
             this.fetchedProductBatchs.push(productBatch)
           })
            this.loading = false;

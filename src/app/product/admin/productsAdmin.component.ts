@@ -22,7 +22,7 @@ export class ProductsAdminComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
   fetchedProducts: Product[] = [];
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
-  search = {
+  search: any = {
     categories : [],
     search:''
   }
@@ -114,85 +114,20 @@ export class ProductsAdminComponent implements OnInit {
     this.location.back();
   }
 
-  // onSelectChange = ($event: any): void => {
-  //   this.categories2 = $event.tab.textLabel
-  //   this.updateCategerories()
-  // }
-  //
-  // onSelectChange1 = ($event: any): void => {
-  //   if($event.tab.textLabel === this.categoriesHard1[0].name)
-  //     this.categoriesHard2 = this.categories2Dynamic[0]
-  //   if($event.tab.textLabel === this.categoriesHard1[1].name)
-  //     this.categoriesHard2 = this.categories2Dynamic[1]
-  //   if($event.tab.textLabel === this.categoriesHard1[2].name)
-  //     this.categoriesHard2 = this.categories2Dynamic[2]
-  //   this.categories1 = $event.tab.textLabel
-  //   this.updateCategerories()
-  // }
+
 
   updateCategerories(){
-    // this.search.categories = []
-    // this.search.categories.push({name:this.categories2})
-    // this.search.categories.push({name:this.categories1})
-    // if(this.inputSearch)
-    //   this.search.categories.push({name:this.inputSearch})
-    // this.categories3.forEach((categorie3)=>{
-    //   if(categorie3.selected == true) {
-    //     this.search.categories.push({name : categorie3.name})
-    //   }
-    // })
-    //
-    // this.categories4.forEach((categorie4)=>{
-    //   if(categorie4.selected == true) {
-    //     this.search.categories.push({name : categorie4.name})
-    //   }
-    // })
+
 
     this.fetchedProducts = []
     this.getProducts(1, this.search)
   }
-
-  // changeCateg3(nameCateg : string){
-  //   this.categories3.forEach((categ, index)=>{
-  //     if(categ.name === nameCateg) {
-  //       this.categories3[index].selected = !this.categories3[index].selected
-  //     }
-  //   })
-  //   this.updateCategerories()
-  // }
-  // changeCateg4(nameCateg : string){
-  //   this.categories4.forEach((categ, index)=>{
-  //     if(categ.name === nameCateg) {
-  //       this.categories4[index].selected = !this.categories4[index].selected
-  //     }
-  //   })
-  //   this.updateCategerories()
-  // }
 
   addSearchInput(){
 //    console.log(this.search.categories)
     this.updateCategerories()
     // this.search.categories.pop()
   }
-  // toogleFilters() {
-  //   this.showFilters = !this.showFilters
-  // }
-  // onDelete(id: string) {
-  //   this.productService.deleteProduct(id)
-  //     .subscribe(
-  //       res => {
-  //         this.toastr.success('Great!', res.message);
-  //         console.log(res);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
-
-  // getPage(page: number) {
-  //   this.getProducts(page, this.search);
-  // }
 
 
   loadMore(){
@@ -211,9 +146,9 @@ export class ProductsAdminComponent implements OnInit {
             this.fetchedProducts =[]
           this.paginationData = res.paginationData;
           let fetchedProductsNotSecure =  res.data
-          fetchedProductsNotSecure.forEach((product) => {
+          fetchedProductsNotSecure.forEach((product: Product) => {
             product['categoriesTag'] = []
-            product.categories.forEach((categorie) => {
+            product.categories.forEach((categorie: any) => {
               if(categorie.type === 'tag') {
                 product['categoriesTag'].push(categorie)
               }

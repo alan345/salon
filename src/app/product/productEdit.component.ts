@@ -136,7 +136,7 @@ export class ProductEditComponent implements OnInit {
     this.togglCategorieButton(this.inputCategorie, 'tag')
     this.inputCategorie=''
   }
-  togglCategorieButton(nameCateg, type) {
+  togglCategorieButton(nameCateg: string, type: string) {
     //console.log('togglCategorieButton')
     var indexFound: number
     this.fetchedProduct.categories.forEach((categorie, index) => {
@@ -157,7 +157,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   searchRelatedProducts(){
-    let search = {
+    let search : any = {
       categories : [],
       search: this.inputRelatedProduct
     }

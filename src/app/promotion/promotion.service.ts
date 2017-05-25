@@ -7,6 +7,9 @@ import {ToastsManager} from 'ng2-toastr';
 import { AuthService } from '../auth/auth.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Promotion } from './promotion.model';
+import { User } from '../user/user.model';
+
 
 @Injectable()
 export class PromotionService {
@@ -76,11 +79,13 @@ export class PromotionService {
       });
   }
 
-  savePromotion(promotion) {
+  savePromotion(promotion: Promotion) {
   //  console.log("this.authService.currentUser.token",this.authService.currentUser.token);
   //  delete promotion._id;
     promotion.owner=[]
-    promotion.owner.push(this.authService.currentUser.userId)
+    let currentUser : User = new User();
+    currentUser._id = this.authService.currentUser.userId;
+    promotion.owner.push(currentUser)
     const body = JSON.stringify(promotion);
     const headers = new Headers({'Content-Type': 'application/json'});
   //  let headers = new Headers({'Content-Type': 'application/json'});
@@ -93,7 +98,7 @@ export class PromotionService {
       });
   }
 
-  updatePromotion(promotion) {
+  updatePromotion(promotion: Promotion) {
     const body = JSON.stringify(promotion);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);

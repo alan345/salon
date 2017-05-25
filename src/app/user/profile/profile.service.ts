@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import {ErrorService} from '../../errorHandler/error.service';
 import {newPassword} from './userProfile.model';
 import {AuthService} from '../../auth/auth.service';
+import {User} from '../user.model';
 
 @Injectable()
 export class ProfileService {
@@ -37,7 +38,7 @@ export class ProfileService {
   }
 
 
-  updateUser(user) {
+  updateUser(user: User) {
   //  console.log(user)
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});

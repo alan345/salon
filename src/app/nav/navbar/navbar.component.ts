@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Input() sidenav
+  @Input() sidenav: any;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   fetchedUser: any[] = [];

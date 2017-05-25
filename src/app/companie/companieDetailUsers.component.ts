@@ -72,28 +72,10 @@ export class CompanieDetailUsersComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-  onChangeCompanie(event){
+  onChangeCompanie(event: any){
     this.router.navigate(['companie/' + event + "/users"]);
   }
-  // removeForm(i: number) {
-  //     this.fetchedCompanie.forms.splice(i, 1)
-  //     const control = <FormArray>this.myForm.controls['forms'];
-  //     control.removeAt(i)
-  //     this.save()
-  // }
 
-  // onDelete(id: string) {
-  //   this.companieService.deleteCompanie(id)
-  //     .subscribe(
-  //       res => {
-  //         this.toastr.success('Great!', res.message);
-  //         console.log(res);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
 
   searchInput(){
   }

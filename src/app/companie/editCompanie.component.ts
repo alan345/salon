@@ -76,7 +76,7 @@ export class EditCompanieComponent implements OnInit {
     })
   }
 
-  removeUserFromCompanie(i:number, typeUser){
+  removeUserFromCompanie(i:number, typeUser: string){
     let this2 = this
     let dialogRefDelete = this.dialog.open(DeleteDialog)
     dialogRefDelete.afterClosed().subscribe(result => {

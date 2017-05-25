@@ -7,7 +7,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { Promotion, PromotionConst, PromotionClass } from './promotion.model';
+import { Promotion } from './promotion.model';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { PromotionDeleteDialog } from './promotionDeleteDialog.component';
@@ -25,7 +25,7 @@ export class SinglePromotionComponent implements OnInit {
   //fetchedPromotion: Promotion;
   //fetchedPromotion._id='';
 
-  fetchedPromotion : Promotion = new PromotionClass();
+  fetchedPromotion: Promotion = new Promotion();
 
   public myForm: FormGroup;
 
@@ -128,7 +128,7 @@ export class SinglePromotionComponent implements OnInit {
   }
 
 
-  getPromotion(id) {
+  getPromotion(id: string) {
 
     this.promotionService.getPromotion(id)
       .subscribe(

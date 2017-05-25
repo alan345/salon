@@ -1,0 +1,1 @@
+{"version":3,"sources":["errorPage.component.ts"],"names":[],"mappings":";;;;;;;;;AAAA,OAAO,EAAA,SAAE,EAAiB,MAAM,eAAA,CAAgB;AAMhD,IAAa,kBAAkB;IAE7B;IACA,CAAC;IAED,qCAAQ,GAAR;IACA,CAAC;IAEH,yBAAC;AAAD,CARA,AAQC,IAAA;AARY,kBAAkB;IAJ9B,SAAS,CAAC;QACT,QAAQ,EAAE,gBAAgB;QAC1B,WAAW,EAAE,4BAA4B;KAC1C,CAAC;;GACW,kBAAkB,CAQ9B;SARY,kBAAkB","file":"errorPage.component.js","sourceRoot":""}

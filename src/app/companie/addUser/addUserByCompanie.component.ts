@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { CompanieService } from '../companie.service';
 import { Companie } from '../companie.model';
-import { User, UserConst } from '../../user/user.model';
+import { User } from '../../user/user.model';
 import { ToastsManager } from 'ng2-toastr';
 import { Router, ActivatedRoute  } from '@angular/router';
 import { Location } from '@angular/common';
@@ -35,13 +35,13 @@ export class AddUserByCompanieComponent implements OnInit {
   // }
 
 
-  search = {
+  search: any = {
     search : '',
   }
-  fetchedUser: User = UserConst;
+  fetchedUser: User = new User();
 
   myForm: FormGroup;
-  filteredUsers = []
+  filteredUsers: User[]= []
 
 
   constructor(
@@ -121,7 +121,7 @@ export class AddUserByCompanieComponent implements OnInit {
     // })
   }
 
-  userFounded(i) {
+  userFounded(i: number) {
     this.fetchedUser = this.filteredUsers[i]
     //this.fetchedUser
     this.fetchedUser.role.forEach((role) => {
@@ -131,7 +131,7 @@ export class AddUserByCompanieComponent implements OnInit {
     this.filteredUsers = []
   }
 
-  addRole(role) {
+  addRole(role: string) {
     const control = <FormArray>this.myForm.controls['role'];
     const addrCtrl = this._fb.group({
         role: ['']

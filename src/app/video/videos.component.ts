@@ -21,7 +21,7 @@ import { UserService} from '../user/user.service';
 export class VideosComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
   fetchedVideos: Video[] = [];
-  search = {
+  search: any = {
     categories : [],
     search: ''
   };
@@ -57,7 +57,7 @@ export class VideosComponent implements OnInit {
     { name:'Behind the Scene & Testimonials', selected : false }
   ]
 
-  trackinPage = {
+  trackinPage : any = {
     lastVisitPagePressCount:[],
     lastVisitPageVideoCount:[]
   }
@@ -105,7 +105,7 @@ export class VideosComponent implements OnInit {
     this.getVideos(1, this.search)
   }
 
-  changeCateg1(nameCateg){
+  changeCateg1(nameCateg: string){
     //this.categories1[nameCateg] = !this.categories1[nameCateg]
     this.categories1.forEach((categ, index)=>{
       if(categ.name === nameCateg) {
@@ -153,7 +153,7 @@ export class VideosComponent implements OnInit {
         res => {
           this.paginationData = res.paginationData;
           let fetchedVideosNotSecure =  res.data
-          fetchedVideosNotSecure.forEach((video) => {
+          fetchedVideosNotSecure.forEach((video: Video) => {
             //isNewVideo = false
             //video['embedSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl('//fast.wistia.net/embed/iframe/' + video['embed'])
             video['embedSecure'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/' + video['embed'] )
@@ -161,7 +161,7 @@ export class VideosComponent implements OnInit {
 
 
             video['isNewVideo'] = false
-            this.trackinPage.lastVisitPageVideoCount.forEach(videoNotRead => {
+            this.trackinPage.lastVisitPageVideoCount.forEach((videoNotRead: Video) => {
                 if(videoNotRead._id == video._id)
                   video['isNewVideo'] = true
             })

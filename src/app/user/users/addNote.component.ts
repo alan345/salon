@@ -22,7 +22,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class AddNoteComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
-  fetchedUser = {
+  fetchedUser : any = {
     notes : []
   }
   newTextNote = ''
@@ -51,7 +51,7 @@ export class AddNoteComponent implements OnInit {
     })
   }
 
-  getUser(id) {
+  getUser(id: string) {
     this.userService.getUser(id)
       .subscribe(
         res => {

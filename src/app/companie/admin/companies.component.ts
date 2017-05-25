@@ -81,7 +81,7 @@ export class CompaniesComponent implements OnInit {
   }
 
 
-  getCompanies(page, search) {
+  getCompanies(page: number, search: any) {
     this.companieService.getCompanies(page, search)
       .subscribe(
         res => {
