@@ -15,11 +15,9 @@ import { UserService } from '../../user/user.service';
   templateUrl: './addUserByCompanie.component.html',
   styleUrls: ['../companie.component.css'],
 })
+
 export class AddUserByCompanieComponent implements OnInit {
-
-
   fetchedCompanie: Companie = new Companie();
-
   search: any = {
     search : '',
   }
@@ -28,6 +26,13 @@ export class AddUserByCompanieComponent implements OnInit {
   myForm: FormGroup;
   filteredUsers: User[]= []
   link: string = ''
+
+  userAdmins: User[] = [];
+  usersSalesRep: User[] = [];
+  userClients: User[] = [];
+  userStylists: User[] = [];
+  userManagers: User[] = [];
+  userToSendMail: User[] = [];
 
   constructor(
     private router: Router,
@@ -38,9 +43,7 @@ export class AddUserByCompanieComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private location: Location,
     private authService: AuthService,
-  ) {
-
-  }
+  ) {}
 
   ngOnInit() {
     this.getUser(this.authService.currentUser.userId)
@@ -78,80 +81,56 @@ export class AddUserByCompanieComponent implements OnInit {
           res => {
             if(res.data.length) {
               this.fetchedCompanie  = <Companie>res.data[0]
-              console.log(this.fetchedCompanie)
+              let this2 = this
+              this.fetchedCompanie._users.forEach((user: User) => {
+                if (user.role[0] === 'admin')
+                  this2.userAdmins.push(user);
+                if (user.role[0] === 'salesRep')
+                  this2.usersSalesRep.push(user);
+                if (user.role[0] === 'client')
+                  this2.userClients.push(user);
+                if (user.role[0] === 'stylist')
+                  this2.userStylists.push(user);
+                if (user.role[0] === 'manager')
+                  this2.userManagers.push(user);
+              });
             } else {
-          //    this.fetchedCompanie = new Companie()
+              this.toastr.error('error! No Salon Founded')
             }
-
-
           },
           error => {
             console.log(error);
           }
         );
-
-
       }
   }
 
 
   requestAddUserToComp() {
-    this.link = window.location.origin+ "#/companie/edit/addUser/" + this.fetchedCompanie._id + '/' + this.fetchedUser.email
+    this.link = window.location.origin + "#/companie/edit/addUser/" + this.fetchedCompanie._id + '/' + this.fetchedUser.email;
 
-    //this.addUserIdToCompanie(meUser)
+  //  this.userAdmins.forEach((user: User) => { this.userToSendMail.push(user)})
+    this.usersSalesRep.forEach((user: User) => { this.userToSendMail.push(user)})
+  //  this.userClients.forEach((user: User) => { this.userToSendMail.push(user)})
+    this.userStylists.forEach((user: User) => { this.userToSendMail.push(user)})
+    this.userManagers.forEach((user: User) => { this.userToSendMail.push(user)})
+
+
   }
 
-  //
-  // addUserIdToCompanie(user: User) {
-  //     this.fetchedCompanie._users.push(user)
-  //     this.companieService.updateCompanie(this.fetchedCompanie)
-  //       .subscribe(
-  //         res => {
-  //           //this.onPassForm.emit();
-  //           this.toastr.success('Great!', res.message)
-  //           //this.router.navigate(['companie/' + this.fetchedCompanie._id]);
-  //         },
-  //         error => {
-  //           this.toastr.error('error! user already exists in salon')
-  //           console.log(error)
-  //         }
-  //       )
-  //
-  //
-  //
-  //
-  // }
-
-  // getObjects(myForm: any){
-  //   return myForm.get('profile').get('parentUser').controls
-  // }
-  // getObjectsRole(myForm: any){
-  //   return myForm.get('role').controls
-  // }
-  getCompanie(id: string) {
-    this.companieService.getCompanie(id, {})
-      .subscribe(
-        res => {
-          this.fetchedCompanie = res
-        },
-        error => {
-          console.log(error);
-        }
-      )
-  }
-
-
-  // onDelete(id: string) {
-  //   this.companieService.deleteCompanie(id)
+  // getCompanie(id: string) {
+  //   this.companieService.getCompanie(id, {})
   //     .subscribe(
   //       res => {
-  //         this.toastr.success('Great!', res.message);
-  //         console.log(res);
+  //         this.fetchedCompanie = res
+  //
+  //
+  //
   //       },
   //       error => {
   //         console.log(error);
   //       }
-  //     );
+  //     )
   // }
 
   goBack() {

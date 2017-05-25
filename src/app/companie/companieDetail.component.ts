@@ -164,7 +164,6 @@ export class CompanieDetailComponent implements OnInit {
               this.users.push(user)
             if(user.role[0] === 'admin')
               this.userAdmins.push(user)
-
           })
 
           this.fetchedCompanie.forms.forEach((form: Form) => {
