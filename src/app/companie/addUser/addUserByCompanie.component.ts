@@ -27,7 +27,7 @@ export class AddUserByCompanieComponent implements OnInit {
 
   myForm: FormGroup;
   filteredUsers: User[]= []
-
+  link: string = ''
 
   constructor(
     private router: Router,
@@ -43,6 +43,7 @@ export class AddUserByCompanieComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getUser(this.authService.currentUser.userId)
     this.myForm = this._fb.group({
       lastVisit: [''],
       _id: [''],
@@ -58,6 +59,17 @@ export class AddUserByCompanieComponent implements OnInit {
   }
 
 
+  getUser(id : string) {
+    this.userService.getUser(id)
+      .subscribe(
+        res => {
+          this.fetchedUser = res.user
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
 
   searchCompanie() {
     if( this.search.search ) {
@@ -78,110 +90,44 @@ export class AddUserByCompanieComponent implements OnInit {
           }
         );
 
-      // this.companieService.getUsersByEmail(this.search)
-      //   .subscribe(
-      //     res => {
-      //       this.filteredUsers = res.data
-      //       if(res.data.length) {
-      //         if(res.data[0].email === this.search.email) {
-      //           this.userFounded(0)
-      //         } else {
-      //           this.initFormNewUser()
-      //         }
-      //       } else {
-      //         this.initFormNewUser()
-      //       }
-      //
-      //     },
-      //     error => {
-      //       console.log(error);
-      //     }
-      //   )
+
       }
   }
-  initFormNewUser() {
-    // this.fetchedUser.email = this.search.email
-    // this.fetchedUser.role.forEach((role) => {
-    //   this.addRole(role)
-    // })
-  }
-
-  userFounded(i: number) {
-    this.fetchedUser = this.filteredUsers[i]
-    //this.fetchedUser
-    this.fetchedUser.role.forEach((role) => {
-      this.addRole(role)
-    })
-
-    this.filteredUsers = []
-  }
-
-  addRole(role: string) {
-    const control = <FormArray>this.myForm.controls['role'];
-    const addrCtrl = this._fb.group({
-        role: ['']
-    });
-    control.push(addrCtrl);
-  }
-
-  save(form: FormGroup) {
-    if(this.fetchedUser._id) {
-      this.userService.updateUser(this.fetchedUser)
-        .subscribe(
-          res => {
-            this.toastr.success('Great!', res.message)
-            this.addUserIdToCompanie(res.obj)
-            //this.addUserIdToCompanie(res.obj)
-          },
-          error => {console.log(error)}
-        );
-    } else {
-      this.userService.saveUser(this.fetchedUser)
-        .subscribe(
-          res => {
-            this.toastr.success('Great!', res.message)
-            this.addUserIdToCompanie(res.obj)
-          },
-          error => {console.log(error)}
-        );
-    }
-  }
-
 
 
   requestAddUserToComp() {
-    let meUser: User = new User()
-    meUser._id = this.authService.currentUser.userId
-    this.addUserIdToCompanie(meUser)
+    this.link = window.location.origin+ "#/companie/edit/addUser/" + this.fetchedCompanie._id + '/' + this.fetchedUser.email
+
+    //this.addUserIdToCompanie(meUser)
   }
 
+  //
+  // addUserIdToCompanie(user: User) {
+  //     this.fetchedCompanie._users.push(user)
+  //     this.companieService.updateCompanie(this.fetchedCompanie)
+  //       .subscribe(
+  //         res => {
+  //           //this.onPassForm.emit();
+  //           this.toastr.success('Great!', res.message)
+  //           //this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+  //         },
+  //         error => {
+  //           this.toastr.error('error! user already exists in salon')
+  //           console.log(error)
+  //         }
+  //       )
+  //
+  //
+  //
+  //
+  // }
 
-  addUserIdToCompanie(user: User) {
-      this.fetchedCompanie._users.push(user)
-      this.companieService.updateCompanie(this.fetchedCompanie)
-        .subscribe(
-          res => {
-            //this.onPassForm.emit();
-            this.toastr.success('Great!', res.message)
-            //this.router.navigate(['companie/' + this.fetchedCompanie._id]);
-          },
-          error => {
-            this.toastr.error('error! user already exists in salon')
-            console.log(error)
-          }
-        )
-
-
-
-
-  }
-
-  getObjects(myForm: any){
-    return myForm.get('profile').get('parentUser').controls
-  }
-  getObjectsRole(myForm: any){
-    return myForm.get('role').controls
-  }
+  // getObjects(myForm: any){
+  //   return myForm.get('profile').get('parentUser').controls
+  // }
+  // getObjectsRole(myForm: any){
+  //   return myForm.get('role').controls
+  // }
   getCompanie(id: string) {
     this.companieService.getCompanie(id, {})
       .subscribe(
@@ -195,18 +141,18 @@ export class AddUserByCompanieComponent implements OnInit {
   }
 
 
-  onDelete(id: string) {
-    this.companieService.deleteCompanie(id)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message);
-          console.log(res);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+  // onDelete(id: string) {
+  //   this.companieService.deleteCompanie(id)
+  //     .subscribe(
+  //       res => {
+  //         this.toastr.success('Great!', res.message);
+  //         console.log(res);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
   goBack() {
     this.location.back();

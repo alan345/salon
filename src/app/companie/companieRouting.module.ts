@@ -14,6 +14,7 @@ import { AddUserByCompanieComponent} from './addUser/addUserByCompanie.component
 export const routes: Routes = [
   {path: 'admin', component: CompaniesComponent, canActivate: [AdminGuardService]},
   {path: 'edit/addUser/:id', component: EditAddUserToCompanieComponent},
+  {path: 'edit/addUser/:id/:email', component: EditAddUserToCompanieComponent},
   {path: 'addUserByCompanie', component: AddUserByCompanieComponent},
   {path: 'new', component: EditCompanieComponent, canActivate: [AdminGuardService]},
   {path: 'edit/:id', component: EditCompanieComponent},

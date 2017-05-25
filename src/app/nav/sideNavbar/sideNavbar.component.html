@@ -19,6 +19,8 @@
         </li>
       </div>
 
+
+      <li><a (click)="goTo('/companie/addUserByCompanie')">Find Salon</a></li>
       <li *ngIf="fetchedUser._id"><a (click)="goTo('/user/profile/' + fetchedUser._id)">My Profile</a></li>
       <li><a (click)="goTo('/user/profile/password')">My Account Settings</a></li>
       <li><a (click)="goTo('/userForms')">Manage Pictures</a></li>
