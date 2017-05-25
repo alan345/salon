@@ -21,7 +21,8 @@ export class EditAddUserToCompanieComponent implements OnInit {
   search: any = {
     email : '',
   }
-  fetchedUser : User = new User();
+  isUserInCompanie: boolean = false
+  fetchedUser: User = new User();
 
   myForm: FormGroup;
   filteredUsers: User[] = []
@@ -48,6 +49,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
         this.searchEmails()
       }
 
+
     })
     this.myForm = this._fb.group({
       lastVisit: [''],
@@ -71,6 +73,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
         .subscribe(
           res => {
             this.filteredUsers = res.data
+            this.isUserAlreadyInCompanie()
             if(res.data.length) {
               if(res.data[0].email === this.search.email) {
                 this.userFounded(0)
@@ -87,6 +90,16 @@ export class EditAddUserToCompanieComponent implements OnInit {
           }
         )
       }
+  }
+
+  isUserAlreadyInCompanie() {
+    //console.log(this.fetchedCompanie , this.fetchedUser._id)
+    this.fetchedCompanie._users.forEach((user: User) => {
+      if(user._id == this.fetchedUser._id)
+        this.isUserInCompanie = true
+    })
+
+
   }
   initFormNewUser() {
     this.fetchedUser.email = this.search.email
@@ -137,16 +150,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   addUserIdToCompanie(user : User) {
-      // let okAddUserToCompanie = true
-      // this.fetchedCompanie._users.forEach((userFetch) => {
-      //   if(userFetch._id === user._id) {
-      //     okAddUserToCompanie = false
-      //   }
-      // })
-      // if(!okAddUserToCompanie){
-      //   this.toastr.error('error! user already exists in salon')
-      //   this.router.navigate(['companie/' + this.fetchedCompanie._id]);
-      // } else {
+
         this.fetchedCompanie._users.push(user)
         this.companieService.updateCompanie(this.fetchedCompanie)
           .subscribe(
@@ -174,6 +178,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedCompanie = res
+          this.isUserAlreadyInCompanie()
         },
         error => {
           console.log(error);
