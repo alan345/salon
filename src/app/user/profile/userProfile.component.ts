@@ -9,6 +9,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { User } from '../user.model';
 import { Form } from '../../form/form.model';
+import { Companie } from '../../companie/companie.model';
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { CompanieService} from '../../companie/companie.service';
@@ -31,18 +32,7 @@ export class UserProfileComponent implements OnInit {
   isUserBelongToHQ=false
   maxPictureToShow=3;
   instapic=1;
-  companies=[{
-    _id: '',
-    name: '',
-    address:{
-      address : '',
-      city : '',
-      state: '',
-      zip: '',
-    },
-    _users : [
-    ]
-  }]
+  companies: Companie[] = [];
   isEditMode:boolean = false
   fetchedUser : User = {
     _id: '',
@@ -179,12 +169,12 @@ export class UserProfileComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     })
   }
-  openDialog(positionImage) {
+  openDialog(positionImage: string) {
     if(positionImage == '_profilePicture') {
       let dialogRef = this.dialog.open(EditOptionsComponentDialog);
       dialogRef.afterClosed().subscribe(result => {
         if(result) {
-          if(result.type==='pdf') {
+          if(result.type === 'pdf') {
             this.toastr.error('No pdf!');
           } else {
             this.fetchedUser.profile._profilePicture[0] = result
@@ -266,7 +256,7 @@ export class UserProfileComponent implements OnInit {
 
 
 
-  isHQcompanie(companie){
+  isHQcompanie(companie: Companie) {
     if(companie.typeCompanie === 'HQ')
       return true
     return false

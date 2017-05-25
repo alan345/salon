@@ -59,7 +59,7 @@ export class MainPageHomeComponent implements OnInit {
       this.save()
     this.isEditTitle = !this.isEditTitle
   }
-  openDialog(positionImage) {
+  openDialog(positionImage: string) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
@@ -88,7 +88,7 @@ export class MainPageHomeComponent implements OnInit {
   }
 
 
-  goTo(path){
+  goTo(path: string) {
     if( path === 'user') {
       if(this.companies.length) {
         if(this.isSalesRep() || this.isAdmin()) {
@@ -153,7 +153,7 @@ export class MainPageHomeComponent implements OnInit {
   isManager(){
     return this.authService.isManager();
   }
-  isHQcompanie(companie){
+  isHQcompanie(companie: Companie) {
     if(companie.typeCompanie === 'HQ')
       return true
     return false

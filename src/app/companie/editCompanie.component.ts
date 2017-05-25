@@ -122,7 +122,7 @@ export class EditCompanieComponent implements OnInit {
 
   }
 
-  move(i, incremet, typeUser) {
+  move(i: number, incremet: number, typeUser: string) {
     if(i>=0 && i<=this[typeUser].length + incremet) {
       var tmp = this[typeUser][i];
       this[typeUser][i] = this[typeUser][i + incremet]
