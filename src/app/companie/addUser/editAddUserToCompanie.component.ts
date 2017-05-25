@@ -143,7 +143,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   save(form: FormGroup) {
-
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
@@ -165,8 +164,8 @@ export class EditAddUserToCompanieComponent implements OnInit {
         );
     }
   }
-  addUserIdToCompanie(user : User) {
 
+  addUserIdToCompanie(user : User) {
       let okAddUserToCompanie = true
       this.fetchedCompanie._users.forEach((userFetch) => {
         if(userFetch._id === user._id) {
@@ -188,9 +187,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
             error => {console.log(error)}
           )
       }
-
-
-
   }
 
   getObjects(myForm: any){

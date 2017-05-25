@@ -12,7 +12,7 @@
     <div *ngIf="fetchedCompanie.name">
       {{fetchedCompanie.name}}
       <br>
-      <button>Request to add me into this companie</button>
+      <button type="button" (click)="requestAddUserToComp()">Request to add me into this companie</button>
     </div>
     <form  *ngIf="fetchedUser.email" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
       <div class="form-group">

@@ -63,6 +63,21 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     }
+
+    var foundDuplicate = false
+    var latestItem = req.body._users[req.body._users.length-1]
+    item._users.forEach(userId => {
+      if(userId == latestItem._id)
+        foundDuplicate = true
+    })
+
+    if(foundDuplicate) {
+      return res.status(404).json({
+        message: 'Duplicate',
+        err: 'Duplicate users'
+      })
+    }
+
     if( req.user.role[0] !== 'admin') {
       let belongToThisCompanie = false
       item._users.forEach(user => {
@@ -82,24 +97,24 @@ router.put('/:id', function (req, res, next) {
       }
     }
 
-      for (var prop in req.body) {
-        if(prop !== '__v' && prop !== 'updatedAt' && prop !== 'createdAt')
-          item[prop] = req.body[prop]
-      }
+    for (var prop in req.body) {
+      if(prop !== '__v' && prop !== 'updatedAt' && prop !== 'createdAt')
+        item[prop] = req.body[prop]
+    }
 
 
-      item.save(function (err, result) {
-        if (err) {
-          return res.status(404).json({
-            message: 'There was an error, please try again',
-            err: err
-          });
-        }
-        res.status(201).json({
-          message: '',
-          obj: result
+    item.save(function (err, result) {
+      if (err) {
+        return res.status(404).json({
+          message: 'There was an error, please try again',
+          err: err
         });
+      }
+      res.status(201).json({
+        message: '',
+        obj: result
       });
+    });
 
   })
 });
@@ -172,6 +187,11 @@ router.get('/page/:page', function (req, res, next) {
 
   Companie
   .find(search)
+  .populate(
+    {
+      path: '_users',
+      model: 'User',
+    })
   .limit(itemsPerPage)
   .skip(skip)
   .sort(req.query.orderBy)

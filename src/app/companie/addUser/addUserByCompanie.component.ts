@@ -19,21 +19,6 @@ export class AddUserByCompanieComponent implements OnInit {
 
 
   fetchedCompanie: Companie = new Companie();
-  // fetchedCompanie: Companie = {
-  //   _id: '',
-  //   forms:[],
-  //   name: '',
-  //   typeCompanie: '',
-  //   phoneNumber: '',
-  //   address: {
-  //     address : '',
-  //     city :  '',
-  //     state :  '',
-  //     zip :  ''
-  //   },
-  //   _users:[]
-  // }
-
 
   search: any = {
     search : '',
@@ -70,20 +55,20 @@ export class AddUserByCompanieComponent implements OnInit {
         lastName: ['', [Validators.required, Validators.minLength(2)]],
       })
     })
-
   }
 
+
+
   searchCompanie() {
-
     if( this.search.search ) {
-
       this.companieService.getCompanies(1, this.search)
         .subscribe(
           res => {
             if(res.data.length) {
               this.fetchedCompanie  = <Companie>res.data[0]
+              console.log(this.fetchedCompanie)
             } else {
-              this.fetchedCompanie = new Companie()
+          //    this.fetchedCompanie = new Companie()
             }
 
 
@@ -161,28 +146,31 @@ export class AddUserByCompanieComponent implements OnInit {
         );
     }
   }
-  addUserIdToCompanie(user : User) {
-      let okAddUserToCompanie = true
-      this.fetchedCompanie._users.forEach((userFetch) => {
-        if(userFetch._id === user._id) {
-          okAddUserToCompanie = false
-        }
-      })
-      if(!okAddUserToCompanie){
-        this.toastr.error('error! user already exists in salon')
-        this.router.navigate(['companie/' + this.fetchedCompanie._id]);
-      } else {
-        this.fetchedCompanie._users.push(user)
-        this.companieService.updateCompanie(this.fetchedCompanie)
-          .subscribe(
-            res => {
-              //this.onPassForm.emit();
-              this.toastr.success('Great!', res.message)
-              this.router.navigate(['companie/' + this.fetchedCompanie._id]);
-            },
-            error => {console.log(error)}
-          )
-      }
+
+
+
+  requestAddUserToComp() {
+    let meUser: User = new User()
+    meUser._id = this.authService.currentUser.userId
+    this.addUserIdToCompanie(meUser)
+  }
+
+
+  addUserIdToCompanie(user: User) {
+      this.fetchedCompanie._users.push(user)
+      this.companieService.updateCompanie(this.fetchedCompanie)
+        .subscribe(
+          res => {
+            //this.onPassForm.emit();
+            this.toastr.success('Great!', res.message)
+            //this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+          },
+          error => {
+            this.toastr.error('error! user already exists in salon')
+            console.log(error)
+          }
+        )
+
 
 
 
