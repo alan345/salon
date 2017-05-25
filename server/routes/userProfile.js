@@ -82,7 +82,7 @@ router.get('/page/:page', function (req, res, next) {
   }
 
 
-  console.log(findQuery)
+
   User
   .find(findQuery)
   .limit(itemsPerPage)
@@ -394,7 +394,6 @@ router.post('/', function (req, res, next) {
   user.save(function (err, result) {
     if (err) {
       console.log(err)
-      console.log(result)
       return res.status(403).json({
         title: 'There was an issue',
         error: {message: 'The email you entered already exists'}
