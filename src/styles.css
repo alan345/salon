@@ -507,6 +507,9 @@ a.seemre {
 .img-row .col-sm-3 {
     padding-right: 0 !important;
 }
+.subnav {
+  margin-top: 70px;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -537,6 +540,9 @@ a.seemre {
 a.seemre {
   padding: 15px;
   display: block;
+}
+.subnav {
+  margin-top: 50px;
 }
 }
 

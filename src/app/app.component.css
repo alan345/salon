@@ -6,17 +6,3 @@
 .phyto-sidenav {
   box-shadow: none !important;
 }
-
-@media screen and (min-width: 768px) {
-  
-.phyto-topnav, .phyto-sidenav {
-  margin-top: 70px !important;
-}
-}
-
-@media screen and (max-width: 767px) {
-  
-.phyto-topnav, .phyto-sidenav {
-  margin-top: 50px !important;
-}
-}
