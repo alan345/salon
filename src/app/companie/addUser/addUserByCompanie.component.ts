@@ -6,7 +6,7 @@ import { User } from '../../user/user.model';
 import { ToastsManager } from 'ng2-toastr';
 import { Router, ActivatedRoute  } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../user/user.service';
 
 
@@ -109,29 +109,12 @@ export class AddUserByCompanieComponent implements OnInit {
   requestAddUserToComp() {
     this.link = window.location.origin + "#/companie/edit/addUser/" + this.fetchedCompanie._id + '/' + this.fetchedUser.email;
 
-  //  this.userAdmins.forEach((user: User) => { this.userToSendMail.push(user)})
+    this.userAdmins.forEach((user: User) => { this.userToSendMail.push(user)})
     this.usersSalesRep.forEach((user: User) => { this.userToSendMail.push(user)})
   //  this.userClients.forEach((user: User) => { this.userToSendMail.push(user)})
-    this.userStylists.forEach((user: User) => { this.userToSendMail.push(user)})
+  //  this.userStylists.forEach((user: User) => { this.userToSendMail.push(user)})
     this.userManagers.forEach((user: User) => { this.userToSendMail.push(user)})
-
-
   }
-
-  // getCompanie(id: string) {
-  //   this.companieService.getCompanie(id, {})
-  //     .subscribe(
-  //       res => {
-  //         this.fetchedCompanie = res
-  //
-  //
-  //
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     )
-  // }
 
   goBack() {
     this.location.back();
