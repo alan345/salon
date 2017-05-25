@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth/auth.service';
-import {CompanieService} from './companie.service';
-import {Companie, CompanieConst} from './companie.model';
-import {ToastsManager} from 'ng2-toastr';
-import {MdDialog } from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
-import {Location} from '@angular/common';
+import { Component, OnInit} from '@angular/core';
+import { AuthService} from '../auth/auth.service';
+import { CompanieService} from './companie.service';
+import { Companie } from './companie.model';
+import { ToastsManager} from 'ng2-toastr';
+import { MdDialog } from '@angular/material';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Location} from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AdminService} from '../admin/services/admin.service';
 
@@ -27,7 +27,7 @@ export class CompanieDetailUsersComponent implements OnInit {
     onlyMyUsers: true,
   }
   companieIdToSelect = ''
-  fetchedCompanie : Companie = CompanieConst
+  fetchedCompanie : Companie = new Companie();
   public myForm: FormGroup;
 
 

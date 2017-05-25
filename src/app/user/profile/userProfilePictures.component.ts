@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { User } from '../user.model';
 import { Form } from '../../form/form.model';
+import { Companie } from '../../companie/companie.model';
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { CompanieService} from '../../companie/companie.service';
@@ -26,20 +27,21 @@ import { CompanieService} from '../../companie/companie.service';
 export class UserProfilePicturesComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
-  maxPictureToShow=3;
-  instapic=1;
-  companies=[{
-    _id: '',
-    name: '',
-    address:{
-      address : '',
-      city : '',
-      state: '',
-      zip: '',
-    },
-    _users : [
-    ]
-  }]
+  maxPictureToShow = 3;
+  instapic = 1;
+  companies: Companie[] = [];
+  // companies: Companie[] =[{
+  //   _id: '',
+  //   name: '',
+  //   address:{
+  //     address : '',
+  //     city : '',
+  //     state: '',
+  //     zip: '',
+  //   },
+  //   _users : [
+  //   ]
+  // }]
   fetchedUser : User = {
     _id: '',
     lastVisit: new Date,

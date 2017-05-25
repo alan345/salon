@@ -1,10 +1,10 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {AuthService} from '../../auth/auth.service';
-import {AdminService} from '../../admin/services/admin.service';
-import {ProfileService} from '../../user/profile/profile.service';
-import {Router} from '@angular/router';
-import {CompanieService} from '../../companie/companie.service';
-import {Companie, CompanieConst} from '../../companie/companie.model';
+import { Component, OnInit, Input} from '@angular/core';
+import { AuthService} from '../../auth/auth.service';
+import { AdminService} from '../../admin/services/admin.service';
+import { ProfileService} from '../../user/profile/profile.service';
+import { Router} from '@angular/router';
+import { CompanieService} from '../../companie/companie.service';
+import { Companie } from '../../companie/companie.model';
 
 @Component({
   selector: 'app-sideNavbar',
@@ -22,7 +22,7 @@ export class SideNavbarComponent implements OnInit {
   companies= []
   userBelongToHQ : boolean = false
 
-  HQCompanie: Companie = CompanieConst;
+  HQCompanie: Companie = new Companie();
 
   search = {
     orderBy : 'name',

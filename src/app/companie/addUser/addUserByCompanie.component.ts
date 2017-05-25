@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { CompanieService } from '../companie.service';
-import { Companie, CompanieConst } from '../companie.model';
+import { Companie } from '../companie.model';
 import { User, UserConst } from '../../user/user.model';
 import { ToastsManager } from 'ng2-toastr';
 import { Router, ActivatedRoute  } from '@angular/router';
@@ -18,7 +18,7 @@ import { UserService } from '../../user/user.service';
 export class AddUserByCompanieComponent implements OnInit {
 
 
-  fetchedCompanie = CompanieConst
+  fetchedCompanie: Companie = new Companie();
   // fetchedCompanie: Companie = {
   //   _id: '',
   //   forms:[],
@@ -83,7 +83,7 @@ export class AddUserByCompanieComponent implements OnInit {
             if(res.data.length) {
               this.fetchedCompanie  = <Companie>res.data[0]
             } else {
-              this.fetchedCompanie = CompanieConst
+              this.fetchedCompanie = new Companie()
             }
 
 

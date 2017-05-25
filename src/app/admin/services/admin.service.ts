@@ -12,7 +12,7 @@ import {AuthService} from '../../auth/auth.service';
 export class AdminService {
   private url: string = '/admin';
   private token: string = localStorage.getItem('id_token');
-  private forms = [];
+  private forms : Form[]= [];
   private singleForm = Object;
   jwtHelper: JwtHelper = new JwtHelper();
 
@@ -59,7 +59,7 @@ export class AdminService {
       });
   }
 
-  getSingleForm(formId) {
+  getSingleForm(formId: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);
     return this.http.get(this.url + '/edit/' + formId, {headers: headers})

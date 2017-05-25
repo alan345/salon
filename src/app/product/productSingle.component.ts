@@ -165,7 +165,7 @@ export class ProductSingleComponent implements OnInit {
   }
   togglCategorieButton(nameCateg, type) {
     //console.log('togglCategorieButton')
-    var indexFound
+    var indexFound:number;
     this.fetchedProduct.categories.forEach((categorie, index) => {
       if(categorie.name == nameCateg)
         indexFound = index
