@@ -41,7 +41,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-      if(params['email'])
+      if(params['id'])
         this.getCompanie(params['id'])
 
       if(params['email']) {
@@ -73,7 +73,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
         .subscribe(
           res => {
             this.filteredUsers = res.data
-            this.isUserAlreadyInCompanie()
+
             if(res.data.length) {
               if(res.data[0].email === this.search.email) {
                 this.userFounded(0)
@@ -93,7 +93,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   isUserAlreadyInCompanie() {
-    //console.log(this.fetchedCompanie , this.fetchedUser._id)
+    console.log(this.fetchedCompanie , this.fetchedUser._id)
     this.fetchedCompanie._users.forEach((user: User) => {
       if(user._id == this.fetchedUser._id)
         this.isUserInCompanie = true
@@ -110,6 +110,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
 
   userFounded(i: number) {
     this.fetchedUser = this.filteredUsers[i]
+    this.isUserAlreadyInCompanie()
     //this.fetchedUser
     this.fetchedUser.role.forEach((role) => {
       this.addRole(role)
@@ -150,7 +151,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   addUserIdToCompanie(user : User) {
-
         this.fetchedCompanie._users.push(user)
         this.companieService.updateCompanie(this.fetchedCompanie)
           .subscribe(
