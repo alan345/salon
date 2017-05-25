@@ -81,7 +81,7 @@ export class UserProfilePicturesComponent implements OnInit {
   ) {
   }
 
-  getObjects(myForm){
+  getObjects(myForm: any){
      return myForm.get('forms').controls
    }
 
@@ -154,7 +154,7 @@ export class UserProfilePicturesComponent implements OnInit {
   seeAllPicture(){
     this.router.navigate(['user/profile/' + this.fetchedUser._id + "/userProfilePictures"]);
   }
-  openDialog(positionImage) {
+  openDialog(positionImage: string) {
     if(positionImage == '_profilePicture') {
       let dialogRef = this.dialog.open(EditOptionsComponentDialog);
       dialogRef.afterClosed().subscribe(result => {

@@ -73,7 +73,7 @@ export class UserProfileComponent implements OnInit {
   ) {
   }
 
-  getObjects(myForm){
+  getObjects(myForm: any){
      return myForm.get('forms').controls
    }
 

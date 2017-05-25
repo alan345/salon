@@ -25,7 +25,7 @@ export class PromotionService {
     private authService: AuthService) {}
 
   // get promotion forms from backend in order to display them in the front end
-  getPromotions(page: number, search) {
+  getPromotions(page: number, search: any) {
 
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);

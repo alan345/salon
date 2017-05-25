@@ -7,6 +7,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { User } from '../user.model';
 import { Form } from '../../form/form.model';
+import { Companie } from '../../companie/companie.model';
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { CompanieService} from '../../companie/companie.service';
@@ -26,20 +27,7 @@ export class UserProfileSettingsComponent implements OnInit {
   //fetchedUser : User;
   maxPictureToShow=3;
   instapic=1;
-  companies=[
-  //   {
-  //   _id: '',
-  //   name: '',
-  //   address:{
-  //     address : '',
-  //     city : '',
-  //     state: '',
-  //     zip: '',
-  //   },
-  //   _users : [
-  //   ]
-  // }
-  ]
+  companies: Companie[] = []
   isEditMode:boolean = false
   fetchedUser : User = {
     _id: '',
@@ -80,7 +68,7 @@ export class UserProfileSettingsComponent implements OnInit {
   ) {
   }
 
-  getObjects(myForm){
+  getObjects(myForm: any){
      return myForm.get('forms').controls
    }
 

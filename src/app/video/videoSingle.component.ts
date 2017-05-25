@@ -79,7 +79,7 @@ export class VideoSingleComponent implements OnInit {
 
 
 
-  getObjects(myForm){
+  getObjects(myForm: any){
      return myForm.get('categories').controls
    }
 
@@ -126,7 +126,7 @@ export class VideoSingleComponent implements OnInit {
     this.inputCategorie=''
   }
   togglCategorieButton(nameCateg, type) {
-    var indexFound
+    var indexFound: number
     this.fetchedVideo.categories.forEach((categorie, index) => {
       if(categorie.name == nameCateg)
         indexFound = index
@@ -157,7 +157,7 @@ export class VideoSingleComponent implements OnInit {
       // }
     })
   }
-  openDialog(positionImage) {
+  openDialog(positionImage: string) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
     dialogRef.afterClosed().subscribe(result => {
       if(result) {

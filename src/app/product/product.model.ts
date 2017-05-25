@@ -22,7 +22,7 @@ export class Product {
   categories: Categorie[] = [];
   categoriesTag: Categorie[] = [];
   magento: Magento = new Magento();
-  constructor(sanitizer) {
+  constructor(sanitizer: any) {
     this.description = new Description(sanitizer)
   }
 }
@@ -33,7 +33,7 @@ export class Description {
   howToApply: string = '';
   activeIngredients: string = '';
   title: Title;
-  constructor(sanitizer) {
+  constructor(sanitizer: any) {
     this.title = new Title(sanitizer);
   }
 
@@ -43,7 +43,7 @@ export class Title {
   prononciation: string = '';
   embed: string = '';
   embedSecure: {};
-  constructor(sanitizer) {
+  constructor(sanitizer: any) {
     this.embedSecure = sanitizer.bypassSecurityTrustResourceUrl('')
   }
 }

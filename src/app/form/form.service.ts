@@ -25,8 +25,8 @@ export class FormService {
     private authService: AuthService) {}
 
   // get user forms from backend in order to display them in the front end
-  getUserForms(page: number, search) {
-    console.log(search)
+  getUserForms(page: number, search: any) {
+
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     let options = new RequestOptions({ headers: headers, search: search });

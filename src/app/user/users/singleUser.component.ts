@@ -148,7 +148,7 @@ export class SingleUserComponent implements OnInit {
   seeAllPicture(){
     this.router.navigate(['user/' + this.fetchedUser._id + "/userPictures"]);
   }
-  openDialog(positionImage) {
+  openDialog(positionImage: string) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {

@@ -113,35 +113,6 @@ export class CompanieDetailUsersComponent implements OnInit {
       )
   }
 
-  // seeAllPicture(){
-  //   this.router.navigate(['companie/' + this.fetchedCompanie._id + "/companiePictures"]);
-  // }
-
-  // addForm(form : Form) {
-  //   const control = <FormArray>this.myForm.controls['forms'];
-  //   const addrCtrl = this._fb.group({
-  //       _id: ['', Validators.required],
-  //       owner: ['', Validators.required],
-  //       imagePath: ['', Validators.required],
-  //   });
-  //   control.push(addrCtrl);
-  // }
-
-  // getObjects(myForm){
-  //   return myForm.get('forms').controls
-  // }
-
-  // openDialog(positionImage) {
-  //   let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if(result) {
-  //       this.addForm(result)
-  //       this.fetchedCompanie.forms.push(result)
-  //       this.save()
-  //     }
-  //   })
-  // }
-
 
   getCompanie(id : string) {
     this.companieService.getCompanie(id, this.search)

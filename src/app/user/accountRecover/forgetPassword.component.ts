@@ -52,7 +52,7 @@ export class ForgetPasswordComponent implements OnInit, AfterViewInit {
 
   }
 
-  emailValidator(control) {
+  emailValidator(control: any) {
     let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
     if (!EMAIL_REGEXP.test(control.value)) {
@@ -60,4 +60,3 @@ export class ForgetPasswordComponent implements OnInit, AfterViewInit {
      }
   }
 }
-

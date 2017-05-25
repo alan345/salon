@@ -20,7 +20,6 @@ import { Location } from '@angular/common';
 
 export class UsersComponent implements OnInit {
   fetchedUsers: User[] = [];
-  fetchedRegions = [];
   loading: boolean;
   search = {
     orderBy : '',
@@ -111,7 +110,7 @@ export class UsersComponent implements OnInit {
     this.getUsers(page, this.search)
   }
 
-  getUsers(page, search) {
+  getUsers(page: number, search: any) {
     this.userService.getUsers(page, search)
       .subscribe(
         res => {

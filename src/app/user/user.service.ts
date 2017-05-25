@@ -27,7 +27,7 @@ export class UserService {
   ) {}
 
   // get user forms from backend in order to display them in the front end
-  getUsers(page: number, search) {
+  getUsers(page: number, search: any) {
     let headers = new Headers({'Content-Type': 'application/json'})
     headers.append('Authorization', '' + this.authService.currentUser.token)
     let options = new RequestOptions({ headers: headers, search: search});
@@ -98,7 +98,7 @@ export class UserService {
       });
   }
 
-  saveUser(user) {
+  saveUser(user: any) {
     user.profile.parentUser=[]
   //  console.log(this.authService.currentUser.userId)
     user.profile.parentUser.push(this.authService.currentUser.userId)

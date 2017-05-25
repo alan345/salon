@@ -145,7 +145,7 @@ export class VideosComponent implements OnInit {
   }
 
 
-  getVideos(page : number, search) {
+  getVideos(page : number, search: any) {
     //this.fetchedVideos =[]
     this.loading = true;
     this.videoService.getVideos(page, search)

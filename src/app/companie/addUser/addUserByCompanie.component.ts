@@ -188,10 +188,10 @@ export class AddUserByCompanieComponent implements OnInit {
 
   }
 
-  getObjects(myForm){
+  getObjects(myForm: any){
     return myForm.get('profile').get('parentUser').controls
   }
-  getObjectsRole(myForm){
+  getObjectsRole(myForm: any){
     return myForm.get('role').controls
   }
   getCompanie(id: string) {

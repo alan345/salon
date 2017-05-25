@@ -81,7 +81,7 @@ export class ProductEditComponent implements OnInit {
 
 
 
-  getObjects(myForm){
+  getObjects(myForm: any){
     //console.log(myForm.get('categories').controls)
      return myForm.get('categories').controls
    }
@@ -138,7 +138,7 @@ export class ProductEditComponent implements OnInit {
   }
   togglCategorieButton(nameCateg, type) {
     //console.log('togglCategorieButton')
-    var indexFound
+    var indexFound: number
     this.fetchedProduct.categories.forEach((categorie, index) => {
       if(categorie.name == nameCateg)
         indexFound = index
@@ -166,7 +166,7 @@ export class ProductEditComponent implements OnInit {
 
 
 
-    getProducts(page : number, search) {
+    getProducts(page : number, search: any) {
       //this.fetchedProducts =[]
       this.loading = true;
       this.productService.getProducts(page, search)
@@ -223,7 +223,7 @@ export class ProductEditComponent implements OnInit {
   //     // }
   //   })
   // }
-  openDialog(positionImage) {
+  openDialog(positionImage: string) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
     dialogRef.afterClosed().subscribe(result => {
       if(result) {

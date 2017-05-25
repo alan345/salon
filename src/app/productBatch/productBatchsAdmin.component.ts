@@ -200,7 +200,7 @@ export class ProductBatchsAdminComponent implements OnInit {
   }
 
 
-  getProductBatchs(page : number, search) {
+  getProductBatchs(page : number, search: any) {
     //this.fetchedProductBatchs =[]
     this.loading = true;
     this.productBatchService.getProductBatchs(page, search)

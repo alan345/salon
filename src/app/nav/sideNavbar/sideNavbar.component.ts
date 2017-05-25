@@ -12,11 +12,11 @@ import { Companie } from '../../companie/companie.model';
   styleUrls: ['./sideNavbar.component.css']
 })
 export class SideNavbarComponent implements OnInit {
-  @Input() sidenav
+  @Input() sidenav: any
 
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedUser = {
+  fetchedUser: any = {
     _id: ''
   };
   companies= []
@@ -74,7 +74,7 @@ export class SideNavbarComponent implements OnInit {
             //console.log(res)
             if(res.length) {
               this.HQCompanie = res[0]
-              res.forEach(companie => {
+              res.forEach((companie: Companie) => {
                 if(this.isHQcompanie(companie))
                   this.HQCompanie =  companie
               })

@@ -63,7 +63,7 @@ export class UserPicturesComponent implements OnInit {
   ) {
   }
 
-  getObjects(myForm){
+  getObjects(myForm: any){
      return myForm.get('forms').controls
    }
 
@@ -107,7 +107,7 @@ export class UserPicturesComponent implements OnInit {
   seeAllPicture(){
     //this.maxPictureToShow = 9999
   }
-  openDialog(positionImage) {
+  openDialog(positionImage: string) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {

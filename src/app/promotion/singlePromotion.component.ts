@@ -80,7 +80,7 @@ export class SinglePromotionComponent implements OnInit {
     this.location.back();
   }
 
-  openDialog(positionImage) {
+  openDialog(positionImage: string) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {

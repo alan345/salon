@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   }
   // input validator to check if the email entered by the user is actually text in an email form
-  emailValidator(control) {
+  emailValidator(control: any) {
     let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
     if (!EMAIL_REGEXP.test(control.value)) {

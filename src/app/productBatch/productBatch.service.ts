@@ -26,7 +26,7 @@ export class ProductBatchService {
 
 
 
-  getProductBatchs(page: number, search) {
+  getProductBatchs(page: number, search: any) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     let options = new RequestOptions({ headers: headers, search: search});

@@ -88,7 +88,7 @@ export class AdminUsersComponent implements OnInit {
     this.getUsers(page, this.search)
   }
 
-  getUsers(page: number, search) {
+  getUsers(page: number, search: any) {
     this.userService.getUsers(page, search)
       .subscribe(
         res => {

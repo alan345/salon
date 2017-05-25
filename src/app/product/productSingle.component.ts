@@ -114,7 +114,7 @@ export class ProductSingleComponent implements OnInit {
 
 
 
-  getObjects(myForm){
+  getObjects(myForm: any){
     //console.log(myForm.get('categories').controls)
      return myForm.get('categories').controls
    }
@@ -196,7 +196,7 @@ export class ProductSingleComponent implements OnInit {
   //     // }
   //   })
   // }
-  openDialog(positionImage) {
+  openDialog(positionImage: string) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
     dialogRef.afterClosed().subscribe(result => {
       if(result) {

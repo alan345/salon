@@ -20,7 +20,7 @@ import { Companie} from '../companie/companie.model';
 })
 export class MainPageHomeComponent implements OnInit {
   companies: Companie[] = []
-  trackinPage = {
+  trackinPage : any = {
     lastVisitPagePressCount: [],
     lastVisitPageVideoCount: []
   }

@@ -11,8 +11,8 @@ import { MdDialog} from '@angular/material';
   styleUrls: ['./form.component.css']
 })
 export class UserFormsComponent implements OnInit {
-  @Input() itemsPerPage
-  @Input() isDialog
+  @Input() itemsPerPage: number
+  @Input() isDialog: boolean
 
 
 

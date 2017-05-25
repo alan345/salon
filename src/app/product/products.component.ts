@@ -209,7 +209,7 @@ export class ProductsComponent implements OnInit {
 
 
 
-  getProducts(page : number, search) {
+  getProducts(page : number, search: any) {
     //this.fetchedProducts =[]
     this.loading = true;
     this.productService.getProducts(page, search)

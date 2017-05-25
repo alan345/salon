@@ -32,7 +32,7 @@ export class MainPageHomeService {
       });
   }
 
-  updateOptions(options){
+  updateOptions(options: any){
     const body = JSON.stringify(options);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.token);

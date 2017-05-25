@@ -6,7 +6,7 @@ export class VideoClass {
     embedSecure : string;
     categories:Categorie[] = [];
     owner: Owner[] = [];
-    constructor(sanitizer) {
+    constructor(sanitizer: any) {
       this.embedSecure = sanitizer.bypassSecurityTrustResourceUrl('')
     }
 }
