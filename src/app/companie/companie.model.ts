@@ -17,19 +17,3 @@ export class Address {
   state: string = '';
   zip: string = '';
 }
-
-
-// export const CompanieConst: Companie = {
-//   _id: '',
-//   forms: [],
-//   name: '',
-//   typeCompanie: '',
-//   phoneNumber: '',
-//   address: {
-//     address : '',
-//     city :  '',
-//     state :  '',
-//     zip :  ''
-//   },
-//   _users: []
-// };

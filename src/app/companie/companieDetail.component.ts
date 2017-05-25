@@ -25,20 +25,21 @@ export class CompanieDetailComponent implements OnInit {
   maxPictureToShow = 3;
   users: User[] = [];
   userAdmins: User[] = [];
-  fetchedCompanie: Companie = {
-    _id: '',
-    forms: [],
-    name: '',
-    typeCompanie: '',
-    phoneNumber: '',
-    address: {
-      address : '',
-      city :  '',
-      state :  '',
-      zip :  ''
-    },
-    _users: []
-  };
+  fetchedCompanie: Companie = new Companie();
+  // {
+  //   _id: '',
+  //   forms: [],
+  //   name: '',
+  //   typeCompanie: '',
+  //   phoneNumber: '',
+  //   address: {
+  //     address : '',
+  //     city :  '',
+  //     state :  '',
+  //     zip :  ''
+  //   },
+  //   _users: []
+  // };
 
   search = {
     orderBy : '-client',

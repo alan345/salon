@@ -54,10 +54,6 @@ export class ProductSingleComponent implements OnInit {
 
 
   categoriesHard2 = [
-    // {
-    //   name:'whatsnew',
-    //   selected : false
-    // },
     {
       name:'treatments',
       selected : false
