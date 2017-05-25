@@ -107,8 +107,8 @@ export class AddUserByCompanieComponent implements OnInit {
 
 
   requestAddUserToComp() {
+    this.toastr.success('Great!', 'Request has been sent');
     this.link = window.location.origin + "#/companie/edit/addUser/" + this.fetchedCompanie._id + '/' + this.fetchedUser.email;
-
     this.userAdmins.forEach((user: User) => { this.userToSendMail.push(user)})
     this.usersSalesRep.forEach((user: User) => { this.userToSendMail.push(user)})
   //  this.userClients.forEach((user: User) => { this.userToSendMail.push(user)})
