@@ -5,22 +5,18 @@
 }
 .phyto-sidenav {
   box-shadow: none !important;
-  height: 100vh !important;
-}
-.phyto-topnav {
-  height: 100vh;
 }
 
 @media screen and (min-width: 768px) {
   
 .phyto-topnav, .phyto-sidenav {
-  margin-top: 70px;
+  margin-top: 70px !important;
 }
 }
 
 @media screen and (max-width: 767px) {
   
 .phyto-topnav, .phyto-sidenav {
-  margin-top: 50px;
+  margin-top: 50px !important;
 }
 }
