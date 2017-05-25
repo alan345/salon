@@ -14,6 +14,7 @@ process.on('uncaughtException', function (err) {
   console.log(err);
 });
 
+
 // Checking if user is authenticated or not, security middleware
 router.use('/', function (req, res, next) {
   var token = req.headers['authorization'];
