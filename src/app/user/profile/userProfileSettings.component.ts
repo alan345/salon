@@ -162,7 +162,7 @@ export class UserProfileSettingsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     })
   }
-  openDialog(positionImage) {
+  openDialog(positionImage: string) {
     if(positionImage == '_profilePicture') {
       let dialogRef = this.dialog.open(EditOptionsComponentDialog);
       dialogRef.afterClosed().subscribe(result => {

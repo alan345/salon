@@ -10,12 +10,12 @@ export class CompanieFilterPipe implements PipeTransform {
     transform(items: any[], search: string, orderBy: string ): any {
       //  console.log(items)
         let orderByDirection = '+'
-        if(orderBy.charAt(0) === '-'){
+        if(orderBy.charAt(0) === '-') {
           orderBy = orderBy.slice( 1 )
           orderByDirection = '-'
         }
 
-        let returnItems = []
+        let returnItems: any[] = []
         items.forEach((item) => {
           let str1 = item.profile.name.toLowerCase()
           let str2 = search.toLowerCase()

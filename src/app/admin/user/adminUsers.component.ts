@@ -21,13 +21,12 @@ import { Location } from '@angular/common';
 })
 export class AdminUsersComponent implements OnInit {
   fetchedUsers: User[] = [];
-  fetchedRegions = [];
   loading: boolean;
   search = {
     orderBy : '',
     search: '',
     parentUser: '',
-    role:''
+    role: ''
   }
   paginationData = {
     currentPage: 1,
@@ -89,7 +88,7 @@ export class AdminUsersComponent implements OnInit {
     this.getUsers(page, this.search)
   }
 
-  getUsers(page, search) {
+  getUsers(page: number, search) {
     this.userService.getUsers(page, search)
       .subscribe(
         res => {

@@ -21,7 +21,7 @@ export class ProfileService {
   }
 
   // get user details from database to display them in front end profile page
-  getUserDetails(userId) {
+  getUserDetails(userId: string) {
     if (this.authService.isLoggedIn()) {
       let token = this.authService.currentUser.token
       let userId = this.authService.currentUser.userId
