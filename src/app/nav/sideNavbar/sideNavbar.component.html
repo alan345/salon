@@ -30,10 +30,13 @@
         <li><a *ngIf="isAdmin()" (click)="goTo('/product/admin')" class="admn-btn">Admin Products</a></li>
         <li><a *ngIf="isAdmin()" (click)="goTo('/productBatch')" class="admn-btn">Products Batch</a></li>
       </div>
-      <li style="margin-bottom: 30px;"><a href="#" (click)="logout()" *ngIf="isLoggedIn()">Log out</a></li>
+      <li style="margin-bottom: 30px;"><a (click)="logout()" *ngIf="isLoggedIn()">Log out</a></li>
     </ul>
   </div>
   <div class="sidenav-footer">
-    <p><a href="https://www.phyto.com/terms-of-use/terms-conditions.html" target="_blank">Terms and Conditions</a> - <a href="https://www.phyto.com/terms-of-use/privacy-policy.html" target="_blank">Privacy Policy</a></p>
+    <p>
+      <a (click)="goToExterne('https://www.phyto.com/terms-of-use/terms-conditions.html')">Terms and Conditions</a>
+       -
+       <a (click)="goToExterne('https://www.phyto.com/terms-of-use/privacy-policy.html')">Privacy Policy</a></p>
     <p>© 2017 - Ales Group USA</p>
 </div>

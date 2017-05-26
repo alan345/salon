@@ -36,6 +36,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     });
   }
 
+
   ngAfterViewInit() {
     setTimeout(() => {
       this.renderer.invokeElementMethod(this.userEmail.nativeElement, 'focus', []);

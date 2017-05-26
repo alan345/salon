@@ -100,7 +100,9 @@ export class SideNavbarComponent implements OnInit {
     return this.authService.isLoggedIn();
   }
 
-
+  goToExterne(link: string){
+    window.open(link, '_blank');
+  }
   goTo(path: string) {
     this.sidenav.close()
     this.router.navigate([path]);
