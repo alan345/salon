@@ -13,7 +13,7 @@ import { Companie } from '../../companie/companie.model';
 })
 export class SideNavbarComponent implements OnInit {
   @Input() sidenav: any
-
+  showAdminMenu: boolean = false;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   fetchedUser: any = {
@@ -41,6 +41,9 @@ export class SideNavbarComponent implements OnInit {
     this.refresh()
   }
 
+  toogleFilters(){
+    this.showAdminMenu = !this.showAdminMenu
+  }
   refresh() {
     //console.log(this.authService.isLoggedIn())
     if (this.authService.isLoggedIn()) {
