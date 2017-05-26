@@ -6,5 +6,5 @@
  /* tslint:disable */
 
 
-export const styles:any[] = ['.phyto-menu[_ngcontent-%COMP%] {\r\n  max-width: 950px;\r\n  margin: 0 auto;\r\n  height: 100% !important;\r\n}\r\n.phyto-sidenav[_ngcontent-%COMP%] {\r\n  box-shadow: none !important;\r\n  height: 100vh !important;\r\n}\r\n.phyto-topnav[_ngcontent-%COMP%] {\r\n  height: 100vh;\r\n}\r\n\r\n@media screen and (min-width: 768px) {\r\n  \r\n.phyto-topnav[_ngcontent-%COMP%], .phyto-sidenav[_ngcontent-%COMP%] {\r\n  margin-top: 70px;\r\n}\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n  \r\n.phyto-topnav[_ngcontent-%COMP%], .phyto-sidenav[_ngcontent-%COMP%] {\r\n  margin-top: 50px;\r\n}\r\n}'];
+export const styles:any[] = ['.phyto-menu[_ngcontent-%COMP%] {\r\n  max-width: 950px;\r\n  margin: 0 auto;\r\n  height: 100% !important;\r\n}\r\n.phyto-sidenav[_ngcontent-%COMP%] {\r\n  box-shadow: none !important;\r\n  bottom: initial !important;\r\n}'];
 //# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiL1VzZXJzL2FsYW4vYXBwL2FsZXMvc2Fsb24vc3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcy5zaGltLm5nc3R5bGUudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9Vc2Vycy9hbGFuL2FwcC9hbGVzL3NhbG9uL3NyYy9hcHAvYXBwLmNvbXBvbmVudC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIgIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7In0=

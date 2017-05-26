@@ -22,31 +22,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ChooseDateComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
-  fetchedUser : User = {
-    _id: '',
-    lastVisit: new Date,
-    email: '',
-    profile:{
-      parentUser:[],
-      isFeatured:false,
-      phoneNumber: '',
-      name: '',
-      lastName: '',
-      title: '',
-      _profilePicture:[],
-      hair:{
-        hairCondition : 'Normal',
-        scalpCondition : 'Healthy',
-        hairTexture : 'Fine',
-      }
-    },
-    notes:[],
-    forms:[],
-    role:[],
-  }
-  // fetchedUser = {
-  //   lastVisit : new Date,
-  // }
+  fetchedUser: User = new User();
   newDate = ''
 
   public myForm: FormGroup;

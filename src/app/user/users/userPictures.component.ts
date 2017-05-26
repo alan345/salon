@@ -24,30 +24,9 @@ import { FormBuilder, FormGroup, FormArray , Validators} from '@angular/forms';
 
 export class UserPicturesComponent implements OnInit {
 
-  maxPictureToShow= 3
+  maxPictureToShow = 3;
 
-  fetchedUser : User = {
-    _id: '',
-    lastVisit: new Date,
-    email: '',
-    profile:{
-      parentUser:[],
-      isFeatured:false,
-      phoneNumber: '',
-      name: '',
-      lastName: '',
-      title: '',
-      _profilePicture:[],
-      hair:{
-        hairCondition : 'Normal',
-        scalpCondition : 'Healthy',
-        hairTexture : 'Fine',
-      }
-    },
-    notes:[],
-    forms:[],
-    role:[],
-  }
+  fetchedUser: User = new User();
 
   public myForm: FormGroup;
 

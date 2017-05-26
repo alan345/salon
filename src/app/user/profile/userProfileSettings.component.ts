@@ -25,32 +25,11 @@ import { SubmitPicDialog } from '../../social/submitPicDialog.component';
 export class UserProfileSettingsComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
-  maxPictureToShow=3;
-  instapic=1;
+  maxPictureToShow = 3;
+  instapic = 1;
   companies: Companie[] = []
-  isEditMode:boolean = false
-  fetchedUser : User = {
-    _id: '',
-    lastVisit: new Date,
-    email: '',
-    profile:{
-      parentUser:[],
-      isFeatured:false,
-      phoneNumber: '',
-      name: '',
-      lastName: '',
-      title: '',
-      _profilePicture:[],
-      hair:{
-        hairCondition : 'Normal',
-        scalpCondition : 'Healthy',
-        hairTexture : 'Fine',
-      }
-    },
-    notes:[],
-    forms:[],
-    role:[],
-  }
+  isEditMode: boolean = false
+  fetchedUser: User = new User();
 
   public myForm: FormGroup;
 

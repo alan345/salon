@@ -58,28 +58,7 @@ export class NewUserComponent implements OnInit {
   companieIndexToSelect = ''
 
 
-  fetchedUser : User = {
-    _id: '',
-    lastVisit: new Date,
-    email: '',
-    profile:{
-      parentUser:[],
-      isFeatured:false,
-      phoneNumber: '',
-      name: '',
-      lastName: '',
-      title: '',
-      _profilePicture:[],
-      hair:{
-        hairCondition : 'Normal',
-        scalpCondition : 'Healthy',
-        hairTexture : 'Fine',
-      }
-    },
-    notes:[],
-    forms:[],
-    role:[],
-  }
+  fetchedUser: User = new User();
 
   public myForm: FormGroup;
 
