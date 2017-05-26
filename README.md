@@ -17,7 +17,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-<<<<<<< HEAD
 
 
 
@@ -37,9 +36,8 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 Run `ng github-pages:deploy` to deploy to GitHub Pages.
 
-## Further help
 
-<<<<<<< HEAD
+
 ## Viewing the App
 Open your favourite web browser and point to `http://localhost:3000`
 
