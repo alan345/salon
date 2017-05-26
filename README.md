@@ -29,7 +29,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 5. After login navigate to `localhost:3000/#/admin` to access admin panel.
 =======
 ## Running end-to-end tests
->>>>>>> 24c3a50fa29d2e33e758277574cf86d74f3decb4
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
@@ -86,4 +85,3 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 ![User submitted forms page](https://cloud.githubusercontent.com/assets/717975/20486402/411bbf20-b008-11e6-9170-05f44d610cd8.png)
 =======
 To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
->>>>>>> 24c3a50fa29d2e33e758277574cf86d74f3decb4
