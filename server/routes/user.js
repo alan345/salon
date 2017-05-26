@@ -16,7 +16,8 @@ var User = require('../models/user.model');
 router.post('/register', function (req, res, next) {
   var user = new User({
     email: req.body.email,
-    password: passwordHash.generate(req.body.password)
+    password: passwordHash.generate(req.body.password),
+    profile: req.body.profile
   });
   console.log(user)
   user.save(function (err, result) {

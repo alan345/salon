@@ -12,6 +12,15 @@
     </div>
     <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Password must contain 6 or more characters</div>
     <br>
+
+    <div formGroupName="profile">
+      <input #name type="text" formControlName="name" placeholder="Name" class="form-control">
+      <input #lastName type="text" formControlName="lastName" placeholder="lastName" class="form-control">
+      <input #title type="text" formControlName="title" placeholder="title" class="form-control">
+    </div>
+
+
+
     <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!myForm.valid">Register</button>
   </form>
 </div>

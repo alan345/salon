@@ -3,7 +3,7 @@ import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import {ToastsManager} from 'ng2-toastr';
 import {Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
-import {User} from '../../auth/user.model';
+import {User} from '../user.model';
 
 @Component({
   selector: 'app-register',
@@ -32,7 +32,12 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
     this.myForm = this._fb.group({
       email: this.email,
-      password: this.password
+      password: this.password,
+      profile: this._fb.group({
+        name: ['', [Validators.required, Validators.minLength(2)]],
+        lastName: ['', [Validators.required, Validators.minLength(2)]],
+        title: ['', [Validators.required, Validators.minLength(2)]],
+      })
     });
   }
 
@@ -45,7 +50,12 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
   // submit the register form to the backend with the user's desired credentials
   onSubmit() {
-    const user = new User(this.myForm.value.email, this.myForm.value.password);
+    //const user = new User(this.myForm.value.email, this.myForm.value.password);
+    const user = new User();
+    user.email = this.myForm.value.email
+    user.password = this.myForm.value.password
+    user.profile = this.myForm.value.profile
+
     this._authService.signup(user)
       .subscribe(
         data => {

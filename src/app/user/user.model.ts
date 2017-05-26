@@ -18,6 +18,7 @@ export class User {
   forms: Form[] = [];
   profile: Profile = new Profile();
   notes: Note[] = [];
+  password: string = '';
 }
 
 

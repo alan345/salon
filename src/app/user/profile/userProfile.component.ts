@@ -35,7 +35,7 @@ export class UserProfileComponent implements OnInit {
   companies: Companie[] = [];
   isEditMode:boolean = false
   fetchedUser : User = new User()
-  
+
   public myForm: FormGroup;
 
 
@@ -59,6 +59,7 @@ export class UserProfileComponent implements OnInit {
    editMode(){
      this.isEditMode = !this.isEditMode
    }
+
 
   ngOnInit() {
     this.myForm = this._fb.group({
