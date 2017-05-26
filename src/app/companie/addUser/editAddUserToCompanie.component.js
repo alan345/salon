@@ -10,6 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { CompanieService } from '../companie.service';
+import { Companie } from '../companie.model';
+import { User } from '../../user/user.model';
 import { ToastsManager } from 'ng2-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -25,51 +27,23 @@ var EditAddUserToCompanieComponent = (function () {
         this.activatedRoute = activatedRoute;
         this.location = location;
         this.authService = authService;
-        this.fetchedCompanie = {
-            _id: '',
-            forms: [],
-            name: '',
-            typeCompanie: '',
-            phoneNumber: '',
-            address: {
-                address: '',
-                city: '',
-                state: '',
-                zip: ''
-            },
-            _users: []
-        };
+        this.fetchedCompanie = new Companie();
         this.search = {
             email: '',
         };
-        this.fetchedUser = {
-            _id: '',
-            lastVisit: new Date,
-            email: '',
-            profile: {
-                parentUser: [],
-                isFeatured: false,
-                phoneNumber: '',
-                name: '',
-                lastName: '',
-                title: '',
-                _profilePicture: [],
-                hair: {
-                    hairCondition: 'Normal',
-                    scalpCondition: 'Healthy',
-                    hairTexture: 'Fine',
-                }
-            },
-            notes: [],
-            forms: [],
-            role: ['stylist'],
-        };
+        this.isUserInCompanie = false;
+        this.fetchedUser = new User();
         this.filteredUsers = [];
     }
     EditAddUserToCompanieComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.activatedRoute.params.subscribe(function (params) {
-            _this.getCompanie(params['id']);
+            if (params['id'])
+                _this.getCompanie(params['id']);
+            if (params['email']) {
+                _this.search.email = params['email'];
+                _this.searchEmails();
+            }
         });
         this.myForm = this._fb.group({
             lastVisit: [''],
@@ -107,6 +81,14 @@ var EditAddUserToCompanieComponent = (function () {
             });
         }
     };
+    EditAddUserToCompanieComponent.prototype.isUserAlreadyInCompanie = function () {
+        var _this = this;
+        console.log(this.fetchedCompanie, this.fetchedUser._id);
+        this.fetchedCompanie._users.forEach(function (user) {
+            if (user._id == _this.fetchedUser._id)
+                _this.isUserInCompanie = true;
+        });
+    };
     EditAddUserToCompanieComponent.prototype.initFormNewUser = function () {
         var _this = this;
         this.fetchedUser.email = this.search.email;
@@ -117,6 +99,7 @@ var EditAddUserToCompanieComponent = (function () {
     EditAddUserToCompanieComponent.prototype.userFounded = function (i) {
         var _this = this;
         this.fetchedUser = this.filteredUsers[i];
+        this.isUserAlreadyInCompanie();
         //this.fetchedUser
         this.fetchedUser.role.forEach(function (role) {
             _this.addRole(role);
@@ -150,25 +133,17 @@ var EditAddUserToCompanieComponent = (function () {
     };
     EditAddUserToCompanieComponent.prototype.addUserIdToCompanie = function (user) {
         var _this = this;
-        var okAddUserToCompanie = true;
-        this.fetchedCompanie._users.forEach(function (userFetch) {
-            if (userFetch._id === user._id) {
-                okAddUserToCompanie = false;
-            }
+        this.fetchedCompanie._users.push(user);
+        this.companieService.updateCompanie(this.fetchedCompanie)
+            .subscribe(function (res) {
+            //this.onPassForm.emit();
+            _this.toastr.success('Great!', res.message);
+            _this.router.navigate(['companie/' + _this.fetchedCompanie._id]);
+        }, function (error) {
+            _this.toastr.error('error! user already exists in salon');
+            console.log(error);
         });
-        if (!okAddUserToCompanie) {
-            this.toastr.error('error! user already exists in salon');
-            this.router.navigate(['companie/' + this.fetchedCompanie._id]);
-        }
-        else {
-            this.fetchedCompanie._users.push(user);
-            this.companieService.updateCompanie(this.fetchedCompanie)
-                .subscribe(function (res) {
-                //this.onPassForm.emit();
-                _this.toastr.success('Great!', res.message);
-                _this.router.navigate(['companie/' + _this.fetchedCompanie._id]);
-            }, function (error) { console.log(error); });
-        }
+        // }
     };
     EditAddUserToCompanieComponent.prototype.getObjects = function (myForm) {
         return myForm.get('profile').get('parentUser').controls;
@@ -181,6 +156,7 @@ var EditAddUserToCompanieComponent = (function () {
         this.companieService.getCompanie(id, {})
             .subscribe(function (res) {
             _this.fetchedCompanie = res;
+            _this.isUserAlreadyInCompanie();
         }, function (error) {
             console.log(error);
         });

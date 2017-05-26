@@ -14,6 +14,7 @@ var User = (function () {
         this.forms = [];
         this.profile = new Profile();
         this.notes = [];
+        this.password = '';
     }
     return User;
 }());

@@ -12,6 +12,7 @@ import { UserService } from '../user.service';
 import { ToastsManager } from 'ng2-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { User } from '../user.model';
 import { FormBuilder, Validators } from '@angular/forms';
 var ChooseDateComponent = (function () {
     function ChooseDateComponent(userService, toastr, 
@@ -25,31 +26,7 @@ var ChooseDateComponent = (function () {
         this._fb = _fb;
         //fetchedUser = new User()
         //fetchedUser : User;
-        this.fetchedUser = {
-            _id: '',
-            lastVisit: new Date,
-            email: '',
-            profile: {
-                parentUser: [],
-                isFeatured: false,
-                phoneNumber: '',
-                name: '',
-                lastName: '',
-                title: '',
-                _profilePicture: [],
-                hair: {
-                    hairCondition: 'Normal',
-                    scalpCondition: 'Healthy',
-                    hairTexture: 'Fine',
-                }
-            },
-            notes: [],
-            forms: [],
-            role: [],
-        };
-        // fetchedUser = {
-        //   lastVisit : new Date,
-        // }
+        this.fetchedUser = new User();
         this.newDate = '';
     }
     ChooseDateComponent.prototype.ngOnInit = function () {

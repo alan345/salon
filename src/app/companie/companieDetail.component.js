@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { CompanieService } from './companie.service';
+import { Companie } from './companie.model';
 import { ToastsManager } from 'ng2-toastr';
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -31,20 +32,21 @@ var CompanieDetailComponent = (function () {
         this.maxPictureToShow = 3;
         this.users = [];
         this.userAdmins = [];
-        this.fetchedCompanie = {
-            _id: '',
-            forms: [],
-            name: '',
-            typeCompanie: '',
-            phoneNumber: '',
-            address: {
-                address: '',
-                city: '',
-                state: '',
-                zip: ''
-            },
-            _users: []
-        };
+        this.fetchedCompanie = new Companie();
+        // {
+        //   _id: '',
+        //   forms: [],
+        //   name: '',
+        //   typeCompanie: '',
+        //   phoneNumber: '',
+        //   address: {
+        //     address : '',
+        //     city :  '',
+        //     state :  '',
+        //     zip :  ''
+        //   },
+        //   _users: []
+        // };
         this.search = {
             orderBy: '-client',
             search: '',

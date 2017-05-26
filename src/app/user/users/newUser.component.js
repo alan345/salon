@@ -15,6 +15,7 @@ import { ToastsManager } from 'ng2-toastr';
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { User } from '../user.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 var NewUserComponent = (function () {
@@ -60,28 +61,7 @@ var NewUserComponent = (function () {
             _users: []
         };
         this.companieIndexToSelect = '';
-        this.fetchedUser = {
-            _id: '',
-            lastVisit: new Date,
-            email: '',
-            profile: {
-                parentUser: [],
-                isFeatured: false,
-                phoneNumber: '',
-                name: '',
-                lastName: '',
-                title: '',
-                _profilePicture: [],
-                hair: {
-                    hairCondition: 'Normal',
-                    scalpCondition: 'Healthy',
-                    hairTexture: 'Fine',
-                }
-            },
-            notes: [],
-            forms: [],
-            role: [],
-        };
+        this.fetchedUser = new User();
     }
     NewUserComponent.prototype.ngOnInit = function () {
         var _this = this;

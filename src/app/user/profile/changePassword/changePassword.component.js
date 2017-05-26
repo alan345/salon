@@ -15,6 +15,7 @@ import { newPassword } from '../userProfile.model';
 import { ProfileService } from '../profile.service';
 import { AuthService } from '../../../auth/auth.service';
 import { UserService } from '../../user.service';
+import { User } from '../../user.model';
 import { Location } from '@angular/common';
 var ChangePasswordComponent = (function () {
     function ChangePasswordComponent(fb, profileService, router, toastr, renderer, authService, userService, location) {
@@ -26,28 +27,7 @@ var ChangePasswordComponent = (function () {
         this.authService = authService;
         this.userService = userService;
         this.location = location;
-        this.fetchedUser = {
-            _id: '',
-            lastVisit: new Date,
-            email: '',
-            profile: {
-                parentUser: [],
-                isFeatured: false,
-                phoneNumber: '',
-                name: '',
-                lastName: '',
-                title: '',
-                _profilePicture: [],
-                hair: {
-                    hairCondition: 'Normal',
-                    scalpCondition: 'Healthy',
-                    hairTexture: 'Fine',
-                }
-            },
-            notes: [],
-            forms: [],
-            role: [],
-        };
+        this.fetchedUser = new User();
     }
     ChangePasswordComponent.prototype.ngOnInit = function () {
         this.currentPassword = new FormControl('', [Validators.required, Validators.minLength(6)]);

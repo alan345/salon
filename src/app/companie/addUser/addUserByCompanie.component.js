@@ -28,27 +28,21 @@ var AddUserByCompanieComponent = (function () {
         this.location = location;
         this.authService = authService;
         this.fetchedCompanie = new Companie();
-        // fetchedCompanie: Companie = {
-        //   _id: '',
-        //   forms:[],
-        //   name: '',
-        //   typeCompanie: '',
-        //   phoneNumber: '',
-        //   address: {
-        //     address : '',
-        //     city :  '',
-        //     state :  '',
-        //     zip :  ''
-        //   },
-        //   _users:[]
-        // }
         this.search = {
             search: '',
         };
         this.fetchedUser = new User();
         this.filteredUsers = [];
+        this.link = '';
+        this.userAdmins = [];
+        this.usersSalesRep = [];
+        this.userClients = [];
+        this.userStylists = [];
+        this.userManagers = [];
+        this.userToSendMail = [];
     }
     AddUserByCompanieComponent.prototype.ngOnInit = function () {
+        this.getUser(this.authService.currentUser.userId);
         this.myForm = this._fb.group({
             lastVisit: [''],
             _id: [''],
@@ -62,6 +56,15 @@ var AddUserByCompanieComponent = (function () {
             })
         });
     };
+    AddUserByCompanieComponent.prototype.getUser = function (id) {
+        var _this = this;
+        this.userService.getUser(id)
+            .subscribe(function (res) {
+            _this.fetchedUser = res.user;
+        }, function (error) {
+            console.log(error);
+        });
+    };
     AddUserByCompanieComponent.prototype.searchCompanie = function () {
         var _this = this;
         if (this.search.search) {
@@ -69,120 +72,37 @@ var AddUserByCompanieComponent = (function () {
                 .subscribe(function (res) {
                 if (res.data.length) {
                     _this.fetchedCompanie = res.data[0];
+                    var this2_1 = _this;
+                    _this.fetchedCompanie._users.forEach(function (user) {
+                        if (user.role[0] === 'admin')
+                            this2_1.userAdmins.push(user);
+                        if (user.role[0] === 'salesRep')
+                            this2_1.usersSalesRep.push(user);
+                        if (user.role[0] === 'client')
+                            this2_1.userClients.push(user);
+                        if (user.role[0] === 'stylist')
+                            this2_1.userStylists.push(user);
+                        if (user.role[0] === 'manager')
+                            this2_1.userManagers.push(user);
+                    });
                 }
                 else {
-                    _this.fetchedCompanie = new Companie();
+                    _this.toastr.error('error! No Salon Founded');
                 }
             }, function (error) {
                 console.log(error);
             });
-            // this.companieService.getUsersByEmail(this.search)
-            //   .subscribe(
-            //     res => {
-            //       this.filteredUsers = res.data
-            //       if(res.data.length) {
-            //         if(res.data[0].email === this.search.email) {
-            //           this.userFounded(0)
-            //         } else {
-            //           this.initFormNewUser()
-            //         }
-            //       } else {
-            //         this.initFormNewUser()
-            //       }
-            //
-            //     },
-            //     error => {
-            //       console.log(error);
-            //     }
-            //   )
         }
     };
-    AddUserByCompanieComponent.prototype.initFormNewUser = function () {
-        // this.fetchedUser.email = this.search.email
-        // this.fetchedUser.role.forEach((role) => {
-        //   this.addRole(role)
-        // })
-    };
-    AddUserByCompanieComponent.prototype.userFounded = function (i) {
+    AddUserByCompanieComponent.prototype.requestAddUserToComp = function () {
         var _this = this;
-        this.fetchedUser = this.filteredUsers[i];
-        //this.fetchedUser
-        this.fetchedUser.role.forEach(function (role) {
-            _this.addRole(role);
-        });
-        this.filteredUsers = [];
-    };
-    AddUserByCompanieComponent.prototype.addRole = function (role) {
-        var control = this.myForm.controls['role'];
-        var addrCtrl = this._fb.group({
-            role: ['']
-        });
-        control.push(addrCtrl);
-    };
-    AddUserByCompanieComponent.prototype.save = function (form) {
-        var _this = this;
-        if (this.fetchedUser._id) {
-            this.userService.updateUser(this.fetchedUser)
-                .subscribe(function (res) {
-                _this.toastr.success('Great!', res.message);
-                _this.addUserIdToCompanie(res.obj);
-                //this.addUserIdToCompanie(res.obj)
-            }, function (error) { console.log(error); });
-        }
-        else {
-            this.userService.saveUser(this.fetchedUser)
-                .subscribe(function (res) {
-                _this.toastr.success('Great!', res.message);
-                _this.addUserIdToCompanie(res.obj);
-            }, function (error) { console.log(error); });
-        }
-    };
-    AddUserByCompanieComponent.prototype.addUserIdToCompanie = function (user) {
-        var _this = this;
-        var okAddUserToCompanie = true;
-        this.fetchedCompanie._users.forEach(function (userFetch) {
-            if (userFetch._id === user._id) {
-                okAddUserToCompanie = false;
-            }
-        });
-        if (!okAddUserToCompanie) {
-            this.toastr.error('error! user already exists in salon');
-            this.router.navigate(['companie/' + this.fetchedCompanie._id]);
-        }
-        else {
-            this.fetchedCompanie._users.push(user);
-            this.companieService.updateCompanie(this.fetchedCompanie)
-                .subscribe(function (res) {
-                //this.onPassForm.emit();
-                _this.toastr.success('Great!', res.message);
-                _this.router.navigate(['companie/' + _this.fetchedCompanie._id]);
-            }, function (error) { console.log(error); });
-        }
-    };
-    AddUserByCompanieComponent.prototype.getObjects = function (myForm) {
-        return myForm.get('profile').get('parentUser').controls;
-    };
-    AddUserByCompanieComponent.prototype.getObjectsRole = function (myForm) {
-        return myForm.get('role').controls;
-    };
-    AddUserByCompanieComponent.prototype.getCompanie = function (id) {
-        var _this = this;
-        this.companieService.getCompanie(id, {})
-            .subscribe(function (res) {
-            _this.fetchedCompanie = res;
-        }, function (error) {
-            console.log(error);
-        });
-    };
-    AddUserByCompanieComponent.prototype.onDelete = function (id) {
-        var _this = this;
-        this.companieService.deleteCompanie(id)
-            .subscribe(function (res) {
-            _this.toastr.success('Great!', res.message);
-            console.log(res);
-        }, function (error) {
-            console.log(error);
-        });
+        this.toastr.success('Great!', 'Request has been sent');
+        this.link = window.location.origin + "#/companie/edit/addUser/" + this.fetchedCompanie._id + '/' + this.fetchedUser.email;
+        this.userAdmins.forEach(function (user) { _this.userToSendMail.push(user); });
+        this.usersSalesRep.forEach(function (user) { _this.userToSendMail.push(user); });
+        //  this.userClients.forEach((user: User) => { this.userToSendMail.push(user)})
+        //  this.userStylists.forEach((user: User) => { this.userToSendMail.push(user)})
+        this.userManagers.forEach(function (user) { _this.userToSendMail.push(user); });
     };
     AddUserByCompanieComponent.prototype.goBack = function () {
         this.location.back();

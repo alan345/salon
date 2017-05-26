@@ -20,7 +20,13 @@ export default {
   plugins: [
       nodeResolve({jsnext: true, module: true}),
       commonjs({
-        include: 'node_modules/rxjs/**',
+        include: [
+                'node_modules/rxjs/**',
+                'node_modules/ng2-toastr/**'
+             ],
+         namedExports : { 
+            'node_modules/ng2-toastr/ng2-toastr.js': [ 'ToastModule', 'ToastsManager' ]
+         }
       }),
       uglify()
   ]

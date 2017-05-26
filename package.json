@@ -21,13 +21,11 @@
     "@angular/platform-browser": "4.0.3",
     "@angular/platform-browser-dynamic": "4.0.3",
     "@angular/router": "4.0.3",
-
     "angular2-jwt": "0.2.2",
     "async": "^2.1.4",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
-
     "express": "latest",
     "gm": "latest",
     "hammerjs": "^2.0.8",

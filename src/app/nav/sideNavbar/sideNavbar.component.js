@@ -21,6 +21,7 @@ var SideNavbarComponent = (function () {
         this.profileService = profileService;
         this.router = router;
         this.companieService = companieService;
+        this.showAdminMenu = false;
         // private userId: string = localStorage.getItem('userId');
         // private userId: string;
         this.fetchedUser = {
@@ -37,6 +38,9 @@ var SideNavbarComponent = (function () {
     }
     SideNavbarComponent.prototype.ngOnInit = function () {
         this.refresh();
+    };
+    SideNavbarComponent.prototype.toogleFilters = function () {
+        this.showAdminMenu = !this.showAdminMenu;
     };
     SideNavbarComponent.prototype.refresh = function () {
         var _this = this;
@@ -81,6 +85,9 @@ var SideNavbarComponent = (function () {
     // check if user is logged in by asking our authentication service, we use this function in html file *ngIf directive
     SideNavbarComponent.prototype.isLoggedIn = function () {
         return this.authService.isLoggedIn();
+    };
+    SideNavbarComponent.prototype.goToExterne = function (link) {
+        window.open(link, '_blank');
     };
     SideNavbarComponent.prototype.goTo = function (path) {
         this.sidenav.close();

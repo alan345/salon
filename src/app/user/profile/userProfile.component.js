@@ -14,6 +14,7 @@ import { ToastsManager } from 'ng2-toastr';
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { User } from '../user.model';
 import { EditOptionsComponentDialog } from '../../modalLibrary/modalLibrary.component';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CompanieService } from '../../companie/companie.service';
@@ -37,28 +38,7 @@ var UserProfileComponent = (function () {
         this.instapic = 1;
         this.companies = [];
         this.isEditMode = false;
-        this.fetchedUser = {
-            _id: '',
-            lastVisit: new Date,
-            email: '',
-            profile: {
-                parentUser: [],
-                isFeatured: false,
-                phoneNumber: '',
-                name: '',
-                lastName: '',
-                title: '',
-                _profilePicture: [],
-                hair: {
-                    hairCondition: 'Normal',
-                    scalpCondition: 'Healthy',
-                    hairTexture: 'Fine',
-                }
-            },
-            notes: [],
-            forms: [],
-            role: [],
-        };
+        this.fetchedUser = new User();
     }
     UserProfileComponent.prototype.getObjects = function (myForm) {
         return myForm.get('forms').controls;

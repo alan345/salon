@@ -58,10 +58,6 @@ var ProductSingleComponent = (function () {
             { name: 'Active Ingredients', selected: false },
         ];
         this.categoriesHard2 = [
-            // {
-            //   name:'whatsnew',
-            //   selected : false
-            // },
             {
                 name: 'treatments',
                 selected: false

@@ -17,7 +17,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DeleteDialog } from '../deleteDialog/deleteDialog.component';
 var EditCompanieComponent = (function () {
-    function EditCompanieComponent(companieService,
+    function EditCompanieComponent(companieService, 
         //    private modalService: NgbModal,
         toastr, dialog, activatedRoute, router, location, _fb, authService) {
         this.companieService = companieService;

@@ -12,7 +12,7 @@ import { FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ToastsManager } from 'ng2-toastr';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
-import { User } from '../../auth/user.model';
+import { User } from '../user.model';
 var RegisterComponent = (function () {
     function RegisterComponent(_fb, _authService, _router, toastr, renderer) {
         this._fb = _fb;
@@ -30,7 +30,12 @@ var RegisterComponent = (function () {
         this.password = new FormControl('', [Validators.required, Validators.minLength(6)]);
         this.myForm = this._fb.group({
             email: this.email,
-            password: this.password
+            password: this.password,
+            profile: this._fb.group({
+                name: ['', [Validators.required, Validators.minLength(2)]],
+                lastName: ['', [Validators.required, Validators.minLength(2)]],
+                title: ['', [Validators.required, Validators.minLength(2)]],
+            })
         });
     };
     RegisterComponent.prototype.ngAfterViewInit = function () {
@@ -42,7 +47,11 @@ var RegisterComponent = (function () {
     // submit the register form to the backend with the user's desired credentials
     RegisterComponent.prototype.onSubmit = function () {
         var _this = this;
-        var user = new User(this.myForm.value.email, this.myForm.value.password);
+        //const user = new User(this.myForm.value.email, this.myForm.value.password);
+        var user = new User();
+        user.email = this.myForm.value.email;
+        user.password = this.myForm.value.password;
+        user.profile = this.myForm.value.profile;
         this._authService.signup(user)
             .subscribe(function (data) {
             // after successfull registration, the user is redirected to the login page

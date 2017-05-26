@@ -22,11 +22,12 @@
         </div>
       </div>
     </div>
+
     <div class="phyto-ctnr beigeback filtertoggle">
       <button (click)="toogleFilters()" class="ctrl-hidit">
-        <i [ngClass]="{'fa-chevron-up':!this.toogleFilters.opened,'fa-chevron-down':this.toogleFilters.opened}" class="fa"></i>
-        <div [ngClass]="{'dspl-nn':this.toogleFilters.opened}">MORE </div>
-        <div [ngClass]="{'dspl-nn':!this.toogleFilters.opened}">LESS </div>
+        <i [ngClass]="{'fa-chevron-up':!showFilters,'fa-chevron-down':showFilters}" class="fa"></i>
+        <div [ngClass]="{'dspl-nn':showFilters}">MORE </div>
+        <div [ngClass]="{'dspl-nn':!showFilters}">LESS </div>
         FILTERS
       </button>
       <div [ngClass]="{'open phyto-ctnr': showFilters, 'hidit phyto-ctnr': !showFilters }" >
