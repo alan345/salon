@@ -1,1 +1,0 @@
-{"version":3,"sources":["press.component.ts"],"names":[],"mappings":";;;;;;;;;AAAA,OAAO,EAAA,SAAE,EAAiB,MAAM,eAAA,CAAgB;AAMhD,IAAa,cAAc;IAEzB;IACA,CAAC;IAED,iCAAQ,GAAR,cAAY,CAAC;IAEf,qBAAC;AAAD,CAPA,AAOC,IAAA;AAPY,cAAc;IAJ1B,SAAS,CAAC;QACT,QAAQ,EAAE,WAAW;QACrB,WAAW,EAAE,wBAAwB;KACtC,CAAC;;GACW,cAAc,CAO1B;SAPY,cAAc","file":"press.component.js","sourceRoot":""}

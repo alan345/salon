@@ -1,1 +1,0 @@
-{"version":3,"sources":["video.component.ts"],"names":[],"mappings":";;;;;;;;;AAAA,OAAO,EAAA,SAAE,EAAiB,MAAM,eAAA,CAAgB;AAMhD,IAAa,cAAc;IAEzB;IACA,CAAC;IAED,iCAAQ,GAAR;IACA,CAAC;IAEH,qBAAC;AAAD,CARA,AAQC,IAAA;AARY,cAAc;IAJ1B,SAAS,CAAC;QACT,QAAQ,EAAE,WAAW;QACrB,WAAW,EAAE,wBAAwB;KACtC,CAAC;;GACW,cAAc,CAQ1B;SARY,cAAc","file":"video.component.js","sourceRoot":""}

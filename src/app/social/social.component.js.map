@@ -1,1 +1,0 @@
-{"version":3,"sources":["social.component.ts"],"names":[],"mappings":";;;;;;;;;AAAA,OAAO,EAAA,SAAE,EAAiB,MAAM,eAAA,CAAgB;AAMhD,IAAa,eAAe;IAE1B;IACA,CAAC;IAED,kCAAQ,GAAR;IACA,CAAC;IAEH,sBAAC;AAAD,CARA,AAQC,IAAA;AARY,eAAe;IAJ3B,SAAS,CAAC;QACT,QAAQ,EAAE,YAAY;QACtB,WAAW,EAAE,yBAAyB;KACvC,CAAC;;GACW,eAAe,CAQ3B;SARY,eAAe","file":"social.component.js","sourceRoot":""}
