@@ -13,6 +13,11 @@
 .one-stypic {
   overflow: hidden;
   justify-content: center;
+  display: flex;
+}
+.one-sty img {
+  margin-top: -10%;
+  height: 120%;
 }
 .one-sty img {
   flex: none;
@@ -166,12 +171,7 @@ table {
     padding: 0 0 5px 5px;
 }
 .one-stypic {
-  height: 330px !important;
-  display: flex;
-}
-.one-sty img {
-  width: auto !important;
-  height: 110%;
+  height: 300px !important;
 }
 .sln-inf {
   float:left;
@@ -226,6 +226,9 @@ p.tblnav-cl {
     width: 50% !important;
     padding: 5px;
 }
+.one-stypic {
+  height: 310px !important;
+}
 }
 
 @media screen and (max-width: 439px) {
@@ -233,6 +236,9 @@ p.tblnav-cl {
 .one-sty {
     width: 100% !important;
     padding: 5px;
+}
+.one-stypic {
+  height: 350px !important;
 }
 }
 
