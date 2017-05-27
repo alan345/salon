@@ -17,6 +17,6 @@
       <input #lastName type="text" formControlName="lastName" placeholder="Last Name" class="form-control">
       <input #title type="text" formControlName="title" placeholder="Title" class="form-control">
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!myForm.valid">Register</button>
+    <button [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}" type="submit" [disabled]="!myForm.valid">Register</button>
   </form>
 </div>
