@@ -47,17 +47,14 @@
       </md-tab-group>
       <div class="rlt-pdts beigeback phyto-ctnr">
         <h4 style="text-align: center;">Related Products</h4>
-
         <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts">
-          <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes">
-            <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
+          <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes" class="rltpdt-ctnr">
+            <div *ngIf="custom_attribute.attribute_code == 'image'" class="rltpdt-cnt">
               {{relatedProduct.magento.sku}} - {{relatedProduct.magento.name}}
               <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             </div>
           </div>
         </div>
-
-
       </div>
     <div class="clearfix"></div>
   </form>
