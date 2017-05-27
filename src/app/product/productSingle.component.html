@@ -53,10 +53,8 @@
               <a [routerLink]="['/product/' + product._id]">
                 <p class="pdt-nm">{{relatedProduct.magento.name}}</p>
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                <div *ngFor="let custom_attribute of product.magento.custom_attributes">
-                  <div *ngIf="custom_attribute.attribute_code == 'description'">
-                    <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
-                  </div>
+                <div *ngIf="custom_attribute.attribute_code == 'description'">
+                  <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
                 </div>
                 <div class="pdt-tagzctnr">
                   <div *ngFor="let categorieTag of product.categoriesTag; let i=index " class="pdt-tagz">
