@@ -52,6 +52,8 @@ export class Categorie {
   name: string;
   type: string;
 }
+
+
 export class Magento {
   id: string = '';
   sku: string= '';
