@@ -51,7 +51,6 @@ export class Title {
 export class Categorie {
   name: string;
   type: string;
-  selected: boolean;
 }
 export class Magento {
   id: string = '';
