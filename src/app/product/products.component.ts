@@ -72,6 +72,7 @@ export class ProductsComponent implements OnInit {
        { name:'STYLING', selected : false },
      ]
   ]
+  
   //
   // categories2PhytoSpecific =
   //
