@@ -46,7 +46,8 @@
           ></md-checkbox>
           {{categorieHard.name}}
         </div>
-        <label class="phtyo-ctnr">Select Categories For This Product (You must select a Product Line first):</label>
+        <label class="phtyo-ctnr">Select Categories For This Product:</label>
+        <p class="nota">You must select a Product Line first</p>
         <div *ngFor="let categorieHard of categoriesHard2; let i=index">
           <md-checkbox
             (click)="togglCategorieButton(categorieHard.name, 'categ2')"
