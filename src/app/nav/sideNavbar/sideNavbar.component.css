@@ -41,7 +41,7 @@ ul.sidenav-list {
   color: #231f20;
 }
 .adminmenu {
-  background-color: #999999;
+  background-color: #999999 !important;
   color: #ffffff;
   margin-bottom: -1px !important;
 }
