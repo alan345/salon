@@ -222,12 +222,11 @@
 
 /*--------- Individual product Page ----------*/
 
-.mgtpdt-img {
+.mgtpdt-img, .mgtpdt-txtcnt {
   float: left;
-  padding: 2.5px;
 }
-.mgtpdt-txtcnt {
-  float: left;
+.mgtpdt-img {
+  padding: 2.5px;
 }
 .first-half .pdt-nm {
   font-size: 25px;
@@ -293,6 +292,24 @@ md-tab-header.mat-tab-header {
   left: 2px;
   padding: 5px 8px;
 }
+/*--------- Edit Product Page ----------*/
+
+.rltpdt-cnt {
+  margin: 2.5px;
+  padding: 15px;
+  background-color: #ffffff;
+  position: relative;
+  height: 300px;
+}
+.rltpdt-cnt button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #000000 !important;
+  color: #ffffff;
+  border: none !important;
+  font-size: 20px;
+}
 
 /*------------ Responsive -------------*/
 
@@ -302,7 +319,7 @@ md-tab-header.mat-tab-header {
   width: 50%;
   float: left;
 }
-.pdt-ctnr {
+.pdt-ctnr, .mgtpdt-img, .rltpdt-ctnr {
   width: 33.333333%;
   float: left;
 }
@@ -327,9 +344,6 @@ md-tab-header.mat-tab-header {
 }
 .prdts-ln .mat-tab-label {
   width: 33.333333% !important;
-}
-.mgtpdt-img {
-  width: 33.3333333%;
 }
 .mgtpdt-txtcnt {
   width: 66.666666%;
@@ -358,7 +372,7 @@ label.pdt-lableft {
 .prdts-ln .mat-tab-label {
   width: 100% !important;
 }
-.mgtpdt-img, .mgtpdt-txtcnt {
+.mgtpdt-img, .mgtpdt-txtcnt, .rltpdt-ctnr {
   width: 100%;
 }
 .pdt-tabs .mat-tab-label {
