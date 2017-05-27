@@ -50,13 +50,15 @@
         <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts">
           <a [routerLink]="['/product/' + relatedProduct._id]">
             <div class="rltpdt-ctnr">
-              <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes" class="rltpdt-cnt">
-                <div *ngIf="custom_attribute.attribute_code == 'image'">
-                  {{relatedProduct.magento.sku}} - {{relatedProduct.magento.name}}
-                  <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                </div>
-                <div *ngIf="custom_attribute.attribute_code == 'description'">
-                  <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
+              <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes">
+                <div class="rltpdt-cnt">
+                  <div *ngIf="custom_attribute.attribute_code == 'image'">
+                    {{relatedProduct.magento.sku}} - {{relatedProduct.magento.name}}
+                    <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                  </div>
+                  <div *ngIf="custom_attribute.attribute_code == 'description'">
+                    <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
+                  </div>
                 </div>
               </div>
               <div *ngFor="let categorieTag of relatedProduct.categoriesTag; let i=index " class="pdt-tagz">
