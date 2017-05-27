@@ -58,7 +58,7 @@
                 <div class="pdt-desc">Description of the product which should be the short version under 90 characters</div>
               </div>
               <div class="pdt-tagzctnr">
-                <div *ngFor="let categorieTag of product.categoriesTag; let i=index " class="pdt-tagz">
+                <div *ngFor="let categorieTag of relatedProduct.categoriesTag; let i=index " class="pdt-tagz">
                   <div class="pdt-tag">{{categorieTag.name}}<b *ngIf="product.categoriesTag.length!== i +1">,&nbsp;</b></div>
                 </div>
               </div>
