@@ -62,24 +62,24 @@
   color: #999999 !important;
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
 
 .imgrw-cnt {
   height: 150px;
   width: 150px;
 }
 .img-tabs {
-    margin-top: 70px;
+    margin-top: 70px !important;
 }
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
 
 .imgrw-cnt {
   height: 115px;
   width: 115px;
 }
 .img-tabs {
-    margin-top: 50px;
+    margin-top: 50px !important;
 }
 }
