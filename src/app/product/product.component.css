@@ -292,6 +292,7 @@ md-tab-header.mat-tab-header {
   left: 2px;
   padding: 5px 8px;
 }
+
 /*--------- Edit Product Page ----------*/
 
 .rltpdt-cnt {
@@ -309,6 +310,11 @@ md-tab-header.mat-tab-header {
   color: #ffffff;
   border: none !important;
   font-size: 20px;
+}
+p.nota {
+    font-style: italic;
+    font-size: 10px;
+    color: #999999;
 }
 
 /*------------ Responsive -------------*/
