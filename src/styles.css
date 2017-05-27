@@ -204,7 +204,7 @@ th, td {
 .change-page li.current {
     background-color: #0a2f87 !important;
 }
-.single-wrpr {
+.single-wrpr, .log-scrn {
     padding: 15px;
 }
 .single-wrpr label {
@@ -510,7 +510,7 @@ a.seemre {
 .img-row .col-sm-3 {
     padding-right: 0 !important;
 }
-.subnav, .single-wrpr {
+.subnav, .log-scrn {
   margin-top: 70px;
 }
 }
@@ -544,7 +544,7 @@ a.seemre {
   padding: 15px;
   display: block;
 }
-.subnav, .single-wrpr {
+.subnav, .log-scrn {
   margin-top: 50px;
 }
 }
