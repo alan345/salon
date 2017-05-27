@@ -510,7 +510,7 @@ a.seemre {
 .img-row .col-sm-3 {
     padding-right: 0 !important;
 }
-.subnav {
+.subnav, .single-wrpr {
   margin-top: 70px;
 }
 }
@@ -544,7 +544,7 @@ a.seemre {
   padding: 15px;
   display: block;
 }
-.subnav {
+.subnav, .single-wrpr {
   margin-top: 50px;
 }
 }
