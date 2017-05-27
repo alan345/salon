@@ -53,8 +53,8 @@
               <a [routerLink]="['/product/' + product._id]">
                 <p class="pdt-nm">{{relatedProduct.magento.name}}</p>
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                <div *ngIf="custom_attribute.attribute_code == 'description'">
-                  <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
+                <div>
+                  <div class="pdt-desc">Description of the product which should be the short version under 90 characters</div>
                 </div>
                 <div class="pdt-tagzctnr">
                   <div *ngFor="let categorieTag of product.categoriesTag; let i=index " class="pdt-tagz">
