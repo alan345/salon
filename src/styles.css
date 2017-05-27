@@ -156,7 +156,7 @@ th, td {
 .beigeborder {
     border: 1px solid #c9bda5;
 }
-.beigeback {
+.beigeback, .mat-sidenav-content {
     background-color: #efe9df;
 }
 .subnav {
