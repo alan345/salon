@@ -46,7 +46,7 @@
           ></md-checkbox>
           {{categorieHard.name}}
         </div>
-        <label>Select Categories For This Product:</label>
+        <label class="phtyo-ctnr">Select Categories For This Product:</label>
         <div *ngFor="let categorieHard of categoriesHard2; let i=index">
           <md-checkbox
             (click)="togglCategorieButton(categorieHard.name, 'categ2')"
@@ -55,7 +55,7 @@
           ></md-checkbox>
           {{categorieHard.name}}
         </div>
-        <label>Add Product Tags:</label>
+        <label class="phtyo-ctnr">Add Product Tags:</label>
         <input
           [ngModelOptions]="{standalone: true}"
           [(ngModel)]="inputCategorie"
