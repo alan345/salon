@@ -32,11 +32,24 @@ ul.sidenav-list {
     background-color: #efe9df;
     margin: 1px 0;
 }
-.sidenav-list li a {
+.sidenav-list li a, .adminmenu {
     color: #231f20;
-    display: block;
     padding: 20px;
     cursor: pointer;
+}
+.sidenav-list li a, .adminmenu {
+    display: block;
+}
+.adminmenu .fa-chevron-down {
+    float: right;
+    color: #0a2f87;
+}
+.admin-opn {
+  height: 150px;
+}
+.admin-cls {
+  height: 0;
+  opacity: 0;
 }
 a.admn-btn {
     background-color: #cccccc !important;
