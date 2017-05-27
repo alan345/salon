@@ -33,19 +33,25 @@ ul.sidenav-list {
     margin: 1px 0;
 }
 .sidenav-list li a, .adminmenu {
-    color: #231f20;
-    padding: 20px;
-    cursor: pointer;
+  padding: 20px;
+  cursor: pointer;
 }
-.sidenav-list li a, .adminmenu {
-    display: block;
+.sidenav-list li a {
+  display: block;
+  color: #231f20;
+}
+.adminmenu {
+  background-color: #999999;
+  color: #ffffff;
+  margin-bottom: -1px !important;
 }
 .adminmenu .fa-chevron-down {
     float: right;
-    color: #0a2f87;
+    color: #ffffff;
 }
 .admin-opn {
   height: 243px;
+  margin-top: 2px;
 }
 .admin-cls {
   height: 0;
