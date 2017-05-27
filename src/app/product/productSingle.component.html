@@ -49,7 +49,7 @@
         <h4 style="text-align: center;">Related Products</h4>
         <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts">
           <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes" class="rltpdt-ctnr">
-            <a [routerLink]="['/product/' + product._id]">
+            <a [routerLink]="['/product/' + relatedProduct._id]">
               <div *ngIf="custom_attribute.attribute_code == 'image'" class="rltpdt-cnt">
                 <p class="pdt-nm">{{relatedProduct.magento.name}}</p>
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
