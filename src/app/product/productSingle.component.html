@@ -47,25 +47,23 @@
       </md-tab-group>
       <div class="rlt-pdts beigeback phyto-ctnr">
         <h4 style="text-align: center;">Related Products</h4>
-        <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts">
-          <div class="rltpdt-ctnr">
-            <a [routerLink]="['/product/' + relatedProduct._id]">
-              <div class="pdt-nm">{{relatedProduct.magento.name}}</div>
-              <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes">
-                <div *ngIf="custom_attribute.attribute_code == 'description'">
-                  <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
-                </div>
+        <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts" class="rltpdt-ctnr">
+          <a [routerLink]="['/product/' + relatedProduct._id]">
+            <div class="pdt-nm">{{relatedProduct.magento.name}}</div>
+            <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes">
+              <div *ngIf="custom_attribute.attribute_code == 'description'">
+                <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
               </div>
-              <div class="pdt-tagzctnr">
-                <div *ngFor="let categorieTag of relatedProduct.categoriesTag; let i=index " class="pdt-tagz">
-                  <div class="pdt-tag">{{categorieTag.name}}<b *ngIf="product.categoriesTag.length!== i +1">,&nbsp;</b></div>
-                </div>
+            </div>
+            <div class="pdt-tagzctnr">
+              <div *ngFor="let categorieTag of relatedProduct.categoriesTag; let i=index " class="pdt-tagz">
+                <div class="pdt-tag">{{categorieTag.name}}<b *ngIf="product.categoriesTag.length!== i +1">,&nbsp;</b></div>
               </div>
-            </a>
-            <div class="rltpdt-cnt">
-              <div *ngIf="custom_attribute.attribute_code == 'image'">
-                <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-              </div>
+            </div>
+          </a>
+          <div class="rltpdt-cnt">
+            <div *ngIf="custom_attribute.attribute_code == 'image'">
+              <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             </div>
           </div>
         </div>
