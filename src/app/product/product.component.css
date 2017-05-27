@@ -316,6 +316,12 @@ p.nota {
     font-size: 10px;
     color: #999999;
 }
+.rltpdt-cnt img {
+    max-height: 75%;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
 
 /*------------ Responsive -------------*/
 
