@@ -49,3 +49,38 @@ a.follow {
     margin: 5px;
 }
 }
+
+@media screen and (min-width: 801px) {
+
+.prevwin-pics {
+    height: 365px;
+}
+}
+
+@media screen and (min-width: 661px) and (max-width: 800px) {
+
+.prevwin-pics {
+    height: 300px;
+}
+}
+
+@media screen and (min-width: 541px) and (max-width: 660px) {
+
+.prevwin-pics {
+    height: 250px;
+}
+}
+
+@media screen and (min-width: 401px) and (max-width: 540px) {
+
+.prevwin-pics {
+    height: 200px;
+}
+}
+
+@media screen and (max-width: 400px) {
+
+.prevwin-pics {
+    height: 150px;
+}
+}
