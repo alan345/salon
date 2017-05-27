@@ -1,3 +1,6 @@
+.phyto-topnav.beigeback {
+    overflow-y: hidden;
+}
 .done, .pas-done {
     margin: 15px 0px;
 }
