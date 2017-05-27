@@ -134,8 +134,6 @@
             [(ngModel)]="fetchedProduct.description.title.embed">
         </div>
       </div>
-
-
       <input
         [disabled]="disableInputRelatedProduct()"
         [ngModelOptions]="{standalone: true}"
@@ -144,30 +142,22 @@
         (ngModelChange)="searchRelatedProducts()"
         mdInput
       >
-
       <div *ngFor="let fetchedRelatedProduct of fetchedRelatedProducts; let i=index">
         {{fetchedRelatedProduct.magento.sku}} - {{fetchedRelatedProduct.magento.name}}
         <button type="button" (click)="selectProduct(fetchedRelatedProduct)">select</button>
       </div>
-      <br>
-      Related Products
-
-
-      <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts; let i=index">
-        <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes">
-          <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
-            {{relatedProduct.magento.sku}} - {{relatedProduct.magento.name}}
-            <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-            <button type="button" (click)="removeProduct(i)">X</button>
+      <label>Related Products</label>
+      <div class="rltpdt-ctnr">
+        <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts; let i=index">
+          <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes">
+            <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
+              {{relatedProduct.magento.sku}} - {{relatedProduct.magento.name}}
+              <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              <button type="button" (click)="removeProduct(i)"><i class="fa fa-times"></i></button>
+            </div>
           </div>
         </div>
       </div>
-
-
-
-
-
-
       <div class="valid-edit">
         <button type="submit" class="done" [disabled]="!myForm.valid">Done</button>
       </div>
