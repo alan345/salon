@@ -56,12 +56,20 @@ export class ProductsComponent implements OnInit {
         { name:'Treatments', selected : false }
       ],
       [
-       { name:'Toto & masks', selected : false },
-       { name:'Tata & masks', selected : false },
+       { name:'TREATMENTS', selected : false },
+       { name:'RELAXERS', selected : false },
+       { name:'STYLERS', selected : false },
+       { name:'SHAMPOOS & CONDITIONERS', selected : false },
+       { name:'KIDS', selected : false },
      ],
      [
-       { name:'random Data', selected : false },
-       { name:'Random Data', selected : false },
+       { name:'PERMANENT COLOR', selected : false },
+       { name:'DEMI-PERMANENT COLOR', selected : false },
+       { name:'TEMPORARY COLOR ENHANCING - DIRECT PIGMENTS', selected : false },
+       { name:'BLEACHING', selected : false },
+       { name:'AFTER-COLOR SHAMPOO & TECHNICAL', selected : false },
+       { name:'OXYDIZERS & DEVELOPER', selected : false },
+       { name:'STYLING', selected : false },
      ]
   ]
   //
