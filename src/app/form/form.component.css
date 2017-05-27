@@ -61,6 +61,12 @@
   font-size: 10px !important;
   color: #999999 !important;
 }
+.seeallcheck {
+  text-align: left;
+  margin: 5px 5px 0;
+  float: left;
+  width: 100%;
+}
 
 @media screen and (min-width: 768px) {
 
@@ -68,7 +74,7 @@
   height: 150px;
   width: 150px;
 }
-.img-tabs {
+md-tab-group.img-tabs.mat-tab-group {
     margin-top: 70px !important;
 }
 }
@@ -79,7 +85,7 @@
   height: 115px;
   width: 115px;
 }
-.img-tabs {
+md-tab-group.img-tabs.mat-tab-group {
     margin-top: 50px !important;
 }
 }
