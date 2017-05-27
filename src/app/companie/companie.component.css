@@ -208,10 +208,6 @@ p.tblnav-cl {
 
 @media screen and (max-width: 767px) {
 
-.one-sty img {
-  width: 100% !important;
-  height: auto;
-}
 .newclientbig-btn {
   display:none;
 }
@@ -223,8 +219,8 @@ p.tblnav-cl {
 @media screen and (min-width: 440px) and (max-width: 767px) {
 
 .one-sty {
-    width: 50% !important;
-    padding: 5px;
+  width: 50% !important;
+  padding: 5px;
 }
 .one-stypic {
   height: 310px !important;
@@ -234,8 +230,8 @@ p.tblnav-cl {
 @media screen and (max-width: 439px) {
 
 .one-sty {
-    width: 100% !important;
-    padding: 5px;
+  width: 100% !important;
+  padding: 5px;
 }
 .one-stypic {
   height: 350px !important;
