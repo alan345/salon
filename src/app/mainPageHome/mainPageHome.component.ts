@@ -78,13 +78,18 @@ export class MainPageHomeComponent implements OnInit {
   //   //   )
   // }
   save(){
-    this.mainPageHomeService.updateOptions(this.options)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message)
-        },
-        error => {console.log(error)}
-      )
+    if(this.options.design.mainPage.linkButtonHomePage.length > 12) {
+      this.toastr.error('Error!', 'Max 12 characters for the button')
+    } else {
+      this.mainPageHomeService.updateOptions(this.options)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+          },
+          error => {console.log(error)}
+        )    
+    }
+
   }
 
 
