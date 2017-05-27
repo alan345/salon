@@ -68,6 +68,9 @@
   height: 150px;
   width: 150px;
 }
+.img-tabs {
+    margin-top: 70px;
+}
 }
 
 @media screen and (max-width:767px) {
@@ -75,5 +78,8 @@
 .imgrw-cnt {
   height: 115px;
   width: 115px;
+}
+.img-tabs {
+    margin-top: 50px;
 }
 }
