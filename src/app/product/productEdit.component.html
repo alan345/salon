@@ -134,6 +134,7 @@
             [(ngModel)]="fetchedProduct.description.title.embed">
         </div>
       </div>
+      <label class="phyto-ctnr">Related Products</label>
       <input
         [disabled]="disableInputRelatedProduct()"
         [ngModelOptions]="{standalone: true}"
@@ -146,7 +147,6 @@
         {{fetchedRelatedProduct.magento.sku}} - {{fetchedRelatedProduct.magento.name}}
         <button type="button" (click)="selectProduct(fetchedRelatedProduct)">select</button>
       </div>
-      <label>Related Products</label>
       <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts; let i=index">
         <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes" class="rltpdt-ctnr">
           <div *ngIf="custom_attribute.attribute_code == 'image'" class="rltpdt-cnt">
