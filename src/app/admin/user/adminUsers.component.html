@@ -7,7 +7,8 @@
     <input type="text" name="Search" placeholder="Search" [(ngModel)]="search.search" (ngModelChange)="searchInput()">
   </div>
   <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback admin-users">
-    <md-tab label="admin" textLabel="Admins">
+    <md-tab label="admin">
+      <md-tab-label>Admins</md-tab-label>
     </md-tab>
     <md-tab label="salesRep" textLabel="Sales Rep">
     </md-tab>
