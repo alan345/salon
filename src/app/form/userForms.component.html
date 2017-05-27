@@ -15,14 +15,6 @@
     </tbody>
   </table>
   <div class="has-text-centered">
-    <!-- <div>
-      <div [ngClass]="{ 'hidden': !loading }">Loading...</div>
-      <button
-        *ngIf="paginationData.currentPage * paginationData.itemsPerPage < paginationData.totalItems"
-        type="button" (click)="loadMore()" class="ldmre">
-        Load More
-      </button>
-    </div>     -->
     <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
     <pagination-controls (pageChange)="getPage($event)" id="server" class="change-page"></pagination-controls>
   </div>
