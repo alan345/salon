@@ -67,3 +67,33 @@ export class Custom_attribute {
   attribute_code: string;
   value: string;
 }
+
+
+export const categPhyto: any = [
+    { name:'Conditioners & masks', selected : false },
+    { name:'Diateray supplements', selected : false },
+    { name:'Leave-in care', selected : false },
+    { name:'Relaxers', selected : false },
+    { name:'Styling', selected : false },
+    { name:'Serums', selected : false },
+    { name:'Shampoos', selected : false },
+    { name:'Treatments', selected : false },
+  ]
+
+export const categPhytoSpecific: any = [
+   { name:'TREATMENTS', selected : false },
+   { name:'RELAXERS', selected : false },
+   { name:'STYLERS', selected : false },
+   { name:'SHAMPOOS & CONDITIONERS', selected : false },
+   { name:'KIDS', selected : false },
+]
+
+export const categSubtil: any = [
+    { name:'PERMANENT COLOR', selected : false },
+    { name:'DEMI-PERMANENT COLOR', selected : false },
+    { name:'TEMPORARY COLOR ENHANCING - DIRECT PIGMENTS', selected : false },
+    { name:'BLEACHING', selected : false },
+    { name:'AFTER-COLOR SHAMPOO & TECHNICAL', selected : false },
+    { name:'OXYDIZERS & DEVELOPER', selected : false },
+    { name:'STYLING', selected : false },
+]

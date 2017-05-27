@@ -1,11 +1,10 @@
 import { Component, OnInit} from '@angular/core';
 import { ProductService} from './product.service';
-
 import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { Product } from './product.model';
+import { Product, categPhyto, categPhytoSpecific, categSubtil } from './product.model';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -35,61 +34,59 @@ export class ProductEditComponent implements OnInit {
   //   { name:'Shampoos', selected : false },
   //   { name:'Treatments', selected : false }
   // ]
-  categoriesHard2 = [
+  categoriesHard2 = []
+  //     { name:'Conditioners & masks', selected : false },
+  //     { name:'Diateray supplements', selected : false },
+  //     { name:'Leave-in care', selected : false },
+  //     { name:'Relaxers', selected : false },
+  //     { name:'Styling', selected : false },
+  //     { name:'Serums', selected : false },
+  //     { name:'Shampoos', selected : false },
+  //     { name:'Treatments', selected : false },
+  //
+  //    { name:'TREATMENTS', selected : false },
+  //    { name:'RELAXERS', selected : false },
+  //    { name:'STYLERS', selected : false },
+  //    { name:'SHAMPOOS & CONDITIONERS', selected : false },
+  //    { name:'KIDS', selected : false },
+  //
+  //    { name:'PERMANENT COLOR', selected : false },
+  //    { name:'DEMI-PERMANENT COLOR', selected : false },
+  //    { name:'TEMPORARY COLOR ENHANCING - DIRECT PIGMENTS', selected : false },
+  //    { name:'BLEACHING', selected : false },
+  //    { name:'AFTER-COLOR SHAMPOO & TECHNICAL', selected : false },
+  //    { name:'OXYDIZERS & DEVELOPER', selected : false },
+  //    { name:'STYLING', selected : false },
+  // ]
 
-      { name:'Conditioners & masks', selected : false },
-      { name:'Diateray supplements', selected : false },
-      { name:'Leave-in care', selected : false },
-      { name:'Relaxers', selected : false },
-      { name:'Styling', selected : false },
-      { name:'Serums', selected : false },
-      { name:'Shampoos', selected : false },
-      { name:'Treatments', selected : false },
-
-     { name:'TREATMENTS', selected : false },
-     { name:'RELAXERS', selected : false },
-     { name:'STYLERS', selected : false },
-     { name:'SHAMPOOS & CONDITIONERS', selected : false },
-     { name:'KIDS', selected : false },
-
-     { name:'PERMANENT COLOR', selected : false },
-     { name:'DEMI-PERMANENT COLOR', selected : false },
-     { name:'TEMPORARY COLOR ENHANCING - DIRECT PIGMENTS', selected : false },
-     { name:'BLEACHING', selected : false },
-     { name:'AFTER-COLOR SHAMPOO & TECHNICAL', selected : false },
-     { name:'OXYDIZERS & DEVELOPER', selected : false },
-     { name:'STYLING', selected : false },
-
-  ]
-
-  categories2Dynamic = [
-      [
-        { name:'Conditioners & masks', selected : false },
-        { name:'Diateray supplements', selected : false },
-        { name:'Leave-in care', selected : false },
-        { name:'Relaxers', selected : false },
-        { name:'Styling', selected : false },
-        { name:'Serums', selected : false },
-        { name:'Shampoos', selected : false },
-        { name:'Treatments', selected : false }
-      ],
-      [
-       { name:'TREATMENTS', selected : false },
-       { name:'RELAXERS', selected : false },
-       { name:'STYLERS', selected : false },
-       { name:'SHAMPOOS & CONDITIONERS', selected : false },
-       { name:'KIDS', selected : false },
-     ],
-     [
-       { name:'PERMANENT COLOR', selected : false },
-       { name:'DEMI-PERMANENT COLOR', selected : false },
-       { name:'TEMPORARY COLOR ENHANCING - DIRECT PIGMENTS', selected : false },
-       { name:'BLEACHING', selected : false },
-       { name:'AFTER-COLOR SHAMPOO & TECHNICAL', selected : false },
-       { name:'OXYDIZERS & DEVELOPER', selected : false },
-       { name:'STYLING', selected : false },
-     ]
-  ]
+  // categories2Dynamic = [
+  //     [
+  //       { name:'Conditioners & masks', selected : false },
+  //       { name:'Diateray supplements', selected : false },
+  //       { name:'Leave-in care', selected : false },
+  //       { name:'Relaxers', selected : false },
+  //       { name:'Styling', selected : false },
+  //       { name:'Serums', selected : false },
+  //       { name:'Shampoos', selected : false },
+  //       { name:'Treatments', selected : false }
+  //     ],
+  //     [
+  //      { name:'TREATMENTS', selected : false },
+  //      { name:'RELAXERS', selected : false },
+  //      { name:'STYLERS', selected : false },
+  //      { name:'SHAMPOOS & CONDITIONERS', selected : false },
+  //      { name:'KIDS', selected : false },
+  //    ],
+  //    [
+  //      { name:'PERMANENT COLOR', selected : false },
+  //      { name:'DEMI-PERMANENT COLOR', selected : false },
+  //      { name:'TEMPORARY COLOR ENHANCING - DIRECT PIGMENTS', selected : false },
+  //      { name:'BLEACHING', selected : false },
+  //      { name:'AFTER-COLOR SHAMPOO & TECHNICAL', selected : false },
+  //      { name:'OXYDIZERS & DEVELOPER', selected : false },
+  //      { name:'STYLING', selected : false },
+  //    ]
+  // ]
 
 
   categoriesHard1 = [
@@ -159,8 +156,10 @@ export class ProductEditComponent implements OnInit {
     });
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      if(params['id'])
-       this.getProduct(params['id'])
+      if(params['id']){
+        this.getProduct(params['id'])
+      }
+
     })
   }
 
@@ -187,7 +186,25 @@ export class ProductEditComponent implements OnInit {
     this.togglCategorieButton(this.inputCategorie, 'tag')
     this.inputCategorie = ''
   }
+
+  refreshDynamicCateg() {
+      let this2 = this
+      setTimeout(function(){
+        this2.categoriesHard2 = []
+        if(this2.categoriesHard1[0].selected)
+          categPhyto.forEach(categ => this2.categoriesHard2.push(categ))
+        if(this2.categoriesHard1[1].selected)
+          categPhytoSpecific.forEach(categ => this2.categoriesHard2.push(categ))
+        if(this2.categoriesHard1[2].selected)
+          categSubtil.forEach(categ => this2.categoriesHard2.push(categ))
+      }, 50);
+  }
   togglCategorieButton(nameCateg: string, type: string) {
+
+    this.refreshDynamicCateg();
+
+
+
     //console.log('togglCategorieButton')
     var indexFound: number
     this.fetchedProduct.categories.forEach((categorie, index) => {
@@ -195,10 +212,10 @@ export class ProductEditComponent implements OnInit {
         indexFound = index
     })
 
-    if(indexFound || indexFound== 0 ) {
-      let _2this = this
+    if(indexFound || indexFound == 0 ) {
+      let this2 = this
       setTimeout(function(){
-          _2this.removeCategorie(+indexFound)
+          this2.removeCategorie(+indexFound)
       }, 10);
 
     } else {
@@ -226,6 +243,7 @@ export class ProductEditComponent implements OnInit {
             this.fetchedRelatedProducts = []
             this.fetchedRelatedProducts = res.data
             this.loading = false;
+
           },
           error => {
             console.log(error);
@@ -295,6 +313,9 @@ export class ProductEditComponent implements OnInit {
 
   refreshHardCategories(){
 
+    // console.log(this.categoriesHard2)
+
+    // console.log(this.categoriesHard2)
 
     this.categoriesHard2.forEach((HardCategorie, indexHard) => {
       this.categoriesHard2[indexHard].selected = false
@@ -361,6 +382,7 @@ export class ProductEditComponent implements OnInit {
             this.addCategorie()
           })
           this.refreshHardCategories()
+          this.refreshDynamicCateg()
         },
         error => {
           console.log(error);

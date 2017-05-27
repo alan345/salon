@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {ProductService} from './product.service';
-import {Product} from './product.model';
+import {Product, categPhyto, categPhytoSpecific, categSubtil} from './product.model';
 import {ToastsManager} from 'ng2-toastr';
 import {MdDialog } from '@angular/material';
 import {Router} from '@angular/router';
@@ -44,33 +44,13 @@ export class ProductsComponent implements OnInit {
   ]
 
   categoriesHard2 : any = []
+
+  //categPhyto: any = categPhyto
+
   categories2Dynamic = [
-      [
-        { name:'Conditioners & masks', selected : false },
-        { name:'Diateray supplements', selected : false },
-        { name:'Leave-in care', selected : false },
-        { name:'Relaxers', selected : false },
-        { name:'Styling', selected : false },
-        { name:'Serums', selected : false },
-        { name:'Shampoos', selected : false },
-        { name:'Treatments', selected : false },
-      ],
-      [
-       { name:'TREATMENTS', selected : false },
-       { name:'RELAXERS', selected : false },
-       { name:'STYLERS', selected : false },
-       { name:'SHAMPOOS & CONDITIONERS', selected : false },
-       { name:'KIDS', selected : false },
-     ],
-     [
-       { name:'PERMANENT COLOR', selected : false },
-       { name:'DEMI-PERMANENT COLOR', selected : false },
-       { name:'TEMPORARY COLOR ENHANCING - DIRECT PIGMENTS', selected : false },
-       { name:'BLEACHING', selected : false },
-       { name:'AFTER-COLOR SHAMPOO & TECHNICAL', selected : false },
-       { name:'OXYDIZERS & DEVELOPER', selected : false },
-       { name:'STYLING', selected : false },
-     ]
+      categPhyto,
+      categPhytoSpecific,
+      categSubtil,
   ]
 
   //
