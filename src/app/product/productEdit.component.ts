@@ -135,8 +135,7 @@ export class ProductEditComponent implements OnInit {
 
 
 
-  getObjects(myForm: any){
-    //console.log(myForm.get('categories').controls)
+  getObjects(myForm: any) {
      return myForm.get('categories').controls
    }
 
