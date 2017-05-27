@@ -25,16 +25,73 @@ export class ProductEditComponent implements OnInit {
   urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
   fetchedProduct: Product = new Product(this.sanitizer);
   fetchedRelatedProducts: Product[] = [];
+  // categoriesHard2 = [
+  //   { name:'Conditioners & masks', selected : false },
+  //   { name:'Diateray supplements', selected : false },
+  //   { name:'Leave-in care', selected : false },
+  //   { name:'Relaxers', selected : false },
+  //   { name:'Styling', selected : false },
+  //   { name:'Serums', selected : false },
+  //   { name:'Shampoos', selected : false },
+  //   { name:'Treatments', selected : false }
+  // ]
   categoriesHard2 = [
-    { name:'Conditioners & masks', selected : false },
-    { name:'Diateray supplements', selected : false },
-    { name:'Leave-in care', selected : false },
-    { name:'Relaxers', selected : false },
-    { name:'Styling', selected : false },
-    { name:'Serums', selected : false },
-    { name:'Shampoos', selected : false },
-    { name:'Treatments', selected : false }
+
+      { name:'Conditioners & masks', selected : false },
+      { name:'Diateray supplements', selected : false },
+      { name:'Leave-in care', selected : false },
+      { name:'Relaxers', selected : false },
+      { name:'Styling', selected : false },
+      { name:'Serums', selected : false },
+      { name:'Shampoos', selected : false },
+      { name:'Treatments', selected : false },
+
+     { name:'TREATMENTS', selected : false },
+     { name:'RELAXERS', selected : false },
+     { name:'STYLERS', selected : false },
+     { name:'SHAMPOOS & CONDITIONERS', selected : false },
+     { name:'KIDS', selected : false },
+
+     { name:'PERMANENT COLOR', selected : false },
+     { name:'DEMI-PERMANENT COLOR', selected : false },
+     { name:'TEMPORARY COLOR ENHANCING - DIRECT PIGMENTS', selected : false },
+     { name:'BLEACHING', selected : false },
+     { name:'AFTER-COLOR SHAMPOO & TECHNICAL', selected : false },
+     { name:'OXYDIZERS & DEVELOPER', selected : false },
+     { name:'STYLING', selected : false },
+
   ]
+
+  categories2Dynamic = [
+      [
+        { name:'Conditioners & masks', selected : false },
+        { name:'Diateray supplements', selected : false },
+        { name:'Leave-in care', selected : false },
+        { name:'Relaxers', selected : false },
+        { name:'Styling', selected : false },
+        { name:'Serums', selected : false },
+        { name:'Shampoos', selected : false },
+        { name:'Treatments', selected : false }
+      ],
+      [
+       { name:'TREATMENTS', selected : false },
+       { name:'RELAXERS', selected : false },
+       { name:'STYLERS', selected : false },
+       { name:'SHAMPOOS & CONDITIONERS', selected : false },
+       { name:'KIDS', selected : false },
+     ],
+     [
+       { name:'PERMANENT COLOR', selected : false },
+       { name:'DEMI-PERMANENT COLOR', selected : false },
+       { name:'TEMPORARY COLOR ENHANCING - DIRECT PIGMENTS', selected : false },
+       { name:'BLEACHING', selected : false },
+       { name:'AFTER-COLOR SHAMPOO & TECHNICAL', selected : false },
+       { name:'OXYDIZERS & DEVELOPER', selected : false },
+       { name:'STYLING', selected : false },
+     ]
+  ]
+
+
   categoriesHard1 = [
     { name:'Phyto', selected : false },
     { name:'Phyto Specific', selected : false },
@@ -113,20 +170,14 @@ export class ProductEditComponent implements OnInit {
       this.fetchedProduct.categories.splice(i, 1)
       const control = <FormArray>this.myForm.controls['categories'];
       control.removeAt(i);
-      let _2this = this
-    //  setTimeout(function(){
-          _2this.refreshHardCategories()
-    //  }, 10);
-
-
-      //this.updatecategoriesHard2()
+      this.refreshHardCategories()
   }
   addCategorie() {
     //console.log('addCategorie')
     const control = <FormArray>this.myForm.controls['categories'];
     const addrCtrl = this._fb.group({
-        name: [''],
-        type:['']
+      name: [''],
+      type:['']
     });
     control.push(addrCtrl);
 
@@ -134,7 +185,7 @@ export class ProductEditComponent implements OnInit {
   addCategorieInput() {
     //console.log('addCategorieInput')
     this.togglCategorieButton(this.inputCategorie, 'tag')
-    this.inputCategorie=''
+    this.inputCategorie = ''
   }
   togglCategorieButton(nameCateg: string, type: string) {
     //console.log('togglCategorieButton')
@@ -166,7 +217,7 @@ export class ProductEditComponent implements OnInit {
 
 
 
-    getProducts(page : number, search: any) {
+    getProducts(page: number, search: any) {
       //this.fetchedProducts =[]
       this.loading = true;
       this.productService.getProducts(page, search)
@@ -174,16 +225,6 @@ export class ProductEditComponent implements OnInit {
           res => {
             this.fetchedRelatedProducts = []
             this.fetchedRelatedProducts = res.data
-            // let fetchedProductsNotSecure =  res.data
-            // fetchedProductsNotSecure.forEach((product) => {
-            //   product['categoriesTag'] = []
-            //   product.categories.forEach((categorie) => {
-            //     if(categorie.type === 'tag') {
-            //       product['categoriesTag'].push(categorie)
-            //     }
-            //   })
-            //   this.fetchedProducts.push(product)
-            // })
             this.loading = false;
           },
           error => {
@@ -212,17 +253,6 @@ export class ProductEditComponent implements OnInit {
     return true;
   }
 
-
-
-  // openDialogWhereProduct(){
-  //   let dialogRefDelete = this.dialog.open(ProductWhereDialogComponent)
-  //   dialogRefDelete.afterClosed().subscribe(result => {
-  //     // if(result) {
-  //     //   this.onDelete(this.fetchedProduct._id)
-  //     //   this.router.navigate(['product']);
-  //     // }
-  //   })
-  // }
   openDialog(positionImage: string) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
     dialogRef.afterClosed().subscribe(result => {
@@ -234,7 +264,6 @@ export class ProductEditComponent implements OnInit {
 
 
   save(product: Product) {
-    //console.log(this.fetchedProduct)
     if(!this.fetchedProduct.categories.length){
       this.toastr.error('Error!', 'Please select at least one categorie')
       return
@@ -265,6 +294,7 @@ export class ProductEditComponent implements OnInit {
 
 
   refreshHardCategories(){
+
 
     this.categoriesHard2.forEach((HardCategorie, indexHard) => {
       this.categoriesHard2[indexHard].selected = false

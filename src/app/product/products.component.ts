@@ -53,7 +53,7 @@ export class ProductsComponent implements OnInit {
         { name:'Styling', selected : false },
         { name:'Serums', selected : false },
         { name:'Shampoos', selected : false },
-        { name:'Treatments', selected : false }
+        { name:'Treatments', selected : false },
       ],
       [
        { name:'TREATMENTS', selected : false },
@@ -72,7 +72,7 @@ export class ProductsComponent implements OnInit {
        { name:'STYLING', selected : false },
      ]
   ]
-  
+
   //
   // categories2PhytoSpecific =
   //
