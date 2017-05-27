@@ -67,15 +67,15 @@
   float: left;
   width: 100%;
 }
+.img-tabs.subnav {
+    padding: 0 !important;
+}
 
 @media screen and (min-width: 768px) {
 
 .imgrw-cnt {
   height: 150px;
   width: 150px;
-}
-md-tab-group.img-tabs.mat-tab-group {
-    margin-top: 70px !important;
 }
 }
 
@@ -84,8 +84,5 @@ md-tab-group.img-tabs.mat-tab-group {
 .imgrw-cnt {
   height: 115px;
   width: 115px;
-}
-md-tab-group.img-tabs.mat-tab-group {
-    margin-top: 50px !important;
 }
 }
