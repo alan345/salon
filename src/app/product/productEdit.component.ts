@@ -4,7 +4,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { Product, categPhyto, categPhytoSpecific, categSubtil } from './product.model';
+import { Product, Categorie, categPhyto, categPhytoSpecific, categSubtil } from './product.model';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -34,7 +34,7 @@ export class ProductEditComponent implements OnInit {
   //   { name:'Shampoos', selected : false },
   //   { name:'Treatments', selected : false }
   // ]
-  categoriesHard2 = []
+  categoriesHard2: Categorie[] = []
   //     { name:'Conditioners & masks', selected : false },
   //     { name:'Diateray supplements', selected : false },
   //     { name:'Leave-in care', selected : false },
@@ -218,7 +218,7 @@ export class ProductEditComponent implements OnInit {
       }, 10);
 
     } else {
-      this.fetchedProduct.categories.push({name:nameCateg, type:type})
+      this.fetchedProduct.categories.push({name:nameCateg, type:type, selected: true})
       this.addCategorie()
     }
   }
