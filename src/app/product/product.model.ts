@@ -83,11 +83,11 @@ export const categPhyto: any = [
   ]
 
 export const categPhytoSpecific: any = [
-   { name:'TREATMENTS', selected : false },
-   { name:'RELAXERS', selected : false },
-   { name:'STYLERS', selected : false },
-   { name:'SHAMPOOS & CONDITIONERS', selected : false },
-   { name:'KIDS', selected : false },
+   { name:'Treatments', selected : false },
+   { name:'Relaxers', selected : false },
+   { name:'Stylers', selected : false },
+   { name:'Shampoos & Conditioners', selected : false },
+   { name:'Kids', selected : false },
 ]
 
 export const categSubtil: any = [
