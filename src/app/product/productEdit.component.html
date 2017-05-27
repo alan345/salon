@@ -149,7 +149,7 @@
       <label>Related Products</label>
       <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts; let i=index">
         <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes" class="rltpdt-ctnr">
-          <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
+          <div *ngIf="custom_attribute.attribute_code == 'image'" class="rltpdt-cnt">
             {{relatedProduct.magento.sku}} - {{relatedProduct.magento.name}}
             <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             <button type="button" (click)="removeProduct(i)"><i class="fa fa-times"></i></button>
