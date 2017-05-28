@@ -320,7 +320,7 @@ p.nota {
     max-height: 75%;
     position: absolute;
     bottom: 15px;
-    left: 15px;
+    right: 15px;
 }
 
 /*------------ Responsive -------------*/
