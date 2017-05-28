@@ -4,11 +4,11 @@
     <h3 style="text-align: center;">Products Batch ({{ paginationData.currentPage * paginationData.itemsPerPage}}/{{paginationData.totalItems}})</h3>
     <button class="subnav-btnright" (click)="refresh()"><i class="fa fa-refresh"></i></button>
   </div>
-  <div class="subsubnav">
-    <button class="subnav-btnright" onclick="window.open('/productBatch/refreshbdd', '_blank')">New Pull Batch <i class="fa fa-refresh"></i></button>
+  <div class="subsubnav-productBatch">
+    <button onclick="window.open('/productBatch/refreshbdd', '_blank')">New Pull Batch <i class="fa fa-refresh"></i></button>
   </div>
   <div>
-    <div class="subsubnav-productBatch beigeback">
+    <div class="beigeback">
       <div class="productBatch-srchrow"></div>
     </div>
   </div>
