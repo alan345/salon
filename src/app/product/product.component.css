@@ -312,15 +312,19 @@ md-tab-header.mat-tab-header {
   font-size: 20px;
 }
 p.nota {
-    font-style: italic;
-    font-size: 10px;
-    color: #999999;
+  font-style: italic;
+  font-size: 10px;
+  color: #999999;
 }
 .rltpdt-cnt img {
-    max-height: 75%;
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
+  max-height: 75%;
+  max-width: 38%;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+.rltpdt-cnt .pdt-desc {
+  width: 60%;
 }
 
 /*------------ Responsive -------------*/
