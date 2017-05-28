@@ -93,7 +93,7 @@ import { SocialComponent} from './social/social.component';
 import { SocialsComponent} from './social/socials.component';
 
 import { UserPicturesComponent} from './user/users/userPictures.component';
-import { UsersComponent} from './user/users/users.component';
+
 import { UserService} from './user/user.service';
 
 
@@ -213,7 +213,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SocialsComponent,
 
 
-    UsersComponent,
+
     UserComponent,
     NewUserComponent,
     SingleUserComponent,
