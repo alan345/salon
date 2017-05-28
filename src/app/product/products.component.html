@@ -25,7 +25,7 @@
 
     <div class="phyto-ctnr beigeback filtertoggle">
       <button (click)="toogleFilters()" class="ctrl-hidit">
-        <i [ngClass]="{'fa-chevron-up':!showFilters,'fa-chevron-down':showFilters}" class="fa"></i>
+        <i [ngClass]="{'fa-chevron-down':!showFilters,'fa-chevron-up':showFilters}" class="fa"></i>
         <div [ngClass]="{'dspl-nn':showFilters, 'mr-lss':!showFilters}">MORE</div>
         <div [ngClass]="{'dspl-nn':!showFilters, 'mr-lss':showFilters}">LESS</div>
         <div class="fltr-txt">FILTERS</div>
