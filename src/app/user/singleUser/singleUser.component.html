@@ -30,11 +30,11 @@
         <div class="prt-ctnr">
           <label><h5>Products Bought:</h5></label>
           <!--Connect button below to add product form-->
-          <button *ngIf="isMyClient()" class="addpdt-btn">Add Product <i class="fa fa-plus"></i></button>
+          <button *ngIf="isMyClient()" [routerLink]="['/user/' + fetchedUser._id + '/addProductsToUser']" routerLinkActive="active" class="addpdt-btn">Add Product <i class="fa fa-plus"></i></button>
           <!--Add last two products bought here-->
           <p class="blue">PhytoElixir Oil - 02/14/2017</p>
           <p class="blue">PhytoElixir Mask - 12/21/2016</p>
-          <a class="seemre" href="#">See Products History</a>
+          <a class="seemre" [routerLink]="['/user/' + fetchedUser._id + '/productsHistory']" routerLinkActive="active">See Products History</a>
         </div>
       </div>
     </div>

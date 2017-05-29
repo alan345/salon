@@ -1,21 +1,16 @@
 import { Component, OnInit} from '@angular/core';
-
 import { UserService} from '../user.service';
-
-
 import { ToastsManager} from 'ng2-toastr';
-
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
+import { Location } from '@angular/common';
 import { User } from '../user.model';
-
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
   selector: 'app-users',
   templateUrl: './chooseDate.component.html',
-  styleUrls: ['./user.component.css'],
+  styleUrls: ['../user.component.css'],
 
 })
 

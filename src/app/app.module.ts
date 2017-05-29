@@ -19,11 +19,6 @@ import { ToastModule} from 'ng2-toastr/ng2-toastr';
 import { ToastOptions} from 'ng2-toastr';
 import { CustomOption } from './toast-options';
 
-// let options = <ToastOptions> {
-//   animate: 'flyRight',
-//   positionClass: 'toast-top-right',
-// };
-
 
 
 import { NavbarComponent} from './nav/navbar/navbar.component';
@@ -33,23 +28,17 @@ import { FooterComponent} from './nav/footer/footer.component';
 
 
 import { FormComponent} from './form/form.component';
-import { RegisterComponent} from './user/register/register.component';
-import { UserComponent} from './user/user.component';
-import { NewUserComponent} from './user/users/newUser.component';
-import { SingleUserComponent} from './user/users/singleUser.component';
-import { AddNoteComponent} from './user/users/addNote.component';
-import { ChooseDateComponent} from './user/users/chooseDate.component';
+// import { RegisterComponent} from './user/register/register.component';
+// import { UserComponent} from './user/user.component';
+// import { NewUserComponent} from './user/users/newUser.component';
+// import { SingleUserComponent} from './user/users/singleUser.component';
+// import { AddNoteComponent} from './user/users/addNote.component';
+// import { ChooseDateComponent} from './user/users/chooseDate.component';
+// import { AddProductsToUserComponent} from './user/users/addProductsToUser.component';
+// import { UserProductsHistory} from './user/users/userProductsHistory.component';
+//
 
 
-
-//
-//
-// import { ProductComponent} from './product/product.component';
-// import { ProductsComponent} from './product/products.component';
-// import { NewProductComponent} from './product/newProduct.component';
-// import { SingleProductComponent} from './product/singleProduct.component';
-// import { ProductService} from './product/product.service';
-//
 
 
 import { DeleteDialog} from './deleteDialog/deleteDialog.component';
@@ -65,18 +54,10 @@ import { PressService} from './press/press.service';
 
 
 import { VideoModule} from './video/video.module';
+import { UserModule} from './user/user.module';
 import { ProductModule} from './product/product.module';
 import { CompanieModule} from './companie/companie.module';
 import { ProductBatchModule} from './productBatch/productBatch.module';
-
-
-// import { VideoDeleteDialog} from './video/videoDeleteDialog.component';
-// import { VideoWhereDialogComponent} from './video/videoWhereDialog.component';
-//
-// import { VideoComponent} from './video/video.component';
-// import { VideosComponent} from './video/videos.component';
-// import { VideoSingleComponent} from './video/videoSingle.component';
-// import { VideoService} from './video/video.service';
 
 
 import { PromotionsSeeInactiveComponent} from './promotion/promotionsSeeInactive.component';
@@ -92,9 +73,6 @@ import { SubmitPicDialog} from './social/submitPicDialog.component';
 import { SocialComponent} from './social/social.component';
 import { SocialsComponent} from './social/socials.component';
 
-import { UserPicturesComponent} from './user/users/userPictures.component';
-
-import { UserService} from './user/user.service';
 
 
 import { AppRoutingModule} from './appRouting.module';
@@ -104,7 +82,6 @@ import { AuthService} from './auth/auth.service';
 import { ErrorService} from './errorHandler/error.service';
 
 
-import { LoginComponent} from './user/login/login.component';
 import { ErrorComponent} from './errorHandler/error.component';
 
 
@@ -113,26 +90,10 @@ import { MainPageHomeService} from './mainPageHome/mainPageHome.service';
 
 
 
-// import { CompanieFilterPipe} from './companie/companieFilter.pipe';
-// import { CompanieDetailUsersComponent} from './companie/companieDetailUsers.component';
-// import { CompaniePicturesComponent} from './companie/companiePictures.component';
-// import { CompaniesComponent} from './admin/companie/companies.component';
-// import { CompanieComponent} from './companie/companie.component';
-// import { EditCompanieComponent} from './companie/editCompanie.component';
-// import { EditAddUserToCompanieComponent} from './companie/addUser/editAddUserToCompanie.component';
-// import { CompanieDetailComponent} from './companie/companieDetail.component';
-// import { CompanieService} from './companie/companie.service';
-//
 
 
-import { ResetPasswordComponent} from './user/accountRecover/resetPassword.component';
-import { ForgetPasswordComponent} from './user/accountRecover/forgetPassword.component';
+
 import { FormService} from './form/form.service';
-
-
-
-
-
 
 
 import { ErrorPageComponent} from './errorPage/errorPage.component';
@@ -152,14 +113,6 @@ import { AdminComponent} from './admin/admin.component';
 
 
 
-import { UserProfileSettingsComponent } from './user/profile/userProfileSettings.component';
-import { UserProfilePicturesComponent } from './user/profile/userProfilePictures.component';
-import { UserProfileComponent } from './user/profile/userProfile.component';
-import { ProfileService} from './user/profile/profile.service';
-
-
-
-import { ChangePasswordComponent } from './user/profile/changePassword/changePassword.component';
 
 
 
@@ -214,16 +167,20 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 
 
-    UserComponent,
-    NewUserComponent,
-    SingleUserComponent,
-    AddNoteComponent,
-    ChooseDateComponent,
-    UserPicturesComponent,
+    // UserComponent,
+    // NewUserComponent,
+    // SingleUserComponent,
+    // AddNoteComponent,
+    // ChooseDateComponent,
+    // UserPicturesComponent,
+    // AddProductsToUserComponent,
+    // UserProductsHistory,
+    //
+    //
+    // RegisterComponent,
 
 
-    RegisterComponent,
-    LoginComponent,
+
     NavbarComponent,
     SideNavbarComponent,
     ErrorComponent,
@@ -243,8 +200,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
   //  CompanieAddUserDialog,
 
-    ResetPasswordComponent,
-    ForgetPasswordComponent,
+
+
     UserFormsComponent,
     UserFormsUploadAndList,
     ErrorPageComponent,
@@ -255,10 +212,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AdminComponent,
 
 
-    UserProfileComponent,
-    UserProfilePicturesComponent,
-    UserProfileSettingsComponent,
-    ChangePasswordComponent,
 
 
   ],
@@ -278,7 +231,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     MaterialModule,
 
 
-
+    UserModule,
     VideoModule,
     ProductModule,
     CompanieModule,
@@ -296,11 +249,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PressService,
     FormService,
     AdminService,
-    UserService,
+  //  UserService,
   //  ProductService,
     PromotionService,
     AdminGuardService,
-    ProfileService,
+  //  ProfileService,
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,

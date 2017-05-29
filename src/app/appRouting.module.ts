@@ -1,6 +1,6 @@
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {USER_ROUTES} from './user/user.routes';
+//import {USER_ROUTES} from './user/user.routes';
 
 import {ADMIN_ROUTES} from './admin/admin.routes';
 import {UserComponent} from './user/user.component';
@@ -56,12 +56,13 @@ export const routes: Routes = [
   {path: 'companie', loadChildren: 'app/companie/companie.module#CompanieModule'},
   {path: 'video', loadChildren: 'app/video/video.module#VideoModule'},
   {path: 'product', loadChildren: 'app/product/product.module#ProductModule'},
-  {path: 'productBatch', loadChildren: 'app/productBatch/productBatch.module#ProductBatchModule'},  
+  {path: 'productBatch', loadChildren: 'app/productBatch/productBatch.module#ProductBatchModule'},
+  {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
   {path: 'promotion', component: PromotionComponent, canActivate: [AuthGuardService], children: USER_PROMOTIONS},
 //  {path: 'companie/:id', component: CompanieDetailComponent},
 //  {path: 'companie/edit/:id', component: EditCompanieComponent},
 //  {path: 'map', component: MapComponent, pathMatch: 'full'},
-  {path: 'user', component: UserComponent, children: USER_ROUTES},
+  // {path: 'user', component: UserComponent, children: USER_ROUTES},
   {path: 'form', component: FormComponent, canActivate: [AuthGuardService]},
   //{path: 'userForms', component: UserFormsComponent, canActivate: [AuthGuardService]},
   {path: 'userForms', component: UserFormsUploadAndList, canActivate: [AuthGuardService]},

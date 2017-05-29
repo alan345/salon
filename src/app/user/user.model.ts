@@ -1,13 +1,5 @@
-// export class User {
-//
-//   constructor( public address: string) {
-//     this.address = address;
-//
-//   }
-// }
-
-import { Form } from '../form/form.model'
-
+import { Form } from '../form/form.model';
+import { Product } from '../product/product.model';
 
 
 export class User {
@@ -16,6 +8,7 @@ export class User {
   lastVisit: Date = new Date;
   role: string[] = [];
   forms: Form[] = [];
+  products: Product[] = [];
   profile: Profile = new Profile();
   notes: Note[] = [];
   password: string = '';
@@ -28,9 +21,9 @@ export class Profile {
   lastName: string = '';
   title: string = '';
   phoneNumber: string = '';
-  parentUser:User[] = [];
-  _profilePicture:Form[] = [];
-  hair : Hair = new Hair();
+  parentUser: User[] = [];
+  _profilePicture: Form[] = [];
+  hair: Hair = new Hair();
 }
 
 export class Hair {
@@ -50,26 +43,3 @@ export interface Address {
     postcode: string;
 
 }
-//
-// export const UserConst : User = {
-//   _id: '',
-//   lastVisit: new Date,
-//   email: '',
-//   profile:{
-//     parentUser:[],
-//     isFeatured:false,
-//     phoneNumber: '',
-//     name: '',
-//     lastName: '',
-//     title: '',
-//     _profilePicture:[],
-//     hair:{
-//       hairCondition : 'Normal',
-//       scalpCondition : 'Healthy',
-//       hairTexture : 'Fine',
-//     }
-//   },
-//   notes:[],
-//   forms:[],
-//   role:['stylist'],
-// }

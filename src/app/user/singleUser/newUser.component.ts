@@ -19,7 +19,7 @@ import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 @Component({
   selector: 'app-users',
   templateUrl: './newUser.component.html',
-  styleUrls: ['./user.component.css'],
+  styleUrls: ['../user.component.css'],
 
 })
 

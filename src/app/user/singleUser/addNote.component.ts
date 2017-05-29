@@ -15,7 +15,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-users',
   templateUrl: './addNote.component.html',
-  styleUrls: ['./user.component.css'],
+  styleUrls: ['../user.component.css'],
 
 })
 

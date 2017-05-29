@@ -1,4 +1,7 @@
-import {Routes} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule }            from '@angular/core';
+
+
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ResetPasswordComponent} from './accountRecover/resetPassword.component';
@@ -10,23 +13,18 @@ import {UserProfileComponent} from './profile/userProfile.component';
 import {UserProfilePicturesComponent} from './profile/userProfilePictures.component';
 import {UserProfileSettingsComponent} from './profile/userProfileSettings.component';
 
-
-
-
 import {ChangePasswordComponent} from './profile/changePassword/changePassword.component';
 
-import {SingleUserComponent} from './users/singleUser.component';
-import {AddNoteComponent} from './users/addNote.component';
-import {ChooseDateComponent} from './users/chooseDate.component';
-import {UserPicturesComponent} from './users/userPictures.component';
+import {SingleUserComponent} from './singleUser/singleUser.component';
+import {AddNoteComponent} from './singleUser/addNote.component';
+import {ChooseDateComponent} from './singleUser/chooseDate.component';
+import {UserPicturesComponent} from './singleUser/userPictures.component';
+import {AddProductsToUserComponent} from './singleUser/addProductsToUser.component';
+import { UserProductsHistory} from './singleUser/userProductsHistory.component';
+import {NewUserComponent} from './singleUser/newUser.component';
 
-import {NewUserComponent} from './users/newUser.component';
 
-
-
-
-export const USER_ROUTES: Routes = [
-
+export const routes: Routes = [
   {path: 'newuser', component: NewUserComponent},
   {path: 'newuser/:id', component: NewUserComponent},
   {path: 'login', component: LoginComponent},
@@ -43,7 +41,13 @@ export const USER_ROUTES: Routes = [
   {path: ':id/addnote', component: AddNoteComponent},
   {path: ':id/choosedate', component: ChooseDateComponent},
   {path: ':id/userPictures', component: UserPicturesComponent},
-
-
+  {path: ':id/addProductsToUser', component: AddProductsToUserComponent},
+  {path: ':id/productsHistory', component: UserProductsHistory},
 
 ];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class UserRouting {}
