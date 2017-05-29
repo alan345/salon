@@ -8,7 +8,10 @@ var user = new Schema({
     email: {type: String, unique: true, required: true, lowercase: true},
     password: {type: String, required: true},
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
-    Products: [{type: Schema.Types.ObjectId, ref: 'Product'}],
+    products: [{
+      dateProductAdded: {type: Date, default: ['']},
+      product: {type: Schema.Types.ObjectId, ref: 'Product'},
+    }],
     notes: [{
       text: String,
       dateNote: Date

@@ -169,7 +169,7 @@ router.get('/:id', function (req, res, next) {
 
   User
   .findOne({_id: id})
-  .populate('products')
+  .populate('products.product')
   .populate('forms')
   .populate('profile._profilePicture')
   .populate('profile.parentUser')

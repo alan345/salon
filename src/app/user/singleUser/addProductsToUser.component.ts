@@ -3,7 +3,7 @@ import { UserService} from '../user.service';
 import { ToastsManager} from 'ng2-toastr';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { User } from '../user.model';
+import { User, ProductBought } from '../user.model';
 import { FormBuilder } from '@angular/forms';
 import { ProductService} from '../../product/product.service';
 import { Product } from '../../product/product.model';
@@ -42,6 +42,7 @@ export class AddProductsToUserComponent implements OnInit {
     // });
 
     this.activatedRoute.params.subscribe((params: Params) => {
+    //  console.log(params['id'])
       this.getUser(params['id']);
     });
   }
@@ -50,6 +51,7 @@ export class AddProductsToUserComponent implements OnInit {
     this.userService.getUser(id)
       .subscribe(
         res => {
+        //  console.log(res.user)
           this.fetchedUser = res.user;
         },
         error => {
@@ -83,7 +85,11 @@ export class AddProductsToUserComponent implements OnInit {
   }
 
   selectProduct(product: Product) {
-    this.fetchedUser.products.push(product);
+    let productBought: ProductBought = {
+      dateProductAdded: new Date(),
+      product: product
+    }
+    this.fetchedUser.products.unshift(productBought);
     this.fetchedBoughtProducts = [];
     this.inputBoughtProduct = '';
   }

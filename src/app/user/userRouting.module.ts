@@ -6,7 +6,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ResetPasswordComponent} from './accountRecover/resetPassword.component';
 import {ForgetPasswordComponent} from './accountRecover/forgetPassword.component';
-import {UserFormsComponent} from '../form/userForms.component';
+//import {UserFormsComponent} from '../form/userForms.component';
 import {AuthGuardService} from '../auth/authguard.service';
 // import {AppComponent} from '../app.component';
 import {UserProfileComponent} from './profile/userProfile.component';
@@ -31,7 +31,7 @@ export const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'reset', component: ForgetPasswordComponent},
   {path: 'reset/:token', component: ResetPasswordComponent},
-  {path: 'forms', component: UserFormsComponent, canActivate: [AuthGuardService]},
+  //{path: 'forms', component: UserFormsComponent, canActivate: [AuthGuardService]},
   {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
   {path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuardService]},
 

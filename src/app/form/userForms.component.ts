@@ -13,8 +13,8 @@ import { Form } from './form.model';
   styleUrls: ['./form.component.css']
 })
 export class UserFormsComponent implements OnInit {
-  @Input() itemsPerPage: number
-  @Input() isDialog: boolean
+  @Input() itemsPerPage: number;
+  @Input() isDialog: boolean;
 
 
 

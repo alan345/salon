@@ -8,11 +8,17 @@ export class User {
   lastVisit: Date = new Date;
   role: string[] = [];
   forms: Form[] = [];
-  products: Product[] = [];
+  products: ProductBought[] = [];
   profile: Profile = new Profile();
   notes: Note[] = [];
   password: string = '';
 }
+
+export class ProductBought {
+  dateProductAdded: Date = new Date;
+  product: Product;
+}
+
 
 
 export class Profile {

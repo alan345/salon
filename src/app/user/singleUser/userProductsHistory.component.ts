@@ -3,7 +3,7 @@ import { UserService} from '../user.service';
 import { ToastsManager} from 'ng2-toastr';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { User } from '../user.model';
+import { User, ProductBought } from '../user.model';
 import { FormBuilder } from '@angular/forms';
 import { ProductService} from '../../product/product.service';
 import { Product } from '../../product/product.model';
@@ -83,7 +83,12 @@ export class UserProductsHistory implements OnInit {
   }
 
   selectProduct(product: Product) {
-    this.fetchedUser.products.push(product);
+    let productBought: ProductBought = {
+      dateProductAdded: new Date(),
+      product: product
+    }
+    this.fetchedUser.products.push(productBought);
+
     this.fetchedBoughtProducts = [];
     this.inputBoughtProduct = '';
   }

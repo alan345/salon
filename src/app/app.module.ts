@@ -27,7 +27,13 @@ import { FooterComponent} from './nav/footer/footer.component';
 
 
 
+
+import { FormService} from './form/form.service';
+import { UserFormsComponent} from './form/userForms.component';
+import { UserFormsUploadAndList} from './form/userFormsUploadAndList.component';
 import { FormComponent} from './form/form.component';
+
+
 // import { RegisterComponent} from './user/register/register.component';
 // import { UserComponent} from './user/user.component';
 // import { NewUserComponent} from './user/users/newUser.component';
@@ -93,9 +99,6 @@ import { MainPageHomeService} from './mainPageHome/mainPageHome.service';
 
 
 
-import { FormService} from './form/form.service';
-
-
 import { ErrorPageComponent} from './errorPage/errorPage.component';
 
 
@@ -116,10 +119,6 @@ import { AdminComponent} from './admin/admin.component';
 
 
 
-import { UserFormsComponent} from './form/userForms.component';
-import { UserFormsUploadAndList} from './form/userFormsUploadAndList.component';
-
-
 
 
 
@@ -134,7 +133,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FooterComponent,
     NavbarComponent,
     SideNavbarComponent,
-    FormComponent,
+
 
     // ProductComponent,
     // ProductsComponent,
@@ -204,6 +203,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
     UserFormsComponent,
     UserFormsUploadAndList,
+    FormComponent,
+    
     ErrorPageComponent,
 
     AdminUsersComponent,

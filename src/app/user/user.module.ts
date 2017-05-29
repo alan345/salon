@@ -33,7 +33,7 @@ import { ForgetPasswordComponent} from './accountRecover/forgetPassword.componen
 import { UserPicturesComponent} from './singleUser/userPictures.component';
 import { UserService} from './user.service';
 import { LoginComponent} from './login/login.component';
-
+//import { UserFormsComponent} from '../form/userForms.component';
 
 
 
@@ -71,6 +71,7 @@ import { LoginComponent} from './login/login.component';
     UserProfileSettingsComponent,
     ChangePasswordComponent,
 
+  //  UserFormsComponent,
 
     RegisterComponent,
 

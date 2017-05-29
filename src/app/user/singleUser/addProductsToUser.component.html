@@ -20,10 +20,10 @@
         {{fetchedBoughtProduct.magento.sku}} - {{fetchedBoughtProduct.magento.name}}
         <button type="button" (click)="selectProduct(fetchedBoughtProduct)">select</button>
       </div>
-      <div *ngFor="let product of fetchedUser.products; let i=index">
-        <div *ngFor="let custom_attribute of product.magento.custom_attributes" class="rltpdt-ctnr">
+      <div *ngFor="let productFetch of fetchedUser.products; let i=index">
+        <div *ngFor="let custom_attribute of productFetch.product.magento.custom_attributes" class="rltpdt-ctnr">
           <div *ngIf="custom_attribute.attribute_code == 'image'" class="rltpdt-cnt">
-            {{product.magento.sku}} - {{product.magento.name}}
+            {{productFetch.product.magento.sku}} - {{productFetch.product.magento.name}}
             <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             <button type="button" (click)="removeProduct(i)"><i class="fa fa-times"></i></button>
           </div>
