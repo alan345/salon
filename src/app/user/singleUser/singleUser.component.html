@@ -32,8 +32,14 @@
           <!--Connect button below to add product form-->
           <button *ngIf="isMyClient()" [routerLink]="['/user/' + fetchedUser._id + '/addProductsToUser']" routerLinkActive="active" class="addpdt-btn">Add Product <i class="fa fa-plus"></i></button>
           <!--Add last two products bought here-->
-          <p class="blue">PhytoElixir Oil - 02/14/2017</p>
-          <p class="blue">PhytoElixir Mask - 12/21/2016</p>
+
+
+          <div *ngFor="let productFetch of fetchedUser.products; let i=index">
+            <p *ngIf="i<2" class="blue">
+            {{productFetch.product.magento.name}} - {{productFetch.dateProductAdded  | date :'dd-MMM-yyyy'}}
+            </p>
+          </div>
+
           <a class="seemre" [routerLink]="['/user/' + fetchedUser._id + '/productsHistory']" routerLinkActive="active">See Products History</a>
         </div>
       </div>
