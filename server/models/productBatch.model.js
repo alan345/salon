@@ -7,8 +7,9 @@ var mongoose                = require('mongoose'),
 var productBatch = new Schema({
 
 
-    dateBegin :  Date,
+    dateBegin : Date,
     dateEnd: Date,
+    type: {type: String,  default: ['']},
     status: {type: String,  default: ['']},
     total_count : {type: Number,  default: ['']},
     total_item_treated : {type: Number,  default: ['']},
