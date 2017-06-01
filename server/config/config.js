@@ -13,16 +13,16 @@ module.exports = {
     url: null,
     store: 'default', //set a store to contextualise in
     authentication: {
-      login: {
-        type: 'admin',
-        username: 'gooplus',
-        password: 'Gooplus123'
-      },
+      // login: {
+      //   type: 'admin',
+      //   username: 'gooplus',
+      //   password: 'Gooplus123'
+      // },
       integration: {
-        consumer_key: 'ieu6lhumh4kxfmc0df6wax3e1p5fsbjy',
-        consumer_secret: '4jywk7kygkc0aqwl6wrlcs8ntnoavqyr',
-        access_token: '1b2f3hojr2mdio0exhtj3d116fft8qde',
-        access_token_secret: 'v2cd0wqqwe4i0tkd08x99tnjvncj9dwo'
+        consumer_key: 'fnegvd8shdkhln98ewqtgteiagdaodnf',
+        consumer_secret: 'ad4iyytaytcmpabx2q8xtwlm4wu1dvxj',
+        access_token: 'mqky34othuojbsmuyrrywsi0tas8kdcf',
+        access_token_secret: '3ia5ugl5m44i2ff3amcatnux2ugiy9v6'
       }
     }
   },

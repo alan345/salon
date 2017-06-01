@@ -46,9 +46,15 @@ var schedule = require('node-schedule');
 
 
     function updateFromMagentoToBdd() {
-      console.log('starting..')
+      console.log('starting productBatch..')
       var dateBegin = new Date()
-      mageClient.catalog.product.get({
+
+      //mageClient.customers.get({
+      //mageClient.catalog.product.get({
+      // mageClient.get('/V1/customers/3',{
+      mageClient.get('/V1/products',{
+      //mageClient.get('/V1/customerGroups/47',{
+      //mageClient.get('/V1/customers/search',{
         search_criteria: {
           filter_groups: [{filters: [
             //   {
@@ -67,6 +73,9 @@ var schedule = require('node-schedule');
       })
       .catch(err => { writeLog('error1',  dateBegin, 0,0,0,0,0,0) })
       .then(response => {
+        console.log('res')
+        console.log(response)
+        console.log('res')
         var nbProductsCreated=0
         var nbProductsNotCreated=0
         var nbProductsUpdated=0

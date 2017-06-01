@@ -6,7 +6,8 @@ var express = require('express'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
     jwt     = require('jsonwebtoken');
- var productBatchServ    = require('./productBatchServ')
+var productBatchServ    = require('./productBatchServ')
+var companieBatchServ    = require('./companieBatchServ')
 //
 //
 //
@@ -18,6 +19,12 @@ router.get('/refreshbdd', function (req, res, next) {
 })
 
 
+router.get('/refreshbddCompanie', function (req, res, next) {
+  companieBatchServ.updateFromMagentoToBdd()
+  res.status(201).json({
+    message: 'request sent to update database from magento',
+  });
+})
 
 
 // this process does not hang the nodejs server on error

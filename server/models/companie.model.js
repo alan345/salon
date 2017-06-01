@@ -17,6 +17,9 @@ var companie = new Schema({
     typeCompanie: {type: String, default: ['salon']},
     _users : [{type: Schema.Types.ObjectId, ref: 'User'}],
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
+    magento: {
+      id: {type: String, unique: true, required: true},
+    }
 
 
   },

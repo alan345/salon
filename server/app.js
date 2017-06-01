@@ -19,8 +19,12 @@ var options    = require('./routes/options')
 var presses    = require('./routes/press')
 var videos    = require('./routes/video')
 var products    = require('./routes/product')
-var productsBatch    = require('./routes/productBatch')
+
+var productBatch    = require('./routes/productBatch')
 var productBatchServ    = require('./routes/productBatchServ')
+
+
+var companieBatchServ    = require('./routes/companieBatchServ')
 
 
 var app = express()
@@ -62,7 +66,10 @@ app.use('/video', videos)
 app.use('/admin', adminPage)
 app.use('/options', options)
 app.use('/product', products)
-app.use('/productBatch', productsBatch)
+app.use('/productBatch', productBatch)
+//app.use('/companieBatch', companieBatch)
+
+
 
 
 
