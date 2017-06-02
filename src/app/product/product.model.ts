@@ -91,11 +91,11 @@ export const categPhytoSpecific: any = [
 ]
 
 export const categSubtil: any = [
-    { name:'PERMANENT COLOR', selected : false },
-    { name:'DEMI-PERMANENT COLOR', selected : false },
-    { name:'TEMPORARY COLOR ENHANCING - DIRECT PIGMENTS', selected : false },
-    { name:'BLEACHING', selected : false },
-    { name:'AFTER-COLOR SHAMPOO & TECHNICAL', selected : false },
-    { name:'OXYDIZERS & DEVELOPER', selected : false },
-    { name:'STYLING', selected : false },
+    { name:'Permanent Color', selected : false },
+    { name:'Demi-Permanent Color', selected : false },
+    { name:'Temporary Color Enhancing - Direct Pigments', selected : false },
+    { name:'Bleaching', selected : false },
+    { name:'After-Color Shampoo & Technical', selected : false },
+    { name:'Oxydizers & Developer', selected : false },
+    { name:'Styling', selected : false },
 ]
