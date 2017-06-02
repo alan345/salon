@@ -27,6 +27,7 @@ router.get('/refreshbddCompanie', function (req, res, next) {
 })
 
 
+
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function (err) {
   console.log(err);
