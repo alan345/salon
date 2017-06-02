@@ -20,7 +20,12 @@
       </thead>
       <tbody class="clienttbl">
         <tr *ngFor="let companie of fetchedCompanies | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }">
-          <a [routerLink]="['/companie/' + companie._id]" routerLinkActive="active"><td>{{companie.name}}</td></a>
+          <a [routerLink]="['/companie/' + companie._id]" routerLinkActive="active">
+            <td>
+              <div *ngIf="companie.magento.firstname !='Not Defined'">{{companie.magento.firstname}}</div>
+              <div *ngIf="companie.magento.lastname !='Not Defined'">{{companie.magento.lastname}}</div>
+            </td>
+          </a>
         </tr>
       </tbody>
     </table>

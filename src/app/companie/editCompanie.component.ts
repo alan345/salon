@@ -22,20 +22,7 @@ import { User } from '../user/user.model';
   styleUrls: ['./companie.component.css'],
 })
 export class EditCompanieComponent implements OnInit {
-  fetchedCompanie : Companie = {
-    _id: '',
-    forms:[],
-    name: '',
-    typeCompanie: '',
-    phoneNumber: '',
-    address: {
-      address : '',
-      city :  '',
-      state :  '',
-      zip :  ''
-    },
-    _users:[]
-  }
+  fetchedCompanie: Companie = new Companie();
 
   userAdmins : User[] = []
   userManagers : User[] = []

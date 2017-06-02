@@ -7,9 +7,8 @@
     <h4 class="dspl-nn">id: {{fetchedCompanie._id}}</h4>
     <!-- <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)"> -->
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(true)">
-      <div class="form-group sln-inffrm">
-        <!-- <div formGroupName="fetchedCompanie"> -->
-        <!-- <div ngModelGroup="fetchedCompanie"> -->
+      <!-- <div class="form-group sln-inffrm">
+
           <input
             type="text"
             class="form-control"
@@ -28,7 +27,7 @@
             minlength="5"
             placeholder="Phone Number"
           >
-          <!-- <div ngModelGroup="address"> -->
+
           <div formGroupName="address">
             <input
               type="text"
@@ -67,8 +66,8 @@
                 placeholder="Zip Code"
               >
           </div>
-        <!-- </div> -->
-      </div>
+
+      </div> -->
       <h4 style="margin-top:35px !important;">Manage Users:</h4>
       <div *ngIf="fetchedCompanie._id">
         <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>

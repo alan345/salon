@@ -27,34 +27,8 @@ export class NewUserComponent implements OnInit {
   //fetchedUser = new User()
   //fetchedUser : User;
   fetchedCompanies: Companie[] = []
-  fetchedCompanieInit : Companie = {
-    _id: '',
-    forms:[],
-    name: '',
-    typeCompanie: '',
-    phoneNumber: '',
-    address: {
-      address : '',
-      city :  '',
-      state :  '',
-      zip :  ''
-    },
-    _users:[]
-  }
-  fetchedCompanieAfter : Companie = {
-    _id: '',
-    forms:[],
-    name: '',
-    typeCompanie: '',
-    phoneNumber: '',
-    address: {
-      address : '',
-      city :  '',
-      state :  '',
-      zip :  ''
-    },
-    _users:[]
-  }
+  fetchedCompanieInit : Companie = new Companie();
+  fetchedCompanieAfter : Companie = new Companie();
   companieIndexToSelect = ''
 
 
