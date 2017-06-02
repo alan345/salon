@@ -43,6 +43,52 @@ export class CompanieService {
   }
 
 
+
+  sendInvitationToJoinCompanie(objToSend: any) {
+  //  console.log("this.authService.currentUser.token",this.authService.currentUser.token);
+
+    const body = JSON.stringify(objToSend);
+    const headers = new Headers({'Content-Type': 'application/json'});
+  //  let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    return this.http.post(this.url + 'companie/sendinvitationToJoinCompanie', body, {headers: headers})
+      .map(response => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
+
+  //
+  // // sending request for password reset
+  // sendInvitationToJoinCompanie(objToSend: any) {
+  //   let headers = new Headers({'Content-Type': 'application/json'});
+  //   headers.append('Authorization', '' + this.authService.currentUser.token)
+  //   let options = new RequestOptions({ headers: headers, search: objToSend});
+  //   return this.http.post(this.url + '/companie/sendinvitationToJoinCompanie' , options)
+  //     .timeout(5000)
+  //     .map((response: Response) => {
+  //       const companies = response.json();
+  //       return companies;
+  //     })
+  //     .catch((error: Response) => {
+  //       this.errorService.handleError(error.json());
+  //       return Observable.throw(error.json());
+  //     });
+  //
+  //   //
+  //   // const body = JSON.stringify(objToSend);
+  //   // const headers = new Headers({'Content-Type': 'application/json'});
+  //   // return this.http.post('/companie/sendInvitationToJoinCompanie', body, {headers: headers})
+  //   //   .map((response: Response) => response.json())
+  //   //   .catch((error: Response) => {
+  //   //     this.errorService.handleError(error.json());
+  //   //     return Observable.throw(error.json());
+  //   //   });
+  // }
+
+
   getCompanieForCurrentUser() {
     // if(this.companiesForCurrentUser.length) {
     //   return Observable.of(this.companiesForCurrentUser)

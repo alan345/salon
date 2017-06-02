@@ -5,8 +5,8 @@ module.exports = {
   'database': 'mongodb://gooplus:nkasndasdTY54TGa@ds145790.mlab.com:45790/gooplus',
   //'database': 'mongodb://localhost:27017/gooplus',
   'secret': 'SUPERsecret', // change this to a hard to guess random string. it's for jwt encryption and decryption
-  'api_user': 'YOUR SENDGRID USERNAME',
-  'api_key': 'YOUR SENDGRID PASSWORD',
+  'userGmail': 'noreply@alesgroup.com',
+  'passGmail': 'vwvxt5924FEeB47p',
   'jwtExpire': '72h', //set the jwtExpire in smaller period in production
 
   'optionsBatch' : {

@@ -6,7 +6,8 @@ var express     = require('express'),
     sgTransport = require('nodemailer-sendgrid-transport'),
     config      = require('../config/config');
 
-var User = require('../models/user.model');
+    var User = require('../models/user.model');
+    var Companie = require('../models/companie.model');
 
 
 // requesting password reset and setting the fields resetPasswordToken to a newly generated token
@@ -22,7 +23,8 @@ router.post('/', function (req, res, next) {
       });
     },
     function (token, done) {
-      User.findOne({email: req.body.email}, function (err, user) {
+
+      User.findOne({email: req.body.fetchedUser}, function (err, user) {
         if (err) {
           return res.status(403).json({
             title: 'There was an error',
@@ -36,28 +38,48 @@ router.post('/', function (req, res, next) {
           })
         }
 
-        user.resetPasswordToken   = token;
-        user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
 
-        user.save(function (err) {
-          done(err, token, user);
-        });
+console.log(req.body.fetchedCompanie)
+
+        Companie
+        .findOne({_id:req.body.fetchedCompanie})
+        .populate(
+          {
+            path: '_users',
+            model: 'User',
+          })
+        .exec(function (err, item) {
+          if (err) {
+            return res.status(404).json({
+              message: '',
+              err: err
+            })
+          } if (!item) {
+            return res.status(404).json({
+              title: 'No obj found',
+              error: {message: 'Obj not found!'}
+            })
+          } else {
+            done(err, item, user);
+            res.status(200).json({
+              message: 'Success',
+              item: item
+            });
+          }
+        })
+
+
+
+
+
+
+
       });
     },
 
     // sending the notification email to the user with the link and the token created above
     function (token, user, done) {
-      // var options = {
-      //   auth: {
-      //     //please edit the config file and add your SendGrid credentials
-      //     api_user: config.api_user,
-      //     api_key: config.api_key
-      //   }
-      // };
-      //var mailer  = nodemailer.createTransport(sgTransport(options));
 
-
-      // see https://nodemailer.com/usage/
       var mailer = nodemailer.createTransport({
           service: "Gmail",
           // host: 'smtp.gmail.com',
@@ -68,19 +90,28 @@ router.post('/', function (req, res, next) {
               pass: config.passGmail
           }
       })
+      userToSendMail = []
 
+      token._users.forEach(user => {
+        if(user.role == 'admin') {
+          userToSendMail.push(user.email)
+        }
+      })
 
       var html = `
 
       <b>You are receiving</b>
-      this email because you or someone else asked for a password reset for your account.
-      Please follow the link or copy paste it in your browser address bar to initiate password change:
-      http://${req.headers.host}/#/user/reset/${token} (The link will remain active for one hour).
-      If you didnt asked for a password reset, please ignore this email, your password will remain the same
+      NEW INVITATION
+
+      LINK:
+      http://${req.headers.host}/#/companie/edit/addUser/${req.body.fetchedCompanie}/${req.body.fetchedUser}
+
+
 
       `;
       var mailOptions = {
-        to: user.email,
+        //to: userToSendMail,   // ici quand on aura fini les tests, il faudra remplacer par cette ligne
+        to: 'alan.szternberg@gmail.com',
         from: config.userGmail,
         subject: 'Salon app | Password Change Request  ',
         html: html

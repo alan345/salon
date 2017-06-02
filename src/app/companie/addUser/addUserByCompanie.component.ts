@@ -107,8 +107,30 @@ export class AddUserByCompanieComponent implements OnInit {
 
 
   requestAddUserToComp() {
+    // this.link = window.location.origin + "#/companie/edit/addUser/" + this.fetchedCompanie._id + '/' + this.fetchedUser.email;
+    let objToSend  = {
+      // link: this.link,
+      fetchedCompanie: this.fetchedCompanie._id,
+      fetchedUser: this.fetchedUser.email
+    }
+    this.companieService.sendInvitationToJoinCompanie(objToSend)
+      .subscribe(
+        res => {
+          if(res.data.length) {
+            this.fetchedCompanie  = <Companie>res.data[0]
+          } else {
+            this.toastr.error('error! No Salon Founded')
+          }
+        },
+        error => {
+          console.log(error);
+        }
+      );
+
+
+
     this.toastr.success('Great!', 'Request has been sent');
-    this.link = window.location.origin + "#/companie/edit/addUser/" + this.fetchedCompanie._id + '/' + this.fetchedUser.email;
+
     this.userAdmins.forEach((user: User) => { this.userToSendMail.push(user)})
     this.usersSalesRep.forEach((user: User) => { this.userToSendMail.push(user)})
   //  this.userClients.forEach((user: User) => { this.userToSendMail.push(user)})
