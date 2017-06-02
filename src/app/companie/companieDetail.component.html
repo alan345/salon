@@ -16,13 +16,27 @@
   <div class="beigeback phyto-ctnr">
     <div class="sln-adrs">
 
-      <h3>Welcome to
-        <div *ngIf="fetchedCompanie.magento.firstname !='Not Defined'">{{fetchedCompanie.magento.firstname}}</div>
-        <div *ngIf="fetchedCompanie.magento.lastname !='Not Defined'">{{fetchedCompanie.magento.lastname}}</div>
-      </h3>
-      <div *ngFor="let address of fetchedCompanie.magento.addresses">
-        <h6>{{address.street}}, {{address.city}}, {{address.region.region_code}} {{address.postcode}} - {{address.telephone}}</h6>
+
+      <div *ngIf="isHQcompanie()">
+        <div class="sln-adrs">
+          <h3>Welcome to {{fetchedCompanie.name}}</h3>
+          <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}} - {{fetchedCompanie.phoneNumber}}</h6>
+        </div>
       </div>
+
+      <div *ngIf="!isHQcompanie()">
+        <h3>
+          Welcome to
+          <div *ngIf="fetchedCompanie.magento.firstname !='Not Defined'">{{fetchedCompanie.magento.firstname}}</div>
+          <div *ngIf="fetchedCompanie.magento.lastname !='Not Defined'">{{fetchedCompanie.magento.lastname}}</div>
+        </h3>
+        <div *ngFor="let address of fetchedCompanie.magento.addresses">
+          <h6>{{address.street}}, {{address.city}}, {{address.region.region_code}} {{address.postcode}} - {{address.telephone}}</h6>
+        </div>
+      </div>
+
+
+
     </div>
     <div class="sln-sty phyto-ctnr">
       <div *ngFor="let user of fetchedCompanie._users">
