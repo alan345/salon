@@ -39,7 +39,7 @@ router.post('/', function (req, res, next) {
         }
 
 
-console.log(req.body.fetchedCompanie)
+
 
         Companie
         .findOne({_id:req.body.fetchedCompanie})
