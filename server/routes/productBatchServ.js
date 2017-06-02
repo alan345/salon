@@ -46,6 +46,20 @@ var schedule = require('node-schedule');
 
 
     function updateFromMagentoToBdd() {
+
+      var logObj = {
+        'type' : 'product',
+        'dateBegin' : new Date(),
+        'dateEnd': '',
+        'status' : '',
+        'total_count' : 0,
+        'total_item_treated' : 0,
+        'nbProductsCreated' : 0,
+        'nbProductsUpdated' : 0,
+        'nbProductsNotCreated' : 0,
+        'nbProductsNotUpdated' : 0,
+      }
+
       console.log('starting productBatch..')
       var dateBegin = new Date()
 
@@ -53,36 +67,19 @@ var schedule = require('node-schedule');
       //mageClient.catalog.product.get({
       // mageClient.get('/V1/customers/3',{
       mageClient.get('/V1/products',{
-      //mageClient.get('/V1/customerGroups/47',{
-      //mageClient.get('/V1/customers/search',{
-        search_criteria: {
-          filter_groups: [{filters: [
-            //   {
-            //   // field: "price", value: 10, condition_type: "lt"
-            //   field: "name",
-            //   value: '%',
-            //   condition_type: "like"
-            // }
-          ]}],
-          "current_page": 1,
-          "page_size": 10000
-        },
-        // fields: {
-        //   items: [ "sku" ]
-        // }
+        search_criteria: '*',
       })
-      .catch(err => { writeLog('error1',  dateBegin, 0,0,0,0,0,0) })
+      .catch(err => {
+        logObj.status = 'error_connexion_Magento'
+        writeLog(logObj)
+      })
       .then(response => {
-        console.log('res')
-        console.log(response)
-        console.log('res')
-        var nbProductsCreated=0
-        var nbProductsNotCreated=0
-        var nbProductsUpdated=0
-        var nbProductsNotUpdated=0
-        var itemsProcessed = 0;
+        var itemsProcessed = 0
+        logObj.total_count = response.total_count
+        logObj.total_item_treated = response.items.length
+
         let products = response.items
-        products.forEach((productMagento , index, array) => {
+        products.forEach((productMagento, index, array) => {
           console.log('treating product.. ' + index)
           Product
           .findOne(
@@ -92,10 +89,8 @@ var schedule = require('node-schedule');
           )
           .exec(function (err, item) {
             if (err) {
-              return res.status(403).json({
-                title: 'There was a problem',
-                error: err
-              });
+              logObj.status = 'not reach  product element'
+              writeLog(logObj)
             }
             if (!item) {
                  var product = new Product({
@@ -103,15 +98,19 @@ var schedule = require('node-schedule');
                  })
                 product.save(function (err, result) {
                   if (err) {
-                    nbProductsNotCreated++;
-                    itemsProcessed++;
-                    if(itemsProcessed === array.length)
-                      writeLog('error', dateBegin, response.total_count, products.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreated, nbProductsNotUpdated)
+                    logObj.nbProductsNotCreated++
+                    itemsProcessed++
+                    if(itemsProcessed === array.length) {
+                      logObj.status = 'error_2'
+                      writeLog(logObj)
+                    }
                   } else {
-                    nbProductsCreated++
-                    itemsProcessed++;
-                    if(itemsProcessed === array.length)
-                      writeLog('ok',  dateBegin, response.total_count, products.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreated, nbProductsNotUpdated)
+                    logObj.nbProductsCreated++
+                    itemsProcessed++
+                    if(itemsProcessed === array.length) {
+                      logObj.status = 'ok'
+                      writeLog(logObj)
+                    }
                   }
                 })
             } else {
@@ -122,52 +121,33 @@ var schedule = require('node-schedule');
               }
               item.save(function (err, result) {
                 if (err) {
-                  nbProductsNotUpdated++
-                  itemsProcessed++;
-                  if(itemsProcessed === array.length)
-                    writeLog('error',  dateBegin, response.total_count, products.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreated, nbProductsNotUpdated)
-                } else {
+                  console.log(err)
+                  logObj.nbProductsNotUpdated++
+                  itemsProcessed++
 
-                  nbProductsUpdated++
-                  itemsProcessed++;
-                  if(itemsProcessed === array.length)
-                    writeLog('ok',  dateBegin, response.total_count, products.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreated, nbProductsNotUpdated)
+                  if(itemsProcessed === array.length) {
+                    logObj.status = 'error_1'
+                    writeLog(logObj)
+                  }
+                } else {
+                  logObj.nbProductsUpdated++
+                  itemsProcessed++
+                  if(itemsProcessed === array.length) {
+                    logObj.status = 'ok'
+                    writeLog(logObj)
+                  }
                 }
               })
             }
           })
         })
-      });
+      })
     }
-    exports.updateFromMagentoToBdd = updateFromMagentoToBdd;
+    exports.updateFromMagentoToBdd = updateFromMagentoToBdd
 
-    function writeLog(
-      status,
-      dateBegin,
-      total_count,
-      total_item_treated,
-      nbProductsCreated,
-      nbProductsUpdated,
-      nbProductsNotCreated,
-      nbProductsNotUpdated) {
-
-
-
-
-        let logObj = {
-          'dateBegin' :  dateBegin,
-          'dateEnd': new Date(),
-          'status' : status,
-          'total_count' : total_count,
-          'total_item_treated' : total_item_treated,
-          'nbProductsCreated' : nbProductsCreated,
-          'nbProductsUpdated' : nbProductsUpdated,
-          'nbProductsNotCreated' : nbProductsNotCreated,
-          'nbProductsNotUpdated' : nbProductsNotUpdated,
-        }
-
+    function writeLog(logObj) {
+        logObj.dateEnd = new Date()
           var productBatch = new ProductBatch(logObj)
-          console.log(productBatch)
           productBatch.save(function (err, result) {
             if (err) {
               console.log('Error')
@@ -177,14 +157,4 @@ var schedule = require('node-schedule');
             console.log(result)
           })
 
-
-
-
-
-
-      //
-      //
-      // console.log(logObj)
-      // var fs = require('fs');
-      // fs.appendFileSync('server/log/magentoToDB.txt', '\n' + JSON.stringify(logObj));
     }

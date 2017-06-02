@@ -71,41 +71,18 @@ var schedule = require('node-schedule');
       //mageClient.get('/V1/customerGroups/47',{
       mageClient.get('/V1/customers/search',{
         search_criteria: '*',
-        // fields: {
-        //   items: [ "sku" ]
-        // }
       })
       .catch(err => {
         logObj.status = 'error_connexion_Magento'
         writeLog(logObj)
       })
       .then(response => {
-        //console.log('res')
-        //console.log(response)
-        //console.log('res')
-        // var nbProductsCreated=0
-        // var nbProductsNotCreated=0
-        // var nbProductsUpdated=0
-        // var nbProductsNotUpdated=0
-         var itemsProcessed = 0;
-
-        // var logObj = {
-        //   'type' : 'companie',
-        //   'dateBegin' : new Date(),
-        //   'dateEnd': '',
-        //   'status' : '',
-        //   'total_count' : response.total_count,
-        //   'total_item_treated' : response.items.length,
-        //   'nbProductsCreated' : 0,
-        //   'nbProductsUpdated' : 0,
-        //   'nbProductsNotCreated' : 0,
-        //   'nbProductsNotUpdated' : 0,
-        // }
+        var itemsProcessed = 0
         logObj.total_count = response.total_count
         logObj.total_item_treated = response.items.length
 
         let companies = response.items
-        companies.forEach((companieMagento , index, array) => {
+        companies.forEach((companieMagento, index, array) => {
           console.log('treating companie.. ' + index)
           Companie
           .findOne(
@@ -118,26 +95,18 @@ var schedule = require('node-schedule');
               logObj.status = 'not reach  companie element'
               writeLog(logObj)
             }
-
             if (!item) {
-
                  var companie = new Companie({
                    magento: companieMagento
                  })
-                 console.log('g')
                 companie.save(function (err, result) {
-                  console.log('r')
-                  console.log((itemsProcessed, array.length))
-
                   if (err) {
                     logObj.nbProductsNotCreated++
                     itemsProcessed++
-
                     if(itemsProcessed === array.length) {
                       logObj.status = 'error_2'
                       writeLog(logObj)
                     }
-                      // writeLog('error', dateBegin, AA response.total_count, companies.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreated, nbProductsNotUpdated)
                   } else {
                     logObj.nbProductsCreated++
                     itemsProcessed++
@@ -145,7 +114,6 @@ var schedule = require('node-schedule');
                       logObj.status = 'ok'
                       writeLog(logObj)
                     }
-
                   }
                 })
             } else {
@@ -154,9 +122,6 @@ var schedule = require('node-schedule');
                 if(prop !== '__v' && prop !== 'updatedAt' && prop !== 'createdAt')
                   item['magento'][prop] = companieMagento[prop]
               }
-              // console.log('k')
-              // console.log(item)
-              // console.log('p')
               item.save(function (err, result) {
                 if (err) {
                   console.log(err)
@@ -167,17 +132,13 @@ var schedule = require('node-schedule');
                     logObj.status = 'error_1'
                     writeLog(logObj)
                   }
-                    // writeLog('error',  dateBegin, response.total_count, companies.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreated, nbProductsNotUpdated)
                 } else {
-                  console.log('p')
-                  console.log(result)
                   logObj.nbProductsUpdated++
                   itemsProcessed++
                   if(itemsProcessed === array.length) {
                     logObj.status = 'ok'
                     writeLog(logObj)
                   }
-                    //writeLog('ok',  dateBegin, response.total_count, companies.length, nbProductsCreated, nbProductsUpdated, nbProductsNotCreated, nbProductsNotUpdated)
                 }
               })
             }
@@ -188,22 +149,8 @@ var schedule = require('node-schedule');
     exports.updateFromMagentoToBdd = updateFromMagentoToBdd
 
     function writeLog(logObj) {
-
         logObj.dateEnd = new Date()
-        // let logObj = {
-        //   'dateBegin' :  dateBegin,
-        //   'dateEnd': new Date(),
-        //   'status' : status,
-        //   'total_count' : total_count,
-        //   'total_item_treated' : total_item_treated,
-        //   'nbProductsCreated' : nbProductsCreated,
-        //   'nbProductsUpdated' : nbProductsUpdated,
-        //   'nbProductsNotCreated' : nbProductsNotCreated,
-        //   'nbProductsNotUpdated' : nbProductsNotUpdated,
-        // }
-
           var productBatch = new ProductBatch(logObj)
-          //console.log(productBatch)
           productBatch.save(function (err, result) {
             if (err) {
               console.log('Error')
@@ -213,14 +160,4 @@ var schedule = require('node-schedule');
             console.log(result)
           })
 
-
-
-
-
-
-      //
-      //
-      // console.log(logObj)
-      // var fs = require('fs');
-      // fs.appendFileSync('server/log/magentoToDB.txt', '\n' + JSON.stringify(logObj));
     }

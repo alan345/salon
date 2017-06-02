@@ -22,13 +22,12 @@ var products    = require('./routes/product')
 
 var productBatch    = require('./routes/productBatch')
 var productBatchServ    = require('./routes/productBatchServ')
-
-
 var companieBatchServ    = require('./routes/companieBatchServ')
 
 
 var app = express()
 productBatchServ.jobScedule()
+companieBatchServ.jobScedule()
 
 mongoose.Promise = global.Promise  // gets rid of the mongoose promise deprecated warning
 mongoose.connect(config.database)
