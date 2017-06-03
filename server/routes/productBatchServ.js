@@ -18,6 +18,7 @@ var schedule = require('node-schedule');
     exports.jobScedule = jobScedule;
 
 
+
     const optionsBatch = config.optionsBatch
     // const optionsBatch = {
     //   url: null,

@@ -3,78 +3,86 @@
 		"$oid": "58ed2d1a3bccc80dc8c17964"
 	},
 	"updatedAt": {
-		"$date": "2017-04-24T20:48:00.373Z"
+		"$date": "2017-06-02T21:03:40.981Z"
 	},
 	"lastVisit": {
-		"$date": "2017-04-03T18:02:08.177Z"
+		"$date": "2017-04-28T18:42:37.650Z"
 	},
 	"profile": {
 		"hair": {
-			"hairTexture": "asdasd",
-			"hairPorosity": "user",
-			"hairDensity": "user"
+			"hairTexture": "deb",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
 		},
-		"lastName": "ttot",
-		"name": "asdasdALANDEB",
-		"parentUser": []
+		"phoneNumber": "8738932423",
+		"lastName": "SZTERNBERG",
+		"title": "App Developper",
+		"isFeatured": false,
+		"name": "Alan",
+		"parentUser": [],
+		"_profilePicture": [
+			{
+				"$oid": "58f00117d56b1f18bfd19484"
+			}
+		]
 	},
 	"createdAt": {
 		"$date": "2017-04-11T19:23:06.525Z"
 	},
 	"email": "alan345@gmail.com",
-	"password": "sha1$cfa25cd4$1$11a97f0b86d26d2ec1bec5e36cd9fe7a220e0086",
-	"notes": [
-		{
-			"text": " toto",
-			"dateNote": {
-				"$date": "2017-04-03T18:02:08.177Z"
-			},
-			"_id": {
-				"$oid": "58ed5149aa6a301eee26b0dd"
-			}
-		},
-		{
-			"text": " toto",
-			"dateNote": {
-				"$date": "2017-04-03T18:02:08.177Z"
-			},
-			"_id": {
-				"$oid": "58ed5149aa6a301eee26b0dc"
-			}
-		},
-		{
-			"text": "vraiment trop cool",
-			"dateNote": {
-				"$date": "2017-04-11T22:14:06.822Z"
-			},
-			"_id": {
-				"$oid": "58ed552fd722391f5a2d262f"
-			}
-		},
-		{
-			"text": "ce client est vraiment de la balle. je vous le conseille",
-			"dateNote": {
-				"$date": "2017-04-11T22:16:53.771Z"
-			},
-			"_id": {
-				"$oid": "58ed55d6d722391f5a2d2630"
-			}
-		}
-	],
-	"__v": 26,
+	"password": "sha1$a0b233e6$1$2ec3e3389db7f4d065477b276597eec95aae466c",
+	"__v": 147,
 	"role": [
 		"admin"
 	],
-	"resetPasswordExpires": "1493066093303",
-	"resetPasswordToken": "9176502e7c9b24bd1eaf973a44deb6886bc8da6e",
-	"forms": []
+	"forms": [],
+	"notes": [
+		{
+			"text": "testsd",
+			"dateNote": {
+				"$date": "2017-04-24T23:53:49.748Z"
+			},
+			"_id": {
+				"$oid": "58fe900ebc626e8b32a8410d"
+			}
+		},
+		{
+			"text": "ffffff",
+			"dateNote": {
+				"$date": "2017-04-25T01:13:26.189Z"
+			},
+			"_id": {
+				"$oid": "58fea2b8ef30a76715677d2e"
+			}
+		},
+		{
+			"text": "ccccccc",
+			"dateNote": {
+				"$date": "2017-04-25T01:28:14.120Z"
+			},
+			"_id": {
+				"$oid": "58fea62fef30a76715677d2f"
+			}
+		}
+	],
+	"trackinPage": {
+		"lastVisitPagePress": {
+			"$date": "2017-05-31T16:19:07.236Z"
+		},
+		"lastVisitPageVideo": {
+			"$date": "2017-05-31T16:35:59.067Z"
+		}
+	},
+	"products": [],
+	"resetPasswordExpires": "1496441020812",
+	"resetPasswordToken": "d064d6fbf5b4c94cee4a948625ccd9ebc5ba6a4b"
 }
 {
 	"_id": {
 		"$oid": "58f7adf84f6fdc547114e10d"
 	},
 	"updatedAt": {
-		"$date": "2017-04-24T17:28:48.032Z"
+		"$date": "2017-06-02T00:38:50.910Z"
 	},
 	"createdAt": {
 		"$date": "2017-04-19T18:35:36.787Z"
@@ -82,17 +90,22 @@
 	"email": "doriane@latelier-marketing.com",
 	"password": "sha1$084e4c14$1$4b74f69de499faa93cf42427940b2af1d41e2606",
 	"profile": {
-		"name": "juju . de la balle",
-		"parentUser": [
-			{
-				"$oid": "58ed2d1a3bccc80dc8c17964"
-			}
-		],
 		"hair": {
 			"hairTexture": "ahsdasdasd",
-			"hairDensity": "asdasdasd",
-			"hairPorosity": "asdasdasd"
-		}
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "415-691-1742",
+		"lastName": "Mouret",
+		"title": "App Designer",
+		"isFeatured": false,
+		"name": "Doriane",
+		"parentUser": [],
+		"_profilePicture": [
+			{
+				"$oid": "5904418c1ec3e93df573107b"
+			}
+		]
 	},
 	"role": [
 		"admin"
@@ -100,8 +113,2974 @@
 	"notes": [],
 	"forms": [
 		{
-			"$oid": "58fe35d0ef30a76715677d22"
+			"$oid": "5901514a2136ce3751016964"
+		},
+		{
+			"$oid": "59038bfa477b1107bc35a881"
+		},
+		{
+			"$oid": "5907a6fb1fd12b2700b54201"
+		},
+		{
+			"$oid": "5907c2671fd12b2700b54203"
+		},
+		{
+			"$oid": "5907cbb81fd12b2700b54205"
+		},
+		{
+			"$oid": "5907cca01fd12b2700b54209"
+		},
+		{
+			"$oid": "5907ccaf1fd12b2700b5420a"
+		},
+		{
+			"$oid": "5907cda21fd12b2700b5420b"
+		},
+		{
+			"$oid": "5907cdfc1fd12b2700b5420c"
+		},
+		{
+			"$oid": "5907f517f48b653fd9e0bd89"
+		},
+		{
+			"$oid": "5907f5dff48b653fd9e0bd8b"
+		},
+		{
+			"$oid": "5907fccef48b653fd9e0bd8e"
+		},
+		{
+			"$oid": "5907fd06f48b653fd9e0bd90"
+		},
+		{
+			"$oid": "5907fd19f48b653fd9e0bd92"
+		},
+		{
+			"$oid": "5907ff32f48b653fd9e0bd96"
+		},
+		{
+			"$oid": "5907ff3df48b653fd9e0bd97"
+		},
+		{
+			"$oid": "5907ff42f48b653fd9e0bd98"
+		},
+		{
+			"$oid": "590e39f7aef4af4c55e9ed4d"
+		}
+	],
+	"trackinPage": {
+		"lastVisitPagePress": {
+			"$date": "2017-05-23T20:40:53.475Z"
+		},
+		"lastVisitPageVideo": {
+			"$date": "2017-06-02T00:28:15.215Z"
+		}
+	},
+	"__v": 50,
+	"resetPasswordExpires": "1493347349708",
+	"resetPasswordToken": "7d0eca7c9011ee3d6a473ef5484068704a8e13a1",
+	"products": []
+}
+{
+	"_id": {
+		"$oid": "5903e8581ec3e93df5731075"
+	},
+	"updatedAt": {
+		"$date": "2017-04-30T17:16:41.925Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-29T01:11:52.707Z"
+	},
+	"email": "random_lvevcxffv8afk96xszwz@random.com",
+	"password": "sha1$bb040770$1$4a419dd9782ec80420de534f2bff86d2bfadb1b0",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"name": "Rachel McAdams",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [
+		{
+			"text": "Requests, long, waivy hair with ombre highlights. Talked about that time she played Buttercup in a one-off, staged LACMA Live Read of The Princess Bride.",
+			"dateNote": {
+				"$date": "2017-04-29T01:13:29.119Z"
+			},
+			"_id": {
+				"$oid": "5903e8bb1ec3e93df5731076"
+			}
+		}
+	],
+	"forms": [
+		{
+			"$oid": "5902a7ab2136ce3751016971"
+		},
+		{
+			"$oid": "5901514a2136ce3751016964"
+		}
+	],
+	"__v": 4,
+	"lastVisit": {
+		"$date": "2017-04-30T17:16:39.537Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "5905765a1723df30a8ace05c"
+	},
+	"updatedAt": {
+		"$date": "2017-04-30T05:49:29.940Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-30T05:30:02.671Z"
+	},
+	"email": "random_xiq1dbghyhkbzldvmbn5@random.com",
+	"password": "sha1$d19d8d96$1$ebe9ca69b4f5ee8a098a42eb377ea40f43950c4f",
+	"profile": {
+		"name": "sfdsdfsdfsdfsfrf",
+		"hair": {
+			"hairTexture": "deb",
+			"hairDensity": "alan",
+			"hairPorosity": "deb"
+		}
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5905817d7da08232e6e7a566"
+	},
+	"updatedAt": {
+		"$date": "2017-04-30T06:17:56.204Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-30T06:17:33.701Z"
+	},
+	"email": "random_sbar1rhwigtfv9dfooia@random.com",
+	"password": "sha1$0ff0243a$1$0b6e4ec53f7257f22be1e0bd85a9bc7a7d62efb4",
+	"profile": {
+		"name": "propaasdasdmaosidnaus",
+		"hair": {
+			"hairTexture": "alan",
+			"hairDensity": "alan",
+			"hairPorosity": "alan"
+		}
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590581d57da2ad32f8a8778d"
+	},
+	"updatedAt": {
+		"$date": "2017-04-30T06:19:12.105Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-30T06:19:01.434Z"
+	},
+	"email": "random_8ckm99j3b5xttxdfzyjn@random.com",
+	"password": "sha1$37f1c3a8$1$8a67a158fd746e2749476052cf918b00d538b59c",
+	"profile": {
+		"name": "dsfskdmsodj",
+		"hair": {
+			"hairTexture": "alan",
+			"hairDensity": "alan",
+			"hairPorosity": "alan"
+		}
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590582257da2ad32f8a8778e"
+	},
+	"updatedAt": {
+		"$date": "2017-05-05T02:43:51.337Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-30T06:20:21.288Z"
+	},
+	"email": "stylist2@gmail.com",
+	"password": "sha1$c9de80a9$1$e7c155b6f48911e0b4a05793d4a500eb8595a88c",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "45678",
+		"lastName": "paul",
+		"title": "hello",
+		"name": "Stylist",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 1
+}
+{
+	"_id": {
+		"$oid": "5905828e7da2ad32f8a87790"
+	},
+	"updatedAt": {
+		"$date": "2017-04-30T06:22:11.920Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-30T06:22:06.343Z"
+	},
+	"email": "random_jtvto5yn3yfpmoxnxug1@random.com",
+	"password": "sha1$f71944f5$1$9134a631e9531d46e9312739736890c23ae1f8d9",
+	"profile": {
+		"name": "sakldmalsdmlaksd",
+		"hair": {
+			"hairTexture": "alan",
+			"hairDensity": "alan",
+			"hairPorosity": "alan"
+		}
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59058406b082163334cffb0f"
+	},
+	"updatedAt": {
+		"$date": "2017-04-30T06:28:27.787Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-30T06:28:23.077Z"
+	},
+	"email": "random_ffvngssddoo1mzzt0rdc@random.com",
+	"password": "sha1$57ab3190$1$b3309f8b505b4b3d39f80af45db7e2c93c21d52e",
+	"profile": {
+		"name": "masd,masmdnasjdajsd",
+		"hair": {
+			"hairTexture": "alan",
+			"hairDensity": "alan",
+			"hairPorosity": "alan"
+		}
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590584a6b082163334cffb10"
+	},
+	"updatedAt": {
+		"$date": "2017-04-30T06:31:06.078Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-30T06:31:03.119Z"
+	},
+	"email": "random_oy3bdjethimnogxumblg@random.com",
+	"password": "sha1$4d476981$1$8bda61b2ea1c4c96c374feca8489f4bf34d69d1e",
+	"profile": {
+		"name": "asdajnsjdnaksn",
+		"hair": {
+			"hairTexture": "alan",
+			"hairDensity": "alan",
+			"hairPorosity": "alan"
+		}
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590584c3b082163334cffb11"
+	},
+	"updatedAt": {
+		"$date": "2017-04-30T06:31:35.529Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-30T06:31:31.787Z"
+	},
+	"email": "random_lcq6wlfcms518u2pcwin@random.com",
+	"password": "sha1$0fc21fde$1$5ab3914b8fda43ebfff9919f67d3023fc6c9c307",
+	"profile": {
+		"name": "asdajnsjdnaksnasdajnsjdnaksn",
+		"hair": {
+			"hairTexture": "alan",
+			"hairDensity": "alan",
+			"hairPorosity": "alan"
+		}
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59058598b082163334cffb13"
+	},
+	"updatedAt": {
+		"$date": "2017-05-02T23:46:21.454Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-30T06:35:04.171Z"
+	},
+	"email": "random_6nwiznqdnystn09neyhz@random.com",
+	"password": "sha1$db7dab38$1$25d4f918e6f6b33f30dd04e746dc7b0f0f09a096",
+	"profile": {
+		"hair": {
+			"hairTexture": "deb",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"name": "alan alan",
+		"parentUser": [
+			{
+				"$oid": "58ed2d1a3bccc80dc8c17964"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [
+		{
+			"text": "alan de la balle",
+			"dateNote": {
+				"$date": "2017-05-02T23:35:20.632Z"
+			},
+			"_id": {
+				"$oid": "590917b853d7846e6d66b8b7"
+			}
+		}
+	],
+	"forms": [
+		{
+			"$oid": "58efeaa8fd69170b494172b2"
+		},
+		{
+			"$oid": "58eee1a295092b02fdc5db61"
+		}
+	],
+	"__v": 10,
+	"lastVisit": {
+		"$date": "2017-05-26T00:00:00.000Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "59061dace288297d96edec83"
+	},
+	"updatedAt": {
+		"$date": "2017-05-04T19:32:36.687Z"
+	},
+	"createdAt": {
+		"$date": "2017-04-30T17:23:56.620Z"
+	},
+	"email": "random_yzbbwyygqbb2daspvo73@random.com",
+	"password": "sha1$36a97ad5$1$8fc7db7aab6017680b38f93d19c0142c80227e0f",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"name": "Adam Smith",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [
+		{
+			"text": "This client is awesome! Highly recommend.",
+			"dateNote": {
+				"$date": "2017-05-04T17:23:38.150Z"
+			},
+			"_id": {
+				"$oid": "590b639c05abe84bdd4ef30f"
+			}
+		}
+	],
+	"forms": [
+		{
+			"$oid": "5907cda21fd12b2700b5420b"
+		},
+		{
+			"$oid": "59038bfa477b1107bc35a881"
+		},
+		{
+			"$oid": "590151112136ce3751016963"
+		}
+	],
+	"__v": 8,
+	"lastVisit": {
+		"$date": "2017-04-23T00:00:00.000Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "5906a3bf6f23f93467370f7a"
+	},
+	"updatedAt": {
+		"$date": "2017-05-01T02:55:59.568Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-01T02:55:59.568Z"
+	},
+	"email": "salesrep@salesrep.com",
+	"password": "sha1$a9e3374e$1$351285d454bb73a313178ac4d7e108a1a90bba07",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "345678987654",
+		"lastName": "sales rep last name",
+		"title": "sales rep title",
+		"name": "sales rep name",
+		"parentUser": [
+			{
+				"$oid": "58ed2d1a3bccc80dc8c17964"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"salesRep"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5907a6ef1fd12b2700b54200"
+	},
+	"updatedAt": {
+		"$date": "2017-05-08T17:43:18.015Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-01T21:21:51.187Z"
+	},
+	"email": "test@test.com",
+	"password": "sha1$23f7ed3f$1$a552d80e3afa1414ff74ee6fefd00cad34cbbeb8",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "Johnson",
+		"title": "Colorist",
+		"isFeatured": true,
+		"name": "Samantha",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": [
+			{
+				"$oid": "5907a6fb1fd12b2700b54201"
+			}
+		]
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5907a7481fd12b2700b54202"
+	},
+	"updatedAt": {
+		"$date": "2017-05-01T23:20:49.856Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-01T21:23:20.361Z"
+	},
+	"email": "test22@test.com",
+	"password": "sha1$5fdf835c$1$35d60791610d3684b6b48a24794adb1ad6699c46",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "J’Ann Robinson",
+		"title": "Colorist",
+		"name": "Michael",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": [
+			{
+				"$oid": "5907c2671fd12b2700b54203"
+			}
+		]
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 1
+}
+{
+	"_id": {
+		"$oid": "5907c8609676b21923f64e1a"
+	},
+	"updatedAt": {
+		"$date": "2017-05-01T23:44:32.890Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-01T23:44:32.890Z"
+	},
+	"email": "random_l3dficcae1b9cdrp9d3a@random.com",
+	"password": "sha1$aaaf7c0c$1$6b5a8b043cd014962b43a6c3b19fe5ca6fc73bfa",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"name": "paul henry",
+		"parentUser": [
+			{
+				"$oid": "58ed2d1a3bccc80dc8c17964"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5907cb641fd12b2700b54204"
+	},
+	"updatedAt": {
+		"$date": "2017-05-01T23:58:49.434Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-01T23:57:24.596Z"
+	},
+	"email": "fabio@test.com",
+	"password": "sha1$acf76be9$1$ee574956c89d5044fde831aa895bef8622bf8ffa",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "Scala",
+		"title": "Founder",
+		"name": "Fabio",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": [
+			{
+				"$oid": "5907cbb81fd12b2700b54205"
+			}
+		]
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5907cbe41fd12b2700b54206"
+	},
+	"updatedAt": {
+		"$date": "2017-05-02T00:02:56.222Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-01T23:59:32.719Z"
+	},
+	"email": "rocco@test.com",
+	"password": "sha1$69c70a01$1$bce4bb2eabc1fbab9d53516d41733b9b206b949e",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "Crisci",
+		"title": "Senior Stylist",
+		"name": "Rocco",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": [
+			{
+				"$oid": "5907ccaf1fd12b2700b5420a"
+			}
+		]
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5907cc6d1fd12b2700b54207"
+	},
+	"updatedAt": {
+		"$date": "2017-05-02T00:01:49.124Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-02T00:01:49.124Z"
+	},
+	"email": "theresa@test.com",
+	"password": "sha1$ea1b8ee2$1$e03a32ca63a0b69ebb4e10421d77b279167a92c4",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "Miller",
+		"title": "Color Director",
+		"name": "Theresa",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5907cc941fd12b2700b54208"
+	},
+	"updatedAt": {
+		"$date": "2017-05-02T00:02:41.451Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-02T00:02:28.294Z"
+	},
+	"email": "evelia@test.com",
+	"password": "sha1$3ada71e0$1$2cdf9538a18e6bca314327ccb6627db978d1d408",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "415-777-8963",
+		"lastName": "Godinez",
+		"title": "Stylist",
+		"name": "Evelia",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": [
+			{
+				"$oid": "5907cca01fd12b2700b54209"
+			}
+		]
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5907f6e1f48b653fd9e0bd8c"
+	},
+	"updatedAt": {
+		"$date": "2017-05-02T03:02:57.013Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-02T03:02:57.013Z"
+	},
+	"email": "johndoes@ales-group.com",
+	"password": "sha1$8e21b341$1$ce51cf0feaccc71159aad3c7f94be42047dc3f13",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "415-777-8888",
+		"lastName": "Does",
+		"title": "Sales Rep",
+		"name": "John",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"salesRep"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5907feecf48b653fd9e0bd95"
+	},
+	"updatedAt": {
+		"$date": "2017-05-03T02:14:39.754Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-02T03:37:16.230Z"
+	},
+	"email": "random_651z9druoi8ksft3ecrc@random.com",
+	"password": "sha1$955589bc$1$1baa42d475aa15a63a452a7dbe4d7e59ea443fbf",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"name": "Rachel McAdams",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [
+		{
+			"text": "Requests, long, waivy hair with ombre highlights. Talked about that time she played Buttercup in a one-off, staged LACMA Live Read of The Princess Bride.",
+			"dateNote": {
+				"$date": "2017-05-02T03:38:52.409Z"
+			},
+			"_id": {
+				"$oid": "5907ff4cf48b653fd9e0bd99"
+			}
+		},
+		{
+			"text": "Wanted short blond hair this time. Talked about the audiobook version of the Anne of Green Gables novel that she narrated for Audible. She really enjoyed the process.",
+			"dateNote": {
+				"$date": "2017-05-02T03:38:59.154Z"
+			},
+			"_id": {
+				"$oid": "5907ff53f48b653fd9e0bd9a"
+			}
+		}
+	],
+	"forms": [
+		{
+			"$oid": "5907ff32f48b653fd9e0bd96"
+		},
+		{
+			"$oid": "5907ff42f48b653fd9e0bd98"
+		},
+		{
+			"$oid": "5907ff3df48b653fd9e0bd97"
+		}
+	],
+	"__v": 25,
+	"lastVisit": {
+		"$date": "2017-05-02T03:37:18.902Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "59080268f48b653fd9e0bd9b"
+	},
+	"updatedAt": {
+		"$date": "2017-05-05T22:41:52.452Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-02T03:52:08.823Z"
+	},
+	"email": "admin@ales.com",
+	"password": "sha1$a3e1f721$1$63b5ba3f1e614c1295cb980ea74dceee0a302a8e",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "Ales",
+		"title": "tester",
+		"isFeatured": false,
+		"name": "Admin",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"admin"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [
+		{
+			"$oid": "58f00117d56b1f18bfd19484"
+		}
+	],
+	"__v": 3,
+	"lastVisit": {
+		"$date": "2017-05-05T22:39:33.837Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "59080282f48b653fd9e0bd9c"
+	},
+	"updatedAt": {
+		"$date": "2017-05-02T03:52:34.030Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-02T03:52:34.030Z"
+	},
+	"email": "blabla@bla.com",
+	"password": "sha1$40f2ed5f$1$04604e37d2e1c0b4d71594a9988122134379d364",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "Bla",
+		"title": "Bla",
+		"name": "Blabla",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59090af191124b7700633cd2"
+	},
+	"updatedAt": {
+		"$date": "2017-05-02T22:40:49.918Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-02T22:40:49.918Z"
+	},
+	"email": "jenny@ales.com",
+	"password": "sha1$da035b64$1$8592439e066efc0bdd960f3affea994e53511468",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "415-999-8787",
+		"lastName": "Oliver",
+		"title": "Sales Rep",
+		"name": "Jenny",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"salesRep"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590a700d41db9c174d7c3eee"
+	},
+	"updatedAt": {
+		"$date": "2017-05-29T12:58:22.230Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-04T00:04:29.759Z"
+	},
+	"email": "random_zk9qptxlcodwuozbbrkq@random.com",
+	"password": "sha1$06d26f43$1$b5b31ab37432cf3a526fb60284b558b613edefa0",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Paule henry",
+		"parentUser": [
+			{
+				"$oid": "58ed2d1a3bccc80dc8c17964"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [
+		{
+			"text": "hello",
+			"dateNote": {
+				"$date": "2017-05-05T22:37:34.708Z"
+			},
+			"_id": {
+				"$oid": "590cfeaed5bf38b3a5904e60"
+			}
+		}
+	],
+	"forms": [],
+	"__v": 20,
+	"lastVisit": {
+		"$date": "2017-05-29T12:58:21.667Z"
+	},
+	"products": [
+		{
+			"product": {
+				"$oid": "591669c85a7e0799c75cae7c"
+			},
+			"_id": {
+				"$oid": "592c1a85b0604e51535b2213"
+			},
+			"dateProductAdded": {
+				"$date": "2017-05-29T12:56:35.522Z"
+			}
+		},
+		{
+			"product": {
+				"$oid": "591669c85a7e0799c75caea0"
+			},
+			"_id": {
+				"$oid": "592c19d8b0604e51535b2212"
+			},
+			"dateProductAdded": {
+				"$date": "2017-05-29T12:53:42.520Z"
+			}
+		},
+		{
+			"product": {
+				"$oid": "591669c85a7e0799c75caf0b"
+			},
+			"_id": {
+				"$oid": "592c18644fc4e55030633db6"
+			},
+			"dateProductAdded": {
+				"$date": "2017-05-29T12:47:29.243Z"
+			}
+		}
+	]
+}
+{
+	"_id": {
+		"$oid": "590b56d45589b6349038635b"
+	},
+	"updatedAt": {
+		"$date": "2017-05-04T16:29:08.790Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-04T16:29:08.790Z"
+	},
+	"email": "alan3452222@gmail.com",
+	"password": "sha1$4aa990f7$1$5224d8f902421fd5938d4fc809346571f0d4657e",
+	"profile": {
+		"hair": {
+			"hairTexture": "user",
+			"hairPorosity": "user",
+			"hairDensity": "user"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"name": "",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"user"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590b58e4b45d3868ed248125"
+	},
+	"updatedAt": {
+		"$date": "2017-05-05T02:41:41.740Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-04T16:37:56.311Z"
+	},
+	"email": "doriane@mouret.org",
+	"password": "sha1$dd40d252$1$199f0525de812e15831d96417a2c91001ec17504",
+	"profile": {
+		"hair": {
+			"hairTexture": "user",
+			"hairPorosity": "user",
+			"hairDensity": "user"
+		},
+		"phoneNumber": "45678",
+		"lastName": "Mouret",
+		"title": "Simple User",
+		"name": "Doriane",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": {
+			"$date": "2017-05-04T17:55:10.118Z"
+		},
+		"lastVisitPageVideo": {
+			"$date": "2017-05-04T17:54:34.938Z"
+		}
+	},
+	"notes": [],
+	"forms": [
+		{
+			"$oid": "590b5d9bb45d3868ed24812a"
+		},
+		{
+			"$oid": "590b5e78b45d3868ed24812b"
+		}
+	],
+	"__v": 3
+}
+{
+	"_id": {
+		"$oid": "590b63e8c01fa83fb806d431"
+	},
+	"updatedAt": {
+		"$date": "2017-05-04T17:24:56.659Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-04T17:24:56.659Z"
+	},
+	"email": "random_ssrctdidrebp4aqrd6ur@random.com",
+	"password": "sha1$bf776b6f$1$25e8edace63277b623115637869ae6fa25114f75",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "deb",
+			"hairDensity": "deb"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"name": "marine roussel",
+		"parentUser": [
+			{
+				"$oid": "58ed2d1a3bccc80dc8c17964"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590b689805abe84bdd4ef313"
+	},
+	"updatedAt": {
+		"$date": "2017-05-04T17:44:56.122Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-04T17:44:56.122Z"
+	},
+	"email": "yrdy@test.com",
+	"password": "sha1$fd19d048$1$37fa03289f2e44462a157b1dbd77c73e5b612e06",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "dddddd",
+		"title": "dddddd",
+		"name": "Dddddd",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590b93c0bcc302594692c1bc"
+	},
+	"updatedAt": {
+		"$date": "2017-05-04T20:49:04.931Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-04T20:49:04.931Z"
+	},
+	"email": "random_03ikg2wppqmhcuwtaiux@random.com",
+	"password": "sha1$eafe231a$1$cdb10cfbe6978502bd48dd58a1be945615482ca3",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"name": "romain pujol",
+		"parentUser": [
+			{
+				"$oid": "590b92297830b84e891c7207"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590b9bb31faadf5d3ddbd5b6"
+	},
+	"updatedAt": {
+		"$date": "2017-05-10T19:20:23.531Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-04T21:22:59.364Z"
+	},
+	"email": "alan3452@gmail.com",
+	"password": "sha1$27f32f42$1$39072a590c01605ed6e4fc41150fb9919787e51b",
+	"profile": {
+		"hair": {
+			"hairTexture": "user",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "34567",
+		"lastName": "Debirah",
+		"title": "Debirah",
+		"isFeatured": false,
+		"name": "Debirah",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"manager"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": {
+			"$date": "2017-05-10T01:12:36.143Z"
+		},
+		"lastVisitPageVideo": {
+			"$date": "2017-05-10T19:20:22.573Z"
+		}
+	},
+	"notes": [],
+	"forms": [
+		{
+			"$oid": "59134ecaffdbd508314eac20"
+		}
+	],
+	"__v": 2
+}
+{
+	"_id": {
+		"$oid": "590b9cff1faadf5d3ddbd5b7"
+	},
+	"updatedAt": {
+		"$date": "2017-05-10T17:33:07.039Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-04T21:28:31.862Z"
+	},
+	"email": "paul@henry.com",
+	"password": "sha1$e8523098$1$60a3234397eede262d7b990f2e98660372e73135",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "56789",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "paul henry",
+		"parentUser": [
+			{
+				"$oid": "590b9bb31faadf5d3ddbd5b6"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 2,
+	"lastVisit": {
+		"$date": "2017-05-04T23:49:16.040Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "590ba8cb8bfccf6454a09eeb"
+	},
+	"updatedAt": {
+		"$date": "2017-05-04T22:18:52.036Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-04T22:18:52.036Z"
+	},
+	"email": "pauldevray@gmail.com",
+	"password": "sha1$eec639c1$1$f58be73702572d79add60f73b535bbfe00ffd52f",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "4789876567",
+		"lastName": "Devray",
+		"title": "Colorist",
+		"name": "Paul",
+		"parentUser": [
+			{
+				"$oid": "590b9bb31faadf5d3ddbd5b6"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"manager"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590be69405abe84bdd4ef32e"
+	},
+	"updatedAt": {
+		"$date": "2017-05-05T02:44:16.256Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-05T02:42:28.336Z"
+	},
+	"email": "simpleuser@test.com",
+	"password": "sha1$d0cffaab$1$b59d1eaf19a2d48124955ccb04b6e24e6af35b6c",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "User",
+		"title": "Simple User with No Rights",
+		"name": "Simple",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590ce843756df943616d826f"
+	},
+	"updatedAt": {
+		"$date": "2017-05-11T18:39:42.881Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-05T21:01:55.355Z"
+	},
+	"email": "rachel@test.com",
+	"password": "sha1$34f5b8c4$1$bacd74e0ebfd6b54fa338817df99b3bc233574c3",
+	"profile": {
+		"hair": {
+			"hairTexture": "deb",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "515-258-4852",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Rachel McAdams",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [
+		{
+			"text": "dffffff",
+			"dateNote": {
+				"$date": "2017-05-05T21:02:02.237Z"
+			},
+			"_id": {
+				"$oid": "590ce84a756df943616d8270"
+			}
+		},
+		{
+			"text": "gggggggggggg",
+			"dateNote": {
+				"$date": "2017-05-10T23:24:03.547Z"
+			},
+			"_id": {
+				"$oid": "5913a114b37fc073155142bf"
+			}
+		}
+	],
+	"forms": [],
+	"__v": 4,
+	"lastVisit": {
+		"$date": "2017-05-05T23:26:49.004Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "590d138e30df38c2a9e63641"
+	},
+	"updatedAt": {
+		"$date": "2017-05-06T00:06:38.821Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-06T00:06:38.821Z"
+	},
+	"email": "random_vp4hxzhlnwz2xhiusmkj@random.com",
+	"password": "sha1$b94066cf$1$dc4aeda9b132fdd57f4cfd90fb2ce5ca65549b17",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "asdasdasdasd",
+		"parentUser": [
+			{
+				"$oid": "58ed2d1a3bccc80dc8c17964"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590d1e3230df38c2a9e63642"
+	},
+	"updatedAt": {
+		"$date": "2017-05-06T00:52:03.191Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-06T00:52:03.191Z"
+	},
+	"email": "random_phnkshn8je9qskjhvr6j@random.com",
+	"password": "sha1$6c17f1d6$1$f0462c7f04c7102746bacda5f53e4a4ba1bcff5a",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "new client to delete",
+		"parentUser": [
+			{
+				"$oid": "58ed2d1a3bccc80dc8c17964"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590e447faef4af4c55e9ed4e"
+	},
+	"updatedAt": {
+		"$date": "2017-05-10T23:36:25.432Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-06T21:47:43.225Z"
+	},
+	"email": "rachel@time.com",
+	"password": "sha1$76165606$1$8f2b49af510eefa2dbd5c2e0fd7b7b883f42dc6f",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "415-888-9856",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Rachel McAdams",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [
+		{
+			"text": "I love this client!",
+			"dateNote": {
+				"$date": "2017-05-06T21:48:14.564Z"
+			},
+			"_id": {
+				"$oid": "590e449eaef4af4c55e9ed4f"
+			}
+		},
+		{
+			"text": "nnnnnnnnnnnn",
+			"dateNote": {
+				"$date": "2017-05-10T23:36:24.032Z"
+			},
+			"_id": {
+				"$oid": "5913a3f9b37fc073155142c0"
+			}
+		}
+	],
+	"forms": [
+		{
+			"$oid": "5907ff32f48b653fd9e0bd96"
+		},
+		{
+			"$oid": "5907ff42f48b653fd9e0bd98"
+		},
+		{
+			"$oid": "5907ff3df48b653fd9e0bd97"
+		}
+	],
+	"__v": 5,
+	"lastVisit": {
+		"$date": "2017-05-06T21:47:47.775Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "590e44f0aef4af4c55e9ed50"
+	},
+	"updatedAt": {
+		"$date": "2017-05-06T21:49:50.682Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-06T21:49:36.498Z"
+	},
+	"email": "rachel@love.com",
+	"password": "sha1$274f05d8$1$eb4b2bb598584b43ba990eb1243b81bcd734c324",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "415-777-9874",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Rachel Fabio",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0,
+	"lastVisit": {
+		"$date": "2017-05-06T21:49:50.695Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "590f87c24ea9aa691d9e1843"
+	},
+	"updatedAt": {
+		"$date": "2017-05-07T20:46:58.811Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-07T20:46:58.811Z"
+	},
+	"email": "john@ales.com",
+	"password": "sha1$1005e7d9$1$f62e544a46bfca24fec63e7abd862bc2dda5c992",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "415-987-3214",
+		"lastName": "Does",
+		"title": "Sales Rep",
+		"isFeatured": false,
+		"name": "John",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"salesRep"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "590fb2844ea9aa691d9e1844"
+	},
+	"updatedAt": {
+		"$date": "2017-05-08T17:35:42.857Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-07T23:49:24.884Z"
+	},
+	"email": "dodsmouret@hotmail.com",
+	"password": "sha1$3bc8e4a8$1$539ed14a9dd7c936133b134c4db58e206134fcf9",
+	"profile": {
+		"hair": {
+			"hairTexture": "user",
+			"hairPorosity": "user",
+			"hairDensity": "user"
+		},
+		"phoneNumber": "",
+		"lastName": "Dods",
+		"title": "Stylist",
+		"isFeatured": false,
+		"name": "Theresa",
+		"parentUser": [],
+		"_profilePicture": [
+			{
+				"$oid": "5910ac444ea9aa691d9e1849"
+			}
+		]
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": {
+			"$date": "2017-05-08T17:35:13.319Z"
+		},
+		"lastVisitPageVideo": {
+			"$date": "2017-05-08T17:35:16.289Z"
+		}
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 5
+}
+{
+	"_id": {
+		"$oid": "59108c9a4ea9aa691d9e1847"
+	},
+	"updatedAt": {
+		"$date": "2017-05-23T00:31:56.069Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-08T15:19:54.178Z"
+	},
+	"email": "rfaccarello@alesgroup.com",
+	"password": "sha1$d3c75f8b$1$fc70b21586139b8c735f4fc137065961e3fac360",
+	"profile": {
+		"hair": {
+			"hairTexture": "user",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "",
+		"lastName": "Cristiano",
+		"title": "Hairstylist \u0026 Salon Owner",
+		"isFeatured": false,
+		"name": "Anthony",
+		"parentUser": [],
+		"_profilePicture": [
+			{
+				"$oid": "591f47d1745dda439263fa22"
+			}
+		]
+	},
+	"role": [
+		"admin"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": {
+			"$date": "2017-05-22T16:41:41.493Z"
+		},
+		"lastVisitPageVideo": {
+			"$date": "2017-05-23T00:31:56.019Z"
+		}
+	},
+	"notes": [],
+	"forms": [
+		{
+			"$oid": "591c6ee6e615021c906f412d"
+		},
+		{
+			"$oid": "591c6ee0e615021c906f412c"
+		},
+		{
+			"$oid": "591c6edae615021c906f412b"
+		},
+		{
+			"$oid": "5914ad32b37fc073155142c9"
+		}
+	],
+	"__v": 61
+}
+{
+	"_id": {
+		"$oid": "5910ae594ea9aa691d9e184a"
+	},
+	"updatedAt": {
+		"$date": "2017-05-08T17:43:53.242Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-08T17:43:53.242Z"
+	},
+	"email": "julie@freshtylse.com",
+	"password": "sha1$6f5737a9$1$5b1e968e32d87d3c485165296794409402e41145",
+	"profile": {
+		"hair": {
+			"hairTexture": "user",
+			"hairPorosity": "user",
+			"hairDensity": "user"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5910ae884ea9aa691d9e184b"
+	},
+	"updatedAt": {
+		"$date": "2017-05-08T17:44:40.096Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-08T17:44:40.096Z"
+	},
+	"email": "julie@freshstyle.com",
+	"password": "sha1$33f3e84c$1$e6b4dd454febea5d2918a08eb794743ea0bd2524",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "",
+		"lastName": "Fresh",
+		"title": "Manager",
+		"isFeatured": false,
+		"name": "Julie",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"manager"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5910afae4ea9aa691d9e184c"
+	},
+	"updatedAt": {
+		"$date": "2017-05-10T21:21:36.432Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-08T17:49:34.179Z"
+	},
+	"email": "test@freshstyle.com",
+	"password": "sha1$4df122be$1$94791c56eb6cfad10685b67f57f30153b4cbc8a6",
+	"profile": {
+		"hair": {
+			"hairTexture": "user",
+			"hairPorosity": "user",
+			"hairDensity": "user",
+			"hairCondition": "Normal",
+			"scalpCondition": "Healthy"
+		},
+		"phoneNumber": "",
+		"lastName": "Test",
+		"title": "Stylist",
+		"isFeatured": false,
+		"name": "Oliver",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": {
+			"$date": "2017-05-08T17:52:30.960Z"
+		},
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [
+		{
+			"$oid": "5913846057dfb2033af34673"
+		}
+	],
+	"__v": 2
+}
+{
+	"_id": {
+		"$oid": "5910b2378d5b956609c206cc"
+	},
+	"updatedAt": {
+		"$date": "2017-05-10T21:58:36.873Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-08T18:00:23.142Z"
+	},
+	"email": "manager@freshstyle.com",
+	"password": "sha1$ddb26c47$1$1b0de944e7c7c24e1e052950d2bd6ac168620859",
+	"profile": {
+		"hair": {
+			"hairTexture": "user",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "",
+		"lastName": "Manager",
+		"title": "Manager",
+		"isFeatured": false,
+		"name": "Gaetan",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"manager"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": {
+			"$date": "2017-05-10T21:37:39.176Z"
+		},
+		"lastVisitPageVideo": {
+			"$date": "2017-05-10T21:58:36.442Z"
+		}
+	},
+	"notes": [],
+	"forms": [
+		{
+			"$oid": "591125395b87bd69e5f20e7a"
+		}
+	],
+	"__v": 2
+}
+{
+	"_id": {
+		"$oid": "5910b2b88d5b956609c206cd"
+	},
+	"updatedAt": {
+		"$date": "2017-05-10T03:32:59.972Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-08T18:02:32.291Z"
+	},
+	"email": "salesrep@freshstyle.com",
+	"password": "sha1$18521fb9$1$5f7e8b6e307e89c9ff3161ad468470ca090399d4",
+	"profile": {
+		"hair": {
+			"hairTexture": "user",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "222-896-5412",
+		"lastName": "SalesRep",
+		"title": "Sales Rep",
+		"isFeatured": false,
+		"name": "Jennifer",
+		"parentUser": [],
+		"_profilePicture": [
+			{
+				"$oid": "5910bbb78d5b956609c206cf"
+			}
+		]
+	},
+	"role": [
+		"salesRep"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": {
+			"$date": "2017-05-10T00:50:29.063Z"
+		},
+		"lastVisitPageVideo": {
+			"$date": "2017-05-10T03:32:58.596Z"
+		}
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 5
+}
+{
+	"_id": {
+		"$oid": "5910bb16e79b660a4293b323"
+	},
+	"updatedAt": {
+		"$date": "2017-05-08T18:38:14.805Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-08T18:38:14.805Z"
+	},
+	"email": "asdasd",
+	"password": "sha1$be88bcd6$1$42a5ae74a40fbf27bae513eb476b46b0dbf5982a",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "asdasd",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "asdasd",
+		"parentUser": [
+			{
+				"$oid": "58ed2d1a3bccc80dc8c17964"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5910bbaa4eb3290a527f3c6f"
+	},
+	"updatedAt": {
+		"$date": "2017-05-08T18:40:42.595Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-08T18:40:42.595Z"
+	},
+	"email": "test@stylist.com",
+	"password": "sha1$9d68a271$1$b92769d5a10bb73f920b3053938bbea1e97d5aee",
+	"profile": {
+		"hair": {
+			"hairTexture": "user",
+			"hairPorosity": "user",
+			"hairDensity": "user"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5911f8fbbc617e486396bdfc"
+	},
+	"updatedAt": {
+		"$date": "2017-05-09T17:14:35.194Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-09T17:14:35.194Z"
+	},
+	"email": "olver@freshstyle.com",
+	"password": "sha1$6e213623$1$482233b639ab5085d2367b0d957e1b16f9e78f32",
+	"profile": {
+		"hair": {
+			"hairTexture": "alan",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "222-9888",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Oliver's Client",
+		"parentUser": [
+			{
+				"$oid": "5910afae4ea9aa691d9e184c"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5911f919bc617e486396bdfd"
+	},
+	"updatedAt": {
+		"$date": "2017-05-09T17:15:05.590Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-09T17:15:05.590Z"
+	},
+	"email": "oliver@freshstyle.com",
+	"password": "sha1$1029b9cf$1$8df4c620fb9530741f9a50018bf23f13b11c1c5c",
+	"profile": {
+		"hair": {
+			"hairTexture": "deb",
+			"hairPorosity": "alan",
+			"hairDensity": "alan"
+		},
+		"phoneNumber": "222-8988",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Oliver's client",
+		"parentUser": [
+			{
+				"$oid": "5910afae4ea9aa691d9e184c"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5911fa6c967d9b31205c9eb4"
+	},
+	"updatedAt": {
+		"$date": "2017-05-09T17:20:45.003Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-09T17:20:45.003Z"
+	},
+	"email": "asdasdsdfsdfsdfjansfuansd",
+	"password": "sha1$316cc006$1$02ebe061ee38ef8b339c2bfa83152e2a95f19972",
+	"profile": {
+		"hair": {
+			"hairTexture": "Medium",
+			"scalpCondition": "Dry",
+			"hairCondition": "Lifeless"
+		},
+		"phoneNumber": "asdasd",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "asdasd",
+		"parentUser": [
+			{
+				"$oid": "5910afae4ea9aa691d9e184c"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5911fb00967d9b31205c9eb5"
+	},
+	"updatedAt": {
+		"$date": "2017-05-10T21:21:37.119Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-09T17:23:12.220Z"
+	},
+	"email": "rafa@test.com",
+	"password": "sha1$24fcd3ac$1$a76992073195b20d41178fcb82565a9a519710aa",
+	"profile": {
+		"hair": {
+			"hairTexture": "Medium",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "522-963-7412",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Rafa Nadal",
+		"parentUser": [
+			{
+				"$oid": "5910afae4ea9aa691d9e184c"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [
+		{
+			"$oid": "5913846057dfb2033af34673"
+		}
+	],
+	"__v": 1,
+	"lastVisit": {
+		"$date": "2017-05-09T17:51:23.821Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "5911fc3b2a48233344987847"
+	},
+	"updatedAt": {
+		"$date": "2017-05-09T19:06:05.647Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-09T17:28:27.794Z"
+	},
+	"email": "david@test.com",
+	"password": "sha1$fabc1636$1$b2602f48ac14be87f51bc08784aa881a1e4ffc2d",
+	"profile": {
+		"hair": {
+			"hairTexture": "Medium",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "222-987-8522",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "David Bowie",
+		"parentUser": [
+			{
+				"$oid": "5910afae4ea9aa691d9e184c"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0,
+	"lastVisit": {
+		"$date": "2016-07-02T07:00:00.000Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "59120b98332f4b336bb2a7bc"
+	},
+	"updatedAt": {
+		"$date": "2017-05-09T18:34:01.012Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-09T18:34:01.012Z"
+	},
+	"email": "dfsdfsdfsdf",
+	"password": "sha1$8cdb6eef$1$3b09184fc91fa6b7122a5841a666054567b7def4",
+	"profile": {
+		"hair": {
+			"hairTexture": "Fine",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "sdfsdf",
+		"parentUser": [
+			{
+				"$oid": "5910afae4ea9aa691d9e184c"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "591213d74f545f4f9d3b0b2b"
+	},
+	"updatedAt": {
+		"$date": "2017-05-10T21:20:19.695Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-09T19:09:11.806Z"
+	},
+	"email": "dana@test.com",
+	"password": "sha1$5ad2de32$1$22a8eca60f1d46dbacaf595b13666f18b64fa72e",
+	"profile": {
+		"hair": {
+			"hairTexture": "Fine",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "456-987-8521",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Manager's Client",
+		"parentUser": [
+			{
+				"$oid": "5910b2378d5b956609c206cc"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [
+		{
+			"$oid": "591125395b87bd69e5f20e7a"
 		}
 	],
 	"__v": 1
+}
+{
+	"_id": {
+		"$oid": "591214584f545f4f9d3b0b2c"
+	},
+	"updatedAt": {
+		"$date": "2017-05-09T19:11:56.217Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-09T19:11:20.881Z"
+	},
+	"email": "manager@ales.com",
+	"password": "sha1$5ea29a64$1$77e9e158429d4331e8b77fc028ee67736d320aff",
+	"profile": {
+		"hair": {
+			"hairTexture": "Fine",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "475-987-4565",
+		"lastName": "Manager",
+		"title": "Manager",
+		"isFeatured": false,
+		"name": "Donald",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"manager"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 1
+}
+{
+	"_id": {
+		"$oid": "5912175fffc01b52d49c5dd2"
+	},
+	"updatedAt": {
+		"$date": "2017-05-09T19:50:27.173Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-09T19:24:15.577Z"
+	},
+	"email": "test@myclient.com",
+	"password": "sha1$012e7cd1$1$93f8d99f258470e892c1fe298a9e4a2290196ea0",
+	"profile": {
+		"hair": {
+			"hairTexture": "Fine",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "478-987-8523",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Oliver's Client 2",
+		"parentUser": [
+			{
+				"$oid": "5910afae4ea9aa691d9e184c"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0,
+	"lastVisit": {
+		"$date": "2017-05-09T19:50:26.019Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "5912577a560d4e04f1023b9c"
+	},
+	"updatedAt": {
+		"$date": "2017-05-09T23:57:46.124Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-09T23:57:46.124Z"
+	},
+	"email": "titi@gmail.com",
+	"password": "sha1$3ed74db5$1$825619c8a3146f12774c2ecbe6c18fff1a7dcb11",
+	"profile": {
+		"hair": {
+			"hairTexture": "Fine",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "3456789765",
+		"lastName": "De la rue",
+		"title": "Colorist",
+		"isFeatured": false,
+		"name": "Titi",
+		"parentUser": [
+			{
+				"$oid": "590b9bb31faadf5d3ddbd5b6"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "591360e257dfb2033af3466a"
+	},
+	"updatedAt": {
+		"$date": "2017-05-15T20:34:21.966Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-10T18:50:10.947Z"
+	},
+	"email": "omartinez@alesgroup.com",
+	"password": "sha1$ab214f10$1$0963cd71ab2bbc7175358dc3f7d025dc7c7a6dd7",
+	"profile": {
+		"hair": {
+			"hairTexture": "Medium",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "9174368355",
+		"lastName": "Martinez",
+		"title": "Colorist",
+		"isFeatured": false,
+		"name": "Odile",
+		"parentUser": [
+			{
+				"$oid": "59108c9a4ea9aa691d9e1847"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [
+		{
+			"text": "She's from Santo Domingo in Dominican Republic and lives in Queens.",
+			"dateNote": {
+				"$date": "2017-05-10T18:59:48.874Z"
+			},
+			"_id": {
+				"$oid": "5913632457dfb2033af3466c"
+			}
+		},
+		{
+			"text": "Graphic designer",
+			"dateNote": {
+				"$date": "2017-05-10T18:59:56.474Z"
+			},
+			"_id": {
+				"$oid": "5913632c57dfb2033af3466d"
+			}
+		}
+	],
+	"forms": [
+		{
+			"$oid": "591363a457dfb2033af3466e"
+		},
+		{
+			"$oid": "591362f457dfb2033af3466b"
+		}
+	],
+	"__v": 5
+}
+{
+	"_id": {
+		"$oid": "591388c8208e4a6a25e0275b"
+	},
+	"updatedAt": {
+		"$date": "2017-05-10T21:40:24.457Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-10T21:40:24.457Z"
+	},
+	"email": "justin@freshstyle.com",
+	"password": "sha1$bbf3b75c$1$55fd21719cc7d842f5bc3aab61bc6f705f0dceb6",
+	"profile": {
+		"hair": {
+			"hairTexture": "Fine",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "",
+		"lastName": "Manager 2",
+		"title": "Manager",
+		"isFeatured": false,
+		"name": "Justin",
+		"parentUser": [
+			{
+				"$oid": "5910b2378d5b956609c206cc"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"manager"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59138e59208e4a6a25e02764"
+	},
+	"updatedAt": {
+		"$date": "2017-05-15T20:54:23.112Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-10T22:04:09.621Z"
+	},
+	"email": "raphael.faccarello@gmail.com",
+	"password": "sha1$543043a5$1$e397a43fbb8c2d1d60649ae41f4d3674c97c5f7f",
+	"profile": {
+		"hair": {
+			"hairTexture": "Fine",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "9179604505",
+		"lastName": "Faccarello",
+		"title": "Stylist test",
+		"isFeatured": false,
+		"name": "Raphael",
+		"parentUser": [
+			{
+				"$oid": "59108c9a4ea9aa691d9e1847"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"stylist"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59138eac208e4a6a25e02765"
+	},
+	"updatedAt": {
+		"$date": "2017-05-19T23:52:43.231Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-10T22:05:32.884Z"
+	},
+	"email": "testclient@test.com",
+	"password": "sha1$2a6c03f3$1$79969f4240f16b27028af4a7d4d5215902b52bd7",
+	"profile": {
+		"hair": {
+			"hairTexture": "Medium",
+			"scalpCondition": "Dry",
+			"hairCondition": "Dry"
+		},
+		"phoneNumber": "415-987-6542",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Rachel McAdams",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 2,
+	"lastVisit": {
+		"$date": "2017-05-19T23:52:44.068Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "59139695c095bc6e573e5116"
+	},
+	"updatedAt": {
+		"$date": "2017-05-10T22:39:17.257Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-10T22:39:17.257Z"
+	},
+	"email": "test2@test.com",
+	"password": "sha1$f9737109$1$63e9be8ae23cf385589132de61344e8f5ec78346",
+	"profile": {
+		"hair": {
+			"hairTexture": "Fine",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "Test",
+		"parentUser": [
+			{
+				"$oid": "58f7adf84f6fdc547114e10d"
+			}
+		],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5914cb62b37fc073155142ca"
+	},
+	"updatedAt": {
+		"$date": "2017-05-17T06:56:20.916Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-11T20:36:50.506Z"
+	},
+	"email": "hmouret@alesgroup.com",
+	"password": "sha1$a4e86515$1$2016fdea8140a38f895d11e08aecd404eb7828d4",
+	"profile": {
+		"hair": {
+			"hairTexture": "Fine",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": {
+			"$date": "2017-05-11T20:37:20.773Z"
+		}
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0,
+	"resetPasswordExpires": "1495007780913",
+	"resetPasswordToken": "0db7ffd22c6cdf3c7f837696c145bb2de64d3746"
+}
+{
+	"_id": {
+		"$oid": "59284c0d0fc910f970512c1d"
+	},
+	"updatedAt": {
+		"$date": "2017-05-26T15:38:54.303Z"
+	},
+	"createdAt": {
+		"$date": "2017-05-26T15:38:54.303Z"
+	},
+	"email": "alan34544444444@gmail.com",
+	"password": "sha1$a4c1fbc9$1$1e37af24c11aad1691b6156346a733cb599e17b4",
+	"profile": {
+		"hair": {
+			"hairTexture": "Fine",
+			"scalpCondition": "Healthy",
+			"hairCondition": "Normal"
+		},
+		"phoneNumber": "",
+		"lastName": "",
+		"title": "",
+		"isFeatured": false,
+		"name": "",
+		"parentUser": [],
+		"_profilePicture": []
+	},
+	"role": [
+		"client"
+	],
+	"trackinPage": {
+		"lastVisitPagePress": null,
+		"lastVisitPageVideo": null
+	},
+	"notes": [],
+	"forms": [],
+	"__v": 0
 }

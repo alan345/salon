@@ -2,8 +2,16 @@ module.exports = {
   //'database': 'mongodb://localhost:27017/ng2_Form',
 
   // mongo ds145790.mlab.com:45790/saloon -u gooplus -p nkasndasdTY54TGa
-  'database': 'mongodb://gooplus:nkasndasdTY54TGa@ds145790.mlab.com:45790/gooplus',
+  //'database': 'mongodb://gooplus:nkasndasdTY54TGa@ds145790.mlab.com:45790/gooplus',
   //'database': 'mongodb://localhost:27017/gooplus',
+  'database': 'mongodb://gooplusUser:hsASs5ahTAh4a@52.7.166.211:27017:27017/gooplus',
+
+// mongo ds145790.mlab.com:45790/gooplus -u gooplus -p hsASs5ahTAh4a
+// mongo 52.7.166.211:27017/gooplus -u gooplusUser -p hsASs5ahTAh4a
+// mongo localhost:27017/gooplus -u gooplusUser -p hsASs5ahTAh4a
+// mongod --port 27017 --dbpath /data/db
+// mongo --port 27017 -u "gooplusUser" -p "hsASs5ahTAh4a" --authenticationDatabase "gooplus"
+
   'secret': 'SUPERsecret', // change this to a hard to guess random string. it's for jwt encryption and decryption
   'userGmail': 'noreply@alesgroup.com',
   'passGmail': 'vwvxt5924FEeB47p',
