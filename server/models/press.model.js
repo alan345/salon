@@ -17,4 +17,5 @@ var press = new Schema({
 
 press.plugin(mongooseUniqueValidator)
 
+
 module.exports = mongoose.model('Press', press)
