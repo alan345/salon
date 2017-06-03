@@ -7,8 +7,8 @@
     <h4 class="dspl-nn">id: {{fetchedCompanie._id}}</h4>
     <!-- <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)"> -->
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(true)">
-      <div *ngIf="isHQcompanie()">
-      <div class="form-group sln-inffrm">
+      <!-- <div *ngIf="isHQcompanie()">
+        <div class="form-group sln-inffrm">
 
           <input
             type="text"
@@ -68,6 +68,10 @@
               >
           </div>
         </div>
+      </div> -->
+      <div *ngIf="isAdmin()">
+        Type Salon:
+        <div (click)="toggleTypeCompanie()">{{fetchedCompanie.typeCompanie}}</div>
       </div>
       <h4 style="margin-top:35px !important;">Manage Users:</h4>
       <div *ngIf="fetchedCompanie._id">

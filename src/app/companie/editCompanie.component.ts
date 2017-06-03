@@ -168,6 +168,14 @@ export class EditCompanieComponent implements OnInit {
         }
       )
   }
+  toggleTypeCompanie() {
+    if(this.isHQcompanie()) {
+      this.fetchedCompanie.typeCompanie = 'salon'
+    } else {
+      this.fetchedCompanie.typeCompanie = 'HQ'
+    }
+
+  }
   isAdmin() {
     return this.authService.isAdmin();
   }
