@@ -58,6 +58,10 @@ export class NavbarComponent implements OnInit {
     //this.sidenav.open()
     this.sidenav.toggle()
   }
+  goTo(path: string) {
+    this.sidenav.close()
+    this.router.navigate([path]);
+  }
   isAdmin() {
     return this.adminService.isAdmin();
   }
