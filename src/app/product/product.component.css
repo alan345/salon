@@ -264,9 +264,8 @@ md-tab-header.mat-tab-header {
   width: 100%;
 }
 .hlf-wdth {		
-  width: 40%;		
-  float: left;		
-  margin-bottom: 15px;		
+  width: 50%;		
+  float: left;	
 }
 
 /*--------- Admin Products Page ----------*/
