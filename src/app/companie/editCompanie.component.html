@@ -9,7 +9,7 @@
       <div *ngIf="isAdmin()">
         <label>Type of Salon:</label>
         <div (click)="toggleTypeCompanie()">
-          <div [ngClass]="{'switch-lt':switchSide, 'switch-rt':!switchSide}"></div>
+          <div class="switch"></div>
         </div>
         <div>{{fetchedCompanie.typeCompanie}}</div>
       </div>
