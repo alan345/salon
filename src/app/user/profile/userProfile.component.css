@@ -23,7 +23,7 @@
     position: relative;
 }
 .prf-basic img {
-    width: 100%;
+    object-fit: cover;
 }
 .chal-rslt {
   bottom: 0;
@@ -116,7 +116,7 @@
 .prf-frame {
     min-height: 250px;
     max-height: 300px;
-    overflow: hidden;
+    display: flex;
 }
 .prf-basic, .prf-chal {
   display: table-cell;
