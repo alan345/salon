@@ -158,6 +158,16 @@ table {
 .edt-slntxt {
     float: right;
 }
+.switch {
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    float: left;
+    background-color: #cccccc;
+    text-transform: uppercase;
+    font-size: 13px;
+    cursor: pointer;
+}
 
 /*------------------------- Responsive ---------------------*/
 
