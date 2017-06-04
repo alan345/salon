@@ -16,12 +16,7 @@
   display: flex;
 }
 .one-sty img {
-  margin-top: -10%;
-  height: 120%;
-}
-.one-sty img {
-  flex: none;
-  max-width: none;
+  object-fit: cover;
 }
 .sty-ttl {
   padding: 15px;
