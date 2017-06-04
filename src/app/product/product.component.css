@@ -247,11 +247,6 @@ p.mgtpdt-desc {
   border: 1px solid;
   font-size: 20px;
 }
-.hlf-wdth {
-  width: 40%;
-  float: left;
-  margin-bottom: 15px;
-}
 .pdtind-tabs .mat-tab-labels, .pdtind-tabs .mat-tab-label {
   background-color: #231f20;
 }
