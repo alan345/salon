@@ -75,11 +75,13 @@ export class UserProfileComponent implements OnInit {
       forms: this._fb.array([])
     })
 
-    //let userId = this.authService.currentUser.userId
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      let userId = params['id']
+      let userId = this.authService.currentUser.userId
+      console.log(userId)
+      if(params['id'])
+        userId = params['id']
       this.getUser(userId)
       this.companieService.getCompanieByUserId(userId)
       .subscribe(

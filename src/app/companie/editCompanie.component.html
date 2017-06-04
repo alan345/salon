@@ -11,16 +11,26 @@
         <div (click)="toggleTypeCompanie()">
           <div class="switch">Switch</div>
         </div>
-<<<<<<< HEAD
-      </div> -->
+
+      </div>
       <div *ngIf="isAdmin()">
         Type Salon:
         <div (click)="toggleTypeCompanie()">
           {{fetchedCompanie.typeCompanie}}
         </div>
-=======
-        <div style="padding: 4px 0;">{{fetchedCompanie.typeCompanie}}</div>  
->>>>>>> f991bf5c20aa337c0e1ebe2debf0d850c29efbe1
+
+
+
+         <md-slide-toggle
+          ngDefaultControl
+          (change)="onChange($event)"
+          [checked]="slicerIsHQ"></md-slide-toggle>
+          {{fetchedCompanie.typeCompanie}}
+
+
+
+        <!-- <div style="padding: 4px 0;">{{fetchedCompanie.typeCompanie}}</div>   -->
+
       </div>
       <div class="single-wrpr phyto-ctnr" style="background-color: #ffffff;">
         <p>To edit the name and address of your salon, please log into your profile on</p>

@@ -64,20 +64,27 @@ router.put('/:id', function (req, res, next) {
         err: err
       })
     }
-
-    var foundDuplicate = false
-    var latestItem = req.body._users[req.body._users.length-1]
-    item._users.forEach(userId => {
-      if(userId == latestItem._id)
-        foundDuplicate = true
+    var usersId = []
+    req.body._users.forEach(user => {
+      usersId.push(user._id)
     })
+    //console.log(usersId);
+    var usersId_without_duplicates = Array.from(new Set(usersId));
+    req.body._users = usersId_without_duplicates
+    //console.log(req.body._users)
+    //
+    // var valueArr = req.body._users.map(function(item){ return item._id });
+    // var isDuplicate = valueArr.some(function(item, idx){
+    //     return valueArr.indexOf(item) != idx
+    // });
 
-    if(foundDuplicate) {
-      return res.status(404).json({
-        message: 'Duplicate',
-        err: 'Duplicate users'
-      })
-    }
+
+    // if(isDuplicate) {
+    //   return res.status(404).json({
+    //     message: 'Duplicate',
+    //     err: 'Duplicate users: '
+    //   })
+    // }
 
     if( req.user.role[0] !== 'admin') {
       let belongToThisCompanie = false

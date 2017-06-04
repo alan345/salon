@@ -127,7 +127,7 @@ router.post('/', function (req, res, next) {
         html: html
       };
       mailer.sendMail(mailOptions, function (err) {
-        console.log('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+        console.log('info', 'An e-mail has been sent with further instructions.');
         return res.status(200).json({
           message: 'Success',
           token:'InMail'

@@ -87,10 +87,10 @@
             <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
           </div>
         </div>
-        <div *ngIf = "!isHQcompanie() && (isAdmin() || isManager() || isSalesRep())">
-          <div *ngIf="!isStylist()" class="col-sm-3">
+        <div *ngIf = "!isHQcompanie() && (isAdmin() || (isManager() && isMyCompanie()) || (isSalesRep() && isMyCompanie()))">
+          <!-- <div *ngIf="!isStylist()" class="col-sm-3"> -->
             <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
-          </div>
+          <!-- </div> -->
         </div>
         <div class="col-sm-9">
           <div formArrayName="forms" class="phyto-ctnr">
@@ -99,7 +99,7 @@
                 <div [formGroupName]="i" class="pic-list">
                   <img width="150" src="./uploads/forms/{{fetchedCompanie.forms[i].owner}}/{{fetchedCompanie.forms[i].imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   <i *ngIf = "isHQcompanie() && isAdmin()" class="fa fa-times pull-right dlt-img" (click)="removeForm(i)"></i>
-                  <i *ngIf = "!isHQcompanie() && (isAdmin() || isManager() || isSalesRep())" class="fa fa-times pull-right dlt-img" (click)="removeForm(i)"></i>
+                  <i *ngIf = "!isHQcompanie() && (isAdmin() || (isManager() && isMyCompanie()) || (isSalesRep() && isMyCompanie()))" class="fa fa-times pull-right dlt-img" (click)="removeForm(i)"></i>
                 </div>
               </div>
             </div>

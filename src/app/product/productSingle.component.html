@@ -22,8 +22,10 @@
                 </p>
               </div>
               <div class="hlf-wdth">
-                <h4>Pronunciation</h4>
-                <iframe width="62" height="85" scrolling="no" frameborder="no" [src]="fetchedProduct.description.title.embedSecure"></iframe>
+                <div *ngIf="fetchedProduct.description.title.embed">
+                  <h4>Pronunciation</h4>
+                  <iframe width="62" height="85" scrolling="no" frameborder="no" [src]="fetchedProduct.description.title.embedSecure"></iframe>
+                </div>
               </div>
               <div class="hlf-wdth">
                 <h4>Keywords</h4>

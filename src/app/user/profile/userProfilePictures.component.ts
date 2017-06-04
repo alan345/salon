@@ -30,19 +30,8 @@ export class UserProfilePicturesComponent implements OnInit {
   maxPictureToShow = 3;
   instapic = 1;
   companies: Companie[] = [];
-  // companies: Companie[] =[{
-  //   _id: '',
-  //   name: '',
-  //   address:{
-  //     address : '',
-  //     city : '',
-  //     state: '',
-  //     zip: '',
-  //   },
-  //   _users : [
-  //   ]
-  // }]
-  fetchedUser : User = new User()
+
+  fetchedUser: User = new User()
 
   public myForm: FormGroup;
 
@@ -179,6 +168,12 @@ export class UserProfilePicturesComponent implements OnInit {
 
 
 
+  isMyProfile() {
+    if(this.fetchedUser._id === this.authService.currentUser.userId)
+      return true
+    return false
+  }
+
 
 
   onDelete(id: string) {
@@ -195,13 +190,3 @@ export class UserProfilePicturesComponent implements OnInit {
 
 
 }
-
-
-// @Component({
-//   selector: 'user-dialog',
-//   templateUrl: './userDialog.component.html',
-// })
-// export class UserDialogComponent {
-//   constructor(public dialogRef: MdDialogRef<UserDialogComponent>) {}
-//
-// }

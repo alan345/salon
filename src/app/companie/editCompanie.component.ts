@@ -31,6 +31,10 @@ export class EditCompanieComponent implements OnInit {
   userStylists : User[] = []
   myForm: FormGroup;
 
+  slicerIsHQ: boolean = false;
+
+
+
   constructor(
     private companieService: CompanieService,
 //    private modalService: NgbModal,
@@ -62,6 +66,15 @@ export class EditCompanieComponent implements OnInit {
         this.getCompanie(params['id'])
     })
   }
+
+
+    onChange(e: any) {
+      if (e.checked === true) {
+        this.fetchedCompanie.typeCompanie = 'HQ'
+      } else {
+        this.fetchedCompanie.typeCompanie = 'salon'
+      }
+    }
 
   removeUserFromCompanie(i:number, typeUser: string){
     let this2 = this
@@ -149,6 +162,8 @@ export class EditCompanieComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedCompanie = res
+          if(this.fetchedCompanie.typeCompanie === 'HQ')
+            this.slicerIsHQ = true
           this.fetchedCompanie._users.forEach((user) => {
             if(user.role[0] === 'admin')
               this.userAdmins.push(user)
@@ -168,14 +183,14 @@ export class EditCompanieComponent implements OnInit {
         }
       )
   }
-  toggleTypeCompanie() {
-    if(this.isHQcompanie()) {
-      this.fetchedCompanie.typeCompanie = 'salon'
-    } else {
-      this.fetchedCompanie.typeCompanie = 'HQ'
-    }
-
-  }
+  // toggleTypeCompanie() {
+  //   if(this.isHQcompanie()) {
+  //     this.fetchedCompanie.typeCompanie = 'salon'
+  //   } else {
+  //     this.fetchedCompanie.typeCompanie = 'HQ'
+  //   }
+  //
+  // }
   isAdmin() {
     return this.authService.isAdmin();
   }

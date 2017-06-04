@@ -26,20 +26,6 @@ export class CompanieDetailComponent implements OnInit {
   users: User[] = [];
   userAdmins: User[] = [];
   fetchedCompanie: Companie = new Companie();
-  // {
-  //   _id: '',
-  //   forms: [],
-  //   name: '',
-  //   typeCompanie: '',
-  //   phoneNumber: '',
-  //   address: {
-  //     address : '',
-  //     city :  '',
-  //     state :  '',
-  //     zip :  ''
-  //   },
-  //   _users: []
-  // };
 
   search = {
     orderBy : '-client',
@@ -139,7 +125,7 @@ export class CompanieDetailComponent implements OnInit {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        console.log(result)
+        //console.log(result)
         if(result.type ==='pdf') {
           this.toastr.error('No pdf!');
         } else {
@@ -177,7 +163,14 @@ export class CompanieDetailComponent implements OnInit {
       );
   }
 
-
+  isMyCompanie() {
+      let isMyComp = false
+      this.fetchedCompanie._users.forEach(user => {
+        if(user._id === this.authService.currentUser.userId)
+          isMyComp = true
+      })
+      return isMyComp
+  }
   isAdmin() {
     return this.authService.isAdmin();
   }

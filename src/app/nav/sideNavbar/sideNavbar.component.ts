@@ -16,9 +16,9 @@ export class SideNavbarComponent implements OnInit {
   showAdminMenu: boolean = false;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedUser: any = {
-    _id: ''
-  };
+  // fetchedUser: any = {
+  //   _id: ''
+  // };
   companies: Companie[] = []
   userBelongToHQ : boolean = false
 
@@ -47,7 +47,7 @@ export class SideNavbarComponent implements OnInit {
   refresh() {
     //console.log(this.authService.isLoggedIn())
     if (this.authService.isLoggedIn()) {
-      let userId = this.authService.currentUser.userId
+      //let userId = this.authService.currentUser.userId
       // this.companieService.getCompanieByUserId(userId)
       this.companieService.getCompanieForCurrentUser()
       .subscribe(
@@ -59,12 +59,12 @@ export class SideNavbarComponent implements OnInit {
           })
         })
       )
-      this.profileService.getUserDetails(userId)
-      .subscribe(
-        (data => {
-          this.fetchedUser = data.user
-        })
-        )
+      // this.profileService.getUserDetails(userId)
+      // .subscribe(
+      //   (data => {
+      //     this.fetchedUser = data.user
+      //   })
+      //   )
 
 
       this.companieService.getCompanieForCurrentUser()

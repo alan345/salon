@@ -34,6 +34,7 @@ export const routes: Routes = [
   //{path: 'forms', component: UserFormsComponent, canActivate: [AuthGuardService]},
   {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
   {path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuardService]},
+  {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
 
   {path: 'profile/:id/userProfileSettings', component: UserProfileSettingsComponent, canActivate: [AuthGuardService]},
   {path: 'profile/:id/userProfilePictures', component: UserProfilePicturesComponent, canActivate: [AuthGuardService]},
