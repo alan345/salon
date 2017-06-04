@@ -8,10 +8,13 @@
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(true)">
       <div *ngIf="isAdmin()">
         <label>Type of Salon:</label>
-        <div (click)="toggleTypeCompanie()">{{fetchedCompanie.typeCompanie}}</div>
+        <div [ngClass]="{'switch-lt':isHQcompanie, 'switch-rt':!isHQcompanie}" (click)="toggleTypeCompanie()"></div>
+        <div>{{fetchedCompanie.typeCompanie}}</div>
       </div>
-      <p>To edit the name and address of your salon, please log into your profile on</p>
-      <a href="https://b2b-usa.alesgroupe.com/customer/account/login/" target="_blank">Our Professional Web Portal</a>
+      <div class="single-wrpr">
+        <p>To edit the name and address of your salon, please log into your profile on</p>
+        <a href="https://b2b-usa.alesgroupe.com/customer/account/login/" target="_blank">Our Professional Web Portal</a>
+      </div>
       <h4 style="margin-top:35px !important;">Manage Users:</h4>
       <div *ngIf="fetchedCompanie._id">
         <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
