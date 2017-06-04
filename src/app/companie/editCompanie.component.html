@@ -8,7 +8,9 @@
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(true)">
       <div *ngIf="isAdmin()">
         <label>Type of Salon:</label>
-        <div [ngClass]="{'switch-lt':isHQcompanie, 'switch-rt':!isHQcompanie}" (click)="toggleTypeCompanie()"></div>
+        <div (click)="toggleTypeCompanie()">
+          <div [ngClass]="{'switch-lt':switchSide, 'switch-rt':!switchSide}"></div>
+        </div>
         <div>{{fetchedCompanie.typeCompanie}}</div>
       </div>
       <div class="single-wrpr">
