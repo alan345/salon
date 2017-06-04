@@ -174,7 +174,8 @@ export class EditCompanieComponent implements OnInit {
     } else {
       this.fetchedCompanie.typeCompanie = 'HQ'
     }
-
+    this.switchSide = !this.switchSide
+  }
   }
   isAdmin() {
     return this.authService.isAdmin();
@@ -190,5 +191,4 @@ export class EditCompanieComponent implements OnInit {
       return true
     return false
   }
-
 }
