@@ -1,5 +1,7 @@
 .phytologo img {
   padding: 10px 15px;
+  left: 50%;
+  position: absolute;
 }
 .phytologo {
   background-color: #ffffff;
@@ -28,6 +30,9 @@
 .phytologo, .phytologo img {
   height: 70px!important;
 }
+.phytologo img {
+  margin-left: 91px;
+}
 .hamburger, .fa-user {
   padding: 25px;
 }
@@ -37,6 +42,9 @@
 
 .phytologo, .phytologo img {
   height: 50px!important;
+}
+.phytologo img {
+  margin-left: 60.5px;
 }
 .hamburger, .fa-user {
   padding: 15px;
