@@ -113,7 +113,7 @@ router.post('/', function (req, res, next) {
         </a>
       </div>
       <div class="width: 100%; background-color: #eeeeee;">
-        <a href="https://www.phyto.com/">Phyto Website</a> 
+        <a href="https://www.phyto.com/">Phyto Website</a>
         <a href="mailto:mychair@alesgroup.com?Subject=My%20Chair%20App%20Invitation%20Email">Contact Us</a>
       </div>
 
@@ -123,7 +123,7 @@ router.post('/', function (req, res, next) {
         //to: userToSendMail,   // ici quand on aura fini les tests, il faudra remplacer par cette ligne
         to: 'alan.szternberg@gmail.com',
         from: config.userGmail,
-        subject: 'Salon app | Password Change Request  ',
+        subject: 'Salon app | New request  ',
         html: html
       };
       mailer.sendMail(mailOptions, function (err) {
