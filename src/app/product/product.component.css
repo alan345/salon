@@ -235,18 +235,6 @@
 p.mgtpdt-desc {
   font-size: 12px;
 }
-.pronunciation {
-  width: 100%;
-  float: left;
-}
-.pronunciation .fa.fa-volume-up {
-  padding: 7px;
-  margin-top: 15px;
-  background-color: #ffffff;
-  color: #0a2f87;
-  border: 1px solid;
-  font-size: 20px;
-}
 .pdtind-tabs .mat-tab-labels, .pdtind-tabs .mat-tab-label {
   background-color: #231f20;
 }
@@ -274,6 +262,11 @@ md-tab-header.mat-tab-header {
 .pdt-cnt {
   float: left;
   width: 100%;
+}
+.hlf-wdth {		
+  width: 40%;		
+  float: left;		
+  margin-bottom: 15px;		
 }
 
 /*--------- Admin Products Page ----------*/
