@@ -71,7 +71,9 @@
       </div> -->
       <div *ngIf="isAdmin()">
         Type Salon:
-        <div (click)="toggleTypeCompanie()">{{fetchedCompanie.typeCompanie}}</div>
+        <div (click)="toggleTypeCompanie()">
+          {{fetchedCompanie.typeCompanie}}
+        </div>
       </div>
       <h4 style="margin-top:35px !important;">Manage Users:</h4>
       <div *ngIf="fetchedCompanie._id">

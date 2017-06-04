@@ -17,14 +17,14 @@
     <div class="sln-adrs">
 
 
-      <div *ngIf="isHQcompanie()">
+      <!-- <div *ngIf="isHQcompanie()">
         <div class="sln-adrs">
           <h3>Welcome to {{fetchedCompanie.name}}</h3>
           <h6>{{fetchedCompanie.address.address}}, {{fetchedCompanie.address.city}}, {{fetchedCompanie.address.state}} {{fetchedCompanie.address.zip}} - {{fetchedCompanie.phoneNumber}}</h6>
         </div>
       </div>
 
-      <div *ngIf="!isHQcompanie()">
+      <div *ngIf="!isHQcompanie()"> -->
         <h3>
           Welcome to
           <div *ngIf="fetchedCompanie.magento.firstname !='Not Defined'">{{fetchedCompanie.magento.firstname}}</div>
@@ -33,7 +33,7 @@
         <div *ngFor="let address of fetchedCompanie.magento.addresses">
           <h6>{{address.street}}, {{address.city}}, {{address.region.region_code}} {{address.postcode}} - {{address.telephone}}</h6>
         </div>
-      </div>
+      <!-- </div> -->
 
 
 
