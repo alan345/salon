@@ -16,12 +16,7 @@
   display: flex;
 }
 .one-sty img {
-  margin-top: -10%;
-  height: 120%;
-}
-.one-sty img {
-  flex: none;
-  max-width: none;
+  object-fit: cover;
 }
 .sty-ttl {
   padding: 15px;
@@ -157,6 +152,16 @@ table {
 }
 .edt-slntxt {
     float: right;
+}
+.switch {
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    float: left;
+    background-color: #cccccc;
+    text-transform: uppercase;
+    font-size: 13px;
+    cursor: pointer;
 }
 
 /*------------------------- Responsive ---------------------*/

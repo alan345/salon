@@ -1,5 +1,7 @@
 .phytologo img {
   padding: 10px 15px;
+  left: 50%;
+  position: absolute;
 }
 .phytologo {
   background-color: #ffffff;
@@ -8,10 +10,12 @@
   max-width: 950px;
   top: 0;
 }
-.hamburger {
-  float: right;
+.hamburger, .fa-user {
   font-size: 20px;
   color: #0a2f87;
+}
+.hamburger {
+  float: right;
 }
 
 @media screen and (min-width: 950px) {
@@ -26,7 +30,10 @@
 .phytologo, .phytologo img {
   height: 70px!important;
 }
-.hamburger {
+.phytologo img {
+  margin-left: -91px;
+}
+.hamburger, .fa-user {
   padding: 25px;
 }
 }
@@ -36,7 +43,10 @@
 .phytologo, .phytologo img {
   height: 50px!important;
 }
-.hamburger {
+.phytologo img {
+  margin-left: -60.5px;
+}
+.hamburger, .fa-user {
   padding: 15px;
 }
 }

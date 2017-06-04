@@ -1,8 +1,8 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {AuthService} from '../../auth/auth.service';
-import {AdminService} from '../../admin/services/admin.service';
-import {ProfileService} from '../../user/profile/profile.service';
-import {Router} from '@angular/router';
+import { Component, OnInit, Input} from '@angular/core';
+import { AuthService} from '../../auth/auth.service';
+import { AdminService} from '../../admin/services/admin.service';
+import { ProfileService} from '../../user/profile/profile.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +13,9 @@ export class NavbarComponent implements OnInit {
   @Input() sidenav: any;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedUser: any[] = [];
+    fetchedUser: any = {
+    _id: ''
+  };
 
   constructor(
     private authService: AuthService,
@@ -57,6 +59,10 @@ export class NavbarComponent implements OnInit {
   sideNavOpen(){
     //this.sidenav.open()
     this.sidenav.toggle()
+  }
+  goTo(path: string) {
+    this.sidenav.close()
+    this.router.navigate([path]);
   }
   isAdmin() {
     return this.adminService.isAdmin();

@@ -56,7 +56,7 @@
           ></md-checkbox>
           {{categorieHard.name}}
         </div>
-        <label class="phtyo-ctnr">Add Product Tags:</label>
+        <label class="phtyo-ctnr">Add Product Keywords:</label>
         <input
           [ngModelOptions]="{standalone: true}"
           [(ngModel)]="inputCategorie"
@@ -98,7 +98,7 @@
           {{categorie.name}}
         </div>
       </div>
-      <div formGroupName="description">
+      <div formGroupName="description" class="phyto-ctnr">
         <label>Benefits and Results:</label>
         <textarea
           type="textarea"
@@ -121,13 +121,7 @@
           [(ngModel)]="fetchedProduct.description.activeIngredients">
         </textarea>
         <div formGroupName="title">
-          <label>Pronunciation:</label>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="prononciation"
-            [(ngModel)]="fetchedProduct.description.title.prononciation">
-          <label>Add SoundCloud Embed Code:</label> (e.g: 34019569)
+          <label>Pronunciation - Add SoundCloud Embed Code:</label> (e.g: 34019569)
           <input
             type="text"
             class="form-control"
