@@ -100,12 +100,22 @@ router.post('/', function (req, res, next) {
 
       var html = `
 
-      <b>You are receiving</b>
-      NEW INVITATION
-
-      LINK:
-      http://${req.headers.host}/#/companie/edit/addUser/${req.body.fetchedCompanie}/${req.body.fetchedUser}
-
+      <div style="height: 150px; width: 100%; background-color: #0a2f87;">
+        <img src="/assets/images/mychair-logo-horizontal-white.png" style="max-height: 100%; padding: 15px 0;">
+      <div style="padding: 15px; background-color: #ffffff; width: 100%;">
+        <p>Hi there!</p>
+        <p>[FIRST NAME] [LAST NAME] invited you to join his salon on the My Chair Phyto App.</p>
+        <a
+          href="http://${req.headers.host}/#/companie/edit/addUser/${req.body.fetchedCompanie}/${req.body.fetchedUser}"
+          style="background-color: #0a2f87; padding: 10px 15px; border: none; outline: none;"
+        >
+          Accept the Invitation
+        </a>
+      </div>
+      <div class="width: 100%; background-color: #eeeeee;">
+        <a href="https://www.phyto.com/">Phyto Website</a> 
+        <a href="mailto:mychair@alesgroup.com?Subject=My%20Chair%20App%20Invitation%20Email">Contact Us</a>
+      </div>
 
 
       `;
