@@ -1,8 +1,6 @@
 <div class="phytologo">
-  <a [routerLink]="['/']">
-    <img src="/assets/images/my_chair_logo.png">
-  </a>
-
+  <a (click)="goTo('/user/profile/' + fetchedUser._id)"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
+  <a class="logonav" [routerLink]="['/']"><img src="/assets/images/mychair-logo-horizontal.png"></a>
   <i
     [ngClass]="{'fa-bars':!this.sidenav.opened,'fa-times':this.sidenav.opened}"
     *ngIf="isLoggedIn()"
@@ -10,9 +8,4 @@
     (click)="sideNavOpen()"
     class="fa hamburger"
   ></i>
-
-
-  <!-- <i *ngIf="isLoggedIn()" md-button (click)="sideNavOpen()" class="fa fa-bars hamburger" ></i> -->
-  <!-- Voici la classe a appele quand ouver:
-   <i *ngIf="isLoggedIn()" md-button (click)="sideNavOpen()" class="fa fa-times hamburger" ></i>-->
 </div>
