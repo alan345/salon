@@ -5,74 +5,13 @@
   </div>
   <div class="beigeback single-wrpr">
     <h4 class="dspl-nn">id: {{fetchedCompanie._id}}</h4>
-    <!-- <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)"> -->
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(true)">
-      <!-- <div *ngIf="isHQcompanie()">
-        <div class="form-group sln-inffrm">
-
-          <input
-            type="text"
-            class="form-control"
-            formControlName="name"
-            [(ngModel)]="fetchedCompanie.name"
-            required
-            minlength="5"
-            placeholder="Name of Your Salon"
-          >
-          <input
-            type="text"
-            class="form-control"
-            formControlName="phoneNumber"
-            [(ngModel)]="fetchedCompanie.phoneNumber"
-            required
-            minlength="5"
-            placeholder="Phone Number"
-          >
-
-          <div formGroupName="address">
-            <input
-              type="text"
-              class="form-control"
-              formControlName="address"
-              [(ngModel)]="fetchedCompanie.address.address"
-              required
-              minlength="5"
-              placeholder="Street Address"
-            >
-            <input
-              type="text"
-              class="form-control"
-              formControlName="city"
-              [(ngModel)]="fetchedCompanie.address.city"
-              required
-              minlength="2"
-              placeholder="City"
-            >
-              <input
-                type="text"
-                class="form-control"
-                formControlName="state"
-                [(ngModel)]="fetchedCompanie.address.state"
-                required
-                minlength="5"
-                placeholder="State Code"
-              >
-              <input
-                type="text"
-                class="form-control"
-                formControlName="zip"
-                [(ngModel)]="fetchedCompanie.address.zip"
-                required
-                minlength="5"
-                placeholder="Zip Code"
-              >
-          </div>
-        </div>
-      </div> -->
       <div *ngIf="isAdmin()">
-        Type Salon:
+        <label>Type of Salon:</label>
         <div (click)="toggleTypeCompanie()">{{fetchedCompanie.typeCompanie}}</div>
       </div>
+      <p>To edit the name and address of your salon, please log into your profile on</p>
+      <a href="https://b2b-usa.alesgroupe.com/customer/account/login/" target="_blank">Our Professional Web Portal</a>
       <h4 style="margin-top:35px !important;">Manage Users:</h4>
       <div *ngIf="fetchedCompanie._id">
         <button type="button" [routerLink]="['/companie/edit/addUser/' + fetchedCompanie._id]" routerLinkActive="active" class="sln-styadd">Add New <i class="fa fa-plus"></i></button>
