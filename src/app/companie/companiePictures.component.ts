@@ -8,6 +8,7 @@ import { Location} from '@angular/common';
 import { Form } from '../form/form.model';
 import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
+import { AuthService} from '../auth/auth.service';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class CompaniePicturesComponent implements OnInit {
   constructor(
     private companieService: CompanieService,
 //    private modalService: NgbModal,
+    private authService: AuthService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
     private router: Router,
@@ -109,6 +111,7 @@ export class CompaniePicturesComponent implements OnInit {
     })
   }
 
+
   getCompanie(id: string) {
     this.companieService.getCompanie(id, {})
       .subscribe(
@@ -122,5 +125,27 @@ export class CompaniePicturesComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+  isManager() {
+    return this.authService.isManager();
+  }
+  isSalesRep() {
+    return this.authService.isSalesRep();
+  }
+  isHQcompanie(){
+    if(this.fetchedCompanie.typeCompanie === 'HQ')
+      return true
+    return false
+  }
+  isMyCompanie() {
+      let isMyComp = false
+      this.fetchedCompanie._users.forEach(user => {
+        if(user._id === this.authService.currentUser.userId)
+          isMyComp = true
+      })
+      return isMyComp
   }
 }
