@@ -93,7 +93,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   isUserAlreadyInCompanie() {
-    console.log(this.fetchedCompanie , this.fetchedUser._id)
+    // console.log(this.fetchedCompanie , this.fetchedUser._id)
     this.fetchedCompanie._users.forEach((user: User) => {
       if(user._id == this.fetchedUser._id)
         this.isUserInCompanie = true
@@ -102,6 +102,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
 
   }
   initFormNewUser() {
+    this.fetchedUser.role = ['stylist']
     this.fetchedUser.email = this.search.email
     this.fetchedUser.role.forEach((role) => {
       this.addRole(role)
@@ -134,7 +135,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
           res => {
             this.toastr.success('Great!', res.message)
             this.addUserIdToCompanie(res.obj)
-            //this.addUserIdToCompanie(res.obj)
           },
           error => {console.log(error)}
         );
@@ -150,21 +150,38 @@ export class EditAddUserToCompanieComponent implements OnInit {
     }
   }
 
-  addUserIdToCompanie(user : User) {
-        this.fetchedCompanie._users.push(user)
-        this.companieService.updateCompanie(this.fetchedCompanie)
-          .subscribe(
-            res => {
-              //this.onPassForm.emit();
-              this.toastr.success('Great!', res.message)
-              this.router.navigate(['companie/' + this.fetchedCompanie._id]);
-            },
-            error => {
-              this.toastr.error('error! user already exists in salon')
-              console.log(error)
-            }
-          )
-      // }
+  addUserIdToCompanie(user: User) {
+    this.fetchedCompanie._users.push(user)
+    this.companieService.updateCompanie(this.fetchedCompanie)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+          let objToSend = {
+            companie: this.fetchedCompanie,
+            user: user
+          }
+          this.sendCredentialsToJoinCompanie(objToSend)
+        },
+        error => {
+          this.toastr.error('error! user already exists in salon')
+          console.log(error)
+        }
+      )
+  }
+
+  sendCredentialsToJoinCompanie(objToSend) {
+    this.companieService.sendCredentialsToJoinCompanie(objToSend)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', 'Mail has been sent');
+          this.router.navigate(['companie/' + this.fetchedCompanie._id]);
+
+        },
+        error => {
+          console.log(error);
+        }
+      );
+
   }
 
   getObjects(myForm: any){

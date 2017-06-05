@@ -45,11 +45,8 @@ export class CompanieService {
 
 
   sendInvitationToJoinCompanie(objToSend: any) {
-  //  console.log("this.authService.currentUser.token",this.authService.currentUser.token);
-
     const body = JSON.stringify(objToSend);
     const headers = new Headers({'Content-Type': 'application/json'});
-  //  let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.post(this.url + 'companie/sendinvitationToJoinCompanie', body, {headers: headers})
       .map(response => response.json())
@@ -59,6 +56,17 @@ export class CompanieService {
       });
   }
 
+  sendCredentialsToJoinCompanie(user) {
+    const body = JSON.stringify(user);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    return this.http.post(this.url + 'companie/sendCredentialsToJoinCompanie', body, {headers: headers})
+      .map(response => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
 
   //
   // // sending request for password reset

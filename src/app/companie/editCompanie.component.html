@@ -15,17 +15,16 @@
       </div>
       <div *ngIf="isAdmin()">
         Type Salon:
-        <div (click)="toggleTypeCompanie()">
+        <!-- <div (click)="toggleTypeCompanie()">
           {{fetchedCompanie.typeCompanie}}
-        </div>
+        </div> -->
 
-
-
-         <md-slide-toggle
+        <md-slide-toggle
           ngDefaultControl
           (change)="onChange($event)"
-          [checked]="slicerIsHQ"></md-slide-toggle>
-          {{fetchedCompanie.typeCompanie}}
+          [checked]="slicerIsHQInit">
+        </md-slide-toggle>
+        {{fetchedCompanie.typeCompanie}}
 
 
 

@@ -1,16 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth/auth.service';
-import {CompanieService} from './companie.service';
-
-import {Companie} from './companie.model';
-
-import {ToastsManager} from 'ng2-toastr';
-
-import {MdDialog } from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
+import { AuthService} from '../auth/auth.service';
+import { CompanieService} from './companie.service';
+import { Companie} from './companie.model';
+import { ToastsManager} from 'ng2-toastr';
+import { MdDialog } from '@angular/material';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-
 import { DeleteDialog } from '../deleteDialog/deleteDialog.component';
 import { User } from '../user/user.model';
 
@@ -24,27 +20,23 @@ import { User } from '../user/user.model';
 export class EditCompanieComponent implements OnInit {
   fetchedCompanie: Companie = new Companie();
 
-  userAdmins : User[] = []
-  userManagers : User[] = []
-  userClients : User[] = []
-  usersSalesRep : User[] = []
-  userStylists : User[] = []
+  userAdmins: User[] = [];
+  userManagers: User[] = [];
+  userClients: User[] = [];
+  usersSalesRep: User[] = [];
+  userStylists: User[] = [];
   myForm: FormGroup;
-
-  slicerIsHQ: boolean = false;
-
-
+  slicerIsHQInit: boolean = false;
 
   constructor(
     private companieService: CompanieService,
-//    private modalService: NgbModal,
     private toastr: ToastsManager,
     public dialog: MdDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
     private _fb: FormBuilder,
-    private authService:AuthService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -58,7 +50,7 @@ export class EditCompanieComponent implements OnInit {
         zip: ['', [Validators.required, Validators.minLength(2)]],
       }),
       _users: this._fb.array([])
-    })
+    });
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -87,7 +79,7 @@ export class EditCompanieComponent implements OnInit {
     })
   }
 
-  save(redirect:boolean) {
+  save(redirect: boolean) {
     this.fetchedCompanie._users = []
     this.userAdmins.forEach(user => this.fetchedCompanie._users.push(user))
     this.userManagers.forEach(user => this.fetchedCompanie._users.push(user))
@@ -104,7 +96,6 @@ export class EditCompanieComponent implements OnInit {
               this.router.navigate(['companie/' + this.fetchedCompanie._id])
           },
           error => {
-            //console.log(error)
             this.toastr.error('error!', error)
           }
         )
@@ -163,7 +154,7 @@ export class EditCompanieComponent implements OnInit {
         res => {
           this.fetchedCompanie = res
           if(this.fetchedCompanie.typeCompanie === 'HQ')
-            this.slicerIsHQ = true
+            this.slicerIsHQInit = true
           this.fetchedCompanie._users.forEach((user) => {
             if(user.role[0] === 'admin')
               this.userAdmins.push(user)

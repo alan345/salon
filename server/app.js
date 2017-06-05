@@ -24,6 +24,10 @@ var productBatch    = require('./routes/productBatch')
 var productBatchServ    = require('./routes/productBatchServ')
 var companieBatchServ    = require('./routes/companieBatchServ')
 var sendInvitationToJoinCompanie = require('./routes/sendInvitationToJoinCompanie')
+var sendCredentialsToJoinCompanie = require('./routes/sendCredentialsToJoinCompanie')
+
+
+
 
 var app = express()
 productBatchServ.jobScedule()
@@ -57,6 +61,7 @@ app.use('/promotion', promotionRoute)
 app.use('/profile', userProfile)
 app.use('/companie', companieRoute)
 app.use('/companie/sendInvitationToJoinCompanie', sendInvitationToJoinCompanie)
+app.use('/companie/sendCredentialsToJoinCompanie', sendCredentialsToJoinCompanie)
 app.use('/user/forgot', forgotRoutes)
 app.use('/user/reset', resetRoutes)
 app.use('/uploads', uploadRoute)
