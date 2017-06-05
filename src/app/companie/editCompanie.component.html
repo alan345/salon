@@ -8,9 +8,9 @@
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(true)">
       <div *ngIf="isAdmin()" class="phyto-ctnr">
         <label>Type of Salon:</label> (Only choose HQ if you want to make this Salon an Admin salon)
-        <div (click)="toggleTypeCompanie()">
+        <!-- <div (click)="toggleTypeCompanie()">
           <div class="switch">Switch</div>
-        </div>
+        </div> -->
 
       </div>
       <div *ngIf="isAdmin()">
