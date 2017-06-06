@@ -165,7 +165,7 @@ router.post('/', function (req, res, next) {
         //to: userToSendMail,   // ici quand on aura fini les tests, il faudra remplacer par cette ligne
         to: 'doriane@mouret.org',
         from: config.userGmail,
-        subject: 'Salon app | New request  ',
+        subject: 'My Chair by Phyto Paris | New Request  ',
         html: html
       };
       mailer.sendMail(mailOptions, function (err) {
