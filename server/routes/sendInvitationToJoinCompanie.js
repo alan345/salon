@@ -163,7 +163,7 @@ router.post('/', function (req, res, next) {
       `;
       var mailOptions = {
         //to: userToSendMail,   // ici quand on aura fini les tests, il faudra remplacer par cette ligne
-        to: 'alan.szternberg@gmail.com',
+        to: 'doriane@mouret.org',
         from: config.userGmail,
         subject: 'Salon app | New request  ',
         html: html
