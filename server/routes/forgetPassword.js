@@ -83,7 +83,7 @@ router.post('/', function (req, res, next) {
         <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
           <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc;">
             <tr>
-              <td align="center" bgcolor="#0a2f87" height="100">
+              <td align="center" bgcolor="#0a2f87" height="150">
                 <img
                   src="https://raw.githubusercontent.com/alan345/salon/master/src/assets/images/mychair-logo-horizontal-white.png"
                   alt="Invitation from My Chair App by Phyto Paris" width="305" height="100" style="display: block;"
@@ -94,23 +94,23 @@ router.post('/', function (req, res, next) {
               <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tr>
-                    <td>
+                    <td style="padding: 15px 0 30px 0;">
                       You are receiving this email because you or someone else asked for a password reset for your account.
                       Please follow the link or copy paste it in your browser address bar to initiate password change:
                     </td>
                   </tr>
                   <tr>
-                    <td style="padding: 15px 0 30px 0;">
+                    <td align="center" width="50%" style="background-color: #0a2f87; padding: 10px 15px;">
                       <a
                         href="http://${req.headers.host}/#/user/reset/${token}"
-                        style="background-color: #0a2f87; padding: 10px 15px; border: none; outline: none; color: #ffffff; text-tramsform: none;"
+                        style="background-color: #0a2f87; padding: 10px 15px; border: none; outline: none; color: #ffffff; text-decoration: none;"
                       >
                         Reset Password
                       </a>
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td style="padding: 15px 0 30px 0;">
                       The link will remain active for one hour.
                       If you didnt asked for a password reset, please ignore this email and contact your manager to let them know someone tried to log into your account.
                     </td>
@@ -122,11 +122,11 @@ router.post('/', function (req, res, next) {
               <td bgcolor="#eeeeee">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                  <tr>
-                  <td>
-                    <a href="https://www.phyto.com/" style="color: #ffffff; text-transform: none;">Phyto Website</a>
+                  <td style="padding: 15px 15px 15px 15px;">
+                    <a href="https://www.phyto.com/" style="text-decoration: none;">Phyto Website</a>
                   </td>
-                  <td>
-                    <a href="mailto:mychair@alesgroup.com?Subject=My%20Chair%20App%20Invitation%20Email" style="color: #ffffff; text-transform: none;">Contact Us</a>
+                  <td style="padding: 15px 15px 15px 15px;">
+                    <a href="mailto:mychair@alesgroup.com?Subject=My%20Chair%20App%20Invitation%20Email" style="text-decoration: none;">Contact Us</a>
                   </td>
                  </tr>
                 </table>
