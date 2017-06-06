@@ -110,3 +110,32 @@ export const categSubtil: any = [
     { name:'Oxydizers & Developer', selected : false },
     { name:'Styling', selected : false },
 ]
+
+
+export const categories2DynamicModel = [
+    categAll,
+    categPhyto,
+    categPhytoSpecific,
+    categSubtil,
+]
+
+export const categories3Model = [
+  { name:'COLORED', selected : false},
+  { name:'FINE', selected : false },
+  { name:'GRAY/PLATINUM', selected : false },
+  { name:'CURLY', selected : false },
+  { name:'NORMAL', selected : false },
+  { name:'RELAXED', selected : false },
+  { name:'UNRULY', selected : false },
+]
+
+export const categories4Model = [
+  { name:'DAMAGED', selected : false},
+  { name:'AGING', selected : false },
+  { name:'DRY', selected : false },
+  { name:'DANDRUFF', selected : false },
+  { name:'UNBALANCED SCALP', selected : false },
+  { name:'SENSITIVE SCALP', selected : false },
+  { name:'THINNING', selected : false },
+  { name:'LIFE-STRESSED', selected : false },
+]

@@ -1,7 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {ProductService} from './product.service';
-import {Product, categPhyto, categPhytoSpecific, categSubtil, categAll, categHard1Model} from './product.model';
+import {
+  Product,
+  categPhyto,
+  categories3Model,
+  categories4Model,
+  categPhytoSpecific,
+  categories2DynamicModel,
+  categSubtil,
+  categAll,
+  categHard1Model } from './product.model';
 import {ToastsManager} from 'ng2-toastr';
 import {MdDialog } from '@angular/material';
 import {Router} from '@angular/router';
@@ -27,8 +36,7 @@ export class ProductsComponent implements OnInit {
     categories : [],
     search:''
   }
-  loading: boolean
-  //inputSearch:''
+  loading: boolean;
 
   paginationData = {
     currentPage: 1,
@@ -38,47 +46,11 @@ export class ProductsComponent implements OnInit {
 
 
   categoriesHard1 = categHard1Model
-
   categoriesHard2 : any = []
-
-
-  categories2Dynamic = [
-      categAll,
-      categPhyto,
-      categPhytoSpecific,
-      categSubtil,
-  ]
-
-  //
-  // categories2PhytoSpecific =
-  //
-  // categories2Subtil =
-  categories3 = [
-    { name:'COLORED', selected : false},
-    { name:'FINE', selected : false },
-    { name:'GRAY/PLATINUM', selected : false },
-    { name:'CURLY', selected : false },
-    { name:'NORMAL', selected : false },
-    { name:'RELAXED', selected : false },
-    { name:'UNRULY', selected : false },
-  ]
-
-
-
-  categories4 = [
-    { name:'DAMAGED', selected : false},
-    { name:'AGING', selected : false },
-    { name:'DRY', selected : false },
-    { name:'DANDRUFF', selected : false },
-    { name:'UNBALANCED SCALP', selected : false },
-    { name:'SENSITIVE SCALP', selected : false },
-    { name:'THINNING', selected : false },
-    { name:'LIFE-STRESSED', selected : false },
-  ]
-
-
+  categories2Dynamic = categories2DynamicModel
+  categories3 = categories3Model
+  categories4 = categories4Model
   showFilters : boolean = false
-
   categories2 = ''
   categories1 = ''
 
