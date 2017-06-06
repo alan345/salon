@@ -99,23 +99,54 @@ router.post('/', function (req, res, next) {
       })
 
       var html = `
-
-      <div style="height: 150px; width: 100%; background-color: #0a2f87;">
-        <img src="/assets/images/mychair-logo-horizontal-white.png" style="max-height: 100%; padding: 15px 0;">
-      <div style="padding: 15px; background-color: #ffffff; width: 100%;">
-        <p>Hi there!</p>
-        <p>[FIRST NAME] [LAST NAME] invited you to join his salon on the My Chair Phyto App.</p>
-        <a
-          href="http://${req.headers.host}/#/companie/edit/addUser/${req.body.fetchedCompanie}/${req.body.fetchedUser}"
-          style="background-color: #0a2f87; padding: 10px 15px; border: none; outline: none;"
-        >
-          Accept the Invitation
-        </a>
-      </div>
-      <div class="width: 100%; background-color: #eeeeee;">
-        <a href="https://www.phyto.com/">Phyto Website</a>
-        <a href="mailto:mychair@alesgroup.com?Subject=My%20Chair%20App%20Invitation%20Email">Contact Us</a>
-      </div>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Email from My Chair App by Phyto Paris</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+      </head>
+      <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
+        <table align="center" border="1" cellpadding="0" cellspacing="0" width="600">
+          <tr>
+            <td bgcolor="#0a2f87" height="100">
+              <img
+                src="https://raw.githubusercontent.com/alan345/salon/master/src/assets/images/mychair-logo-horizontal-white.png"
+                alt="Invitation from My Chair App by Phyto Paris" width="305" height="100" style="display: block;"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
+              <table border="1" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td>Hi there!</td>
+                </tr>
+                <tr>
+                  <td style="padding: 15px 0 30px 0;">
+                    [FIRST NAME] [LAST NAME] invited you to join his salon on the My Chair Phyto App.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="http://${req.headers.host}/#/companie/edit/addUser/${req.body.fetchedCompanie}/${req.body.fetchedUser}"
+                      style="background-color: #0a2f87; padding: 10px 15px; border: none; outline: none; color: #ffffff; text-tramsform: none;"
+                    >
+                      Accept the Invitation
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#eeeeee">
+              <a href="https://www.phyto.com/" style="color: #ffffff; text-transform: none;">Phyto Website</a>
+              <a href="mailto:mychair@alesgroup.com?Subject=My%20Chair%20App%20Invitation%20Email" style="color: #ffffff; text-transform: none;">Contact Us</a>
+            </td>
+          </tr>
+        </table>
+      </body>
 
 
       `;
