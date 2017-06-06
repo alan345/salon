@@ -125,7 +125,7 @@ router.post('/', function (req, res, next) {
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
-                      [FIRST NAME] [LAST NAME] invited you to join his salon on the My Chair Phyto App.
+                      [FIRST NAME] [LAST NAME] has requested to join your salon on the My Chair Phyto App.
                     </td>
                   </tr>
                   <tr>
@@ -134,7 +134,7 @@ router.post('/', function (req, res, next) {
                         href="http://${req.headers.host}/#/companie/edit/addUser/${req.body.fetchedCompanie}/${req.body.fetchedUser}"
                         style="background-color: #0a2f87; padding: 10px 15px; border: none; outline: none; color: #ffffff; text-tramsform: none;"
                       >
-                        Accept the Invitation
+                        Accept Request
                       </a>
                     </td>
                   </tr>
