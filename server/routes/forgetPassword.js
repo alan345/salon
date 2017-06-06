@@ -77,7 +77,7 @@ router.post('/', function (req, res, next) {
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <title style="color: #ffffff;">Email from My Chair App by Phyto Paris</title>
+          <title>Email from My Chair App by Phyto Paris</title>
           <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
         </head>
         <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
@@ -86,7 +86,7 @@ router.post('/', function (req, res, next) {
               <td align="center" bgcolor="#0a2f87" height="150">
                 <img
                   src="https://raw.githubusercontent.com/alan345/salon/master/src/assets/images/mychair-logo-horizontal-white.png"
-                  alt="Invitation from My Chair App by Phyto Paris" width="305" height="100" style="display: block;"
+                  alt="Email from My Chair App by Phyto Paris" width="305" height="100" style="display: block; color: #ffffff;"
                 />
               </td>
             </tr>
