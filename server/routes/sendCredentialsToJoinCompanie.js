@@ -131,7 +131,7 @@ router.post('/', function (req, res, next) {
       var mailOptions = {
         to: user.email,
         from: config.userGmail,
-        subject: 'Salon app | New Invitation ',
+        subject: 'My Chair by Phyto Paris | New Invitation ',
         html: html
       };
       mailer.sendMail(mailOptions, function (err) {
