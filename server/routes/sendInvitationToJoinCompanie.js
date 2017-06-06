@@ -129,7 +129,7 @@ router.post('/', function (req, res, next) {
                     </td>
                   </tr>
                   <tr>
-                    <td align="center" width="50%" style="background-color: #0a2f87; padding: 10px 15px;">
+                    <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
                       <a
                         href="http://${req.headers.host}/#/companie/edit/addUser/${req.body.fetchedCompanie}/${req.body.fetchedUser}"
                         style="color: #ffffff; text-decoration: none;"
@@ -145,10 +145,10 @@ router.post('/', function (req, res, next) {
               <td bgcolor="#eeeeee">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                  <tr>
-                  <td>
+                  <td style="padding: 15px 15px 15px 15px;">
                     <a href="https://www.phyto.com/" style="color: #ffffff; text-decoration: none;">Phyto Website</a>
                   </td>
-                  <td>
+                  <td style="padding: 15px 15px 15px 15px;">
                     <a href="mailto:mychair@alesgroup.com?Subject=My%20Chair%20App%20Invitation%20Email" style="color: #ffffff; text-decoration: none;">Contact Us</a>
                   </td>
                  </tr>
