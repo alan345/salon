@@ -71,6 +71,16 @@ export class Custom_attribute {
 }
 
 
+export const categHard1Model: any = [
+  { name:'All', selected : false },
+  { name:'Phyto', selected : false },
+  { name:'Phyto Specific', selected : false },
+  { name:'Subtil', selected : false }
+]
+
+export const categAll: any = [
+  { name:'All', selected : false },
+]
 export const categPhyto: any = [
     { name:'Conditioners & masks', selected : false },
     { name:'Diateray supplements', selected : false },

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {ProductService} from './product.service';
-import {Product, categPhyto, categPhytoSpecific, categSubtil} from './product.model';
+import {Product, categPhyto, categPhytoSpecific, categSubtil, categAll, categHard1Model} from './product.model';
 import {ToastsManager} from 'ng2-toastr';
 import {MdDialog } from '@angular/material';
 import {Router} from '@angular/router';
@@ -37,17 +37,13 @@ export class ProductsComponent implements OnInit {
   };
 
 
-  categoriesHard1 = [
-    { name:'Phyto', selected : false },
-    { name:'Phyto Specific', selected : false },
-    { name:'Subtil', selected : false }
-  ]
+  categoriesHard1 = categHard1Model
 
   categoriesHard2 : any = []
 
-  //categPhyto: any = categPhyto
 
   categories2Dynamic = [
+      categAll,
       categPhyto,
       categPhytoSpecific,
       categSubtil,
