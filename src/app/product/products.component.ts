@@ -50,7 +50,7 @@ export class ProductsComponent implements OnInit {
   categories2Dynamic = categories2DynamicModel
   categories3 = categories3Model
   categories4 = categories4Model
-  showFilters : boolean = false
+  showFilters: boolean = false
   categories2 = ''
   categories1 = ''
 
@@ -88,6 +88,8 @@ export class ProductsComponent implements OnInit {
 
 
     this.categories1 = $event.tab.textLabel
+    this.categories2 = this.categoriesHard2[0].name
+    //console.log(this.categoriesHard2)
     this.updateCategerories()
 
 

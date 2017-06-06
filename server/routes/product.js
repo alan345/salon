@@ -143,26 +143,28 @@ router.get('/page/:page', function (req, res, next) {
     } else {
       categories = req.query.categories
     }
-
-    categories.forEach(function (categ) {
-      categorie = JSON.parse(categ)
-      if(categorie.name) {
-        matchRules.push({
-           '$elemMatch': categorie
-         })
+    //
+    // var categoriesNotJSON = JSON.parse(categories)
+     //console.log()
+    if(JSON.parse(categories[0]).name!=='All') {
+      console.log('a')
+      categories.forEach(function (categ) {
+         categorie = JSON.parse(categ)
+        if(categorie.name) {
+          matchRules.push({
+             '$elemMatch': categorie
+           })
+        }
+      })
+      searchQuery['categories'] = {
+         "$all": matchRules
       }
-    })
-    searchQuery['categories'] = {
-       "$all": matchRules
     }
   }
 
 
   if(req.query.search)
     searchQuery['magento.name'] = new RegExp(req.query.search, 'i')
-
-   //
-  //  console.log(searchQuery)
 
   Product
   .find(searchQuery)

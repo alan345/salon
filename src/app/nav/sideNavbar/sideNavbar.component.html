@@ -12,7 +12,7 @@
       </div>
       <div *ngIf="!(isAdmin() || isSalesRep())">
         <li *ngFor="let companie of companies">
-          <a *ngIf="companies.length>1" (click)="goTo('/companie/' + companie._id)">{{companie.name}}</a>
+          <a *ngIf="companies.length>1" (click)="goTo('/companie/' + companie._id)">{{companie.magento.firstname}} {{companie.magento.lastname}}</a>
           <a *ngIf="companies.length==1" (click)="goTo('/companie/' + companie._id)">My Salon</a>
         </li>
       </div>

@@ -47,38 +47,16 @@
         <div class="prf-chalcnt">
           <div *ngFor="let companie of companies" class="act-chal">
 
-<!-- 
-            <div *ngIf="isUserBelongToHQ">
-              <div *ngIf="isHQcompanie(companie)">
-                <h3>{{companie.name}}</h3>
-                <h6>{{companie.address.address}}, {{companie.address.city}}, {{companie.address.state}} {{companie.address.zip}}</h6>
-              </div>
+            <h3>{{companie.magento.lastname}</h3>
+            <div *ngFor="let address of companie.magento.addresses">
+              <h6>{{address.street[0]}}, {{address.city}}, {{address.region.region_code}} {{address.postcode}}</h6>
             </div>
-            <div *ngIf="!isUserBelongToHQ">
-              <h3>{{companie.name}}</h3>
-              <h6>{{companie.address.address}}, {{companie.address.city}}, {{companie.address.state}} {{companie.address.zip}}</h6>
-            </div>
-
-
-                         -->
-            <h3>{{companie.name}}</h3>
-            <h6>{{companie.address.address}}, {{companie.address.city}}, {{companie.address.state}} {{companie.address.zip}}</h6>
           </div>
           <div class="chal-rslt"><p>More Features coming soon!</p></div>
         </div>
       </div>
     </div>
 
-    <!--ALAN: These should be added in a modal:
-    <div>
-      <div>
-        <button type="button" md-button (click)="openDialog('_profilePicture')" class="addpic-squr">Add Picture<br><i class="fa fa-plus"></i></button>
-      </div>
-      <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="Name">
-      <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
-      <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
-      <button type="submit" class="done">Done</button>
-    </div>-->
 
     <div class="img-row phyto-ctnr">
       <h3 *ngIf="isMyProfile()" style="padding: 0 15px !important;">Your Photos (Tap to Expand)</h3>

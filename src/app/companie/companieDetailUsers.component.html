@@ -13,7 +13,7 @@
           (ngModelChange)="onChangeCompanie($event)"
           >
           <option value="" disabled selected>Select Salon</option>
-          <option *ngFor="let companie of fetchedCompanies" value="{{companie._id}}">{{companie.name}}</option>
+          <option *ngFor="let companie of fetchedCompanies" value="{{companie._id}}">{{companie.magento.lastname}}</option>
         </select>
       </div>
     </div>

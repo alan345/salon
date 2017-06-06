@@ -178,7 +178,7 @@ export class NewUserComponent implements OnInit {
                 res => {
                   //console.log('User removed from previous companie' + this.fetchedCompanieInit.name)
                   //this.onPassForm.emit();
-                  this.toastr.success('Great!', 'User removed from previous companie' + this.fetchedCompanieInit.name)
+                  this.toastr.success('Great!', 'User removed from previous companie' + this.fetchedCompanieInit.magento.lastname)
                   //this.router.navigate(['companie/' + this.fetchedCompanie._id]);
 
                 },
