@@ -112,7 +112,7 @@ router.post('/', function (req, res, next) {
             <tr>
               <td align="center" bgcolor="#0a2f87" height="150">
                 <img
-                  src="https://raw.githubusercontent.com/alan345/salon/master/src/assets/images/mychair-logo-horizontal-white.png"
+                  src="http://${req.headers.host}/assets/images/mychair-logo-horizontal-white.png"
                   alt="Request from My Chair  by Phyto Paris" width="305" height="100" style="display: block; color: #ffffff;"
                 />
               </td>
@@ -125,7 +125,7 @@ router.post('/', function (req, res, next) {
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
-                      [FIRST NAME] [LAST NAME] has requested to join your salon on the My Chair by Phyto Paris App.
+                      ${req.body.fetchedUser.profile.name} ${req.body.fetchedUser.profile.lastName} has requested to join your salon on the My Chair by Phyto Paris App.
                     </td>
                   </tr>
                   <tr>

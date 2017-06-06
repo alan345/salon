@@ -56,9 +56,6 @@ router.post('/', function (req, res, next) {
       // see https://nodemailer.com/usage/
       var mailer = nodemailer.createTransport({
           service: "Gmail",
-          // host: 'smtp.gmail.com',
-          // port: 587,
-          // secure: true, // upgrade later with STARTTLS
           auth: {
               user: config.userGmail,
               pass: config.passGmail
@@ -80,7 +77,7 @@ router.post('/', function (req, res, next) {
             <tr>
               <td align="center" bgcolor="#0a2f87" height="150">
                 <img
-                  src="https://raw.githubusercontent.com/alan345/salon/master/src/assets/images/mychair-logo-horizontal-white.png"
+                  src="http://${req.headers.host}/assets/images/mychair-logo-horizontal-white.png"
                   alt="Invitation from My Chair by Phyto Paris" width="305" height="100" style="display: block; color: #ffffff;"
                 />
               </td>
@@ -93,7 +90,7 @@ router.post('/', function (req, res, next) {
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
-                      [FIRST NAME] [LAST NAME] invited you to join their salon on the My Chair by Phyto Paris App.
+                      ${req.body.user.profile.name} ${req.body.user.profile.lastName} invited you to join their salon on the My Chair by Phyto Paris App.
                     </td>
                   </tr>
                   <tr>
