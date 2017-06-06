@@ -113,7 +113,7 @@ router.post('/', function (req, res, next) {
               <td align="center" bgcolor="#0a2f87" height="150">
                 <img
                   src="https://raw.githubusercontent.com/alan345/salon/master/src/assets/images/mychair-logo-horizontal-white.png"
-                  alt="Invitation from My Chair App by Phyto Paris" width="305" height="100" style="display: block; color: #ffffff;"
+                  alt="Request from My Chair App by Phyto Paris" width="305" height="100" style="display: block; color: #ffffff;"
                 />
               </td>
             </tr>
