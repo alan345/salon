@@ -7,29 +7,17 @@
     <h4 class="dspl-nn">id: {{fetchedCompanie._id}}</h4>
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(true)">
       <div *ngIf="isAdmin()" class="phyto-ctnr">
-        <label>Type of Salon:</label> (Only choose HQ if you want to make this Salon an Admin salon)
-        <!-- <div (click)="toggleTypeCompanie()">
-          <div class="switch">Switch</div>
-        </div> -->
-
-      </div>
-      <div *ngIf="isAdmin()">
-        Type Salon:
-        <!-- <div (click)="toggleTypeCompanie()">
+        <div class="phyto-ctnr">
+          <label>Type of Salon:</label> (Only choose HQ if you want to make this Salon an Admin salon)
+        </div>
+        <div class="switch">
+          <md-slide-toggle
+            ngDefaultControl
+            (change)="onChange($event)"
+            [checked]="slicerIsHQInit">
+          </md-slide-toggle>
           {{fetchedCompanie.typeCompanie}}
-        </div> -->
-
-        <md-slide-toggle
-          ngDefaultControl
-          (change)="onChange($event)"
-          [checked]="slicerIsHQInit">
-        </md-slide-toggle>
-        {{fetchedCompanie.typeCompanie}}
-
-
-
-        <!-- <div style="padding: 4px 0;">{{fetchedCompanie.typeCompanie}}</div>   -->
-
+        </div>
       </div>
       <div class="single-wrpr phyto-ctnr" style="background-color: #ffffff;">
         <p>To edit the name and address of your salon, please log into your profile on</p>
