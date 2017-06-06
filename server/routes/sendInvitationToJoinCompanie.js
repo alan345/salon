@@ -110,10 +110,10 @@ router.post('/', function (req, res, next) {
         <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
           <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc;">
             <tr>
-              <td bgcolor="#0a2f87" height="100">
+              <td align="center" bgcolor="#0a2f87" height="100">
                 <img
                   src="https://raw.githubusercontent.com/alan345/salon/master/src/assets/images/mychair-logo-horizontal-white.png"
-                  alt="Invitation from My Chair App by Phyto Paris" width="305" height="100" style="display: block;"
+                  alt="Request from My Chair App by Phyto Paris" width="305" height="100" style="display: block;"
                 />
               </td>
             </tr>
