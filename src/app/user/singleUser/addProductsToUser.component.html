@@ -15,7 +15,7 @@
       >
       <div *ngFor="let fetchedBoughtProduct of fetchedBoughtProducts; let i=index">
         {{fetchedBoughtProduct.magento.sku}} - {{fetchedBoughtProduct.magento.name}}
-        <button type="button" (click)="selectProduct(fetchedBoughtProduct)">select</button>
+        <button type="button" (click)="selectProduct(fetchedBoughtProduct)" class="select">select</button>
       </div>
       <div *ngFor="let productFetch of fetchedUser.products; let i=index">
         <div *ngFor="let custom_attribute of productFetch.product.magento.custom_attributes" class="rltpdt-ctnr">
