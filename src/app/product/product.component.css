@@ -412,7 +412,13 @@ label.pdt-lableft {
   float: left;
   width: 100%;
 }
+.pdtind-tabs .mat-tab-label {
+  height: 70px !important;
+  line-height: 1.7 !important;
+  padding: 12px !important;
 }
+}
+
 @media screen and (max-width: 365px) {
   
 .pdt-tabs .mat-tab-label {
