@@ -19,7 +19,6 @@ import { ToastOptions} from 'ng2-toastr';
 import { CustomOption } from './toast-options';
 
 
-
 import { NavbarComponent} from './nav/navbar/navbar.component';
 import { SideNavbarComponent} from './nav/sideNavbar/sideNavbar.component';
 import { FooterComponent} from './nav/footer/footer.component';
