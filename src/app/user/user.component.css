@@ -149,7 +149,18 @@ p.cmt-dat {
     margin-top: 15px;
     font-size: 12px;
 }
-
+.rltpdt-cnt img {
+    float: left;
+    margin-right: 15px;
+    height: 100px !important;
+}
+.dlt-pdt {
+    background: #333333;
+    outline: none !important;
+    border: none !important;
+    color: #fff;
+    padding: 2px 6px;
+}
 /*-------Admin Users-------*/
 
 .admin-users .mat-tab-label {
