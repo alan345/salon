@@ -47,18 +47,19 @@ import { PressService} from './press/press.service';
 
 
 import { VideoModule} from './video/video.module';
+import { PromotionModule} from './promotion/promotion.module';
 import { UserModule} from './user/user.module';
 import { ProductModule} from './product/product.module';
 import { CompanieModule} from './companie/companie.module';
 import { ProductBatchModule} from './productBatch/productBatch.module';
 
 
-import { PromotionsSeeInactiveComponent} from './promotion/promotionsSeeInactive.component';
-import { PromotionDeleteDialog} from './promotion/promotionDeleteDialog.component';
-import { PromotionComponent} from './promotion/promotion.component';
-import { PromotionsComponent} from './promotion/promotions.component';
-import { SinglePromotionComponent} from './promotion/singlePromotion.component';
-import { PromotionService} from './promotion/promotion.service';
+// import { PromotionsSeeInactiveComponent} from './promotion/promotionsSeeInactive.component';
+// import { PromotionDeleteDialog} from './promotion/promotionDeleteDialog.component';
+// import { PromotionComponent} from './promotion/promotion.component';
+// import { PromotionsComponent} from './promotion/promotions.component';
+// import { SinglePromotionComponent} from './promotion/singlePromotion.component';
+// import { PromotionService} from './promotion/promotion.service';
 
 
 
@@ -128,12 +129,12 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PressesComponent,
     PressSingleComponent,
 
-
-    PromotionDeleteDialog,
-    PromotionsSeeInactiveComponent,
-    PromotionComponent,
-    PromotionsComponent,
-    SinglePromotionComponent,
+    //
+    // PromotionDeleteDialog,
+    // PromotionsSeeInactiveComponent,
+    // PromotionComponent,
+    // PromotionsComponent,
+    // SinglePromotionComponent,
 
     SubmitPicDialog,
     SocialComponent,
@@ -181,6 +182,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
     UserModule,
     VideoModule,
+    PromotionModule,
     ProductModule,
     CompanieModule,
     ProductBatchModule,
@@ -199,7 +201,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AdminService,
   //  UserService,
   //  ProductService,
-    PromotionService,
+    // PromotionService,
     AdminGuardService,
   //  ProfileService,
     {
@@ -213,7 +215,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   //  CompanieAddUserDialog,
     DeleteDialog,
     SubmitPicDialog,
-    PromotionDeleteDialog,
+    // PromotionDeleteDialog,
     EditOptionsComponentDialog,
     // VideoDeleteDialog,
     // VideoWhereDialogComponent,

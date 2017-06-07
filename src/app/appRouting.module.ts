@@ -23,14 +23,12 @@ import {SocialComponent} from './social/social.component';
 
 
 
-import {USER_PROMOTIONS} from './promotion/promotion.routes';
+//import {USER_PROMOTIONS} from './promotion/promotion.routes';
 import {PromotionComponent} from './promotion/promotion.component';
 
 import {USER_PRESSES} from './press/press.routes';
 import {PressComponent} from './press/press.component';
 
-//import {VIDEOS} from './video/video.routes';
-//import {VideoComponent} from './video/video.component';
 
 //import {USER_PRODUCTS} from './product/product.routes';
 import {ProductComponent} from './product/product.component';
@@ -58,7 +56,9 @@ export const routes: Routes = [
   {path: 'product', loadChildren: 'app/product/product.module#ProductModule'},
   {path: 'productBatch', loadChildren: 'app/productBatch/productBatch.module#ProductBatchModule'},
   {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
-  {path: 'promotion', component: PromotionComponent, canActivate: [AuthGuardService], children: USER_PROMOTIONS},
+  {path: 'promotion', loadChildren: 'app/promotion/promotion.module#PromotionModule'},
+
+  //{path: 'promotion', component: PromotionComponent, canActivate: [AuthGuardService], children: USER_PROMOTIONS},
 //  {path: 'companie/:id', component: CompanieDetailComponent},
 //  {path: 'companie/edit/:id', component: EditCompanieComponent},
 //  {path: 'map', component: MapComponent, pathMatch: 'full'},
