@@ -21,7 +21,7 @@ export class AddProductsToUserComponent implements OnInit {
   fetchedUser: User = new User();
   inputBoughtProduct: string = '';
   fetchedBoughtProducts: Product[] = [];
-
+  urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
 
   constructor(
     private userService: UserService,
