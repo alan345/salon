@@ -40,7 +40,13 @@
             </p>
           </div>
 
-          <a class="seemre" [routerLink]="['/user/' + fetchedUser._id + '/productsHistory']" routerLinkActive="active">See Products History</a>
+          <a
+            *ngIf="fetchedUser.products.length>2"
+            class="seemre"
+            [routerLink]="['/user/' + fetchedUser._id + '/productsHistory']"
+            routerLinkActive="active">
+            See Products History
+          </a>
         </div>
       </div>
     </div>
