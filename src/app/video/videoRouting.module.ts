@@ -11,6 +11,7 @@ export const routes: Routes = [
   {path: ':id', component: VideoSingleComponent},
 ];
 
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

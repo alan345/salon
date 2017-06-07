@@ -34,19 +34,6 @@ import { UserFormsUploadAndList} from './form/userFormsUploadAndList.component';
 import { FormComponent} from './form/form.component';
 
 
-// import { RegisterComponent} from './user/register/register.component';
-// import { UserComponent} from './user/user.component';
-// import { NewUserComponent} from './user/users/newUser.component';
-// import { SingleUserComponent} from './user/users/singleUser.component';
-// import { AddNoteComponent} from './user/users/addNote.component';
-// import { ChooseDateComponent} from './user/users/chooseDate.component';
-// import { AddProductsToUserComponent} from './user/users/addProductsToUser.component';
-// import { UserProductsHistory} from './user/users/userProductsHistory.component';
-//
-
-
-
-
 import { DeleteDialog} from './deleteDialog/deleteDialog.component';
 import { SeePictureDialogComponent} from './seePictureDialog/seePictureDialog.component';
 
@@ -134,12 +121,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NavbarComponent,
     SideNavbarComponent,
 
-
-    // ProductComponent,
-    // ProductsComponent,
-    // NewProductComponent,
-    // SingleProductComponent,
-
     DeleteDialog,
     SeePictureDialogComponent,
 
@@ -147,12 +128,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PressesComponent,
     PressSingleComponent,
 
-
-    // VideoDeleteDialog,
-    // VideoWhereDialogComponent,
-    // VideoComponent,
-    // VideosComponent,
-    // VideoSingleComponent,
 
     PromotionDeleteDialog,
     PromotionsSeeInactiveComponent,
@@ -166,20 +141,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 
 
-    // UserComponent,
-    // NewUserComponent,
-    // SingleUserComponent,
-    // AddNoteComponent,
-    // ChooseDateComponent,
-    // UserPicturesComponent,
-    // AddProductsToUserComponent,
-    // UserProductsHistory,
-    //
-    //
-    // RegisterComponent,
-
-
-
     NavbarComponent,
     SideNavbarComponent,
     ErrorComponent,
@@ -187,24 +148,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     MainPageHomeComponent,
 
 
-    // CompanieDetailUsersComponent,
-    // CompaniePicturesComponent,
-    // CompaniesComponent,
-    // CompanieComponent,
-    // EditCompanieComponent,
-    // EditAddUserToCompanieComponent,
-    // CompanieDetailComponent,
-    // CompanieFilterPipe,
-
-
-  //  CompanieAddUserDialog,
-
-
-
     UserFormsComponent,
     UserFormsUploadAndList,
     FormComponent,
-    
+
     ErrorPageComponent,
 
     AdminUsersComponent,
