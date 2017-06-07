@@ -5,7 +5,7 @@
 }
 .phytologo {
   background-color: #ffffff;
-  position: fixed;
+  position: absolute;
   width: 100%;
   max-width: 950px;
   top: 0;
