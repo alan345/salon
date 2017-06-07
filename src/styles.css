@@ -5,8 +5,11 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 /*@import 'node_modules/@angular/material/core/theming/_theming';*/
 
-html, body {
+html, body, md-content {
   height: 100% !important;
+}
+.mat-sidenav-content {
+  overflow-y: scroll !important;
 }
 body {
   font-family: "Montserrat", sans-serif;
