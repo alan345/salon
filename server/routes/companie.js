@@ -145,6 +145,87 @@ router.post('/', function (req, res, next) {
 
 
 
+router.get('/search', function (req, res, next) {
+  var itemsPerPage = 2
+  var currentPage = Number(req.params.page)
+  var pageNumber = currentPage - 1
+  var skip = (itemsPerPage * pageNumber)
+  //var limit = (itemsPerPage * pageNumber) + itemsPerPage
+
+  let nameQuery = {}
+  let cityQuery = {}
+  let search = {}
+  let arrObj = []
+  if(req.query.search) {
+  //  nameQuery['name'] = new RegExp(req.query.search, 'i')
+  //  cityQuery['address.city'] = new RegExp(req.query.search, 'i')
+    arrObj.push({'magento.firstname' : new RegExp(req.query.search, 'i')})
+    arrObj.push({'magento.lastname' : new RegExp(req.query.search, 'i')})
+    //arrObj.push({'address.address' : new RegExp(req.query.search, 'i')})
+    search = {$or:arrObj}
+    //findQuery['address.city'] = new RegExp(req.query.search, 'i')
+  }
+
+
+  // if(req.query.typeCompanie)
+  //   search['typeCompanie'] = req.query.typeCompanie
+  //
+  // if (req.user.role[0] === 'salesRep') {
+  //   search['_users'] = mongoose.Types.ObjectId(req.user._id)
+  //   search['typeCompanie'] = { $nin: 'HQ'}
+  //
+  // }
+  // if (req.user.role[0] === 'manager') {
+  //   search['_users'] = mongoose.Types.ObjectId(req.user._id)
+  // }
+  // if (req.user.role[0] === 'stylist') {
+  //   search['_users'] = mongoose.Types.ObjectId(req.user._id)
+  // }
+
+
+
+
+  // if(req.query.parentUser)
+  //   findQuery['profile.parentUser'] = mongoose.Types.ObjectId(req.query.parentUser)
+  //
+
+  //let arrObj = [{findQuery}]
+//  console.log(arrObj)
+
+  Companie
+  .find(search)
+  .populate(
+    {
+      path: '_users',
+      model: 'User',
+    })
+  .limit(itemsPerPage)
+  .skip(skip)
+  .sort(req.query.orderBy)
+  .exec(function (err, item) {
+    if (err) {
+      return res.status(404).json({
+        message: 'No results',
+        err: err
+      })
+    } else {
+      Companie
+      .find(search)
+      .count().exec(function (err, count) {
+      res.status(200).json({
+          paginationData : {
+            totalItems: count,
+            currentPage : currentPage,
+            itemsPerPage : itemsPerPage
+          },
+          data: item
+        })
+      })
+    }
+  })
+})
+
+
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
   var itemsPerPage = 5
@@ -211,7 +292,7 @@ router.get('/page/:page', function (req, res, next) {
       })
     } else {
       Companie
-      .find()
+      .find(search)
       .count().exec(function (err, count) {
       res.status(200).json({
           paginationData : {

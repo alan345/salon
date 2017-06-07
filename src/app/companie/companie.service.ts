@@ -28,9 +28,24 @@ export class CompanieService {
 
   getCompanies(page: number, search: any) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.authService.currentUser.token)
+    headers.append('Authorization', this.authService.currentUser.token)
     let options = new RequestOptions({ headers: headers, search: search});
     return this.http.get(this.url + 'companie/page/' + page , options)
+      .timeout(5000)
+      .map((response: Response) => {
+        const companies = response.json();
+        return companies;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+  searchCompanies(search: any) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization',  this.authService.currentUser.token)
+    let options = new RequestOptions({ headers: headers, search: search});
+    return this.http.get(this.url + 'companie/search'  , options)
       .timeout(5000)
       .map((response: Response) => {
         const companies = response.json();

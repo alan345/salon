@@ -76,7 +76,7 @@ export class AddUserByCompanieComponent implements OnInit {
 
   searchCompanie() {
     if( this.search.search ) {
-      this.companieService.getCompanies(1, this.search)
+      this.companieService.searchCompanies(this.search)
         .subscribe(
           res => {
             if(res.data.length) {

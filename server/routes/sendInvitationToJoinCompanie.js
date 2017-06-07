@@ -68,12 +68,6 @@ router.post('/', function (req, res, next) {
           }
         })
 
-
-
-
-
-
-
       });
     },
 
@@ -82,22 +76,19 @@ router.post('/', function (req, res, next) {
 
       var mailer = nodemailer.createTransport({
           service: "Gmail",
-          // host: 'smtp.gmail.com',
-          // port: 587,
-          // secure: true, // upgrade later with STARTTLS
           auth: {
               user: config.userGmail,
               pass: config.passGmail
           }
       })
       userToSendMail = []
-
+      console.log('tt')
       token._users.forEach(user => {
         if(user.role == 'admin') {
           userToSendMail.push(user.email)
         }
       })
-
+      console.log(user)
       var html = `
       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       <html xmlns="http://www.w3.org/1999/xhtml">
@@ -125,7 +116,7 @@ router.post('/', function (req, res, next) {
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
-                      ${req.body.fetchedUser.profile.name} ${req.body.fetchedUser.profile.lastName} has requested to join your salon on the My Chair by Phyto Paris App.
+                      ${user.profile.name} ${user.profile.lastName} has requested to join your salon on the My Chair by Phyto Paris App.
                     </td>
                   </tr>
                   <tr>
@@ -161,13 +152,16 @@ router.post('/', function (req, res, next) {
 
 
       `;
+      console.log('aa')
       var mailOptions = {
         //to: userToSendMail,   // ici quand on aura fini les tests, il faudra remplacer par cette ligne
-        to: 'doriane@mouret.org',
+        to: 'alan.szternberg@gmail.com',
+        //to: 'doriane@mouret.org',
         from: config.userGmail,
         subject: 'My Chair by Phyto Paris | New Request  ',
         html: html
       };
+      console.log('bb')
       mailer.sendMail(mailOptions, function (err) {
         console.log('info', 'An e-mail has been sent with further instructions.');
         return res.status(200).json({
