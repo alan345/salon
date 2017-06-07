@@ -10,6 +10,7 @@ export class AdminGuardService implements CanActivate {
   constructor(private router: Router, private toastr: ToastsManager, private adminService: AdminService) {
   }
 
+
   // we check if the user is an Administrator or not
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     if (this.adminService.isAdmin()) {
