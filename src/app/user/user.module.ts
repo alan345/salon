@@ -12,6 +12,8 @@ import { Ng2PaginationModule} from 'ng2-pagination';
 //import { UsersComponent} from './users.component';
 // import { UserService} from './user.service';
 
+import {AdminUsersComponent} from './admin/adminUsers.component';
+
 
 import { RegisterComponent} from './register/register.component';
 import { UserComponent} from './user.component';
@@ -50,6 +52,7 @@ import { LoginComponent} from './login/login.component';
 //    UserDeleteDialog,
 //    UserWhereDialogComponent,
     UserComponent,
+    AdminUsersComponent,
 //    UsersComponent,
     //UserSingleComponent,
 

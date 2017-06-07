@@ -12,13 +12,9 @@ import { CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/co
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AuthHttp, AuthConfig} from 'angular2-jwt';
-
-
 import { ToastModule} from 'ng2-toastr/ng2-toastr';
 import { ToastOptions} from 'ng2-toastr';
 import { CustomOption } from './toast-options';
-
-
 import { NavbarComponent} from './nav/navbar/navbar.component';
 import { SideNavbarComponent} from './nav/sideNavbar/sideNavbar.component';
 import { FooterComponent} from './nav/footer/footer.component';
@@ -36,12 +32,6 @@ import { DeleteDialog} from './deleteDialog/deleteDialog.component';
 import { SeePictureDialogComponent} from './seePictureDialog/seePictureDialog.component';
 
 
-//
-// import { PressComponent} from './press/press.component';
-// import { PressesComponent} from './press/presses.component';
-// import { PressSingleComponent} from './press/pressSingle.component';
-// import { PressService} from './press/press.service';
-//
 
 
 import { PressModule} from './press/press.module';
@@ -53,12 +43,6 @@ import { CompanieModule} from './companie/companie.module';
 import { ProductBatchModule} from './productBatch/productBatch.module';
 
 
-// import { PromotionsSeeInactiveComponent} from './promotion/promotionsSeeInactive.component';
-// import { PromotionDeleteDialog} from './promotion/promotionDeleteDialog.component';
-// import { PromotionComponent} from './promotion/promotion.component';
-// import { PromotionsComponent} from './promotion/promotions.component';
-// import { SinglePromotionComponent} from './promotion/singlePromotion.component';
-// import { PromotionService} from './promotion/promotion.service';
 
 
 
@@ -82,31 +66,17 @@ import { MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 import { MainPageHomeService} from './mainPageHome/mainPageHome.service';
 
 
-
-
-
-
 import { ErrorPageComponent} from './errorPage/errorPage.component';
 
-
-
-import { AdminUsersComponent} from './admin/user/adminUsers.component';
+//import { AdminUsersComponent} from './admin/user/adminUsers.component';
 import { AdminService} from './admin/services/admin.service';
 
 
 import { EditOptionsComponentDialog} from './modalLibrary/modalLibrary.component';
 
 
-
 import { AdminGuardService} from './admin/services/adminGuard';
 import { AdminComponent} from './admin/admin.component';
-
-
-
-
-
-
-
 
 
 
@@ -124,16 +94,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     DeleteDialog,
     SeePictureDialogComponent,
 
-    // PressComponent,
-    // PressesComponent,
-    // PressSingleComponent,
-
-    //
-    // PromotionDeleteDialog,
-    // PromotionsSeeInactiveComponent,
-    // PromotionComponent,
-    // PromotionsComponent,
-    // SinglePromotionComponent,
 
     SubmitPicDialog,
     SocialComponent,
@@ -154,13 +114,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
     ErrorPageComponent,
 
-    AdminUsersComponent,
+  //  AdminUsersComponent,
 
     EditOptionsComponentDialog,
     AdminComponent,
-
-
-
 
   ],
   imports: [
