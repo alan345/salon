@@ -168,7 +168,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     BrowserModule,
     CommonModule,
     HttpModule,
-    RouterModule.forRoot(routes),
+    RouterModule,
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -188,7 +188,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ProductBatchModule,
 
   ],
-  exports: [RouterModule],
   providers: [
     AuthGuardService,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
