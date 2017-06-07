@@ -14,7 +14,6 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AuthHttp, AuthConfig} from 'angular2-jwt';
 
 
-
 import { ToastModule} from 'ng2-toastr/ng2-toastr';
 import { ToastOptions} from 'ng2-toastr';
 import { CustomOption } from './toast-options';
@@ -38,14 +37,15 @@ import { DeleteDialog} from './deleteDialog/deleteDialog.component';
 import { SeePictureDialogComponent} from './seePictureDialog/seePictureDialog.component';
 
 
+//
+// import { PressComponent} from './press/press.component';
+// import { PressesComponent} from './press/presses.component';
+// import { PressSingleComponent} from './press/pressSingle.component';
+// import { PressService} from './press/press.service';
+//
 
-import { PressComponent} from './press/press.component';
-import { PressesComponent} from './press/presses.component';
-import { PressSingleComponent} from './press/pressSingle.component';
-import { PressService} from './press/press.service';
 
-
-
+import { PressModule} from './press/press.module';
 import { VideoModule} from './video/video.module';
 import { PromotionModule} from './promotion/promotion.module';
 import { UserModule} from './user/user.module';
@@ -125,9 +125,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     DeleteDialog,
     SeePictureDialogComponent,
 
-    PressComponent,
-    PressesComponent,
-    PressSingleComponent,
+    // PressComponent,
+    // PressesComponent,
+    // PressSingleComponent,
 
     //
     // PromotionDeleteDialog,
@@ -182,6 +182,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
     UserModule,
     VideoModule,
+    PressModule,
     PromotionModule,
     ProductModule,
     CompanieModule,
@@ -196,7 +197,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 //    CompanieService,
     //VideoService,
     MainPageHomeService,
-    PressService,
+    // PressService,
     FormService,
     AdminService,
   //  UserService,
