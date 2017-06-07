@@ -19,20 +19,13 @@ import { NavbarComponent} from './nav/navbar/navbar.component';
 import { SideNavbarComponent} from './nav/sideNavbar/sideNavbar.component';
 import { FooterComponent} from './nav/footer/footer.component';
 
-
-
-
 import { FormService} from './form/form.service';
 import { UserFormsComponent} from './form/userForms.component';
 import { UserFormsUploadAndList} from './form/userFormsUploadAndList.component';
 import { FormComponent} from './form/form.component';
 
-
 import { DeleteDialog} from './deleteDialog/deleteDialog.component';
 import { SeePictureDialogComponent} from './seePictureDialog/seePictureDialog.component';
-
-
-
 
 import { PressModule} from './press/press.module';
 import { VideoModule} from './video/video.module';
@@ -41,10 +34,6 @@ import { UserModule} from './user/user.module';
 import { ProductModule} from './product/product.module';
 import { CompanieModule} from './companie/companie.module';
 import { ProductBatchModule} from './productBatch/productBatch.module';
-
-
-
-
 
 import { SubmitPicDialog} from './social/submitPicDialog.component';
 import { SocialComponent} from './social/social.component';
@@ -60,25 +49,17 @@ import { ErrorService} from './errorHandler/error.service';
 
 
 import { ErrorComponent} from './errorHandler/error.component';
-
-
 import { MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 import { MainPageHomeService} from './mainPageHome/mainPageHome.service';
 
-
 import { ErrorPageComponent} from './errorPage/errorPage.component';
-
 //import { AdminUsersComponent} from './admin/user/adminUsers.component';
 import { AdminService} from './admin/services/admin.service';
-
-
 import { EditOptionsComponentDialog} from './modalLibrary/modalLibrary.component';
 
 
 import { AdminGuardService} from './admin/services/adminGuard';
 import { AdminComponent} from './admin/admin.component';
-
-
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp( new AuthConfig({}), http, options);
@@ -94,12 +75,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     DeleteDialog,
     SeePictureDialogComponent,
 
-
     SubmitPicDialog,
     SocialComponent,
     SocialsComponent,
-
-
 
     NavbarComponent,
     SideNavbarComponent,
@@ -113,8 +91,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FormComponent,
 
     ErrorPageComponent,
-
-  //  AdminUsersComponent,
 
     EditOptionsComponentDialog,
     AdminComponent,
@@ -150,15 +126,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     AuthService,
     ErrorService,
-//    CompanieService,
-    //VideoService,
     MainPageHomeService,
-    // PressService,
+
     FormService,
     AdminService,
-  //  UserService,
-  //  ProductService,
-    // PromotionService,
+
     AdminGuardService,
   //  ProfileService,
     {
@@ -172,10 +144,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   //  CompanieAddUserDialog,
     DeleteDialog,
     SubmitPicDialog,
-    // PromotionDeleteDialog,
     EditOptionsComponentDialog,
-    // VideoDeleteDialog,
-    // VideoWhereDialogComponent,
     SeePictureDialogComponent,
   ],
 
