@@ -83,7 +83,7 @@ export const categAll: any = [
 ]
 export const categPhyto: any = [
     { name:'Conditioners & masks', selected : false },
-    { name:'Diateray supplements', selected : false },
+    { name:'Dietary supplements', selected : false },
     { name:'Leave-in care', selected : false },
     { name:'Relaxers', selected : false },
     { name:'Styling', selected : false },
