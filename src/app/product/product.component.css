@@ -227,6 +227,12 @@
 }
 .mgtpdt-img {
   padding: 2.5px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+.mgtpdt-img img {
+    max-height: 300px;
 }
 .first-half .pdt-nm {
   font-size: 25px;
