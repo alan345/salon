@@ -150,17 +150,23 @@ p.cmt-dat {
     font-size: 12px;
 }
 .rltpdt-cnt img {
-    float: left;
-    margin-right: 15px;
-    height: 100px !important;
+  float: left;
+  margin-right: 15px;
+  height: 100px !important;
 }
 .pdtbt-cnt {
-  max-width: 330px;
+  width: 330px;
+  max-width: 100%;
   background-color: #ffffff;
   position: relative;
   float: left;
-  padding: 15px;
+  padding: 15px 25px 15px 15px;
   margin-bottom: 15px;
+}
+.pdtbt-cnt img {
+    float: left;
+    height: 100px;
+    margin-right: 10px;
 }
 .dlt-pdt {
   background: #333333;
