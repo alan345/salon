@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 import { User, ProductBought } from '../user.model';
 import { FormBuilder } from '@angular/forms';
 import { ProductService} from '../../product/product.service';
-import { Product } from '../../product/product.model';
+import { Product, urlMagentoModel } from '../../product/product.model';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class UserProductsHistory implements OnInit {
   fetchedUser: User = new User();
   inputBoughtProduct: string = '';
   fetchedBoughtProducts: Product[] = [];
+  urlMagento = urlMagentoModel
 
 
   constructor(

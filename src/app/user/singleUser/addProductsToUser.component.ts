@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 import { User, ProductBought } from '../user.model';
 import { FormBuilder } from '@angular/forms';
 import { ProductService} from '../../product/product.service';
-import { Product } from '../../product/product.model';
+import { Product, urlMagentoModel } from '../../product/product.model';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class AddProductsToUserComponent implements OnInit {
   fetchedUser: User = new User();
   inputBoughtProduct: string = '';
   fetchedBoughtProducts: Product[] = [];
-  urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
+  urlMagento = urlMagentoModel
 
   constructor(
     private userService: UserService,
@@ -90,8 +90,9 @@ export class AddProductsToUserComponent implements OnInit {
       product: product
     }
     this.fetchedUser.products.unshift(productBought);
-    this.fetchedBoughtProducts = [];
-    this.inputBoughtProduct = '';
+    this.save()
+    // this.fetchedBoughtProducts = [];
+    // this.inputBoughtProduct = '';
   }
   removeProduct(i: number) {
     this.fetchedUser.products.splice(i, 1);

@@ -17,7 +17,7 @@
         {{fetchedBoughtProduct.magento.sku}} - {{fetchedBoughtProduct.magento.name}}
         <button type="button" (click)="selectProduct(fetchedBoughtProduct)" class="select">select</button>
       </div>
-      <div *ngFor="let productFetch of fetchedUser.products; let i=index">
+      <!-- <div *ngFor="let productFetch of fetchedUser.products; let i=index">
         <div *ngFor="let custom_attribute of productFetch.product.magento.custom_attributes" class="rltpdt-ctnr">
           <div *ngIf="custom_attribute.attribute_code == 'image'" class="rltpdt-cnt">
             {{productFetch.product.magento.sku}} - {{productFetch.product.magento.name}}
@@ -25,11 +25,11 @@
             <button type="button" (click)="removeProduct(i)" class="dlt-pdt"><i class="fa fa-times"></i></button>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="valid-edit">
+      <!-- <div class="valid-edit">
         <button type="submit" class="done">Done</button>
-      </div>
+      </div> -->
     </form>
   </div>
 </div>

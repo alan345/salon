@@ -3,6 +3,7 @@ import {AuthService} from '../auth/auth.service';
 import {ProductService} from './product.service';
 import {
   Product,
+  urlMagentoModel,
   categPhyto,
   categories3Model,
   categories4Model,
@@ -31,7 +32,7 @@ export class ProductsComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
   fetchedProducts: Product[] = [];
 
-  urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
+  urlMagento = urlMagentoModel
   search : any = {
     categories : [],
     search:''

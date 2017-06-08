@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {ProductService} from '../product.service';
-import {Product} from '../product.model';
+import {Product, urlMagentoModel} from '../product.model';
 import {ToastsManager} from 'ng2-toastr';
 import {MdDialog} from '@angular/material';
 import {Router} from '@angular/router';
@@ -21,7 +21,7 @@ import {ViewEncapsulation} from '@angular/core';
 export class ProductsAdminComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
   fetchedProducts: Product[] = [];
-  urlMagento = 'http://52.2.61.43/pub/media/catalog/product'
+  urlMagento = urlMagentoModel
   search: any = {
     categories : [],
     search:''

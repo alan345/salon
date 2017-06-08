@@ -23,7 +23,7 @@
       <li *ngIf="isAdmin()" (click)="toogleFilters()" class="adminmenu">Admin<i class="fa fa-chevron-down"></i></li>
       <div [ngClass]="{'admin-opn': showAdminMenu, 'admin-cls': !showAdminMenu }" >
         <!-- {{showAdminMenu|json}} -->
-        <li><a *ngIf="isAdmin()" (click)="goTo('/admin/user')" class="admn-btn">Admin Users</a></li>
+        <li><a *ngIf="isAdmin()" (click)="goTo('/user/admin')" class="admn-btn">Admin Users</a></li>
         <li><a *ngIf="isAdmin() || isSalesRep()" (click)="goTo('/companie/admin')" class="admn-btn">Admin Salons</a></li>
         <li><a *ngIf="isAdmin()" (click)="goTo('/product/admin')" class="admn-btn">Admin Products</a></li>
         <li><a *ngIf="isAdmin()" (click)="goTo('/productBatch')" class="admn-btn">Magento Batch</a></li>

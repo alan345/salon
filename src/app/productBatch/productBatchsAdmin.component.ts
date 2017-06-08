@@ -20,7 +20,8 @@ import { ViewEncapsulation} from '@angular/core';
 export class ProductBatchsAdminComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
   fetchedProductBatchs: ProductBatch[] = [];
-  urlMagento = 'http://52.2.61.43/pub/media/catalog/productBatch'
+  // urlMagento = urlMagentoModel;
+  // urlMagento = 'http://52.2.61.43/pub/media/catalog/productBatch'
   search: any = {
     categories : [],
     search:''

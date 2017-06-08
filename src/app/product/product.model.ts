@@ -63,13 +63,12 @@ export class Magento {
   custom_attributes: Custom_attribute[] = [];
 }
 
-
-
 export class Custom_attribute {
   attribute_code: string;
   value: string;
 }
 
+export const urlMagentoModel = 'http://52.2.61.43/pub/media/catalog/product'
 
 export const categHard1Model: any = [
   { name:'All', selected : false },

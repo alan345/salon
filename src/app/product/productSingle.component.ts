@@ -4,7 +4,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { Product } from './product.model';
+import { Product, urlMagentoModel } from './product.model';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -18,7 +18,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export class ProductSingleComponent implements OnInit {
 
-  urlMagento: string = 'http://52.2.61.43/pub/media/catalog/product';
+  urlMagento = urlMagentoModel;
   fetchedProduct: Product = new Product(this.sanitizer);
 
   // fetchedProduct: Product = {
