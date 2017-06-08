@@ -8,8 +8,8 @@
       <div *ngFor="let productFetch of fetchedUser.products; let i=index">
         <div *ngFor="let custom_attribute of productFetch.product.magento.custom_attributes" class="phyto-ctnr">
           <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdtbt-cnt">
-            {{productFetch.product.magento.name}}
             <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+            {{productFetch.product.magento.name}}
             <button type="button" (click)="removeProduct(i)" class="dlt-pdt"><i class="fa fa-times"></i></button>
           </div>
         </div>
