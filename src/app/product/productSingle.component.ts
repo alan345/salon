@@ -4,7 +4,13 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { Product, urlMagentoModel } from './product.model';
+import {
+  Product,
+  urlMagentoModel,
+  categorie5Model,
+  categoriesHard2Model,
+  categoriesHard1Model
+} from './product.model';
 import { EditOptionsComponentDialog } from '../modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, FormArray} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -21,77 +27,10 @@ export class ProductSingleComponent implements OnInit {
   urlMagento = urlMagentoModel;
   fetchedProduct: Product = new Product(this.sanitizer);
 
-  // fetchedProduct: Product = {
-  //   _id: '',
-  //   categories: [],
-  //   categoriesTag: [],
-  //   description: {
-  //     benefitsAndResults: '',
-  //     howToApply: '',
-  //     activeIngredients: '',
-  //     title : {
-  //       prononciation: '',
-  //       embed: '',
-  //       embedSecure: this.sanitizer.bypassSecurityTrustResourceUrl(''),
-  //     }
-  //   },
-  //   magento : {
-  //     id: '',
-  //     sku: '',
-  //     name: '',
-  //     price: 0,
-  //     weight: '',
-  //     custom_attributes: [],
-  //   }
-  // };
-
-  categories5 = [
-    { name: 'Benefits & Results', selected : false},
-    { name: 'How to apply', selected : false },
-    { name: 'Active Ingredients', selected : false },
-
-  ]
-
-
-  categoriesHard2 = [
-    {
-      name:'treatments',
-      selected : false
-    },
-    {
-      name:'knowledges',
-      selected : false
-    },
-    {
-      name:'testimonials',
-      selected : false
-    },
-    {
-      name:'merchandising',
-      selected : false
-    },
-    {
-      name:'promotions',
-      selected : false
-    }
-  ]
-
-  categoriesHard1 = [{
-      name:'phyto',
-      selected : false
-    },
-    {
-      name:'phytoSpecific',
-      selected : false
-    },
-    {
-      name:'subtil',
-      selected : false
-    }]
-
-  inputCategorie = ''
-
-
+  categories5 = categorie5Model;
+  categoriesHard2 = categoriesHard2Model;
+  categoriesHard1 = categoriesHard1Model;
+  inputCategorie = '';
 
   public myForm: FormGroup;
 
@@ -211,12 +150,12 @@ export class ProductSingleComponent implements OnInit {
   //   })
   // }
 
-  save(product : Product) {
+  save(product: Product) {
     //console.log(this.fetchedProduct)
-    if(!this.fetchedProduct.categories.length){
-      this.toastr.error('Error!', 'Please select at least one categorie')
-      return
-    }
+    // if(!this.fetchedProduct.categories.length){
+    //   this.toastr.error('Error!', 'Please select at least one categorie')
+    //   return
+    // }
 
     if(this.fetchedProduct._id) {
       this.productService.updateProduct(this.fetchedProduct)

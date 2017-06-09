@@ -138,3 +138,47 @@ export const categories4Model = [
   { name:'THINNING', selected : false },
   { name:'LIFE-STRESSED', selected : false },
 ]
+
+
+export const categorie5Model = [
+  { name: 'Benefits & Results', selected : false},
+  { name: 'How to apply', selected : false },
+  { name: 'Active Ingredients', selected : false },
+
+]
+
+export const categoriesHard2Model =  [
+  {
+    name:'treatments',
+    selected : false
+  },
+  {
+    name:'knowledges',
+    selected : false
+  },
+  {
+    name:'testimonials',
+    selected : false
+  },
+  {
+    name:'merchandising',
+    selected : false
+  },
+  {
+    name:'promotions',
+    selected : false
+  }
+]
+
+export const categoriesHard1Model = [{
+    name:'phyto',
+    selected : false
+  },
+  {
+    name:'phytoSpecific',
+    selected : false
+  },
+  {
+    name:'subtil',
+    selected : false
+  }]

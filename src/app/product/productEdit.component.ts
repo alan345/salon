@@ -212,10 +212,10 @@ export class ProductEditComponent implements OnInit {
 
 
   save(product: Product) {
-    if(!this.fetchedProduct.categories.length){
-      this.toastr.error('Error!', 'Please select at least one categorie')
-      return
-    }
+    // if(!this.fetchedProduct.categories.length){
+    //   this.toastr.error('Error!', 'Please select at least one categorie')
+    //   return
+    // }
 
     if(this.fetchedProduct._id) {
       this.productService.updateProduct(this.fetchedProduct)

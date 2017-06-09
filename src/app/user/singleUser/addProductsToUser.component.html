@@ -14,20 +14,32 @@
         mdInput
       >
       <div *ngFor="let fetchedBoughtProduct of fetchedBoughtProducts; let i=index">
-        {{fetchedBoughtProduct.magento.sku}} - {{fetchedBoughtProduct.magento.name}}
+        {{fetchedBoughtProduct.magento.name}}
         <button type="button" (click)="selectProduct(fetchedBoughtProduct)" class="select">select</button>
       </div>
+<<<<<<< HEAD
       <!-- <div *ngFor="let productFetch of fetchedUser.products; let i=index">
         <div *ngFor="let custom_attribute of productFetch.product.magento.custom_attributes" class="rltpdt-ctnr">
           <div *ngIf="custom_attribute.attribute_code == 'image'" class="rltpdt-cnt">
             {{productFetch.product.magento.sku}} - {{productFetch.product.magento.name}}
+=======
+      <div *ngFor="let productFetch of fetchedUser.products; let i=index">
+        <div *ngFor="let custom_attribute of productFetch.product.magento.custom_attributes" class="phyto-ctnr">
+          <div *ngIf="custom_attribute.attribute_code == 'image'" class="pdtbt-cnt">
+>>>>>>> 806b416a444684f07008da901d4a2766c4aa0e8b
             <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+            {{productFetch.product.magento.name}}
             <button type="button" (click)="removeProduct(i)" class="dlt-pdt"><i class="fa fa-times"></i></button>
           </div>
         </div>
+<<<<<<< HEAD
       </div> -->
 
       <!-- <div class="valid-edit">
+=======
+      </div>
+      <div class="valid-edit">
+>>>>>>> 806b416a444684f07008da901d4a2766c4aa0e8b
         <button type="submit" class="done">Done</button>
       </div> -->
     </form>

@@ -150,16 +150,33 @@ p.cmt-dat {
     font-size: 12px;
 }
 .rltpdt-cnt img {
+  float: left;
+  margin-right: 15px;
+  height: 100px !important;
+}
+.pdtbt-cnt {
+  width: 330px;
+  max-width: 100%;
+  background-color: #ffffff;
+  position: relative;
+  float: left;
+  padding: 15px 25px 15px 15px;
+  margin-bottom: 15px;
+}
+.pdtbt-cnt img {
     float: left;
-    margin-right: 15px;
-    height: 100px !important;
+    height: 100px;
+    margin-right: 10px;
 }
 .dlt-pdt {
-    background: #333333;
-    outline: none !important;
-    border: none !important;
-    color: #fff;
-    padding: 2px 6px;
+  background: #333333;
+  outline: none !important;
+  border: none !important;
+  color: #fff;
+  padding: 2px 6px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .select {
     background-color: #ffffff;
@@ -167,6 +184,7 @@ p.cmt-dat {
     padding: 5px 10px;
     margin: 0 0 15px;
 }
+
 /*-------Admin Users-------*/
 
 .admin-users .mat-tab-label {
