@@ -81,20 +81,20 @@ export const categAll: any = [
   { name:'All', selected : false },
 ]
 export const categPhyto: any = [
-    { name:'Conditioners & masks', selected : false },
     { name:'Dietary supplements', selected : false },
-    { name:'Leave-in care', selected : false },
-    { name:'Relaxers', selected : false },
-    { name:'Styling', selected : false },
+    { name:'Treatments', selected : false },
     { name:'Serums', selected : false },
     { name:'Shampoos', selected : false },
-    { name:'Treatments', selected : false },
+    { name:'Conditioners & masks', selected : false },
+    { name:'Leave-in care', selected : false },
+    { name:'Styling', selected : false },
+    { name:'Merchandising', selected : false },
   ]
 
 
 export const categPhytoSpecific: any = [
    { name:'Treatments', selected : false },
-   { name:'Relaxers', selected : false },
+   { name:'Merchandising', selected : false },
    { name:'Stylers', selected : false },
    { name:'Shampoos & Conditioners', selected : false },
    { name:'Kids', selected : false },
