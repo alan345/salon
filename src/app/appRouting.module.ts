@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
-import { FormComponent } from './form/form.component';
+//import { FormComponent } from './form/form.component';
 import { UserFormsUploadAndList } from './form/userFormsUploadAndList.component';
 import { AuthGuardService } from './auth/authguard.service';
 import { MainPageHomeComponent } from './mainPageHome/mainPageHome.component';
@@ -27,7 +27,6 @@ import { NgModule } from '@angular/core';
 
 
 export const routes: Routes = [
-//  {path: '', component: MainPageHomeComponent, pathMatch: 'full'},
   {path: '', component: MainPageHomeComponent, canActivate: [AuthGuardService], pathMatch: 'full'},
   {path: 'social', component: SocialComponent, canActivate: [AuthGuardService], children: SOCIAL},
   {path: 'companie', loadChildren: 'app/companie/companie.module#CompanieModule'},
@@ -37,7 +36,7 @@ export const routes: Routes = [
   {path: 'productBatch', loadChildren: 'app/productBatch/productBatch.module#ProductBatchModule'},
   {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
   {path: 'promotion', loadChildren: 'app/promotion/promotion.module#PromotionModule'},
-  {path: 'form', component: FormComponent, canActivate: [AuthGuardService]},
+  //{path: 'form', component: FormComponent, canActivate: [AuthGuardService]},
   {path: 'userForms', component: UserFormsUploadAndList, canActivate: [AuthGuardService]},
   {path: '404', component: ErrorPageComponent},
   {path: '**', redirectTo: '404'}
