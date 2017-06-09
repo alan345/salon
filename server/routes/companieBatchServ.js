@@ -10,7 +10,7 @@ var schedule = require('node-schedule');
 
 
     var jobScedule = function() {
-      var j = schedule.scheduleJob('* * 10 * *', function(){
+      var j = schedule.scheduleJob('* * 10 * * *', function(){
         console.log('BatchCompanieScheduled')
         updateFromMagentoToBdd()
       });
