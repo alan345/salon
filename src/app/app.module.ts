@@ -59,7 +59,7 @@ import { EditOptionsComponentDialog} from './modalLibrary/modalLibrary.component
 
 
 import { AdminGuardService} from './admin/services/adminGuard';
-import { AdminComponent} from './admin/admin.component';
+//import { AdminComponent} from './admin/admin.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp( new AuthConfig({}), http, options);
@@ -93,7 +93,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ErrorPageComponent,
 
     EditOptionsComponentDialog,
-    AdminComponent,
+//    AdminComponent,
 
   ],
   imports: [

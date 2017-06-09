@@ -2,7 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 //import {USER_ROUTES} from './user/user.routes';
 
-import {ADMIN_ROUTES} from './admin/admin.routes';
+//import {ADMIN_ROUTES} from './admin/admin.routes';
 import {UserComponent} from './user/user.component';
 import {FormComponent} from './form/form.component';
 import {UserFormsComponent} from './form/userForms.component';
@@ -33,7 +33,7 @@ import {PromotionComponent} from './promotion/promotion.component';
 //import {USER_PRODUCTS} from './product/product.routes';
 //import {ProductComponent} from './product/product.component';
 
-import {AdminComponent} from './admin/admin.component';
+//import {AdminComponent} from './admin/admin.component';
 import {ErrorPageComponent} from './errorPage/errorPage.component';
 import {AdminGuardService} from './admin/services/adminGuard';
 
@@ -71,7 +71,7 @@ export const routes: Routes = [
 
 
 
-  {path: 'admin', component: AdminComponent, children: ADMIN_ROUTES},
+//  {path: 'admin', component: AdminComponent, children: ADMIN_ROUTES},
   {path: '404', component: ErrorPageComponent},
   {path: '**', redirectTo: '404'}
 ];
