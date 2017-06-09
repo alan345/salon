@@ -15,17 +15,12 @@ import { AuthHttp, AuthConfig} from 'angular2-jwt';
 import { ToastModule} from 'ng2-toastr/ng2-toastr';
 import { ToastOptions} from 'ng2-toastr';
 import { CustomOption } from './toast-options';
-import { NavbarComponent} from './nav/navbar/navbar.component';
-import { SideNavbarComponent} from './nav/sideNavbar/sideNavbar.component';
-import { FooterComponent} from './nav/footer/footer.component';
 
-import { FormService} from './form/form.service';
-import { UserFormsComponent} from './form/userForms.component';
-import { UserFormsUploadAndList} from './form/userFormsUploadAndList.component';
-import { FormComponent} from './form/form.component';
+
 
 import { DeleteDialog} from './deleteDialog/deleteDialog.component';
 import { SeePictureDialogComponent} from './seePictureDialog/seePictureDialog.component';
+
 
 import { PressModule} from './press/press.module';
 import { VideoModule} from './video/video.module';
@@ -35,10 +30,24 @@ import { ProductModule} from './product/product.module';
 import { CompanieModule} from './companie/companie.module';
 import { ProductBatchModule} from './productBatch/productBatch.module';
 
+
+// must be setup in lazymodule
+import { NavbarComponent} from './nav/navbar/navbar.component';
+import { SideNavbarComponent} from './nav/sideNavbar/sideNavbar.component';
+import { FooterComponent} from './nav/footer/footer.component';
+
+import { MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
+import { MainPageHomeService} from './mainPageHome/mainPageHome.service';
+
 import { SubmitPicDialog} from './social/submitPicDialog.component';
 import { SocialComponent} from './social/social.component';
 import { SocialsComponent} from './social/socials.component';
 
+import { FormService} from './form/form.service';
+import { UserFormsComponent} from './form/userForms.component';
+import { UserFormsUploadAndList} from './form/userFormsUploadAndList.component';
+import { FormComponent} from './form/form.component';
+// must be setup in lazymodule
 
 
 import { AppRoutingModule} from './appRouting.module';
@@ -46,19 +55,18 @@ import { AppRoutingModule} from './appRouting.module';
 import { AuthGuardService} from './auth/authguard.service';
 import { AuthService} from './auth/auth.service';
 import { ErrorService} from './errorHandler/error.service';
-
-
 import { ErrorComponent} from './errorHandler/error.component';
-import { MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
-import { MainPageHomeService} from './mainPageHome/mainPageHome.service';
+
 
 import { ErrorPageComponent} from './errorPage/errorPage.component';
 //import { AdminUsersComponent} from './admin/user/adminUsers.component';
 import { AdminService} from './admin/services/admin.service';
+import { AdminGuardService} from './admin/services/adminGuard';
+
 import { EditOptionsComponentDialog} from './modalLibrary/modalLibrary.component';
 
 
-import { AdminGuardService} from './admin/services/adminGuard';
+
 //import { AdminComponent} from './admin/admin.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
