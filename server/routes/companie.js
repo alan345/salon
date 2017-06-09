@@ -243,6 +243,7 @@ router.get('/page/:page', function (req, res, next) {
   //  cityQuery['address.city'] = new RegExp(req.query.search, 'i')
     arrObj.push({'magento.firstname' : new RegExp(req.query.search, 'i')})
     arrObj.push({'magento.lastname' : new RegExp(req.query.search, 'i')})
+    arrObj.push({'magento.email' : new RegExp(req.query.search, 'i')})
     //arrObj.push({'address.address' : new RegExp(req.query.search, 'i')})
     search = {$or:arrObj}
     //findQuery['address.city'] = new RegExp(req.query.search, 'i')
