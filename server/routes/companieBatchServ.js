@@ -92,7 +92,7 @@ var schedule = require('node-schedule');
           )
           .exec(function (err, item) {
             if (err) {
-              logObj.status = 'not reach  companie element'
+              logObj.status = err
               writeLog(logObj)
             }
             if (!item) {

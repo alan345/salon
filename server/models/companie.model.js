@@ -18,7 +18,7 @@ var companie = new Schema({
     _users : [{type: Schema.Types.ObjectId, ref: 'User'}],
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
     magento: {
-      id: {type: String, unique: true, required: true},
+      id: {type: String, required: true},
       group_id: {type: Number},
       created_at: {type: Date},
       updated_at: {type: Date},
