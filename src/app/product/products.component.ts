@@ -74,11 +74,30 @@ export class ProductsComponent implements OnInit {
   }
 
   onSelectChange = ($event: any): void => {
+    this.categories3.forEach((categ, index) => {
+      this.categories3[index].selected = false
+    })
+
+    this.categories4.forEach((categ, index) => {
+      this.categories4[index].selected = false
+    })
+
+
+
     this.categories2 = $event.tab.textLabel
     this.updateCategerories()
   }
 
   onSelectChange1 = ($event: any): void => {
+
+    this.categories3.forEach((categ, index) => {
+      this.categories3[index].selected = false
+    })
+
+    this.categories4.forEach((categ, index) => {
+      this.categories4[index].selected = false
+    })
+
     if($event.tab.textLabel === this.categoriesHard1[0].name)
       this.categoriesHard2 = this.categories2Dynamic[0]
     if($event.tab.textLabel === this.categoriesHard1[1].name)
@@ -97,13 +116,13 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  updateCategerories(){
+  updateCategerories() {
     this.search.categories = []
     this.search.categories.push({name:this.categories2})
     this.search.categories.push({name:this.categories1})
     // if(this.inputSearch)
     //   this.search.categories.push({name:this.inputSearch})
-    this.categories3.forEach((categorie3)=>{
+    this.categories3.forEach((categorie3) => {
       if(categorie3.selected == true) {
         this.search.categories.push({name : categorie3.name})
       }

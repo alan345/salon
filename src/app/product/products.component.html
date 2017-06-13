@@ -22,14 +22,14 @@
         </div>
       </div>
     </div>
+    <div *ngIf="categories1!='All' && categories1!='Subtil'" class="phyto-ctnr beigeback filtertoggle">
+        <button (click)="toogleFilters()" class="ctrl-hidit">
+          <i [ngClass]="{'fa-chevron-down':!showFilters,'fa-chevron-up':showFilters}" class="fa"></i>
+          <div [ngClass]="{'dspl-nn':showFilters, 'mr-lss':!showFilters}">MORE</div>
+          <div [ngClass]="{'dspl-nn':!showFilters, 'mr-lss':showFilters}">LESS</div>
+          <div class="fltr-txt">FILTERS</div>
+        </button>
 
-    <div class="phyto-ctnr beigeback filtertoggle">
-      <button (click)="toogleFilters()" class="ctrl-hidit">
-        <i [ngClass]="{'fa-chevron-down':!showFilters,'fa-chevron-up':showFilters}" class="fa"></i>
-        <div [ngClass]="{'dspl-nn':showFilters, 'mr-lss':!showFilters}">MORE</div>
-        <div [ngClass]="{'dspl-nn':!showFilters, 'mr-lss':showFilters}">LESS</div>
-        <div class="fltr-txt">FILTERS</div>
-      </button>
       <div [ngClass]="{'open phyto-ctnr': showFilters, 'hidit phyto-ctnr': !showFilters }" >
         <!-- <div class="hidit phyto-ctnr"> -->
         <div class="phyto-ctnr">
@@ -58,7 +58,7 @@
       </div>
     </div>
   </div>
-  
+
   <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdt-tabs">
     <md-tab *ngFor="let categorieHard2 of categoriesHard2" [label]="categorieHard2.name"></md-tab>
   </md-tab-group>

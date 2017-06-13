@@ -36,7 +36,6 @@ var companie = new Schema({
           region_code: {type: String},
           region: {type: String},
           region_id: {type: Number}
-
         },
         region_id: {type: Number},
         country_id: {type: String},
@@ -46,9 +45,7 @@ var companie = new Schema({
         city: {type: String},
         firstname: {type: String},
         lastname: {type: String}
-      }
-
-      ]
+      }]
     }
 
 
