@@ -14,12 +14,11 @@ var companie = new Schema({
     },
     phoneNumber: {type: String, default: ['']},
     name: {type: String, default: ['']},
-    
     typeCompanie: {type: String, default: ['salon']},
     _users : [{type: Schema.Types.ObjectId, ref: 'User'}],
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
     magento: {
-      id: {type: String, required: true},
+      id: {type: String, unique: true, required: true},
       group_id: {type: Number},
       created_at: {type: Date},
       updated_at: {type: Date},
