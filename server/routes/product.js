@@ -10,12 +10,6 @@ var express = require('express'),
 
 
 
-// router.get('/refreshbdd', function (req, res, next) {
-//   productBatchServ.updateFromMagentoToBdd()
-//   res.status(201).json({
-//     message: 'request send to update database from magento',
-//   });
-// })
 
 
 
@@ -143,11 +137,8 @@ router.get('/page/:page', function (req, res, next) {
     } else {
       categories = req.query.categories
     }
-    //
-    // var categoriesNotJSON = JSON.parse(categories)
-     //console.log()
+
     if(JSON.parse(categories[0]).name!=='All') {
-      console.log('a')
       categories.forEach(function (categ) {
          categorie = JSON.parse(categ)
         if(categorie.name) {
@@ -163,8 +154,22 @@ router.get('/page/:page', function (req, res, next) {
   }
 
 
-  if(req.query.search)
-    searchQuery['magento.name'] = new RegExp(req.query.search, 'i')
+  if(req.query.search) {
+    var words = req.query.search.split(' ');
+    //console.log(words.length)
+    searchArrayName = []
+
+    words.forEach(word => {
+      console.log(word)
+      searchArrayName.push({
+        'magento.name' : new RegExp(word, 'i')
+      });
+    })
+    searchQuery = {
+      $and : searchArrayName
+    }
+  }
+
 
   Product
   .find(searchQuery)

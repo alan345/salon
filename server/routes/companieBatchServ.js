@@ -103,15 +103,16 @@ var schedule = require('node-schedule');
                   if (err) {
                     logObj.nbProductsNotCreated++
                     itemsProcessed++
+                    logObj.status = err
                     if(itemsProcessed === array.length) {
-                      logObj.status = 'error_2'
+
                       writeLog(logObj)
                     }
                   } else {
                     logObj.nbProductsCreated++
                     itemsProcessed++
                     if(itemsProcessed === array.length) {
-                      logObj.status = 'ok'
+                      //logObj.status = 'ok'
                       writeLog(logObj)
                     }
                   }
@@ -124,19 +125,19 @@ var schedule = require('node-schedule');
               }
               item.save(function (err, result) {
                 if (err) {
-                  console.log(err)
+                  //console.log(err)
                   logObj.nbProductsNotUpdated++
                   itemsProcessed++
-
+                  logObj.status = err
                   if(itemsProcessed === array.length) {
-                    logObj.status = 'error_1'
+                    //logObj.status = 'error_1'
                     writeLog(logObj)
                   }
                 } else {
                   logObj.nbProductsUpdated++
                   itemsProcessed++
                   if(itemsProcessed === array.length) {
-                    logObj.status = 'ok'
+                    //logObj.status = 'ok'
                     writeLog(logObj)
                   }
                 }
@@ -149,15 +150,17 @@ var schedule = require('node-schedule');
     exports.updateFromMagentoToBdd = updateFromMagentoToBdd
 
     function writeLog(logObj) {
-        logObj.dateEnd = new Date()
+          if(!logObj.status)
+            logObj.status = 'ok'
+          logObj.dateEnd = new Date()
           var productBatch = new ProductBatch(logObj)
           productBatch.save(function (err, result) {
             if (err) {
-              console.log('Error')
-              console.log(err)
+              //console.log('Error')
+              //console.log(err)
             }
-            console.log('Ok')
-            console.log(result)
+            //console.log('Ok')
+            //console.log(result)
           })
 
     }
