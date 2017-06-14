@@ -6,37 +6,14 @@
   <div class="beigeback">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
       <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedProduct._id">
-      <div >
-        <div>
-          <div>
-          
-                Remove "Open filters" buttons for "All" and "Subtil"
-              productSingle is for editing, but we also need an individual product view
-              There is a scroll issue when no related products are selected. To fix it, please add condition as follows: If no products are selected in related products, then apply the "dspl-nn" class to the element
-              In tabs, change "Ingredients" to "Active ingredients"
-              Product Categories should be: conditioners & masks, dietary supplements, leave-in care, relaxers, styling, serums, shampoos, treatments
-
-              Promotion still visible if end date is older than today or start date is after today
-              Add "Show Inactive Promotions" button which opens page with list of all promotions with ability to delete them
-              Make sure it works + connect to button mentioned right above
-              Improve Css
-              Get rid of image id field (commented for now)
-              Get rid of no image placeholder when hasn't uploaded image yet
-              Make Delete button work
-              Set up start and end date
-              Add Promotion button closes page
-              Delete button should just open popup and not delete right away
-              Make add image mandatory to be able to submit
-              Make delete PDF button work
-
-              Close button outline to fix
-              When I land on the page social from the apge user, the instagram script creates an error. I'm assuming it's because the app isn't refreshed the script isn't loaded. Could you check?
-
-              ok
-
-
-                <!-- <img height="300px" src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'"> -->
-
+      <div class="form-group">
+        <div class="phyto-ctnr first-half">
+          <div style="float:left;">
+            <!-- <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes"> -->
+              <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
+                <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+              </div>
+            <!-- </div> -->
             <div class=" single-wrpr mgtpdt-txtcnt">
               <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
               <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
@@ -76,32 +53,9 @@
             <div class="rltpdt-cnt">
               <div class="pdt-nm">{{relatedProduct.magento.name}}</div>
               <div *ngFor="let custom_attribute of relatedProduct.magento.custom_attributes">
-                <!-- <div *ngIf="custom_attribute.attribute_code == 'image'"> -->
-                  Remove "Open filters" buttons for "All" and "Subtil"
-productSingle is for editing, but we also need an individual product view
-There is a scroll issue when no related products are selected. To fix it, please add condition as follows: If no products are selected in related products, then apply the "dspl-nn" class to the element
-In tabs, change "Ingredients" to "Active ingredients"
-Product Categories should be: conditioners & masks, dietary supplements, leave-in care, relaxers, styling, serums, shampoos, treatments
-
-Promotion still visible if end date is older than today or start date is after today
-Add "Show Inactive Promotions" button which opens page with list of all promotions with ability to delete them
-Make sure it works + connect to button mentioned right above
-Improve Css
-Get rid of image id field (commented for now)
-Get rid of no image placeholder when hasn't uploaded image yet
-Make Delete button work
-Set up start and end date
-Add Promotion button closes page
-Delete button should just open popup and not delete right away
-Make add image mandatory to be able to submit
-Make delete PDF button work
-
-Close button outline to fix
-When I land on the page social from the apge user, the instagram script creates an error. I'm assuming it's because the app isn't refreshed the script isn't loaded. Could you check?
-
-ok
-                  <!-- <img height="300px" src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'"> -->
-                <!-- </div> -->
+                <div *ngIf="custom_attribute.attribute_code == 'image'">
+                  <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                </div>
                 <div *ngIf="custom_attribute.attribute_code == 'description'">
                   <div class="pdt-desc">{{custom_attribute.value | smallDescription}}</div>
                 </div>
