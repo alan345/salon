@@ -6,7 +6,7 @@
   <div>
     <!-- <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()"> -->
 
-      <div class="form-group">
+      <!-- <div class="form-group"> -->
         <div class="phyto-ctnr first-half">
           <div style="float:left;">
             <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
       <!-- <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdtind-tabs">
         <md-tab *ngFor="let categorie of categories5 ; let i=index" [label]="categorie.name">
           <div *ngIf="i == 0">{{fetchedProduct.description.benefitsAndResults}}</div>
