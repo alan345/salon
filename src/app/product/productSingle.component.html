@@ -4,17 +4,17 @@
     <h3 style="text-align: center;">Phyto Products</h3>
   </div>
   <div>
-    <!-- <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()"> -->
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
 
       <div class="form-group">
-        <!-- <div class="phyto-ctnr first-half"> -->
-          <!-- <div style="float:left;"> -->
+        <div class="phyto-ctnr first-half">
+          <div style="float:left;">
             <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
               <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
             </div>
-            <!-- <div class=" single-wrpr mgtpdt-txtcnt"> -->
+            <div class=" single-wrpr mgtpdt-txtcnt">
               <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
               <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
                 <p *ngIf="custom_attribute.attribute_code == 'description'" class="mgtpdt-desc">
@@ -33,10 +33,10 @@
                   <div class="pdt-tag">{{categorieTag.name}}<b *ngIf="fetchedProduct.categoriesTag.length!== i +1">,&nbsp;</b></div>
                 </div>
               </div>
-            <!-- </div> -->
-          <!-- </div> -->
-        <!-- </div> -->
-      <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdtind-tabs">
         <md-tab *ngFor="let categorie of categories5 ; let i=index" [label]="categorie.name">
           <div *ngIf="i == 0">{{fetchedProduct.description.benefitsAndResults}}</div>
@@ -68,6 +68,6 @@
         </div>
       </div>
       <div class="clearfix"></div> -->
-    <!-- </form> -->
+    </form>
   </div>
 </div>
