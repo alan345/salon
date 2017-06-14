@@ -7,14 +7,14 @@
     <!-- <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()"> -->
 
       <!-- <div class="form-group"> -->
-        <div class="phyto-ctnr first-half">
+        <!-- <div class="phyto-ctnr first-half"> -->
           <div style="float:left;">
             <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
               <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
             </div>
-            <div class=" single-wrpr mgtpdt-txtcnt">
+            <div class="single-wrpr mgtpdt-txtcnt">
               <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
               <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
                 <p *ngIf="custom_attribute.attribute_code == 'description'" class="mgtpdt-desc">
