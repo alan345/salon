@@ -44,7 +44,9 @@
           <div *ngIf="i == 2">{{fetchedProduct.description.activeIngredients}}</div>
         </md-tab>
       </md-tab-group>
-      <div class="rlt-pdts beigeback phyto-ctnr">
+      <div
+        *ngIf="fetchedProduct.relatedProducts.length"
+        class="rlt-pdts beigeback phyto-ctnr">
         <h4 style="text-align: center;">Related Products</h4>
         <div *ngFor="let relatedProduct of fetchedProduct.relatedProducts" class="rltpdt-ctnr">
           <a [routerLink]="['/product/' + relatedProduct._id]">
