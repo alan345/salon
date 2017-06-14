@@ -1,11 +1,11 @@
-<div class="container">
+<div>
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Phyto Products</h3>
   </div>
-  <div class="beigeback">
+  <div>
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
-      <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedProduct._id">
+
       <div class="form-group">
         <div class="phyto-ctnr first-half">
           <div style="float:left;">
