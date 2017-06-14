@@ -12,7 +12,6 @@ var express = require('express'),
 
 
 
-
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function (err) {
   console.log(err);
@@ -118,6 +117,8 @@ router.post('/', function (req, res, next) {
 
 
 
+
+
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
   var itemsPerPage = 6
@@ -155,21 +156,32 @@ router.get('/page/:page', function (req, res, next) {
 
 
   if(req.query.search) {
-    var words = req.query.search.split(' ');
+    var sentence = req.query.search
+    sentence = sentence.split('é').join(' ');
+    sentence = sentence.split('e').join(' ');
+    console.log(sentence)
+    var words = sentence.split(' ');
+
+    // words.forEach(word => {
+    //   pos = word.indexOf('e')
+    //   if(pos>0) {
+    //     words.push(word.substring(0,pos)+'é'+word.substring(pos+1))
+    //     words.push(word.substring(0,pos)+'è'+word.substring(pos+1))
+    //   }
+    // })
+    // console.log(words)
     //console.log(words.length)
     searchArrayName = []
 
     words.forEach(word => {
-      console.log(word)
       searchArrayName.push({
         'magento.name' : new RegExp(word, 'i')
       });
     })
-    searchQuery = {
-      $and : searchArrayName
-    }
-  }
+    searchQuery['$and'] = searchArrayName
 
+  }
+console.log(searchQuery)
 
   Product
   .find(searchQuery)
