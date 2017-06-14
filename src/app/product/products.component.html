@@ -31,7 +31,6 @@
         </button>
 
       <div [ngClass]="{'open phyto-ctnr': showFilters, 'hidit phyto-ctnr': !showFilters }" >
-        <!-- <div class="hidit phyto-ctnr"> -->
         <div class="phyto-ctnr">
           <p>Filter Your Search (Tap to Select):</p>
           <div class="phyto-ctnr">
@@ -59,10 +58,10 @@
     </div>
   </div>
 
-  <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdt-tabs">
+  <md-tab-group *ngIf="categories1!='All' (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdt-tabs">
     <md-tab *ngFor="let categorieHard2 of categoriesHard2" [label]="categorieHard2.name"></md-tab>
   </md-tab-group>
-  <table class="table table-hover table-responsive table-condensed pdt-tbl">
+  <table class="table table-condensed pdt-tbl">
     <tbody>
       <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="pdt-ctnr">
         <td class="pdt-cnt">
