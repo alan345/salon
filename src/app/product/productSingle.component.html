@@ -6,11 +6,11 @@
   <div class="beigeback">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
       <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedProduct._id">
-      <div class="form-group">
+      <div >
         <div>
           <div>
             <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
-              <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
+              <div *ngIf="custom_attribute.attribute_code == 'image'">
 
                 Remove "Open filters" buttons for "All" and "Subtil"
               productSingle is for editing, but we also need an individual product view
