@@ -10,12 +10,12 @@
         <div class="phyto-ctnr first-half">
           <div style="float:left;">
 
-            <img height="300px" src="{{urlMagento}}{{urlImage}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-            <!-- <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
+            <!-- <img height="300px" src="{{urlMagento}}{{urlImage}}" onerror="this.src ='assets/images/no-image-found.jpg'"> -->
+            <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
               <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
-                <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+                <img src="{{urlMagento}}{{custom_attribute.value}}">
               </div>
-            </div> -->
+            </div>
             <div class=" single-wrpr mgtpdt-txtcnt">
               <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
               <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
