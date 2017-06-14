@@ -8,7 +8,7 @@
 
       <!-- <div class="form-group"> -->
         <!-- <div class="phyto-ctnr first-half"> -->
-          <div style="float:left;">
+          <!-- <div style="float:left;"> -->
             <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
               <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
