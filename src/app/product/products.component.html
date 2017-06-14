@@ -57,14 +57,16 @@
       </div>
     </div>
   </div>
-  
-  <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdt-tabs">
-    <md-tab 
+
+  <md-tab-group
+    *ngIf="categories1!='All'"
+    (selectChange)="onSelectChange($event)"
+    class="beigeback phyto-ctnr pdt-tabs">
+    <md-tab
       *ngFor="let categorieHard2 of categoriesHard2"
-      [label]="categorieHard2.name"
-      [ngClass]="{'dspl-nn':categories1!='All'}">
+      [label]="categorieHard2.name">
     </md-tab>
-  </md-tab-group>                                                                               
+  </md-tab-group>
   <table class="table table-condensed pdt-tbl">
     <tbody>
       <tr *ngFor="let product of fetchedProducts | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="pdt-ctnr">
