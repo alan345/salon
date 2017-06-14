@@ -9,11 +9,11 @@
       <!-- <div class="form-group"> -->
         <!-- <div class="phyto-ctnr first-half"> -->
           <!-- <div style="float:left;"> -->
-            <!-- <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
-              <div *ngIf="custom_attribute.attribute_code == 'image'" class="mgtpdt-img">
+            <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
+              <div *ngIf="custom_attribute.attribute_code == 'image'" >
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
-            </div> -->
+            </div>
             <!-- <div class="single-wrpr mgtpdt-txtcnt"> -->
               <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
               <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
