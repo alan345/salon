@@ -31,7 +31,7 @@ export class ProductSingleComponent implements OnInit {
   categoriesHard2 = categoriesHard2Model;
   categoriesHard1 = categoriesHard1Model;
   inputCategorie = '';
-
+  urlImage = '';
   public myForm: FormGroup;
 
   constructor(
@@ -230,7 +230,11 @@ export class ProductSingleComponent implements OnInit {
             })
             //this.fetchedProducts.push(product)
 
-
+            this.fetchedProduct.magento.custom_attributes.forEach(custom_attribute => {
+              if(custom_attribute.attribute_code === 'image') {
+                this.urlImage = custom_attribute.value
+              }
+            })
 
 
           // this.fetchedProduct.categories.forEach((categorie) => {
