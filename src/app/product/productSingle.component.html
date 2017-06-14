@@ -9,9 +9,7 @@
       <div >
         <div>
           <div>
-            <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
-
-
+          
                 Remove "Open filters" buttons for "All" and "Subtil"
               productSingle is for editing, but we also need an individual product view
               There is a scroll issue when no related products are selected. To fix it, please add condition as follows: If no products are selected in related products, then apply the "dspl-nn" class to the element
@@ -38,8 +36,7 @@
 
 
                 <!-- <img height="300px" src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'"> -->
-        
-            </div>
+
             <div class=" single-wrpr mgtpdt-txtcnt">
               <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
               <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
