@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="goldgradient beigeborder subnav">
+  <!-- <div class="goldgradient beigeborder subnav"> -->
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Phyto Products</h3>
-  </div>
+  <!-- </div> -->
   <div class="beigeback">
     <!-- <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()"> -->
 
@@ -14,27 +14,27 @@
                 <img src="{{urlMagento}}{{custom_attribute.value}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
             </div>
-            <div class="single-wrpr mgtpdt-txtcnt">
+            <!-- <div class="single-wrpr mgtpdt-txtcnt"> -->
               <div class="pdt-nm">{{fetchedProduct.magento.name}}</div>
               <div *ngFor="let custom_attribute of fetchedProduct.magento.custom_attributes">
                 <p *ngIf="custom_attribute.attribute_code == 'description'" class="mgtpdt-desc">
                   {{custom_attribute.value}}
                 </p>
               </div>
-              <div class="hlf-wdth">
+              <!-- <div class="hlf-wdth"> -->
                 <div *ngIf="fetchedProduct.description.title.embed">
                   <h4>Pronunciation</h4>
                   <iframe width="62" height="85" scrolling="no" frameborder="no" [src]="fetchedProduct.description.title.embedSecure"></iframe>
                 </div>
-              </div>
-              <div class="hlf-wdth">
+              <!-- </div> -->
+              <!-- <div class="hlf-wdth"> -->
                 <h4>Keywords</h4>
                 <div *ngFor="let categorieTag of fetchedProduct.categoriesTag; let i=index " class="pdt-tagz">
                   <div class="pdt-tag">{{categorieTag.name}}<b *ngIf="fetchedProduct.categoriesTag.length!== i +1">,&nbsp;</b></div>
                 </div>
-              </div>
-            </div>
-          </div>
+              <!-- </div> -->
+            <!-- </div> -->
+          <!-- </div> -->
         <!-- </div> -->
       <!-- </div> -->
       <md-tab-group (selectChange)="onSelectChange($event)" class="beigeback phyto-ctnr pdtind-tabs">
