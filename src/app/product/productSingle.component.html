@@ -3,7 +3,7 @@
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Phyto Products</h3>
   </div>
-  <div class="beigeback">
+  <div class="beigeback phyto-ctnr">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)" (keydown.enter)="$event.preventDefault()">
       <input type="hidden" class="form-control" formControlName="_id" [(ngModel)]="fetchedProduct._id">
       <div class="form-group">
