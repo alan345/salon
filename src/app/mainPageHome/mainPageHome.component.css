@@ -34,7 +34,6 @@ a.shopbutton {
     background-color: #FB8417;
     float: right;
     padding: 2px 7.5px 0 !important;
-    margin: 4px 15px;
     color: #fff;
     font-size: 16px;
     border-radius: 25px;
@@ -81,13 +80,16 @@ a.shopbutton {
 }
 .homelabel {
     font-size: 23px;
-    padding: 4% 4% 4% 0;
+    padding: 20px 20px 20px 0;
 }
 .homeimage {
   height: 210px !important;
 }
 .homeimage img {
   height: 210px;
+}
+.notif {
+  margin: 4px 15px;
 }
 }
 
@@ -109,6 +111,9 @@ a.shopbutton {
 .homelabel {
     font-size: 18px;
     padding: 4% 8%;
+}
+.notif {
+  margin: 2px 15px;
 }
 }
 
