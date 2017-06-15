@@ -275,7 +275,6 @@ md-tab-header.mat-tab-header {
 }
 .hlf-wdth {
   width: 50%;
-  float: left;
 }
 
 /*--------- Admin Products Page ----------*/
@@ -361,6 +360,9 @@ p.nota {
 .pdt-cnt {
   height: 250px;
 }
+.hlf-wdth {
+  width: 50%;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -402,6 +404,9 @@ label.pdt-lableft {
 }
 .pdt-cnt {
   height: 300px;
+}
+.hlf-wdth {
+  width: 100%;
 }
 }
 
