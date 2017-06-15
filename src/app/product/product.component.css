@@ -268,8 +268,8 @@ md-tab-header.mat-tab-header {
   border-bottom: none !important;
 }
 .pdtind-tabs .mat-tab-body-content {
-  padding: 15px;
-  min-height: 200px;
+  padding: 15px !important;
+  min-height: 200px !important;
 }
 .pdt-cnt {
   float: left;
