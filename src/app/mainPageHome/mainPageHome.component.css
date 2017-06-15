@@ -22,7 +22,8 @@ a.shopbutton {
     padding: 0;
     border: none;
     border-radius: 0;
-    max-width: none;
+    max-width: 100%;
+    height: auto;
 }
 .boxpadding {
     padding: 1px !important;
@@ -85,9 +86,6 @@ a.shopbutton {
 .homeimage {
   height: 210px !important;
 }
-.homeimage img {
-  height: 210px;
-}
 .notif {
   margin: 4px 15px;
 }
@@ -123,18 +121,12 @@ a.shopbutton {
 .homeimage {
   height: 150px !important;
 }
-.homeimage img {
-  height: 170px;
-}
 }
 
 @media screen and (min-width: 375px) and (max-width: 564px) {
   
 .homeimage {
   max-height: 95px !important;
-}
-.homeimage img {
-  height: 105px;
 }
 }
 
