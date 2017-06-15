@@ -299,7 +299,6 @@ md-tab-header.mat-tab-header {
   padding: 15px;
   background-color: #ffffff;
   position: relative;
-  height: 300px;
 }
 .rltpdt-cnt button {
   position: absolute;
@@ -316,14 +315,11 @@ p.nota {
   color: #999999;
 }
 .rltpdt-cnt img {
-  max-height: 75%;
-  max-width: 38%;
+  max-height: 110px;
+  max-width: 200px;
   position: absolute;
   bottom: 15px;
-  right: 15px;
-}
-.rltpdt-cnt .pdt-desc {
-  width: 60%;
+  right: 35px;
 }
 .rlt-pdts h3 {
   margin: 30px 0 15px;
@@ -339,7 +335,7 @@ p.nota {
 }
 .pdt-ctnr, .mgtpdt-img, .rltpdt-ctnr {
   width: 33.333333%;
-  height: 100%;
+  height: 250px;
   float: left;
   position: relative;
 }
@@ -392,8 +388,9 @@ label.pdt-lableft {
 .prdts-ln .mat-tab-label {
   width: 100% !important;
 }
-.mgtpdt-img, .mgtpdt-txtcnt, .rltpdt-ctnr {
+.mgtpdt-img, .mgtpdt-txtcnt, .rltpdt-ctnr, .rltpdt-cnt {
   width: 100%;
+  height: 250px;
 }
 .pdt-tabs .mat-tab-label {
   width: 33.333333% !important;
