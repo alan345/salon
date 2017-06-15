@@ -80,7 +80,7 @@
   background-color: #efe9df;
 }
 .pdt-ctnr {
-  padding: 5px 2.5px 0;
+  padding: 2.5px 1.25px 0 1.25px;
   position: relative;
   height: 305px;
   background-color: #efe9df;
@@ -91,7 +91,6 @@
 .pdt-cnt {
   background-color: #ffffff;
   padding: 15px !important;
-  height: 250px;
 }
 .pdt-cnt .editicon {
   padding-top: 10px !important;
@@ -359,6 +358,9 @@ p.nota {
 .mgtpdt-txtcnt {
   width: 66.666666%;
 }
+.pdt-cnt {
+  height: 250px;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -395,6 +397,9 @@ label.pdt-lableft {
 }
 .pdt-tabs .mat-tab-labels {
   display: block !important;
+}
+.pdt-cnt {
+  height: 300px;
 }
 }
 
