@@ -333,11 +333,13 @@ p.nota {
   width: 50%;
   float: left;
 }
-.pdt-ctnr, .mgtpdt-img, .rltpdt-ctnr {
-  width: 33.333333%;
+.pdt-ctnr, .mgtpdt-img, .rltpdt-ctnr, .rltpdt-cnt {
   height: 250px;
   float: left;
   position: relative;
+}
+.pdt-ctnr, .mgtpdt-img, .rltpdt-ctnr {
+  width: 33.333333%;
 }
 .bigcat-btn, .bigcat-btn-on {
   width: 33.33333%;
@@ -391,6 +393,7 @@ label.pdt-lableft {
 .mgtpdt-img, .mgtpdt-txtcnt, .rltpdt-ctnr, .rltpdt-cnt {
   width: 100%;
   height: 250px;
+  position:relative;
 }
 .pdt-tabs .mat-tab-label {
   width: 33.333333% !important;
