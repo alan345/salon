@@ -234,7 +234,12 @@
   margin-bottom: 2px;
 }
 .mgtpdt-img img {
-    max-height: 300px;
+  max-width: 247px;
+  max-height: 247px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
 }
 .first-half .pdt-nm {
   font-size: 25px;
@@ -335,7 +340,9 @@ p.nota {
 }
 .pdt-ctnr, .mgtpdt-img, .rltpdt-ctnr {
   width: 33.333333%;
+  height: 100%;
   float: left;
+  position: relative;
 }
 .bigcat-btn, .bigcat-btn-on {
   width: 33.33333%;
