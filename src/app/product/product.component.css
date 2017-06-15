@@ -112,7 +112,8 @@
   font-weight: 600;
 }
 .pdt-img img {
-  height: 150px;
+  max-height: 150px;
+  max-width: 200px;
   margin-top: 30px;
   position: absolute;
   right: 15px;
