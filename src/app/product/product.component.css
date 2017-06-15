@@ -111,7 +111,6 @@
   font-weight: 600;
 }
 .pdt-img img {
-  max-height: 110px;
   max-width: 200px;
   position: absolute;
   right: 20px;
@@ -360,6 +359,9 @@ p.nota {
 .pdt-cnt {
   height: 250px;
 }
+.pdt-img img {
+  max-height: 110px;
+}
 .hlf-wdth {
   width: 50%;
 }
@@ -404,6 +406,9 @@ label.pdt-lableft {
 }
 .pdt-cnt {
   height: 300px;
+}
+.pdt-img img {
+  max-height: 170px;
 }
 .hlf-wdth {
   width: 100%;
