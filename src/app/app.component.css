@@ -6,3 +6,6 @@
 .phyto-sidenav {
   box-shadow: none !important;
 }
+.phyto-topnav {
+  overflow-x: hidden;
+}
