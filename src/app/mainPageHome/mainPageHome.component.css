@@ -83,7 +83,7 @@ a.shopbutton {
     padding: 4% 4% 4% 0;
 }
 .homeimage {
-  max-height: 210px !important;
+  height: 210px !important;
 }
 }
 
@@ -111,7 +111,7 @@ a.shopbutton {
 @media screen and (min-width: 565px) and (max-width: 767px) {
   
 .homeimage {
-  max-height: 150px !important;
+  height: 150px !important;
 }
 }
 
@@ -125,6 +125,6 @@ a.shopbutton {
 @media screen and (max-width: 374px) {
   
 .homeimage {
-  max-height: 80px !important;
+  height: 80px !important;
 }
 }
