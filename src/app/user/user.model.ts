@@ -34,8 +34,8 @@ export class Profile {
 
 export class Hair {
   hairTexture: string = 'Fine';
-  hairCondition: string = 'Healthy';
-  scalpCondition: string = 'Normal';
+  hairCondition: string = 'Normal';
+  scalpCondition: string = 'Healthy';
 }
 
 
