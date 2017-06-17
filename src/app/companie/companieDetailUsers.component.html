@@ -73,7 +73,7 @@
       </tbody>
     </table>
 
-    <div style="height:900px;">
+    <div *ngIf="!fetchedCompanie._users.length" style="height:900px;">
     </div>
     <!-- <div class="has-text-centered">
         <div class="spinner" [ngClass]="{ 'hidden': !loading }">Loading...</div>
