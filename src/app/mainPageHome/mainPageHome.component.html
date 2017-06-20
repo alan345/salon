@@ -1,9 +1,9 @@
-<div class="container goldgradient beigeborder subnav" style="position: relative;">
+<div class="container goldgradient beigeborder subnav topnavad" style="position: relative;">
   <div *ngIf="isAdmin()" class="flt-lft">
     <button *ngIf="!isEditTitle" type="button" (click)="editTitleHomePage()" class="edtttl-btn">Edit</button>
   </div>
   <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.titleHomePage" class="edtttl-txt">
-  <h3 *ngIf="!isEditTitle" class="topnav-ad">{{options.design.mainPage.titleHomePage}}</h3>
+  <h3 *ngIf="!isEditTitle">{{options.design.mainPage.titleHomePage}}</h3>
   <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.buttonHomePage" class="edtttl-lnk">
   <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.linkButtonHomePage" class="edtttl-lnk">
   <a href="{{options.design.mainPage.linkButtonHomePage}}" class="btn shopbutton" target="_blank">{{options.design.mainPage.buttonHomePage}}</a>
