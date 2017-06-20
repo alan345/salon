@@ -28,7 +28,7 @@ a.shopbutton {
 .boxpadding {
     padding: 1px !important;
 }
-.topnav-ad {
+.topnav-ad h3 {
     text-align: center;
 }
 .notif {
@@ -68,7 +68,7 @@ a.shopbutton {
 
 @media screen and (min-width: 768px) {
 
-.topnav-ad {
+.topnav-ad h3 {
   width: 80%;
   float: left;
   margin: 19px auto;
@@ -93,7 +93,7 @@ a.shopbutton {
 
 @media screen and (max-width: 767px) {
 
-.topnav-ad {
+.topnav-ad h3 {
   width: 90%;
   margin: 8px auto;
 }
@@ -126,7 +126,7 @@ a.shopbutton {
 @media screen and (min-width: 375px) and (max-width: 564px) {
   
 .homeimage {
-  max-height: 95px !important;
+  height: 95px !important;
 }
 }
 
