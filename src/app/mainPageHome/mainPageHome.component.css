@@ -93,9 +93,6 @@ a.shopbutton {
 
 @media screen and (max-width: 767px) {
 
-.topnavad {
-  height: 117px;
-}
 .topnavad h3 {
   width: 90%;
   margin: 8px auto;
