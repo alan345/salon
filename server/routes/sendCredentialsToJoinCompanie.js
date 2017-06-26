@@ -90,7 +90,7 @@ router.post('/', function (req, res, next) {
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
-                      ${req.body.user.profile.name} ${req.body.user.profile.lastName} invited you to join their salon on the My Chair by Phyto Paris App.
+                      ${req.body.user.profile.name} ${req.body.user.profile.lastName},<br>You have been invited to join a salon on the My Chair by Phyto Paris App.
                     </td>
                   </tr>
                   <tr>

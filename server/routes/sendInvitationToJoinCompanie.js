@@ -152,7 +152,7 @@ router.post('/', function (req, res, next) {
 
 
       `;
-      console.log('aa')
+      //console.log('aa')
       var mailOptions = {
         to: userToSendMail,   // ici quand on aura fini les tests, il faudra remplacer par cette ligne
         //to: 'alan.szternberg@gmail.com',
