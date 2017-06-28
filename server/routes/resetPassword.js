@@ -77,7 +77,7 @@ router.post('/:token', function(req, res) {
       var mailOptions = {
         to: user.email,
         from: 'no-reply@yourdomain.com',
-        subject: 'Angular 2 Form | Password Changed!',
+        subject: 'My Chair by Phyto Paris | Password Changed!',
         text: 'Hello,\n\n' +
         'This email has been sent to you to inform you that the password for the acount ' + user.email + ' has been changed.\n'
       };
