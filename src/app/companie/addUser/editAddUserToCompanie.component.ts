@@ -150,6 +150,7 @@ export class EditAddUserToCompanieComponent implements OnInit {
     }
   }
 
+
   addUserIdToCompanie(user: User) {
     this.fetchedCompanie._users.push(user)
     this.companieService.updateCompanie(this.fetchedCompanie)
