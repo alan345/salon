@@ -131,7 +131,7 @@ export class ProductEditComponent implements OnInit {
           categSubtil.forEach(categ => this2.categoriesHard2.push(categ))
 
 
-        this2.refreshHardCategories()
+          this.refreshHardCategories()
       }, 100);
   }
   togglCategorieButton(nameCateg: string, type: string) {
@@ -316,7 +316,7 @@ export class ProductEditComponent implements OnInit {
           this.fetchedProduct.categories.forEach((categorie) => {
             this.addCategorie()
           })
-
+          this.refreshHardCategories()
           this.refreshDynamicCateg()
         },
         error => {
