@@ -252,7 +252,9 @@ export class ProductEditComponent implements OnInit {
     })
     this.categoriesHard2.forEach((HardCategorie, indexHard) => {
       this.fetchedProduct.categories.forEach((fetchedCategorie, indexFetched) => {
+        console.log(HardCategorie.name, fetchedCategorie.name)
         if(HardCategorie.name == fetchedCategorie.name) {
+
           this.categoriesHard2[indexHard].selected = true
         }
       })
