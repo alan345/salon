@@ -129,7 +129,7 @@ export class ProductEditComponent implements OnInit {
           categPhytoSpecific.forEach(categ => this2.categoriesHard2.push(categ))
         if(this2.categoriesHard1[2].selected)
           categSubtil.forEach(categ => this2.categoriesHard2.push(categ))
-      }, 50);
+      }, 100);
   }
   togglCategorieButton(nameCateg: string, type: string) {
 
