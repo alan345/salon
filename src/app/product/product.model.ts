@@ -93,7 +93,7 @@ export const categPhyto: any = [
 
 export const categPhytoSpecific: any = [
    { name:'Treatments', selected : false },
-   { name:'Merchandising', selected : false },
+   { name:'Relaxers', selected : false },
    { name:'Stylers', selected : false },
    { name:'Shampoos & Conditioners', selected : false },
    { name:'Kids', selected : false },
