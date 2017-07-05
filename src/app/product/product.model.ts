@@ -1,20 +1,3 @@
-
-//import { Categorie } from '../video/video.model'
-
-
-//
-// export class ProductClass implements Product  {
-//     _id: string = '';
-//     relatedProducts: Product[] = [];
-//     description : Description = [];
-//     categories: Categorie[] = [];
-//     categoriesTag: Categorie[] = [];
-//     magento: Magento = ;
-//     constructor() {}
-// }
-
-
-
 export class Product {
   _id: string = '';
   relatedProducts: Product[] = [];
@@ -26,7 +9,6 @@ export class Product {
     this.description = new Description(sanitizer)
   }
 }
-
 
 export class Description {
   benefitsAndResults: string = '';
@@ -52,7 +34,6 @@ export class Categorie {
   name: string;
   type: string;
 }
-
 
 export class Magento {
   id: string = '';
@@ -80,6 +61,7 @@ export const categHard1Model: any = [
 export const categAll: any = [
   { name:'All', selected : false },
 ]
+
 export const categPhyto: any = [
     { name:'Dietary supplements', selected : false },
     { name:'Treatments', selected : false },
@@ -89,7 +71,7 @@ export const categPhyto: any = [
     { name:'Leave-in care', selected : false },
     { name:'Styling', selected : false },
     { name:'Merchandising', selected : false },
-  ]
+]
 
 export const categPhytoSpecific: any = [
    { name:'Treatments', selected : false },
@@ -108,7 +90,6 @@ export const categSubtil: any = [
     { name:'Oxydizers & Developer', selected : false },
     { name:'Styling', selected : false },
 ]
-
 
 export const categories2DynamicModel = [
     categAll,
@@ -137,7 +118,6 @@ export const categories4Model = [
   { name:'THINNING', selected : false },
   { name:'LIFE-STRESSED', selected : false },
 ]
-
 
 export const categorie5Model = [
   { name: 'Benefits & Results', selected : false},
@@ -180,4 +160,5 @@ export const categoriesHard1Model = [{
   {
     name:'subtil',
     selected : false
-  }]
+  }
+]
