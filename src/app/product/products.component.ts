@@ -4,13 +4,9 @@ import {ProductService} from './product.service';
 import {
   Product,
   urlMagentoModel,
-  categPhyto,
   categories3Model,
   categories4Model,
-  categPhytoSpecific,
   categories2DynamicModel,
-  categSubtil,
-  categAll,
   categHard1Model } from './product.model';
 import {ToastsManager} from 'ng2-toastr';
 import {MdDialog } from '@angular/material';
@@ -98,12 +94,23 @@ export class ProductsComponent implements OnInit {
       this.categories4[index].selected = false
     })
 
-    if($event.tab.textLabel === this.categoriesHard1[0].name)
+    // console.log($event.tab.textLabel)
+    // console.log(this.categoriesHard1[2].name)
+    if($event.tab.textLabel === this.categoriesHard1[0].name){
       this.categoriesHard2 = this.categories2Dynamic[0]
-    if($event.tab.textLabel === this.categoriesHard1[1].name)
+    }
+
+    if($event.tab.textLabel === this.categoriesHard1[1].name){
       this.categoriesHard2 = this.categories2Dynamic[1]
-    if($event.tab.textLabel === this.categoriesHard1[2].name)
+    }
+
+    if($event.tab.textLabel === this.categoriesHard1[2].name){
       this.categoriesHard2 = this.categories2Dynamic[2]
+    }
+
+    if($event.tab.textLabel === this.categoriesHard1[3].name){
+      this.categoriesHard2 = this.categories2Dynamic[3]
+    }
 
 
 
