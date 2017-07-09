@@ -6,7 +6,7 @@
 /*@import 'node_modules/@angular/material/core/theming/_theming';*/
 
 @-ms-viewport{
-  width: device-width;
+  width: device-width !important;
 }
 
 html, body {
