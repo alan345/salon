@@ -9,6 +9,17 @@
   width: device-width !important;
 }
 
+/*--Prevent iPhone zoom on forms--*/
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select:focus, textarea:focus, input:focus {
+    font-size: 16px;
+    background: #fff;
+  }
+}
+
+/*--General--*/
+
 html, body {
   height: 100% !important;
 }
