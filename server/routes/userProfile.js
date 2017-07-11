@@ -264,8 +264,8 @@ router.post('/image', upload.single('profilePic'), function (req, res, err) {
     // console.log(req.file);
     gm(req.file.path)
       .autoOrient()
-      .resize(400, null)
-      .noProfile()
+      // .resize(400, null)
+      // .noProfile()
       .write(req.file.path, function (err) {
         if (err) {
           console.log(err);

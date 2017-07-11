@@ -181,7 +181,7 @@ router.patch('/edit/:id', upload.single('fileUp'), function (req, res, err) {
   if (req.file != undefined) {
     gm(req.file.path)
       .autoOrient()
-      .resize(400, null)
+      // .resize(400, null)
       //.noProfile()
       .write(req.file.path, function (err) {
         if (err) {
