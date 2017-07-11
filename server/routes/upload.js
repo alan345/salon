@@ -137,7 +137,7 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
     //     }
     //   });
 
-    
+
 //Gooplus
     let nbChar = req.file.filename.split('.').shift().length + 1
     //console.log(req.file.filename.substring(nbChar))
@@ -181,6 +181,7 @@ router.patch('/edit/:id', upload.single('fileUp'), function (req, res, err) {
   if (req.file != undefined) {
     gm(req.file.path)
       .resize(400, null)
+      .autoOrient()
       .noProfile()
       .write(req.file.path, function (err) {
         if (err) {
