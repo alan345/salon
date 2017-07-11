@@ -130,7 +130,7 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
     console.log('aaaaaaALAN')
     gm(req.file.path)
       .autoOrient()
-      .resize(400, null)
+      .resize(500, null)
       .noProfile()
       .write(req.file.path, function (err) {
         if (err) {
