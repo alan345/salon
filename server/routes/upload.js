@@ -127,18 +127,21 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
     // resize middleware, just change 400 to whatever you like, the null parameter maintains aspect ratio, if you want exact dimensions replace null with a height number as you wish
 
 //Gooplus
+    let type = req.file.filename.split('.').pop()
+    if(type != 'pdf') {
+      gm(req.file.path)
+        .autoOrient()
+        .resize(500, null)
+        .noProfile()
+        .write(req.file.path, function (err) {
+          if (err) {
+            console.log(err);
+            fs.unlink(req.file.path);
+            // });// this will result a 404 when frontend tries to access the image, I ll provide a fix soon
+          }
+        });      
+    }
 
-    gm(req.file.path)
-      .autoOrient()
-      .resize(500, null)
-      .noProfile()
-      .write(req.file.path, function (err) {
-        if (err) {
-          console.log(err);
-          fs.unlink(req.file.path);
-          // });// this will result a 404 when frontend tries to access the image, I ll provide a fix soon
-        }
-      });
 
 
 //Gooplus
@@ -151,7 +154,7 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
       title: req.file.filename.substring(nbChar),
       imagePath: req.file.filename,
       //type: req.file.filename.slice(-3),
-      type: req.file.filename.split('.').pop(),
+      type: type,
       owner: user._id
     });
 
