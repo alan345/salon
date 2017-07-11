@@ -180,8 +180,8 @@ router.patch('/edit/:id', upload.single('fileUp'), function (req, res, err) {
   // check if the user has uploaded a new file, if he has, continue to image resize
   if (req.file != undefined) {
     gm(req.file.path)
-      .resize(400, null)
       .autoOrient()
+      .resize(400, null)
       .noProfile()
       .write(req.file.path, function (err) {
         if (err) {
