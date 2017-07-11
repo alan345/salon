@@ -95,3 +95,7 @@
   margin: 15px 5px 5px;
 }
 }
+
+img {
+    image-orientation: from-image;
+}
