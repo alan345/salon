@@ -182,7 +182,7 @@ router.patch('/edit/:id', upload.single('fileUp'), function (req, res, err) {
     gm(req.file.path)
       .autoOrient()
       .resize(400, null)
-      .noProfile()
+      //.noProfile()
       .write(req.file.path, function (err) {
         if (err) {
           fs.unlink(req.file.path);  // this will result a 404 when frontend tries to access the image, I ll provide a fix soon
