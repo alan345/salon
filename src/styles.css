@@ -439,8 +439,9 @@ a.seemre {
     background: #fff !important;
 }
 .cdk-overlay-container .mat-tab-body-wrapper {
-    width: 613px;
-    max-width: 100%;
+  width: 613px;
+  max-width: 100%;
+  max-height: 125vw;
 }
 .pdf-ttl {
   position: absolute;
