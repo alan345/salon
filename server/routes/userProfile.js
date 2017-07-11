@@ -263,6 +263,7 @@ router.post('/image', upload.single('profilePic'), function (req, res, err) {
     // resize middleware, just change 400 to whatever you like, the null parameter maintains aspect ratio, if you want exact dimensions replace null with a height number as you wish
     // console.log(req.file);
     gm(req.file.path)
+      .autoOrient()
       .resize(400, null)
       .noProfile()
       .write(req.file.path, function (err) {
