@@ -18,6 +18,10 @@
   }
 }
 
+img {
+ image-orientation: from-image;
+}
+
 /*--General--*/
 
 html, body {
