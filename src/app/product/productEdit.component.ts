@@ -325,11 +325,13 @@ export class ProductEditComponent implements OnInit {
       )
   }
 
+
   onDelete(id: string) {
     this.productService.deleteProduct(id)
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message);
+          this.router.navigate(['product']);
         },
         error => {
           console.log(error);

@@ -60,7 +60,7 @@ router.use('/', function (req, res, next) {
 // setting up multer
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    console.log('trtrtr')
+
     var dest = 'server/uploads/forms/' + req.user._id;  // i know, i should use dirname blah blah :)
     var stat = null;
     try {
@@ -127,7 +127,7 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
     // resize middleware, just change 400 to whatever you like, the null parameter maintains aspect ratio, if you want exact dimensions replace null with a height number as you wish
 
 //Gooplus
-    console.log('aaaaaaALAN')
+
     gm(req.file.path)
       .autoOrient()
       .resize(500, null)
@@ -182,7 +182,7 @@ router.patch('/edit/:id', upload.single('fileUp'), function (req, res, err) {
   }
   // check if the user has uploaded a new file, if he has, continue to image resize
   if (req.file != undefined) {
-    console.log('aa')
+
     gm(req.file.path)
       .autoOrient()
       // .resize(400, null)
