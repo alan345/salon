@@ -355,14 +355,12 @@ a.seemre {
 /*--Modal--*/
 
 .cdk-overlay-pane {
-  max-width: 100vh !important;
-  max-height: 80%;
+  max-width: 100vw !important;
+  max-height: 75vh;
   position: absolute !important;
 }
 .mat-dialog-container {
   padding: 0 !important;
-  overflow: visible !important;
-  background: none !important;
 }
 
 /*--Are you Sure?--*/

@@ -86,17 +86,17 @@ router.post('/', function (req, res, next) {
               <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tr>
-                    <td>Hi there!</td>
+                    <td>Hi ${req.body.user.profile.name} ${req.body.user.profile.lastName},</td>
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
-                      ${req.body.user.profile.name} ${req.body.user.profile.lastName},<br><br>You have been invited to join a salon on the My Chair by Phyto Paris App.
+                      You have been invited to join a salon on the My Chair by Phyto Paris App.
                     </td>
                   </tr>
                   <tr>
                     <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
                       <a
-                        href="http://${req.headers.host}"
+                        href="http://${req.headers.host}/#/user/reset/"
                         style="color: #ffffff; text-decoration: none;"
                       >
                         Accept the Invitation
