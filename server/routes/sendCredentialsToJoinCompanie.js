@@ -96,7 +96,7 @@ router.post('/', function (req, res, next) {
                   <tr>
                     <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
                       <a
-                        href="http://${req.headers.host}"
+                        href="http://${req.headers.host}/#/user/reset/${token}"
                         style="color: #ffffff; text-decoration: none;"
                       >
                         Accept the Invitation
