@@ -151,7 +151,11 @@ export class VideosComponent implements OnInit {
     this.videoService.getVideos(page, search)
       .subscribe(
         res => {
-          this.fetchedVideos = []
+
+          if(page === 1)
+            this.fetchedVideos =[]
+
+  
           this.paginationData = res.paginationData;
           let fetchedVideosNotSecure =  res.data
           fetchedVideosNotSecure.forEach((video: Video) => {
