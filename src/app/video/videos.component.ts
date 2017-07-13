@@ -155,7 +155,6 @@ export class VideosComponent implements OnInit {
           if(page === 1)
             this.fetchedVideos =[]
 
-  
           this.paginationData = res.paginationData;
           let fetchedVideosNotSecure =  res.data
           fetchedVideosNotSecure.forEach((video: Video) => {
