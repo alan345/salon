@@ -58,51 +58,51 @@ export class FormComponent implements OnInit, AfterViewInit {
 
 
 
-
-    drawRotated(degrees: number, file: any){
-        var canvas;
-
-        var angleInDegrees=0;
-
-        var image=document.createElement("img");
-        if(canvas) document.body.removeChild(canvas);
-
-        image.src=file.notSafeURL;
-
-
-        canvas = document.createElement("canvas");
-        var ctx=canvas.getContext("2d");
-        canvas.style.width="20%";
-
-        if(degrees == 90 || degrees == 270) {
-    		canvas.width = image.height;
-    		canvas.height = image.width;
-        } else {
-    		canvas.width = image.width;
-    		canvas.height = image.height;
-        }
-
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        if(degrees == 90 || degrees == 270) {
-    		ctx.translate(image.height/2,image.width/2);
-        } else {
-    	    ctx.translate(image.width/2,image.height/2);
-       }
-        ctx.rotate(degrees*Math.PI/180);
-        ctx.drawImage(image,-image.width/2,-image.height/2);
-        this.appendToChildEl.nativeElement.appendChild(canvas);
-
-    }
-
-
+    // 
+    // drawRotated(degrees: number, file: any){
+    //     var canvas;
+    //
+    //     var angleInDegrees=0;
+    //
+    //     var image=document.createElement("img");
+    //     if(canvas) document.body.removeChild(canvas);
+    //
+    //     image.src=file.notSafeURL;
+    //
+    //
+    //     canvas = document.createElement("canvas");
+    //     var ctx=canvas.getContext("2d");
+    //     canvas.style.width="20%";
+    //
+    //     if(degrees == 90 || degrees == 270) {
+    // 		canvas.width = image.height;
+    // 		canvas.height = image.width;
+    //     } else {
+    // 		canvas.width = image.width;
+    // 		canvas.height = image.height;
+    //     }
+    //
+    //     ctx.clearRect(0,0,canvas.width,canvas.height);
+    //     if(degrees == 90 || degrees == 270) {
+    // 		ctx.translate(image.height/2,image.width/2);
+    //     } else {
+    // 	    ctx.translate(image.width/2,image.height/2);
+    //    }
+    //     ctx.rotate(degrees*Math.PI/180);
+    //     ctx.drawImage(image,-image.width/2,-image.height/2);
+    //     this.appendToChildEl.nativeElement.appendChild(canvas);
+    //
+    // }
 
 
-    rotate() {
-      this.angleInDegrees= (this.angleInDegrees + 90) % 360;
-      this.drawRotated(this.angleInDegrees, this.files[0])
-    //  this.resizeImage(this.files[0])
-    //  console.log(this.files)
-    }
+
+
+    // rotate() {
+    //   this.angleInDegrees= (this.angleInDegrees + 90) % 360;
+    //   this.drawRotated(this.angleInDegrees, this.files[0])
+    // //  this.resizeImage(this.files[0])
+    // //  console.log(this.files)
+    // }
   // event fired when the user selects an image
   onFileSelect(event: any) {
     this.clear();
@@ -241,7 +241,7 @@ export class FormComponent implements OnInit, AfterViewInit {
           //this.router.navigateByUrl('/user/forms');
         //  location.reload();
           let form = JSON.parse(xhr.response).obj
-          console.log(form)
+          // console.log(form)
           this.onPassForm.emit(form);
           this.onUploadFinisedChildToParent.emit()
 
@@ -258,7 +258,7 @@ export class FormComponent implements OnInit, AfterViewInit {
     xhr.withCredentials = true;
     xhr.setRequestHeader('Authorization', this.token);
     xhr.send(formData);
-    console.log(xhr);
+    // console.log(xhr);
   }
   isAdmin() {
     return this.authService.isAdmin();

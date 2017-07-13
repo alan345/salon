@@ -128,23 +128,22 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
 
 //Gooplus
     let type = req.file.filename.split('.').pop()
-    // if(type != 'pdf') {
-    //
-    //   gm(req.file.path)
-    //     .autoOrient()
-    //     .resize(500, null)
-    //     .noProfile()
-    //     .write(req.file.path, function (err) {
-    //       if (err) {
-    //         console.log(err);
-    //         fs.unlink(req.file.path);
-    //         // });// this will result a 404 when frontend tries to access the image, I ll provide a fix soon
-    //       }
-    //     });
-    // }
+    if(type != 'pdf') {
+      console.log('pdf alan')
+      gm(req.file.path)
+        .autoOrient()
+        .resize(500, null)
+        .noProfile()
+        .write(req.file.path, function (err) {
+          if (err) {
+            console.log(err);
+            fs.unlink(req.file.path);
+            // });// this will result a 404 when frontend tries to access the image, I ll provide a fix soon
+          }
+        });
+    }
 
-
-
+  console.log('pdf alan')
 
 //Gooplus
     let nbChar = req.file.filename.split('.').shift().length + 1

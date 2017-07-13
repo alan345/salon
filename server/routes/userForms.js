@@ -70,9 +70,6 @@ router.get('/page/:page', function (req, res, next) {
     } else {
 
 
-
-
-        console.log(req.query)
         var itemsPerPage = Number(req.query.itemsPerPage)
         var currentPage = Number(req.params.page)
         var pageNumber = currentPage - 1
@@ -82,7 +79,6 @@ router.get('/page/:page', function (req, res, next) {
         let findQuery = {}
         if(req.query.seeAll !== 'true')
           findQuery['owner'] = req.user._id
-
 
 
 
