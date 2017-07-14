@@ -1,3 +1,6 @@
+.container.beigeback {
+    min-height: 440px !important;
+}
 a.shopbutton {
     box-shadow: none !important;
     border: 1px solid #0a2f87;
@@ -24,7 +27,6 @@ a.shopbutton {
     border-radius: 0;
     max-width: 100%;
     height: auto;
-    min-height: 150px;
 }
 .boxpadding {
     padding: 1px !important;
@@ -129,7 +131,6 @@ a.shopbutton {
   
 .homeimage {
   height: 95px !important;
-}
 }
 
 @media screen and (max-width: 374px) {
