@@ -24,6 +24,7 @@ a.shopbutton {
     border-radius: 0;
     max-width: 100%;
     height: auto;
+    min-height: 150px;
 }
 .boxpadding {
     padding: 1px !important;
@@ -80,8 +81,8 @@ a.shopbutton {
   margin: 0 20px;
 }
 .homelabel {
-    font-size: 23px;
-    padding: 20px 20px 20px 0;
+  font-size: 23px;
+   padding: 20px 20px 20px 0;
 }
 .homeimage {
   height: 210px !important;
@@ -110,6 +111,7 @@ a.shopbutton {
   font-size: 18px;
   padding: 10px 20px;
   height: 45px;
+  min-height: 45px !important;
 }
 .notif {
   margin: 0 15px;
