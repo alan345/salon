@@ -132,6 +132,7 @@ a.shopbutton {
 .homeimage {
   height: 95px !important;
 }
+}
 
 @media screen and (max-width: 374px) {
   
