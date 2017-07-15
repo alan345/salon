@@ -1,3 +1,6 @@
+.container.beigeback {
+    min-height: 500px !important;
+}
 a.shopbutton {
     box-shadow: none !important;
     border: 1px solid #0a2f87;
@@ -80,8 +83,8 @@ a.shopbutton {
   margin: 0 20px;
 }
 .homelabel {
-    font-size: 23px;
-    padding: 20px 20px 20px 0;
+  font-size: 23px;
+   padding: 20px 20px 20px 0;
 }
 .homeimage {
   height: 210px !important;
@@ -110,6 +113,7 @@ a.shopbutton {
   font-size: 18px;
   padding: 10px 20px;
   height: 45px;
+  min-height: 45px !important;
 }
 .notif {
   margin: 0 15px;

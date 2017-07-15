@@ -23,7 +23,6 @@
     <button *ngIf="isAdmin()" [routerLink]="['/promotion/seeInactive']"  class="see-allbtn">See Inactive Promotions</button>
   </div>
   <div class="has-text-centered">
-
     <div>
       <div [ngClass]="{ 'hidden': !loading }">Loading...</div>
       <button
@@ -32,7 +31,5 @@
         Load More
       </button>
     </div>
-
-
   </div>
 </div>

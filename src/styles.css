@@ -361,6 +361,7 @@ a.seemre {
 }
 .mat-dialog-container {
   padding: 0 !important;
+  max-height: 75vh !important;
 }
 
 /*--Are you Sure?--*/

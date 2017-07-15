@@ -122,7 +122,7 @@ export const categories4Model = [
 export const categorie5Model = [
   { name: 'Benefits & Results', selected : false},
   { name: 'How to Use', selected : false },
-  { name: 'Active Ingredients', selected : false },
+  { name: 'Ingredients', selected : false },
 
 ]
 
