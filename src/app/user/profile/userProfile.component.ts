@@ -224,11 +224,12 @@ export class UserProfileComponent implements OnInit {
   }
 
 
-  onDelete(id: string) {
-    this.userService.deleteUser(id)
+  onDelete() {
+    this.userService.deleteUser(this.fetchedUser._id)
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message);
+          this.goBack()
         },
         error => {
           console.log(error);

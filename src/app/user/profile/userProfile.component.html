@@ -95,13 +95,14 @@
           </div>
         </div>
       </div>
-        <div class="insta-txt">
+      <div class="insta-txt">
         <h3>Be The Next Phyto Feature!</h3>
         <p>Submit on of your pictures to the Picture of the Month Phyto Challenge and your photo may be selected and promoted on all the Phyto Social Media channels. A great way to get yourself visibility!</p>
         <button class="see"><a [routerLink]="['/social']">See this month's winner</a></button>
         <button type="button" class="submit" (click)="openDialogSocial()">Submit your picture</button>
       </div>
     </div>
+    <button *ngIf="isAdmin()" type="button" (click)="onDelete()">
     <div class="clearfix"></div>
   </form>
 </div>
