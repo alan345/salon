@@ -151,6 +151,13 @@ router.get('/page/:page', function (req, res, next) {
       searchQuery['categories'] = {
          "$all": matchRules
       }
+    } else {
+
+      // product.categories.length == 0
+      searchQuery['product.categories'] = {
+         $gt: []
+      }
+
     }
   }
 
