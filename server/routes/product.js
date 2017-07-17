@@ -154,8 +154,8 @@ router.get('/page/:page', function (req, res, next) {
     } else {
 
       // product.categories.length == 0
-      searchQuery['product.categories'] = {
-         $not: {$size: 0}
+      searchQuery['categories'] = {
+         $gt: []
       }
 
     }
