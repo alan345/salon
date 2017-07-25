@@ -5,3 +5,10 @@
 .done, .pas-done {
     margin: 0 0 15px;
 }
+.log-scrn .done {
+    float: left;
+    margin: 0 0 0 15px !important;
+}
+.log-scrn .input-group {
+    width: 100% !important;
+}
