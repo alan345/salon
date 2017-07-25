@@ -42,6 +42,10 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
       this.renderer.invokeElementMethod(this.newPassword.nativeElement, 'focus', []);
     }, 50);
   }
+  showPassword(input: any): any {
+    input.type = input.type === 'password' ?  'text' : 'password';
+  }
+
 
   onSubmit() {
     const password = new Reset(null, this.token, this.myForm.value.password);
@@ -56,4 +60,3 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
       );
   }
 }
-
