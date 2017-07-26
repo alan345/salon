@@ -15,7 +15,8 @@ import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { CompanieService} from '../../companie/companie.service';
 import { SubmitPicDialog } from '../../social/submitPicDialog.component';
 import { SeePictureDialogComponent } from '../../seePictureDialog/seePictureDialog.component';
-import { DeleteDialog } from '../deleteDialog/deleteDialog.component';
+import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
+
 
 
 
@@ -94,6 +95,8 @@ export class UserProfileComponent implements OnInit {
         })
       )
     })
+  }
+
 
   getUser(id : string) {
     this.userService.getUser(id)
@@ -108,15 +111,6 @@ export class UserProfileComponent implements OnInit {
           console.log(error);
         }
       )
-    onDelete(){
-      let this2 = this
-      let dialogRefDelete = this.dialog.open(DeleteDialog)
-      dialogRefDelete.afterClosed().subscribe(result => {
-        if(result) {
-          this[typeUser].splice(i, 1)
-          this.save(false)
-      }
-    })
   }
 
 
@@ -230,19 +224,42 @@ export class UserProfileComponent implements OnInit {
     return false
   }
 
-
-  onDelete() {
-    this.userService.deleteUser(this.fetchedUser._id)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message);
-          this.goBack()
-        },
-        error => {
-          console.log(error);
-        }
-      );
+  openDialogDelete(){
+    let this2 = this
+    let dialogRefDelete = this.dialog.open(DeleteDialog)
+    dialogRefDelete.afterClosed().subscribe(result => {
+      if(result) {
+        this.onDelete(this.fetchedUser._id).then(function(){
+          this2.router.navigate(['press']);
+        })
+      }
+    })
   }
+
+
+
+
+
+    onDelete(id: string) {
+      let this2 = this
+      return new Promise(function(resolve, reject) {
+
+        this2.userService.deleteUser(id)
+          .subscribe(
+            res => {
+              this2.toastr.success('Great!', res.message);
+              resolve(res)
+            },
+            error => {
+              console.log(error);
+              reject(error)
+            }
+          );
+      })
+    }
+
+
+
 
 
 

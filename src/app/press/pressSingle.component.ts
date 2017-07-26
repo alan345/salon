@@ -77,6 +77,7 @@ export class PressSingleComponent implements OnInit {
   }
 
 
+
   openDialog(positionImage: string) {
     let dialogRef = this.dialog.open(EditOptionsComponentDialog)
     dialogRef.afterClosed().subscribe(result => {
