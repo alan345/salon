@@ -15,7 +15,7 @@ import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import { CompanieService} from '../../companie/companie.service';
 import { SubmitPicDialog } from '../../social/submitPicDialog.component';
 import { SeePictureDialogComponent } from '../../seePictureDialog/seePictureDialog.component';
-
+import { DeleteDialog } from '../deleteDialog/deleteDialog.component';
 
 
 
@@ -94,8 +94,6 @@ export class UserProfileComponent implements OnInit {
         })
       )
     })
-  }
-
 
   getUser(id : string) {
     this.userService.getUser(id)
@@ -110,6 +108,15 @@ export class UserProfileComponent implements OnInit {
           console.log(error);
         }
       )
+    onDelete(){
+      let this2 = this
+      let dialogRefDelete = this.dialog.open(DeleteDialog)
+      dialogRefDelete.afterClosed().subscribe(result => {
+        if(result) {
+          this[typeUser].splice(i, 1)
+          this.save(false)
+      }
+    })
   }
 
 
