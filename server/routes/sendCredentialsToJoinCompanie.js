@@ -90,7 +90,7 @@ router.post('/', function (req, res, next) {
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
-                      You have been invited to join a salon on the My Chair by Phyto Paris App.
+                      You have been invited to join a salon on the My Chair by Phyto Paris App. Click on the link below to accept the invitation. This link will expire in 48 hours.
                     </td>
                   </tr>
                   <tr>
