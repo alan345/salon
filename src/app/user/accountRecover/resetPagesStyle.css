@@ -5,3 +5,21 @@
 .done, .pas-done {
     margin: 0 0 15px;
 }
+.log-scrn .input-group {
+    width: 100% !important;
+}
+
+@media screen and (min-width: 500px) {
+
+.log-scrn .showpw {
+    margin: 0 0 0 15px !important;
+    float: left !important;
+}
+}
+
+@media screen and (max-width: 499px) {
+
+.log-scrn .showpw {
+    margin: 15px 0 !important;
+}
+}
