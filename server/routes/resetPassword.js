@@ -54,6 +54,7 @@ router.post('/:token', function(req, res) {
             error: {message: 'Sorry, this link has expired'}
           })
         }
+        
         user.password = passwordHash.generate(req.body.password);
         user.resetPasswordToken = undefined;
         user.resetPasswordExpires = undefined;
