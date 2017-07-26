@@ -2,6 +2,7 @@
   <div class="goldgradient beigeborder subnav">
     <button class="subnav-btnleft" (click)="goBack()"><i class="fa fa-chevron-left"></i></button>
     <h3 style="text-align: center;">Profile</h3>
+    <button *ngIf="isAdmin() && !isMyProfile()" type="button" (click)="openDialogDelete()" class="subnav-btnright"><i class="fa fa-trash-o"></i></button>
     <!--<p *ngIf="fetchedUser.profile.isFeatured" (click)="toggleFeature()"><i class="fa fa-star" style="color:#0a2f87"></i><p>
     <p *ngIf="!fetchedUser.profile.isFeatured" (click)="toggleFeature()"><i class="fa fa-star" style="color:#999999"></i><p>-->
   </div>
@@ -102,7 +103,6 @@
         <button type="button" class="submit" (click)="openDialogSocial()">Submit your picture</button>
       </div>
     </div>
-    <button *ngIf="isAdmin() && !isMyProfile()" type="button" (click)="openDialogDelete()">Delete</button>
     <div class="clearfix"></div>
   </form>
 </div>
