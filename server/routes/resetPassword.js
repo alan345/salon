@@ -51,7 +51,7 @@ router.post('/:token', function(req, res) {
         if(!user) {
           return res.status(403).json({
             title: 'There was an error',
-            error: {message: 'Please check if your email is correct'}
+            error: {message: 'Sorry, this link has expired'}
           })
         }
         user.password = passwordHash.generate(req.body.password);
