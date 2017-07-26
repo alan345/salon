@@ -4,7 +4,7 @@
     <h3 style="text-align: center;">Promotions</h3>
     <button *ngIf="isAdmin()" class="subnav-btnright" [routerLink]="['/promotion/singlepromotion']" routerLinkActive="active"><i class="fa fa-plus"></i></button>
   </div>
-  <table class="table table-hover table-responsive table-condensed prm-tbl">
+  <table class="table table-hover table-responsive table-condensed prm-tbl beigeback">
     <tbody>
     <tr *ngFor="let promotion of fetchedPromotions | paginate: { id: 'server', itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage, totalItems: paginationData.totalItems }" class="prm-ctnr">
       <div class="prm-wrpr">
