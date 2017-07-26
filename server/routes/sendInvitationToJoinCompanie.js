@@ -116,7 +116,7 @@ router.post('/', function (req, res, next) {
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
-                      ${user.profile.name} ${user.profile.lastName} has requested to join your salon on the My Chair by Phyto Paris App.
+                      ${user.profile.name} ${user.profile.lastName} has requested to join your salon on the My Chair by Phyto Paris App. Click on the link below to accept the request. This link will expire in 48 hours.
                     </td>
                   </tr>
                   <tr>
