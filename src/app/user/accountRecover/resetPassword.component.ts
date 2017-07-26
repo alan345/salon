@@ -59,10 +59,8 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
           data => {
             localStorage.setItem('id_token', data.token);
             localStorage.setItem('token', data.token);
-
             this._router.navigate(['/']);
             //location.reload();
-
             this.toastr.success('You have been logged in!');
           },
           error => console.log(error)
