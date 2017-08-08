@@ -73,7 +73,7 @@ var schedule = require('node-schedule');
         search_criteria: '*',
       })
       .catch(err => {
-        logObj.status = 'error_connexion_Magento'
+        logObj.status = 'error_connexion_Magento ' + err
         writeLog(logObj)
       })
       .then(response => {

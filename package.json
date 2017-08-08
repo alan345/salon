@@ -42,7 +42,7 @@
     "ng2-progress-bar": "0.0.8",
     "ng2-toastr": "^4.0.1",
     "ngx-bootstrap": "^1.6.6",
-    "node-magento2": "^1.1.3",
+    "node-magento2": "git://github.com/alan345/node-magento2.git",
     "node-schedule": "^1.2.1",
     "nodemailer": "4.0.1",
     "nodemailer-sendgrid-transport": "latest",
