@@ -49,7 +49,8 @@ export class Custom_attribute {
   value: string;
 }
 
-export const urlMagentoModel = 'http://52.2.61.43/pub/media/catalog/product'
+// export const urlMagentoModel = 'http://52.2.61.43/pub/media/catalog/product'
+export const urlMagentoModel = 'https://dev.ales.manhatech.com/pub/media/catalog/product'
 
 export const categHard1Model: any = [
   { name:'All', selected : false },
