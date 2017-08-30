@@ -47,7 +47,7 @@
       <div class="form-group prf-chal">
         <div class="prf-chalcnt">
           <div *ngFor="let companie of companies" class="act-chal">
-            <h3>{{companie.magento.lastname}}</h3>
+            <h3>{{companie.magento.firstname}} {{companie.magento.lastname}}</h3>
             <div *ngFor="let address of companie.magento.addresses">
               <h6>{{address.street[0]}}, {{address.city}}, {{address.region.region_code}} {{address.postcode}}</h6>
             </div>
