@@ -169,15 +169,6 @@ router.get('/page/:page', function (req, res, next) {
     console.log(sentence)
     var words = sentence.split(' ');
 
-    // words.forEach(word => {
-    //   pos = word.indexOf('e')
-    //   if(pos>0) {
-    //     words.push(word.substring(0,pos)+'é'+word.substring(pos+1))
-    //     words.push(word.substring(0,pos)+'è'+word.substring(pos+1))
-    //   }
-    // })
-    // console.log(words)
-    //console.log(words.length)
     searchArrayName = []
 
     words.forEach(word => {
@@ -186,9 +177,8 @@ router.get('/page/:page', function (req, res, next) {
       });
     })
     searchQuery['$and'] = searchArrayName
-
   }
-console.log(searchQuery)
+// console.log(searchQuery)
 
   Product
   .find(searchQuery)

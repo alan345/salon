@@ -154,17 +154,39 @@ router.get('/search', function (req, res, next) {
 
   let nameQuery = {}
   let cityQuery = {}
-  let search = {}
+  let searchQuery = {}
   let arrObj = []
   if(req.query.search) {
-  //  nameQuery['name'] = new RegExp(req.query.search, 'i')
-  //  cityQuery['address.city'] = new RegExp(req.query.search, 'i')
-    arrObj.push({'magento.firstname' : new RegExp(req.query.search, 'i')})
-    arrObj.push({'magento.lastname' : new RegExp(req.query.search, 'i')})
-    //arrObj.push({'address.address' : new RegExp(req.query.search, 'i')})
-    search = {$or:arrObj}
-    //findQuery['address.city'] = new RegExp(req.query.search, 'i')
+    var sentence = req.query.search
+    // sentence = sentence.split(' ').join(' ');
+    // sentence = sentence.split('e').join(' ');
+    // console.log(sentence)
+    var words = sentence.split(' ');
+
+    searchArrayName = []
+
+    words.forEach(word => {
+      searchArrayName.push({
+        'magento.firstname' : new RegExp(word, 'i')
+      });
+      searchArrayName.push({
+        'magento.lastname' : new RegExp(word, 'i')
+      });
+    })
+    searchQuery['$or'] = searchArrayName
   }
+
+
+
+  // //  nameQuery['name'] = new RegExp(req.query.search, 'i')
+  // //  cityQuery['address.city'] = new RegExp(req.query.search, 'i')
+  //   arrObj.push({'magento.firstname' : new RegExp(req.query.search, 'i')})
+  //   arrObj.push({'magento.lastname' : new RegExp(req.query.search, 'i')})
+  //   //arrObj.push({'address.address' : new RegExp(req.query.search, 'i')})
+  //   search = {$or:arrObj}
+  //   console.log(search)
+  //   //findQuery['address.city'] = new RegExp(req.query.search, 'i')
+  //
 
 
   // if(req.query.typeCompanie)
@@ -193,7 +215,7 @@ router.get('/search', function (req, res, next) {
 //  console.log(arrObj)
 
   Companie
-  .find(search)
+  .find(searchQuery)
   .populate(
     {
       path: '_users',
@@ -210,7 +232,7 @@ router.get('/search', function (req, res, next) {
       })
     } else {
       Companie
-      .find(search)
+      .find(searchQuery)
       .count().exec(function (err, count) {
       res.status(200).json({
           paginationData : {
