@@ -129,6 +129,9 @@ router.get('/page/:page', function (req, res, next) {
   var categories = []
   var matchRules = []
   let searchQuery = {}
+  let searchQuery1 = {}
+  let searchQuery2 = {}
+  let searchQuery3 = {}
 
 
 
@@ -170,15 +173,38 @@ router.get('/page/:page', function (req, res, next) {
     var words = sentence.split(' ');
 
     searchArrayName = []
-
     words.forEach(word => {
       searchArrayName.push({
         'magento.name' : new RegExp(word, 'i')
       });
     })
-    searchQuery['$and'] = searchArrayName
+    searchQuery1['$and'] = searchArrayName
+
+
+    searchArrayName = []
+    words.forEach(word => {
+      searchArrayName.push({
+        'magento.custom_attributes.value' : new RegExp(word, 'i')
+      });
+    })
+    searchQuery2['$and'] = searchArrayName
+
+    searchArrayName = []
+    words.forEach(word => {
+      searchArrayName.push({
+        'magento.sku' : new RegExp(word, 'i')
+      });
+    })
+    searchQuery3['$and'] = searchArrayName
+
+
+
+    searchQuery['$or'] = [searchQuery1]
+    searchQuery['$or'] = [searchQuery2]
+    searchQuery['$or'] = [searchQuery3]
+
   }
-// console.log(searchQuery)
+console.log(searchQuery)
 
   Product
   .find(searchQuery)
