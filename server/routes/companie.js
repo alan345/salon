@@ -155,6 +155,8 @@ router.get('/search', function (req, res, next) {
   let nameQuery = {}
   let cityQuery = {}
   let searchQuery = {}
+  let searchQuery1 = {}
+  let searchQuery2 = {}
   let arrObj = []
   if(req.query.search) {
     var sentence = req.query.search
@@ -163,19 +165,34 @@ router.get('/search', function (req, res, next) {
     // console.log(sentence)
     var words = sentence.split(' ');
 
-    searchArrayName = []
 
+
+
+
+
+
+    searchArrayName = []
     words.forEach(word => {
       searchArrayName.push({
         'magento.firstname' : new RegExp(word, 'i')
       });
+    })
+    searchQuery['$or'] = searchArrayName
+
+
+    searchArrayName = []
+    words.forEach(word => {
       searchArrayName.push({
         'magento.lastname' : new RegExp(word, 'i')
       });
     })
     searchQuery['$or'] = searchArrayName
-  }
+    //
+    // searchQuery['$or'] = [searchQuery1]
+    // searchQuery['$or'] = [searchQuery2]
+    // console.log(searchQuery2)
 
+}
 
 
   // //  nameQuery['name'] = new RegExp(req.query.search, 'i')
