@@ -86,9 +86,6 @@ a.shopbutton {
   font-size: 23px;
    padding: 20px 20px 20px 0;
 }
-.homeimage {
-  height: 210px !important;
-}
 .notif {
   margin: 4px 15px;
 }
@@ -120,23 +117,50 @@ a.shopbutton {
 }
 }
 
-@media screen and (min-width: 565px) and (max-width: 767px) {
+@media screen and (min-width: 945px) {
+ 
+.homeimage {
+  height: 210px !important;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 944px) {
+  
+.homeimage {
+  height: 170px !important;
+}
+}
+
+@media screen and (min-width: 670px) and (max-width: 767px) {
   
 .homeimage {
   height: 150px !important;
 }
 }
 
-@media screen and (min-width: 375px) and (max-width: 564px) {
+@media screen and (min-width: 565px) and (max-width: 669px) {
+  
+.homeimage {
+  height: 125px !important;
+}
+}
+
+@media screen and (min-width: 426px) and (max-width: 564px) {
   
 .homeimage {
   height: 95px !important;
 }
 }
 
-@media screen and (max-width: 374px) {
+@media screen and (min-width: 360px) and (max-width: 425px) {
   
 .homeimage {
   height: 80px !important;
+}
+}
+
+@media screen and (max-width: 359px) {
+  
+.homeimage {
+  height: 70px !important;
 }
 }
