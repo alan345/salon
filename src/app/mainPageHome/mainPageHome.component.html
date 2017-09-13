@@ -3,11 +3,13 @@
     <button *ngIf="!isEditTitle" type="button" (click)="editTitleHomePage()" class="edtttl-btn">Edit</button>
   </div>
   <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.titleHomePage" class="edtttl-txt">
-  <h3 *ngIf="!isEditTitle">{{options.design.mainPage.titleHomePage}}</h3>
   <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.buttonHomePage" class="edtttl-lnk">
   <input *ngIf="isEditTitle" type="text" [(ngModel)]="options.design.mainPage.linkButtonHomePage" class="edtttl-lnk">
-  <a href="{{options.design.mainPage.linkButtonHomePage}}" class="btn shopbutton" target="_blank">{{options.design.mainPage.buttonHomePage}}</a>
   <button *ngIf="isEditTitle" type="button" (click)="editTitleHomePage()" class="edtttl-ok">DONE</button>
+  <div class"topnavad-content">
+    <h3 *ngIf="!isEditTitle">{{options.design.mainPage.titleHomePage}}</h3>
+    <a href="{{options.design.mainPage.linkButtonHomePage}}" class="btn shopbutton" target="_blank">{{options.design.mainPage.buttonHomePage}}</a>
+  </div>
 </div>
 <div class="container beigeback">
   <form #f="ngForm" novalidate (ngSubmit)="save()">
