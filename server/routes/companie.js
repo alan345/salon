@@ -187,6 +187,7 @@ router.get('/search', function (req, res, next) {
       });
     })
     searchQuery['$or'] = searchArrayName
+    
     //
     // searchQuery['$or'] = [searchQuery1]
     // searchQuery['$or'] = [searchQuery2]
