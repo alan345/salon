@@ -178,7 +178,7 @@ router.get('/page/:page', function (req, res, next) {
         'magento.name' : new RegExp(word, 'i')
       });
     })
-    searchQuery1['$and'] = searchArrayName
+    searchQuery1['$or'] = searchArrayName
 
 
     searchArrayName = []
@@ -187,7 +187,7 @@ router.get('/page/:page', function (req, res, next) {
         'magento.custom_attributes.value' : new RegExp(word, 'i')
       });
     })
-    searchQuery2['$and'] = searchArrayName
+    searchQuery2['$or'] = searchArrayName
 
     searchArrayName = []
     words.forEach(word => {
@@ -195,13 +195,13 @@ router.get('/page/:page', function (req, res, next) {
         'magento.sku' : new RegExp(word, 'i')
       });
     })
-    searchQuery3['$and'] = searchArrayName
+    searchQuery3['$or'] = searchArrayName
 
 
 
-    searchQuery['$or'] = [searchQuery1]
-    searchQuery['$or'] = [searchQuery2]
-    searchQuery['$or'] = [searchQuery3]
+    searchQuery['$or'] = [searchQuery1, searchQuery2, searchQuery3]
+    // searchQuery['$or'] = [searchQuery2]
+    // searchQuery['$or'] = [searchQuery3]
 
   }
 console.log(searchQuery)

@@ -176,19 +176,18 @@ router.get('/search', function (req, res, next) {
         'magento.firstname' : new RegExp(word, 'i')
       });
     })
-    // searchQuery['$or'] = searchArrayName
+    searchQuery1['$or'] = searchArrayName
 
 
-    // searchArrayName = []
+    searchArrayName = []
     words.forEach(word => {
       searchArrayName.push({
         'magento.lastname' : new RegExp(word, 'i')
       });
     })
-    searchQuery['$or'] = searchArrayName
+    searchQuery2['$or'] = searchArrayName
     //
-    // searchQuery['$or'] = [searchQuery1]
-    // searchQuery['$or'] = [searchQuery2]
+    searchQuery['$or'] = [searchQuery1, searchQuery2]
     console.log(searchQuery)
 
 }
