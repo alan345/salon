@@ -170,7 +170,6 @@ router.get('/search', function (req, res, next) {
 
 
 
-
     searchArrayName = []
     words.forEach(word => {
       searchArrayName.push({
