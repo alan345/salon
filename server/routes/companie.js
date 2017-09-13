@@ -146,7 +146,7 @@ router.post('/', function (req, res, next) {
 
 
 router.get('/search', function (req, res, next) {
-  var itemsPerPage = 2
+  var itemsPerPage = 10
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
