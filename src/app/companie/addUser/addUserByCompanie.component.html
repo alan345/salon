@@ -8,11 +8,12 @@
     <div class="form-group">
       <input type="text" class="form-control" [(ngModel)]="search.search" (keyup.enter)="searchCompanie()" placeholder="Salon">
     </div>
-
-    <div *ngIf="fetchedCompanie.magento.lastname">
-      {{fetchedCompanie.magento.firstname}} {{fetchedCompanie.magento.lastname}}
-      <br>
-      <button type="button" (click)="requestAddUserToComp()" class="done">Join Salon</button>
+    <div *ngFor="let companie of fetchedCompanies">
+      <div *ngIf="companie.magento.lastname">
+        {{companie.magento.firstname}} {{companie.magento.lastname}}
+        <br>
+        <button type="button" (click)="requestAddUserToComp(companie._id)" class="done">Join Salon</button>
+      </div>
     </div>
 
   </div>

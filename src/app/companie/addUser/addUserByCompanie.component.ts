@@ -18,6 +18,7 @@ import { UserService } from '../../user/user.service';
 
 export class AddUserByCompanieComponent implements OnInit {
   fetchedCompanie: Companie = new Companie();
+  fetchedCompanies: Companie[] = [];
   search: any = {
     search : '',
   }
@@ -80,20 +81,20 @@ export class AddUserByCompanieComponent implements OnInit {
         .subscribe(
           res => {
             if(res.data.length) {
-              this.fetchedCompanie  = <Companie>res.data[0]
-              let this2 = this
-              this.fetchedCompanie._users.forEach((user: User) => {
-                if (user.role[0] === 'admin')
-                  this2.userAdmins.push(user);
-                if (user.role[0] === 'salesRep')
-                  this2.usersSalesRep.push(user);
-                if (user.role[0] === 'client')
-                  this2.userClients.push(user);
-                if (user.role[0] === 'stylist')
-                  this2.userStylists.push(user);
-                if (user.role[0] === 'manager')
-                  this2.userManagers.push(user);
-              });
+              this.fetchedCompanies  = res.data
+              // let this2 = this
+              // this.fetchedCompanie._users.forEach((user: User) => {
+              //   if (user.role[0] === 'admin')
+              //     this2.userAdmins.push(user);
+              //   if (user.role[0] === 'salesRep')
+              //     this2.usersSalesRep.push(user);
+              //   if (user.role[0] === 'client')
+              //     this2.userClients.push(user);
+              //   if (user.role[0] === 'stylist')
+              //     this2.userStylists.push(user);
+              //   if (user.role[0] === 'manager')
+              //     this2.userManagers.push(user);
+              // });
             } else {
               this.toastr.error('error! No Salon Founded')
             }
@@ -106,11 +107,11 @@ export class AddUserByCompanieComponent implements OnInit {
   }
 
 
-  requestAddUserToComp() {
+  requestAddUserToComp(id: string) {
     // this.link = window.location.origin + "#/companie/edit/addUser/" + this.fetchedCompanie._id + '/' + this.fetchedUser.email;
     let objToSend  = {
       // link: this.link,
-      fetchedCompanie: this.fetchedCompanie._id,
+      fetchedCompanie: id,
       fetchedUser: this.fetchedUser.email
     }
     this.companieService.sendInvitationToJoinCompanie(objToSend)
