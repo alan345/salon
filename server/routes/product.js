@@ -132,6 +132,7 @@ router.get('/page/:page', function (req, res, next) {
   let searchQuery1 = {}
   let searchQuery2 = {}
   let searchQuery3 = {}
+  let searchQuery4 = {}
 
 
 
@@ -199,12 +200,22 @@ router.get('/page/:page', function (req, res, next) {
 
 
 
-    searchQuery['$or'] = [searchQuery1, searchQuery2, searchQuery3]
+    searchArrayName = []
+      searchArrayName.push({
+        'categories.name' : new RegExp(word, 'i')
+      });
+      searchQuery4['$or'] = searchArrayName
+
+
+
+
+
+    searchQuery['$or'] = [searchQuery1, searchQuery2, searchQuery3, searchQuery4]
     // searchQuery['$or'] = [searchQuery2]
     // searchQuery['$or'] = [searchQuery3]
 
   }
-console.log(searchQuery)
+// console.log(searchQuery)
 
   Product
   .find(searchQuery)
