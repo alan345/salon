@@ -70,15 +70,13 @@ export class ProductsComponent implements OnInit {
   }
 
   onSelectChange = ($event: any): void => {
-    this.categories3.forEach((categ, index) => {
-      this.categories3[index].selected = false
-    })
-
-    this.categories4.forEach((categ, index) => {
-      this.categories4[index].selected = false
-    })
-
-
+    // this.categories3.forEach((categ, index) => {
+    //   this.categories3[index].selected = false
+    // })
+    //
+    // this.categories4.forEach((categ, index) => {
+    //   this.categories4[index].selected = false
+    // })
 
     this.categories2 = $event.tab.textLabel
     this.updateCategerories()
