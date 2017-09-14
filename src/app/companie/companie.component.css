@@ -156,6 +156,9 @@ table {
 .switch {
     margin-bottom: 15px;
 }
+.extra-margin {
+  margin-bottom: 15px;
+}
 
 /*------------------------- Responsive ---------------------*/
 
