@@ -208,8 +208,6 @@ router.get('/page/:page', function (req, res, next) {
 
 
 
-
-
     searchQuery['$or'] = [searchQuery1, searchQuery2, searchQuery3, searchQuery4]
     // searchQuery['$or'] = [searchQuery2]
     // searchQuery['$or'] = [searchQuery3]
