@@ -201,10 +201,12 @@ router.get('/page/:page', function (req, res, next) {
 
 
     searchArrayName = []
+    words.forEach(word => {
       searchArrayName.push({
         'categories.name' : new RegExp(word, 'i')
       });
-      searchQuery4['$or'] = searchArrayName
+    })
+    searchQuery4['$or'] = searchArrayName
 
 
 
