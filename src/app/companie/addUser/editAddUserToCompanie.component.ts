@@ -129,6 +129,12 @@ export class EditAddUserToCompanieComponent implements OnInit {
   }
 
   save(form: FormGroup) {
+    this.fetchedUser.role.forEach(singleRolea => {
+      if(singleRolea === 'user') {
+        this.toastr.error('Error!', 'Role must be selected')
+        return
+      }
+    })
     if(this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
