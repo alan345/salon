@@ -127,7 +127,6 @@ export class EditAddUserToCompanieComponent implements OnInit {
     });
     control.push(addrCtrl);
   }
-
   save(form: FormGroup) {
     this.fetchedUser.role.forEach(singleRolea => {
       if(singleRolea === 'user') {
