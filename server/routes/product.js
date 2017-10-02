@@ -167,34 +167,59 @@ router.get('/page/:page', function (req, res, next) {
 
 
   if(req.query.search) {
+
     var sentence = req.query.search
-    sentence = sentence.split('é').join(' ');
-    sentence = sentence.split('e').join(' ');
-    console.log(sentence)
+    // sentence = sentence.split('é').join(' ');
+    // sentence = sentence.split('e').join(' ');
     var words = sentence.split(' ');
 
+    // words.forEach(word => {
+    for(var j=0; j<words.length;j++) {
+      let newWord = ''
+      word = words[j]
+      var indices = [];
+      // e letter
+      for(var i=0; i<word.length;i++) {
+          if (word[i] === "e") indices.push(i);
+      }
+      indices.forEach(index => {
+        newWord = word.substr(0, index) + 'é' + word.substr(index + 1);
+        words.push(newWord)
+        newWord = word.substr(0, index) + 'è' + word.substr(index + 1);
+        words.push(newWord)
+      })
+      // a letter
+      for(var i=0; i<word.length;i++) {
+          if (word[i] === "a") indices.push(i);
+      }
+      indices.forEach(index => {
+        newWord = word.substr(0, index) + 'à' + word.substr(index + 1);
+        words.push(newWord)
+        newWord = word.substr(0, index) + 'á' + word.substr(index + 1);
+        words.push(newWord)
+      })
+  }
+    var words = words.reduce(function(a,b){
+      if (a.indexOf(b) < 0 ) a.push(b);
+      return a;
+    },[]);
+    // console.log(words)
     searchArrayName = []
     words.forEach(word => {
-      searchArrayName.push({
-        'magento.name' : new RegExp(word, 'i')
-      });
+      searchArrayName.push({ 'magento.name' : new RegExp(word, 'i') });
     })
     searchQuery1['$or'] = searchArrayName
 
 
     searchArrayName = []
     words.forEach(word => {
-      searchArrayName.push({
-        'magento.custom_attributes.value' : new RegExp(word, 'i')
-      });
+      searchArrayName.push({ 'magento.custom_attributes.value' : new RegExp(word, 'i') });
     })
     searchQuery2['$or'] = searchArrayName
 
     searchArrayName = []
     words.forEach(word => {
-      searchArrayName.push({
-        'magento.sku' : new RegExp(word, 'i')
-      });
+      searchArrayName.push({ 'magento.sku' : new RegExp(word, 'i') });
     })
     searchQuery3['$or'] = searchArrayName
 
@@ -202,19 +227,25 @@ router.get('/page/:page', function (req, res, next) {
 
     searchArrayName = []
     words.forEach(word => {
-      searchArrayName.push({
-        'categories.name' : new RegExp(word, 'i')
-      });
+      searchArrayName.push({ 'categories.name' : new RegExp(word, 'i') });
     })
     searchQuery4['$or'] = searchArrayName
 
 
 
-    searchQuery['$or'] = [searchQuery1, searchQuery2, searchQuery3, searchQuery4]
+    searchQuery['$or'] = [searchQuery1, searchQuery1, searchQuery3, searchQuery4]
+
+    // console.log(searchQuery1)
+    // console.log(searchQuery1)
+    // console.log(searchQuery3)
+    // console.log(searchQuery4)
+
+
     // searchQuery['$or'] = [searchQuery2]
     // searchQuery['$or'] = [searchQuery3]
 
   }
+
 // console.log(searchQuery)
 
   Product
