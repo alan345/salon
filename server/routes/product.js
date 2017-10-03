@@ -179,9 +179,7 @@ router.get('/page/:page', function (req, res, next) {
       word = words[j]
       var indices = [];
       // e letter
-      for(var i=0; i<word.length;i++) {
-          if (word[i] === "e") indices.push(i);
-      }
+      for(var i=0; i<word.length;i++) { if (word[i] === "e") indices.push(i); }
       indices.forEach(index => {
         newWord = word.substr(0, index) + 'é' + word.substr(index + 1);
         words.push(newWord)
@@ -189,13 +187,17 @@ router.get('/page/:page', function (req, res, next) {
         words.push(newWord)
       })
       // a letter
-      for(var i=0; i<word.length;i++) {
-          if (word[i] === "a") indices.push(i);
-      }
+      for(var i=0; i<word.length;i++) { if (word[i] === "a") indices.push(i); }
       indices.forEach(index => {
         newWord = word.substr(0, index) + 'à' + word.substr(index + 1);
         words.push(newWord)
         newWord = word.substr(0, index) + 'á' + word.substr(index + 1);
+        words.push(newWord)
+      })
+      // o letter
+      for(var i=0; i<word.length;i++) { if (word[i] === "o") indices.push(i); }
+      indices.forEach(index => {
+        newWord = word.substr(0, index) + 'ô' + word.substr(index + 1);
         words.push(newWord)
       })
   }
