@@ -33,6 +33,7 @@ var product = new Schema({
     timestamps: true
   });
 
+// product.index({'$**': 'text'});
 product.plugin(mongooseUniqueValidator);
 
 module.exports = mongoose.model('Product', product);
