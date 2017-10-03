@@ -197,10 +197,10 @@ router.get('/page/:page', function (req, res, next) {
       // o letter
       for(var i=0; i<word.length;i++) { if (word[i] === "o") indices.push(i); }
       indices.forEach(index => {
-        newWord = word.substr(0, index) + 'ô' + word.substr(index + 1);
+        newWord = word.substr(0, index) +'ô' + word.substr(index + 1);
         words.push(newWord)
       })
-  }
+    }
     var words = words.reduce(function(a,b){
       if (a.indexOf(b) < 0 ) a.push(b);
       return a;
